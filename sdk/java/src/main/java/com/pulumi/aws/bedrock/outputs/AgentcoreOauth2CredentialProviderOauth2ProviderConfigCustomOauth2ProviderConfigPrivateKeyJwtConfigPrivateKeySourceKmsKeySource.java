@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+    /**
+     * @return ARN of the AWS KMS key used to sign the JWT.
+     * 
+     */
     private String kmsKeyArn;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource() {}
+    /**
+     * @return ARN of the AWS KMS key used to sign the JWT.
+     * 
+     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }

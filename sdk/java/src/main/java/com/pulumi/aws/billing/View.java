@@ -113,14 +113,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      * 
      */
     @Export(name="dataFilterExpression", refs={ViewDataFilterExpression.class}, tree="[0]")
     private Output</* @Nullable */ ViewDataFilterExpression> dataFilterExpression;
 
     /**
-     * @return Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * @return Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      * 
      */
     public Output<Optional<ViewDataFilterExpression>> dataFilterExpression() {
@@ -229,14 +229,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceViews);
     }
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Key-value map of tags associated with the billing view being created.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return List of key value map specifying tags associated to the billing view being created.
+     * @return Key-value map of tags associated with the billing view being created.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

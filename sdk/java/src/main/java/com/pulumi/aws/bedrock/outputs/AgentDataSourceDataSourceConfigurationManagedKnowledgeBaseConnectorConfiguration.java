@@ -19,12 +19,12 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
      */
     private @Nullable String connectorParameters;
     /**
-     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration deletionProtectionConfiguration;
     /**
-     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration mediaExtractionConfiguration;
@@ -38,14 +38,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         return Optional.ofNullable(this.connectorParameters);
     }
     /**
-     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration> deletionProtectionConfiguration() {
         return Optional.ofNullable(this.deletionProtectionConfiguration);
     }
     /**
-     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration> mediaExtractionConfiguration() {

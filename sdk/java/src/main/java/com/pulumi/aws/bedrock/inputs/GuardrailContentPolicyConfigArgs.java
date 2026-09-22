@@ -18,16 +18,14 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
     public static final GuardrailContentPolicyConfigArgs Empty = new GuardrailContentPolicyConfigArgs();
 
     /**
-     * Set of content filter configs in content policy.
-     * See Filters Config for more information.
+     * Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
      * 
      */
     @Import(name="filtersConfigs")
     private @Nullable Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>> filtersConfigs;
 
     /**
-     * @return Set of content filter configs in content policy.
-     * See Filters Config for more information.
+     * @return Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>>> filtersConfigs() {
@@ -35,14 +33,14 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Configuration block for the content policy tier. See Tier Config for more information.
+     * Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
      * 
      */
     @Import(name="tierConfigs")
     private @Nullable Output<List<GuardrailContentPolicyConfigTierConfigArgs>> tierConfigs;
 
     /**
-     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * @return Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailContentPolicyConfigTierConfigArgs>>> tierConfigs() {
@@ -75,8 +73,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
          * 
          * @return builder
          * 
@@ -87,8 +84,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
          * 
          * @return builder
          * 
@@ -98,8 +94,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
          * 
          * @return builder
          * 
@@ -109,7 +104,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 
@@ -120,7 +115,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 
@@ -130,7 +125,7 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 

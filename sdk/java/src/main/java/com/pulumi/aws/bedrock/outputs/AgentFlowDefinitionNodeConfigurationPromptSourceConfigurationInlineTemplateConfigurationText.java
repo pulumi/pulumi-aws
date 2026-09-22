@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
     /**
-     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint cachePoint;
     /**
-     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable> inputVariables;
     /**
-     * @return The message for the prompt.
+     * @return Message for the prompt.
      * 
      */
     private String text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText() {}
     /**
-     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
     /**
-     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
      * 
      */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable> inputVariables() {
         return this.inputVariables == null ? List.of() : this.inputVariables;
     }
     /**
-     * @return The message for the prompt.
+     * @return Message for the prompt.
      * 
      */
     public String text() {

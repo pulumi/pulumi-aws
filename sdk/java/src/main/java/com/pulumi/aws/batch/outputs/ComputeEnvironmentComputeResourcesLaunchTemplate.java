@@ -22,7 +22,7 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
      */
     private @Nullable String launchTemplateName;
     /**
-     * @return The version number of the launch template. Default: The default version of the launch template.
+     * @return Version number of the launch template. Default: The default version of the launch template.
      * 
      */
     private @Nullable String version;
@@ -43,7 +43,7 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
         return Optional.ofNullable(this.launchTemplateName);
     }
     /**
-     * @return The version number of the launch template. Default: The default version of the launch template.
+     * @return Version number of the launch template. Default: The default version of the launch template.
      * 
      */
     public Optional<String> version() {

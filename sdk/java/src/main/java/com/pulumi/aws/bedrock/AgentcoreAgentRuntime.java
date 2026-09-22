@@ -448,16 +448,12 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="networkConfiguration", refs={AgentcoreAgentRuntimeNetworkConfiguration.class}, tree="[0]")
     private Output<AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration;
 
     /**
      * @return Network configuration for the agent runtime. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration() {
@@ -508,12 +504,16 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role that the agent runtime assumes to access AWS services.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> roleArn() {
@@ -534,14 +534,14 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

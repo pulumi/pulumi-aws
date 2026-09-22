@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> BlockedOutputsMessaging { get; private set; } = null!;
 
         /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
+        /// Content policy config for a guardrail. See `ContentPolicyConfig` Block for more information.
         /// </summary>
         [Output("contentPolicyConfig")]
         public Output<Outputs.GuardrailContentPolicyConfig?> ContentPolicyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+        /// Contextual grounding policy config for a guardrail. See `ContextualGroundingPolicyConfig` Block for more information.
         /// </summary>
         [Output("contextualGroundingPolicyConfig")]
         public Output<Outputs.GuardrailContextualGroundingPolicyConfig?> ContextualGroundingPolicyConfig { get; private set; } = null!;
@@ -164,6 +164,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// </summary>
         [Output("crossRegionConfig")]
         public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
 
@@ -186,7 +189,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> GuardrailId { get; private set; } = null!;
 
         /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
+        /// KMS key with which the guardrail was encrypted at rest.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -206,7 +209,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+        /// Sensitive information policy config for a guardrail. See `SensitiveInformationPolicyConfig` Block for more information.
         /// </summary>
         [Output("sensitiveInformationPolicyConfig")]
         public Output<Outputs.GuardrailSensitiveInformationPolicyConfig?> SensitiveInformationPolicyConfig { get; private set; } = null!;
@@ -230,7 +233,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.GuardrailTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
+        /// Topic policy config for a guardrail. See `TopicPolicyConfig` Block for more information.
         /// </summary>
         [Output("topicPolicyConfig")]
         public Output<Outputs.GuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
@@ -248,7 +251,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
+        /// Word policy config for a guardrail. See `WordPolicyConfig` Block for more information.
         /// </summary>
         [Output("wordPolicyConfig")]
         public Output<Outputs.GuardrailWordPolicyConfig?> WordPolicyConfig { get; private set; } = null!;
@@ -312,17 +315,20 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> BlockedOutputsMessaging { get; set; } = null!;
 
         /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
+        /// Content policy config for a guardrail. See `ContentPolicyConfig` Block for more information.
         /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigArgs>? ContentPolicyConfig { get; set; }
 
         /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+        /// Contextual grounding policy config for a guardrail. See `ContextualGroundingPolicyConfig` Block for more information.
         /// </summary>
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
+        /// <summary>
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// </summary>
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
 
@@ -333,7 +339,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
+        /// KMS key with which the guardrail was encrypted at rest.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -353,7 +359,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+        /// Sensitive information policy config for a guardrail. See `SensitiveInformationPolicyConfig` Block for more information.
         /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigArgs>? SensitiveInformationPolicyConfig { get; set; }
@@ -374,13 +380,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
+        /// Topic policy config for a guardrail. See `TopicPolicyConfig` Block for more information.
         /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigArgs>? TopicPolicyConfig { get; set; }
 
         /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
+        /// Word policy config for a guardrail. See `WordPolicyConfig` Block for more information.
         /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.GuardrailWordPolicyConfigArgs>? WordPolicyConfig { get; set; }
@@ -406,13 +412,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? BlockedOutputsMessaging { get; set; }
 
         /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
+        /// Content policy config for a guardrail. See `ContentPolicyConfig` Block for more information.
         /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigGetArgs>? ContentPolicyConfig { get; set; }
 
         /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+        /// Contextual grounding policy config for a guardrail. See `ContextualGroundingPolicyConfig` Block for more information.
         /// </summary>
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigGetArgs>? ContextualGroundingPolicyConfig { get; set; }
@@ -423,6 +429,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// Configuration block to enable cross-region routing for bedrock guardrails. See `CrossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        /// </summary>
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigGetArgs>? CrossRegionConfig { get; set; }
 
@@ -445,7 +454,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? GuardrailId { get; set; }
 
         /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
+        /// KMS key with which the guardrail was encrypted at rest.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -465,7 +474,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+        /// Sensitive information policy config for a guardrail. See `SensitiveInformationPolicyConfig` Block for more information.
         /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigGetArgs>? SensitiveInformationPolicyConfig { get; set; }
@@ -500,7 +509,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.GuardrailTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
+        /// Topic policy config for a guardrail. See `TopicPolicyConfig` Block for more information.
         /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigGetArgs>? TopicPolicyConfig { get; set; }
@@ -518,7 +527,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
+        /// Word policy config for a guardrail. See `WordPolicyConfig` Block for more information.
         /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.GuardrailWordPolicyConfigGetArgs>? WordPolicyConfig { get; set; }

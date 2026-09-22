@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfiguration
     {
         /// <summary>
-        /// The storage configuration of the knowledge base in MongoDB Atlas. See `MongoDbAtlasConfiguration` block for details.
+        /// Storage configuration of the knowledge base in MongoDB Atlas. See `MongoDbAtlasConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration? MongoDbAtlasConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `NeptuneAnalyticsConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Amazon Neptune Analytics. See `NeptuneAnalyticsConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration? NeptuneAnalyticsConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `OpensearchManagedClusterConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `OpensearchManagedClusterConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration? OpensearchManagedClusterConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `OpensearchServerlessConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `OpensearchServerlessConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration? OpensearchServerlessConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Pinecone. See `PineconeConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Pinecone. See `PineconeConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration? PineconeConfiguration;
         /// <summary>
-        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `RdsConfiguration` block for details.
+        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `RdsConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration? RdsConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `RedisEnterpriseCloudConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Redis Enterprise Cloud. See `RedisEnterpriseCloudConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration? RedisEnterpriseCloudConfiguration;
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon S3 Vectors. See `S3VectorsConfiguration` block for details.
+        /// Storage configuration of the knowledge base in Amazon S3 Vectors. See `S3VectorsConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration? S3VectorsConfiguration;
         /// <summary>

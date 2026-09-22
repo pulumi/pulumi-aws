@@ -16,14 +16,14 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
     public static final VaultPolicyState Empty = new VaultPolicyState();
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Import(name="backupVaultArn")
     private @Nullable Output<String> backupVaultArn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Optional<Output<String>> backupVaultArn() {
@@ -46,14 +46,14 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The backup vault access policy document in JSON format.
+     * @return Backup vault access policy document in JSON format.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -103,7 +103,7 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupVaultArn The ARN of the vault.
+         * @param backupVaultArn ARN of the vault.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupVaultArn The ARN of the vault.
+         * @param backupVaultArn ARN of the vault.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The backup vault access policy document in JSON format.
+         * @param policy Backup vault access policy document in JSON format.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class VaultPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The backup vault access policy document in JSON format.
+         * @param policy Backup vault access policy document in JSON format.
          * 
          * @return builder
          * 

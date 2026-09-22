@@ -557,7 +557,7 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.efs.FileSystem("foo",
+        example = aws.efs.FileSystem("example",
             creation_token="my-product",
             tags={
                 "Name": "MyProduct",
@@ -579,10 +579,21 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the file system.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
         ```
 
 
@@ -620,7 +631,7 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.efs.FileSystem("foo",
+        example = aws.efs.FileSystem("example",
             creation_token="my-product",
             tags={
                 "Name": "MyProduct",
@@ -642,10 +653,21 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the file system.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
         ```
 
 

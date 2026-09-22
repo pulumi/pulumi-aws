@@ -182,7 +182,7 @@ class _AgentcoreCodeInterpreterState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -321,7 +321,7 @@ class _AgentcoreCodeInterpreterState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -564,7 +564,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -661,7 +661,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

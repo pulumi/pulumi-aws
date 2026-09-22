@@ -22,14 +22,14 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
     public static final BudgetFilterExpressionAndArgs Empty = new BudgetFilterExpressionAndArgs();
 
     /**
-     * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+     * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
      * 
      */
     @Import(name="ands")
     private @Nullable Output<List<BudgetFilterExpressionAndAndArgs>> ands;
 
     /**
-     * @return (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
      * 
      */
     public Optional<Output<List<BudgetFilterExpressionAndAndArgs>>> ands() {
@@ -37,14 +37,14 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * (Optional) A Cost Category Filter block.
+     * Cost Categories block.
      * 
      */
     @Import(name="costCategories")
     private @Nullable Output<BudgetFilterExpressionAndCostCategoriesArgs> costCategories;
 
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     public Optional<Output<BudgetFilterExpressionAndCostCategoriesArgs>> costCategories() {
@@ -52,14 +52,14 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * (Optional) A Dimension Filter block.
+     * Dimensions block.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<BudgetFilterExpressionAndDimensionsArgs> dimensions;
 
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     public Optional<Output<BudgetFilterExpressionAndDimensionsArgs>> dimensions() {
@@ -67,14 +67,14 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * (Optional) A single filter expression to negate. Must contain exactly one root.
+     * Single filter expression to negate. Must contain exactly one root.
      * 
      */
     @Import(name="not")
     private @Nullable Output<BudgetFilterExpressionAndNotArgs> not;
 
     /**
-     * @return (Optional) A single filter expression to negate. Must contain exactly one root.
+     * @return Single filter expression to negate. Must contain exactly one root.
      * 
      */
     public Optional<Output<BudgetFilterExpressionAndNotArgs>> not() {
@@ -82,14 +82,14 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+     * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
      * 
      */
     @Import(name="ors")
     private @Nullable Output<List<BudgetFilterExpressionAndOrArgs>> ors;
 
     /**
-     * @return (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
      * 
      */
     public Optional<Output<List<BudgetFilterExpressionAndOrArgs>>> ors() {
@@ -141,7 +141,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ands (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * @param ands List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ands (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * @param ands List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ands (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * @param ands List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param costCategories (Optional) A Cost Category Filter block.
+         * @param costCategories Cost Categories block.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param costCategories (Optional) A Cost Category Filter block.
+         * @param costCategories Cost Categories block.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dimensions (Optional) A Dimension Filter block.
+         * @param dimensions Dimensions block.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dimensions (Optional) A Dimension Filter block.
+         * @param dimensions Dimensions block.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param not (Optional) A single filter expression to negate. Must contain exactly one root.
+         * @param not Single filter expression to negate. Must contain exactly one root.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param not (Optional) A single filter expression to negate. Must contain exactly one root.
+         * @param not Single filter expression to negate. Must contain exactly one root.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ors (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * @param ors List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ors (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * @param ors List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class BudgetFilterExpressionAndArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ors (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * @param ors List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          * 
          * @return builder
          * 

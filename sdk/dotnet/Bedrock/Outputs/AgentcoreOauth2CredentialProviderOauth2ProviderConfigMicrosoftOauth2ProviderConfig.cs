@@ -14,17 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig
     {
         /// <summary>
-        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
-        /// 
-        /// **Microsoft-Specific Configuration:**
-        /// 
-        /// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-        /// 
-        /// **Standard Tenant ID:**
+        /// Version used together with the write-only credentials. Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// </summary>
         public readonly int? ClientCredentialsWoVersion;
         /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
@@ -33,15 +27,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ClientIdWo;
         /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
+        /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
-        /// 
-        /// **Advanced Configuration:**
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig? ClientSecretConfig;
         /// <summary>
@@ -54,26 +44,20 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ClientSecretWo;
         /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// 
-        /// **Externally-Managed Client Secret:**
+        /// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery> OauthDiscoveries;
         /// <summary>
-        /// Microsoft Entra (Azure AD) tenant ID. Cannot be used with `TenantIdWo`.
-        /// 
-        /// **Write-Only Tenant ID:**
+        /// Microsoft Entra (Azure AD) tenant ID. Conflicts with `TenantIdWo`.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `TenantId`. Must be used together with `TenantIdWoVersion`.
+        /// Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `TenantId`. Must be used together with `TenantIdWoVersion`.
         /// </summary>
         public readonly string? TenantIdWo;
         /// <summary>
-        /// Used together with write-only tenant ID to trigger an update. Increment this value when an update to `TenantIdWo` is required.
-        /// 
-        /// **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+        /// Version paired with the write-only tenant ID. Increment this value to trigger an update to `TenantIdWo`.
         /// </summary>
         public readonly int? TenantIdWoVersion;
 

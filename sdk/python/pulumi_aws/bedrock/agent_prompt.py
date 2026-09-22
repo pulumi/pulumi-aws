@@ -39,7 +39,7 @@ class AgentPromptArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         """
         if customer_encryption_key_arn is not None:
             pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
@@ -134,7 +134,7 @@ class AgentPromptArgs:
     @pulumi.getter
     def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
         """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         """
         return pulumi.get(self, "variants")
 
@@ -171,9 +171,9 @@ class _AgentPromptState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the prompt was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         :param pulumi.Input[_builtins.str] version: Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         if arn is not None:
@@ -303,7 +303,7 @@ class _AgentPromptState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -327,7 +327,7 @@ class _AgentPromptState:
     @pulumi.getter
     def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
         """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         """
         return pulumi.get(self, "variants")
 
@@ -432,7 +432,7 @@ class AgentPrompt(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         """
         ...
     @overload
@@ -582,9 +582,9 @@ class AgentPrompt(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] updated_at: Time at which the prompt was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]] variants: List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         :param pulumi.Input[_builtins.str] version: Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -675,7 +675,7 @@ class AgentPrompt(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -691,7 +691,7 @@ class AgentPrompt(pulumi.CustomResource):
     @pulumi.getter
     def variants(self) -> pulumi.Output[Optional[Sequence['outputs.AgentPromptVariant']]]:
         """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
         """
         return pulumi.get(self, "variants")
 

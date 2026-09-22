@@ -77,19 +77,19 @@ namespace Pulumi.Aws.Backup
     public partial class Plan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An object that specifies backup options for each resource type.
+        /// Object that specifies backup options for each resource type. Detailed below.
         /// </summary>
         [Output("advancedBackupSettings")]
         public Output<ImmutableArray<Outputs.PlanAdvancedBackupSetting>> AdvancedBackupSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the backup plan.
+        /// ARN of the backup plan.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of a backup plan.
+        /// Display name of a backup plan.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        /// Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.PlanRule>> Rules { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.PlanAdvancedBackupSettingArgs>? _advancedBackupSettings;
 
         /// <summary>
-        /// An object that specifies backup options for each resource type.
+        /// Object that specifies backup options for each resource type. Detailed below.
         /// </summary>
         public InputList<Inputs.PlanAdvancedBackupSettingArgs> AdvancedBackupSettings
         {
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The display name of a backup plan.
+        /// Display name of a backup plan.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.PlanRuleArgs>? _rules;
 
         /// <summary>
-        /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        /// Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         /// </summary>
         public InputList<Inputs.PlanRuleArgs> Rules
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.PlanAdvancedBackupSettingGetArgs>? _advancedBackupSettings;
 
         /// <summary>
-        /// An object that specifies backup options for each resource type.
+        /// Object that specifies backup options for each resource type. Detailed below.
         /// </summary>
         public InputList<Inputs.PlanAdvancedBackupSettingGetArgs> AdvancedBackupSettings
         {
@@ -257,13 +257,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The ARN of the backup plan.
+        /// ARN of the backup plan.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The display name of a backup plan.
+        /// Display name of a backup plan.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.PlanRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        /// Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         /// </summary>
         public InputList<Inputs.PlanRuleGetArgs> Rules
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

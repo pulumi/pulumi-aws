@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationCondition {
     /**
-     * @return A list of conditions. See Condition Config for more information.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions;
 
     private AgentFlowDefinitionNodeConfigurationCondition() {}
     /**
-     * @return A list of conditions. See Condition Config for more information.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     public List<AgentFlowDefinitionNodeConfigurationConditionCondition> conditions() {

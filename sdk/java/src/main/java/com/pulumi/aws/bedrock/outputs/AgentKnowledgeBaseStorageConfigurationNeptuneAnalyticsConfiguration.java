@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
@@ -24,7 +24,7 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
 
     private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration() {}
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping() {

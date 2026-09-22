@@ -182,8 +182,6 @@ namespace Pulumi.Aws.Bedrock
     {
         /// <summary>
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `ActionGroupExecutor` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("actionGroupExecutor")]
         public Output<Outputs.AgentAgentActionGroupActionGroupExecutor?> ActionGroupExecutor { get; private set; } = null!;
@@ -207,13 +205,15 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> ActionGroupState { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the agent for which to create the action group.
+        /// Unique identifier of the agent for which to create the action group.
         /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
@@ -231,9 +231,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the function schema for the action group.
-        /// Each function represents an action in an action group.
-        /// See `FunctionSchema` Block for details.
+        /// Function schema for the action group. Each function represents an action in an action group. See `FunctionSchema` Block for details.
         /// </summary>
         [Output("functionSchema")]
         public Output<Outputs.AgentAgentActionGroupFunctionSchema?> FunctionSchema { get; private set; } = null!;
@@ -313,8 +311,6 @@ namespace Pulumi.Aws.Bedrock
     {
         /// <summary>
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `ActionGroupExecutor` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("actionGroupExecutor")]
         public Input<Inputs.AgentAgentActionGroupActionGroupExecutorArgs>? ActionGroupExecutor { get; set; }
@@ -332,13 +328,15 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ActionGroupState { get; set; }
 
         /// <summary>
-        /// The unique identifier of the agent for which to create the action group.
+        /// Unique identifier of the agent for which to create the action group.
         /// </summary>
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("agentVersion", required: true)]
         public Input<string> AgentVersion { get; set; } = null!;
@@ -356,9 +354,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Describes the function schema for the action group.
-        /// Each function represents an action in an action group.
-        /// See `FunctionSchema` Block for details.
+        /// Function schema for the action group. Each function represents an action in an action group. See `FunctionSchema` Block for details.
         /// </summary>
         [Input("functionSchema")]
         public Input<Inputs.AgentAgentActionGroupFunctionSchemaArgs>? FunctionSchema { get; set; }
@@ -400,8 +396,6 @@ namespace Pulumi.Aws.Bedrock
     {
         /// <summary>
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `ActionGroupExecutor` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("actionGroupExecutor")]
         public Input<Inputs.AgentAgentActionGroupActionGroupExecutorGetArgs>? ActionGroupExecutor { get; set; }
@@ -425,13 +419,15 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ActionGroupState { get; set; }
 
         /// <summary>
-        /// The unique identifier of the agent for which to create the action group.
+        /// Unique identifier of the agent for which to create the action group.
         /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -449,9 +445,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Describes the function schema for the action group.
-        /// Each function represents an action in an action group.
-        /// See `FunctionSchema` Block for details.
+        /// Function schema for the action group. Each function represents an action in an action group. See `FunctionSchema` Block for details.
         /// </summary>
         [Input("functionSchema")]
         public Input<Inputs.AgentAgentActionGroupFunctionSchemaGetArgs>? FunctionSchema { get; set; }

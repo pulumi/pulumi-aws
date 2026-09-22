@@ -13599,37 +13599,37 @@ export namespace backup {
          */
         inputParameters?: outputs.backup.FrameworkControlInputParameter[];
         /**
-         * The name of a control. This name is between 1 and 256 characters.
+         * Name of a control. This name is between 1 and 256 characters.
          */
         name: string;
         /**
-         * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         * Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
          */
         scope?: outputs.backup.FrameworkControlScope;
     }
 
     export interface FrameworkControlInputParameter {
         /**
-         * The name of a parameter, for example, BackupPlanFrequency.
+         * Name of a parameter, for example, BackupPlanFrequency.
          */
         name?: string;
         /**
-         * The value of parameter, for example, hourly.
+         * Value of parameter, for example, hourly.
          */
         value?: string;
     }
 
     export interface FrameworkControlScope {
         /**
-         * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         * ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          */
         complianceResourceIds: string[];
         /**
-         * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * Whether the control scope includes one or more types of resources, such as EFS or RDS.
          */
         complianceResourceTypes: string[];
         /**
-         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
         tags?: {[key: string]: string};
     }
@@ -13662,11 +13662,11 @@ export namespace backup {
 
     export interface GetFrameworkControlScope {
         /**
-         * The ID of the only AWS resource that you want your control scope to contain.
+         * ID of the only AWS resource that you want your control scope to contain.
          */
         complianceResourceIds: string[];
         /**
-         * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * Whether the control scope includes one or more types of resources, such as EFS or RDS.
          */
         complianceResourceTypes: string[];
         /**
@@ -13676,45 +13676,120 @@ export namespace backup {
     }
 
     export interface GetPlanRule {
+        /**
+         * Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+         */
         completionWindow: number;
+        /**
+         * Configuration block(s) with copy operation settings. See below.
+         */
         copyActions: outputs.backup.GetPlanRuleCopyAction[];
+        /**
+         * Whether AWS Backup creates continuous backups.
+         */
         enableContinuousBackup: boolean;
+        /**
+         * Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+         */
         lifecycles: outputs.backup.GetPlanRuleLifecycle[];
+        /**
+         * Metadata that you can assign to help organize the resources that you create.
+         */
         recoveryPointTags?: {[key: string]: string};
+        /**
+         * Display name of a backup rule.
+         */
         ruleName: string;
+        /**
+         * Configuration block(s) with malware scanning settings. See below.
+         */
         scanActions: outputs.backup.GetPlanRuleScanAction[];
+        /**
+         * CRON expression specifying when AWS Backup initiates a backup job.
+         */
         schedule: string;
+        /**
+         * Timezone in which the schedule expression is set.
+         */
         scheduleExpressionTimezone: string;
+        /**
+         * Amount of time in minutes before beginning a backup.
+         */
         startWindow: number;
+        /**
+         * ARN of the logically air-gapped backup vault where the recovery point is copied.
+         */
         targetLogicallyAirGappedBackupVaultArn: string;
+        /**
+         * Name of a logical container where backups are stored.
+         */
         targetVaultName: string;
     }
 
     export interface GetPlanRuleCopyAction {
+        /**
+         * ARN of the destination backup vault for the copied backup.
+         */
         destinationVaultArn: string;
+        /**
+         * Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+         */
         lifecycles: outputs.backup.GetPlanRuleCopyActionLifecycle[];
     }
 
     export interface GetPlanRuleCopyActionLifecycle {
+        /**
+         * Number of days after creation that a recovery point is moved to cold storage.
+         */
         coldStorageAfter: number;
+        /**
+         * Number of days after creation that a recovery point is deleted.
+         */
         deleteAfter: number;
+        /**
+         * Whether the recovery point is transitioned to cold storage for supported resource types.
+         */
         optInToArchiveForSupportedResources: boolean;
     }
 
     export interface GetPlanRuleLifecycle {
+        /**
+         * Number of days after creation that a recovery point is moved to cold storage.
+         */
         coldStorageAfter: number;
+        /**
+         * Number of days after creation that a recovery point is deleted.
+         */
         deleteAfter: number;
+        /**
+         * Whether the recovery point is transitioned to cold storage for supported resource types.
+         */
         optInToArchiveForSupportedResources: boolean;
     }
 
     export interface GetPlanRuleScanAction {
+        /**
+         * Malware scanner used for the scan setting.
+         */
         malwareScanner: string;
+        /**
+         * Mode of the malware scan.
+         */
         scanMode: string;
     }
 
     export interface GetPlanScanSetting {
+        /**
+         * Malware scanner used for the scan setting.
+         */
         malwareScanner: string;
+        /**
+         * Resource types to scan.
+         */
         resourceTypes: string[];
+        /**
+         * ARN of the IAM role used by the scanner.
+         */
         scannerRoleArn: string;
     }
 
@@ -13769,18 +13844,18 @@ export namespace backup {
 
     export interface PlanAdvancedBackupSetting {
         /**
-         * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+         * Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
          */
         backupOptions: {[key: string]: string};
         /**
-         * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+         * Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
          */
         resourceType: string;
     }
 
     export interface PlanRule {
         /**
-         * The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+         * Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          */
         completionWindow?: number;
         /**
@@ -13792,7 +13867,7 @@ export namespace backup {
          */
         enableContinuousBackup?: boolean;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
          */
         lifecycle?: outputs.backup.PlanRuleLifecycle;
         /**
@@ -13800,31 +13875,31 @@ export namespace backup {
          */
         recoveryPointTags?: {[key: string]: string};
         /**
-         * An display name for a backup rule.
+         * Display name for a backup rule.
          */
         ruleName: string;
         /**
-         * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
          */
         scanActions?: outputs.backup.PlanRuleScanAction[];
         /**
-         * A CRON expression specifying when AWS Backup initiates a backup job.
+         * CRON expression specifying when AWS Backup initiates a backup job.
          */
         schedule?: string;
         /**
-         * The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+         * Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
          */
         scheduleExpressionTimezone?: string;
         /**
-         * The amount of time in minutes before beginning a backup.
+         * Amount of time in minutes before beginning a backup.
          */
         startWindow?: number;
         /**
-         * The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
          */
         targetLogicallyAirGappedBackupVaultArn?: string;
         /**
-         * The name of a logical container where backups are stored.
+         * Name of a logical container where backups are stored.
          */
         targetVaultName: string;
     }
@@ -13835,37 +13910,37 @@ export namespace backup {
          */
         destinationVaultArn: string;
         /**
-         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
          */
         lifecycle?: outputs.backup.PlanRuleCopyActionLifecycle;
     }
 
     export interface PlanRuleCopyActionLifecycle {
         /**
-         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * Number of days after creation that a recovery point is moved to cold storage.
          */
         coldStorageAfter?: number;
         /**
-         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
         /**
-         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          */
         optInToArchiveForSupportedResources: boolean;
     }
 
     export interface PlanRuleLifecycle {
         /**
-         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * Number of days after creation that a recovery point is moved to cold storage.
          */
         coldStorageAfter?: number;
         /**
-         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
         /**
-         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          */
         optInToArchiveForSupportedResources: boolean;
     }
@@ -13940,56 +14015,56 @@ export namespace backup {
 
     export interface RestoreTestingPlanRecoveryPointSelection {
         /**
-         * Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+         * Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
          */
         algorithm: string;
         /**
-         * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+         * Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
          */
         excludeVaults: string[];
         /**
-         * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+         * Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
          */
         includeVaults: string[];
         /**
-         * Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+         * Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
          */
         recoveryPointTypes: string[];
         /**
-         * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         * Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
          */
         selectionWindowDays: number;
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditions {
         /**
-         * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+         * List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `stringEquals` below.
          */
         stringEquals?: outputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringEqual[];
         /**
-         * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+         * List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `stringNotEquals` below.
          */
         stringNotEquals?: outputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual[];
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditionsStringEqual {
         /**
-         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          */
         key: string;
         /**
-         * The value of the Tag. Maximum length of 256.
+         * Value of the Tag. Maximum length of 256.
          */
         value: string;
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
         /**
-         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          */
         key: string;
         /**
-         * The value of the Tag. Maximum length of 256.
+         * Value of the Tag. Maximum length of 256.
          */
         value: string;
     }
@@ -14063,7 +14138,7 @@ export namespace backup {
          */
         key: string;
         /**
-         * An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+         * Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
          */
         type: string;
         /**
@@ -14077,7 +14152,7 @@ export namespace backup {
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
         /**
-         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         allocationStrategy?: string;
         /**
@@ -14085,7 +14160,7 @@ export namespace batch {
          */
         bidPercentage?: number;
         /**
-         * The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         desiredVcpus: number;
         /**
@@ -14093,7 +14168,7 @@ export namespace batch {
          */
         ec2Configurations: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration[];
         /**
-         * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         ec2KeyPair?: string;
         /**
@@ -14101,31 +14176,31 @@ export namespace batch {
          */
         imageId?: string;
         /**
-         * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         instanceRole?: string;
         /**
-         * A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         instanceTypes?: string[];
         /**
-         * The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         launchTemplate?: outputs.batch.ComputeEnvironmentComputeResourcesLaunchTemplate;
         /**
-         * The maximum number of EC2 vCPUs that an environment can reach.
+         * Maximum number of EC2 vCPUs that an environment can reach.
          */
         maxVcpus: number;
         /**
-         * The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         minVcpus?: number;
         /**
-         * The Amazon EC2 placement group to associate with your compute resources.
+         * Amazon EC2 placement group to associate with your compute resources.
          */
         placementGroup?: string;
         /**
-         * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+         * List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          */
         securityGroupIds?: string[];
         /**
@@ -14133,7 +14208,7 @@ export namespace batch {
          */
         spotIamFleetRole?: string;
         /**
-         * A list of VPC subnets into which the compute resources are launched.
+         * List of VPC subnets into which the compute resources are launched.
          */
         subnets: string[];
         /**
@@ -14141,22 +14216,22 @@ export namespace batch {
          */
         tags?: {[key: string]: string};
         /**
-         * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          */
         type: string;
     }
 
     export interface ComputeEnvironmentComputeResourcesEc2Configuration {
         /**
-         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+         * AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          */
         imageIdOverride: string;
         /**
-         * The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
          */
         imageKubernetesVersion?: string;
         /**
-         * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         * Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
          */
         imageType?: string;
     }
@@ -14171,7 +14246,7 @@ export namespace batch {
          */
         launchTemplateName?: string;
         /**
-         * The version number of the launch template. Default: The default version of the launch template.
+         * Version number of the launch template. Default: The default version of the launch template.
          */
         version: string;
     }
@@ -14182,24 +14257,30 @@ export namespace batch {
          */
         eksClusterArn: string;
         /**
-         * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+         * Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
          */
         kubernetesNamespace: string;
     }
 
     export interface ComputeEnvironmentUpdatePolicy {
         /**
-         * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         * Job timeout (in minutes) when the compute environment infrastructure is updated.
          */
         jobExecutionTimeoutMinutes: number;
         /**
-         * Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+         * Whether jobs are automatically terminated when the compute environment infrastructure is updated.
          */
         terminateJobsOnUpdate: boolean;
     }
 
     export interface GetComputeEnvironmentUpdatePolicy {
+        /**
+         * Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+         */
         jobExecutionTimeoutMinutes: number;
+        /**
+         * Whether running jobs are terminated when the compute environment infrastructure is updated.
+         */
         terminateJobsOnUpdate: boolean;
     }
 
@@ -14898,16 +14979,31 @@ export namespace batch {
     }
 
     export interface GetJobQueueComputeEnvironmentOrder {
+        /**
+         * ARN of the compute environment.
+         */
         computeEnvironment: string;
+        /**
+         * Order of the compute environment.
+         */
         order: number;
     }
 
     export interface GetJobQueueJobStateTimeLimitAction {
+        /**
+         * Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+         */
         action: string;
+        /**
+         * Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+         */
         maxTimeSeconds: number;
+        /**
+         * Reason to log for the action being taken.
+         */
         reason: string;
         /**
-         * Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+         * Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
          */
         state: string;
     }
@@ -14917,6 +15013,9 @@ export namespace batch {
          * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          */
         computeReservation: number;
+        /**
+         * Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
         shareDecaySeconds: number;
         /**
          * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -15292,26 +15391,26 @@ export namespace batch {
          */
         computeEnvironment: string;
         /**
-         * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+         * Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
          */
         order: number;
     }
 
     export interface JobQueueJobStateTimeLimitAction {
         /**
-         * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+         * Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
          */
         action: string;
         /**
-         * The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+         * Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
          */
         maxTimeSeconds: number;
         /**
-         * The reason to log for the action being taken.
+         * Reason to log for the action being taken.
          */
         reason: string;
         /**
-         * The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+         * State of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
          */
         state: string;
     }
@@ -15333,9 +15432,12 @@ export namespace batch {
 
     export interface SchedulingPolicyFairSharePolicy {
         /**
-         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          */
         computeReservation?: number;
+        /**
+         * Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
         shareDecaySeconds?: number;
         /**
          * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -15345,11 +15447,11 @@ export namespace batch {
 
     export interface SchedulingPolicyFairSharePolicyShareDistribution {
         /**
-         * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         shareIdentifier: string;
         /**
-         * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         weightFactor?: number;
     }
@@ -15359,7 +15461,7 @@ export namespace batch {
 export namespace bcmdata {
     export interface ExportExport {
         /**
-         * Data query for this specific data export. See the `dataQuery` argument reference below.
+         * Data query for this specific data export. See the `dataQuery` block below.
          */
         dataQueries?: outputs.bcmdata.ExportExportDataQuery[];
         /**
@@ -15367,7 +15469,7 @@ export namespace bcmdata {
          */
         description?: string;
         /**
-         * Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         * Destination configuration for this specific data export. See the `destinationConfigurations` block below.
          */
         destinationConfigurations?: outputs.bcmdata.ExportExportDestinationConfiguration[];
         exportArn: string;
@@ -15376,29 +15478,25 @@ export namespace bcmdata {
          */
         name: string;
         /**
-         * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
          */
         refreshCadences?: outputs.bcmdata.ExportExportRefreshCadence[];
     }
 
     export interface ExportExportDataQuery {
         /**
-         * Query statement.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+         * Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
          */
         queryStatement: string;
         /**
-         * Table configuration.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-         * If a value is set for `tableConfigurations`, all configuration values must be set.
-         * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+         * Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
          */
         tableConfigurations: {[key: string]: {[key: string]: string}};
     }
 
     export interface ExportExportDestinationConfiguration {
         /**
-         * Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
+         * Object that describes the destination of the data exports file. See the `s3Destination` block below.
          */
         s3Destinations?: outputs.bcmdata.ExportExportDestinationConfigurationS3Destination[];
     }
@@ -15409,7 +15507,7 @@ export namespace bcmdata {
          */
         s3Bucket: string;
         /**
-         * Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
+         * Output configuration for the data export. See the `s3OutputConfigurations` block below.
          */
         s3OutputConfigurations?: outputs.bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration[];
         /**
@@ -15436,7 +15534,7 @@ export namespace bcmdata {
          */
         outputType: string;
         /**
-         * The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
+         * Rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
          */
         overwrite: string;
     }
@@ -15464,27 +15562,22 @@ export namespace bcmdata {
 export namespace bedrock {
     export interface AgentAgentActionGroupActionGroupExecutor {
         /**
-         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-         * Only one of `customControl` or `lambda` can be specified.
+         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
          */
         customControl?: string;
         /**
-         * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-         * Only one of `lambda` or `customControl` can be specified.
+         * ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
          */
         lambda?: string;
     }
 
     export interface AgentAgentActionGroupApiSchema {
         /**
-         * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
+         * JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
          */
         payload?: string;
         /**
-         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
+         * Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
          */
         s3?: outputs.bedrock.AgentAgentActionGroupApiSchemaS3;
     }
@@ -15502,9 +15595,7 @@ export namespace bedrock {
 
     export interface AgentAgentActionGroupFunctionSchema {
         /**
-         * Contains a list of functions.
-         * Each function describes and action in the action group.
-         * See `memberFunctions` Block for details.
+         * List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
          */
         memberFunctions?: outputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctions;
     }
@@ -15635,7 +15726,7 @@ export namespace bedrock {
 
     export interface AgentAgentMemoryConfiguration {
         /**
-         * The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+         * Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
          */
         enabledMemoryTypes: string[];
         /**
@@ -15643,7 +15734,7 @@ export namespace bedrock {
          */
         sessionSummaryConfigurations: outputs.bedrock.AgentAgentMemoryConfigurationSessionSummaryConfiguration[];
         /**
-         * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+         * Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
          */
         storageDays: number;
     }
@@ -15733,23 +15824,23 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfiguration {
         /**
-         * Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+         * Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
          */
         confluenceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfiguration;
         /**
-         * Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
          */
         managedKnowledgeBaseConnectorConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration;
         /**
-         * Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+         * Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
          */
         s3Configuration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationS3Configuration;
         /**
-         * Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+         * Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
          */
         salesforceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfiguration;
         /**
-         * Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+         * Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
          */
         sharePointConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfiguration;
         /**
@@ -15757,67 +15848,77 @@ export namespace bedrock {
          */
         type: string;
         /**
-         * Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+         * Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
          */
         webConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+        /**
+         * Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration;
+        /**
+         * Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter[];
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter[];
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: string[];
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: string[];
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: string;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: string;
         /**
-         * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          */
         hostType: string;
         /**
-         * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
          */
         hostUrl: string;
     }
@@ -15828,11 +15929,11 @@ export namespace bedrock {
          */
         connectorParameters?: string;
         /**
-         * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+         * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
          */
         deletionProtectionConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration;
         /**
-         * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+         * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
          */
         mediaExtractionConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration;
     }
@@ -15850,15 +15951,15 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
         /**
-         * Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+         * Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
          */
         audioExtractionConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration;
         /**
-         * Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+         * Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
          */
         imageExtractionConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration;
         /**
-         * Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+         * Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
          */
         videoExtractionConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration;
     }
@@ -15900,145 +16001,171 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+        /**
+         * Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration;
+        /**
+         * Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter[];
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter[];
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: string[];
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: string[];
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: string;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: string;
         /**
-         * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
          */
         hostUrl: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+        /**
+         * Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration;
+        /**
+         * Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter[];
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: outputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter[];
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: string[];
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: string[];
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: string;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: string;
         /**
-         * The domain of your SharePoint instance or site URL/URLs.
+         * Domain of your SharePoint instance or site URL/URLs.
          */
         domain: string;
         /**
-         * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          */
         hostType: string;
         /**
-         * A list of one or more SharePoint site URLs.
+         * One or more SharePoint site URLs.
          */
         siteUrls: string[];
         /**
-         * The identifier of your Microsoft 365 tenant.
+         * Identifier of your Microsoft 365 tenant.
          */
         tenantId?: string;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfiguration {
+        /**
+         * Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration;
+        /**
+         * Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
         /**
-         * Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+         * Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
          */
         crawlerLimits?: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits;
         /**
-         * List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+         * List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
          */
         exclusionFilters?: string[];
         /**
-         * List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+         * List of one or more inclusion regular expression patterns to include object types that match the pattern.
          */
         inclusionFilters?: string[];
         /**
@@ -16046,7 +16173,7 @@ export namespace bedrock {
          */
         scope?: string;
         /**
-         * String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
          */
         userAgent?: string;
     }
@@ -16064,14 +16191,14 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
         /**
-         * The URL configuration of your web data source. See `urlConfiguration` block for details.
+         * URL configuration of your web data source. See `urlConfiguration` Block for details.
          */
         urlConfiguration: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
         /**
-         * List of one or more seed URLs to crawl. See `seedUrls` block for details.
+         * List of one or more seed URLs to crawl. See `seedUrls` Block for details.
          */
         seedUrls?: outputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl[];
     }
@@ -16107,15 +16234,15 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfiguration {
         /**
-         * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+         * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
          */
         chunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
         /**
-         * Configuration for custom transformation of data source documents.
+         * Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
          */
         customTransformationConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration;
         /**
-         * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+         * Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
          */
         parsingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
     }
@@ -16126,15 +16253,15 @@ export namespace bedrock {
          */
         chunkingStrategy: string;
         /**
-         * Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+         * Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
          */
         fixedSizeChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration;
         /**
-         * Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+         * Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
          */
         hierarchicalChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration;
         /**
-         * Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+         * Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
          */
         semanticChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration;
     }
@@ -16152,51 +16279,51 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
         /**
-         * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         * Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
          */
         levelConfigurations?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration[];
         /**
-         * The number of tokens to repeat across chunks in the same layer.
+         * Number of tokens to repeat across chunks in the same layer.
          */
         overlapTokens: number;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
         /**
-         * The maximum number of tokens that a chunk can contain in this layer.
+         * Maximum number of tokens that a chunk can contain in this layer.
          */
         maxTokens: number;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
         /**
-         * The dissimilarity threshold for splitting chunks.
+         * Dissimilarity threshold for splitting chunks.
          */
         breakpointPercentileThreshold: number;
         /**
-         * The buffer size.
+         * Buffer size.
          */
         bufferSize: number;
         /**
-         * The maximum number of tokens a chunk can contain.
+         * Maximum number of tokens a chunk can contain.
          */
         maxToken: number;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
         /**
-         * The intermediate storage for custom transformation.
+         * Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
          */
         intermediateStorage?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage;
         /**
-         * A custom processing step for documents moving through the data source ingestion pipeline.
+         * Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
          */
         transformation?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
         /**
-         * Configuration block for intermedia S3 storage.
+         * Configuration block for intermediate S3 storage. See `s3Location` Block for details.
          */
         s3Location?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location;
     }
@@ -16214,58 +16341,58 @@ export namespace bedrock {
          */
         stepToApply: string;
         /**
-         * The lambda function that processes documents.
+         * Lambda function that processes documents. See `transformationFunction` Block for details.
          */
         transformationFunction?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
         /**
-         * The configuration of the lambda function.
+         * Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
          */
         transformationLambdaConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
         /**
-         * The ARN of the lambda to use for custom transformation.
+         * ARN of the Lambda to use for custom transformation.
          */
         lambdaArn: string;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
         /**
-         * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
          */
         bedrockDataAutomationConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration;
         /**
-         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
          */
         bedrockFoundationModelConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration;
         /**
-         * The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          */
         parsingStrategy: string;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
         /**
-         * Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+         * Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
          */
         parsingModality?: string;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
         /**
-         * The ARN of the model used to parse documents
+         * ARN of the model used to parse documents.
          */
         modelArn: string;
         /**
-         * Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
          */
         parsingModality?: string;
         /**
-         * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         * Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
          */
         parsingPrompt?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt;
     }
@@ -16279,141 +16406,145 @@ export namespace bedrock {
 
     export interface AgentFlowDefinition {
         /**
-         * A list of connection definitions in the flow. See Connection for more information.
+         * List of connection definitions in the flow. See `definition.connection` Block for details.
          */
         connections?: outputs.bedrock.AgentFlowDefinitionConnection[];
         /**
-         * A list of node definitions in the flow. See Node for more information.
+         * List of node definitions in the flow. See `definition.node` Block for details.
          */
         nodes?: outputs.bedrock.AgentFlowDefinitionNode[];
     }
 
     export interface AgentFlowDefinitionConnection {
         /**
-         * Configuration of the connection. See Connection Configuration for more information.
+         * Configurations for the node. See `definition.node.configuration` Block for details.
          */
         configuration?: outputs.bedrock.AgentFlowDefinitionConnectionConfiguration;
         /**
-         * A name for the connection that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
-         * The node that the connection starts at.
+         * Node that the connection starts at.
          */
         source: string;
         /**
-         * The node that the connection ends at.
+         * Node that the connection ends at.
          */
         target: string;
         /**
-         * Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionConnectionConfiguration {
         /**
-         * The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+         * Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
          */
         conditional?: outputs.bedrock.AgentFlowDefinitionConnectionConfigurationConditional;
         /**
-         * The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+         * Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
          */
         data?: outputs.bedrock.AgentFlowDefinitionConnectionConfigurationData;
     }
 
     export interface AgentFlowDefinitionConnectionConfigurationConditional {
         /**
-         * The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         condition: string;
     }
 
     export interface AgentFlowDefinitionConnectionConfigurationData {
         /**
-         * The name of the output in the source node that the connection begins from.
+         * Name of the output in the source node that the connection begins from.
          */
         sourceOutput: string;
         /**
-         * The name of the input in the target node that the connection ends at.
+         * Name of the input in the target node that the connection ends at.
          */
         targetInput: string;
     }
 
     export interface AgentFlowDefinitionNode {
         /**
-         * Contains configurations for the node. See Node Configuration for more information.
+         * Configurations for the node. See `definition.node.configuration` Block for details.
          */
         configuration?: outputs.bedrock.AgentFlowDefinitionNodeConfiguration;
         /**
-         * A list of objects containing information about an input into the node. See Node Input for more information.
+         * Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
          */
         inputs?: outputs.bedrock.AgentFlowDefinitionNodeInput[];
         /**
-         * A name for the node.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
-         * A list of objects containing information about an output from the node. See Node Output for more information.
+         * Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
          */
         outputs?: outputs.bedrock.AgentFlowDefinitionNodeOutput[];
         /**
-         * Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeConfiguration {
         /**
-         * Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+         * Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
          */
         agent?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationAgent;
         /**
-         * Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+         * Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
          */
         collector?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationCollector;
         /**
-         * Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         condition?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationCondition;
         /**
-         * Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+         * Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
          */
         inlineCode?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationInlineCode;
         /**
-         * Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
          */
         input?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationInput;
         /**
-         * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+         * Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
          */
         iterator?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationIterator;
         /**
-         * Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+         * Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
          */
         knowledgeBase?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBase;
         /**
-         * Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+         * Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
          */
         lambdaFunction?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationLambdaFunction;
         /**
-         * Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+         * Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
          */
         lex?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationLex;
         /**
-         * Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
          */
         output?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationOutput;
         /**
-         * Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+         * Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
          */
         prompt?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPrompt;
         /**
-         * Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+         * Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
          */
         retrieval?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrieval;
         /**
-         * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+         * Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
          */
         storage?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationStorage;
     }
@@ -16430,26 +16561,31 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationCondition {
         /**
-         * A list of conditions. See Condition Config for more information.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         conditions?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationConditionCondition[];
     }
 
     export interface AgentFlowDefinitionNodeConfigurationConditionCondition {
+        /**
+         * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         */
         expression?: string;
         /**
-         * A name for the flow.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationInlineCode {
         /**
-         * The code that's executed in your inline code node.
+         * Code that's executed in your inline code node.
          */
         code: string;
         /**
-         * The programming language used by your inline code node.
+         * Programming language used by your inline code node.
          */
         language: string;
     }
@@ -16462,38 +16598,41 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBase {
         /**
-         * Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+         * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          */
         guardrailConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration;
         /**
-         * Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+         * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          */
         inferenceConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration;
         /**
-         * The unique identifier of the knowledge base to query.
+         * Unique identifier of the knowledge base to query.
          */
         knowledgeBaseId: string;
         /**
-         * The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          */
         modelId: string;
+        /**
+         * Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+         */
         numberOfResults?: number;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
         /**
-         * The unique identifier of the guardrail.
+         * Unique identifier of the guardrail.
          */
         guardrailIdentifier: string;
         /**
-         * The version of the guardrail.
+         * Version of the guardrail.
          */
         guardrailVersion: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
         /**
-         * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * Message for the prompt.
          */
         text?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText;
     }
@@ -16504,7 +16643,7 @@ export namespace bedrock {
          */
         maxTokens?: number;
         /**
-         * List of strings that define sequences after which the model will stop generating.
+         * List of strings that define sequences after which the model stops generating.
          */
         stopSequences?: string[];
         /**
@@ -16530,7 +16669,7 @@ export namespace bedrock {
          */
         botAliasArn: string;
         /**
-         * The Region to invoke the Amazon Lex bot in
+         * Region to invoke the Amazon Lex bot in.
          */
         localeId: string;
     }
@@ -16540,33 +16679,33 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPrompt {
         /**
-         * Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+         * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          */
         guardrailConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration;
         /**
-         * Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
          */
         sourceConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
         /**
-         * The unique identifier of the guardrail.
+         * Unique identifier of the guardrail.
          */
         guardrailIdentifier: string;
         /**
-         * The version of the guardrail.
+         * Version of the guardrail.
          */
         guardrailVersion: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
         /**
-         * Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+         * Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
          */
         inline?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline;
         /**
-         * Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+         * Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
          */
         resource?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource;
     }
@@ -16577,26 +16716,26 @@ export namespace bedrock {
          */
         additionalModelRequestFields?: string;
         /**
-         * Contains inference configurations for the prompt. See Inference Configuration for more information.
+         * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          */
         inferenceConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration;
         /**
-         * The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          */
         modelId: string;
         /**
-         * Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+         * Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
          */
         templateConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration;
         /**
-         * The type of prompt template. Valid values: `TEXT`, `CHAT`.
+         * Type of prompt template. Valid values: `TEXT`, `CHAT`.
          */
         templateType: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
         /**
-         * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * Message for the prompt.
          */
         text?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText;
     }
@@ -16607,7 +16746,7 @@ export namespace bedrock {
          */
         maxTokens?: number;
         /**
-         * List of strings that define sequences after which the model will stop generating.
+         * List of strings that define sequences after which the model stops generating.
          */
         stopSequences?: string[];
         /**
@@ -16622,125 +16761,130 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
         /**
-         * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
          */
         chat?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat;
         /**
-         * Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * Message for the prompt.
          */
         text?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+        /**
+         * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+         */
         inputVariables?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable[];
         /**
-         * A list of messages in the chat for the prompt. See Message for more information.
+         * Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
          */
         messages: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage[];
         /**
-         * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
          */
         systems?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem[];
         /**
-         * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
          */
         toolConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
         /**
-         * The name of the variable.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
         /**
-         * Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+         * Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
          */
         content?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent;
         /**
-         * The role that the message belongs to.
+         * Role that the message belongs to.
          */
         role: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
         /**
-         * Creates a cache checkpoint within a message. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint;
         /**
-         * The text in the message.
+         * Message for the prompt.
          */
         text?: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint;
         /**
-         * The text in the system prompt.
+         * Message for the prompt.
          */
         text?: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
         /**
-         * Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
          */
         toolChoice?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice;
         /**
-         * A list of tools to pass to a model. See Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
          */
         tools?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool[];
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint;
         /**
-         * The specification for the tool. See Tool Specification for more information.
+         * Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
          */
         toolSpec?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
         /**
-         * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+         * Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
          */
         any?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny;
         /**
-         * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+         * Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
          */
         auto?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto;
         /**
-         * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
          */
         tool?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool;
     }
@@ -16753,58 +16897,64 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
         /**
-         * The name of the tool.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
         /**
-         * The description of the tool.
+         * Description for the flow.
          */
         description?: string;
         /**
-         * The input schema of the tool. See Tool Input Schema for more information.
+         * Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
          */
         inputSchema?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema;
         /**
-         * The name of the tool.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
         /**
-         * A JSON object defining the input schema for the tool.
+         * JSON object defining the input schema for the tool.
          */
         json?: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
         /**
-         * A cache checkpoint within a template configuration. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint;
         /**
-         * A list of variables in the prompt template. See Input Variable for more information.
+         * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
          */
         inputVariables?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable[];
         /**
-         * The message for the prompt.
+         * Message for the prompt.
          */
         text: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
         /**
-         * The name of the variable.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
     }
@@ -16818,42 +16968,42 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationRetrieval {
         /**
-         * Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          */
         serviceConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
         /**
-         * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          */
         s3?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
         /**
-         * The name of the Amazon S3 bucket in which to store the input into the node.
+         * Name of the Amazon S3 bucket in which to store the input into the node.
          */
         bucketName: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorage {
         /**
-         * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          */
         serviceConfiguration?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
         /**
-         * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          */
         s3?: outputs.bedrock.AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
         /**
-         * The name of the Amazon S3 bucket in which to store the input into the node.
+         * Name of the Amazon S3 bucket in which to store the input into the node.
          */
         bucketName: string;
     }
@@ -16864,26 +17014,30 @@ export namespace bedrock {
          */
         category?: string;
         /**
-         * An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
          */
         expression: string;
         /**
-         * A name for the input that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
-         * The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
 
     export interface AgentFlowDefinitionNodeOutput {
         /**
-         * A name for the output that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
-         * The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: string;
     }
@@ -16905,15 +17059,15 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
         /**
-         * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+         * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
          */
         kendraKnowledgeBaseConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration;
         /**
-         * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
          */
         managedKnowledgeBaseConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration;
         /**
-         * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+         * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
          */
         sqlKnowledgeBaseConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration;
         /**
@@ -16921,7 +17075,7 @@ export namespace bedrock {
          */
         type: string;
         /**
-         * Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+         * Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
          */
         vectorKnowledgeBaseConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration;
     }
@@ -16939,7 +17093,7 @@ export namespace bedrock {
          */
         embeddingModelArn?: string;
         /**
-         * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+         * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
          */
         embeddingModelConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration;
         /**
@@ -16947,21 +17101,21 @@ export namespace bedrock {
          */
         embeddingModelType: string;
         /**
-         * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+         * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
          */
         serverSideEncryptionConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration {
         /**
-         * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          */
         bedrockEmbeddingModelConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
         /**
-         * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          */
         audio?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio;
         /**
@@ -16969,18 +17123,18 @@ export namespace bedrock {
          */
         dimensions?: number;
         /**
-         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          */
         embeddingDataType?: string;
         /**
-         * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          */
         video?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
         /**
-         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration;
     }
@@ -16994,7 +17148,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
         /**
-         * Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration;
     }
@@ -17017,7 +17171,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
         /**
-         * Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+         * Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
          */
         redshiftConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration;
         /**
@@ -17028,26 +17182,26 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
         /**
-         * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+         * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
          */
         queryEngineConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration;
         /**
-         * Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+         * Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
          */
         queryGenerationConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration;
         /**
-         * Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+         * Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
          */
         storageConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
         /**
-         * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+         * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
          */
         provisionedConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration;
         /**
-         * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+         * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
          */
         serverlessConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration;
         /**
@@ -17058,7 +17212,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
         /**
-         * Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+         * Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
          */
         authConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration;
         /**
@@ -17084,7 +17238,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
         /**
-         * Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+         * Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
          */
         authConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration;
         /**
@@ -17110,18 +17264,18 @@ export namespace bedrock {
          */
         executionTimeoutSeconds?: number;
         /**
-         * Configurations for context to use during query generation. See `generationContext` block for details.
+         * Configurations for context to use during query generation. See `generationContext` Block for details.
          */
         generationContext?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
         /**
-         * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+         * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
          */
         curatedQueries?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery[];
         /**
-         * Information about a table in the database. See `table` block for details.
+         * Information about a table in the database. See `table` Block for details.
          */
         tables?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable[];
     }
@@ -17139,7 +17293,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
         /**
-         * Information about a column in the table. See `column` block for details.
+         * Information about a column in the table. See `column` Block for details.
          */
         columns?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn[];
         /**
@@ -17173,11 +17327,11 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
         /**
-         * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+         * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
          */
         awsDataCatalogConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration;
         /**
-         * Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+         * Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
          */
         redshiftConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration;
         /**
@@ -17206,25 +17360,25 @@ export namespace bedrock {
          */
         embeddingModelArn: string;
         /**
-         * The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+         * Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
          */
         embeddingModelConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration;
         /**
-         * supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+         * Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
          */
         supplementalDataStorageConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
         /**
-         * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          */
         bedrockEmbeddingModelConfiguration?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
         /**
-         * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          */
         audio?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio;
         /**
@@ -17232,18 +17386,18 @@ export namespace bedrock {
          */
         dimensions?: number;
         /**
-         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          */
         embeddingDataType?: string;
         /**
-         * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          */
         video?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
         /**
-         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration;
     }
@@ -17257,7 +17411,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
         /**
-         * Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration;
     }
@@ -17271,14 +17425,14 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
         /**
-         * A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+         * Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
          */
         storageLocations: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation[];
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
         /**
-         * Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+         * Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
          */
         s3Location?: outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location;
         /**
@@ -17296,35 +17450,35 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseStorageConfiguration {
         /**
-         * The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+         * Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
          */
         mongoDbAtlasConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration;
         /**
-         * The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
          */
         neptuneAnalyticsConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration;
         /**
-         * The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
          */
         opensearchManagedClusterConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration;
         /**
-         * The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
          */
         opensearchServerlessConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration;
         /**
-         * The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+         * Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
          */
         pineconeConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration;
         /**
-         * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+         * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
          */
         rdsConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfiguration;
         /**
-         * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+         * Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
          */
         redisEnterpriseCloudConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration;
         /**
-         * The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
          */
         s3VectorsConfiguration?: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration;
         /**
@@ -17335,57 +17489,57 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
         /**
-         * The name of the collection in the MongoDB Atlas database.
+         * Name of the collection in the MongoDB Atlas database.
          */
         collectionName: string;
         /**
-         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+         * ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
          */
         credentialsSecretArn: string;
         /**
-         * The name of the database in the MongoDB Atlas database.
+         * Name of the database in the MongoDB Atlas database.
          */
         databaseName: string;
         /**
-         * The endpoint URL of the MongoDB Atlas database.
+         * Endpoint URL of the MongoDB Atlas database.
          */
         endpoint: string;
         /**
-         * The name of the service that hosts the MongoDB Atlas database.
+         * Name of the service that hosts the MongoDB Atlas database.
          */
         endpointServiceName?: string;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping;
         /**
-         * The name of the vector index.
+         * Name of the vector index.
          */
         textIndexName?: string;
         /**
-         * The name of the vector index.
+         * Name of the vector index.
          */
         vectorIndexName: string;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField: string;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField: string;
         /**
-         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          */
         vectorField: string;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping;
         /**
@@ -17415,7 +17569,7 @@ export namespace bedrock {
          */
         domainEndpoint: string;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping;
         /**
@@ -17445,7 +17599,7 @@ export namespace bedrock {
          */
         collectionArn: string;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping;
         /**
@@ -17479,7 +17633,7 @@ export namespace bedrock {
          */
         credentialsSecretArn: string;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping;
         /**
@@ -17509,7 +17663,7 @@ export namespace bedrock {
          */
         databaseName: string;
         /**
-         * Names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping;
         /**
@@ -17555,7 +17709,7 @@ export namespace bedrock {
          */
         endpoint: string;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
          */
         fieldMapping: outputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping;
         /**
@@ -17611,19 +17765,19 @@ export namespace bedrock {
 
     export interface AgentPromptVariant {
         /**
-         * Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          */
         additionalModelRequestFields?: string;
         /**
-         * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+         * Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
          */
         genAiResource?: outputs.bedrock.AgentPromptVariantGenAiResource;
         /**
-         * Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+         * Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
          */
         inferenceConfiguration?: outputs.bedrock.AgentPromptVariantInferenceConfiguration;
         /**
-         * A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+         * List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
          */
         metadatas?: outputs.bedrock.AgentPromptVariantMetadata[];
         /**
@@ -17631,11 +17785,11 @@ export namespace bedrock {
          */
         modelId?: string;
         /**
-         * Name of the prompt variant.
+         * Name of the tool.
          */
         name: string;
         /**
-         * Contains configurations for the prompt template. See Template Configuration for more information.
+         * Configurations for the prompt template. See `templateConfiguration` Block for more information.
          */
         templateConfiguration?: outputs.bedrock.AgentPromptVariantTemplateConfiguration;
         /**
@@ -17646,7 +17800,7 @@ export namespace bedrock {
 
     export interface AgentPromptVariantGenAiResource {
         /**
-         * Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+         * Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
          */
         agent?: outputs.bedrock.AgentPromptVariantGenAiResourceAgent;
     }
@@ -17660,7 +17814,7 @@ export namespace bedrock {
 
     export interface AgentPromptVariantInferenceConfiguration {
         /**
-         * Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+         * Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
          */
         text?: outputs.bedrock.AgentPromptVariantInferenceConfigurationText;
     }
@@ -17697,119 +17851,125 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfiguration {
         /**
-         * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * Configurations to use the prompt in a conversational format. See `chat` Block for more information.
          */
         chat?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChat;
         /**
-         * Contains configurations for the text in a message for a prompt. See Text Template Configuration
+         * Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
          */
         text?: outputs.bedrock.AgentPromptVariantTemplateConfigurationText;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChat {
+        /**
+         * List of variables in the prompt template. See `inputVariable` Block for more information.
+         */
         inputVariables?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatInputVariable[];
         /**
-         * A list of messages in the chat for the prompt. See Message for more information.
+         * List of messages in the chat for the prompt. See `message` Block for more information.
          */
         messages: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessage[];
         /**
-         * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
          */
         systems?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatSystem[];
         /**
-         * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
          */
         toolConfiguration?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfiguration;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatInputVariable {
         /**
-         * The name of the variable.
+         * Name of the variable.
          */
         name: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessage {
         /**
-         * Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * Content for the message you pass to, or receive from a model. See `content` Block for more information.
          */
         content?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessageContent;
         /**
-         * The role that the message belongs to.
+         * Role that the message belongs to.
          */
         role: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessageContent {
+        /**
+         * Cache checkpoint within a message. See `cachePoint` Block for more information.
+         */
         cachePoint?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint;
+        /**
+         * Text in the message.
+         */
         text?: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatSystem {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
          */
         cachePoint?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatSystemCachePoint;
         /**
-         * The text in the system prompt.
+         * Text in the system prompt.
          */
         text?: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfiguration {
         /**
-         * Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
          */
         toolChoice?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice;
         /**
-         * A list of tools to pass to a model. See Tool for more information.
+         * List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
          */
         tools?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool[];
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
-        /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         */
         cachePoint?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint;
         /**
-         * The specification for the tool. See Tool Specification for more information.
+         * Specification for the tool. See `toolSpec` Block for more information.
          */
         toolSpec?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
         /**
-         * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
          */
         any?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny;
         /**
-         * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
          */
         auto?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto;
         /**
-         * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
          */
         tool?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool;
     }
@@ -17831,24 +17991,22 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
         /**
-         * Description of the prompt.
+         * Description of the tool.
          */
         description?: string;
         /**
-         * The input schema of the tool. See Tool Input Schema for more information.
+         * Input schema of the tool. See `inputSchema` Block for more information.
          */
         inputSchema?: outputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema;
         /**
-         * Name of the prompt.
-         *
-         * The following arguments are optional:
+         * Name of the tool.
          */
         name: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
         /**
-         * A JSON object defining the input schema for the tool.
+         * JSON object defining the input schema for the tool.
          */
         json?: string;
     }
@@ -17861,14 +18019,14 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfigurationTextCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: string;
     }
 
     export interface AgentPromptVariantTemplateConfigurationTextInputVariable {
         /**
-         * The name of the variable.
+         * Name of the variable.
          */
         name: string;
     }
@@ -18209,7 +18367,7 @@ export namespace bedrock {
 
     export interface AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
          */
         requireServiceS3Endpoint: boolean;
         /**
@@ -18231,7 +18389,7 @@ export namespace bedrock {
 
     export interface AgentcoreAgentRuntimeRequestHeaderConfiguration {
         /**
-         * A list of HTTP request headers that are allowed to be passed through to the runtime.
+         * List of HTTP request headers that are allowed to be passed through to the runtime.
          */
         requestHeaderAllowlists?: string[];
     }
@@ -18265,6 +18423,17 @@ export namespace bedrock {
         secretArn: string;
     }
 
+    export interface AgentcoreApiKeyCredentialProviderApiKeySecretConfig {
+        /**
+         * JSON key used to extract the secret value from the AWS Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the secret value.
+         */
+        secretId: string;
+    }
+
     export interface AgentcoreBrowserBrowserSigning {
         /**
          * Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
@@ -18274,7 +18443,7 @@ export namespace bedrock {
 
     export interface AgentcoreBrowserCertificate {
         /**
-         * Location from which to retrieve the certificate. See `certificates.location` below.
+         * Location from which to retrieve the certificate. See `certificate.location` below.
          */
         location: outputs.bedrock.AgentcoreBrowserCertificateLocation;
     }
@@ -18394,7 +18563,7 @@ export namespace bedrock {
 
     export interface AgentcoreCodeInterpreterCertificate {
         /**
-         * Location from which to retrieve the certificate. See `certificates.location` below.
+         * Location from which to retrieve the certificate. See `certificate.location` below.
          */
         location: outputs.bedrock.AgentcoreCodeInterpreterCertificateLocation;
     }
@@ -19256,7 +19425,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
         /**
-         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource;
     }
@@ -19294,7 +19463,7 @@ export namespace bedrock {
          */
         protocolType: string;
         /**
-         * API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         * API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
          */
         schema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema;
         /**
@@ -19313,7 +19482,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
         /**
-         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource;
     }
@@ -19358,7 +19527,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationInference {
         /**
-         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
          */
         connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnector;
         /**
@@ -19369,7 +19538,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
         /**
-         * Source configuration identifying which connector to use. See `source` Block below.
+         * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource;
     }
@@ -19439,7 +19608,7 @@ export namespace bedrock {
          */
         apiGateway?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway;
         /**
-         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
          */
         connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnector;
         /**
@@ -19451,11 +19620,11 @@ export namespace bedrock {
          */
         mcpServer?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
         /**
-         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
          */
         openApiSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
         /**
-         * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
          */
         smithyModel?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel;
     }
@@ -19526,7 +19695,7 @@ export namespace bedrock {
          */
         enableds?: string[];
         /**
-         * Source configuration identifying which connector to use. See `source` Block below.
+         * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource;
     }
@@ -19586,7 +19755,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
         /**
-         * Inline tool definition. See `inlinePayload` Block below.
+         * Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
          */
         inlinePayloads?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload[];
         /**
@@ -19601,7 +19770,7 @@ export namespace bedrock {
          */
         description: string;
         /**
-         * Schema for the tool's input. See `schemaDefinition` Block below.
+         * Schema for the tool's input. See `inputSchema` Block below.
          */
         inputSchema: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema;
         /**
@@ -19609,18 +19778,27 @@ export namespace bedrock {
          */
         name: string;
         /**
-         * Schema for the tool's output. See `schemaDefinition` Block below.
+         * Schema for the tool's output. See `outputSchema` Block below.
          */
         outputSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
         /**
-         * Description of the gateway target.
+         * Description of the schema element.
          */
         description?: string;
+        /**
+         * Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+         */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems;
+        /**
+         * Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+         */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty[];
+        /**
+         * Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         */
         type: string;
     }
 
@@ -19630,11 +19808,11 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty[];
         /**
@@ -19695,7 +19873,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` Block above.
+         * Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems;
         /**
@@ -19703,7 +19881,7 @@ export namespace bedrock {
          */
         name: string;
         /**
-         * Set of nested property definitions for object properties.
+         * Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty[];
         /**
@@ -19722,11 +19900,11 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty[];
         /**
@@ -19810,11 +19988,20 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
         /**
-         * Description of the gateway target.
+         * Description of the schema element.
          */
         description?: string;
+        /**
+         * Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+         */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems;
+        /**
+         * Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+         */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty[];
+        /**
+         * Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         */
         type: string;
     }
 
@@ -19824,11 +20011,11 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty[];
         /**
@@ -19889,7 +20076,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` Block above.
+         * Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems;
         /**
@@ -19897,7 +20084,7 @@ export namespace bedrock {
          */
         name: string;
         /**
-         * Set of nested property definitions for object properties.
+         * Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty[];
         /**
@@ -19916,11 +20103,11 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty[];
         /**
@@ -20344,14 +20531,14 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironment {
         /**
-         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
          */
         agentcoreRuntimeEnvironments?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment[];
     }
 
     export interface AgentcoreHarnessEnvironmentActual {
         /**
-         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
          */
         agentcoreRuntimeEnvironments: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment[];
     }
@@ -20370,32 +20557,30 @@ export namespace bedrock {
          */
         agentRuntimeName: string;
         /**
-         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         * Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
          */
         filesystemConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
-         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         * Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
          */
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
-         * Network configuration. See `networkConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
          */
         networkConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
-         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          */
         efsAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint[];
         /**
-         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          */
         s3FilesAccessPoints: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint[];
         /**
-         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          */
         sessionStorages: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage[];
     }
@@ -20442,18 +20627,18 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
         /**
-         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         * Network mode.
          */
         networkMode: string;
         /**
-         * VPC configuration. See `networkModeConfig` Block below.
+         * VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          */
         networkModeConfigs: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig[];
     }
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether to require an S3 endpoint for the service in the VPC.
+         * Whether an S3 endpoint is required for the service in the VPC.
          */
         requireServiceS3Endpoint: boolean;
         /**
@@ -20480,32 +20665,30 @@ export namespace bedrock {
          */
         agentRuntimeName: string;
         /**
-         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         * Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
          */
         filesystemConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
-         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         * Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
          */
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
-         * Network configuration. See `networkConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
          */
         networkConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
-         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          */
         efsAccessPoints?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint[];
         /**
-         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          */
         s3FilesAccessPoints?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint[];
         /**
-         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          */
         sessionStorages?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage[];
     }
@@ -20552,18 +20735,18 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
         /**
-         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         * Network mode.
          */
         networkMode: string;
         /**
-         * VPC configuration. See `networkModeConfig` Block below.
+         * VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          */
         networkModeConfigs?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig[];
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether to require an S3 endpoint for the service in the VPC.
+         * Whether an S3 endpoint is required for the service in the VPC.
          */
         requireServiceS3Endpoint: boolean;
         /**
@@ -20592,30 +20775,30 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessMemory {
         /**
-         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
          */
         agentcoreMemoryConfiguration?: outputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration;
         /**
-         * Explicitly disable memory for this harness. See `disabled` Block below.
+         * Explicitly disable memory for this harness. See `memory.disabled` Block below.
          */
         disabled?: outputs.bedrock.AgentcoreHarnessMemoryDisabled;
         /**
-         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
          */
         managedMemoryConfiguration?: outputs.bedrock.AgentcoreHarnessMemoryManagedMemoryConfiguration;
     }
 
     export interface AgentcoreHarnessMemoryActual {
         /**
-         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
          */
         agentcoreMemoryConfigurations: outputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration[];
         /**
-         * Explicitly disable memory for this harness. See `disabled` Block below.
+         * Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
          */
         disableds: outputs.bedrock.AgentcoreHarnessMemoryActualDisabled[];
         /**
-         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
          */
         managedMemoryConfigurations: outputs.bedrock.AgentcoreHarnessMemoryActualManagedMemoryConfiguration[];
     }
@@ -20626,7 +20809,7 @@ export namespace bedrock {
          */
         actorId: string;
         /**
-         * ARN of the AgentCore memory resource.
+         * ARN of the managed memory resource.
          */
         arn: string;
         /**
@@ -20634,7 +20817,7 @@ export namespace bedrock {
          */
         messagesCount: number;
         /**
-         * Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          */
         retrievalConfigs: outputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig[];
     }
@@ -20667,17 +20850,15 @@ export namespace bedrock {
          */
         arn: string;
         /**
-         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         * ARN of the customer-managed KMS key used to encrypt the memory.
          */
         encryptionKeyArn: string;
         /**
-         * Event retention in days. Defaults to `30`.
+         * Event retention in days.
          */
         eventExpiryDuration: number;
         /**
-         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-         *
-         * In addition, the following attribute is exported:
+         * Set of strategy types enabled.
          */
         strategies: string[];
     }
@@ -20688,7 +20869,7 @@ export namespace bedrock {
          */
         actorId?: string;
         /**
-         * ARN of the AgentCore memory resource.
+         * ARN of the managed memory resource.
          */
         arn: string;
         /**
@@ -20696,7 +20877,7 @@ export namespace bedrock {
          */
         messagesCount?: number;
         /**
-         * Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          */
         retrievalConfig?: outputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig;
     }
@@ -20729,17 +20910,15 @@ export namespace bedrock {
          */
         arn: string;
         /**
-         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         * ARN of the customer-managed KMS key used to encrypt the memory.
          */
         encryptionKeyArn?: string;
         /**
-         * Event retention in days. Defaults to `30`.
+         * Event retention in days.
          */
         eventExpiryDuration: number;
         /**
-         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-         *
-         * In addition, the following attribute is exported:
+         * Set of strategy types enabled.
          */
         strategies: string[];
     }
@@ -20966,7 +21145,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessTool {
         /**
-         * Tool-specific configuration. See `tool config` below.
+         * Tool-specific configuration. See `tool.config` Block below.
          */
         config?: outputs.bedrock.AgentcoreHarnessToolConfig;
         /**
@@ -21089,7 +21268,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessTruncation {
         /**
-         * Strategy-specific configuration. See `truncation config` below.
+         * Strategy-specific configuration. See `truncation.config` Block below.
          */
         configs: outputs.bedrock.AgentcoreHarnessTruncationConfig[];
         /**
@@ -21478,58 +21657,50 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         /**
-         * Atlassian OAuth provider configuration. See `predefined providers` below.
+         * Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
          */
         atlassianOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig;
         /**
-         * Custom OAuth2 provider configuration. See `custom` below.
+         * Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
          */
         customOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig;
         /**
-         * GitHub OAuth provider configuration. See `predefined providers` below.
+         * GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
          */
         githubOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig;
         /**
-         * Google OAuth provider configuration. See `predefined providers` below.
+         * Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
          */
         googleOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig;
         /**
-         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-         *
-         * > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
          */
         includedOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig;
         /**
-         * LinkedIn OAuth provider configuration. See `predefined providers` below.
+         * LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
          */
         linkedinOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig;
         /**
-         * Microsoft OAuth provider configuration. See `predefined providers` below.
+         * Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
          */
         microsoftOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig;
         /**
-         * Salesforce OAuth provider configuration. See `predefined providers` below.
+         * Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
          */
         salesforceOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig;
         /**
-         * Slack OAuth provider configuration. See `predefined providers` below.
+         * Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
          */
         slackOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -21538,15 +21709,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig;
         /**
@@ -21559,9 +21726,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery[];
     }
@@ -21579,11 +21744,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -21606,7 +21771,7 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
@@ -21617,9 +21782,7 @@ export namespace bedrock {
          */
         clientAuthenticationMethod?: string;
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **OAuth Discovery Configuration:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
@@ -21633,14 +21796,10 @@ export namespace bedrock {
         clientIdWo?: string;
         /**
          * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig;
         /**
@@ -21653,23 +21812,24 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscovery: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery;
         /**
-         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
          */
         onBehalfOfTokenExchangeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig;
         /**
-         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
          */
         privateEndpoint?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint;
         /**
-         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
          */
         privateEndpointOverrides?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride[];
+        /**
+         * Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+         */
         privateKeyJwtConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig;
     }
 
@@ -21686,11 +21846,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadata?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl?: string;
     }
@@ -21713,7 +21873,7 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods?: string[];
     }
@@ -21724,7 +21884,7 @@ export namespace bedrock {
          */
         grantType: string;
         /**
-         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
          */
         tokenExchangeGrantTypeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig;
     }
@@ -21742,11 +21902,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
         /**
-         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource;
     }
@@ -21784,18 +21944,18 @@ export namespace bedrock {
          */
         domain: string;
         /**
-         * Private endpoint configuration for the domain. See `privateEndpoint` above.
+         * Private endpoint configuration for the domain. See `privateEndpoint` Block above.
          */
         privateEndpoint: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
         /**
-         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
     }
@@ -21842,33 +22002,45 @@ export namespace bedrock {
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+        /**
+         * Key-value map of additional claims to include in the JWT header.
+         */
         additionalHeaderClaims?: {[key: string]: string};
+        /**
+         * Key-value map of additional claims to include in the JWT payload.
+         */
         additionalPayloadClaims?: {[key: string]: string};
+        /**
+         * Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+         */
         privateKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource;
+        /**
+         * Algorithm used to sign the JWT.
+         */
         signingAlgorithm?: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+        /**
+         * AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+         */
         kmsKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+        /**
+         * ARN of the AWS KMS key used to sign the JWT.
+         */
         kmsKeyArn: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -21877,15 +22049,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig;
         /**
@@ -21898,9 +22066,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery[];
     }
@@ -21918,11 +22084,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -21945,24 +22111,18 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -21971,15 +22131,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig;
         /**
@@ -21992,9 +22148,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery[];
     }
@@ -22012,11 +22166,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22039,7 +22193,7 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
@@ -22050,17 +22204,11 @@ export namespace bedrock {
          */
         authorizationEndpoint?: string;
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -22069,15 +22217,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig;
         /**
@@ -22094,9 +22238,7 @@ export namespace bedrock {
          */
         issuer?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery[];
         /**
@@ -22118,11 +22260,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22145,24 +22287,18 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -22171,15 +22307,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig;
         /**
@@ -22192,9 +22324,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery[];
     }
@@ -22212,11 +22342,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22239,24 +22369,18 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -22265,15 +22389,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig;
         /**
@@ -22286,26 +22406,20 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery[];
         /**
-         * Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-         *
-         * **Write-Only Tenant ID:**
+         * Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
          */
         tenantId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+         * Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
          */
         tenantIdWo?: string;
         /**
-         * Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-         *
-         * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+         * Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
          */
         tenantIdWoVersion?: number;
     }
@@ -22323,11 +22437,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22350,24 +22464,18 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -22376,15 +22484,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig;
         /**
@@ -22397,9 +22501,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery[];
     }
@@ -22417,11 +22519,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22444,24 +22546,18 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: number;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: string;
         /**
@@ -22470,15 +22566,11 @@ export namespace bedrock {
          */
         clientIdWo?: string;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: string;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig;
         /**
@@ -22491,9 +22583,7 @@ export namespace bedrock {
          */
         clientSecretWo?: string;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery[];
     }
@@ -22511,11 +22601,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: string;
     }
@@ -22538,7 +22628,7 @@ export namespace bedrock {
          */
         tokenEndpoint: string;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: string[];
     }
@@ -22948,7 +23038,7 @@ export namespace bedrock {
 
     export interface CustomModelOutputDataConfig {
         /**
-         * The S3 URI where the output data is stored.
+         * S3 URI where the output data is stored.
          */
         s3Uri: string;
     }
@@ -22966,7 +23056,7 @@ export namespace bedrock {
 
     export interface CustomModelTrainingDataConfig {
         /**
-         * The S3 URI where the training data is stored.
+         * S3 URI where the training data is stored.
          */
         s3Uri: string;
     }
@@ -22980,21 +23070,21 @@ export namespace bedrock {
 
     export interface CustomModelValidationDataConfig {
         /**
-         * Information about the validators.
+         * Information about the validators. See `validator` below.
          */
         validators: outputs.bedrock.CustomModelValidationDataConfigValidator[];
     }
 
     export interface CustomModelValidationDataConfigValidator {
         /**
-         * The S3 URI where the validation data is stored.
+         * S3 URI where the validation data is stored.
          */
         s3Uri: string;
     }
 
     export interface CustomModelValidationMetric {
         /**
-         * The validation loss associated with the validator.
+         * Validation loss associated with the validator.
          */
         validationLoss: number;
     }
@@ -23415,9 +23505,11 @@ export namespace bedrock {
         createdAt: string;
         /**
          * Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          */
         description: string;
+        /**
+         * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         */
         guardrailConfigurations?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration[];
         /**
          * Time at which the version was last updated.
@@ -23438,14 +23530,14 @@ export namespace bedrock {
 
     export interface GetCustomModelOutputDataConfig {
         /**
-         * The S3 URI where the validation data is stored..
+         * S3 URI where the validation data is stored.
          */
         s3Uri: string;
     }
 
     export interface GetCustomModelTrainingDataConfig {
         /**
-         * The S3 URI where the validation data is stored..
+         * S3 URI where the validation data is stored.
          */
         s3Uri: string;
     }
@@ -23466,14 +23558,14 @@ export namespace bedrock {
 
     export interface GetCustomModelValidationDataConfigValidator {
         /**
-         * The S3 URI where the validation data is stored..
+         * S3 URI where the validation data is stored.
          */
         s3Uri: string;
     }
 
     export interface GetCustomModelValidationMetric {
         /**
-         * The validation loss associated with the validator.
+         * Validation loss associated with the validator.
          */
         validationLoss: number;
     }
@@ -23484,18 +23576,18 @@ export namespace bedrock {
          */
         creationTime: string;
         /**
-         * The ARN of the custom model.
+         * ARN of the custom model.
          */
         modelArn: string;
         /**
-         * The name of the custom model.
+         * Name of the custom model.
          */
         modelName: string;
     }
 
     export interface GetInferenceProfileModel {
         /**
-         * The ARN of the model.
+         * ARN of the model.
          */
         modelArn: string;
     }
@@ -23548,12 +23640,11 @@ export namespace bedrock {
 
     export interface GuardrailContentPolicyConfig {
         /**
-         * Set of content filter configs in content policy.
-         * See Filters Config for more information.
+         * Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
          */
         filtersConfigs?: outputs.bedrock.GuardrailContentPolicyConfigFiltersConfig[];
         /**
-         * Configuration block for the content policy tier. See Tier Config for more information.
+         * Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
          */
         tierConfigs: outputs.bedrock.GuardrailContentPolicyConfigTierConfig[];
     }
@@ -23599,21 +23690,21 @@ export namespace bedrock {
 
     export interface GuardrailContentPolicyConfigTierConfig {
         /**
-         * The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+         * Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
          */
         tierName: string;
     }
 
     export interface GuardrailContextualGroundingPolicyConfig {
         /**
-         * One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         * One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
          */
         filtersConfigs?: outputs.bedrock.GuardrailContextualGroundingPolicyConfigFiltersConfig[];
     }
 
     export interface GuardrailContextualGroundingPolicyConfigFiltersConfig {
         /**
-         * The threshold for this filter.
+         * Threshold for this filter.
          */
         threshold: number;
         /**
@@ -23631,11 +23722,11 @@ export namespace bedrock {
 
     export interface GuardrailSensitiveInformationPolicyConfig {
         /**
-         * List of entities. See PII Entities Config for more information.
+         * List of entities. See `piiEntitiesConfig` Block for more information.
          */
         piiEntitiesConfigs?: outputs.bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig[];
         /**
-         * List of regex. See Regexes Config for more information.
+         * List of regex. See `regexesConfig` Block for more information.
          */
         regexesConfigs?: outputs.bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfig[];
     }
@@ -23662,7 +23753,7 @@ export namespace bedrock {
          */
         outputEnabled: boolean;
         /**
-         * The currently supported PII entities.
+         * Currently supported PII entities.
          */
         type: string;
     }
@@ -23673,7 +23764,7 @@ export namespace bedrock {
          */
         action: string;
         /**
-         * The regex description.
+         * Regex description.
          */
         description: string;
         /**
@@ -23685,7 +23776,7 @@ export namespace bedrock {
          */
         inputEnabled: boolean;
         /**
-         * The regex name.
+         * Regex name.
          */
         name: string;
         /**
@@ -23697,7 +23788,7 @@ export namespace bedrock {
          */
         outputEnabled: boolean;
         /**
-         * The regex pattern.
+         * Regex pattern.
          */
         pattern: string;
     }
@@ -23719,18 +23810,18 @@ export namespace bedrock {
 
     export interface GuardrailTopicPolicyConfig {
         /**
-         * Configuration block for the topic policy tier. See Tier Config for more information.
+         * Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
          */
         tierConfigs: outputs.bedrock.GuardrailTopicPolicyConfigTierConfig[];
         /**
-         * List of topic configs in topic policy. See Topics Config for more information.
+         * List of topic configs in topic policy. See `topicsConfig` Block for more information.
          */
         topicsConfigs?: outputs.bedrock.GuardrailTopicPolicyConfigTopicsConfig[];
     }
 
     export interface GuardrailTopicPolicyConfigTierConfig {
         /**
-         * The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+         * Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
          */
         tierName: string;
     }
@@ -23767,11 +23858,11 @@ export namespace bedrock {
 
     export interface GuardrailWordPolicyConfig {
         /**
-         * A config for the list of managed words. See Managed Word Lists Config for more information.
+         * Config for the list of managed words. See `managedWordListsConfig` Block for more information.
          */
         managedWordListsConfigs?: outputs.bedrock.GuardrailWordPolicyConfigManagedWordListsConfig[];
         /**
-         * List of custom word configs. See Words Config for more information.
+         * List of custom word configs. See `wordsConfig` Block for more information.
          */
         wordsConfigs?: outputs.bedrock.GuardrailWordPolicyConfigWordsConfig[];
     }
@@ -23817,21 +23908,21 @@ export namespace bedrock {
          */
         outputEnabled?: boolean;
         /**
-         * The custom word text.
+         * Custom word text.
          */
         text: string;
     }
 
     export interface InferenceProfileModel {
         /**
-         * The ARN of the model.
+         * ARN of the model.
          */
         modelArn: string;
     }
 
     export interface InferenceProfileModelSource {
         /**
-         * The ARN of the model.
+         * ARN of the model.
          */
         copyFrom: string;
     }
@@ -23976,7 +24067,7 @@ export namespace bedrockfoundation {
          */
         providerName: string;
         /**
-         * Indicates whether the model supports streaming.
+         * Whether the model supports streaming.
          */
         responseStreamingSupported: boolean;
     }
@@ -24098,7 +24189,7 @@ export namespace bedrockmodel {
          */
         logGroupName: string;
         /**
-         * The role ARN.
+         * Role ARN.
          */
         roleArn: string;
     }
@@ -24133,6 +24224,9 @@ export namespace billing {
          * ARN of the billing view.
          */
         arn: string;
+        /**
+         * Type of the billing view.
+         */
         billingViewType: string;
         /**
          * Description of the billing view.
@@ -24150,22 +24244,22 @@ export namespace billing {
 
     export interface ViewDataFilterExpression {
         /**
-         * Dimension to use for `expression`. Refer to #dimensions for more details.
+         * Dimension to use for the expression. See `dimensions` below for details.
          */
         dimensions?: outputs.billing.ViewDataFilterExpressionDimensions;
         /**
-         * List of key value map specifying tags associated to the billing view being created.
+         * Tags to use for the expression. See `tags` below for details.
          */
         tags?: outputs.billing.ViewDataFilterExpressionTag[];
         /**
-         * Time range to use for `expression`. Refer to #time-range for more details.
+         * Time range to use for the expression. See `timeRange` below for details.
          */
         timeRange?: outputs.billing.ViewDataFilterExpressionTimeRange;
     }
 
     export interface ViewDataFilterExpressionDimensions {
         /**
-         * Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+         * Key of the dimension. Valid values are `LINKED_ACCOUNT`.
          */
         key: string;
         /**
@@ -24187,9 +24281,12 @@ export namespace billing {
 
     export interface ViewDataFilterExpressionTimeRange {
         /**
-         * Inclusive end date of the time range.
+         * Inclusive start date of the time range.
          */
         beginDateInclusive: string;
+        /**
+         * Inclusive end date of the time range.
+         */
         endDateInclusive: string;
     }
 
@@ -24213,33 +24310,33 @@ export namespace billing {
 export namespace budgets {
     export interface BudgetActionActionThreshold {
         /**
-         * The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+         * Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
          */
         actionThresholdType: string;
         /**
-         * The threshold of a notification.
+         * Threshold of a notification.
          */
         actionThresholdValue: number;
     }
 
     export interface BudgetActionDefinition {
         /**
-         * The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+         * AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
          */
         iamActionDefinition?: outputs.budgets.BudgetActionDefinitionIamActionDefinition;
         /**
-         * The service control policies (SCPs) action definition details. See SCP Action Definition.
+         * Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
          */
         scpActionDefinition?: outputs.budgets.BudgetActionDefinitionScpActionDefinition;
         /**
-         * The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+         * AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
          */
         ssmActionDefinition?: outputs.budgets.BudgetActionDefinitionSsmActionDefinition;
     }
 
     export interface BudgetActionDefinitionIamActionDefinition {
         /**
-         * A list of groups to be attached. There must be at least one group.
+         * List of groups to be attached. There must be at least one group.
          */
         groups?: string[];
         /**
@@ -24247,182 +24344,182 @@ export namespace budgets {
          */
         policyArn: string;
         /**
-         * A list of roles to be attached. There must be at least one role.
+         * List of roles to be attached. There must be at least one role.
          */
         roles?: string[];
         /**
-         * A list of users to be attached. There must be at least one user.
+         * List of users to be attached. There must be at least one user.
          */
         users?: string[];
     }
 
     export interface BudgetActionDefinitionScpActionDefinition {
         /**
-         * The policy ID attached.
+         * Policy ID attached.
          */
         policyId: string;
         /**
-         * A list of target IDs.
+         * List of target IDs.
          */
         targetIds: string[];
     }
 
     export interface BudgetActionDefinitionSsmActionDefinition {
         /**
-         * The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+         * Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
          */
         actionSubType: string;
         /**
-         * The EC2 and RDS instance IDs.
+         * EC2 and RDS instance IDs.
          */
         instanceIds: string[];
         /**
-         * The Region to run the SSM document.
+         * Region to run the SSM document.
          */
         region: string;
     }
 
     export interface BudgetActionSubscriber {
         /**
-         * The address that AWS sends budget notifications to, either an SNS topic or an email.
+         * Address that AWS sends budget notifications to, either an SNS topic or an email.
          */
         address: string;
         /**
-         * The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+         * Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
          */
         subscriptionType: string;
     }
 
     export interface BudgetAutoAdjustData {
         /**
-         * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
          */
         autoAdjustType: string;
         /**
-         * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
          */
         historicalOptions?: outputs.budgets.BudgetAutoAdjustDataHistoricalOptions;
         /**
-         * (Optional) - The last time that your budget was auto-adjusted.
+         * Last time that your budget was auto-adjusted.
          */
         lastAutoAdjustTime: string;
     }
 
     export interface BudgetAutoAdjustDataHistoricalOptions {
         /**
-         * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         * Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
          */
         budgetAdjustmentPeriod: number;
         /**
-         * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         * Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
          */
         lookbackAvailablePeriods: number;
     }
 
     export interface BudgetCostFilter {
         /**
-         * The name of a budget. Unique within accounts.
+         * Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
          */
         name: string;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values used for filtering.
          */
         values: string[];
     }
 
     export interface BudgetCostTypes {
         /**
-         * A boolean value whether to include credits in the cost budget. Defaults to `true`
+         * Whether to include credits in the cost budget. Defaults to `true`.
          */
         includeCredit?: boolean;
         /**
-         * Whether a budget includes discounts. Defaults to `true`
+         * Whether a budget includes discounts. Defaults to `true`.
          */
         includeDiscount?: boolean;
         /**
-         * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+         * Whether to include other subscription costs in the cost budget. Defaults to `true`.
          */
         includeOtherSubscription?: boolean;
         /**
-         * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+         * Whether to include recurring costs in the cost budget. Defaults to `true`.
          */
         includeRecurring?: boolean;
         /**
-         * A boolean value whether to include refunds in the cost budget. Defaults to `true`
+         * Whether to include refunds in the cost budget. Defaults to `true`.
          */
         includeRefund?: boolean;
         /**
-         * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+         * Whether to include subscriptions in the cost budget. Defaults to `true`.
          */
         includeSubscription?: boolean;
         /**
-         * A boolean value whether to include support costs in the cost budget. Defaults to `true`
+         * Whether to include support costs in the cost budget. Defaults to `true`.
          */
         includeSupport?: boolean;
         /**
-         * A boolean value whether to include tax in the cost budget. Defaults to `true`
+         * Whether to include tax in the cost budget. Defaults to `true`.
          */
         includeTax?: boolean;
         /**
-         * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+         * Whether to include upfront costs in the cost budget. Defaults to `true`.
          */
         includeUpfront?: boolean;
         /**
-         * Whether a budget uses the amortized rate. Defaults to `false`
+         * Whether a budget uses the amortized rate. Defaults to `false`.
          */
         useAmortized?: boolean;
         /**
-         * A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+         * Whether to use blended costs in the cost budget. Defaults to `false`.
          */
         useBlended?: boolean;
     }
 
     export interface BudgetFilterExpression {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: outputs.budgets.BudgetFilterExpressionAnd[];
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionDimensions;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: outputs.budgets.BudgetFilterExpressionNot;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: outputs.budgets.BudgetFilterExpressionOr[];
         /**
-         * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * Tags block.
          */
         tags?: outputs.budgets.BudgetFilterExpressionTags;
     }
 
     export interface BudgetFilterExpressionAnd {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: outputs.budgets.BudgetFilterExpressionAndAnd[];
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionAndCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionAndDimensions;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: outputs.budgets.BudgetFilterExpressionAndNot;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: outputs.budgets.BudgetFilterExpressionAndOr[];
         /**
@@ -24433,11 +24530,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionAndAndCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionAndAndDimensions;
         /**
@@ -24448,86 +24545,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionAndAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionAndNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionAndNotCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionAndNotDimensions;
         /**
@@ -24538,56 +24635,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionAndNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionAndOrCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionAndOrDimensions;
         /**
@@ -24598,113 +24695,113 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionAndOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionNot {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: outputs.budgets.BudgetFilterExpressionNotAnd[];
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionNotCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionNotDimensions;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: outputs.budgets.BudgetFilterExpressionNotNot;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: outputs.budgets.BudgetFilterExpressionNotOr[];
         /**
@@ -24715,11 +24812,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionNotAndCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionNotAndDimensions;
         /**
@@ -24730,86 +24827,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionNotAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionNotNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionNotNotCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionNotNotDimensions;
         /**
@@ -24820,56 +24917,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionNotNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionNotOrCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionNotOrDimensions;
         /**
@@ -24880,83 +24977,83 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionNotOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOr {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: outputs.budgets.BudgetFilterExpressionOrAnd[];
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionOrCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionOrDimensions;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: outputs.budgets.BudgetFilterExpressionOrNot;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: outputs.budgets.BudgetFilterExpressionOrOr[];
         /**
@@ -24967,11 +25064,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionOrAndCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionOrAndDimensions;
         /**
@@ -24982,86 +25079,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionOrAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionOrNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionOrNotCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionOrNotDimensions;
         /**
@@ -25072,56 +25169,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionOrNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: outputs.budgets.BudgetFilterExpressionOrOrCostCategories;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: outputs.budgets.BudgetFilterExpressionOrOrDimensions;
         /**
@@ -25132,268 +25229,274 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: string[];
     }
 
     export interface BudgetFilterExpressionOrOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetFilterExpressionTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: string;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: string[];
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: string[];
     }
 
     export interface BudgetNotification {
         /**
-         * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+         * Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          */
         comparisonOperator: string;
         /**
-         * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+         * What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
          */
         notificationType: string;
         /**
-         * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          */
         subscriberEmailAddresses?: string[];
         /**
-         * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          */
         subscriberSnsTopicArns?: string[];
         /**
-         * (Required) Threshold when the notification should be sent.
+         * Threshold when the notification should be sent.
          */
         threshold: number;
         /**
-         * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+         * What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          */
         thresholdType: string;
     }
 
     export interface BudgetPlannedLimit {
         /**
-         * (Required) The amount of cost or usage being measured for a budget.
+         * Amount of cost or usage being measured for a budget.
          */
         amount: string;
         /**
-         * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
          */
         startTime: string;
         /**
-         * (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          */
         unit: string;
     }
 
     export interface GetBudgetAutoAdjustData {
         /**
-         * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+         * String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
          */
         autoAdjustType: string;
         /**
-         * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
          */
         historicalOptions: outputs.budgets.GetBudgetAutoAdjustDataHistoricalOption[];
         /**
-         * (Optional) - The last time that your budget was auto-adjusted.
+         * Last time that the budget was auto-adjusted.
          */
         lastAutoAdjustTime: string;
     }
 
     export interface GetBudgetAutoAdjustDataHistoricalOption {
         /**
-         * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         * Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
          */
         budgetAdjustmentPeriod: number;
         /**
-         * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         * Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
          */
         lookbackAvailablePeriods: number;
     }
 
     export interface GetBudgetBudgetLimit {
         /**
-         * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Amount of cost or usage measured for the budget.
          */
         amount: string;
         /**
-         * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Unit of measurement used for the budget, such as dollars or GB.
          */
         unit: string;
     }
 
     export interface GetBudgetCalculatedSpend {
+        /**
+         * Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
+         */
         actualSpends: outputs.budgets.GetBudgetCalculatedSpendActualSpend[];
     }
 
     export interface GetBudgetCalculatedSpendActualSpend {
         /**
-         * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Amount of cost or usage measured for the budget.
          */
         amount: string;
         /**
-         * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Unit of measurement used for the budget, such as dollars or GB.
          */
         unit: string;
     }
 
     export interface GetBudgetCostFilter {
         /**
-         * The name of a budget. Unique within accounts.
+         * Name of the budget. Unique within an account.
          *
          * The following arguments are optional:
          */
         name: string;
+        /**
+         * Values of the cost filter.
+         */
         values: string[];
     }
 
     export interface GetBudgetCostType {
         /**
-         * A boolean value whether to include credits in the cost budget. Defaults to `true`.
+         * Whether to include credits in the cost budget.
          */
         includeCredit: boolean;
         /**
-         * Whether a budget includes discounts. Defaults to `true`.
+         * Whether to include discounts in the cost budget.
          */
         includeDiscount: boolean;
         /**
-         * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+         * Whether to include other subscription costs in the cost budget.
          */
         includeOtherSubscription: boolean;
         /**
-         * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+         * Whether to include recurring costs in the cost budget.
          */
         includeRecurring: boolean;
         /**
-         * A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+         * Whether to include refunds in the cost budget.
          */
         includeRefund: boolean;
         /**
-         * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+         * Whether to include subscriptions in the cost budget.
          */
         includeSubscription: boolean;
         /**
-         * A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+         * Whether to include support costs in the cost budget.
          */
         includeSupport: boolean;
         /**
-         * A boolean value whether to include tax in the cost budget. Defaults to `true`.
+         * Whether to include tax in the cost budget.
          */
         includeTax: boolean;
         /**
-         * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+         * Whether to include upfront costs in the cost budget.
          */
         includeUpfront: boolean;
         /**
-         * Whether a budget uses the amortized rate. Defaults to `false`.
+         * Whether the budget uses the amortized rate.
          */
         useAmortized: boolean;
         /**
-         * A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+         * Whether to use blended costs in the cost budget.
          */
         useBlended: boolean;
     }
 
     export interface GetBudgetNotification {
         /**
-         * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+         * Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
          */
         comparisonOperator: string;
         /**
-         * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+         * Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
          */
         notificationType: string;
         /**
-         * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * Email addresses to notify.
          */
         subscriberEmailAddresses: string[];
         /**
-         * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * SNS topics to notify.
          */
         subscriberSnsTopicArns: string[];
         /**
-         * (Required) Threshold when the notification should be sent.
+         * Threshold at which the notification is sent.
          */
         threshold: number;
         /**
-         * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+         * Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
          */
         thresholdType: string;
     }
 
     export interface GetBudgetPlannedLimit {
         /**
-         * The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Amount of cost or usage measured for the budget.
          */
         amount: string;
         /**
-         * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * Start time of the budget limit. Format: `2017-01-01_12:00`.
          */
         startTime: string;
         /**
-         * The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+         * Unit of measurement used for the budget, such as dollars or GB.
          */
         unit: string;
     }
@@ -33821,6 +33924,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         bedrockagentcore?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        bedrockruntime?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -51884,7 +51991,7 @@ export namespace ecs {
          */
         hookDetails: string;
         /**
-         * ARN of the Lambda function to invoke
+         * ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
          */
         hookTargetArn: string;
         /**
@@ -51895,6 +52002,25 @@ export namespace ecs {
          * ARN of the IAM role that allows ECS to manage the target groups.
          */
         roleArn: string;
+        /**
+         * Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+         */
+        targetType: string;
+        /**
+         * Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+         */
+        timeoutConfigurations: outputs.ecs.GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration[];
+    }
+
+    export interface GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+        /**
+         * Action ECS takes when the pause hook times out (`CONTINUE` or `ROLLBACK`)
+         */
+        action: string;
+        /**
+         * Time until ECS executes the timeout action
+         */
+        timeoutInMinutes: string;
     }
 
     export interface GetServiceDeploymentConfigurationLinearConfiguration {
@@ -52453,17 +52579,36 @@ export namespace ecs {
          */
         hookDetails?: string;
         /**
-         * ARN of the Lambda function to invoke for the lifecycle hook.
+         * ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          */
-        hookTargetArn: string;
+        hookTargetArn?: string;
         /**
          * Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
          */
         lifecycleStages: string[];
         /**
-         * ARN of the IAM role that grants the service permission to invoke the Lambda function.
+         * ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          */
-        roleArn: string;
+        roleArn?: string;
+        /**
+         * Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+         */
+        targetType?: string;
+        /**
+         * Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+         */
+        timeoutConfiguration: outputs.ecs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration;
+    }
+
+    export interface ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+        /**
+         * Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+         */
+        action: string;
+        /**
+         * Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+         */
+        timeoutInMinutes: string;
     }
 
     export interface ServiceDeploymentConfigurationLinearConfiguration {
@@ -90937,6 +91082,300 @@ export namespace mq {
 }
 
 export namespace msk {
+    export interface ChannelEncryptionConfiguration {
+        /**
+         * ARN of the AWS KMS key used to encrypt the data.
+         */
+        kmsKeyArn: string;
+    }
+
+    export interface ChannelIcebergDestination {
+        /**
+         * Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+         */
+        appendOnly: boolean;
+        /**
+         * AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+         */
+        catalog?: outputs.msk.ChannelIcebergDestinationCatalog;
+        /**
+         * Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+         */
+        compressionType: string;
+        /**
+         * Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+         */
+        dataFreshnessInSeconds: number;
+        /**
+         * Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+         */
+        deadLetterQueueS3: outputs.msk.ChannelIcebergDestinationDeadLetterQueueS3;
+        /**
+         * Destination Iceberg table. See `destinationTable` Block below.
+         */
+        destinationTable: outputs.msk.ChannelIcebergDestinationDestinationTable;
+        /**
+         * Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+         */
+        schemaEvolution: outputs.msk.ChannelIcebergDestinationSchemaEvolution;
+        /**
+         * ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+         */
+        serviceExecutionRoleArn: string;
+        /**
+         * Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+         *
+         * The following arguments are optional:
+         */
+        tableCreation: outputs.msk.ChannelIcebergDestinationTableCreation;
+    }
+
+    export interface ChannelIcebergDestinationCatalog {
+        /**
+         * ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+         */
+        catalogArn?: string;
+        /**
+         * ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+         */
+        warehouseLocation?: string;
+    }
+
+    export interface ChannelIcebergDestinationDeadLetterQueueS3 {
+        /**
+         * ARN of the dead-letter Amazon S3 bucket.
+         *
+         * The following arguments are optional:
+         */
+        bucketArn: string;
+        /**
+         * Prefix prepended to every dead-letter Amazon S3 object key.
+         */
+        errorOutputPrefix?: string;
+        /**
+         * 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+         */
+        expectedBucketOwner?: string;
+    }
+
+    export interface ChannelIcebergDestinationDestinationTable {
+        /**
+         * Name of the destination namespace (database) in the AWS Glue Data Catalog.
+         */
+        destinationDatabaseName?: string;
+        /**
+         * Name of the destination Apache Iceberg table.
+         */
+        destinationTableName?: string;
+        /**
+         * Partition specification for the destination table. See `partitionSpec` Block below.
+         */
+        partitionSpec?: outputs.msk.ChannelIcebergDestinationDestinationTablePartitionSpec;
+    }
+
+    export interface ChannelIcebergDestinationDestinationTablePartitionSpec {
+        /**
+         * Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+         */
+        partitionStrategy: string;
+        /**
+         * Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+         */
+        sources?: outputs.msk.ChannelIcebergDestinationDestinationTablePartitionSpecSource[];
+    }
+
+    export interface ChannelIcebergDestinationDestinationTablePartitionSpecSource {
+        /**
+         * Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+         */
+        sourceName?: string;
+    }
+
+    export interface ChannelIcebergDestinationSchemaEvolution {
+        /**
+         * Whether to allow MSK to evolve the destination table's schema.
+         */
+        enableSchemaEvolution?: boolean;
+    }
+
+    export interface ChannelIcebergDestinationTableCreation {
+        /**
+         * Whether MSK creates the destination table on the customer's behalf.
+         */
+        enableTableCreation?: boolean;
+    }
+
+    export interface ChannelLoggingInfo {
+        /**
+         * CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+         */
+        cloudwatchLogs?: outputs.msk.ChannelLoggingInfoCloudwatchLogs;
+        /**
+         * Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+         */
+        firehose?: outputs.msk.ChannelLoggingInfoFirehose;
+        /**
+         * Amazon S3 destination for channel logs. See `s3` Block below.
+         */
+        s3?: outputs.msk.ChannelLoggingInfoS3;
+    }
+
+    export interface ChannelLoggingInfoCloudwatchLogs {
+        /**
+         * Whether the CloudWatch Logs destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: boolean;
+        /**
+         * Name of the CloudWatch log group that receives the logs.
+         */
+        logGroup?: string;
+    }
+
+    export interface ChannelLoggingInfoFirehose {
+        /**
+         * Name of the Kinesis Data Firehose delivery stream that receives the logs.
+         */
+        deliveryStream?: string;
+        /**
+         * Whether the Firehose destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: boolean;
+    }
+
+    export interface ChannelLoggingInfoS3 {
+        /**
+         * Name of the Amazon S3 bucket that receives the logs.
+         */
+        bucket?: string;
+        /**
+         * Whether the Amazon S3 destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: boolean;
+        /**
+         * Prefix applied to the Amazon S3 log object keys.
+         */
+        prefix?: string;
+    }
+
+    export interface ChannelS3Destination {
+        /**
+         * Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+         */
+        dataFreshnessInSeconds: number;
+        /**
+         * Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+         */
+        deadLetterQueueS3: outputs.msk.ChannelS3DestinationDeadLetterQueueS3;
+        /**
+         * ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+         */
+        serviceExecutionRoleArn: string;
+        /**
+         * Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+         *
+         * The following arguments are optional:
+         */
+        storage: outputs.msk.ChannelS3DestinationStorage;
+    }
+
+    export interface ChannelS3DestinationDeadLetterQueueS3 {
+        /**
+         * ARN of the dead-letter Amazon S3 bucket.
+         *
+         * The following arguments are optional:
+         */
+        bucketArn: string;
+        /**
+         * Prefix prepended to every dead-letter Amazon S3 object key.
+         */
+        errorOutputPrefix?: string;
+        /**
+         * 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+         */
+        expectedBucketOwner?: string;
+    }
+
+    export interface ChannelS3DestinationStorage {
+        /**
+         * ARN of the destination Amazon S3 bucket.
+         */
+        bucketArn: string;
+        /**
+         * Compression codec applied to delivered Amazon S3 objects.
+         */
+        compressionType: string;
+        /**
+         * 12-digit AWS account ID expected to own the Amazon S3 bucket.
+         */
+        expectedBucketOwner?: string;
+        /**
+         * Template that controls the Amazon S3 object key for each delivered record.
+         */
+        outputKeyTemplate?: string;
+        /**
+         * Prefix prepended to every Amazon S3 object key written by the channel.
+         */
+        outputPrefix?: string;
+        /**
+         * Amazon S3 storage class for delivered objects.
+         *
+         * The following arguments are optional:
+         */
+        storageClass: string;
+    }
+
+    export interface ChannelTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface ChannelTopicConfiguration {
+        /**
+         * Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+         */
+        recordConverter: outputs.msk.ChannelTopicConfigurationRecordConverter;
+        /**
+         * Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+         */
+        recordSchema?: outputs.msk.ChannelTopicConfigurationRecordSchema;
+        /**
+         * ARN that uniquely identifies the topic.
+         *
+         * The following arguments are optional:
+         */
+        topicArn: string;
+    }
+
+    export interface ChannelTopicConfigurationRecordConverter {
+        /**
+         * Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+         */
+        valueConverter: string;
+    }
+
+    export interface ChannelTopicConfigurationRecordSchema {
+        /**
+         * ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+         */
+        gsrArn: string;
+    }
+
     export interface ClusterBrokerNodeGroupInfo {
         /**
          * The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
@@ -111506,7 +111945,7 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig;
         /**
@@ -111557,7 +111996,7 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig;
         /**
@@ -111653,7 +112092,7 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig;
         /**
@@ -111704,7 +112143,7 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig;
         /**
@@ -122749,7 +123188,7 @@ export namespace wafv2 {
          */
         andStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatement;
         /**
-         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
          */
         asnMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAsnMatchStatement;
         /**
@@ -123387,7 +123826,7 @@ export namespace wafv2 {
          */
         andStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement;
         /**
-         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
          */
         asnMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement;
         /**
@@ -127700,6 +128139,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -127959,6 +128401,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -128456,6 +128901,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -128715,6 +129163,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -130151,6 +130602,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -130234,6 +130688,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.
@@ -130493,6 +130950,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: string;
         /**
          * Name of the header containing the forwarded IP address.

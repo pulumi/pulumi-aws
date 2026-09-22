@@ -53,6 +53,9 @@ export interface GetSchedulingPolicyArgs {
  */
 export interface GetSchedulingPolicyResult {
     readonly arn: string;
+    /**
+     * Fair share policy block of the scheduling policy. The `fairSharePolicy` block is documented below.
+     */
     readonly fairSharePolicies: outputs.batch.GetSchedulingPolicyFairSharePolicy[];
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -16,14 +16,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs();
 
     /**
-     * Configuration block for intermedia S3 storage.
+     * Configuration block for intermediate S3 storage. See `s3Location` Block for details.
      * 
      */
     @Import(name="s3Location")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs> s3Location;
 
     /**
-     * @return Configuration block for intermedia S3 storage.
+     * @return Configuration block for intermediate S3 storage. See `s3Location` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs>> s3Location() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param s3Location Configuration block for intermedia S3 storage.
+         * @param s3Location Configuration block for intermediate S3 storage. See `s3Location` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param s3Location Configuration block for intermedia S3 storage.
+         * @param s3Location Configuration block for intermediate S3 storage. See `s3Location` Block for details.
          * 
          * @return builder
          * 

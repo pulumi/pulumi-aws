@@ -34,14 +34,14 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -49,14 +49,14 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The display name of a resource selection document.
+     * @return Display name of a resource selection document.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The backup plan ID to be associated with the selection of resources.
+     * Backup plan ID to be associated with the selection of resources.
      * 
      */
     @Import(name="planId")
     private @Nullable Output<String> planId;
 
     /**
-     * @return The backup plan ID to be associated with the selection of resources.
+     * @return Backup plan ID to be associated with the selection of resources.
      * 
      */
     public Optional<Output<String>> planId() {
@@ -201,7 +201,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+         * @param iamRoleArn ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+         * @param iamRoleArn ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of a resource selection document.
+         * @param name Display name of a resource selection document.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of a resource selection document.
+         * @param name Display name of a resource selection document.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param planId The backup plan ID to be associated with the selection of resources.
+         * @param planId Backup plan ID to be associated with the selection of resources.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SelectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param planId The backup plan ID to be associated with the selection of resources.
+         * @param planId Backup plan ID to be associated with the selection of resources.
          * 
          * @return builder
          * 

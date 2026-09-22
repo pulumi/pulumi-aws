@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatInputVariable {
     /**
-     * @return The name of the variable.
+     * @return Name of the variable.
      * 
      */
     private String name;
 
     private AgentPromptVariantTemplateConfigurationChatInputVariable() {}
     /**
-     * @return The name of the variable.
+     * @return Name of the variable.
      * 
      */
     public String name() {

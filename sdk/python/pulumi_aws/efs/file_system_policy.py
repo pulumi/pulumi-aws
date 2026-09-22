@@ -214,10 +214,21 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the file system.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy example fs-6fa144c6
         ```
 
 
@@ -271,10 +282,21 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the file system.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy example fs-6fa144c6
         ```
 
 

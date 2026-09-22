@@ -16,43 +16,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+    /**
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+     * 
+     */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> inputVariables;
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
      * 
      */
     private List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> systems;
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration toolConfiguration;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat() {}
+    /**
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+     * 
+     */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> inputVariables() {
         return this.inputVariables == null ? List.of() : this.inputVariables;
     }
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
      * 
      */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages() {
         return this.messages;
     }
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
      * 
      */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> systems() {
         return this.systems == null ? List.of() : this.systems;
     }
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration> toolConfiguration() {

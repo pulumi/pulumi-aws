@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
     /**
-     * @return The ARN of the model used to parse documents
+     * @return ARN of the model used to parse documents.
      * 
      */
     private String modelArn;
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
      * 
      */
     private @Nullable String parsingModality;
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt parsingPrompt;
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration() {}
     /**
-     * @return The ARN of the model used to parse documents
+     * @return ARN of the model used to parse documents.
      * 
      */
     public String modelArn() {
         return this.modelArn;
     }
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
      * 
      */
     public Optional<String> parsingModality() {
         return Optional.ofNullable(this.parsingModality);
     }
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt> parsingPrompt() {

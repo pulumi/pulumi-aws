@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class PlanAdvancedBackupSetting
     {
         /// <summary>
-        /// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        /// Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
         /// </summary>
         public readonly ImmutableDictionary<string, string> BackupOptions;
         /// <summary>
-        /// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        /// Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         /// </summary>
         public readonly string ResourceType;
 

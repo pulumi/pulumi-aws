@@ -61,7 +61,7 @@ public final class GetComputeEnvironmentResult {
      */
     private String type;
     /**
-     * @return Specifies the infrastructure update policy for the compute environment.
+     * @return Infrastructure update policy for the compute environment.
      * 
      */
     private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
@@ -137,7 +137,7 @@ public final class GetComputeEnvironmentResult {
         return this.type;
     }
     /**
-     * @return Specifies the infrastructure update policy for the compute environment.
+     * @return Infrastructure update policy for the compute environment.
      * 
      */
     public List<GetComputeEnvironmentUpdatePolicy> updatePolicies() {

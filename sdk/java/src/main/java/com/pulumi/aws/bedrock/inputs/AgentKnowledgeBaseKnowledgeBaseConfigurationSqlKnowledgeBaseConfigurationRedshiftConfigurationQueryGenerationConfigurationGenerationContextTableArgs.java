@@ -19,14 +19,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs();
 
     /**
-     * Information about a column in the table. See `column` block for details.
+     * Information about a column in the table. See `column` Block for details.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs>> columns;
 
     /**
-     * @return Information about a column in the table. See `column` block for details.
+     * @return Information about a column in the table. See `column` Block for details.
      * 
      */
     public Optional<Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs>>> columns() {
@@ -106,7 +106,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param columns Information about a column in the table. See `column` block for details.
+         * @param columns Information about a column in the table. See `column` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param columns Information about a column in the table. See `column` block for details.
+         * @param columns Information about a column in the table. See `column` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param columns Information about a column in the table. See `column` block for details.
+         * @param columns Information about a column in the table. See `column` Block for details.
          * 
          * @return builder
          * 

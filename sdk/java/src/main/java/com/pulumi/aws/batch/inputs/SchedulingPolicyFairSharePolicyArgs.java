@@ -18,23 +18,31 @@ public final class SchedulingPolicyFairSharePolicyArgs extends com.pulumi.resour
     public static final SchedulingPolicyFairSharePolicyArgs Empty = new SchedulingPolicyFairSharePolicyArgs();
 
     /**
-     * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     @Import(name="computeReservation")
     private @Nullable Output<Integer> computeReservation;
 
     /**
-     * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     public Optional<Output<Integer>> computeReservation() {
         return Optional.ofNullable(this.computeReservation);
     }
 
+    /**
+     * Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     @Import(name="shareDecaySeconds")
     private @Nullable Output<Integer> shareDecaySeconds;
 
+    /**
+     * @return Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     public Optional<Output<Integer>> shareDecaySeconds() {
         return Optional.ofNullable(this.shareDecaySeconds);
     }
@@ -81,7 +89,7 @@ public final class SchedulingPolicyFairSharePolicyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param computeReservation A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * @param computeReservation Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          * 
          * @return builder
          * 
@@ -92,7 +100,7 @@ public final class SchedulingPolicyFairSharePolicyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param computeReservation A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * @param computeReservation Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          * 
          * @return builder
          * 
@@ -101,11 +109,23 @@ public final class SchedulingPolicyFairSharePolicyArgs extends com.pulumi.resour
             return computeReservation(Output.of(computeReservation));
         }
 
+        /**
+         * @param shareDecaySeconds Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareDecaySeconds(@Nullable Output<Integer> shareDecaySeconds) {
             $.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
 
+        /**
+         * @param shareDecaySeconds Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder shareDecaySeconds(Integer shareDecaySeconds) {
             return shareDecaySeconds(Output.of(shareDecaySeconds));
         }

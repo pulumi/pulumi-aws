@@ -17,14 +17,14 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBudgetPlainArgs Empty = new GetBudgetPlainArgs();
 
     /**
-     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * ID of the target account for the budget. Defaults to the current account ID.
      * 
      */
     @Import(name="accountId")
     private @Nullable String accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * @return ID of the target account for the budget. Defaults to the current account ID.
      * 
      */
     public Optional<String> accountId() {
@@ -32,7 +32,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of the budget. Unique within an account.
      * 
      * The following arguments are optional:
      * 
@@ -41,7 +41,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
     private String name;
 
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of the budget. Unique within an account.
      * 
      * The following arguments are optional:
      * 
@@ -51,14 +51,14 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the budget name. Unique within an account.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable String namePrefix;
 
     /**
-     * @return The prefix of the name of a budget. Unique within accounts.
+     * @return Prefix of the budget name. Unique within an account.
      * 
      */
     public Optional<String> namePrefix() {
@@ -108,7 +108,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+         * @param accountId ID of the target account for the budget. Defaults to the current account ID.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of a budget. Unique within accounts.
+         * @param name Name of the budget. Unique within an account.
          * 
          * The following arguments are optional:
          * 
@@ -132,7 +132,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param namePrefix The prefix of the name of a budget. Unique within accounts.
+         * @param namePrefix Prefix of the budget name. Unique within an account.
          * 
          * @return builder
          * 

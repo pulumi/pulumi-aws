@@ -22,7 +22,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
      */
     private String endpoint;
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
@@ -48,7 +48,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         return this.endpoint;
     }
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping() {

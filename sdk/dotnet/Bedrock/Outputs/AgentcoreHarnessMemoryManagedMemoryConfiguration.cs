@@ -18,17 +18,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        /// ARN of the customer-managed KMS key used to encrypt the memory.
         /// </summary>
         public readonly string? EncryptionKeyArn;
         /// <summary>
-        /// Event retention in days. Defaults to `30`.
+        /// Event retention in days.
         /// </summary>
         public readonly int? EventExpiryDuration;
         /// <summary>
-        /// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-        /// 
-        /// In addition, the following attribute is exported:
+        /// Set of strategy types enabled.
         /// </summary>
         public readonly ImmutableArray<string> Strategies;
 

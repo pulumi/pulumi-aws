@@ -16,7 +16,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputList<Inputs.ExportExportDestinationConfigurationS3DestinationArgs>? _s3Destinations;
 
         /// <summary>
-        /// Object that describes the destination of the data exports file. See the `S3Destination` argument reference below.
+        /// Object that describes the destination of the data exports file. See the `S3Destination` block below.
         /// </summary>
         public InputList<Inputs.ExportExportDestinationConfigurationS3DestinationArgs> S3Destinations
         {

@@ -10378,12 +10378,16 @@ func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) CanaryPercen
 type ServiceDeploymentConfigurationLifecycleHook struct {
 	// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
 	HookDetails *string `pulumi:"hookDetails"`
-	// ARN of the Lambda function to invoke for the lifecycle hook.
-	HookTargetArn string `pulumi:"hookTargetArn"`
+	// ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+	HookTargetArn *string `pulumi:"hookTargetArn"`
 	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
 	LifecycleStages []string `pulumi:"lifecycleStages"`
-	// ARN of the IAM role that grants the service permission to invoke the Lambda function.
-	RoleArn string `pulumi:"roleArn"`
+	// ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+	RoleArn *string `pulumi:"roleArn"`
+	// Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+	TargetType *string `pulumi:"targetType"`
+	// Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+	TimeoutConfiguration *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration `pulumi:"timeoutConfiguration"`
 }
 
 // ServiceDeploymentConfigurationLifecycleHookInput is an input type that accepts ServiceDeploymentConfigurationLifecycleHookArgs and ServiceDeploymentConfigurationLifecycleHookOutput values.
@@ -10400,12 +10404,16 @@ type ServiceDeploymentConfigurationLifecycleHookInput interface {
 type ServiceDeploymentConfigurationLifecycleHookArgs struct {
 	// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
 	HookDetails pulumi.StringPtrInput `pulumi:"hookDetails"`
-	// ARN of the Lambda function to invoke for the lifecycle hook.
-	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
+	// ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+	HookTargetArn pulumi.StringPtrInput `pulumi:"hookTargetArn"`
 	// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
 	LifecycleStages pulumi.StringArrayInput `pulumi:"lifecycleStages"`
-	// ARN of the IAM role that grants the service permission to invoke the Lambda function.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
+	// Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+	TimeoutConfiguration ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput `pulumi:"timeoutConfiguration"`
 }
 
 func (ServiceDeploymentConfigurationLifecycleHookArgs) ElementType() reflect.Type {
@@ -10464,9 +10472,9 @@ func (o ServiceDeploymentConfigurationLifecycleHookOutput) HookDetails() pulumi.
 	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *string { return v.HookDetails }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Lambda function to invoke for the lifecycle hook.
-func (o ServiceDeploymentConfigurationLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
+// ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) HookTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *string { return v.HookTargetArn }).(pulumi.StringPtrOutput)
 }
 
 // Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
@@ -10474,9 +10482,21 @@ func (o ServiceDeploymentConfigurationLifecycleHookOutput) LifecycleStages() pul
 	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) []string { return v.LifecycleStages }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the IAM role that grants the service permission to invoke the Lambda function.
-func (o ServiceDeploymentConfigurationLifecycleHookOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+// ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *string { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+func (o ServiceDeploymentConfigurationLifecycleHookOutput) TimeoutConfiguration() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHook) *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+		return v.TimeoutConfiguration
+	}).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput)
 }
 
 type ServiceDeploymentConfigurationLifecycleHookArrayOutput struct{ *pulumi.OutputState }
@@ -10497,6 +10517,164 @@ func (o ServiceDeploymentConfigurationLifecycleHookArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDeploymentConfigurationLifecycleHook {
 		return vs[0].([]ServiceDeploymentConfigurationLifecycleHook)[vs[1].(int)]
 	}).(ServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration struct {
+	// Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+	Action *string `pulumi:"action"`
+	// Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+	TimeoutInMinutes *string `pulumi:"timeoutInMinutes"`
+}
+
+// ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput is an input type that accepts ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs and ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput` via:
+//
+//	ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{...}
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput
+	ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput
+}
+
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs struct {
+	// Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+	TimeoutInMinutes pulumi.StringPtrInput `pulumi:"timeoutInMinutes"`
+}
+
+func (ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return i.ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput)
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput).ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput is an input type that accepts ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs, ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtr and ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput` via:
+//
+//	        ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput
+	ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput
+}
+
+type serviceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrType ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs
+
+func ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtr(v *ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput {
+	return (*serviceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrType)(v)
+}
+
+func (*serviceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i *serviceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrType) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrType) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return o.ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+		return &v
+	}).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput)
+}
+
+// Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) TimeoutInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) *string {
+		return v.TimeoutInMinutes
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) ToServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) Elem() ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration
+		return ret
+	}).(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput)
+}
+
+// Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+func (o ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput) TimeoutInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMinutes
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceDeploymentConfigurationLinearConfiguration struct {
@@ -17834,12 +18012,16 @@ func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput) In
 type GetServiceDeploymentConfigurationLifecycleHook struct {
 	// Additional details for the hook
 	HookDetails string `pulumi:"hookDetails"`
-	// ARN of the Lambda function to invoke
+	// ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
 	HookTargetArn string `pulumi:"hookTargetArn"`
 	// Deployment stages when hook is invoked
 	LifecycleStages []string `pulumi:"lifecycleStages"`
 	// ARN of the IAM role that allows ECS to manage the target groups.
 	RoleArn string `pulumi:"roleArn"`
+	// Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+	TargetType string `pulumi:"targetType"`
+	// Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+	TimeoutConfigurations []GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration `pulumi:"timeoutConfigurations"`
 }
 
 // GetServiceDeploymentConfigurationLifecycleHookInput is an input type that accepts GetServiceDeploymentConfigurationLifecycleHookArgs and GetServiceDeploymentConfigurationLifecycleHookOutput values.
@@ -17856,12 +18038,16 @@ type GetServiceDeploymentConfigurationLifecycleHookInput interface {
 type GetServiceDeploymentConfigurationLifecycleHookArgs struct {
 	// Additional details for the hook
 	HookDetails pulumi.StringInput `pulumi:"hookDetails"`
-	// ARN of the Lambda function to invoke
+	// ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
 	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
 	// Deployment stages when hook is invoked
 	LifecycleStages pulumi.StringArrayInput `pulumi:"lifecycleStages"`
 	// ARN of the IAM role that allows ECS to manage the target groups.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+	TargetType pulumi.StringInput `pulumi:"targetType"`
+	// Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+	TimeoutConfigurations GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayInput `pulumi:"timeoutConfigurations"`
 }
 
 func (GetServiceDeploymentConfigurationLifecycleHookArgs) ElementType() reflect.Type {
@@ -17920,7 +18106,7 @@ func (o GetServiceDeploymentConfigurationLifecycleHookOutput) HookDetails() pulu
 	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.HookDetails }).(pulumi.StringOutput)
 }
 
-// ARN of the Lambda function to invoke
+// ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
 func (o GetServiceDeploymentConfigurationLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
 }
@@ -17933,6 +18119,18 @@ func (o GetServiceDeploymentConfigurationLifecycleHookOutput) LifecycleStages() 
 // ARN of the IAM role that allows ECS to manage the target groups.
 func (o GetServiceDeploymentConfigurationLifecycleHookOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.TargetType }).(pulumi.StringOutput)
+}
+
+// Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) TimeoutConfigurations() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) []GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+		return v.TimeoutConfigurations
+	}).(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput)
 }
 
 type GetServiceDeploymentConfigurationLifecycleHookArrayOutput struct{ *pulumi.OutputState }
@@ -17953,6 +18151,114 @@ func (o GetServiceDeploymentConfigurationLifecycleHookArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationLifecycleHook {
 		return vs[0].([]GetServiceDeploymentConfigurationLifecycleHook)[vs[1].(int)]
 	}).(GetServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration struct {
+	// Action ECS takes when the pause hook times out (`CONTINUE` or `ROLLBACK`)
+	Action string `pulumi:"action"`
+	// Time until ECS executes the timeout action
+	TimeoutInMinutes string `pulumi:"timeoutInMinutes"`
+}
+
+// GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput is an input type that accepts GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs and GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput` via:
+//
+//	GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{...}
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput
+	ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs struct {
+	// Action ECS takes when the pause hook times out (`CONTINUE` or `ROLLBACK`)
+	Action pulumi.StringInput `pulumi:"action"`
+	// Time until ECS executes the timeout action
+	TimeoutInMinutes pulumi.StringInput `pulumi:"timeoutInMinutes"`
+}
+
+func (GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return i.ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput)
+}
+
+// GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayInput is an input type that accepts GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray and GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray{ GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{...} }
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput
+	ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray []GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput
+
+func (GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return o
+}
+
+// Action ECS takes when the pause hook times out (`CONTINUE` or `ROLLBACK`)
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Time until ECS executes the timeout action
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput) TimeoutInMinutes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration) string {
+		return v.TimeoutInMinutes
+	}).(pulumi.StringOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput() GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput) ToGetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+		return vs[0].([]GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput)
 }
 
 type GetServiceDeploymentConfigurationLinearConfiguration struct {
@@ -21677,6 +21983,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationCanaryConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationCanaryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
@@ -21775,6 +22083,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfigurationInput)(nil)).Elem(), GetServiceDeploymentConfigurationLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfigurationArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationLinearConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentControllerInput)(nil)).Elem(), GetServiceDeploymentControllerArgs{})
@@ -21963,6 +22273,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLinearConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLinearConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
@@ -22061,6 +22373,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLinearConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLinearConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDeploymentControllerOutput{})

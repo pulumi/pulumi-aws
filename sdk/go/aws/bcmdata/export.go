@@ -109,7 +109,7 @@ type Export struct {
 	// ARN for this export.
 	// * `export[0].export_arn` - ARN for this export.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export ExportExportPtrOutput `pulumi:"export"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
@@ -150,7 +150,7 @@ type exportState struct {
 	// ARN for this export.
 	// * `export[0].export_arn` - ARN for this export.
 	Arn *string `pulumi:"arn"`
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export *ExportExport `pulumi:"export"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
@@ -162,7 +162,7 @@ type ExportState struct {
 	// ARN for this export.
 	// * `export[0].export_arn` - ARN for this export.
 	Arn pulumi.StringPtrInput
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export ExportExportPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -175,7 +175,7 @@ func (ExportState) ElementType() reflect.Type {
 }
 
 type exportArgs struct {
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export *ExportExport `pulumi:"export"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
@@ -184,7 +184,7 @@ type exportArgs struct {
 
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
-	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+	// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 	Export ExportExportPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -284,7 +284,7 @@ func (o ExportOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+// Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
 func (o ExportOutput) Export() ExportExportPtrOutput {
 	return o.ApplyT(func(v *Export) ExportExportPtrOutput { return v.Export }).(ExportExportPtrOutput)
 }

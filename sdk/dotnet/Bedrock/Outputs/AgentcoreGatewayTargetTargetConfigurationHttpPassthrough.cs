@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string ProtocolType;
         /// <summary>
-        /// API schema configuration that defines the structure of the passthrough target's API. Supports the same `InlinePayload` and `S3` blocks as `ApiSchemaConfiguration`.
+        /// API schema configuration that defines the structure of the passthrough target's API. See `Schema` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema? Schema;
         /// <summary>

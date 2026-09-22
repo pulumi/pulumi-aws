@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem
     {
         /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        /// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint? CachePoint;
         /// <summary>
-        /// The text in the system prompt.
+        /// Message for the prompt.
         /// </summary>
         public readonly string? Text;
 

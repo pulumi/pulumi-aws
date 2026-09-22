@@ -16,14 +16,14 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
     public static final AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs();
 
     /**
-     * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args> s3;
 
     /**
-     * @return Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * @return Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args>> s3() {
@@ -55,7 +55,7 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
         }
 
         /**
-         * @param s3 Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * @param s3 Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
         }
 
         /**
-         * @param s3 Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * @param s3 Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          * 
          * @return builder
          * 

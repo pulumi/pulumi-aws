@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent content;
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     private String role;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage() {}
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent> content() {
         return Optional.ofNullable(this.content);
     }
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     public String role() {

@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
     public static final AgentFlowDefinitionNodeConfigurationInlineCodeArgs Empty = new AgentFlowDefinitionNodeConfigurationInlineCodeArgs();
 
     /**
-     * The code that&#39;s executed in your inline code node.
+     * Code that&#39;s executed in your inline code node.
      * 
      */
     @Import(name="code", required=true)
     private Output<String> code;
 
     /**
-     * @return The code that&#39;s executed in your inline code node.
+     * @return Code that&#39;s executed in your inline code node.
      * 
      */
     public Output<String> code() {
@@ -30,14 +30,14 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
     }
 
     /**
-     * The programming language used by your inline code node.
+     * Programming language used by your inline code node.
      * 
      */
     @Import(name="language", required=true)
     private Output<String> language;
 
     /**
-     * @return The programming language used by your inline code node.
+     * @return Programming language used by your inline code node.
      * 
      */
     public Output<String> language() {
@@ -70,7 +70,7 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
         }
 
         /**
-         * @param code The code that&#39;s executed in your inline code node.
+         * @param code Code that&#39;s executed in your inline code node.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
         }
 
         /**
-         * @param code The code that&#39;s executed in your inline code node.
+         * @param code Code that&#39;s executed in your inline code node.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
         }
 
         /**
-         * @param language The programming language used by your inline code node.
+         * @param language Programming language used by your inline code node.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
         }
 
         /**
-         * @param language The programming language used by your inline code node.
+         * @param language Programming language used by your inline code node.
          * 
          * @return builder
          * 

@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class BudgetCostFilter {
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
      * 
      */
     private String name;
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of values used for filtering.
      * 
      */
     private List<String> values;
 
     private BudgetCostFilter() {}
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of values used for filtering.
      * 
      */
     public List<String> values() {

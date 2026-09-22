@@ -13,9 +13,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationConditionCondition
     {
+        /// <summary>
+        /// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        /// </summary>
         public readonly string? Expression;
         /// <summary>
-        /// A name for the flow.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
 

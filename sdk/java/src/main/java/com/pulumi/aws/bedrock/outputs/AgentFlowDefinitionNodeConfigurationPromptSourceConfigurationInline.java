@@ -20,22 +20,22 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
      */
     private @Nullable String additionalModelRequestFields;
     /**
-     * @return Contains inference configurations for the prompt. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration inferenceConfiguration;
     /**
-     * @return The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     private String modelId;
     /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+     * @return Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration templateConfiguration;
     /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
+     * @return Type of prompt template. Valid values: `TEXT`, `CHAT`.
      * 
      */
     private String templateType;
@@ -49,28 +49,28 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
     /**
-     * @return Contains inference configurations for the prompt. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
     /**
-     * @return The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     public String modelId() {
         return this.modelId;
     }
     /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+     * @return Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
     /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
+     * @return Type of prompt template. Valid values: `TEXT`, `CHAT`.
      * 
      */
     public String templateType() {

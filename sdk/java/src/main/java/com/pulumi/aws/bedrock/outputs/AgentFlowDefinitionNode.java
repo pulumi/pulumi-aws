@@ -17,62 +17,66 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNode {
     /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfiguration configuration;
     /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
+     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeInput> inputs;
     /**
-     * @return A name for the node.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
     /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
+     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     private @Nullable List<AgentFlowDefinitionNodeOutput> outputs;
     /**
-     * @return Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     private String type;
 
     private AgentFlowDefinitionNode() {}
     /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfiguration> configuration() {
         return Optional.ofNullable(this.configuration);
     }
     /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
+     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public List<AgentFlowDefinitionNodeInput> inputs() {
         return this.inputs == null ? List.of() : this.inputs;
     }
     /**
-     * @return A name for the node.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
+     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public List<AgentFlowDefinitionNodeOutput> outputs() {
         return this.outputs == null ? List.of() : this.outputs;
     }
     /**
-     * @return Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public String type() {

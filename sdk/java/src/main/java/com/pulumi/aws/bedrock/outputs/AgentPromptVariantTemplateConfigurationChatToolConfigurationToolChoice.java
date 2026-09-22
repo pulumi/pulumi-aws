@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * @return Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny any;
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * @return Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto auto;
     /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * @return Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool tool;
 
     private AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice() {}
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * @return Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny> any() {
         return Optional.ofNullable(this.any);
     }
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * @return Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto> auto() {
         return Optional.ofNullable(this.auto);
     }
     /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * @return Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool> tool() {

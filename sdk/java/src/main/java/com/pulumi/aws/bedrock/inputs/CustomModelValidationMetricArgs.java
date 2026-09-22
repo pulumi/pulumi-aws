@@ -15,14 +15,14 @@ public final class CustomModelValidationMetricArgs extends com.pulumi.resources.
     public static final CustomModelValidationMetricArgs Empty = new CustomModelValidationMetricArgs();
 
     /**
-     * The validation loss associated with the validator.
+     * Validation loss associated with the validator.
      * 
      */
     @Import(name="validationLoss", required=true)
     private Output<Double> validationLoss;
 
     /**
-     * @return The validation loss associated with the validator.
+     * @return Validation loss associated with the validator.
      * 
      */
     public Output<Double> validationLoss() {
@@ -54,7 +54,7 @@ public final class CustomModelValidationMetricArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param validationLoss The validation loss associated with the validator.
+         * @param validationLoss Validation loss associated with the validator.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CustomModelValidationMetricArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param validationLoss The validation loss associated with the validator.
+         * @param validationLoss Validation loss associated with the validator.
          * 
          * @return builder
          * 

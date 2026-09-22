@@ -126,12 +126,13 @@ type Guardrail struct {
 	BlockedInputMessaging pulumi.StringOutput `pulumi:"blockedInputMessaging"`
 	// Message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging pulumi.StringOutput `pulumi:"blockedOutputsMessaging"`
-	// Content policy config for a guardrail. See Content Policy Config for more information.
+	// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 	ContentPolicyConfig GuardrailContentPolicyConfigPtrOutput `pulumi:"contentPolicyConfig"`
-	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+	// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrOutput `pulumi:"contextualGroundingPolicyConfig"`
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt         pulumi.StringOutput                 `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
 	CrossRegionConfig GuardrailCrossRegionConfigPtrOutput `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -139,7 +140,7 @@ type Guardrail struct {
 	GuardrailArn pulumi.StringOutput `pulumi:"guardrailArn"`
 	// ID of the Guardrail.
 	GuardrailId pulumi.StringOutput `pulumi:"guardrailId"`
-	// The KMS key with which the guardrail was encrypted at rest.
+	// KMS key with which the guardrail was encrypted at rest.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the guardrail.
 	//
@@ -147,7 +148,7 @@ type Guardrail struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+	// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -155,13 +156,13 @@ type Guardrail struct {
 	Tags     pulumi.StringMapOutput     `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput     `pulumi:"tagsAll"`
 	Timeouts GuardrailTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Topic policy config for a guardrail. See Topic Policy Config for more information.
+	// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrOutput `pulumi:"topicPolicyConfig"`
 	// Date and time that the Guardrail list was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// Version of the Guardrail.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// Word policy config for a guardrail. See Word Policy Config for more information.
+	// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 	WordPolicyConfig GuardrailWordPolicyConfigPtrOutput `pulumi:"wordPolicyConfig"`
 }
 
@@ -205,12 +206,13 @@ type guardrailState struct {
 	BlockedInputMessaging *string `pulumi:"blockedInputMessaging"`
 	// Message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging *string `pulumi:"blockedOutputsMessaging"`
-	// Content policy config for a guardrail. See Content Policy Config for more information.
+	// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
-	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+	// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt         *string                     `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
 	CrossRegionConfig *GuardrailCrossRegionConfig `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description *string `pulumi:"description"`
@@ -218,7 +220,7 @@ type guardrailState struct {
 	GuardrailArn *string `pulumi:"guardrailArn"`
 	// ID of the Guardrail.
 	GuardrailId *string `pulumi:"guardrailId"`
-	// The KMS key with which the guardrail was encrypted at rest.
+	// KMS key with which the guardrail was encrypted at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the guardrail.
 	//
@@ -226,7 +228,7 @@ type guardrailState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+	// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status *string `pulumi:"status"`
@@ -234,13 +236,13 @@ type guardrailState struct {
 	Tags     map[string]string  `pulumi:"tags"`
 	TagsAll  map[string]string  `pulumi:"tagsAll"`
 	Timeouts *GuardrailTimeouts `pulumi:"timeouts"`
-	// Topic policy config for a guardrail. See Topic Policy Config for more information.
+	// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 	TopicPolicyConfig *GuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
 	// Date and time that the Guardrail list was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// Version of the Guardrail.
 	Version *string `pulumi:"version"`
-	// Word policy config for a guardrail. See Word Policy Config for more information.
+	// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 	WordPolicyConfig *GuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
@@ -249,12 +251,13 @@ type GuardrailState struct {
 	BlockedInputMessaging pulumi.StringPtrInput
 	// Message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging pulumi.StringPtrInput
-	// Content policy config for a guardrail. See Content Policy Config for more information.
+	// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 	ContentPolicyConfig GuardrailContentPolicyConfigPtrInput
-	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+	// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrInput
 	// Unix epoch timestamp in seconds for when the Guardrail was created.
-	CreatedAt         pulumi.StringPtrInput
+	CreatedAt pulumi.StringPtrInput
+	// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
 	CrossRegionConfig GuardrailCrossRegionConfigPtrInput
 	// Description of the guardrail or its version.
 	Description pulumi.StringPtrInput
@@ -262,7 +265,7 @@ type GuardrailState struct {
 	GuardrailArn pulumi.StringPtrInput
 	// ID of the Guardrail.
 	GuardrailId pulumi.StringPtrInput
-	// The KMS key with which the guardrail was encrypted at rest.
+	// KMS key with which the guardrail was encrypted at rest.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the guardrail.
 	//
@@ -270,7 +273,7 @@ type GuardrailState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+	// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status pulumi.StringPtrInput
@@ -278,13 +281,13 @@ type GuardrailState struct {
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts GuardrailTimeoutsPtrInput
-	// Topic policy config for a guardrail. See Topic Policy Config for more information.
+	// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrInput
 	// Date and time that the Guardrail list was last updated.
 	UpdatedAt pulumi.StringPtrInput
 	// Version of the Guardrail.
 	Version pulumi.StringPtrInput
-	// Word policy config for a guardrail. See Word Policy Config for more information.
+	// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 	WordPolicyConfig GuardrailWordPolicyConfigPtrInput
 }
 
@@ -297,14 +300,15 @@ type guardrailArgs struct {
 	BlockedInputMessaging string `pulumi:"blockedInputMessaging"`
 	// Message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging string `pulumi:"blockedOutputsMessaging"`
-	// Content policy config for a guardrail. See Content Policy Config for more information.
+	// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 	ContentPolicyConfig *GuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
-	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+	// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
-	CrossRegionConfig               *GuardrailCrossRegionConfig               `pulumi:"crossRegionConfig"`
+	// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+	CrossRegionConfig *GuardrailCrossRegionConfig `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version.
 	Description *string `pulumi:"description"`
-	// The KMS key with which the guardrail was encrypted at rest.
+	// KMS key with which the guardrail was encrypted at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the guardrail.
 	//
@@ -312,14 +316,14 @@ type guardrailArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+	// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string  `pulumi:"tags"`
 	Timeouts *GuardrailTimeouts `pulumi:"timeouts"`
-	// Topic policy config for a guardrail. See Topic Policy Config for more information.
+	// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 	TopicPolicyConfig *GuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
-	// Word policy config for a guardrail. See Word Policy Config for more information.
+	// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 	WordPolicyConfig *GuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
@@ -329,14 +333,15 @@ type GuardrailArgs struct {
 	BlockedInputMessaging pulumi.StringInput
 	// Message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging pulumi.StringInput
-	// Content policy config for a guardrail. See Content Policy Config for more information.
+	// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 	ContentPolicyConfig GuardrailContentPolicyConfigPtrInput
-	// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+	// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 	ContextualGroundingPolicyConfig GuardrailContextualGroundingPolicyConfigPtrInput
-	CrossRegionConfig               GuardrailCrossRegionConfigPtrInput
+	// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+	CrossRegionConfig GuardrailCrossRegionConfigPtrInput
 	// Description of the guardrail or its version.
 	Description pulumi.StringPtrInput
-	// The KMS key with which the guardrail was encrypted at rest.
+	// KMS key with which the guardrail was encrypted at rest.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the guardrail.
 	//
@@ -344,14 +349,14 @@ type GuardrailArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+	// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts GuardrailTimeoutsPtrInput
-	// Topic policy config for a guardrail. See Topic Policy Config for more information.
+	// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrInput
-	// Word policy config for a guardrail. See Word Policy Config for more information.
+	// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 	WordPolicyConfig GuardrailWordPolicyConfigPtrInput
 }
 
@@ -452,12 +457,12 @@ func (o GuardrailOutput) BlockedOutputsMessaging() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.BlockedOutputsMessaging }).(pulumi.StringOutput)
 }
 
-// Content policy config for a guardrail. See Content Policy Config for more information.
+// Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
 func (o GuardrailOutput) ContentPolicyConfig() GuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailContentPolicyConfigPtrOutput { return v.ContentPolicyConfig }).(GuardrailContentPolicyConfigPtrOutput)
 }
 
-// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+// Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
 func (o GuardrailOutput) ContextualGroundingPolicyConfig() GuardrailContextualGroundingPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailContextualGroundingPolicyConfigPtrOutput {
 		return v.ContextualGroundingPolicyConfig
@@ -469,6 +474,7 @@ func (o GuardrailOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
 func (o GuardrailOutput) CrossRegionConfig() GuardrailCrossRegionConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailCrossRegionConfigPtrOutput { return v.CrossRegionConfig }).(GuardrailCrossRegionConfigPtrOutput)
 }
@@ -488,7 +494,7 @@ func (o GuardrailOutput) GuardrailId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.GuardrailId }).(pulumi.StringOutput)
 }
 
-// The KMS key with which the guardrail was encrypted at rest.
+// KMS key with which the guardrail was encrypted at rest.
 func (o GuardrailOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -505,7 +511,7 @@ func (o GuardrailOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+// Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
 func (o GuardrailOutput) SensitiveInformationPolicyConfig() GuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailSensitiveInformationPolicyConfigPtrOutput {
 		return v.SensitiveInformationPolicyConfig
@@ -530,7 +536,7 @@ func (o GuardrailOutput) Timeouts() GuardrailTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailTimeoutsPtrOutput { return v.Timeouts }).(GuardrailTimeoutsPtrOutput)
 }
 
-// Topic policy config for a guardrail. See Topic Policy Config for more information.
+// Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
 func (o GuardrailOutput) TopicPolicyConfig() GuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailTopicPolicyConfigPtrOutput { return v.TopicPolicyConfig }).(GuardrailTopicPolicyConfigPtrOutput)
 }
@@ -545,7 +551,7 @@ func (o GuardrailOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// Word policy config for a guardrail. See Word Policy Config for more information.
+// Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
 func (o GuardrailOutput) WordPolicyConfig() GuardrailWordPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailWordPolicyConfigPtrOutput { return v.WordPolicyConfig }).(GuardrailWordPolicyConfigPtrOutput)
 }

@@ -18,14 +18,14 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
     public static final SchedulingPolicyFairSharePolicyShareDistributionArgs Empty = new SchedulingPolicyFairSharePolicyShareDistributionArgs();
 
     /**
-     * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+     * Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
     @Import(name="shareIdentifier", required=true)
     private Output<String> shareIdentifier;
 
     /**
-     * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+     * @return Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
     public Output<String> shareIdentifier() {
@@ -33,14 +33,14 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
     }
 
     /**
-     * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+     * Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
     @Import(name="weightFactor")
     private @Nullable Output<Double> weightFactor;
 
     /**
-     * @return The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+     * @return Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
     public Optional<Output<Double>> weightFactor() {
@@ -73,7 +73,7 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
         }
 
         /**
-         * @param shareIdentifier A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * @param shareIdentifier Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
         }
 
         /**
-         * @param shareIdentifier A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * @param shareIdentifier Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
         }
 
         /**
-         * @param weightFactor The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * @param weightFactor Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SchedulingPolicyFairSharePolicyShareDistributionArgs extends 
         }
 
         /**
-         * @param weightFactor The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * @param weightFactor Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          * 
          * @return builder
          * 

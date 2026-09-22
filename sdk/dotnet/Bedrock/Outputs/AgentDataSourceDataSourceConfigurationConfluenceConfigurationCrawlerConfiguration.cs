@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration
     {
         /// <summary>
-        /// The Salesforce standard object configuration. See `FilterConfiguration` block for details.
+        /// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration? FilterConfiguration;
 

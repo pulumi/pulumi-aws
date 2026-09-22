@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantTemplateConfigurationChatMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        /// Content for the message you pass to, or receive from a model. See `Content` Block for more information.
         /// </summary>
         [Input("content")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationChatMessageContentArgs>? Content { get; set; }
 
         /// <summary>
-        /// The role that the message belongs to.
+        /// Role that the message belongs to.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;

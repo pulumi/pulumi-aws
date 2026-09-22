@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
     public static final AgentFlowDefinitionConnectionConfigurationArgs Empty = new AgentFlowDefinitionConnectionConfigurationArgs();
 
     /**
-     * The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+     * Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
      * 
      */
     @Import(name="conditional")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationConditionalArgs> conditional;
 
     /**
-     * @return The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+     * @return Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationConditionalArgs>> conditional() {
@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
     }
 
     /**
-     * The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+     * Configuration of a connection originating from a node that isn&#39;t a Condition node. See `definition.connection.configuration.data` Block for details.
      * 
      */
     @Import(name="data")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationDataArgs> data;
 
     /**
-     * @return The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+     * @return Configuration of a connection originating from a node that isn&#39;t a Condition node. See `definition.connection.configuration.data` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationDataArgs>> data() {
@@ -72,7 +72,7 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param conditional The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+         * @param conditional Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param conditional The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+         * @param conditional Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param data The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+         * @param data Configuration of a connection originating from a node that isn&#39;t a Condition node. See `definition.connection.configuration.data` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
         }
 
         /**
-         * @param data The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+         * @param data Configuration of a connection originating from a node that isn&#39;t a Condition node. See `definition.connection.configuration.data` Block for details.
          * 
          * @return builder
          * 

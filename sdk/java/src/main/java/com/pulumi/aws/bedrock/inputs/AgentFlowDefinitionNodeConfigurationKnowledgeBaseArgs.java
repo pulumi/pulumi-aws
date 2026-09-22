@@ -20,14 +20,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     public static final AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs Empty = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs();
 
     /**
-     * Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+     * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs> guardrailConfiguration;
 
     /**
-     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+     * @return Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs>> guardrailConfiguration() {
@@ -35,14 +35,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     }
 
     /**
-     * Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+     * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs> inferenceConfiguration;
 
     /**
-     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs>> inferenceConfiguration() {
@@ -50,14 +50,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     }
 
     /**
-     * The unique identifier of the knowledge base to query.
+     * Unique identifier of the knowledge base to query.
      * 
      */
     @Import(name="knowledgeBaseId", required=true)
     private Output<String> knowledgeBaseId;
 
     /**
-     * @return The unique identifier of the knowledge base to query.
+     * @return Unique identifier of the knowledge base to query.
      * 
      */
     public Output<String> knowledgeBaseId() {
@@ -65,23 +65,31 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     }
 
     /**
-     * The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
     /**
-     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     public Output<String> modelId() {
         return this.modelId;
     }
 
+    /**
+     * Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+     * 
+     */
     @Import(name="numberOfResults")
     private @Nullable Output<Integer> numberOfResults;
 
+    /**
+     * @return Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+     * 
+     */
     public Optional<Output<Integer>> numberOfResults() {
         return Optional.ofNullable(this.numberOfResults);
     }
@@ -115,7 +123,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param guardrailConfiguration Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -126,7 +134,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param guardrailConfiguration Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -136,7 +144,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param inferenceConfiguration Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -147,7 +155,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param inferenceConfiguration Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -157,7 +165,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param knowledgeBaseId The unique identifier of the knowledge base to query.
+         * @param knowledgeBaseId Unique identifier of the knowledge base to query.
          * 
          * @return builder
          * 
@@ -168,7 +176,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param knowledgeBaseId The unique identifier of the knowledge base to query.
+         * @param knowledgeBaseId Unique identifier of the knowledge base to query.
          * 
          * @return builder
          * 
@@ -178,7 +186,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param modelId The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          * 
          * @return builder
          * 
@@ -189,7 +197,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param modelId The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          * 
          * @return builder
          * 
@@ -198,11 +206,23 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
             return modelId(Output.of(modelId));
         }
 
+        /**
+         * @param numberOfResults Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numberOfResults(@Nullable Output<Integer> numberOfResults) {
             $.numberOfResults = numberOfResults;
             return this;
         }
 
+        /**
+         * @param numberOfResults Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numberOfResults(Integer numberOfResults) {
             return numberOfResults(Output.of(numberOfResults));
         }

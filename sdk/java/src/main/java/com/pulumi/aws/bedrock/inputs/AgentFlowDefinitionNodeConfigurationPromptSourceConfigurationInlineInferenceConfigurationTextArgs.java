@@ -34,14 +34,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * List of strings that define sequences after which the model will stop generating.
+     * List of strings that define sequences after which the model stops generating.
      * 
      */
     @Import(name="stopSequences")
     private @Nullable Output<List<String>> stopSequences;
 
     /**
-     * @return List of strings that define sequences after which the model will stop generating.
+     * @return List of strings that define sequences after which the model stops generating.
      * 
      */
     public Optional<Output<List<String>>> stopSequences() {
@@ -127,7 +127,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
+         * @param stopSequences List of strings that define sequences after which the model stops generating.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
+         * @param stopSequences List of strings that define sequences after which the model stops generating.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param stopSequences List of strings that define sequences after which the model will stop generating.
+         * @param stopSequences List of strings that define sequences after which the model stops generating.
          * 
          * @return builder
          * 

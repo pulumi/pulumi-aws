@@ -38,6 +38,7 @@ class AgentAgentCollaboratorArgs:
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
@@ -107,6 +108,9 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -176,6 +180,7 @@ class _AgentAgentCollaboratorState:
         Input properties used for looking up and filtering AgentAgentCollaborator resources.
 
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
@@ -230,6 +235,9 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -431,6 +439,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
                
@@ -616,6 +625,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
+        :param pulumi.Input[_builtins.str] agent_version: Version of the agent to associate the collaborator. Defaults to `DRAFT`.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
@@ -657,6 +667,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        """
         return pulumi.get(self, "agent_version")
 
     @_builtins.property

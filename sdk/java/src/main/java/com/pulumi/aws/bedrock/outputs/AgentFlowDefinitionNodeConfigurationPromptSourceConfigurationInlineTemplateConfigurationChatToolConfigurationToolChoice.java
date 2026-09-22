@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+     * @return Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny any;
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+     * @return Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto auto;
     /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * @return Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool tool;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice() {}
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+     * @return Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny> any() {
         return Optional.ofNullable(this.any);
     }
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+     * @return Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto> auto() {
         return Optional.ofNullable(this.auto);
     }
     /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * @return Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool> tool() {

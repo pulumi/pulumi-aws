@@ -13,6 +13,3430 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ChannelEncryptionConfiguration struct {
+	// ARN of the AWS KMS key used to encrypt the data.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// ChannelEncryptionConfigurationInput is an input type that accepts ChannelEncryptionConfigurationArgs and ChannelEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncryptionConfigurationInput` via:
+//
+//	ChannelEncryptionConfigurationArgs{...}
+type ChannelEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput
+	ToChannelEncryptionConfigurationOutputWithContext(context.Context) ChannelEncryptionConfigurationOutput
+}
+
+type ChannelEncryptionConfigurationArgs struct {
+	// ARN of the AWS KMS key used to encrypt the data.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (ChannelEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput {
+	return i.ToChannelEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationOutput)
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return i.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationOutput).ToChannelEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncryptionConfigurationPtrInput is an input type that accepts ChannelEncryptionConfigurationArgs, ChannelEncryptionConfigurationPtr and ChannelEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncryptionConfigurationPtrInput` via:
+//
+//	        ChannelEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput
+	ToChannelEncryptionConfigurationPtrOutputWithContext(context.Context) ChannelEncryptionConfigurationPtrOutput
+}
+
+type channelEncryptionConfigurationPtrType ChannelEncryptionConfigurationArgs
+
+func ChannelEncryptionConfigurationPtr(v *ChannelEncryptionConfigurationArgs) ChannelEncryptionConfigurationPtrInput {
+	return (*channelEncryptionConfigurationPtrType)(v)
+}
+
+func (*channelEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncryptionConfigurationPtrType) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return i.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncryptionConfigurationPtrType) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationPtrOutput)
+}
+
+type ChannelEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return o.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncryptionConfiguration) *ChannelEncryptionConfiguration {
+		return &v
+	}).(ChannelEncryptionConfigurationPtrOutput)
+}
+
+// ARN of the AWS KMS key used to encrypt the data.
+func (o ChannelEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type ChannelEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) Elem() ChannelEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfiguration) ChannelEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncryptionConfiguration
+		return ret
+	}).(ChannelEncryptionConfigurationOutput)
+}
+
+// ARN of the AWS KMS key used to encrypt the data.
+func (o ChannelEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestination struct {
+	// Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+	AppendOnly bool `pulumi:"appendOnly"`
+	// AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+	Catalog *ChannelIcebergDestinationCatalog `pulumi:"catalog"`
+	// Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+	CompressionType *string `pulumi:"compressionType"`
+	// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+	DataFreshnessInSeconds *int `pulumi:"dataFreshnessInSeconds"`
+	// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+	DeadLetterQueueS3 ChannelIcebergDestinationDeadLetterQueueS3 `pulumi:"deadLetterQueueS3"`
+	// Destination Iceberg table. See `destinationTable` Block below.
+	DestinationTable ChannelIcebergDestinationDestinationTable `pulumi:"destinationTable"`
+	// Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+	SchemaEvolution ChannelIcebergDestinationSchemaEvolution `pulumi:"schemaEvolution"`
+	// ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
+	// Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+	//
+	// The following arguments are optional:
+	TableCreation ChannelIcebergDestinationTableCreation `pulumi:"tableCreation"`
+}
+
+// ChannelIcebergDestinationInput is an input type that accepts ChannelIcebergDestinationArgs and ChannelIcebergDestinationOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationInput` via:
+//
+//	ChannelIcebergDestinationArgs{...}
+type ChannelIcebergDestinationInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationOutput() ChannelIcebergDestinationOutput
+	ToChannelIcebergDestinationOutputWithContext(context.Context) ChannelIcebergDestinationOutput
+}
+
+type ChannelIcebergDestinationArgs struct {
+	// Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+	AppendOnly pulumi.BoolInput `pulumi:"appendOnly"`
+	// AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+	Catalog ChannelIcebergDestinationCatalogPtrInput `pulumi:"catalog"`
+	// Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+	DataFreshnessInSeconds pulumi.IntPtrInput `pulumi:"dataFreshnessInSeconds"`
+	// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+	DeadLetterQueueS3 ChannelIcebergDestinationDeadLetterQueueS3Input `pulumi:"deadLetterQueueS3"`
+	// Destination Iceberg table. See `destinationTable` Block below.
+	DestinationTable ChannelIcebergDestinationDestinationTableInput `pulumi:"destinationTable"`
+	// Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+	SchemaEvolution ChannelIcebergDestinationSchemaEvolutionInput `pulumi:"schemaEvolution"`
+	// ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+	ServiceExecutionRoleArn pulumi.StringInput `pulumi:"serviceExecutionRoleArn"`
+	// Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+	//
+	// The following arguments are optional:
+	TableCreation ChannelIcebergDestinationTableCreationInput `pulumi:"tableCreation"`
+}
+
+func (ChannelIcebergDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestination)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationArgs) ToChannelIcebergDestinationOutput() ChannelIcebergDestinationOutput {
+	return i.ToChannelIcebergDestinationOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationArgs) ToChannelIcebergDestinationOutputWithContext(ctx context.Context) ChannelIcebergDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationOutput)
+}
+
+func (i ChannelIcebergDestinationArgs) ToChannelIcebergDestinationPtrOutput() ChannelIcebergDestinationPtrOutput {
+	return i.ToChannelIcebergDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationArgs) ToChannelIcebergDestinationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationOutput).ToChannelIcebergDestinationPtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationPtrInput is an input type that accepts ChannelIcebergDestinationArgs, ChannelIcebergDestinationPtr and ChannelIcebergDestinationPtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationPtrInput` via:
+//
+//	        ChannelIcebergDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationPtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationPtrOutput() ChannelIcebergDestinationPtrOutput
+	ToChannelIcebergDestinationPtrOutputWithContext(context.Context) ChannelIcebergDestinationPtrOutput
+}
+
+type channelIcebergDestinationPtrType ChannelIcebergDestinationArgs
+
+func ChannelIcebergDestinationPtr(v *ChannelIcebergDestinationArgs) ChannelIcebergDestinationPtrInput {
+	return (*channelIcebergDestinationPtrType)(v)
+}
+
+func (*channelIcebergDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestination)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationPtrType) ToChannelIcebergDestinationPtrOutput() ChannelIcebergDestinationPtrOutput {
+	return i.ToChannelIcebergDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationPtrType) ToChannelIcebergDestinationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationPtrOutput)
+}
+
+type ChannelIcebergDestinationOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestination)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationOutput) ToChannelIcebergDestinationOutput() ChannelIcebergDestinationOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationOutput) ToChannelIcebergDestinationOutputWithContext(ctx context.Context) ChannelIcebergDestinationOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationOutput) ToChannelIcebergDestinationPtrOutput() ChannelIcebergDestinationPtrOutput {
+	return o.ToChannelIcebergDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationOutput) ToChannelIcebergDestinationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestination) *ChannelIcebergDestination {
+		return &v
+	}).(ChannelIcebergDestinationPtrOutput)
+}
+
+// Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+func (o ChannelIcebergDestinationOutput) AppendOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) bool { return v.AppendOnly }).(pulumi.BoolOutput)
+}
+
+// AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+func (o ChannelIcebergDestinationOutput) Catalog() ChannelIcebergDestinationCatalogPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) *ChannelIcebergDestinationCatalog { return v.Catalog }).(ChannelIcebergDestinationCatalogPtrOutput)
+}
+
+// Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+func (o ChannelIcebergDestinationOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
+}
+
+// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+func (o ChannelIcebergDestinationOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) *int { return v.DataFreshnessInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+func (o ChannelIcebergDestinationOutput) DeadLetterQueueS3() ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return o.ApplyT(func(v ChannelIcebergDestination) ChannelIcebergDestinationDeadLetterQueueS3 {
+		return v.DeadLetterQueueS3
+	}).(ChannelIcebergDestinationDeadLetterQueueS3Output)
+}
+
+// Destination Iceberg table. See `destinationTable` Block below.
+func (o ChannelIcebergDestinationOutput) DestinationTable() ChannelIcebergDestinationDestinationTableOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) ChannelIcebergDestinationDestinationTable { return v.DestinationTable }).(ChannelIcebergDestinationDestinationTableOutput)
+}
+
+// Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+func (o ChannelIcebergDestinationOutput) SchemaEvolution() ChannelIcebergDestinationSchemaEvolutionOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) ChannelIcebergDestinationSchemaEvolution { return v.SchemaEvolution }).(ChannelIcebergDestinationSchemaEvolutionOutput)
+}
+
+// ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+func (o ChannelIcebergDestinationOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) string { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+//
+// The following arguments are optional:
+func (o ChannelIcebergDestinationOutput) TableCreation() ChannelIcebergDestinationTableCreationOutput {
+	return o.ApplyT(func(v ChannelIcebergDestination) ChannelIcebergDestinationTableCreation { return v.TableCreation }).(ChannelIcebergDestinationTableCreationOutput)
+}
+
+type ChannelIcebergDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestination)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationPtrOutput) ToChannelIcebergDestinationPtrOutput() ChannelIcebergDestinationPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationPtrOutput) ToChannelIcebergDestinationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationPtrOutput) Elem() ChannelIcebergDestinationOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) ChannelIcebergDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestination
+		return ret
+	}).(ChannelIcebergDestinationOutput)
+}
+
+// Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+func (o ChannelIcebergDestinationPtrOutput) AppendOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+func (o ChannelIcebergDestinationPtrOutput) Catalog() ChannelIcebergDestinationCatalogPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *ChannelIcebergDestinationCatalog {
+		if v == nil {
+			return nil
+		}
+		return v.Catalog
+	}).(ChannelIcebergDestinationCatalogPtrOutput)
+}
+
+// Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+func (o ChannelIcebergDestinationPtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+func (o ChannelIcebergDestinationPtrOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFreshnessInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+func (o ChannelIcebergDestinationPtrOutput) DeadLetterQueueS3() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *ChannelIcebergDestinationDeadLetterQueueS3 {
+		if v == nil {
+			return nil
+		}
+		return &v.DeadLetterQueueS3
+	}).(ChannelIcebergDestinationDeadLetterQueueS3PtrOutput)
+}
+
+// Destination Iceberg table. See `destinationTable` Block below.
+func (o ChannelIcebergDestinationPtrOutput) DestinationTable() ChannelIcebergDestinationDestinationTablePtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *ChannelIcebergDestinationDestinationTable {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationTable
+	}).(ChannelIcebergDestinationDestinationTablePtrOutput)
+}
+
+// Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+func (o ChannelIcebergDestinationPtrOutput) SchemaEvolution() ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *ChannelIcebergDestinationSchemaEvolution {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaEvolution
+	}).(ChannelIcebergDestinationSchemaEvolutionPtrOutput)
+}
+
+// ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+func (o ChannelIcebergDestinationPtrOutput) ServiceExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+//
+// The following arguments are optional:
+func (o ChannelIcebergDestinationPtrOutput) TableCreation() ChannelIcebergDestinationTableCreationPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestination) *ChannelIcebergDestinationTableCreation {
+		if v == nil {
+			return nil
+		}
+		return &v.TableCreation
+	}).(ChannelIcebergDestinationTableCreationPtrOutput)
+}
+
+type ChannelIcebergDestinationCatalog struct {
+	// ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+	CatalogArn *string `pulumi:"catalogArn"`
+	// ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+	WarehouseLocation *string `pulumi:"warehouseLocation"`
+}
+
+// ChannelIcebergDestinationCatalogInput is an input type that accepts ChannelIcebergDestinationCatalogArgs and ChannelIcebergDestinationCatalogOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationCatalogInput` via:
+//
+//	ChannelIcebergDestinationCatalogArgs{...}
+type ChannelIcebergDestinationCatalogInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationCatalogOutput() ChannelIcebergDestinationCatalogOutput
+	ToChannelIcebergDestinationCatalogOutputWithContext(context.Context) ChannelIcebergDestinationCatalogOutput
+}
+
+type ChannelIcebergDestinationCatalogArgs struct {
+	// ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+	CatalogArn pulumi.StringPtrInput `pulumi:"catalogArn"`
+	// ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+	WarehouseLocation pulumi.StringPtrInput `pulumi:"warehouseLocation"`
+}
+
+func (ChannelIcebergDestinationCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationCatalog)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationCatalogArgs) ToChannelIcebergDestinationCatalogOutput() ChannelIcebergDestinationCatalogOutput {
+	return i.ToChannelIcebergDestinationCatalogOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationCatalogArgs) ToChannelIcebergDestinationCatalogOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationCatalogOutput)
+}
+
+func (i ChannelIcebergDestinationCatalogArgs) ToChannelIcebergDestinationCatalogPtrOutput() ChannelIcebergDestinationCatalogPtrOutput {
+	return i.ToChannelIcebergDestinationCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationCatalogArgs) ToChannelIcebergDestinationCatalogPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationCatalogOutput).ToChannelIcebergDestinationCatalogPtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationCatalogPtrInput is an input type that accepts ChannelIcebergDestinationCatalogArgs, ChannelIcebergDestinationCatalogPtr and ChannelIcebergDestinationCatalogPtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationCatalogPtrInput` via:
+//
+//	        ChannelIcebergDestinationCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationCatalogPtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationCatalogPtrOutput() ChannelIcebergDestinationCatalogPtrOutput
+	ToChannelIcebergDestinationCatalogPtrOutputWithContext(context.Context) ChannelIcebergDestinationCatalogPtrOutput
+}
+
+type channelIcebergDestinationCatalogPtrType ChannelIcebergDestinationCatalogArgs
+
+func ChannelIcebergDestinationCatalogPtr(v *ChannelIcebergDestinationCatalogArgs) ChannelIcebergDestinationCatalogPtrInput {
+	return (*channelIcebergDestinationCatalogPtrType)(v)
+}
+
+func (*channelIcebergDestinationCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationCatalog)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationCatalogPtrType) ToChannelIcebergDestinationCatalogPtrOutput() ChannelIcebergDestinationCatalogPtrOutput {
+	return i.ToChannelIcebergDestinationCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationCatalogPtrType) ToChannelIcebergDestinationCatalogPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationCatalogPtrOutput)
+}
+
+type ChannelIcebergDestinationCatalogOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationCatalog)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationCatalogOutput) ToChannelIcebergDestinationCatalogOutput() ChannelIcebergDestinationCatalogOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationCatalogOutput) ToChannelIcebergDestinationCatalogOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationCatalogOutput) ToChannelIcebergDestinationCatalogPtrOutput() ChannelIcebergDestinationCatalogPtrOutput {
+	return o.ToChannelIcebergDestinationCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationCatalogOutput) ToChannelIcebergDestinationCatalogPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationCatalog) *ChannelIcebergDestinationCatalog {
+		return &v
+	}).(ChannelIcebergDestinationCatalogPtrOutput)
+}
+
+// ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+func (o ChannelIcebergDestinationCatalogOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationCatalog) *string { return v.CatalogArn }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+func (o ChannelIcebergDestinationCatalogOutput) WarehouseLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationCatalog) *string { return v.WarehouseLocation }).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestinationCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationCatalog)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationCatalogPtrOutput) ToChannelIcebergDestinationCatalogPtrOutput() ChannelIcebergDestinationCatalogPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationCatalogPtrOutput) ToChannelIcebergDestinationCatalogPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationCatalogPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationCatalogPtrOutput) Elem() ChannelIcebergDestinationCatalogOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationCatalog) ChannelIcebergDestinationCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationCatalog
+		return ret
+	}).(ChannelIcebergDestinationCatalogOutput)
+}
+
+// ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+func (o ChannelIcebergDestinationCatalogPtrOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+func (o ChannelIcebergDestinationCatalogPtrOutput) WarehouseLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarehouseLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestinationDeadLetterQueueS3 struct {
+	// ARN of the dead-letter Amazon S3 bucket.
+	//
+	// The following arguments are optional:
+	BucketArn string `pulumi:"bucketArn"`
+	// Prefix prepended to every dead-letter Amazon S3 object key.
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+}
+
+// ChannelIcebergDestinationDeadLetterQueueS3Input is an input type that accepts ChannelIcebergDestinationDeadLetterQueueS3Args and ChannelIcebergDestinationDeadLetterQueueS3Output values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDeadLetterQueueS3Input` via:
+//
+//	ChannelIcebergDestinationDeadLetterQueueS3Args{...}
+type ChannelIcebergDestinationDeadLetterQueueS3Input interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDeadLetterQueueS3Output() ChannelIcebergDestinationDeadLetterQueueS3Output
+	ToChannelIcebergDestinationDeadLetterQueueS3OutputWithContext(context.Context) ChannelIcebergDestinationDeadLetterQueueS3Output
+}
+
+type ChannelIcebergDestinationDeadLetterQueueS3Args struct {
+	// ARN of the dead-letter Amazon S3 bucket.
+	//
+	// The following arguments are optional:
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Prefix prepended to every dead-letter Amazon S3 object key.
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
+}
+
+func (ChannelIcebergDestinationDeadLetterQueueS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationDeadLetterQueueS3Args) ToChannelIcebergDestinationDeadLetterQueueS3Output() ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return i.ToChannelIcebergDestinationDeadLetterQueueS3OutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDeadLetterQueueS3Args) ToChannelIcebergDestinationDeadLetterQueueS3OutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDeadLetterQueueS3Output)
+}
+
+func (i ChannelIcebergDestinationDeadLetterQueueS3Args) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutput() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return i.ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDeadLetterQueueS3Args) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDeadLetterQueueS3Output).ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationDeadLetterQueueS3PtrInput is an input type that accepts ChannelIcebergDestinationDeadLetterQueueS3Args, ChannelIcebergDestinationDeadLetterQueueS3Ptr and ChannelIcebergDestinationDeadLetterQueueS3PtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDeadLetterQueueS3PtrInput` via:
+//
+//	        ChannelIcebergDestinationDeadLetterQueueS3Args{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationDeadLetterQueueS3PtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDeadLetterQueueS3PtrOutput() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput
+	ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(context.Context) ChannelIcebergDestinationDeadLetterQueueS3PtrOutput
+}
+
+type channelIcebergDestinationDeadLetterQueueS3PtrType ChannelIcebergDestinationDeadLetterQueueS3Args
+
+func ChannelIcebergDestinationDeadLetterQueueS3Ptr(v *ChannelIcebergDestinationDeadLetterQueueS3Args) ChannelIcebergDestinationDeadLetterQueueS3PtrInput {
+	return (*channelIcebergDestinationDeadLetterQueueS3PtrType)(v)
+}
+
+func (*channelIcebergDestinationDeadLetterQueueS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationDeadLetterQueueS3PtrType) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutput() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return i.ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationDeadLetterQueueS3PtrType) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDeadLetterQueueS3PtrOutput)
+}
+
+type ChannelIcebergDestinationDeadLetterQueueS3Output struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDeadLetterQueueS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ToChannelIcebergDestinationDeadLetterQueueS3Output() ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return o
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ToChannelIcebergDestinationDeadLetterQueueS3OutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return o
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutput() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return o.ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationDeadLetterQueueS3) *ChannelIcebergDestinationDeadLetterQueueS3 {
+		return &v
+	}).(ChannelIcebergDestinationDeadLetterQueueS3PtrOutput)
+}
+
+// ARN of the dead-letter Amazon S3 bucket.
+//
+// The following arguments are optional:
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDeadLetterQueueS3) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Prefix prepended to every dead-letter Amazon S3 object key.
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDeadLetterQueueS3) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+func (o ChannelIcebergDestinationDeadLetterQueueS3Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDeadLetterQueueS3) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestinationDeadLetterQueueS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutput() ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) ToChannelIcebergDestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDeadLetterQueueS3PtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) Elem() ChannelIcebergDestinationDeadLetterQueueS3Output {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDeadLetterQueueS3) ChannelIcebergDestinationDeadLetterQueueS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationDeadLetterQueueS3
+		return ret
+	}).(ChannelIcebergDestinationDeadLetterQueueS3Output)
+}
+
+// ARN of the dead-letter Amazon S3 bucket.
+//
+// The following arguments are optional:
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix prepended to every dead-letter Amazon S3 object key.
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+func (o ChannelIcebergDestinationDeadLetterQueueS3PtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTable struct {
+	// Name of the destination namespace (database) in the AWS Glue Data Catalog.
+	DestinationDatabaseName *string `pulumi:"destinationDatabaseName"`
+	// Name of the destination Apache Iceberg table.
+	DestinationTableName *string `pulumi:"destinationTableName"`
+	// Partition specification for the destination table. See `partitionSpec` Block below.
+	PartitionSpec *ChannelIcebergDestinationDestinationTablePartitionSpec `pulumi:"partitionSpec"`
+}
+
+// ChannelIcebergDestinationDestinationTableInput is an input type that accepts ChannelIcebergDestinationDestinationTableArgs and ChannelIcebergDestinationDestinationTableOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTableInput` via:
+//
+//	ChannelIcebergDestinationDestinationTableArgs{...}
+type ChannelIcebergDestinationDestinationTableInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTableOutput() ChannelIcebergDestinationDestinationTableOutput
+	ToChannelIcebergDestinationDestinationTableOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTableOutput
+}
+
+type ChannelIcebergDestinationDestinationTableArgs struct {
+	// Name of the destination namespace (database) in the AWS Glue Data Catalog.
+	DestinationDatabaseName pulumi.StringPtrInput `pulumi:"destinationDatabaseName"`
+	// Name of the destination Apache Iceberg table.
+	DestinationTableName pulumi.StringPtrInput `pulumi:"destinationTableName"`
+	// Partition specification for the destination table. See `partitionSpec` Block below.
+	PartitionSpec ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput `pulumi:"partitionSpec"`
+}
+
+func (ChannelIcebergDestinationDestinationTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTable)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationDestinationTableArgs) ToChannelIcebergDestinationDestinationTableOutput() ChannelIcebergDestinationDestinationTableOutput {
+	return i.ToChannelIcebergDestinationDestinationTableOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTableArgs) ToChannelIcebergDestinationDestinationTableOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTableOutput)
+}
+
+func (i ChannelIcebergDestinationDestinationTableArgs) ToChannelIcebergDestinationDestinationTablePtrOutput() ChannelIcebergDestinationDestinationTablePtrOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTableArgs) ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTableOutput).ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationDestinationTablePtrInput is an input type that accepts ChannelIcebergDestinationDestinationTableArgs, ChannelIcebergDestinationDestinationTablePtr and ChannelIcebergDestinationDestinationTablePtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTablePtrInput` via:
+//
+//	        ChannelIcebergDestinationDestinationTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationDestinationTablePtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTablePtrOutput() ChannelIcebergDestinationDestinationTablePtrOutput
+	ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTablePtrOutput
+}
+
+type channelIcebergDestinationDestinationTablePtrType ChannelIcebergDestinationDestinationTableArgs
+
+func ChannelIcebergDestinationDestinationTablePtr(v *ChannelIcebergDestinationDestinationTableArgs) ChannelIcebergDestinationDestinationTablePtrInput {
+	return (*channelIcebergDestinationDestinationTablePtrType)(v)
+}
+
+func (*channelIcebergDestinationDestinationTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDestinationTable)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationDestinationTablePtrType) ToChannelIcebergDestinationDestinationTablePtrOutput() ChannelIcebergDestinationDestinationTablePtrOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationDestinationTablePtrType) ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTableOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTable)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTableOutput) ToChannelIcebergDestinationDestinationTableOutput() ChannelIcebergDestinationDestinationTableOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTableOutput) ToChannelIcebergDestinationDestinationTableOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTableOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTableOutput) ToChannelIcebergDestinationDestinationTablePtrOutput() ChannelIcebergDestinationDestinationTablePtrOutput {
+	return o.ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationDestinationTableOutput) ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationDestinationTable) *ChannelIcebergDestinationDestinationTable {
+		return &v
+	}).(ChannelIcebergDestinationDestinationTablePtrOutput)
+}
+
+// Name of the destination namespace (database) in the AWS Glue Data Catalog.
+func (o ChannelIcebergDestinationDestinationTableOutput) DestinationDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTable) *string { return v.DestinationDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the destination Apache Iceberg table.
+func (o ChannelIcebergDestinationDestinationTableOutput) DestinationTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTable) *string { return v.DestinationTableName }).(pulumi.StringPtrOutput)
+}
+
+// Partition specification for the destination table. See `partitionSpec` Block below.
+func (o ChannelIcebergDestinationDestinationTableOutput) PartitionSpec() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTable) *ChannelIcebergDestinationDestinationTablePartitionSpec {
+		return v.PartitionSpec
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDestinationTable)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) ToChannelIcebergDestinationDestinationTablePtrOutput() ChannelIcebergDestinationDestinationTablePtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) ToChannelIcebergDestinationDestinationTablePtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) Elem() ChannelIcebergDestinationDestinationTableOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTable) ChannelIcebergDestinationDestinationTable {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationDestinationTable
+		return ret
+	}).(ChannelIcebergDestinationDestinationTableOutput)
+}
+
+// Name of the destination namespace (database) in the AWS Glue Data Catalog.
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) DestinationDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the destination Apache Iceberg table.
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) DestinationTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Partition specification for the destination table. See `partitionSpec` Block below.
+func (o ChannelIcebergDestinationDestinationTablePtrOutput) PartitionSpec() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTable) *ChannelIcebergDestinationDestinationTablePartitionSpec {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionSpec
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpec struct {
+	// Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+	PartitionStrategy string `pulumi:"partitionStrategy"`
+	// Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+	Sources []ChannelIcebergDestinationDestinationTablePartitionSpecSource `pulumi:"sources"`
+}
+
+// ChannelIcebergDestinationDestinationTablePartitionSpecInput is an input type that accepts ChannelIcebergDestinationDestinationTablePartitionSpecArgs and ChannelIcebergDestinationDestinationTablePartitionSpecOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTablePartitionSpecInput` via:
+//
+//	ChannelIcebergDestinationDestinationTablePartitionSpecArgs{...}
+type ChannelIcebergDestinationDestinationTablePartitionSpecInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTablePartitionSpecOutput() ChannelIcebergDestinationDestinationTablePartitionSpecOutput
+	ToChannelIcebergDestinationDestinationTablePartitionSpecOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecOutput
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecArgs struct {
+	// Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+	PartitionStrategy pulumi.StringInput `pulumi:"partitionStrategy"`
+	// Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+	Sources ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayInput `pulumi:"sources"`
+}
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpec)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecOutput() ChannelIcebergDestinationDestinationTablePartitionSpecOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePartitionSpecOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePartitionSpecOutput)
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePartitionSpecOutput).ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput is an input type that accepts ChannelIcebergDestinationDestinationTablePartitionSpecArgs, ChannelIcebergDestinationDestinationTablePartitionSpecPtr and ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput` via:
+//
+//	        ChannelIcebergDestinationDestinationTablePartitionSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput
+	ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput
+}
+
+type channelIcebergDestinationDestinationTablePartitionSpecPtrType ChannelIcebergDestinationDestinationTablePartitionSpecArgs
+
+func ChannelIcebergDestinationDestinationTablePartitionSpecPtr(v *ChannelIcebergDestinationDestinationTablePartitionSpecArgs) ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput {
+	return (*channelIcebergDestinationDestinationTablePartitionSpecPtrType)(v)
+}
+
+func (*channelIcebergDestinationDestinationTablePartitionSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDestinationTablePartitionSpec)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationDestinationTablePartitionSpecPtrType) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationDestinationTablePartitionSpecPtrType) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpec)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecOutput() ChannelIcebergDestinationDestinationTablePartitionSpecOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o.ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationDestinationTablePartitionSpec) *ChannelIcebergDestinationDestinationTablePartitionSpec {
+		return &v
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput)
+}
+
+// Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) PartitionStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTablePartitionSpec) string { return v.PartitionStrategy }).(pulumi.StringOutput)
+}
+
+// Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecOutput) Sources() ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTablePartitionSpec) []ChannelIcebergDestinationDestinationTablePartitionSpecSource {
+		return v.Sources
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationDestinationTablePartitionSpec)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput() ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) Elem() ChannelIcebergDestinationDestinationTablePartitionSpecOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTablePartitionSpec) ChannelIcebergDestinationDestinationTablePartitionSpec {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationDestinationTablePartitionSpec
+		return ret
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecOutput)
+}
+
+// Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) PartitionStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTablePartitionSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartitionStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput) Sources() ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationDestinationTablePartitionSpec) []ChannelIcebergDestinationDestinationTablePartitionSpecSource {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecSource struct {
+	// Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+	SourceName *string `pulumi:"sourceName"`
+}
+
+// ChannelIcebergDestinationDestinationTablePartitionSpecSourceInput is an input type that accepts ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs and ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTablePartitionSpecSourceInput` via:
+//
+//	ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs{...}
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput
+	ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs struct {
+	// Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+}
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecSource)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput)
+}
+
+// ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayInput is an input type that accepts ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray and ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayInput` via:
+//
+//	ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray{ ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs{...} }
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput
+	ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutputWithContext(context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray []ChannelIcebergDestinationDestinationTablePartitionSpecSourceInput
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelIcebergDestinationDestinationTablePartitionSpecSource)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return i.ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecSource)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput {
+	return o
+}
+
+// Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationDestinationTablePartitionSpecSource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+}
+
+type ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelIcebergDestinationDestinationTablePartitionSpecSource)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput() ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput) ToChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutputWithContext(ctx context.Context) ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput) Index(i pulumi.IntInput) ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelIcebergDestinationDestinationTablePartitionSpecSource {
+		return vs[0].([]ChannelIcebergDestinationDestinationTablePartitionSpecSource)[vs[1].(int)]
+	}).(ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput)
+}
+
+type ChannelIcebergDestinationSchemaEvolution struct {
+	// Whether to allow MSK to evolve the destination table's schema.
+	EnableSchemaEvolution *bool `pulumi:"enableSchemaEvolution"`
+}
+
+// ChannelIcebergDestinationSchemaEvolutionInput is an input type that accepts ChannelIcebergDestinationSchemaEvolutionArgs and ChannelIcebergDestinationSchemaEvolutionOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationSchemaEvolutionInput` via:
+//
+//	ChannelIcebergDestinationSchemaEvolutionArgs{...}
+type ChannelIcebergDestinationSchemaEvolutionInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationSchemaEvolutionOutput() ChannelIcebergDestinationSchemaEvolutionOutput
+	ToChannelIcebergDestinationSchemaEvolutionOutputWithContext(context.Context) ChannelIcebergDestinationSchemaEvolutionOutput
+}
+
+type ChannelIcebergDestinationSchemaEvolutionArgs struct {
+	// Whether to allow MSK to evolve the destination table's schema.
+	EnableSchemaEvolution pulumi.BoolPtrInput `pulumi:"enableSchemaEvolution"`
+}
+
+func (ChannelIcebergDestinationSchemaEvolutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationSchemaEvolution)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationSchemaEvolutionArgs) ToChannelIcebergDestinationSchemaEvolutionOutput() ChannelIcebergDestinationSchemaEvolutionOutput {
+	return i.ToChannelIcebergDestinationSchemaEvolutionOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationSchemaEvolutionArgs) ToChannelIcebergDestinationSchemaEvolutionOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationSchemaEvolutionOutput)
+}
+
+func (i ChannelIcebergDestinationSchemaEvolutionArgs) ToChannelIcebergDestinationSchemaEvolutionPtrOutput() ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return i.ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationSchemaEvolutionArgs) ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationSchemaEvolutionOutput).ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationSchemaEvolutionPtrInput is an input type that accepts ChannelIcebergDestinationSchemaEvolutionArgs, ChannelIcebergDestinationSchemaEvolutionPtr and ChannelIcebergDestinationSchemaEvolutionPtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationSchemaEvolutionPtrInput` via:
+//
+//	        ChannelIcebergDestinationSchemaEvolutionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationSchemaEvolutionPtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationSchemaEvolutionPtrOutput() ChannelIcebergDestinationSchemaEvolutionPtrOutput
+	ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(context.Context) ChannelIcebergDestinationSchemaEvolutionPtrOutput
+}
+
+type channelIcebergDestinationSchemaEvolutionPtrType ChannelIcebergDestinationSchemaEvolutionArgs
+
+func ChannelIcebergDestinationSchemaEvolutionPtr(v *ChannelIcebergDestinationSchemaEvolutionArgs) ChannelIcebergDestinationSchemaEvolutionPtrInput {
+	return (*channelIcebergDestinationSchemaEvolutionPtrType)(v)
+}
+
+func (*channelIcebergDestinationSchemaEvolutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationSchemaEvolution)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationSchemaEvolutionPtrType) ToChannelIcebergDestinationSchemaEvolutionPtrOutput() ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return i.ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationSchemaEvolutionPtrType) ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationSchemaEvolutionPtrOutput)
+}
+
+type ChannelIcebergDestinationSchemaEvolutionOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationSchemaEvolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationSchemaEvolution)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionOutput) ToChannelIcebergDestinationSchemaEvolutionOutput() ChannelIcebergDestinationSchemaEvolutionOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionOutput) ToChannelIcebergDestinationSchemaEvolutionOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionOutput) ToChannelIcebergDestinationSchemaEvolutionPtrOutput() ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return o.ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionOutput) ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationSchemaEvolution) *ChannelIcebergDestinationSchemaEvolution {
+		return &v
+	}).(ChannelIcebergDestinationSchemaEvolutionPtrOutput)
+}
+
+// Whether to allow MSK to evolve the destination table's schema.
+func (o ChannelIcebergDestinationSchemaEvolutionOutput) EnableSchemaEvolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationSchemaEvolution) *bool { return v.EnableSchemaEvolution }).(pulumi.BoolPtrOutput)
+}
+
+type ChannelIcebergDestinationSchemaEvolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationSchemaEvolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationSchemaEvolution)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionPtrOutput) ToChannelIcebergDestinationSchemaEvolutionPtrOutput() ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionPtrOutput) ToChannelIcebergDestinationSchemaEvolutionPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationSchemaEvolutionPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationSchemaEvolutionPtrOutput) Elem() ChannelIcebergDestinationSchemaEvolutionOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationSchemaEvolution) ChannelIcebergDestinationSchemaEvolution {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationSchemaEvolution
+		return ret
+	}).(ChannelIcebergDestinationSchemaEvolutionOutput)
+}
+
+// Whether to allow MSK to evolve the destination table's schema.
+func (o ChannelIcebergDestinationSchemaEvolutionPtrOutput) EnableSchemaEvolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationSchemaEvolution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSchemaEvolution
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ChannelIcebergDestinationTableCreation struct {
+	// Whether MSK creates the destination table on the customer's behalf.
+	EnableTableCreation *bool `pulumi:"enableTableCreation"`
+}
+
+// ChannelIcebergDestinationTableCreationInput is an input type that accepts ChannelIcebergDestinationTableCreationArgs and ChannelIcebergDestinationTableCreationOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationTableCreationInput` via:
+//
+//	ChannelIcebergDestinationTableCreationArgs{...}
+type ChannelIcebergDestinationTableCreationInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationTableCreationOutput() ChannelIcebergDestinationTableCreationOutput
+	ToChannelIcebergDestinationTableCreationOutputWithContext(context.Context) ChannelIcebergDestinationTableCreationOutput
+}
+
+type ChannelIcebergDestinationTableCreationArgs struct {
+	// Whether MSK creates the destination table on the customer's behalf.
+	EnableTableCreation pulumi.BoolPtrInput `pulumi:"enableTableCreation"`
+}
+
+func (ChannelIcebergDestinationTableCreationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationTableCreation)(nil)).Elem()
+}
+
+func (i ChannelIcebergDestinationTableCreationArgs) ToChannelIcebergDestinationTableCreationOutput() ChannelIcebergDestinationTableCreationOutput {
+	return i.ToChannelIcebergDestinationTableCreationOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationTableCreationArgs) ToChannelIcebergDestinationTableCreationOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationTableCreationOutput)
+}
+
+func (i ChannelIcebergDestinationTableCreationArgs) ToChannelIcebergDestinationTableCreationPtrOutput() ChannelIcebergDestinationTableCreationPtrOutput {
+	return i.ToChannelIcebergDestinationTableCreationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelIcebergDestinationTableCreationArgs) ToChannelIcebergDestinationTableCreationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationTableCreationOutput).ToChannelIcebergDestinationTableCreationPtrOutputWithContext(ctx)
+}
+
+// ChannelIcebergDestinationTableCreationPtrInput is an input type that accepts ChannelIcebergDestinationTableCreationArgs, ChannelIcebergDestinationTableCreationPtr and ChannelIcebergDestinationTableCreationPtrOutput values.
+// You can construct a concrete instance of `ChannelIcebergDestinationTableCreationPtrInput` via:
+//
+//	        ChannelIcebergDestinationTableCreationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelIcebergDestinationTableCreationPtrInput interface {
+	pulumi.Input
+
+	ToChannelIcebergDestinationTableCreationPtrOutput() ChannelIcebergDestinationTableCreationPtrOutput
+	ToChannelIcebergDestinationTableCreationPtrOutputWithContext(context.Context) ChannelIcebergDestinationTableCreationPtrOutput
+}
+
+type channelIcebergDestinationTableCreationPtrType ChannelIcebergDestinationTableCreationArgs
+
+func ChannelIcebergDestinationTableCreationPtr(v *ChannelIcebergDestinationTableCreationArgs) ChannelIcebergDestinationTableCreationPtrInput {
+	return (*channelIcebergDestinationTableCreationPtrType)(v)
+}
+
+func (*channelIcebergDestinationTableCreationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationTableCreation)(nil)).Elem()
+}
+
+func (i *channelIcebergDestinationTableCreationPtrType) ToChannelIcebergDestinationTableCreationPtrOutput() ChannelIcebergDestinationTableCreationPtrOutput {
+	return i.ToChannelIcebergDestinationTableCreationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelIcebergDestinationTableCreationPtrType) ToChannelIcebergDestinationTableCreationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIcebergDestinationTableCreationPtrOutput)
+}
+
+type ChannelIcebergDestinationTableCreationOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationTableCreationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIcebergDestinationTableCreation)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationTableCreationOutput) ToChannelIcebergDestinationTableCreationOutput() ChannelIcebergDestinationTableCreationOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationTableCreationOutput) ToChannelIcebergDestinationTableCreationOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationTableCreationOutput) ToChannelIcebergDestinationTableCreationPtrOutput() ChannelIcebergDestinationTableCreationPtrOutput {
+	return o.ToChannelIcebergDestinationTableCreationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelIcebergDestinationTableCreationOutput) ToChannelIcebergDestinationTableCreationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelIcebergDestinationTableCreation) *ChannelIcebergDestinationTableCreation {
+		return &v
+	}).(ChannelIcebergDestinationTableCreationPtrOutput)
+}
+
+// Whether MSK creates the destination table on the customer's behalf.
+func (o ChannelIcebergDestinationTableCreationOutput) EnableTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelIcebergDestinationTableCreation) *bool { return v.EnableTableCreation }).(pulumi.BoolPtrOutput)
+}
+
+type ChannelIcebergDestinationTableCreationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelIcebergDestinationTableCreationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelIcebergDestinationTableCreation)(nil)).Elem()
+}
+
+func (o ChannelIcebergDestinationTableCreationPtrOutput) ToChannelIcebergDestinationTableCreationPtrOutput() ChannelIcebergDestinationTableCreationPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationTableCreationPtrOutput) ToChannelIcebergDestinationTableCreationPtrOutputWithContext(ctx context.Context) ChannelIcebergDestinationTableCreationPtrOutput {
+	return o
+}
+
+func (o ChannelIcebergDestinationTableCreationPtrOutput) Elem() ChannelIcebergDestinationTableCreationOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationTableCreation) ChannelIcebergDestinationTableCreation {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelIcebergDestinationTableCreation
+		return ret
+	}).(ChannelIcebergDestinationTableCreationOutput)
+}
+
+// Whether MSK creates the destination table on the customer's behalf.
+func (o ChannelIcebergDestinationTableCreationPtrOutput) EnableTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelIcebergDestinationTableCreation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableTableCreation
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ChannelLoggingInfo struct {
+	// CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+	CloudwatchLogs *ChannelLoggingInfoCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+	Firehose *ChannelLoggingInfoFirehose `pulumi:"firehose"`
+	// Amazon S3 destination for channel logs. See `s3` Block below.
+	S3 *ChannelLoggingInfoS3 `pulumi:"s3"`
+}
+
+// ChannelLoggingInfoInput is an input type that accepts ChannelLoggingInfoArgs and ChannelLoggingInfoOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoInput` via:
+//
+//	ChannelLoggingInfoArgs{...}
+type ChannelLoggingInfoInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoOutput() ChannelLoggingInfoOutput
+	ToChannelLoggingInfoOutputWithContext(context.Context) ChannelLoggingInfoOutput
+}
+
+type ChannelLoggingInfoArgs struct {
+	// CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+	CloudwatchLogs ChannelLoggingInfoCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	// Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+	Firehose ChannelLoggingInfoFirehosePtrInput `pulumi:"firehose"`
+	// Amazon S3 destination for channel logs. See `s3` Block below.
+	S3 ChannelLoggingInfoS3PtrInput `pulumi:"s3"`
+}
+
+func (ChannelLoggingInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfo)(nil)).Elem()
+}
+
+func (i ChannelLoggingInfoArgs) ToChannelLoggingInfoOutput() ChannelLoggingInfoOutput {
+	return i.ToChannelLoggingInfoOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoArgs) ToChannelLoggingInfoOutputWithContext(ctx context.Context) ChannelLoggingInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoOutput)
+}
+
+func (i ChannelLoggingInfoArgs) ToChannelLoggingInfoPtrOutput() ChannelLoggingInfoPtrOutput {
+	return i.ToChannelLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoArgs) ToChannelLoggingInfoPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoOutput).ToChannelLoggingInfoPtrOutputWithContext(ctx)
+}
+
+// ChannelLoggingInfoPtrInput is an input type that accepts ChannelLoggingInfoArgs, ChannelLoggingInfoPtr and ChannelLoggingInfoPtrOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoPtrInput` via:
+//
+//	        ChannelLoggingInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLoggingInfoPtrInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoPtrOutput() ChannelLoggingInfoPtrOutput
+	ToChannelLoggingInfoPtrOutputWithContext(context.Context) ChannelLoggingInfoPtrOutput
+}
+
+type channelLoggingInfoPtrType ChannelLoggingInfoArgs
+
+func ChannelLoggingInfoPtr(v *ChannelLoggingInfoArgs) ChannelLoggingInfoPtrInput {
+	return (*channelLoggingInfoPtrType)(v)
+}
+
+func (*channelLoggingInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfo)(nil)).Elem()
+}
+
+func (i *channelLoggingInfoPtrType) ToChannelLoggingInfoPtrOutput() ChannelLoggingInfoPtrOutput {
+	return i.ToChannelLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *channelLoggingInfoPtrType) ToChannelLoggingInfoPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoPtrOutput)
+}
+
+type ChannelLoggingInfoOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfo)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoOutput) ToChannelLoggingInfoOutput() ChannelLoggingInfoOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoOutput) ToChannelLoggingInfoOutputWithContext(ctx context.Context) ChannelLoggingInfoOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoOutput) ToChannelLoggingInfoPtrOutput() ChannelLoggingInfoPtrOutput {
+	return o.ToChannelLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLoggingInfoOutput) ToChannelLoggingInfoPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLoggingInfo) *ChannelLoggingInfo {
+		return &v
+	}).(ChannelLoggingInfoPtrOutput)
+}
+
+// CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+func (o ChannelLoggingInfoOutput) CloudwatchLogs() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfo) *ChannelLoggingInfoCloudwatchLogs { return v.CloudwatchLogs }).(ChannelLoggingInfoCloudwatchLogsPtrOutput)
+}
+
+// Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+func (o ChannelLoggingInfoOutput) Firehose() ChannelLoggingInfoFirehosePtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfo) *ChannelLoggingInfoFirehose { return v.Firehose }).(ChannelLoggingInfoFirehosePtrOutput)
+}
+
+// Amazon S3 destination for channel logs. See `s3` Block below.
+func (o ChannelLoggingInfoOutput) S3() ChannelLoggingInfoS3PtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfo) *ChannelLoggingInfoS3 { return v.S3 }).(ChannelLoggingInfoS3PtrOutput)
+}
+
+type ChannelLoggingInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfo)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoPtrOutput) ToChannelLoggingInfoPtrOutput() ChannelLoggingInfoPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoPtrOutput) ToChannelLoggingInfoPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoPtrOutput) Elem() ChannelLoggingInfoOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfo) ChannelLoggingInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLoggingInfo
+		return ret
+	}).(ChannelLoggingInfoOutput)
+}
+
+// CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+func (o ChannelLoggingInfoPtrOutput) CloudwatchLogs() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfo) *ChannelLoggingInfoCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(ChannelLoggingInfoCloudwatchLogsPtrOutput)
+}
+
+// Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+func (o ChannelLoggingInfoPtrOutput) Firehose() ChannelLoggingInfoFirehosePtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfo) *ChannelLoggingInfoFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.Firehose
+	}).(ChannelLoggingInfoFirehosePtrOutput)
+}
+
+// Amazon S3 destination for channel logs. See `s3` Block below.
+func (o ChannelLoggingInfoPtrOutput) S3() ChannelLoggingInfoS3PtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfo) *ChannelLoggingInfoS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(ChannelLoggingInfoS3PtrOutput)
+}
+
+type ChannelLoggingInfoCloudwatchLogs struct {
+	// Whether the CloudWatch Logs destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled bool `pulumi:"enabled"`
+	// Name of the CloudWatch log group that receives the logs.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// ChannelLoggingInfoCloudwatchLogsInput is an input type that accepts ChannelLoggingInfoCloudwatchLogsArgs and ChannelLoggingInfoCloudwatchLogsOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoCloudwatchLogsInput` via:
+//
+//	ChannelLoggingInfoCloudwatchLogsArgs{...}
+type ChannelLoggingInfoCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoCloudwatchLogsOutput() ChannelLoggingInfoCloudwatchLogsOutput
+	ToChannelLoggingInfoCloudwatchLogsOutputWithContext(context.Context) ChannelLoggingInfoCloudwatchLogsOutput
+}
+
+type ChannelLoggingInfoCloudwatchLogsArgs struct {
+	// Whether the CloudWatch Logs destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Name of the CloudWatch log group that receives the logs.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (ChannelLoggingInfoCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoCloudwatchLogs)(nil)).Elem()
+}
+
+func (i ChannelLoggingInfoCloudwatchLogsArgs) ToChannelLoggingInfoCloudwatchLogsOutput() ChannelLoggingInfoCloudwatchLogsOutput {
+	return i.ToChannelLoggingInfoCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoCloudwatchLogsArgs) ToChannelLoggingInfoCloudwatchLogsOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoCloudwatchLogsOutput)
+}
+
+func (i ChannelLoggingInfoCloudwatchLogsArgs) ToChannelLoggingInfoCloudwatchLogsPtrOutput() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return i.ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoCloudwatchLogsArgs) ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoCloudwatchLogsOutput).ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// ChannelLoggingInfoCloudwatchLogsPtrInput is an input type that accepts ChannelLoggingInfoCloudwatchLogsArgs, ChannelLoggingInfoCloudwatchLogsPtr and ChannelLoggingInfoCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoCloudwatchLogsPtrInput` via:
+//
+//	        ChannelLoggingInfoCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLoggingInfoCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoCloudwatchLogsPtrOutput() ChannelLoggingInfoCloudwatchLogsPtrOutput
+	ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(context.Context) ChannelLoggingInfoCloudwatchLogsPtrOutput
+}
+
+type channelLoggingInfoCloudwatchLogsPtrType ChannelLoggingInfoCloudwatchLogsArgs
+
+func ChannelLoggingInfoCloudwatchLogsPtr(v *ChannelLoggingInfoCloudwatchLogsArgs) ChannelLoggingInfoCloudwatchLogsPtrInput {
+	return (*channelLoggingInfoCloudwatchLogsPtrType)(v)
+}
+
+func (*channelLoggingInfoCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *channelLoggingInfoCloudwatchLogsPtrType) ToChannelLoggingInfoCloudwatchLogsPtrOutput() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return i.ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelLoggingInfoCloudwatchLogsPtrType) ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoCloudwatchLogsPtrOutput)
+}
+
+type ChannelLoggingInfoCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsOutput) ToChannelLoggingInfoCloudwatchLogsOutput() ChannelLoggingInfoCloudwatchLogsOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsOutput) ToChannelLoggingInfoCloudwatchLogsOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsOutput) ToChannelLoggingInfoCloudwatchLogsPtrOutput() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o.ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsOutput) ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLoggingInfoCloudwatchLogs) *ChannelLoggingInfoCloudwatchLogs {
+		return &v
+	}).(ChannelLoggingInfoCloudwatchLogsPtrOutput)
+}
+
+// Whether the CloudWatch Logs destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Name of the CloudWatch log group that receives the logs.
+func (o ChannelLoggingInfoCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ChannelLoggingInfoCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsPtrOutput) ToChannelLoggingInfoCloudwatchLogsPtrOutput() ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsPtrOutput) ToChannelLoggingInfoCloudwatchLogsPtrOutputWithContext(ctx context.Context) ChannelLoggingInfoCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoCloudwatchLogsPtrOutput) Elem() ChannelLoggingInfoCloudwatchLogsOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoCloudwatchLogs) ChannelLoggingInfoCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLoggingInfoCloudwatchLogs
+		return ret
+	}).(ChannelLoggingInfoCloudwatchLogsOutput)
+}
+
+// Whether the CloudWatch Logs destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoCloudwatchLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the CloudWatch log group that receives the logs.
+func (o ChannelLoggingInfoCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelLoggingInfoFirehose struct {
+	// Name of the Kinesis Data Firehose delivery stream that receives the logs.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Whether the Firehose destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ChannelLoggingInfoFirehoseInput is an input type that accepts ChannelLoggingInfoFirehoseArgs and ChannelLoggingInfoFirehoseOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoFirehoseInput` via:
+//
+//	ChannelLoggingInfoFirehoseArgs{...}
+type ChannelLoggingInfoFirehoseInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoFirehoseOutput() ChannelLoggingInfoFirehoseOutput
+	ToChannelLoggingInfoFirehoseOutputWithContext(context.Context) ChannelLoggingInfoFirehoseOutput
+}
+
+type ChannelLoggingInfoFirehoseArgs struct {
+	// Name of the Kinesis Data Firehose delivery stream that receives the logs.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Whether the Firehose destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ChannelLoggingInfoFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoFirehose)(nil)).Elem()
+}
+
+func (i ChannelLoggingInfoFirehoseArgs) ToChannelLoggingInfoFirehoseOutput() ChannelLoggingInfoFirehoseOutput {
+	return i.ToChannelLoggingInfoFirehoseOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoFirehoseArgs) ToChannelLoggingInfoFirehoseOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoFirehoseOutput)
+}
+
+func (i ChannelLoggingInfoFirehoseArgs) ToChannelLoggingInfoFirehosePtrOutput() ChannelLoggingInfoFirehosePtrOutput {
+	return i.ToChannelLoggingInfoFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoFirehoseArgs) ToChannelLoggingInfoFirehosePtrOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoFirehoseOutput).ToChannelLoggingInfoFirehosePtrOutputWithContext(ctx)
+}
+
+// ChannelLoggingInfoFirehosePtrInput is an input type that accepts ChannelLoggingInfoFirehoseArgs, ChannelLoggingInfoFirehosePtr and ChannelLoggingInfoFirehosePtrOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoFirehosePtrInput` via:
+//
+//	        ChannelLoggingInfoFirehoseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLoggingInfoFirehosePtrInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoFirehosePtrOutput() ChannelLoggingInfoFirehosePtrOutput
+	ToChannelLoggingInfoFirehosePtrOutputWithContext(context.Context) ChannelLoggingInfoFirehosePtrOutput
+}
+
+type channelLoggingInfoFirehosePtrType ChannelLoggingInfoFirehoseArgs
+
+func ChannelLoggingInfoFirehosePtr(v *ChannelLoggingInfoFirehoseArgs) ChannelLoggingInfoFirehosePtrInput {
+	return (*channelLoggingInfoFirehosePtrType)(v)
+}
+
+func (*channelLoggingInfoFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoFirehose)(nil)).Elem()
+}
+
+func (i *channelLoggingInfoFirehosePtrType) ToChannelLoggingInfoFirehosePtrOutput() ChannelLoggingInfoFirehosePtrOutput {
+	return i.ToChannelLoggingInfoFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *channelLoggingInfoFirehosePtrType) ToChannelLoggingInfoFirehosePtrOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoFirehosePtrOutput)
+}
+
+type ChannelLoggingInfoFirehoseOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoFirehose)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoFirehoseOutput) ToChannelLoggingInfoFirehoseOutput() ChannelLoggingInfoFirehoseOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoFirehoseOutput) ToChannelLoggingInfoFirehoseOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehoseOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoFirehoseOutput) ToChannelLoggingInfoFirehosePtrOutput() ChannelLoggingInfoFirehosePtrOutput {
+	return o.ToChannelLoggingInfoFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLoggingInfoFirehoseOutput) ToChannelLoggingInfoFirehosePtrOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehosePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLoggingInfoFirehose) *ChannelLoggingInfoFirehose {
+		return &v
+	}).(ChannelLoggingInfoFirehosePtrOutput)
+}
+
+// Name of the Kinesis Data Firehose delivery stream that receives the logs.
+func (o ChannelLoggingInfoFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Whether the Firehose destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoFirehoseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ChannelLoggingInfoFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoFirehose)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoFirehosePtrOutput) ToChannelLoggingInfoFirehosePtrOutput() ChannelLoggingInfoFirehosePtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoFirehosePtrOutput) ToChannelLoggingInfoFirehosePtrOutputWithContext(ctx context.Context) ChannelLoggingInfoFirehosePtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoFirehosePtrOutput) Elem() ChannelLoggingInfoFirehoseOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoFirehose) ChannelLoggingInfoFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLoggingInfoFirehose
+		return ret
+	}).(ChannelLoggingInfoFirehoseOutput)
+}
+
+// Name of the Kinesis Data Firehose delivery stream that receives the logs.
+func (o ChannelLoggingInfoFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the Firehose destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ChannelLoggingInfoS3 struct {
+	// Name of the Amazon S3 bucket that receives the logs.
+	Bucket *string `pulumi:"bucket"`
+	// Whether the Amazon S3 destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled bool `pulumi:"enabled"`
+	// Prefix applied to the Amazon S3 log object keys.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ChannelLoggingInfoS3Input is an input type that accepts ChannelLoggingInfoS3Args and ChannelLoggingInfoS3Output values.
+// You can construct a concrete instance of `ChannelLoggingInfoS3Input` via:
+//
+//	ChannelLoggingInfoS3Args{...}
+type ChannelLoggingInfoS3Input interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoS3Output() ChannelLoggingInfoS3Output
+	ToChannelLoggingInfoS3OutputWithContext(context.Context) ChannelLoggingInfoS3Output
+}
+
+type ChannelLoggingInfoS3Args struct {
+	// Name of the Amazon S3 bucket that receives the logs.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Whether the Amazon S3 destination is enabled.
+	//
+	// The following arguments are optional:
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Prefix applied to the Amazon S3 log object keys.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ChannelLoggingInfoS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoS3)(nil)).Elem()
+}
+
+func (i ChannelLoggingInfoS3Args) ToChannelLoggingInfoS3Output() ChannelLoggingInfoS3Output {
+	return i.ToChannelLoggingInfoS3OutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoS3Args) ToChannelLoggingInfoS3OutputWithContext(ctx context.Context) ChannelLoggingInfoS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoS3Output)
+}
+
+func (i ChannelLoggingInfoS3Args) ToChannelLoggingInfoS3PtrOutput() ChannelLoggingInfoS3PtrOutput {
+	return i.ToChannelLoggingInfoS3PtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingInfoS3Args) ToChannelLoggingInfoS3PtrOutputWithContext(ctx context.Context) ChannelLoggingInfoS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoS3Output).ToChannelLoggingInfoS3PtrOutputWithContext(ctx)
+}
+
+// ChannelLoggingInfoS3PtrInput is an input type that accepts ChannelLoggingInfoS3Args, ChannelLoggingInfoS3Ptr and ChannelLoggingInfoS3PtrOutput values.
+// You can construct a concrete instance of `ChannelLoggingInfoS3PtrInput` via:
+//
+//	        ChannelLoggingInfoS3Args{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLoggingInfoS3PtrInput interface {
+	pulumi.Input
+
+	ToChannelLoggingInfoS3PtrOutput() ChannelLoggingInfoS3PtrOutput
+	ToChannelLoggingInfoS3PtrOutputWithContext(context.Context) ChannelLoggingInfoS3PtrOutput
+}
+
+type channelLoggingInfoS3PtrType ChannelLoggingInfoS3Args
+
+func ChannelLoggingInfoS3Ptr(v *ChannelLoggingInfoS3Args) ChannelLoggingInfoS3PtrInput {
+	return (*channelLoggingInfoS3PtrType)(v)
+}
+
+func (*channelLoggingInfoS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoS3)(nil)).Elem()
+}
+
+func (i *channelLoggingInfoS3PtrType) ToChannelLoggingInfoS3PtrOutput() ChannelLoggingInfoS3PtrOutput {
+	return i.ToChannelLoggingInfoS3PtrOutputWithContext(context.Background())
+}
+
+func (i *channelLoggingInfoS3PtrType) ToChannelLoggingInfoS3PtrOutputWithContext(ctx context.Context) ChannelLoggingInfoS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingInfoS3PtrOutput)
+}
+
+type ChannelLoggingInfoS3Output struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingInfoS3)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoS3Output) ToChannelLoggingInfoS3Output() ChannelLoggingInfoS3Output {
+	return o
+}
+
+func (o ChannelLoggingInfoS3Output) ToChannelLoggingInfoS3OutputWithContext(ctx context.Context) ChannelLoggingInfoS3Output {
+	return o
+}
+
+func (o ChannelLoggingInfoS3Output) ToChannelLoggingInfoS3PtrOutput() ChannelLoggingInfoS3PtrOutput {
+	return o.ToChannelLoggingInfoS3PtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLoggingInfoS3Output) ToChannelLoggingInfoS3PtrOutputWithContext(ctx context.Context) ChannelLoggingInfoS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLoggingInfoS3) *ChannelLoggingInfoS3 {
+		return &v
+	}).(ChannelLoggingInfoS3PtrOutput)
+}
+
+// Name of the Amazon S3 bucket that receives the logs.
+func (o ChannelLoggingInfoS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Whether the Amazon S3 destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoS3Output) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Prefix applied to the Amazon S3 log object keys.
+func (o ChannelLoggingInfoS3Output) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelLoggingInfoS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ChannelLoggingInfoS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingInfoS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingInfoS3)(nil)).Elem()
+}
+
+func (o ChannelLoggingInfoS3PtrOutput) ToChannelLoggingInfoS3PtrOutput() ChannelLoggingInfoS3PtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoS3PtrOutput) ToChannelLoggingInfoS3PtrOutputWithContext(ctx context.Context) ChannelLoggingInfoS3PtrOutput {
+	return o
+}
+
+func (o ChannelLoggingInfoS3PtrOutput) Elem() ChannelLoggingInfoS3Output {
+	return o.ApplyT(func(v *ChannelLoggingInfoS3) ChannelLoggingInfoS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLoggingInfoS3
+		return ret
+	}).(ChannelLoggingInfoS3Output)
+}
+
+// Name of the Amazon S3 bucket that receives the logs.
+func (o ChannelLoggingInfoS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the Amazon S3 destination is enabled.
+//
+// The following arguments are optional:
+func (o ChannelLoggingInfoS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prefix applied to the Amazon S3 log object keys.
+func (o ChannelLoggingInfoS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingInfoS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3Destination struct {
+	// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+	DataFreshnessInSeconds *int `pulumi:"dataFreshnessInSeconds"`
+	// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+	DeadLetterQueueS3 ChannelS3DestinationDeadLetterQueueS3 `pulumi:"deadLetterQueueS3"`
+	// ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
+	// Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+	//
+	// The following arguments are optional:
+	Storage ChannelS3DestinationStorage `pulumi:"storage"`
+}
+
+// ChannelS3DestinationInput is an input type that accepts ChannelS3DestinationArgs and ChannelS3DestinationOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationInput` via:
+//
+//	ChannelS3DestinationArgs{...}
+type ChannelS3DestinationInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationOutput() ChannelS3DestinationOutput
+	ToChannelS3DestinationOutputWithContext(context.Context) ChannelS3DestinationOutput
+}
+
+type ChannelS3DestinationArgs struct {
+	// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+	DataFreshnessInSeconds pulumi.IntPtrInput `pulumi:"dataFreshnessInSeconds"`
+	// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+	DeadLetterQueueS3 ChannelS3DestinationDeadLetterQueueS3Input `pulumi:"deadLetterQueueS3"`
+	// ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+	ServiceExecutionRoleArn pulumi.StringInput `pulumi:"serviceExecutionRoleArn"`
+	// Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+	//
+	// The following arguments are optional:
+	Storage ChannelS3DestinationStorageInput `pulumi:"storage"`
+}
+
+func (ChannelS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3Destination)(nil)).Elem()
+}
+
+func (i ChannelS3DestinationArgs) ToChannelS3DestinationOutput() ChannelS3DestinationOutput {
+	return i.ToChannelS3DestinationOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationArgs) ToChannelS3DestinationOutputWithContext(ctx context.Context) ChannelS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationOutput)
+}
+
+func (i ChannelS3DestinationArgs) ToChannelS3DestinationPtrOutput() ChannelS3DestinationPtrOutput {
+	return i.ToChannelS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationArgs) ToChannelS3DestinationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationOutput).ToChannelS3DestinationPtrOutputWithContext(ctx)
+}
+
+// ChannelS3DestinationPtrInput is an input type that accepts ChannelS3DestinationArgs, ChannelS3DestinationPtr and ChannelS3DestinationPtrOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationPtrInput` via:
+//
+//	        ChannelS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationPtrOutput() ChannelS3DestinationPtrOutput
+	ToChannelS3DestinationPtrOutputWithContext(context.Context) ChannelS3DestinationPtrOutput
+}
+
+type channelS3DestinationPtrType ChannelS3DestinationArgs
+
+func ChannelS3DestinationPtr(v *ChannelS3DestinationArgs) ChannelS3DestinationPtrInput {
+	return (*channelS3DestinationPtrType)(v)
+}
+
+func (*channelS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3Destination)(nil)).Elem()
+}
+
+func (i *channelS3DestinationPtrType) ToChannelS3DestinationPtrOutput() ChannelS3DestinationPtrOutput {
+	return i.ToChannelS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3DestinationPtrType) ToChannelS3DestinationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationPtrOutput)
+}
+
+type ChannelS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3Destination)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationOutput) ToChannelS3DestinationOutput() ChannelS3DestinationOutput {
+	return o
+}
+
+func (o ChannelS3DestinationOutput) ToChannelS3DestinationOutputWithContext(ctx context.Context) ChannelS3DestinationOutput {
+	return o
+}
+
+func (o ChannelS3DestinationOutput) ToChannelS3DestinationPtrOutput() ChannelS3DestinationPtrOutput {
+	return o.ToChannelS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3DestinationOutput) ToChannelS3DestinationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3Destination) *ChannelS3Destination {
+		return &v
+	}).(ChannelS3DestinationPtrOutput)
+}
+
+// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+func (o ChannelS3DestinationOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelS3Destination) *int { return v.DataFreshnessInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+func (o ChannelS3DestinationOutput) DeadLetterQueueS3() ChannelS3DestinationDeadLetterQueueS3Output {
+	return o.ApplyT(func(v ChannelS3Destination) ChannelS3DestinationDeadLetterQueueS3 { return v.DeadLetterQueueS3 }).(ChannelS3DestinationDeadLetterQueueS3Output)
+}
+
+// ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+func (o ChannelS3DestinationOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3Destination) string { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationOutput) Storage() ChannelS3DestinationStorageOutput {
+	return o.ApplyT(func(v ChannelS3Destination) ChannelS3DestinationStorage { return v.Storage }).(ChannelS3DestinationStorageOutput)
+}
+
+type ChannelS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3Destination)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationPtrOutput) ToChannelS3DestinationPtrOutput() ChannelS3DestinationPtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationPtrOutput) ToChannelS3DestinationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationPtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationPtrOutput) Elem() ChannelS3DestinationOutput {
+	return o.ApplyT(func(v *ChannelS3Destination) ChannelS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3Destination
+		return ret
+	}).(ChannelS3DestinationOutput)
+}
+
+// Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+func (o ChannelS3DestinationPtrOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelS3Destination) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFreshnessInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+func (o ChannelS3DestinationPtrOutput) DeadLetterQueueS3() ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return o.ApplyT(func(v *ChannelS3Destination) *ChannelS3DestinationDeadLetterQueueS3 {
+		if v == nil {
+			return nil
+		}
+		return &v.DeadLetterQueueS3
+	}).(ChannelS3DestinationDeadLetterQueueS3PtrOutput)
+}
+
+// ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+func (o ChannelS3DestinationPtrOutput) ServiceExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationPtrOutput) Storage() ChannelS3DestinationStoragePtrOutput {
+	return o.ApplyT(func(v *ChannelS3Destination) *ChannelS3DestinationStorage {
+		if v == nil {
+			return nil
+		}
+		return &v.Storage
+	}).(ChannelS3DestinationStoragePtrOutput)
+}
+
+type ChannelS3DestinationDeadLetterQueueS3 struct {
+	// ARN of the dead-letter Amazon S3 bucket.
+	//
+	// The following arguments are optional:
+	BucketArn string `pulumi:"bucketArn"`
+	// Prefix prepended to every dead-letter Amazon S3 object key.
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+}
+
+// ChannelS3DestinationDeadLetterQueueS3Input is an input type that accepts ChannelS3DestinationDeadLetterQueueS3Args and ChannelS3DestinationDeadLetterQueueS3Output values.
+// You can construct a concrete instance of `ChannelS3DestinationDeadLetterQueueS3Input` via:
+//
+//	ChannelS3DestinationDeadLetterQueueS3Args{...}
+type ChannelS3DestinationDeadLetterQueueS3Input interface {
+	pulumi.Input
+
+	ToChannelS3DestinationDeadLetterQueueS3Output() ChannelS3DestinationDeadLetterQueueS3Output
+	ToChannelS3DestinationDeadLetterQueueS3OutputWithContext(context.Context) ChannelS3DestinationDeadLetterQueueS3Output
+}
+
+type ChannelS3DestinationDeadLetterQueueS3Args struct {
+	// ARN of the dead-letter Amazon S3 bucket.
+	//
+	// The following arguments are optional:
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Prefix prepended to every dead-letter Amazon S3 object key.
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
+}
+
+func (ChannelS3DestinationDeadLetterQueueS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (i ChannelS3DestinationDeadLetterQueueS3Args) ToChannelS3DestinationDeadLetterQueueS3Output() ChannelS3DestinationDeadLetterQueueS3Output {
+	return i.ToChannelS3DestinationDeadLetterQueueS3OutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationDeadLetterQueueS3Args) ToChannelS3DestinationDeadLetterQueueS3OutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationDeadLetterQueueS3Output)
+}
+
+func (i ChannelS3DestinationDeadLetterQueueS3Args) ToChannelS3DestinationDeadLetterQueueS3PtrOutput() ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return i.ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationDeadLetterQueueS3Args) ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationDeadLetterQueueS3Output).ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(ctx)
+}
+
+// ChannelS3DestinationDeadLetterQueueS3PtrInput is an input type that accepts ChannelS3DestinationDeadLetterQueueS3Args, ChannelS3DestinationDeadLetterQueueS3Ptr and ChannelS3DestinationDeadLetterQueueS3PtrOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationDeadLetterQueueS3PtrInput` via:
+//
+//	        ChannelS3DestinationDeadLetterQueueS3Args{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3DestinationDeadLetterQueueS3PtrInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationDeadLetterQueueS3PtrOutput() ChannelS3DestinationDeadLetterQueueS3PtrOutput
+	ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(context.Context) ChannelS3DestinationDeadLetterQueueS3PtrOutput
+}
+
+type channelS3DestinationDeadLetterQueueS3PtrType ChannelS3DestinationDeadLetterQueueS3Args
+
+func ChannelS3DestinationDeadLetterQueueS3Ptr(v *ChannelS3DestinationDeadLetterQueueS3Args) ChannelS3DestinationDeadLetterQueueS3PtrInput {
+	return (*channelS3DestinationDeadLetterQueueS3PtrType)(v)
+}
+
+func (*channelS3DestinationDeadLetterQueueS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (i *channelS3DestinationDeadLetterQueueS3PtrType) ToChannelS3DestinationDeadLetterQueueS3PtrOutput() ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return i.ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3DestinationDeadLetterQueueS3PtrType) ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationDeadLetterQueueS3PtrOutput)
+}
+
+type ChannelS3DestinationDeadLetterQueueS3Output struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationDeadLetterQueueS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ToChannelS3DestinationDeadLetterQueueS3Output() ChannelS3DestinationDeadLetterQueueS3Output {
+	return o
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ToChannelS3DestinationDeadLetterQueueS3OutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3Output {
+	return o
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ToChannelS3DestinationDeadLetterQueueS3PtrOutput() ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return o.ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3DestinationDeadLetterQueueS3) *ChannelS3DestinationDeadLetterQueueS3 {
+		return &v
+	}).(ChannelS3DestinationDeadLetterQueueS3PtrOutput)
+}
+
+// ARN of the dead-letter Amazon S3 bucket.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationDeadLetterQueueS3Output) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3DestinationDeadLetterQueueS3) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Prefix prepended to every dead-letter Amazon S3 object key.
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationDeadLetterQueueS3) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+func (o ChannelS3DestinationDeadLetterQueueS3Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationDeadLetterQueueS3) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3DestinationDeadLetterQueueS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationDeadLetterQueueS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationDeadLetterQueueS3)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) ToChannelS3DestinationDeadLetterQueueS3PtrOutput() ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) ToChannelS3DestinationDeadLetterQueueS3PtrOutputWithContext(ctx context.Context) ChannelS3DestinationDeadLetterQueueS3PtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) Elem() ChannelS3DestinationDeadLetterQueueS3Output {
+	return o.ApplyT(func(v *ChannelS3DestinationDeadLetterQueueS3) ChannelS3DestinationDeadLetterQueueS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3DestinationDeadLetterQueueS3
+		return ret
+	}).(ChannelS3DestinationDeadLetterQueueS3Output)
+}
+
+// ARN of the dead-letter Amazon S3 bucket.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix prepended to every dead-letter Amazon S3 object key.
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+func (o ChannelS3DestinationDeadLetterQueueS3PtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationDeadLetterQueueS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3DestinationStorage struct {
+	// ARN of the destination Amazon S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// Compression codec applied to delivered Amazon S3 objects.
+	CompressionType string `pulumi:"compressionType"`
+	// 12-digit AWS account ID expected to own the Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Template that controls the Amazon S3 object key for each delivered record.
+	OutputKeyTemplate *string `pulumi:"outputKeyTemplate"`
+	// Prefix prepended to every Amazon S3 object key written by the channel.
+	OutputPrefix *string `pulumi:"outputPrefix"`
+	// Amazon S3 storage class for delivered objects.
+	//
+	// The following arguments are optional:
+	StorageClass string `pulumi:"storageClass"`
+}
+
+// ChannelS3DestinationStorageInput is an input type that accepts ChannelS3DestinationStorageArgs and ChannelS3DestinationStorageOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationStorageInput` via:
+//
+//	ChannelS3DestinationStorageArgs{...}
+type ChannelS3DestinationStorageInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationStorageOutput() ChannelS3DestinationStorageOutput
+	ToChannelS3DestinationStorageOutputWithContext(context.Context) ChannelS3DestinationStorageOutput
+}
+
+type ChannelS3DestinationStorageArgs struct {
+	// ARN of the destination Amazon S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Compression codec applied to delivered Amazon S3 objects.
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// 12-digit AWS account ID expected to own the Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
+	// Template that controls the Amazon S3 object key for each delivered record.
+	OutputKeyTemplate pulumi.StringPtrInput `pulumi:"outputKeyTemplate"`
+	// Prefix prepended to every Amazon S3 object key written by the channel.
+	OutputPrefix pulumi.StringPtrInput `pulumi:"outputPrefix"`
+	// Amazon S3 storage class for delivered objects.
+	//
+	// The following arguments are optional:
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+}
+
+func (ChannelS3DestinationStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationStorage)(nil)).Elem()
+}
+
+func (i ChannelS3DestinationStorageArgs) ToChannelS3DestinationStorageOutput() ChannelS3DestinationStorageOutput {
+	return i.ToChannelS3DestinationStorageOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationStorageArgs) ToChannelS3DestinationStorageOutputWithContext(ctx context.Context) ChannelS3DestinationStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationStorageOutput)
+}
+
+func (i ChannelS3DestinationStorageArgs) ToChannelS3DestinationStoragePtrOutput() ChannelS3DestinationStoragePtrOutput {
+	return i.ToChannelS3DestinationStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationStorageArgs) ToChannelS3DestinationStoragePtrOutputWithContext(ctx context.Context) ChannelS3DestinationStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationStorageOutput).ToChannelS3DestinationStoragePtrOutputWithContext(ctx)
+}
+
+// ChannelS3DestinationStoragePtrInput is an input type that accepts ChannelS3DestinationStorageArgs, ChannelS3DestinationStoragePtr and ChannelS3DestinationStoragePtrOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationStoragePtrInput` via:
+//
+//	        ChannelS3DestinationStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3DestinationStoragePtrInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationStoragePtrOutput() ChannelS3DestinationStoragePtrOutput
+	ToChannelS3DestinationStoragePtrOutputWithContext(context.Context) ChannelS3DestinationStoragePtrOutput
+}
+
+type channelS3DestinationStoragePtrType ChannelS3DestinationStorageArgs
+
+func ChannelS3DestinationStoragePtr(v *ChannelS3DestinationStorageArgs) ChannelS3DestinationStoragePtrInput {
+	return (*channelS3DestinationStoragePtrType)(v)
+}
+
+func (*channelS3DestinationStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationStorage)(nil)).Elem()
+}
+
+func (i *channelS3DestinationStoragePtrType) ToChannelS3DestinationStoragePtrOutput() ChannelS3DestinationStoragePtrOutput {
+	return i.ToChannelS3DestinationStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3DestinationStoragePtrType) ToChannelS3DestinationStoragePtrOutputWithContext(ctx context.Context) ChannelS3DestinationStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationStoragePtrOutput)
+}
+
+type ChannelS3DestinationStorageOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationStorage)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationStorageOutput) ToChannelS3DestinationStorageOutput() ChannelS3DestinationStorageOutput {
+	return o
+}
+
+func (o ChannelS3DestinationStorageOutput) ToChannelS3DestinationStorageOutputWithContext(ctx context.Context) ChannelS3DestinationStorageOutput {
+	return o
+}
+
+func (o ChannelS3DestinationStorageOutput) ToChannelS3DestinationStoragePtrOutput() ChannelS3DestinationStoragePtrOutput {
+	return o.ToChannelS3DestinationStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3DestinationStorageOutput) ToChannelS3DestinationStoragePtrOutputWithContext(ctx context.Context) ChannelS3DestinationStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3DestinationStorage) *ChannelS3DestinationStorage {
+		return &v
+	}).(ChannelS3DestinationStoragePtrOutput)
+}
+
+// ARN of the destination Amazon S3 bucket.
+func (o ChannelS3DestinationStorageOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Compression codec applied to delivered Amazon S3 objects.
+func (o ChannelS3DestinationStorageOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+// 12-digit AWS account ID expected to own the Amazon S3 bucket.
+func (o ChannelS3DestinationStorageOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Template that controls the Amazon S3 object key for each delivered record.
+func (o ChannelS3DestinationStorageOutput) OutputKeyTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) *string { return v.OutputKeyTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Prefix prepended to every Amazon S3 object key written by the channel.
+func (o ChannelS3DestinationStorageOutput) OutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) *string { return v.OutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 storage class for delivered objects.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationStorageOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3DestinationStorage) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+type ChannelS3DestinationStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationStorage)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationStoragePtrOutput) ToChannelS3DestinationStoragePtrOutput() ChannelS3DestinationStoragePtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationStoragePtrOutput) ToChannelS3DestinationStoragePtrOutputWithContext(ctx context.Context) ChannelS3DestinationStoragePtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationStoragePtrOutput) Elem() ChannelS3DestinationStorageOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) ChannelS3DestinationStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3DestinationStorage
+		return ret
+	}).(ChannelS3DestinationStorageOutput)
+}
+
+// ARN of the destination Amazon S3 bucket.
+func (o ChannelS3DestinationStoragePtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Compression codec applied to delivered Amazon S3 objects.
+func (o ChannelS3DestinationStoragePtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// 12-digit AWS account ID expected to own the Amazon S3 bucket.
+func (o ChannelS3DestinationStoragePtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Template that controls the Amazon S3 object key for each delivered record.
+func (o ChannelS3DestinationStoragePtrOutput) OutputKeyTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputKeyTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix prepended to every Amazon S3 object key written by the channel.
+func (o ChannelS3DestinationStoragePtrOutput) OutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 storage class for delivered objects.
+//
+// The following arguments are optional:
+func (o ChannelS3DestinationStoragePtrOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageClass
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ChannelTimeoutsInput is an input type that accepts ChannelTimeoutsArgs and ChannelTimeoutsOutput values.
+// You can construct a concrete instance of `ChannelTimeoutsInput` via:
+//
+//	ChannelTimeoutsArgs{...}
+type ChannelTimeoutsInput interface {
+	pulumi.Input
+
+	ToChannelTimeoutsOutput() ChannelTimeoutsOutput
+	ToChannelTimeoutsOutputWithContext(context.Context) ChannelTimeoutsOutput
+}
+
+type ChannelTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ChannelTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTimeouts)(nil)).Elem()
+}
+
+func (i ChannelTimeoutsArgs) ToChannelTimeoutsOutput() ChannelTimeoutsOutput {
+	return i.ToChannelTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ChannelTimeoutsArgs) ToChannelTimeoutsOutputWithContext(ctx context.Context) ChannelTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeoutsOutput)
+}
+
+func (i ChannelTimeoutsArgs) ToChannelTimeoutsPtrOutput() ChannelTimeoutsPtrOutput {
+	return i.ToChannelTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTimeoutsArgs) ToChannelTimeoutsPtrOutputWithContext(ctx context.Context) ChannelTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeoutsOutput).ToChannelTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ChannelTimeoutsPtrInput is an input type that accepts ChannelTimeoutsArgs, ChannelTimeoutsPtr and ChannelTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ChannelTimeoutsPtrInput` via:
+//
+//	        ChannelTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToChannelTimeoutsPtrOutput() ChannelTimeoutsPtrOutput
+	ToChannelTimeoutsPtrOutputWithContext(context.Context) ChannelTimeoutsPtrOutput
+}
+
+type channelTimeoutsPtrType ChannelTimeoutsArgs
+
+func ChannelTimeoutsPtr(v *ChannelTimeoutsArgs) ChannelTimeoutsPtrInput {
+	return (*channelTimeoutsPtrType)(v)
+}
+
+func (*channelTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTimeouts)(nil)).Elem()
+}
+
+func (i *channelTimeoutsPtrType) ToChannelTimeoutsPtrOutput() ChannelTimeoutsPtrOutput {
+	return i.ToChannelTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTimeoutsPtrType) ToChannelTimeoutsPtrOutputWithContext(ctx context.Context) ChannelTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTimeoutsPtrOutput)
+}
+
+type ChannelTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ChannelTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTimeouts)(nil)).Elem()
+}
+
+func (o ChannelTimeoutsOutput) ToChannelTimeoutsOutput() ChannelTimeoutsOutput {
+	return o
+}
+
+func (o ChannelTimeoutsOutput) ToChannelTimeoutsOutputWithContext(ctx context.Context) ChannelTimeoutsOutput {
+	return o
+}
+
+func (o ChannelTimeoutsOutput) ToChannelTimeoutsPtrOutput() ChannelTimeoutsPtrOutput {
+	return o.ToChannelTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTimeoutsOutput) ToChannelTimeoutsPtrOutputWithContext(ctx context.Context) ChannelTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTimeouts) *ChannelTimeouts {
+		return &v
+	}).(ChannelTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ChannelTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ChannelTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ChannelTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ChannelTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTimeouts)(nil)).Elem()
+}
+
+func (o ChannelTimeoutsPtrOutput) ToChannelTimeoutsPtrOutput() ChannelTimeoutsPtrOutput {
+	return o
+}
+
+func (o ChannelTimeoutsPtrOutput) ToChannelTimeoutsPtrOutputWithContext(ctx context.Context) ChannelTimeoutsPtrOutput {
+	return o
+}
+
+func (o ChannelTimeoutsPtrOutput) Elem() ChannelTimeoutsOutput {
+	return o.ApplyT(func(v *ChannelTimeouts) ChannelTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTimeouts
+		return ret
+	}).(ChannelTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ChannelTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ChannelTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ChannelTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTopicConfiguration struct {
+	// Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+	RecordConverter ChannelTopicConfigurationRecordConverter `pulumi:"recordConverter"`
+	// Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+	RecordSchema *ChannelTopicConfigurationRecordSchema `pulumi:"recordSchema"`
+	// ARN that uniquely identifies the topic.
+	//
+	// The following arguments are optional:
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// ChannelTopicConfigurationInput is an input type that accepts ChannelTopicConfigurationArgs and ChannelTopicConfigurationOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationInput` via:
+//
+//	ChannelTopicConfigurationArgs{...}
+type ChannelTopicConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationOutput() ChannelTopicConfigurationOutput
+	ToChannelTopicConfigurationOutputWithContext(context.Context) ChannelTopicConfigurationOutput
+}
+
+type ChannelTopicConfigurationArgs struct {
+	// Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+	RecordConverter ChannelTopicConfigurationRecordConverterInput `pulumi:"recordConverter"`
+	// Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+	RecordSchema ChannelTopicConfigurationRecordSchemaPtrInput `pulumi:"recordSchema"`
+	// ARN that uniquely identifies the topic.
+	//
+	// The following arguments are optional:
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ChannelTopicConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfiguration)(nil)).Elem()
+}
+
+func (i ChannelTopicConfigurationArgs) ToChannelTopicConfigurationOutput() ChannelTopicConfigurationOutput {
+	return i.ToChannelTopicConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationArgs) ToChannelTopicConfigurationOutputWithContext(ctx context.Context) ChannelTopicConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationOutput)
+}
+
+func (i ChannelTopicConfigurationArgs) ToChannelTopicConfigurationPtrOutput() ChannelTopicConfigurationPtrOutput {
+	return i.ToChannelTopicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationArgs) ToChannelTopicConfigurationPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationOutput).ToChannelTopicConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelTopicConfigurationPtrInput is an input type that accepts ChannelTopicConfigurationArgs, ChannelTopicConfigurationPtr and ChannelTopicConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationPtrInput` via:
+//
+//	        ChannelTopicConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelTopicConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationPtrOutput() ChannelTopicConfigurationPtrOutput
+	ToChannelTopicConfigurationPtrOutputWithContext(context.Context) ChannelTopicConfigurationPtrOutput
+}
+
+type channelTopicConfigurationPtrType ChannelTopicConfigurationArgs
+
+func ChannelTopicConfigurationPtr(v *ChannelTopicConfigurationArgs) ChannelTopicConfigurationPtrInput {
+	return (*channelTopicConfigurationPtrType)(v)
+}
+
+func (*channelTopicConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfiguration)(nil)).Elem()
+}
+
+func (i *channelTopicConfigurationPtrType) ToChannelTopicConfigurationPtrOutput() ChannelTopicConfigurationPtrOutput {
+	return i.ToChannelTopicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTopicConfigurationPtrType) ToChannelTopicConfigurationPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationPtrOutput)
+}
+
+type ChannelTopicConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfiguration)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationOutput) ToChannelTopicConfigurationOutput() ChannelTopicConfigurationOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationOutput) ToChannelTopicConfigurationOutputWithContext(ctx context.Context) ChannelTopicConfigurationOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationOutput) ToChannelTopicConfigurationPtrOutput() ChannelTopicConfigurationPtrOutput {
+	return o.ToChannelTopicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTopicConfigurationOutput) ToChannelTopicConfigurationPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTopicConfiguration) *ChannelTopicConfiguration {
+		return &v
+	}).(ChannelTopicConfigurationPtrOutput)
+}
+
+// Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+func (o ChannelTopicConfigurationOutput) RecordConverter() ChannelTopicConfigurationRecordConverterOutput {
+	return o.ApplyT(func(v ChannelTopicConfiguration) ChannelTopicConfigurationRecordConverter { return v.RecordConverter }).(ChannelTopicConfigurationRecordConverterOutput)
+}
+
+// Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+func (o ChannelTopicConfigurationOutput) RecordSchema() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o.ApplyT(func(v ChannelTopicConfiguration) *ChannelTopicConfigurationRecordSchema { return v.RecordSchema }).(ChannelTopicConfigurationRecordSchemaPtrOutput)
+}
+
+// ARN that uniquely identifies the topic.
+//
+// The following arguments are optional:
+func (o ChannelTopicConfigurationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTopicConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type ChannelTopicConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfiguration)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationPtrOutput) ToChannelTopicConfigurationPtrOutput() ChannelTopicConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationPtrOutput) ToChannelTopicConfigurationPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationPtrOutput) Elem() ChannelTopicConfigurationOutput {
+	return o.ApplyT(func(v *ChannelTopicConfiguration) ChannelTopicConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTopicConfiguration
+		return ret
+	}).(ChannelTopicConfigurationOutput)
+}
+
+// Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+func (o ChannelTopicConfigurationPtrOutput) RecordConverter() ChannelTopicConfigurationRecordConverterPtrOutput {
+	return o.ApplyT(func(v *ChannelTopicConfiguration) *ChannelTopicConfigurationRecordConverter {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordConverter
+	}).(ChannelTopicConfigurationRecordConverterPtrOutput)
+}
+
+// Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+func (o ChannelTopicConfigurationPtrOutput) RecordSchema() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *ChannelTopicConfiguration) *ChannelTopicConfigurationRecordSchema {
+		if v == nil {
+			return nil
+		}
+		return v.RecordSchema
+	}).(ChannelTopicConfigurationRecordSchemaPtrOutput)
+}
+
+// ARN that uniquely identifies the topic.
+//
+// The following arguments are optional:
+func (o ChannelTopicConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTopicConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTopicConfigurationRecordConverter struct {
+	// Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+	ValueConverter string `pulumi:"valueConverter"`
+}
+
+// ChannelTopicConfigurationRecordConverterInput is an input type that accepts ChannelTopicConfigurationRecordConverterArgs and ChannelTopicConfigurationRecordConverterOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationRecordConverterInput` via:
+//
+//	ChannelTopicConfigurationRecordConverterArgs{...}
+type ChannelTopicConfigurationRecordConverterInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationRecordConverterOutput() ChannelTopicConfigurationRecordConverterOutput
+	ToChannelTopicConfigurationRecordConverterOutputWithContext(context.Context) ChannelTopicConfigurationRecordConverterOutput
+}
+
+type ChannelTopicConfigurationRecordConverterArgs struct {
+	// Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+	ValueConverter pulumi.StringInput `pulumi:"valueConverter"`
+}
+
+func (ChannelTopicConfigurationRecordConverterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfigurationRecordConverter)(nil)).Elem()
+}
+
+func (i ChannelTopicConfigurationRecordConverterArgs) ToChannelTopicConfigurationRecordConverterOutput() ChannelTopicConfigurationRecordConverterOutput {
+	return i.ToChannelTopicConfigurationRecordConverterOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationRecordConverterArgs) ToChannelTopicConfigurationRecordConverterOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordConverterOutput)
+}
+
+func (i ChannelTopicConfigurationRecordConverterArgs) ToChannelTopicConfigurationRecordConverterPtrOutput() ChannelTopicConfigurationRecordConverterPtrOutput {
+	return i.ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationRecordConverterArgs) ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordConverterOutput).ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(ctx)
+}
+
+// ChannelTopicConfigurationRecordConverterPtrInput is an input type that accepts ChannelTopicConfigurationRecordConverterArgs, ChannelTopicConfigurationRecordConverterPtr and ChannelTopicConfigurationRecordConverterPtrOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationRecordConverterPtrInput` via:
+//
+//	        ChannelTopicConfigurationRecordConverterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelTopicConfigurationRecordConverterPtrInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationRecordConverterPtrOutput() ChannelTopicConfigurationRecordConverterPtrOutput
+	ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(context.Context) ChannelTopicConfigurationRecordConverterPtrOutput
+}
+
+type channelTopicConfigurationRecordConverterPtrType ChannelTopicConfigurationRecordConverterArgs
+
+func ChannelTopicConfigurationRecordConverterPtr(v *ChannelTopicConfigurationRecordConverterArgs) ChannelTopicConfigurationRecordConverterPtrInput {
+	return (*channelTopicConfigurationRecordConverterPtrType)(v)
+}
+
+func (*channelTopicConfigurationRecordConverterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfigurationRecordConverter)(nil)).Elem()
+}
+
+func (i *channelTopicConfigurationRecordConverterPtrType) ToChannelTopicConfigurationRecordConverterPtrOutput() ChannelTopicConfigurationRecordConverterPtrOutput {
+	return i.ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTopicConfigurationRecordConverterPtrType) ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordConverterPtrOutput)
+}
+
+type ChannelTopicConfigurationRecordConverterOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationRecordConverterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfigurationRecordConverter)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationRecordConverterOutput) ToChannelTopicConfigurationRecordConverterOutput() ChannelTopicConfigurationRecordConverterOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordConverterOutput) ToChannelTopicConfigurationRecordConverterOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordConverterOutput) ToChannelTopicConfigurationRecordConverterPtrOutput() ChannelTopicConfigurationRecordConverterPtrOutput {
+	return o.ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTopicConfigurationRecordConverterOutput) ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTopicConfigurationRecordConverter) *ChannelTopicConfigurationRecordConverter {
+		return &v
+	}).(ChannelTopicConfigurationRecordConverterPtrOutput)
+}
+
+// Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+func (o ChannelTopicConfigurationRecordConverterOutput) ValueConverter() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTopicConfigurationRecordConverter) string { return v.ValueConverter }).(pulumi.StringOutput)
+}
+
+type ChannelTopicConfigurationRecordConverterPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationRecordConverterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfigurationRecordConverter)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationRecordConverterPtrOutput) ToChannelTopicConfigurationRecordConverterPtrOutput() ChannelTopicConfigurationRecordConverterPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordConverterPtrOutput) ToChannelTopicConfigurationRecordConverterPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordConverterPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordConverterPtrOutput) Elem() ChannelTopicConfigurationRecordConverterOutput {
+	return o.ApplyT(func(v *ChannelTopicConfigurationRecordConverter) ChannelTopicConfigurationRecordConverter {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTopicConfigurationRecordConverter
+		return ret
+	}).(ChannelTopicConfigurationRecordConverterOutput)
+}
+
+// Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+func (o ChannelTopicConfigurationRecordConverterPtrOutput) ValueConverter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTopicConfigurationRecordConverter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValueConverter
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelTopicConfigurationRecordSchema struct {
+	// ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+	GsrArn string `pulumi:"gsrArn"`
+}
+
+// ChannelTopicConfigurationRecordSchemaInput is an input type that accepts ChannelTopicConfigurationRecordSchemaArgs and ChannelTopicConfigurationRecordSchemaOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationRecordSchemaInput` via:
+//
+//	ChannelTopicConfigurationRecordSchemaArgs{...}
+type ChannelTopicConfigurationRecordSchemaInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationRecordSchemaOutput() ChannelTopicConfigurationRecordSchemaOutput
+	ToChannelTopicConfigurationRecordSchemaOutputWithContext(context.Context) ChannelTopicConfigurationRecordSchemaOutput
+}
+
+type ChannelTopicConfigurationRecordSchemaArgs struct {
+	// ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+	GsrArn pulumi.StringInput `pulumi:"gsrArn"`
+}
+
+func (ChannelTopicConfigurationRecordSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfigurationRecordSchema)(nil)).Elem()
+}
+
+func (i ChannelTopicConfigurationRecordSchemaArgs) ToChannelTopicConfigurationRecordSchemaOutput() ChannelTopicConfigurationRecordSchemaOutput {
+	return i.ToChannelTopicConfigurationRecordSchemaOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationRecordSchemaArgs) ToChannelTopicConfigurationRecordSchemaOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordSchemaOutput)
+}
+
+func (i ChannelTopicConfigurationRecordSchemaArgs) ToChannelTopicConfigurationRecordSchemaPtrOutput() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return i.ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTopicConfigurationRecordSchemaArgs) ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordSchemaOutput).ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(ctx)
+}
+
+// ChannelTopicConfigurationRecordSchemaPtrInput is an input type that accepts ChannelTopicConfigurationRecordSchemaArgs, ChannelTopicConfigurationRecordSchemaPtr and ChannelTopicConfigurationRecordSchemaPtrOutput values.
+// You can construct a concrete instance of `ChannelTopicConfigurationRecordSchemaPtrInput` via:
+//
+//	        ChannelTopicConfigurationRecordSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelTopicConfigurationRecordSchemaPtrInput interface {
+	pulumi.Input
+
+	ToChannelTopicConfigurationRecordSchemaPtrOutput() ChannelTopicConfigurationRecordSchemaPtrOutput
+	ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(context.Context) ChannelTopicConfigurationRecordSchemaPtrOutput
+}
+
+type channelTopicConfigurationRecordSchemaPtrType ChannelTopicConfigurationRecordSchemaArgs
+
+func ChannelTopicConfigurationRecordSchemaPtr(v *ChannelTopicConfigurationRecordSchemaArgs) ChannelTopicConfigurationRecordSchemaPtrInput {
+	return (*channelTopicConfigurationRecordSchemaPtrType)(v)
+}
+
+func (*channelTopicConfigurationRecordSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfigurationRecordSchema)(nil)).Elem()
+}
+
+func (i *channelTopicConfigurationRecordSchemaPtrType) ToChannelTopicConfigurationRecordSchemaPtrOutput() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return i.ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTopicConfigurationRecordSchemaPtrType) ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTopicConfigurationRecordSchemaPtrOutput)
+}
+
+type ChannelTopicConfigurationRecordSchemaOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationRecordSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTopicConfigurationRecordSchema)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationRecordSchemaOutput) ToChannelTopicConfigurationRecordSchemaOutput() ChannelTopicConfigurationRecordSchemaOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordSchemaOutput) ToChannelTopicConfigurationRecordSchemaOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordSchemaOutput) ToChannelTopicConfigurationRecordSchemaPtrOutput() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o.ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTopicConfigurationRecordSchemaOutput) ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelTopicConfigurationRecordSchema) *ChannelTopicConfigurationRecordSchema {
+		return &v
+	}).(ChannelTopicConfigurationRecordSchemaPtrOutput)
+}
+
+// ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+func (o ChannelTopicConfigurationRecordSchemaOutput) GsrArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTopicConfigurationRecordSchema) string { return v.GsrArn }).(pulumi.StringOutput)
+}
+
+type ChannelTopicConfigurationRecordSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelTopicConfigurationRecordSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTopicConfigurationRecordSchema)(nil)).Elem()
+}
+
+func (o ChannelTopicConfigurationRecordSchemaPtrOutput) ToChannelTopicConfigurationRecordSchemaPtrOutput() ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordSchemaPtrOutput) ToChannelTopicConfigurationRecordSchemaPtrOutputWithContext(ctx context.Context) ChannelTopicConfigurationRecordSchemaPtrOutput {
+	return o
+}
+
+func (o ChannelTopicConfigurationRecordSchemaPtrOutput) Elem() ChannelTopicConfigurationRecordSchemaOutput {
+	return o.ApplyT(func(v *ChannelTopicConfigurationRecordSchema) ChannelTopicConfigurationRecordSchema {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelTopicConfigurationRecordSchema
+		return ret
+	}).(ChannelTopicConfigurationRecordSchemaOutput)
+}
+
+// ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+func (o ChannelTopicConfigurationRecordSchemaPtrOutput) GsrArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTopicConfigurationRecordSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GsrArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterBrokerNodeGroupInfo struct {
 	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
 	AzDistribution *string `pulumi:"azDistribution"`
@@ -8523,6 +11947,46 @@ func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThrough
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationInput)(nil)).Elem(), ChannelEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationPtrInput)(nil)).Elem(), ChannelEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationInput)(nil)).Elem(), ChannelIcebergDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationPtrInput)(nil)).Elem(), ChannelIcebergDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationCatalogInput)(nil)).Elem(), ChannelIcebergDestinationCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationCatalogPtrInput)(nil)).Elem(), ChannelIcebergDestinationCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDeadLetterQueueS3Input)(nil)).Elem(), ChannelIcebergDestinationDeadLetterQueueS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDeadLetterQueueS3PtrInput)(nil)).Elem(), ChannelIcebergDestinationDeadLetterQueueS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTableInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePtrInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTablePartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecPtrInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTablePartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecSourceInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayInput)(nil)).Elem(), ChannelIcebergDestinationDestinationTablePartitionSpecSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationSchemaEvolutionInput)(nil)).Elem(), ChannelIcebergDestinationSchemaEvolutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationSchemaEvolutionPtrInput)(nil)).Elem(), ChannelIcebergDestinationSchemaEvolutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationTableCreationInput)(nil)).Elem(), ChannelIcebergDestinationTableCreationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIcebergDestinationTableCreationPtrInput)(nil)).Elem(), ChannelIcebergDestinationTableCreationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoInput)(nil)).Elem(), ChannelLoggingInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoPtrInput)(nil)).Elem(), ChannelLoggingInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoCloudwatchLogsInput)(nil)).Elem(), ChannelLoggingInfoCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoCloudwatchLogsPtrInput)(nil)).Elem(), ChannelLoggingInfoCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoFirehoseInput)(nil)).Elem(), ChannelLoggingInfoFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoFirehosePtrInput)(nil)).Elem(), ChannelLoggingInfoFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoS3Input)(nil)).Elem(), ChannelLoggingInfoS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingInfoS3PtrInput)(nil)).Elem(), ChannelLoggingInfoS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationInput)(nil)).Elem(), ChannelS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationPtrInput)(nil)).Elem(), ChannelS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationDeadLetterQueueS3Input)(nil)).Elem(), ChannelS3DestinationDeadLetterQueueS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationDeadLetterQueueS3PtrInput)(nil)).Elem(), ChannelS3DestinationDeadLetterQueueS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationStorageInput)(nil)).Elem(), ChannelS3DestinationStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationStoragePtrInput)(nil)).Elem(), ChannelS3DestinationStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeoutsInput)(nil)).Elem(), ChannelTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeoutsPtrInput)(nil)).Elem(), ChannelTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationInput)(nil)).Elem(), ChannelTopicConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationPtrInput)(nil)).Elem(), ChannelTopicConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationRecordConverterInput)(nil)).Elem(), ChannelTopicConfigurationRecordConverterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationRecordConverterPtrInput)(nil)).Elem(), ChannelTopicConfigurationRecordConverterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationRecordSchemaInput)(nil)).Elem(), ChannelTopicConfigurationRecordSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTopicConfigurationRecordSchemaPtrInput)(nil)).Elem(), ChannelTopicConfigurationRecordSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
@@ -8639,6 +12103,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray{})
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationCatalogOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationCatalogPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDeadLetterQueueS3Output{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDeadLetterQueueS3PtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTableOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTablePtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTablePartitionSpecOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTablePartitionSpecPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTablePartitionSpecSourceOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationDestinationTablePartitionSpecSourceArrayOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationSchemaEvolutionOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationSchemaEvolutionPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationTableCreationOutput{})
+	pulumi.RegisterOutputType(ChannelIcebergDestinationTableCreationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoPtrOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoFirehoseOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoFirehosePtrOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoS3Output{})
+	pulumi.RegisterOutputType(ChannelLoggingInfoS3PtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationDeadLetterQueueS3Output{})
+	pulumi.RegisterOutputType(ChannelS3DestinationDeadLetterQueueS3PtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationStorageOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationStoragePtrOutput{})
+	pulumi.RegisterOutputType(ChannelTimeoutsOutput{})
+	pulumi.RegisterOutputType(ChannelTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationRecordConverterOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationRecordConverterPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationRecordSchemaOutput{})
+	pulumi.RegisterOutputType(ChannelTopicConfigurationRecordSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoOutput{})

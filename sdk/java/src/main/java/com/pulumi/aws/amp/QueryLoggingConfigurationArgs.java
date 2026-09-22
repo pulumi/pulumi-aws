@@ -20,14 +20,14 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
     public static final QueryLoggingConfigurationArgs Empty = new QueryLoggingConfigurationArgs();
 
     /**
-     * Configuration block for the logging destinations. See `destinations`.
+     * Configuration block for the logging destinations. See `destination`.
      * 
      */
     @Import(name="destinations", required=true)
     private Output<List<QueryLoggingConfigurationDestinationArgs>> destinations;
 
     /**
-     * @return Configuration block for the logging destinations. See `destinations`.
+     * @return Configuration block for the logging destinations. See `destination`.
      * 
      */
     public Output<List<QueryLoggingConfigurationDestinationArgs>> destinations() {
@@ -103,7 +103,7 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
+         * @param destinations Configuration block for the logging destinations. See `destination`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
+         * @param destinations Configuration block for the logging destinations. See `destination`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destinations`.
+         * @param destinations Configuration block for the logging destinations. See `destination`.
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs();
 
     /**
-     * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+     * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
      * 
      */
     @Import(name="awsDataCatalogConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs> awsDataCatalogConfiguration;
 
     /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs>> awsDataCatalogConfiguration() {
@@ -34,14 +34,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+     * Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
      * 
      */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs> redshiftConfiguration;
 
     /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+     * @return Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs>> redshiftConfiguration() {
@@ -90,7 +90,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
          * 
          * @return builder
          * 

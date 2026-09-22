@@ -1658,6 +1658,7 @@
         "mq/getBrokerEngineTypes.ts",
         "mq/getInstanceTypeOfferings.ts",
         "mq/index.ts",
+        "msk/channel.ts",
         "msk/cluster.ts",
         "msk/clusterPolicy.ts",
         "msk/configuration.ts",

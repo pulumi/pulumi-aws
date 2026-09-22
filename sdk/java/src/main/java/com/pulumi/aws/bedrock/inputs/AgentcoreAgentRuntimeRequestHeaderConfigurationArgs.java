@@ -17,14 +17,14 @@ public final class AgentcoreAgentRuntimeRequestHeaderConfigurationArgs extends c
     public static final AgentcoreAgentRuntimeRequestHeaderConfigurationArgs Empty = new AgentcoreAgentRuntimeRequestHeaderConfigurationArgs();
 
     /**
-     * A list of HTTP request headers that are allowed to be passed through to the runtime.
+     * List of HTTP request headers that are allowed to be passed through to the runtime.
      * 
      */
     @Import(name="requestHeaderAllowlists")
     private @Nullable Output<List<String>> requestHeaderAllowlists;
 
     /**
-     * @return A list of HTTP request headers that are allowed to be passed through to the runtime.
+     * @return List of HTTP request headers that are allowed to be passed through to the runtime.
      * 
      */
     public Optional<Output<List<String>>> requestHeaderAllowlists() {
@@ -56,7 +56,7 @@ public final class AgentcoreAgentRuntimeRequestHeaderConfigurationArgs extends c
         }
 
         /**
-         * @param requestHeaderAllowlists A list of HTTP request headers that are allowed to be passed through to the runtime.
+         * @param requestHeaderAllowlists List of HTTP request headers that are allowed to be passed through to the runtime.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class AgentcoreAgentRuntimeRequestHeaderConfigurationArgs extends c
         }
 
         /**
-         * @param requestHeaderAllowlists A list of HTTP request headers that are allowed to be passed through to the runtime.
+         * @param requestHeaderAllowlists List of HTTP request headers that are allowed to be passed through to the runtime.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class AgentcoreAgentRuntimeRequestHeaderConfigurationArgs extends c
         }
 
         /**
-         * @param requestHeaderAllowlists A list of HTTP request headers that are allowed to be passed through to the runtime.
+         * @param requestHeaderAllowlists List of HTTP request headers that are allowed to be passed through to the runtime.
          * 
          * @return builder
          * 

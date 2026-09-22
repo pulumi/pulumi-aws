@@ -13,38 +13,38 @@ import java.util.Objects;
 @CustomType
 public final class GetBudgetAutoAdjustData {
     /**
-     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+     * @return String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
      * 
      */
     private String autoAdjustType;
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
      * 
      */
     private List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions;
     /**
-     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * @return Last time that the budget was auto-adjusted.
      * 
      */
     private String lastAutoAdjustTime;
 
     private GetBudgetAutoAdjustData() {}
     /**
-     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+     * @return String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
      * 
      */
     public String autoAdjustType() {
         return this.autoAdjustType;
     }
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
      * 
      */
     public List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions() {
         return this.historicalOptions;
     }
     /**
-     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * @return Last time that the budget was auto-adjusted.
      * 
      */
     public String lastAutoAdjustTime() {

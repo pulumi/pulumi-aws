@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration
     {
         /// <summary>
-        /// Configurations for storage in AWS Glue Data Catalog. See `AwsDataCatalogConfiguration` block for details.
+        /// Configurations for storage in AWS Glue Data Catalog. See `AwsDataCatalogConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration? AwsDataCatalogConfiguration;
         /// <summary>
-        /// Configurations for storage in Amazon Redshift. See `RedshiftConfiguration` block for details.
+        /// Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration? RedshiftConfiguration;
         /// <summary>

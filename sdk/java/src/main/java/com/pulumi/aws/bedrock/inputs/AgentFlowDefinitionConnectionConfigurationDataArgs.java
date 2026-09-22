@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
     public static final AgentFlowDefinitionConnectionConfigurationDataArgs Empty = new AgentFlowDefinitionConnectionConfigurationDataArgs();
 
     /**
-     * The name of the output in the source node that the connection begins from.
+     * Name of the output in the source node that the connection begins from.
      * 
      */
     @Import(name="sourceOutput", required=true)
     private Output<String> sourceOutput;
 
     /**
-     * @return The name of the output in the source node that the connection begins from.
+     * @return Name of the output in the source node that the connection begins from.
      * 
      */
     public Output<String> sourceOutput() {
@@ -30,14 +30,14 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
     }
 
     /**
-     * The name of the input in the target node that the connection ends at.
+     * Name of the input in the target node that the connection ends at.
      * 
      */
     @Import(name="targetInput", required=true)
     private Output<String> targetInput;
 
     /**
-     * @return The name of the input in the target node that the connection ends at.
+     * @return Name of the input in the target node that the connection ends at.
      * 
      */
     public Output<String> targetInput() {
@@ -70,7 +70,7 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
         }
 
         /**
-         * @param sourceOutput The name of the output in the source node that the connection begins from.
+         * @param sourceOutput Name of the output in the source node that the connection begins from.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
         }
 
         /**
-         * @param sourceOutput The name of the output in the source node that the connection begins from.
+         * @param sourceOutput Name of the output in the source node that the connection begins from.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
         }
 
         /**
-         * @param targetInput The name of the input in the target node that the connection ends at.
+         * @param targetInput Name of the input in the target node that the connection ends at.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentFlowDefinitionConnectionConfigurationDataArgs extends co
         }
 
         /**
-         * @param targetInput The name of the input in the target node that the connection ends at.
+         * @param targetInput Name of the input in the target node that the connection ends at.
          * 
          * @return builder
          * 

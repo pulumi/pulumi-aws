@@ -34,14 +34,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Schema for the tool&#39;s input. See `schemaDefinition` Block below.
+     * Schema for the tool&#39;s input. See `inputSchema` Block below.
      * 
      */
     @Import(name="inputSchema", required=true)
     private Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema;
 
     /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` Block below.
+     * @return Schema for the tool&#39;s input. See `inputSchema` Block below.
      * 
      */
     public Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema() {
@@ -64,14 +64,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Schema for the tool&#39;s output. See `schemaDefinition` Block below.
+     * Schema for the tool&#39;s output. See `outputSchema` Block below.
      * 
      */
     @Import(name="outputSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs> outputSchema;
 
     /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` Block below.
+     * @return Schema for the tool&#39;s output. See `outputSchema` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs>> outputSchema() {
@@ -127,7 +127,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param inputSchema Schema for the tool&#39;s input. See `schemaDefinition` Block below.
+         * @param inputSchema Schema for the tool&#39;s input. See `inputSchema` Block below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param inputSchema Schema for the tool&#39;s input. See `schemaDefinition` Block below.
+         * @param inputSchema Schema for the tool&#39;s input. See `inputSchema` Block below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param outputSchema Schema for the tool&#39;s output. See `schemaDefinition` Block below.
+         * @param outputSchema Schema for the tool&#39;s output. See `outputSchema` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param outputSchema Schema for the tool&#39;s output. See `schemaDefinition` Block below.
+         * @param outputSchema Schema for the tool&#39;s output. See `outputSchema` Block below.
          * 
          * @return builder
          * 

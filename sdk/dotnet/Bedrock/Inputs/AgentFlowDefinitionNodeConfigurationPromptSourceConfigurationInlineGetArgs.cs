@@ -19,25 +19,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? AdditionalModelRequestFields { get; set; }
 
         /// <summary>
-        /// Contains inference configurations for the prompt. See Inference Configuration for more information.
+        /// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
         /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationGetArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
-        /// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
         /// <summary>
-        /// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        /// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
         /// </summary>
         [Input("templateConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationGetArgs>? TemplateConfiguration { get; set; }
 
         /// <summary>
-        /// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        /// Type of prompt template. Valid values: `TEXT`, `CHAT`.
         /// </summary>
         [Input("templateType", required: true)]
         public Input<string> TemplateType { get; set; } = null!;

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
     /**
-     * @return A JSON object defining the input schema for the tool.
+     * @return JSON object defining the input schema for the tool.
      * 
      */
     private @Nullable String json;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema() {}
     /**
-     * @return A JSON object defining the input schema for the tool.
+     * @return JSON object defining the input schema for the tool.
      * 
      */
     public Optional<String> json() {

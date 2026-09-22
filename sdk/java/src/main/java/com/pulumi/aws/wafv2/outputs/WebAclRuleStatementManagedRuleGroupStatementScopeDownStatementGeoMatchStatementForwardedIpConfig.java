@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+    /**
+     * @return Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+     * 
+     */
     private String fallbackBehavior;
     /**
      * @return Name of the header containing the forwarded IP address.
@@ -18,6 +22,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     private String headerName;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig() {}
+    /**
+     * @return Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+     * 
+     */
     public String fallbackBehavior() {
         return this.fallbackBehavior;
     }

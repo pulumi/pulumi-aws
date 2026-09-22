@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter
     {
+        /// <summary>
+        /// One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        /// </summary>
         public readonly ImmutableArray<string> ExclusionFilters;
+        /// <summary>
+        /// One or more inclusion regular expression patterns to include object types that match the pattern.
+        /// </summary>
         public readonly ImmutableArray<string> InclusionFilters;
         /// <summary>
-        /// The supported object type or content type of the data source.
+        /// Object type or content type of the data source.
         /// </summary>
         public readonly string ObjectType;
 

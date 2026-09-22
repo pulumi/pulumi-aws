@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? ExecutionTimeoutSeconds;
         /// <summary>
-        /// Configurations for context to use during query generation. See `GenerationContext` block for details.
+        /// Configurations for context to use during query generation. See `GenerationContext` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext? GenerationContext;
 

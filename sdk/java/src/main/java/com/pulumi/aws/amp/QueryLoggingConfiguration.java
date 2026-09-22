@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration")
 public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block for the logging destinations. See `destinations`.
+     * Configuration block for the logging destinations. See `destination`.
      * 
      */
     @Export(name="destinations", refs={List.class,QueryLoggingConfigurationDestination.class}, tree="[0,1]")
     private Output<List<QueryLoggingConfigurationDestination>> destinations;
 
     /**
-     * @return Configuration block for the logging destinations. See `destinations`.
+     * @return Configuration block for the logging destinations. See `destination`.
      * 
      */
     public Output<List<QueryLoggingConfigurationDestination>> destinations() {

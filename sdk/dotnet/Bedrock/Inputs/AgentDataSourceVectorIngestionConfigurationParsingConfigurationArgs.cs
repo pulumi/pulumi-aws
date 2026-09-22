@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for using Amazon Bedrock Data Automation to parse documents. See `BedrockDataAutomationConfiguration` block for details.
+        /// Settings for using Amazon Bedrock Data Automation to parse documents. See `BedrockDataAutomationConfiguration` Block for details.
         /// </summary>
         [Input("bedrockDataAutomationConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs>? BedrockDataAutomationConfiguration { get; set; }
 
         /// <summary>
-        /// Settings for a foundation model used to parse documents in a data source. See `BedrockFoundationModelConfiguration` block for details.
+        /// Settings for a foundation model used to parse documents in a data source. See `BedrockFoundationModelConfiguration` Block for details.
         /// </summary>
         [Input("bedrockFoundationModelConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs>? BedrockFoundationModelConfiguration { get; set; }
 
         /// <summary>
-        /// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        /// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
         /// </summary>
         [Input("parsingStrategy", required: true)]
         public Input<string> ParsingStrategy { get; set; } = null!;

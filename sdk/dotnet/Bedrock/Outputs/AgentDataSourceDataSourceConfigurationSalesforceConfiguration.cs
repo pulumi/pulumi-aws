@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
     {
+        /// <summary>
+        /// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration? SourceConfiguration;
 
         [OutputConstructor]

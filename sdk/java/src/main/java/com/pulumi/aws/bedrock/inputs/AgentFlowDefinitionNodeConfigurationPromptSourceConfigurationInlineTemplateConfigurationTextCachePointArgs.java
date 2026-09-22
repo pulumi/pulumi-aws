@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs();
 
     /**
-     * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 

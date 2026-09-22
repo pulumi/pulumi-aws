@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailSensitiveInformationPolicyConfig
     {
         /// <summary>
-        /// List of entities. See PII Entities Config for more information.
+        /// List of entities. See `PiiEntitiesConfig` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig> PiiEntitiesConfigs;
         /// <summary>
-        /// List of regex. See Regexes Config for more information.
+        /// List of regex. See `RegexesConfig` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig> RegexesConfigs;
 

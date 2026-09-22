@@ -46,14 +46,14 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
     }
 
     /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
      * 
      */
     @Import(name="fieldMapping", required=true)
     private Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs> fieldMapping() {
@@ -145,7 +145,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 

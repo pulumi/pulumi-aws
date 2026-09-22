@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+        /// Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
         /// </summary>
         [Input("comparisonOperator", required: true)]
         public Input<string> ComparisonOperator { get; set; } = null!;
 
         /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+        /// What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _subscriberEmailAddresses;
 
         /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `SubscriberSnsTopicArns` is required.
+        /// E-Mail addresses to notify. Either this or `SubscriberSnsTopicArns` is required.
         /// </summary>
         public InputList<string> SubscriberEmailAddresses
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _subscriberSnsTopicArns;
 
         /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `SubscriberEmailAddresses` is required.
+        /// SNS topics to notify. Either this or `SubscriberEmailAddresses` is required.
         /// </summary>
         public InputList<string> SubscriberSnsTopicArns
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Budgets.Inputs
         }
 
         /// <summary>
-        /// (Required) Threshold when the notification should be sent.
+        /// Threshold when the notification should be sent.
         /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
         /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        /// What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         /// </summary>
         [Input("thresholdType", required: true)]
         public Input<string> ThresholdType { get; set; } = null!;

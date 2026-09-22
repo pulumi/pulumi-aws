@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class FrameworkControlInputParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// Name of a parameter, for example, BackupPlanFrequency.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of parameter, for example, hourly.
+        /// Value of parameter, for example, hourly.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -93,14 +93,14 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArg
     }
 
     /**
-     * The currently supported PII entities.
+     * Currently supported PII entities.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The currently supported PII entities.
+     * @return Currently supported PII entities.
      * 
      */
     public Output<String> type() {
@@ -242,7 +242,7 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArg
         }
 
         /**
-         * @param type The currently supported PII entities.
+         * @param type Currently supported PII entities.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArg
         }
 
         /**
-         * @param type The currently supported PII entities.
+         * @param type Currently supported PII entities.
          * 
          * @return builder
          * 

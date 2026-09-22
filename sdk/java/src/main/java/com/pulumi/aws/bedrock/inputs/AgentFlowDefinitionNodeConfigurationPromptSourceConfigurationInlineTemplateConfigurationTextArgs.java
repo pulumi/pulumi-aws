@@ -20,14 +20,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs();
 
     /**
-     * A cache checkpoint within a template configuration. See Cache Point for more information.
+     * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     @Import(name="cachePoint")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs> cachePoint;
 
     /**
-     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs>> cachePoint() {
@@ -35,14 +35,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * A list of variables in the prompt template. See Input Variable for more information.
+     * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
      * 
      */
     @Import(name="inputVariables")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs>> inputVariables;
 
     /**
-     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs>>> inputVariables() {
@@ -50,14 +50,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * The message for the prompt.
+     * Message for the prompt.
      * 
      */
     @Import(name="text", required=true)
     private Output<String> text;
 
     /**
-     * @return The message for the prompt.
+     * @return Message for the prompt.
      * 
      */
     public Output<String> text() {
@@ -91,7 +91,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param cachePoint A cache checkpoint within a template configuration. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param cachePoint A cache checkpoint within a template configuration. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text The message for the prompt.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text The message for the prompt.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 

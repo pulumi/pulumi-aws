@@ -35,14 +35,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Nested items definition for arrays of arrays.
+     * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
      * 
      */
     @Import(name="items")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs> items;
 
     /**
-     * @return Nested items definition for arrays of arrays.
+     * @return Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs>> items() {
@@ -50,14 +50,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Set of property definitions for arrays of objects. See `property` Block below.
+     * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
      * 
      */
     @Import(name="properties")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs>> properties;
 
     /**
-     * @return Set of property definitions for arrays of objects. See `property` Block below.
+     * @return Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs>>> properties() {
@@ -128,7 +128,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Nested items definition for arrays of arrays.
+         * @param items Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Nested items definition for arrays of arrays.
+         * @param items Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
+         * @param properties Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
+         * @param properties Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
+         * @param properties Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          * 
          * @return builder
          * 

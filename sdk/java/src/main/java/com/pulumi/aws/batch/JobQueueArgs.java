@@ -23,14 +23,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobQueueArgs Empty = new JobQueueArgs();
 
     /**
-     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
     @Import(name="computeEnvironmentOrders")
     private @Nullable Output<List<JobQueueComputeEnvironmentOrderArgs>> computeEnvironmentOrders;
 
     /**
-     * @return The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * @return Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
     public Optional<Output<List<JobQueueComputeEnvironmentOrderArgs>>> computeEnvironmentOrders() {
@@ -38,14 +38,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
     @Import(name="jobStateTimeLimitActions")
     private @Nullable Output<List<JobQueueJobStateTimeLimitActionArgs>> jobStateTimeLimitActions;
 
     /**
-     * @return The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * @return Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
     public Optional<Output<List<JobQueueJobStateTimeLimitActionArgs>>> jobStateTimeLimitActions() {
@@ -53,14 +53,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the job queue.
+     * Name of the job queue.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the job queue.
+     * @return Name of the job queue.
      * 
      */
     public Optional<Output<String>> name() {
@@ -68,16 +68,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      * 
      */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
     /**
-     * @return The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      * 
      */
     public Output<Integer> priority() {
@@ -100,14 +98,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
     @Import(name="schedulingPolicyArn")
     private @Nullable Output<String> schedulingPolicyArn;
 
     /**
-     * @return The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * @return ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
     public Optional<Output<String>> schedulingPolicyArn() {
@@ -115,14 +113,14 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * @return State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
     public Output<String> state() {
@@ -184,7 +182,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+         * @param computeEnvironmentOrders Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
          * 
          * @return builder
          * 
@@ -195,7 +193,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+         * @param computeEnvironmentOrders Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
          * 
          * @return builder
          * 
@@ -205,7 +203,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+         * @param computeEnvironmentOrders Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
          * 
          * @return builder
          * 
@@ -215,7 +213,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * @param jobStateTimeLimitActions Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
          * 
          * @return builder
          * 
@@ -226,7 +224,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * @param jobStateTimeLimitActions Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
          * 
          * @return builder
          * 
@@ -236,7 +234,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * @param jobStateTimeLimitActions Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
          * 
          * @return builder
          * 
@@ -246,7 +244,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the job queue.
+         * @param name Name of the job queue.
          * 
          * @return builder
          * 
@@ -257,7 +255,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the job queue.
+         * @param name Name of the job queue.
          * 
          * @return builder
          * 
@@ -267,8 +265,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority of the job queue. Job queues with a higher priority
-         * are evaluated first when associated with the same compute environment.
+         * @param priority Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
          * 
          * @return builder
          * 
@@ -279,8 +276,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority of the job queue. Job queues with a higher priority
-         * are evaluated first when associated with the same compute environment.
+         * @param priority Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
          * 
          * @return builder
          * 
@@ -311,7 +307,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedulingPolicyArn The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+         * @param schedulingPolicyArn ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
          * 
          * @return builder
          * 
@@ -322,7 +318,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedulingPolicyArn The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+         * @param schedulingPolicyArn ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
          * 
          * @return builder
          * 
@@ -332,7 +328,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+         * @param state State of the job queue. Must be one of: `ENABLED` or `DISABLED`
          * 
          * @return builder
          * 
@@ -343,7 +339,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+         * @param state State of the job queue. Must be one of: `ENABLED` or `DISABLED`
          * 
          * @return builder
          * 

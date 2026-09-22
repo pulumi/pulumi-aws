@@ -16,14 +16,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs();
 
     /**
-     * A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+     * Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
      * 
      */
     @Import(name="storageLocations", required=true)
     private Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations;
 
     /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+     * @return Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
      * 
      */
     public Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations() {
@@ -55,7 +55,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+         * @param storageLocations Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+         * @param storageLocations Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+         * @param storageLocations Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
          * 
          * @return builder
          * 

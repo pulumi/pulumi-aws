@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetPlanRuleScanActionResult
     {
+        /// <summary>
+        /// Malware scanner used for the scan setting.
+        /// </summary>
         public readonly string MalwareScanner;
+        /// <summary>
+        /// Mode of the malware scan.
+        /// </summary>
         public readonly string ScanMode;
 
         [OutputConstructor]

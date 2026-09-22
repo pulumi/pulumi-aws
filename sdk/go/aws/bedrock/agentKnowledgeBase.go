@@ -409,9 +409,10 @@ type AgentKnowledgeBase struct {
 	// Time at which the knowledge base was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the knowledge base.
-	Description    pulumi.StringPtrOutput   `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of failure reasons reported when the knowledge base is in a failed state.
 	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
-	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationOutput `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -421,7 +422,7 @@ type AgentKnowledgeBase struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -473,9 +474,10 @@ type agentKnowledgeBaseState struct {
 	// Time at which the knowledge base was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the knowledge base.
-	Description    *string  `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// List of failure reasons reported when the knowledge base is in a failed state.
 	FailureReasons []string `pulumi:"failureReasons"`
-	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
@@ -485,7 +487,7 @@ type agentKnowledgeBaseState struct {
 	//
 	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 	StorageConfiguration *AgentKnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -502,9 +504,10 @@ type AgentKnowledgeBaseState struct {
 	// Time at which the knowledge base was created.
 	CreatedAt pulumi.StringPtrInput
 	// Description of the knowledge base.
-	Description    pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// List of failure reasons reported when the knowledge base is in a failed state.
 	FailureReasons pulumi.StringArrayInput
-	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
@@ -514,7 +517,7 @@ type AgentKnowledgeBaseState struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -532,7 +535,7 @@ func (AgentKnowledgeBaseState) ElementType() reflect.Type {
 type agentKnowledgeBaseArgs struct {
 	// Description of the knowledge base.
 	Description *string `pulumi:"description"`
-	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
@@ -542,7 +545,7 @@ type agentKnowledgeBaseArgs struct {
 	//
 	// The following arguments are optional:
 	RoleArn string `pulumi:"roleArn"`
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 	StorageConfiguration *AgentKnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string           `pulumi:"tags"`
@@ -553,7 +556,7 @@ type agentKnowledgeBaseArgs struct {
 type AgentKnowledgeBaseArgs struct {
 	// Description of the knowledge base.
 	Description pulumi.StringPtrInput
-	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+	// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
@@ -563,7 +566,7 @@ type AgentKnowledgeBaseArgs struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringInput
-	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 	StorageConfiguration AgentKnowledgeBaseStorageConfigurationPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -672,11 +675,12 @@ func (o AgentKnowledgeBaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of failure reasons reported when the knowledge base is in a failed state.
 func (o AgentKnowledgeBaseOutput) FailureReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringArrayOutput { return v.FailureReasons }).(pulumi.StringArrayOutput)
 }
 
-// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+// Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseOutput) KnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) AgentKnowledgeBaseKnowledgeBaseConfigurationOutput {
 		return v.KnowledgeBaseConfiguration
@@ -700,7 +704,7 @@ func (o AgentKnowledgeBaseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+// Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
 func (o AgentKnowledgeBaseOutput) StorageConfiguration() AgentKnowledgeBaseStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) AgentKnowledgeBaseStorageConfigurationPtrOutput {
 		return v.StorageConfiguration

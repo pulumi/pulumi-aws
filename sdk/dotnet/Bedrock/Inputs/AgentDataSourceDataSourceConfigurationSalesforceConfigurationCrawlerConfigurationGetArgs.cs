@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Salesforce standard object configuration. See `FilterConfiguration` block for details.
+        /// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationGetArgs>? FilterConfiguration { get; set; }

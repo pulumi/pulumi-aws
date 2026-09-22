@@ -78,14 +78,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     }
 
     /**
-     * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * List of authentication methods supported by the token endpoint.
      * 
      */
     @Import(name="tokenEndpointAuthMethods")
     private @Nullable Output<List<String>> tokenEndpointAuthMethods;
 
     /**
-     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * @return List of authentication methods supported by the token endpoint.
      * 
      */
     public Optional<Output<List<String>>> tokenEndpointAuthMethods() {
@@ -215,7 +215,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint.
          * 
          * @return builder
          * 

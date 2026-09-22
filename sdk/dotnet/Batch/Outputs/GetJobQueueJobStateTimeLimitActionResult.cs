@@ -13,11 +13,20 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobQueueJobStateTimeLimitActionResult
     {
+        /// <summary>
+        /// Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+        /// </summary>
         public readonly int MaxTimeSeconds;
+        /// <summary>
+        /// Reason to log for the action being taken.
+        /// </summary>
         public readonly string Reason;
         /// <summary>
-        /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+        /// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         /// </summary>
         public readonly string State;
 

@@ -34,14 +34,14 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
     }
 
     /**
-     * ARN of the AgentCore memory resource.
+     * ARN of the managed memory resource.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return ARN of the AgentCore memory resource.
+     * @return ARN of the managed memory resource.
      * 
      */
     public Output<String> arn() {
@@ -64,14 +64,14 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
     }
 
     /**
-     * Retrieval configuration parameters. See `retrievalConfig` Block below.
+     * Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
      * 
      */
     @Import(name="retrievalConfig")
     private @Nullable Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs> retrievalConfig;
 
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
+     * @return Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs>> retrievalConfig() {
@@ -127,7 +127,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param arn ARN of the AgentCore memory resource.
+         * @param arn ARN of the managed memory resource.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param arn ARN of the AgentCore memory resource.
+         * @param arn ARN of the managed memory resource.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * @param retrievalConfig Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * @param retrievalConfig Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          * 
          * @return builder
          * 

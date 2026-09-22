@@ -16,14 +16,14 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
     public static final BudgetActionDefinitionScpActionDefinitionArgs Empty = new BudgetActionDefinitionScpActionDefinitionArgs();
 
     /**
-     * The policy ID attached.
+     * Policy ID attached.
      * 
      */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
     /**
-     * @return The policy ID attached.
+     * @return Policy ID attached.
      * 
      */
     public Output<String> policyId() {
@@ -31,14 +31,14 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
     }
 
     /**
-     * A list of target IDs.
+     * List of target IDs.
      * 
      */
     @Import(name="targetIds", required=true)
     private Output<List<String>> targetIds;
 
     /**
-     * @return A list of target IDs.
+     * @return List of target IDs.
      * 
      */
     public Output<List<String>> targetIds() {
@@ -71,7 +71,7 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param policyId The policy ID attached.
+         * @param policyId Policy ID attached.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param policyId The policy ID attached.
+         * @param policyId Policy ID attached.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param targetIds A list of target IDs.
+         * @param targetIds List of target IDs.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param targetIds A list of target IDs.
+         * @param targetIds List of target IDs.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param targetIds A list of target IDs.
+         * @param targetIds List of target IDs.
          * 
          * @return builder
          * 

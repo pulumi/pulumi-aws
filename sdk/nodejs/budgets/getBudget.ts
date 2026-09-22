@@ -38,17 +38,17 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetBudgetArgs {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for the budget. Defaults to the current account ID.
      */
     accountId?: string;
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of the budget. Unique within an account.
      *
      * The following arguments are optional:
      */
     name: string;
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the budget name. Unique within an account.
      */
     namePrefix?: string;
     /**
@@ -62,9 +62,12 @@ export interface GetBudgetArgs {
  */
 export interface GetBudgetResult {
     readonly accountId: string;
+    /**
+     * ARN of the budget.
+     */
     readonly arn: string;
     /**
-     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * Object that determines the budget amount for an auto-adjusting budget. See `autoAdjustData` Block for details.
      */
     readonly autoAdjustDatas: outputs.budgets.GetBudgetAutoAdjustData[];
     /**
@@ -72,41 +75,44 @@ export interface GetBudgetResult {
      */
     readonly billingViewArn: string;
     /**
-     * Boolean indicating whether this budget has been exceeded.
+     * Whether the budget has been exceeded.
      */
     readonly budgetExceeded: boolean;
     /**
-     * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
+     * Amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage tracked by the budget. See `budgetLimit` Block for details.
      */
     readonly budgetLimits: outputs.budgets.GetBudgetBudgetLimit[];
     /**
-     * Whether this budget tracks monetary cost or usage.
+     * Whether the budget tracks monetary cost or usage.
      */
     readonly budgetType: string;
     /**
-     * The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
+     * Spend objects associated with the budget. See `calculatedSpend` Block for details.
      */
     readonly calculatedSpends: outputs.budgets.GetBudgetCalculatedSpend[];
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * Cost filters applied to the budget. See `costFilter` Block for details.
      */
     readonly costFilters: outputs.budgets.GetBudgetCostFilter[];
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Types of cost included in the budget. See `costTypes` Block for details.
      */
     readonly costTypes: outputs.budgets.GetBudgetCostType[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the cost filter.
+     */
     readonly name: string;
     readonly namePrefix?: string;
     /**
-     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+     * Notifications associated with the budget. See `notification` Block for details.
      */
     readonly notifications: outputs.budgets.GetBudgetNotification[];
     /**
-     * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * Budget limits planned for future periods. See `plannedLimit` Block for details.
      */
     readonly plannedLimits: outputs.budgets.GetBudgetPlannedLimit[];
     /**
@@ -114,15 +120,15 @@ export interface GetBudgetResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. Format: `2017-01-01_12:00`.
      */
     readonly timePeriodEnd: string;
     /**
-     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * Start of the time period covered by the budget. Format: `2017-01-01_12:00`.
      */
     readonly timePeriodStart: string;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until the budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */
     readonly timeUnit: string;
 }
@@ -157,17 +163,17 @@ export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetBudgetOutputArgs {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for the budget. Defaults to the current account ID.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of the budget. Unique within an account.
      *
      * The following arguments are optional:
      */
     name: pulumi.Input<string>;
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the budget name. Unique within an account.
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**

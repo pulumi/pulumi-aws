@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string BotAliasArn;
         /// <summary>
-        /// The Region to invoke the Amazon Lex bot in
+        /// Region to invoke the Amazon Lex bot in.
         /// </summary>
         public readonly string LocaleId;
 

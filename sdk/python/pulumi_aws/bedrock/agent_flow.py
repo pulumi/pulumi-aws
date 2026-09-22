@@ -33,12 +33,12 @@ class AgentFlowArgs:
         The set of arguments for constructing a AgentFlow resource.
 
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
+        :param pulumi.Input['AgentFlowDefinitionArgs'] definition: Nodes and connections between nodes in the flow. See `definition` Block for details.
+        :param pulumi.Input[_builtins.str] description: Description for the flow.
+        :param pulumi.Input[_builtins.str] name: Name for the flow.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input['AgentFlowDefinitionArgs'] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-        :param pulumi.Input[_builtins.str] description: A description for the flow.
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -63,8 +63,6 @@ class AgentFlowArgs:
     def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
         ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -88,7 +86,7 @@ class AgentFlowArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional['AgentFlowDefinitionArgs']]:
         """
-        A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        Nodes and connections between nodes in the flow. See `definition` Block for details.
         """
         return pulumi.get(self, "definition")
 
@@ -100,7 +98,7 @@ class AgentFlowArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the flow.
+        Description for the flow.
         """
         return pulumi.get(self, "description")
 
@@ -112,7 +110,9 @@ class AgentFlowArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the flow.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -175,20 +175,20 @@ class _AgentFlowState:
         Input properties used for looking up and filtering AgentFlow resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the flow.
-        :param pulumi.Input[_builtins.str] created_at: The time at which the flow was created.
+        :param pulumi.Input[_builtins.str] created_at: Time at which the flow was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input['AgentFlowDefinitionArgs'] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-        :param pulumi.Input[_builtins.str] description: A description for the flow.
+        :param pulumi.Input['AgentFlowDefinitionArgs'] definition: Nodes and connections between nodes in the flow. See `definition` Block for details.
+        :param pulumi.Input[_builtins.str] description: Description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+        :param pulumi.Input[_builtins.str] name: Name for the flow.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the flow.
+        :param pulumi.Input[_builtins.str] status: Status of the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The time at which the flow was last updated.
-        :param pulumi.Input[_builtins.str] version: The version of the flow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Time at which the flow was last updated.
+        :param pulumi.Input[_builtins.str] version: Version of the flow.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -235,7 +235,7 @@ class _AgentFlowState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which the flow was created.
+        Time at which the flow was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -259,7 +259,7 @@ class _AgentFlowState:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional['AgentFlowDefinitionArgs']]:
         """
-        A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        Nodes and connections between nodes in the flow. See `definition` Block for details.
         """
         return pulumi.get(self, "definition")
 
@@ -271,7 +271,7 @@ class _AgentFlowState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the flow.
+        Description for the flow.
         """
         return pulumi.get(self, "description")
 
@@ -284,8 +284,6 @@ class _AgentFlowState:
     def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -297,7 +295,9 @@ class _AgentFlowState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the flow.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -321,7 +321,7 @@ class _AgentFlowState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the flow.
+        Status of the flow.
         """
         return pulumi.get(self, "status")
 
@@ -345,7 +345,7 @@ class _AgentFlowState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -366,7 +366,7 @@ class _AgentFlowState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which the flow was last updated.
+        Time at which the flow was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -378,7 +378,7 @@ class _AgentFlowState:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the flow.
+        Version of the flow.
         """
         return pulumi.get(self, "version")
 
@@ -533,12 +533,12 @@ class AgentFlow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-        :param pulumi.Input[_builtins.str] description: A description for the flow.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: Nodes and connections between nodes in the flow. See `definition` Block for details.
+        :param pulumi.Input[_builtins.str] description: Description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+        :param pulumi.Input[_builtins.str] name: Name for the flow.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -756,20 +756,20 @@ class AgentFlow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the flow.
-        :param pulumi.Input[_builtins.str] created_at: The time at which the flow was created.
+        :param pulumi.Input[_builtins.str] created_at: Time at which the flow was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key to encrypt the flow.
-        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: A definition of the nodes and connections between nodes in the flow. See Definition for more information.
-        :param pulumi.Input[_builtins.str] description: A description for the flow.
+        :param pulumi.Input[Union['AgentFlowDefinitionArgs', 'AgentFlowDefinitionArgsDict', 'outputs.AgentFlowDefinition']] definition: Nodes and connections between nodes in the flow. See `definition` Block for details.
+        :param pulumi.Input[_builtins.str] description: Description for the flow.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+        :param pulumi.Input[_builtins.str] name: Name for the flow.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the flow.
+        :param pulumi.Input[_builtins.str] status: Status of the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The time at which the flow was last updated.
-        :param pulumi.Input[_builtins.str] version: The version of the flow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Time at which the flow was last updated.
+        :param pulumi.Input[_builtins.str] version: Version of the flow.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -803,7 +803,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The time at which the flow was created.
+        Time at which the flow was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -819,7 +819,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.AgentFlowDefinition']]:
         """
-        A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        Nodes and connections between nodes in the flow. See `definition` Block for details.
         """
         return pulumi.get(self, "definition")
 
@@ -827,7 +827,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the flow.
+        Description for the flow.
         """
         return pulumi.get(self, "description")
 
@@ -836,8 +836,6 @@ class AgentFlow(pulumi.CustomResource):
     def execution_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -845,7 +843,9 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name for the flow.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -861,7 +861,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the flow.
+        Status of the flow.
         """
         return pulumi.get(self, "status")
 
@@ -877,7 +877,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -890,7 +890,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The time at which the flow was last updated.
+        Time at which the flow was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -898,7 +898,7 @@ class AgentFlow(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of the flow.
+        Version of the flow.
         """
         return pulumi.get(self, "version")
 

@@ -18,14 +18,14 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
     public static final BudgetFilterExpressionOrDimensionsArgs Empty = new BudgetFilterExpressionOrDimensionsArgs();
 
     /**
-     * (Optional) The cost category key to filter on.
+     * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return (Optional) The cost category key to filter on.
+     * @return Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
      * 
      */
     public Output<String> key() {
@@ -33,14 +33,14 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
     }
 
     /**
-     * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     @Import(name="matchOptions")
     private @Nullable Output<List<String>> matchOptions;
 
     /**
-     * @return (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * @return Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     public Optional<Output<List<String>>> matchOptions() {
@@ -48,14 +48,14 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
     }
 
     /**
-     * (Optional) A list of cost category values to match. At least one value is required.
+     * List of values to match against the dimension. At least one value is required.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of values to match against the dimension. At least one value is required.
      * 
      */
     public Output<List<String>> values() {
@@ -89,7 +89,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param key (Optional) The cost category key to filter on.
+         * @param key Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param key (Optional) The cost category key to filter on.
+         * @param key Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values to match against the dimension. At least one value is required.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values to match against the dimension. At least one value is required.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class BudgetFilterExpressionOrDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values to match against the dimension. At least one value is required.
          * 
          * @return builder
          * 

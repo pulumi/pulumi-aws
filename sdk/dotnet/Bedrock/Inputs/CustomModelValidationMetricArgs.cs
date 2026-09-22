@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class CustomModelValidationMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The validation loss associated with the validator.
+        /// Validation loss associated with the validator.
         /// </summary>
         [Input("validationLoss", required: true)]
         public Input<double> ValidationLoss { get; set; } = null!;

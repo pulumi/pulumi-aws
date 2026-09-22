@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+    /**
+     * @return Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration crawlerConfiguration;
+    /**
+     * @return Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration sourceConfiguration;
 
     private AgentDataSourceDataSourceConfigurationSalesforceConfiguration() {}
+    /**
+     * @return Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
+    /**
+     * @return Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }

@@ -22,14 +22,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     public static final ComputeEnvironmentComputeResourcesArgs Empty = new ComputeEnvironmentComputeResourcesArgs();
 
     /**
-     * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<String>> allocationStrategy() {
@@ -52,14 +52,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="desiredVcpus")
     private @Nullable Output<Integer> desiredVcpus;
 
     /**
-     * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<Integer>> desiredVcpus() {
@@ -82,14 +82,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="ec2KeyPair")
     private @Nullable Output<String> ec2KeyPair;
 
     /**
-     * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<String>> ec2KeyPair() {
@@ -112,14 +112,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="instanceRole")
     private @Nullable Output<String> instanceRole;
 
     /**
-     * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<String>> instanceRole() {
@@ -127,14 +127,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="instanceTypes")
     private @Nullable Output<List<String>> instanceTypes;
 
     /**
-     * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<List<String>>> instanceTypes() {
@@ -142,14 +142,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<ComputeEnvironmentComputeResourcesLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<ComputeEnvironmentComputeResourcesLaunchTemplateArgs>> launchTemplate() {
@@ -157,14 +157,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The maximum number of EC2 vCPUs that an environment can reach.
+     * Maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
     @Import(name="maxVcpus", required=true)
     private Output<Integer> maxVcpus;
 
     /**
-     * @return The maximum number of EC2 vCPUs that an environment can reach.
+     * @return Maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
     public Output<Integer> maxVcpus() {
@@ -172,14 +172,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     @Import(name="minVcpus")
     private @Nullable Output<Integer> minVcpus;
 
     /**
-     * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Output<Integer>> minVcpus() {
@@ -187,14 +187,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The Amazon EC2 placement group to associate with your compute resources.
+     * Amazon EC2 placement group to associate with your compute resources.
      * 
      */
     @Import(name="placementGroup")
     private @Nullable Output<String> placementGroup;
 
     /**
-     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * @return Amazon EC2 placement group to associate with your compute resources.
      * 
      */
     public Optional<Output<String>> placementGroup() {
@@ -202,14 +202,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+     * List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+     * @return List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -232,14 +232,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * A list of VPC subnets into which the compute resources are launched.
+     * List of VPC subnets into which the compute resources are launched.
      * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of VPC subnets into which the compute resources are launched.
+     * @return List of VPC subnets into which the compute resources are launched.
      * 
      */
     public Output<List<String>> subnets() {
@@ -262,14 +262,14 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
-     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * @return Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
     public Output<String> type() {
@@ -317,7 +317,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param allocationStrategy Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param allocationStrategy The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param allocationStrategy Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param desiredVcpus The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param desiredVcpus Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param desiredVcpus The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param desiredVcpus Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param ec2KeyPair The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param ec2KeyPair EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param ec2KeyPair The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param ec2KeyPair EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param instanceRole The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param instanceRole Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param instanceRole The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param instanceRole Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param instanceTypes A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param instanceTypes List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param instanceTypes A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param instanceTypes List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param instanceTypes A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param instanceTypes List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param launchTemplate The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param launchTemplate Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param launchTemplate The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param launchTemplate Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxVcpus The maximum number of EC2 vCPUs that an environment can reach.
+         * @param maxVcpus Maximum number of EC2 vCPUs that an environment can reach.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxVcpus The maximum number of EC2 vCPUs that an environment can reach.
+         * @param maxVcpus Maximum number of EC2 vCPUs that an environment can reach.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param minVcpus The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param minVcpus Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param minVcpus The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param minVcpus Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * @param placementGroup Amazon EC2 placement group to associate with your compute resources.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * @param placementGroup Amazon EC2 placement group to associate with your compute resources.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+         * @param securityGroupIds List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+         * @param securityGroupIds List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param securityGroupIds A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+         * @param securityGroupIds List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param subnets A list of VPC subnets into which the compute resources are launched.
+         * @param subnets List of VPC subnets into which the compute resources are launched.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param subnets A list of VPC subnets into which the compute resources are launched.
+         * @param subnets List of VPC subnets into which the compute resources are launched.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param subnets A list of VPC subnets into which the compute resources are launched.
+         * @param subnets List of VPC subnets into which the compute resources are launched.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * @param type Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param type The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * @param type Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          * 
          * @return builder
          * 

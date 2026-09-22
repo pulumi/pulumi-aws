@@ -52,13 +52,13 @@ func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBudget.
 type LookupBudgetArgs struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Defaults to the current account ID.
 	AccountId *string `pulumi:"accountId"`
-	// The name of a budget. Unique within accounts.
+	// Name of the budget. Unique within an account.
 	//
 	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// The prefix of the name of a budget. Unique within accounts.
+	// Prefix of the budget name. Unique within an account.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -67,38 +67,40 @@ type LookupBudgetArgs struct {
 // A collection of values returned by getBudget.
 type LookupBudgetResult struct {
 	AccountId string `pulumi:"accountId"`
-	Arn       string `pulumi:"arn"`
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// ARN of the budget.
+	Arn string `pulumi:"arn"`
+	// Object that determines the budget amount for an auto-adjusting budget. See `autoAdjustData` Block for details.
 	AutoAdjustDatas []GetBudgetAutoAdjustData `pulumi:"autoAdjustDatas"`
 	// ARN of the billing view.
 	BillingViewArn string `pulumi:"billingViewArn"`
-	// Boolean indicating whether this budget has been exceeded.
+	// Whether the budget has been exceeded.
 	BudgetExceeded bool `pulumi:"budgetExceeded"`
-	// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
+	// Amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage tracked by the budget. See `budgetLimit` Block for details.
 	BudgetLimits []GetBudgetBudgetLimit `pulumi:"budgetLimits"`
-	// Whether this budget tracks monetary cost or usage.
+	// Whether the budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
-	// The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
+	// Spend objects associated with the budget. See `calculatedSpend` Block for details.
 	CalculatedSpends []GetBudgetCalculatedSpend `pulumi:"calculatedSpends"`
-	// A list of CostFilter name/values pair to apply to budget.
+	// Cost filters applied to the budget. See `costFilter` Block for details.
 	CostFilters []GetBudgetCostFilter `pulumi:"costFilters"`
-	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+	// Types of cost included in the budget. See `costTypes` Block for details.
 	CostTypes []GetBudgetCostType `pulumi:"costTypes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the cost filter.
 	Name       string  `pulumi:"name"`
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+	// Notifications associated with the budget. See `notification` Block for details.
 	Notifications []GetBudgetNotification `pulumi:"notifications"`
-	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	// Budget limits planned for future periods. See `plannedLimit` Block for details.
 	PlannedLimits []GetBudgetPlannedLimit `pulumi:"plannedLimits"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+	// End of the time period covered by the budget. Format: `2017-01-01_12:00`.
 	TimePeriodEnd string `pulumi:"timePeriodEnd"`
-	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	// Start of the time period covered by the budget. Format: `2017-01-01_12:00`.
 	TimePeriodStart string `pulumi:"timePeriodStart"`
-	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	// Length of time until the budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit string `pulumi:"timeUnit"`
 }
 
@@ -109,13 +111,13 @@ func LookupBudgetOutput(ctx *pulumi.Context, args LookupBudgetOutputArgs, opts .
 
 // A collection of arguments for invoking getBudget.
 type LookupBudgetOutputArgs struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Defaults to the current account ID.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The name of a budget. Unique within accounts.
+	// Name of the budget. Unique within an account.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// The prefix of the name of a budget. Unique within accounts.
+	// Prefix of the budget name. Unique within an account.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -144,11 +146,12 @@ func (o LookupBudgetResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// ARN of the budget.
 func (o LookupBudgetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+// Object that determines the budget amount for an auto-adjusting budget. See `autoAdjustData` Block for details.
 func (o LookupBudgetResultOutput) AutoAdjustDatas() GetBudgetAutoAdjustDataArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetAutoAdjustData { return v.AutoAdjustDatas }).(GetBudgetAutoAdjustDataArrayOutput)
 }
@@ -158,32 +161,32 @@ func (o LookupBudgetResultOutput) BillingViewArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.BillingViewArn }).(pulumi.StringOutput)
 }
 
-// Boolean indicating whether this budget has been exceeded.
+// Whether the budget has been exceeded.
 func (o LookupBudgetResultOutput) BudgetExceeded() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBudgetResult) bool { return v.BudgetExceeded }).(pulumi.BoolOutput)
 }
 
-// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
+// Amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage tracked by the budget. See `budgetLimit` Block for details.
 func (o LookupBudgetResultOutput) BudgetLimits() GetBudgetBudgetLimitArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetBudgetLimit { return v.BudgetLimits }).(GetBudgetBudgetLimitArrayOutput)
 }
 
-// Whether this budget tracks monetary cost or usage.
+// Whether the budget tracks monetary cost or usage.
 func (o LookupBudgetResultOutput) BudgetType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.BudgetType }).(pulumi.StringOutput)
 }
 
-// The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
+// Spend objects associated with the budget. See `calculatedSpend` Block for details.
 func (o LookupBudgetResultOutput) CalculatedSpends() GetBudgetCalculatedSpendArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetCalculatedSpend { return v.CalculatedSpends }).(GetBudgetCalculatedSpendArrayOutput)
 }
 
-// A list of CostFilter name/values pair to apply to budget.
+// Cost filters applied to the budget. See `costFilter` Block for details.
 func (o LookupBudgetResultOutput) CostFilters() GetBudgetCostFilterArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetCostFilter { return v.CostFilters }).(GetBudgetCostFilterArrayOutput)
 }
 
-// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+// Types of cost included in the budget. See `costTypes` Block for details.
 func (o LookupBudgetResultOutput) CostTypes() GetBudgetCostTypeArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetCostType { return v.CostTypes }).(GetBudgetCostTypeArrayOutput)
 }
@@ -193,6 +196,7 @@ func (o LookupBudgetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the cost filter.
 func (o LookupBudgetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -201,12 +205,12 @@ func (o LookupBudgetResultOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBudgetResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+// Notifications associated with the budget. See `notification` Block for details.
 func (o LookupBudgetResultOutput) Notifications() GetBudgetNotificationArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetNotification { return v.Notifications }).(GetBudgetNotificationArrayOutput)
 }
 
-// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+// Budget limits planned for future periods. See `plannedLimit` Block for details.
 func (o LookupBudgetResultOutput) PlannedLimits() GetBudgetPlannedLimitArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetPlannedLimit { return v.PlannedLimits }).(GetBudgetPlannedLimitArrayOutput)
 }
@@ -216,17 +220,17 @@ func (o LookupBudgetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBudgetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+// End of the time period covered by the budget. Format: `2017-01-01_12:00`.
 func (o LookupBudgetResultOutput) TimePeriodEnd() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.TimePeriodEnd }).(pulumi.StringOutput)
 }
 
-// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+// Start of the time period covered by the budget. Format: `2017-01-01_12:00`.
 func (o LookupBudgetResultOutput) TimePeriodStart() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.TimePeriodStart }).(pulumi.StringOutput)
 }
 
-// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+// Length of time until the budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 func (o LookupBudgetResultOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBudgetResult) string { return v.TimeUnit }).(pulumi.StringOutput)
 }

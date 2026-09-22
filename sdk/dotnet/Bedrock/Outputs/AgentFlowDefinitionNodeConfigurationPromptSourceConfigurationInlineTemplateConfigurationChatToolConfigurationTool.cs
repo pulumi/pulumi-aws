@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool
     {
         /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        /// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint? CachePoint;
         /// <summary>
-        /// The specification for the tool. See Tool Specification for more information.
+        /// Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec? ToolSpec;
 

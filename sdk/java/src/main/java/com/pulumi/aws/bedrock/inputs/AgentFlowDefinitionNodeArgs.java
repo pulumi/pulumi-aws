@@ -21,14 +21,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     public static final AgentFlowDefinitionNodeArgs Empty = new AgentFlowDefinitionNodeArgs();
 
     /**
-     * Contains configurations for the node. See Node Configuration for more information.
+     * Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationArgs> configuration;
 
     /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationArgs>> configuration() {
@@ -36,14 +36,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of objects containing information about an input into the node. See Node Input for more information.
+     * Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="inputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeInputArgs>> inputs;
 
     /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
+     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeInputArgs>>> inputs() {
@@ -51,14 +51,18 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A name for the node.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the node.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -66,14 +70,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of objects containing information about an output from the node. See Node Output for more information.
+     * Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="outputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeOutputArgs>> outputs;
 
     /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
+     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeOutputArgs>>> outputs() {
@@ -81,14 +85,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+     * Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public Output<String> type() {
@@ -124,7 +128,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configuration Contains configurations for the node. See Node Configuration for more information.
+         * @param configuration Configurations for the node. See `definition.node.configuration` Block for details.
          * 
          * @return builder
          * 
@@ -135,7 +139,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configuration Contains configurations for the node. See Node Configuration for more information.
+         * @param configuration Configurations for the node. See `definition.node.configuration` Block for details.
          * 
          * @return builder
          * 
@@ -145,7 +149,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
+         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -156,7 +160,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
+         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -166,7 +170,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
+         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -176,7 +180,9 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name for the node.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -187,7 +193,9 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name for the node.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -197,7 +205,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
+         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -208,7 +216,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
+         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -218,7 +226,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
+         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -228,7 +236,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 
@@ -239,7 +247,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
     /**
-     * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
+     * @return URL configuration of your web data source. See `urlConfiguration` Block for details.
      * 
      */
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration() {}
     /**
-     * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
+     * @return URL configuration of your web data source. See `urlConfiguration` Block for details.
      * 
      */
     public AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration() {

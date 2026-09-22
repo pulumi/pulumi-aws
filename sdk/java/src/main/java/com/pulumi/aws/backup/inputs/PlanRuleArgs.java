@@ -24,14 +24,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanRuleArgs Empty = new PlanRuleArgs();
 
     /**
-     * The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+     * Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     @Import(name="completionWindow")
     private @Nullable Output<Integer> completionWindow;
 
     /**
-     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+     * @return Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     public Optional<Output<Integer>> completionWindow() {
@@ -69,14 +69,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+     * Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
      * 
      */
     @Import(name="lifecycle")
     private @Nullable Output<PlanRuleLifecycleArgs> lifecycle;
 
     /**
-     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+     * @return Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
      * 
      */
     public Optional<Output<PlanRuleLifecycleArgs>> lifecycle() {
@@ -99,14 +99,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An display name for a backup rule.
+     * Display name for a backup rule.
      * 
      */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
     /**
-     * @return An display name for a backup rule.
+     * @return Display name for a backup rule.
      * 
      */
     public Output<String> ruleName() {
@@ -114,14 +114,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
      * 
      */
     @Import(name="scanActions")
     private @Nullable Output<List<PlanRuleScanActionArgs>> scanActions;
 
     /**
-     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
      * 
      */
     public Optional<Output<List<PlanRuleScanActionArgs>>> scanActions() {
@@ -129,14 +129,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A CRON expression specifying when AWS Backup initiates a backup job.
+     * CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<String> schedule;
 
     /**
-     * @return A CRON expression specifying when AWS Backup initiates a backup job.
+     * @return CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
     public Optional<Output<String>> schedule() {
@@ -144,14 +144,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * Timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
      * 
      */
     @Import(name="scheduleExpressionTimezone")
     private @Nullable Output<String> scheduleExpressionTimezone;
 
     /**
-     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * @return Timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
      * 
      */
     public Optional<Output<String>> scheduleExpressionTimezone() {
@@ -159,14 +159,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of time in minutes before beginning a backup.
+     * Amount of time in minutes before beginning a backup.
      * 
      */
     @Import(name="startWindow")
     private @Nullable Output<Integer> startWindow;
 
     /**
-     * @return The amount of time in minutes before beginning a backup.
+     * @return Amount of time in minutes before beginning a backup.
      * 
      */
     public Optional<Output<Integer>> startWindow() {
@@ -174,14 +174,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
      * 
      */
     @Import(name="targetLogicallyAirGappedBackupVaultArn")
     private @Nullable Output<String> targetLogicallyAirGappedBackupVaultArn;
 
     /**
-     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+     * @return ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
      * 
      */
     public Optional<Output<String>> targetLogicallyAirGappedBackupVaultArn() {
@@ -189,14 +189,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a logical container where backups are stored.
+     * Name of a logical container where backups are stored.
      * 
      */
     @Import(name="targetVaultName", required=true)
     private Output<String> targetVaultName;
 
     /**
-     * @return The name of a logical container where backups are stored.
+     * @return Name of a logical container where backups are stored.
      * 
      */
     public Output<String> targetVaultName() {
@@ -239,7 +239,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param completionWindow The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+         * @param completionWindow Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param completionWindow The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+         * @param completionWindow Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * @param lifecycle Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * @param lifecycle Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleName An display name for a backup rule.
+         * @param ruleName Display name for a backup rule.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleName An display name for a backup rule.
+         * @param ruleName Display name for a backup rule.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * @param scanActions Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A CRON expression specifying when AWS Backup initiates a backup job.
+         * @param schedule CRON expression specifying when AWS Backup initiates a backup job.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule A CRON expression specifying when AWS Backup initiates a backup job.
+         * @param schedule CRON expression specifying when AWS Backup initiates a backup job.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleExpressionTimezone The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+         * @param scheduleExpressionTimezone Timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduleExpressionTimezone The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+         * @param scheduleExpressionTimezone Timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startWindow The amount of time in minutes before beginning a backup.
+         * @param startWindow Amount of time in minutes before beginning a backup.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startWindow The amount of time in minutes before beginning a backup.
+         * @param startWindow Amount of time in minutes before beginning a backup.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetLogicallyAirGappedBackupVaultArn The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * @param targetLogicallyAirGappedBackupVaultArn ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetLogicallyAirGappedBackupVaultArn The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * @param targetLogicallyAirGappedBackupVaultArn ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetVaultName The name of a logical container where backups are stored.
+         * @param targetVaultName Name of a logical container where backups are stored.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetVaultName The name of a logical container where backups are stored.
+         * @param targetVaultName Name of a logical container where backups are stored.
          * 
          * @return builder
          * 

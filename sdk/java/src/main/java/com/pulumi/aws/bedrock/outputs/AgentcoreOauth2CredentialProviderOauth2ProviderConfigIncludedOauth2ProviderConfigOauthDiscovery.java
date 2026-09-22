@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     private List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata> authorizationServerMetadatas;
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     private String discoveryUrl;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery() {}
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata> authorizationServerMetadatas() {
         return this.authorizationServerMetadatas;
     }
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     public String discoveryUrl() {

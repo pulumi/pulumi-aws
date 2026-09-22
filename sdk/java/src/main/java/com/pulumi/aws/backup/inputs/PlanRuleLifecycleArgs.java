@@ -17,14 +17,14 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
     public static final PlanRuleLifecycleArgs Empty = new PlanRuleLifecycleArgs();
 
     /**
-     * Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * Number of days after creation that a recovery point is moved to cold storage.
      * 
      */
     @Import(name="coldStorageAfter")
     private @Nullable Output<Integer> coldStorageAfter;
 
     /**
-     * @return Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * @return Number of days after creation that a recovery point is moved to cold storage.
      * 
      */
     public Optional<Output<Integer>> coldStorageAfter() {
@@ -32,14 +32,14 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+     * Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     @Import(name="deleteAfter")
     private @Nullable Output<Integer> deleteAfter;
 
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+     * @return Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     public Optional<Output<Integer>> deleteAfter() {
@@ -47,14 +47,14 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
      * 
      */
     @Import(name="optInToArchiveForSupportedResources")
     private @Nullable Output<Boolean> optInToArchiveForSupportedResources;
 
     /**
-     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * @return Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
      * 
      */
     public Optional<Output<Boolean>> optInToArchiveForSupportedResources() {
@@ -88,7 +88,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * @param coldStorageAfter Number of days after creation that a recovery point is moved to cold storage.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param coldStorageAfter Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * @param coldStorageAfter Number of days after creation that a recovery point is moved to cold storage.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * @param deleteAfter Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deleteAfter Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * @param deleteAfter Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * @param optInToArchiveForSupportedResources Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PlanRuleLifecycleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * @param optInToArchiveForSupportedResources Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          * 
          * @return builder
          * 

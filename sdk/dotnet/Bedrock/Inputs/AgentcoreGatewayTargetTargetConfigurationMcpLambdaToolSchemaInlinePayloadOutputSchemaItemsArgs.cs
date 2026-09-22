@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Nested items definition for arrays of arrays.
+        /// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
         /// </summary>
         [Input("items")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs>? Items { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs>? _properties;
 
         /// <summary>
-        /// Set of property definitions for arrays of objects. See `Property` Block below.
+        /// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs> Properties
         {

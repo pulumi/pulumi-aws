@@ -15,9 +15,17 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs();
 
+    /**
+     * AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+     * 
+     */
     @Import(name="kmsKeySource")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs> kmsKeySource;
 
+    /**
+     * @return AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+     * 
+     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs>> kmsKeySource() {
         return Optional.ofNullable(this.kmsKeySource);
     }
@@ -46,11 +54,23 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeySource AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeySource(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs> kmsKeySource) {
             $.kmsKeySource = kmsKeySource;
             return this;
         }
 
+        /**
+         * @param kmsKeySource AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeySource(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs kmsKeySource) {
             return kmsKeySource(Output.of(kmsKeySource));
         }

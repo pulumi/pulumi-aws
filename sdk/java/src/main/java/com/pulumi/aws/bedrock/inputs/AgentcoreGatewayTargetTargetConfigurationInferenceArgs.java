@@ -17,14 +17,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceArgs extend
     public static final AgentcoreGatewayTargetTargetConfigurationInferenceArgs Empty = new AgentcoreGatewayTargetTargetConfigurationInferenceArgs();
 
     /**
-     * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+     * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
      * 
      */
     @Import(name="connector")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs> connector;
 
     /**
-     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs>> connector() {
@@ -72,7 +72,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceArgs extend
         }
 
         /**
-         * @param connector Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         * @param connector Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceArgs extend
         }
 
         /**
-         * @param connector Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         * @param connector Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
          * 
          * @return builder
          * 

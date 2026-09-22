@@ -16,7 +16,7 @@ public final class ComputeEnvironmentEksConfiguration {
      */
     private String eksClusterArn;
     /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+     * @return Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
      * 
      */
     private String kubernetesNamespace;
@@ -30,7 +30,7 @@ public final class ComputeEnvironmentEksConfiguration {
         return this.eksClusterArn;
     }
     /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+     * @return Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
      * 
      */
     public String kubernetesNamespace() {

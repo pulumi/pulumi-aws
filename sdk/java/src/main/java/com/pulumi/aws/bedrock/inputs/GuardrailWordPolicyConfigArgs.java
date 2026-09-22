@@ -18,14 +18,14 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
     public static final GuardrailWordPolicyConfigArgs Empty = new GuardrailWordPolicyConfigArgs();
 
     /**
-     * A config for the list of managed words. See Managed Word Lists Config for more information.
+     * Config for the list of managed words. See `managedWordListsConfig` Block for more information.
      * 
      */
     @Import(name="managedWordListsConfigs")
     private @Nullable Output<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>> managedWordListsConfigs;
 
     /**
-     * @return A config for the list of managed words. See Managed Word Lists Config for more information.
+     * @return Config for the list of managed words. See `managedWordListsConfig` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>>> managedWordListsConfigs() {
@@ -33,14 +33,14 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * List of custom word configs. See Words Config for more information.
+     * List of custom word configs. See `wordsConfig` Block for more information.
      * 
      */
     @Import(name="wordsConfigs")
     private @Nullable Output<List<GuardrailWordPolicyConfigWordsConfigArgs>> wordsConfigs;
 
     /**
-     * @return List of custom word configs. See Words Config for more information.
+     * @return List of custom word configs. See `wordsConfig` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailWordPolicyConfigWordsConfigArgs>>> wordsConfigs() {
@@ -73,7 +73,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
+         * @param managedWordListsConfigs Config for the list of managed words. See `managedWordListsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
+         * @param managedWordListsConfigs Config for the list of managed words. See `managedWordListsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
+         * @param managedWordListsConfigs Config for the list of managed words. See `managedWordListsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
+         * @param wordsConfigs List of custom word configs. See `wordsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
+         * @param wordsConfigs List of custom word configs. See `wordsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
+         * @param wordsConfigs List of custom word configs. See `wordsConfig` Block for more information.
          * 
          * @return builder
          * 

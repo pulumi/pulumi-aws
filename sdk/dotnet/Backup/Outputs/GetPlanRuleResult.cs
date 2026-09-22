@@ -13,17 +13,53 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetPlanRuleResult
     {
+        /// <summary>
+        /// Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        /// </summary>
         public readonly int CompletionWindow;
+        /// <summary>
+        /// Configuration block(s) with copy operation settings. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleCopyActionResult> CopyActions;
+        /// <summary>
+        /// Whether AWS Backup creates continuous backups.
+        /// </summary>
         public readonly bool EnableContinuousBackup;
+        /// <summary>
+        /// Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleLifecycleResult> Lifecycles;
+        /// <summary>
+        /// Metadata that you can assign to help organize the resources that you create.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
+        /// <summary>
+        /// Display name of a backup rule.
+        /// </summary>
         public readonly string RuleName;
+        /// <summary>
+        /// Configuration block(s) with malware scanning settings. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleScanActionResult> ScanActions;
+        /// <summary>
+        /// CRON expression specifying when AWS Backup initiates a backup job.
+        /// </summary>
         public readonly string Schedule;
+        /// <summary>
+        /// Timezone in which the schedule expression is set.
+        /// </summary>
         public readonly string ScheduleExpressionTimezone;
+        /// <summary>
+        /// Amount of time in minutes before beginning a backup.
+        /// </summary>
         public readonly int StartWindow;
+        /// <summary>
+        /// ARN of the logically air-gapped backup vault where the recovery point is copied.
+        /// </summary>
         public readonly string TargetLogicallyAirGappedBackupVaultArn;
+        /// <summary>
+        /// Name of a logical container where backups are stored.
+        /// </summary>
         public readonly string TargetVaultName;
 
         [OutputConstructor]

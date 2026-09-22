@@ -94,7 +94,7 @@ class GetPlanResult:
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetPlanRuleResult']:
         """
-        Rules of a backup plan.
+        Rules of a backup plan. See below.
         """
         return pulumi.get(self, "rules")
 
@@ -102,7 +102,7 @@ class GetPlanResult:
     @pulumi.getter(name="scanSettings")
     def scan_settings(self) -> Sequence['outputs.GetPlanScanSettingResult']:
         """
-        Scanning configuration for the backup rule.
+        Scanning configuration for the backup rule. See below.
         """
         return pulumi.get(self, "scan_settings")
 

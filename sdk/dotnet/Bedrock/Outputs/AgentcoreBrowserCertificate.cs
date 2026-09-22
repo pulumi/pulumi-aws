@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreBrowserCertificate
     {
         /// <summary>
-        /// Location from which to retrieve the certificate. See `certificates.location` below.
+        /// Location from which to retrieve the certificate. See `certificate.location` below.
         /// </summary>
         public readonly Outputs.AgentcoreBrowserCertificateLocation Location;
 

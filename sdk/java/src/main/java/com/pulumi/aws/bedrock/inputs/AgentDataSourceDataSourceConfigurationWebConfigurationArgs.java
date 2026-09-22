@@ -16,16 +16,32 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationArgs ex
 
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationArgs();
 
+    /**
+     * Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+     * 
+     */
     @Import(name="crawlerConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
 
+    /**
+     * @return Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs>> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
 
+    /**
+     * Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+     * 
+     */
     @Import(name="sourceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs> sourceConfiguration;
 
+    /**
+     * @return Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs>> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }
@@ -55,20 +71,44 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationArgs ex
             $ = new AgentDataSourceDataSourceConfigurationWebConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param crawlerConfiguration Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crawlerConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs> crawlerConfiguration) {
             $.crawlerConfiguration = crawlerConfiguration;
             return this;
         }
 
+        /**
+         * @param crawlerConfiguration Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crawlerConfiguration(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs crawlerConfiguration) {
             return crawlerConfiguration(Output.of(crawlerConfiguration));
         }
 
+        /**
+         * @param sourceConfiguration Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs> sourceConfiguration) {
             $.sourceConfiguration = sourceConfiguration;
             return this;
         }
 
+        /**
+         * @param sourceConfiguration Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs sourceConfiguration) {
             return sourceConfiguration(Output.of(sourceConfiguration));
         }

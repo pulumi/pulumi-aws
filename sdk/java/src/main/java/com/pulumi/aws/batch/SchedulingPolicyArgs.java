@@ -17,22 +17,30 @@ public final class SchedulingPolicyArgs extends com.pulumi.resources.ResourceArg
 
     public static final SchedulingPolicyArgs Empty = new SchedulingPolicyArgs();
 
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     @Import(name="fairSharePolicy")
     private @Nullable Output<SchedulingPolicyFairSharePolicyArgs> fairSharePolicy;
 
+    /**
+     * @return Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     public Optional<Output<SchedulingPolicyFairSharePolicyArgs>> fairSharePolicy() {
         return Optional.ofNullable(this.fairSharePolicy);
     }
 
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the scheduling policy.
+     * @return Name of the scheduling policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -96,17 +104,29 @@ public final class SchedulingPolicyArgs extends com.pulumi.resources.ResourceArg
             $ = new SchedulingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fairSharePolicy Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fairSharePolicy(@Nullable Output<SchedulingPolicyFairSharePolicyArgs> fairSharePolicy) {
             $.fairSharePolicy = fairSharePolicy;
             return this;
         }
 
+        /**
+         * @param fairSharePolicy Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fairSharePolicy(SchedulingPolicyFairSharePolicyArgs fairSharePolicy) {
             return fairSharePolicy(Output.of(fairSharePolicy));
         }
 
         /**
-         * @param name Specifies the name of the scheduling policy.
+         * @param name Name of the scheduling policy.
          * 
          * @return builder
          * 
@@ -117,7 +137,7 @@ public final class SchedulingPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the scheduling policy.
+         * @param name Name of the scheduling policy.
          * 
          * @return builder
          * 

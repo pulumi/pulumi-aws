@@ -119,7 +119,7 @@ namespace Pulumi.Aws.BcmData
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
+        /// Details of the export, including data query, name, description, and destination configuration. See the `Export` block below.
         /// </summary>
         [Output("export")]
         public Output<Outputs.ExportExport?> ExportDetails { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.BcmData
     public sealed class ExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
+        /// Details of the export, including data query, name, description, and destination configuration. See the `Export` block below.
         /// </summary>
         [Input("export")]
         public Input<Inputs.ExportExportArgs>? ExportDetails { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.BcmData
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The details of the export, including data query, name, description, and destination configuration.  See the `Export` argument reference below.
+        /// Details of the export, including data query, name, description, and destination configuration. See the `Export` block below.
         /// </summary>
         [Input("export")]
         public Input<Inputs.ExportExportGetArgs>? ExportDetails { get; set; }

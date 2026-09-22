@@ -21,12 +21,12 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private @Nullable String description;
     /**
-     * @return Nested items definition for arrays of arrays.
+     * @return Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems items;
     /**
-     * @return Set of property definitions for arrays of objects. See `property` Block below.
+     * @return Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty> properties;
@@ -45,14 +45,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Nested items definition for arrays of arrays.
+     * @return Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems> items() {
         return Optional.ofNullable(this.items);
     }
     /**
-     * @return Set of property definitions for arrays of objects. See `property` Block below.
+     * @return Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty> properties() {

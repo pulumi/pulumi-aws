@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Efs.FileSystem("foo", new()
+    ///     var example = new Aws.Efs.FileSystem("example", new()
     ///     {
     ///         CreationToken = "my-product",
     ///         Tags = 
@@ -63,10 +63,21 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the file system.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the EFS file systems using the `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+    /// $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/fileSystem:FileSystem")]

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class RestoreTestingSelectionProtectedResourceConditions
     {
         /// <summary>
-        /// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        /// List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `StringEquals` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RestoreTestingSelectionProtectedResourceConditionsStringEqual> StringEquals;
         /// <summary>
-        /// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        /// List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `StringNotEquals` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual> StringNotEquals;
 

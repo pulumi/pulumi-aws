@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChatMessageContent
     {
+        /// <summary>
+        /// Cache checkpoint within a message. See `CachePoint` Block for more information.
+        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint? CachePoint;
+        /// <summary>
+        /// Text in the message.
+        /// </summary>
         public readonly string? Text;
 
         [OutputConstructor]

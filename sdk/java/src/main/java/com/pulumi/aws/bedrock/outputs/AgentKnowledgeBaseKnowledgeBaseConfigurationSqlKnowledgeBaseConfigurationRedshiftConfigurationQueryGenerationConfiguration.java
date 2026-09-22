@@ -18,7 +18,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
      */
     private @Nullable Integer executionTimeoutSeconds;
     /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
+     * @return Configurations for context to use during query generation. See `generationContext` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext generationContext;
@@ -32,7 +32,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         return Optional.ofNullable(this.executionTimeoutSeconds);
     }
     /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
+     * @return Configurations for context to use during query generation. See `generationContext` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext> generationContext() {

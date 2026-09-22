@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs();
 
     /**
-     * Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+     * Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
      * 
      */
     @Import(name="s3Location")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs> s3Location;
 
     /**
-     * @return Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+     * @return Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs>> s3Location() {
@@ -73,7 +73,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param s3Location Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+         * @param s3Location Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param s3Location Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+         * @param s3Location Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
          * 
          * @return builder
          * 

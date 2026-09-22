@@ -24,7 +24,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
      */
     private String credentialsSecretArn;
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
@@ -50,7 +50,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
         return this.credentialsSecretArn;
     }
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping() {

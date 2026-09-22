@@ -46,14 +46,14 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplateArgs extends 
     }
 
     /**
-     * The version number of the launch template. Default: The default version of the launch template.
+     * Version number of the launch template. Default: The default version of the launch template.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version number of the launch template. Default: The default version of the launch template.
+     * @return Version number of the launch template. Default: The default version of the launch template.
      * 
      */
     public Optional<Output<String>> version() {
@@ -129,7 +129,7 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplateArgs extends 
         }
 
         /**
-         * @param version The version number of the launch template. Default: The default version of the launch template.
+         * @param version Version number of the launch template. Default: The default version of the launch template.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplateArgs extends 
         }
 
         /**
-         * @param version The version number of the launch template. Default: The default version of the launch template.
+         * @param version Version number of the launch template. Default: The default version of the launch template.
          * 
          * @return builder
          * 

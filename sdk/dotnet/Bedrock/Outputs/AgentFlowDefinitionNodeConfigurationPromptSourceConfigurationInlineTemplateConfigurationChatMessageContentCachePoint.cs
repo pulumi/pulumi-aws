@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint
     {
         /// <summary>
-        /// Indicates that the CachePointBlock is of the default type. Valid values: `Default`.
+        /// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         /// </summary>
         public readonly string Type;
 

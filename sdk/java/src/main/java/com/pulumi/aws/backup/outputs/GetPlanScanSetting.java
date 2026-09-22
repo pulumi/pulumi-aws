@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanScanSetting {
+    /**
+     * @return Malware scanner used for the scan setting.
+     * 
+     */
     private String malwareScanner;
+    /**
+     * @return Resource types to scan.
+     * 
+     */
     private List<String> resourceTypes;
+    /**
+     * @return ARN of the IAM role used by the scanner.
+     * 
+     */
     private String scannerRoleArn;
 
     private GetPlanScanSetting() {}
+    /**
+     * @return Malware scanner used for the scan setting.
+     * 
+     */
     public String malwareScanner() {
         return this.malwareScanner;
     }
+    /**
+     * @return Resource types to scan.
+     * 
+     */
     public List<String> resourceTypes() {
         return this.resourceTypes;
     }
+    /**
+     * @return ARN of the IAM role used by the scanner.
+     * 
+     */
     public String scannerRoleArn() {
         return this.scannerRoleArn;
     }

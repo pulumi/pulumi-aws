@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration of crawl limits for the web URLs. See `CrawlerLimits` block for details.
+        /// Configuration of crawl limits for the web URLs. See `CrawlerLimits` Block for details.
         /// </summary>
         [Input("crawlerLimits")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs>? CrawlerLimits { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _exclusionFilters;
 
         /// <summary>
-        /// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        /// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
         /// </summary>
         public InputList<string> ExclusionFilters
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _inclusionFilters;
 
         /// <summary>
-        /// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        /// List of one or more inclusion regular expression patterns to include object types that match the pattern.
         /// </summary>
         public InputList<string> InclusionFilters
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        /// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
         /// </summary>
         [Input("userAgent")]
         public Input<string>? UserAgent { get; set; }

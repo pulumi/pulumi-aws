@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/vaultLockConfiguration:VaultLockConfiguration")
 public class VaultLockConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Output<String> backupVaultArn() {
@@ -94,42 +94,42 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
         return this.backupVaultName;
     }
     /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     @Export(name="changeableForDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> changeableForDays;
 
     /**
-     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * @return Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     public Output<Optional<Integer>> changeableForDays() {
         return Codegen.optional(this.changeableForDays);
     }
     /**
-     * The maximum retention period that the vault retains its recovery points.
+     * Maximum retention period that the vault retains its recovery points.
      * 
      */
     @Export(name="maxRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetentionDays;
 
     /**
-     * @return The maximum retention period that the vault retains its recovery points.
+     * @return Maximum retention period that the vault retains its recovery points.
      * 
      */
     public Output<Optional<Integer>> maxRetentionDays() {
         return Codegen.optional(this.maxRetentionDays);
     }
     /**
-     * The minimum retention period that the vault retains its recovery points.
+     * Minimum retention period that the vault retains its recovery points.
      * 
      */
     @Export(name="minRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minRetentionDays;
 
     /**
-     * @return The minimum retention period that the vault retains its recovery points.
+     * @return Minimum retention period that the vault retains its recovery points.
      * 
      */
     public Output<Optional<Integer>> minRetentionDays() {

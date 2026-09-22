@@ -190,9 +190,17 @@ public class AgentAgentCollaborator extends com.pulumi.resources.CustomResource 
     public Output<String> agentId() {
         return this.agentId;
     }
+    /**
+     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * 
+     */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
+    /**
+     * @return Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * 
+     */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }

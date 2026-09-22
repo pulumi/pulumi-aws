@@ -25,7 +25,7 @@ namespace Pulumi.Aws.BedrockModel.Inputs
         public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The role ARN.
+        /// Role ARN.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

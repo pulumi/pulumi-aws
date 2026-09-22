@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs();
 
     /**
-     * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+     * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
      * 
      */
     @Import(name="curatedQueries")
     private @Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs>> curatedQueries;
 
     /**
-     * @return Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+     * @return Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
      * 
      */
     public Optional<Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs>>> curatedQueries() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Information about a table in the database. See `table` block for details.
+     * Information about a table in the database. See `table` Block for details.
      * 
      */
     @Import(name="tables")
     private @Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs>> tables;
 
     /**
-     * @return Information about a table in the database. See `table` block for details.
+     * @return Information about a table in the database. See `table` Block for details.
      * 
      */
     public Optional<Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs>>> tables() {
@@ -73,7 +73,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+         * @param curatedQueries Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param tables Information about a table in the database. See `table` block for details.
+         * @param tables Information about a table in the database. See `table` Block for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param tables Information about a table in the database. See `table` block for details.
+         * @param tables Information about a table in the database. See `table` Block for details.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param tables Information about a table in the database. See `table` block for details.
+         * @param tables Information about a table in the database. See `table` Block for details.
          * 
          * @return builder
          * 

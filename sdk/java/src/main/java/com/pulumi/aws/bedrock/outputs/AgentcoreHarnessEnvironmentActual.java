@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessEnvironmentActual {
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
 
     private AgentcoreHarnessEnvironmentActual() {}
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments() {

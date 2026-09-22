@@ -56,7 +56,7 @@ import (
 type GlobalSettings struct {
 	pulumi.CustomResourceState
 
-	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapOutput `pulumi:"globalSettings"`
 }
 
@@ -93,12 +93,12 @@ func GetGlobalSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalSettings resources.
 type globalSettingsState struct {
-	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings map[string]string `pulumi:"globalSettings"`
 }
 
 type GlobalSettingsState struct {
-	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapInput
 }
 
@@ -107,13 +107,13 @@ func (GlobalSettingsState) ElementType() reflect.Type {
 }
 
 type globalSettingsArgs struct {
-	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings map[string]string `pulumi:"globalSettings"`
 }
 
 // The set of arguments for constructing a GlobalSettings resource.
 type GlobalSettingsArgs struct {
-	// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+	// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 	GlobalSettings pulumi.StringMapInput
 }
 
@@ -204,7 +204,7 @@ func (o GlobalSettingsOutput) ToGlobalSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
 func (o GlobalSettingsOutput) GlobalSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalSettings) pulumi.StringMapOutput { return v.GlobalSettings }).(pulumi.StringMapOutput)
 }

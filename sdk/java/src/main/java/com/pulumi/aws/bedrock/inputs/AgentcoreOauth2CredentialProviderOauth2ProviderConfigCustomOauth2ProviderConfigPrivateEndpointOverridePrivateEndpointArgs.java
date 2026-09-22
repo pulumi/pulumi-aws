@@ -17,14 +17,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs();
 
     /**
-     * Service-managed VPC resource configuration. See `managedVpcResource` below.
+     * Service-managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     @Import(name="managedVpcResource")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs> managedVpcResource;
 
     /**
-     * @return Service-managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Service-managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs>> managedVpcResource() {
@@ -32,14 +32,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     }
 
     /**
-     * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     @Import(name="selfManagedLatticeResource")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs> selfManagedLatticeResource;
 
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs>> selfManagedLatticeResource() {
@@ -72,7 +72,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param managedVpcResource Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * @param managedVpcResource Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param managedVpcResource Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * @param managedVpcResource Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 

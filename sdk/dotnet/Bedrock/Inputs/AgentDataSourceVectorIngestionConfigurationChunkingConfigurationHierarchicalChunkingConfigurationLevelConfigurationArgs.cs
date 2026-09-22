@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of tokens that a chunk can contain in this layer.
+        /// Maximum number of tokens that a chunk can contain in this layer.
         /// </summary>
         [Input("maxTokens", required: true)]
         public Input<int> MaxTokens { get; set; } = null!;

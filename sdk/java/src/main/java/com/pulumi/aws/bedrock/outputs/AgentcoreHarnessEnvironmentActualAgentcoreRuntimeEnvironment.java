@@ -30,19 +30,17 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment 
      */
     private String agentRuntimeName;
     /**
-     * @return Filesystem configurations. See `filesystemConfiguration` Block below.
+     * @return Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration> filesystemConfigurations;
     /**
-     * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
+     * @return Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration> lifecycleConfigurations;
     /**
-     * @return Network configuration. See `networkConfiguration` Block below.
-     * 
-     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+     * @return Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration> networkConfigurations;
@@ -70,23 +68,21 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment 
         return this.agentRuntimeName;
     }
     /**
-     * @return Filesystem configurations. See `filesystemConfiguration` Block below.
+     * @return Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration> filesystemConfigurations() {
         return this.filesystemConfigurations;
     }
     /**
-     * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
+     * @return Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration> lifecycleConfigurations() {
         return this.lifecycleConfigurations;
     }
     /**
-     * @return Network configuration. See `networkConfiguration` Block below.
-     * 
-     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+     * @return Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration> networkConfigurations() {

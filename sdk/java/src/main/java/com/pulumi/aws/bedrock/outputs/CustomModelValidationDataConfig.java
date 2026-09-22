@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class CustomModelValidationDataConfig {
     /**
-     * @return Information about the validators.
+     * @return Information about the validators. See `validator` below.
      * 
      */
     private List<CustomModelValidationDataConfigValidator> validators;
 
     private CustomModelValidationDataConfig() {}
     /**
-     * @return Information about the validators.
+     * @return Information about the validators. See `validator` below.
      * 
      */
     public List<CustomModelValidationDataConfigValidator> validators() {

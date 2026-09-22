@@ -30,9 +30,9 @@ class PlanArgs:
         """
         The set of arguments for constructing a Plan resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
-        :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: Object that specifies backup options for each resource type. Detailed below.
+        :param pulumi.Input[_builtins.str] name: Display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -53,7 +53,7 @@ class PlanArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]:
         """
-        A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         """
         return pulumi.get(self, "rules")
 
@@ -65,7 +65,7 @@ class PlanArgs:
     @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
         """
-        An object that specifies backup options for each resource type.
+        Object that specifies backup options for each resource type. Detailed below.
         """
         return pulumi.get(self, "advanced_backup_settings")
 
@@ -77,7 +77,7 @@ class PlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name of a backup plan.
+        Display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
@@ -137,14 +137,14 @@ class _PlanState:
         """
         Input properties used for looking up and filtering Plan resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup plan.
-        :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: Object that specifies backup options for each resource type. Detailed below.
+        :param pulumi.Input[_builtins.str] arn: ARN of the backup plan.
+        :param pulumi.Input[_builtins.str] name: Display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """
         if advanced_backup_settings is not None:
@@ -170,7 +170,7 @@ class _PlanState:
     @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
         """
-        An object that specifies backup options for each resource type.
+        Object that specifies backup options for each resource type. Detailed below.
         """
         return pulumi.get(self, "advanced_backup_settings")
 
@@ -182,7 +182,7 @@ class _PlanState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the backup plan.
+        ARN of the backup plan.
         """
         return pulumi.get(self, "arn")
 
@@ -194,7 +194,7 @@ class _PlanState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name of a backup plan.
+        Display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
@@ -218,7 +218,7 @@ class _PlanState:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleArgs']]]]:
         """
-        A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         """
         return pulumi.get(self, "rules")
 
@@ -254,7 +254,7 @@ class _PlanState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -337,10 +337,10 @@ class Plan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict', 'outputs.PlanAdvancedBackupSetting']]]] advanced_backup_settings: An object that specifies backup options for each resource type.
-        :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict', 'outputs.PlanAdvancedBackupSetting']]]] advanced_backup_settings: Object that specifies backup options for each resource type. Detailed below.
+        :param pulumi.Input[_builtins.str] name: Display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict', 'outputs.PlanRule']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict', 'outputs.PlanRule']]]] rules: Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict', 'outputs.PlanScanSetting']]]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -464,14 +464,14 @@ class Plan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict', 'outputs.PlanAdvancedBackupSetting']]]] advanced_backup_settings: An object that specifies backup options for each resource type.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup plan.
-        :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict', 'outputs.PlanAdvancedBackupSetting']]]] advanced_backup_settings: Object that specifies backup options for each resource type. Detailed below.
+        :param pulumi.Input[_builtins.str] arn: ARN of the backup plan.
+        :param pulumi.Input[_builtins.str] name: Display name of a backup plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict', 'outputs.PlanRule']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict', 'outputs.PlanRule']]]] rules: Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict', 'outputs.PlanScanSetting']]]] scan_settings: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -493,7 +493,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> pulumi.Output[Optional[Sequence['outputs.PlanAdvancedBackupSetting']]]:
         """
-        An object that specifies backup options for each resource type.
+        Object that specifies backup options for each resource type. Detailed below.
         """
         return pulumi.get(self, "advanced_backup_settings")
 
@@ -501,7 +501,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the backup plan.
+        ARN of the backup plan.
         """
         return pulumi.get(self, "arn")
 
@@ -509,7 +509,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The display name of a backup plan.
+        Display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
@@ -525,7 +525,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.PlanRule']]:
         """
-        A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
         """
         return pulumi.get(self, "rules")
 
@@ -549,7 +549,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

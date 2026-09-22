@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ActorId;
         /// <summary>
-        /// ARN of the AgentCore memory resource.
+        /// ARN of the managed memory resource.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? MessagesCount;
         /// <summary>
-        /// Retrieval configuration parameters. See `RetrievalConfig` Block below.
+        /// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig? RetrievalConfig;
 

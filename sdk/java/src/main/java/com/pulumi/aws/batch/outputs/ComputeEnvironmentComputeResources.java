@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ComputeEnvironmentComputeResources {
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable String allocationStrategy;
@@ -28,7 +28,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable Integer bidPercentage;
     /**
-     * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable Integer desiredVcpus;
@@ -38,7 +38,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations;
     /**
-     * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable String ec2KeyPair;
@@ -48,37 +48,37 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable String imageId;
     /**
-     * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable String instanceRole;
     /**
-     * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable List<String> instanceTypes;
     /**
-     * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
     /**
-     * @return The maximum number of EC2 vCPUs that an environment can reach.
+     * @return Maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
     private Integer maxVcpus;
     /**
-     * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable Integer minVcpus;
     /**
-     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * @return Amazon EC2 placement group to associate with your compute resources.
      * 
      */
     private @Nullable String placementGroup;
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+     * @return List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
     private @Nullable List<String> securityGroupIds;
@@ -88,7 +88,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable String spotIamFleetRole;
     /**
-     * @return A list of VPC subnets into which the compute resources are launched.
+     * @return List of VPC subnets into which the compute resources are launched.
      * 
      */
     private List<String> subnets;
@@ -98,14 +98,14 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * @return Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
     private String type;
 
     private ComputeEnvironmentComputeResources() {}
     /**
-     * @return The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<String> allocationStrategy() {
@@ -119,7 +119,7 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.bidPercentage);
     }
     /**
-     * @return The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Integer> desiredVcpus() {
@@ -133,7 +133,7 @@ public final class ComputeEnvironmentComputeResources {
         return this.ec2Configurations == null ? List.of() : this.ec2Configurations;
     }
     /**
-     * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<String> ec2KeyPair() {
@@ -147,49 +147,49 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.imageId);
     }
     /**
-     * @return The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<String> instanceRole() {
         return Optional.ofNullable(this.instanceRole);
     }
     /**
-     * @return A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return List of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public List<String> instanceTypes() {
         return this.instanceTypes == null ? List.of() : this.instanceTypes;
     }
     /**
-     * @return The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<ComputeEnvironmentComputeResourcesLaunchTemplate> launchTemplate() {
         return Optional.ofNullable(this.launchTemplate);
     }
     /**
-     * @return The maximum number of EC2 vCPUs that an environment can reach.
+     * @return Maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
     public Integer maxVcpus() {
         return this.maxVcpus;
     }
     /**
-     * @return The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<Integer> minVcpus() {
         return Optional.ofNullable(this.minVcpus);
     }
     /**
-     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * @return Amazon EC2 placement group to associate with your compute resources.
      * 
      */
     public Optional<String> placementGroup() {
         return Optional.ofNullable(this.placementGroup);
     }
     /**
-     * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+     * @return List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
     public List<String> securityGroupIds() {
@@ -203,7 +203,7 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.spotIamFleetRole);
     }
     /**
-     * @return A list of VPC subnets into which the compute resources are launched.
+     * @return List of VPC subnets into which the compute resources are launched.
      * 
      */
     public List<String> subnets() {
@@ -217,7 +217,7 @@ public final class ComputeEnvironmentComputeResources {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * @return Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
     public String type() {

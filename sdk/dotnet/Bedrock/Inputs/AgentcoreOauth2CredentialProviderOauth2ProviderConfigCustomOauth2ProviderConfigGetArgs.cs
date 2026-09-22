@@ -19,9 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? ClientAuthenticationMethod { get; set; }
 
         /// <summary>
-        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
-        /// 
-        /// **OAuth Discovery Configuration:**
+        /// Version used together with the write-only credentials. Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// </summary>
         [Input("clientCredentialsWoVersion")]
         public Input<int>? ClientCredentialsWoVersion { get; set; }
@@ -64,8 +62,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -78,9 +74,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
-        /// 
-        /// **Advanced Configuration:**
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` Block below.
         /// </summary>
         [Input("clientSecretConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigGetArgs>? ClientSecretConfig { get; set; }
@@ -109,21 +103,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// 
-        /// **Externally-Managed Client Secret:**
+        /// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
         /// </summary>
         [Input("oauthDiscovery", required: true)]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryGetArgs> OauthDiscovery { get; set; } = null!;
 
         /// <summary>
-        /// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `OnBehalfOfTokenExchangeConfig` below.
+        /// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `OnBehalfOfTokenExchangeConfig` Block below.
         /// </summary>
         [Input("onBehalfOfTokenExchangeConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigGetArgs>? OnBehalfOfTokenExchangeConfig { get; set; }
 
         /// <summary>
-        /// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `PrivateEndpoint` below.
+        /// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `PrivateEndpoint` Block below.
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointGetArgs>? PrivateEndpoint { get; set; }
@@ -132,7 +124,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideGetArgs>? _privateEndpointOverrides;
 
         /// <summary>
-        /// Private endpoint overrides for the custom OAuth2 provider configuration. See `PrivateEndpointOverride` below.
+        /// Private endpoint overrides for the custom OAuth2 provider configuration. See `PrivateEndpointOverride` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideGetArgs> PrivateEndpointOverrides
         {
@@ -140,6 +132,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _privateEndpointOverrides = value;
         }
 
+        /// <summary>
+        /// Private key JWT client authentication configuration used when signing client assertions. See `PrivateKeyJwtConfig` Block below.
+        /// </summary>
         [Input("privateKeyJwtConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigGetArgs>? PrivateKeyJwtConfig { get; set; }
 

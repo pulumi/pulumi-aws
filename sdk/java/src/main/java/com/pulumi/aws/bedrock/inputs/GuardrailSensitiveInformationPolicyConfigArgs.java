@@ -18,14 +18,14 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
     public static final GuardrailSensitiveInformationPolicyConfigArgs Empty = new GuardrailSensitiveInformationPolicyConfigArgs();
 
     /**
-     * List of entities. See PII Entities Config for more information.
+     * List of entities. See `piiEntitiesConfig` Block for more information.
      * 
      */
     @Import(name="piiEntitiesConfigs")
     private @Nullable Output<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>> piiEntitiesConfigs;
 
     /**
-     * @return List of entities. See PII Entities Config for more information.
+     * @return List of entities. See `piiEntitiesConfig` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>>> piiEntitiesConfigs() {
@@ -33,14 +33,14 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
     }
 
     /**
-     * List of regex. See Regexes Config for more information.
+     * List of regex. See `regexesConfig` Block for more information.
      * 
      */
     @Import(name="regexesConfigs")
     private @Nullable Output<List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>> regexesConfigs;
 
     /**
-     * @return List of regex. See Regexes Config for more information.
+     * @return List of regex. See `regexesConfig` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>>> regexesConfigs() {
@@ -73,7 +73,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
+         * @param piiEntitiesConfigs List of entities. See `piiEntitiesConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
+         * @param piiEntitiesConfigs List of entities. See `piiEntitiesConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param piiEntitiesConfigs List of entities. See PII Entities Config for more information.
+         * @param piiEntitiesConfigs List of entities. See `piiEntitiesConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
+         * @param regexesConfigs List of regex. See `regexesConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
+         * @param regexesConfigs List of regex. See `regexesConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GuardrailSensitiveInformationPolicyConfigArgs extends com.pul
         }
 
         /**
-         * @param regexesConfigs List of regex. See Regexes Config for more information.
+         * @param regexesConfigs List of regex. See `regexesConfig` Block for more information.
          * 
          * @return builder
          * 

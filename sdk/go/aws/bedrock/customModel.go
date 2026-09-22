@@ -93,42 +93,42 @@ type CustomModel struct {
 
 	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringOutput `pulumi:"baseModelIdentifier"`
-	// The ARN of the output model.
+	// ARN of the output model.
 	CustomModelArn pulumi.StringOutput `pulumi:"customModelArn"`
-	// The custom model is encrypted at rest using this key. Specify the key ARN.
+	// Key ARN used to encrypt the custom model at rest.
 	CustomModelKmsKeyId pulumi.StringPtrOutput `pulumi:"customModelKmsKeyId"`
 	// Name for the custom model.
 	CustomModelName pulumi.StringOutput `pulumi:"customModelName"`
-	// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+	// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 	CustomizationType pulumi.StringOutput `pulumi:"customizationType"`
 	// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
 	Hyperparameters pulumi.StringMapOutput `pulumi:"hyperparameters"`
-	// The ARN of the customization job.
+	// ARN of the customization job.
 	JobArn pulumi.StringOutput `pulumi:"jobArn"`
-	// A name for the customization job.
+	// Name for the customization job.
 	JobName pulumi.StringOutput `pulumi:"jobName"`
-	// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+	// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
 	JobStatus pulumi.StringOutput `pulumi:"jobStatus"`
-	// S3 location for the output data.
+	// S3 location for the output data. See `outputDataConfig` below.
 	OutputDataConfig CustomModelOutputDataConfigOutput `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts CustomModelTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Information about the training dataset.
+	// Information about the training dataset. See `trainingDataConfig` below.
 	TrainingDataConfig CustomModelTrainingDataConfigOutput `pulumi:"trainingDataConfig"`
 	// Metrics associated with the customization job.
 	TrainingMetrics CustomModelTrainingMetricArrayOutput `pulumi:"trainingMetrics"`
-	// Information about the validation dataset.
+	// Information about the validation dataset. See `validationDataConfig` below.
 	ValidationDataConfig CustomModelValidationDataConfigPtrOutput `pulumi:"validationDataConfig"`
-	// The loss metric for each validator that you provided.
+	// Loss metric for each validator that you provided.
 	ValidationMetrics CustomModelValidationMetricArrayOutput `pulumi:"validationMetrics"`
-	// Configuration parameters for the private VPC that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 	VpcConfig CustomModelVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -185,84 +185,84 @@ func GetCustomModel(ctx *pulumi.Context,
 type customModelState struct {
 	// ARN of the base model.
 	BaseModelIdentifier *string `pulumi:"baseModelIdentifier"`
-	// The ARN of the output model.
+	// ARN of the output model.
 	CustomModelArn *string `pulumi:"customModelArn"`
-	// The custom model is encrypted at rest using this key. Specify the key ARN.
+	// Key ARN used to encrypt the custom model at rest.
 	CustomModelKmsKeyId *string `pulumi:"customModelKmsKeyId"`
 	// Name for the custom model.
 	CustomModelName *string `pulumi:"customModelName"`
-	// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+	// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 	CustomizationType *string `pulumi:"customizationType"`
 	// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
 	Hyperparameters map[string]string `pulumi:"hyperparameters"`
-	// The ARN of the customization job.
+	// ARN of the customization job.
 	JobArn *string `pulumi:"jobArn"`
-	// A name for the customization job.
+	// Name for the customization job.
 	JobName *string `pulumi:"jobName"`
-	// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+	// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
 	JobStatus *string `pulumi:"jobStatus"`
-	// S3 location for the output data.
+	// S3 location for the output data. See `outputDataConfig` below.
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
-	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *CustomModelTimeouts `pulumi:"timeouts"`
-	// Information about the training dataset.
+	// Information about the training dataset. See `trainingDataConfig` below.
 	TrainingDataConfig *CustomModelTrainingDataConfig `pulumi:"trainingDataConfig"`
 	// Metrics associated with the customization job.
 	TrainingMetrics []CustomModelTrainingMetric `pulumi:"trainingMetrics"`
-	// Information about the validation dataset.
+	// Information about the validation dataset. See `validationDataConfig` below.
 	ValidationDataConfig *CustomModelValidationDataConfig `pulumi:"validationDataConfig"`
-	// The loss metric for each validator that you provided.
+	// Loss metric for each validator that you provided.
 	ValidationMetrics []CustomModelValidationMetric `pulumi:"validationMetrics"`
-	// Configuration parameters for the private VPC that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 	VpcConfig *CustomModelVpcConfig `pulumi:"vpcConfig"`
 }
 
 type CustomModelState struct {
 	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringPtrInput
-	// The ARN of the output model.
+	// ARN of the output model.
 	CustomModelArn pulumi.StringPtrInput
-	// The custom model is encrypted at rest using this key. Specify the key ARN.
+	// Key ARN used to encrypt the custom model at rest.
 	CustomModelKmsKeyId pulumi.StringPtrInput
 	// Name for the custom model.
 	CustomModelName pulumi.StringPtrInput
-	// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+	// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 	CustomizationType pulumi.StringPtrInput
 	// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
 	Hyperparameters pulumi.StringMapInput
-	// The ARN of the customization job.
+	// ARN of the customization job.
 	JobArn pulumi.StringPtrInput
-	// A name for the customization job.
+	// Name for the customization job.
 	JobName pulumi.StringPtrInput
-	// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+	// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
 	JobStatus pulumi.StringPtrInput
-	// S3 location for the output data.
+	// S3 location for the output data. See `outputDataConfig` below.
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
-	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts CustomModelTimeoutsPtrInput
-	// Information about the training dataset.
+	// Information about the training dataset. See `trainingDataConfig` below.
 	TrainingDataConfig CustomModelTrainingDataConfigPtrInput
 	// Metrics associated with the customization job.
 	TrainingMetrics CustomModelTrainingMetricArrayInput
-	// Information about the validation dataset.
+	// Information about the validation dataset. See `validationDataConfig` below.
 	ValidationDataConfig CustomModelValidationDataConfigPtrInput
-	// The loss metric for each validator that you provided.
+	// Loss metric for each validator that you provided.
 	ValidationMetrics CustomModelValidationMetricArrayInput
-	// Configuration parameters for the private VPC that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 	VpcConfig CustomModelVpcConfigPtrInput
 }
 
@@ -273,30 +273,30 @@ func (CustomModelState) ElementType() reflect.Type {
 type customModelArgs struct {
 	// ARN of the base model.
 	BaseModelIdentifier string `pulumi:"baseModelIdentifier"`
-	// The custom model is encrypted at rest using this key. Specify the key ARN.
+	// Key ARN used to encrypt the custom model at rest.
 	CustomModelKmsKeyId *string `pulumi:"customModelKmsKeyId"`
 	// Name for the custom model.
 	CustomModelName string `pulumi:"customModelName"`
-	// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+	// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 	CustomizationType *string `pulumi:"customizationType"`
 	// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
 	Hyperparameters map[string]string `pulumi:"hyperparameters"`
-	// A name for the customization job.
+	// Name for the customization job.
 	JobName string `pulumi:"jobName"`
-	// S3 location for the output data.
+	// S3 location for the output data. See `outputDataConfig` below.
 	OutputDataConfig CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string    `pulumi:"tags"`
 	Timeouts *CustomModelTimeouts `pulumi:"timeouts"`
-	// Information about the training dataset.
+	// Information about the training dataset. See `trainingDataConfig` below.
 	TrainingDataConfig CustomModelTrainingDataConfig `pulumi:"trainingDataConfig"`
-	// Information about the validation dataset.
+	// Information about the validation dataset. See `validationDataConfig` below.
 	ValidationDataConfig *CustomModelValidationDataConfig `pulumi:"validationDataConfig"`
-	// Configuration parameters for the private VPC that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 	VpcConfig *CustomModelVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -304,30 +304,30 @@ type customModelArgs struct {
 type CustomModelArgs struct {
 	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringInput
-	// The custom model is encrypted at rest using this key. Specify the key ARN.
+	// Key ARN used to encrypt the custom model at rest.
 	CustomModelKmsKeyId pulumi.StringPtrInput
 	// Name for the custom model.
 	CustomModelName pulumi.StringInput
-	// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+	// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 	CustomizationType pulumi.StringPtrInput
 	// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
 	Hyperparameters pulumi.StringMapInput
-	// A name for the customization job.
+	// Name for the customization job.
 	JobName pulumi.StringInput
-	// S3 location for the output data.
+	// S3 location for the output data. See `outputDataConfig` below.
 	OutputDataConfig CustomModelOutputDataConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
-	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts CustomModelTimeoutsPtrInput
-	// Information about the training dataset.
+	// Information about the training dataset. See `trainingDataConfig` below.
 	TrainingDataConfig CustomModelTrainingDataConfigInput
-	// Information about the validation dataset.
+	// Information about the validation dataset. See `validationDataConfig` below.
 	ValidationDataConfig CustomModelValidationDataConfigPtrInput
-	// Configuration parameters for the private VPC that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 	VpcConfig CustomModelVpcConfigPtrInput
 }
 
@@ -423,12 +423,12 @@ func (o CustomModelOutput) BaseModelIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.BaseModelIdentifier }).(pulumi.StringOutput)
 }
 
-// The ARN of the output model.
+// ARN of the output model.
 func (o CustomModelOutput) CustomModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.CustomModelArn }).(pulumi.StringOutput)
 }
 
-// The custom model is encrypted at rest using this key. Specify the key ARN.
+// Key ARN used to encrypt the custom model at rest.
 func (o CustomModelOutput) CustomModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringPtrOutput { return v.CustomModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -438,7 +438,7 @@ func (o CustomModelOutput) CustomModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.CustomModelName }).(pulumi.StringOutput)
 }
 
-// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
 func (o CustomModelOutput) CustomizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.CustomizationType }).(pulumi.StringOutput)
 }
@@ -448,22 +448,22 @@ func (o CustomModelOutput) Hyperparameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringMapOutput { return v.Hyperparameters }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the customization job.
+// ARN of the customization job.
 func (o CustomModelOutput) JobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.JobArn }).(pulumi.StringOutput)
 }
 
-// A name for the customization job.
+// Name for the customization job.
 func (o CustomModelOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.JobName }).(pulumi.StringOutput)
 }
 
-// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
 func (o CustomModelOutput) JobStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.JobStatus }).(pulumi.StringOutput)
 }
 
-// S3 location for the output data.
+// S3 location for the output data. See `outputDataConfig` below.
 func (o CustomModelOutput) OutputDataConfig() CustomModelOutputDataConfigOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelOutputDataConfigOutput { return v.OutputDataConfig }).(CustomModelOutputDataConfigOutput)
 }
@@ -478,7 +478,7 @@ func (o CustomModelOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -492,7 +492,7 @@ func (o CustomModelOutput) Timeouts() CustomModelTimeoutsPtrOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelTimeoutsPtrOutput { return v.Timeouts }).(CustomModelTimeoutsPtrOutput)
 }
 
-// Information about the training dataset.
+// Information about the training dataset. See `trainingDataConfig` below.
 func (o CustomModelOutput) TrainingDataConfig() CustomModelTrainingDataConfigOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelTrainingDataConfigOutput { return v.TrainingDataConfig }).(CustomModelTrainingDataConfigOutput)
 }
@@ -502,17 +502,17 @@ func (o CustomModelOutput) TrainingMetrics() CustomModelTrainingMetricArrayOutpu
 	return o.ApplyT(func(v *CustomModel) CustomModelTrainingMetricArrayOutput { return v.TrainingMetrics }).(CustomModelTrainingMetricArrayOutput)
 }
 
-// Information about the validation dataset.
+// Information about the validation dataset. See `validationDataConfig` below.
 func (o CustomModelOutput) ValidationDataConfig() CustomModelValidationDataConfigPtrOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelValidationDataConfigPtrOutput { return v.ValidationDataConfig }).(CustomModelValidationDataConfigPtrOutput)
 }
 
-// The loss metric for each validator that you provided.
+// Loss metric for each validator that you provided.
 func (o CustomModelOutput) ValidationMetrics() CustomModelValidationMetricArrayOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelValidationMetricArrayOutput { return v.ValidationMetrics }).(CustomModelValidationMetricArrayOutput)
 }
 
-// Configuration parameters for the private VPC that contains the resources you are using for this job.
+// Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
 func (o CustomModelOutput) VpcConfig() CustomModelVpcConfigPtrOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelVpcConfigPtrOutput { return v.VpcConfig }).(CustomModelVpcConfigPtrOutput)
 }

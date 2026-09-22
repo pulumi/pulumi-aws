@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration
     {
         /// <summary>
-        /// Configuration for extracting audio content. See `AudioExtractionConfiguration` block for details.
+        /// Configuration for extracting audio content. See `AudioExtractionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration? AudioExtractionConfiguration;
         /// <summary>
-        /// Configuration for extracting image content. See `ImageExtractionConfiguration` block for details.
+        /// Configuration for extracting image content. See `ImageExtractionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration? ImageExtractionConfiguration;
         /// <summary>
-        /// Configuration for extracting video content. See `VideoExtractionConfiguration` block for details.
+        /// Configuration for extracting video content. See `VideoExtractionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration? VideoExtractionConfiguration;
 

@@ -33,14 +33,14 @@ public final class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArg
     }
 
     /**
-     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
      * 
      */
     @Import(name="modelAccessConfig")
     private @Nullable Output<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig;
 
     /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
      * 
      */
     public Optional<Output<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs>> modelAccessConfig() {
@@ -126,7 +126,7 @@ public final class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArg
         }
 
         /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArg
         }
 
         /**
-         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          * 
          * @return builder
          * 

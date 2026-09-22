@@ -21,14 +21,14 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
     public static final ExportExportArgs Empty = new ExportExportArgs();
 
     /**
-     * Data query for this specific data export. See the `dataQuery` argument reference below.
+     * Data query for this specific data export. See the `dataQuery` block below.
      * 
      */
     @Import(name="dataQueries")
     private @Nullable Output<List<ExportExportDataQueryArgs>> dataQueries;
 
     /**
-     * @return Data query for this specific data export. See the `dataQuery` argument reference below.
+     * @return Data query for this specific data export. See the `dataQuery` block below.
      * 
      */
     public Optional<Output<List<ExportExportDataQueryArgs>>> dataQueries() {
@@ -51,14 +51,14 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+     * Destination configuration for this specific data export. See the `destinationConfigurations` block below.
      * 
      */
     @Import(name="destinationConfigurations")
     private @Nullable Output<List<ExportExportDestinationConfigurationArgs>> destinationConfigurations;
 
     /**
-     * @return Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+     * @return Destination configuration for this specific data export. See the `destinationConfigurations` block below.
      * 
      */
     public Optional<Output<List<ExportExportDestinationConfigurationArgs>>> destinationConfigurations() {
@@ -88,14 +88,14 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+     * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
      * 
      */
     @Import(name="refreshCadences")
     private @Nullable Output<List<ExportExportRefreshCadenceArgs>> refreshCadences;
 
     /**
-     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
      * 
      */
     public Optional<Output<List<ExportExportRefreshCadenceArgs>>> refreshCadences() {
@@ -132,7 +132,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
+         * @param dataQueries Data query for this specific data export. See the `dataQuery` block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
+         * @param dataQueries Data query for this specific data export. See the `dataQuery` block below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
+         * @param dataQueries Data query for this specific data export. See the `dataQuery` block below.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` block below.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` block below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` block below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
          * 
          * @return builder
          * 

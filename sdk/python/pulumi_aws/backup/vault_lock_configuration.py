@@ -28,9 +28,9 @@ class VaultLockConfigurationArgs:
         The set of arguments for constructing a VaultLockConfiguration resource.
 
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
-        :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-        :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] changeable_for_days: Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
@@ -59,7 +59,7 @@ class VaultLockConfigurationArgs:
     @pulumi.getter(name="changeableForDays")
     def changeable_for_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         """
         return pulumi.get(self, "changeable_for_days")
 
@@ -71,7 +71,7 @@ class VaultLockConfigurationArgs:
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum retention period that the vault retains its recovery points.
+        Maximum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "max_retention_days")
 
@@ -83,7 +83,7 @@ class VaultLockConfigurationArgs:
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The minimum retention period that the vault retains its recovery points.
+        Minimum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "min_retention_days")
 
@@ -116,11 +116,11 @@ class _VaultLockConfigurationState:
         """
         Input properties used for looking up and filtering VaultLockConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
+        :param pulumi.Input[_builtins.str] backup_vault_arn: ARN of the vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
-        :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-        :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] changeable_for_days: Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_vault_arn is not None:
@@ -140,7 +140,7 @@ class _VaultLockConfigurationState:
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "backup_vault_arn")
 
@@ -164,7 +164,7 @@ class _VaultLockConfigurationState:
     @pulumi.getter(name="changeableForDays")
     def changeable_for_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         """
         return pulumi.get(self, "changeable_for_days")
 
@@ -176,7 +176,7 @@ class _VaultLockConfigurationState:
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum retention period that the vault retains its recovery points.
+        Maximum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "max_retention_days")
 
@@ -188,7 +188,7 @@ class _VaultLockConfigurationState:
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The minimum retention period that the vault retains its recovery points.
+        Minimum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "min_retention_days")
 
@@ -249,9 +249,9 @@ class VaultLockConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
-        :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-        :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] changeable_for_days: Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -345,11 +345,11 @@ class VaultLockConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
+        :param pulumi.Input[_builtins.str] backup_vault_arn: ARN of the vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
-        :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-        :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
-        :param pulumi.Input[_builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] changeable_for_days: Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,7 +368,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "backup_vault_arn")
 
@@ -384,7 +384,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="changeableForDays")
     def changeable_for_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         """
         return pulumi.get(self, "changeable_for_days")
 
@@ -392,7 +392,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The maximum retention period that the vault retains its recovery points.
+        Maximum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "max_retention_days")
 
@@ -400,7 +400,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The minimum retention period that the vault retains its recovery points.
+        Minimum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "min_retention_days")
 

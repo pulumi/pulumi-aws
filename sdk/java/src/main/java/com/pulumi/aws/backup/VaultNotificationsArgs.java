@@ -18,14 +18,14 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
     public static final VaultNotificationsArgs Empty = new VaultNotificationsArgs();
 
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     @Import(name="backupVaultEvents", required=true)
     private Output<List<String>> backupVaultEvents;
 
     /**
-     * @return An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * @return Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     public Output<List<String>> backupVaultEvents() {
@@ -105,7 +105,7 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 

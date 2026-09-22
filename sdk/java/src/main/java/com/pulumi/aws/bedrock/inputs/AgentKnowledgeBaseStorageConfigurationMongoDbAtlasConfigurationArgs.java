@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     public static final AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs();
 
     /**
-     * The name of the collection in the MongoDB Atlas database.
+     * Name of the collection in the MongoDB Atlas database.
      * 
      */
     @Import(name="collectionName", required=true)
     private Output<String> collectionName;
 
     /**
-     * @return The name of the collection in the MongoDB Atlas database.
+     * @return Name of the collection in the MongoDB Atlas database.
      * 
      */
     public Output<String> collectionName() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+     * ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
      * 
      */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
      * 
      */
     public Output<String> credentialsSecretArn() {
@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The name of the database in the MongoDB Atlas database.
+     * Name of the database in the MongoDB Atlas database.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database in the MongoDB Atlas database.
+     * @return Name of the database in the MongoDB Atlas database.
      * 
      */
     public Output<String> databaseName() {
@@ -63,14 +63,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The endpoint URL of the MongoDB Atlas database.
+     * Endpoint URL of the MongoDB Atlas database.
      * 
      */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint URL of the MongoDB Atlas database.
+     * @return Endpoint URL of the MongoDB Atlas database.
      * 
      */
     public Output<String> endpoint() {
@@ -78,14 +78,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The name of the service that hosts the MongoDB Atlas database.
+     * Name of the service that hosts the MongoDB Atlas database.
      * 
      */
     @Import(name="endpointServiceName")
     private @Nullable Output<String> endpointServiceName;
 
     /**
-     * @return The name of the service that hosts the MongoDB Atlas database.
+     * @return Name of the service that hosts the MongoDB Atlas database.
      * 
      */
     public Optional<Output<String>> endpointServiceName() {
@@ -93,14 +93,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * Contains the names of the fields to which to map information about the vector store.
+     * Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
      * 
      */
     @Import(name="fieldMapping", required=true)
     private Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping() {
@@ -108,14 +108,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The name of the vector index.
+     * Name of the vector index.
      * 
      */
     @Import(name="textIndexName")
     private @Nullable Output<String> textIndexName;
 
     /**
-     * @return The name of the vector index.
+     * @return Name of the vector index.
      * 
      */
     public Optional<Output<String>> textIndexName() {
@@ -123,14 +123,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * The name of the vector index.
+     * Name of the vector index.
      * 
      */
     @Import(name="vectorIndexName", required=true)
     private Output<String> vectorIndexName;
 
     /**
-     * @return The name of the vector index.
+     * @return Name of the vector index.
      * 
      */
     public Output<String> vectorIndexName() {
@@ -169,7 +169,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param collectionName The name of the collection in the MongoDB Atlas database.
+         * @param collectionName Name of the collection in the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param collectionName The name of the collection in the MongoDB Atlas database.
+         * @param collectionName Name of the collection in the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param databaseName The name of the database in the MongoDB Atlas database.
+         * @param databaseName Name of the database in the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param databaseName The name of the database in the MongoDB Atlas database.
+         * @param databaseName Name of the database in the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpoint The endpoint URL of the MongoDB Atlas database.
+         * @param endpoint Endpoint URL of the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpoint The endpoint URL of the MongoDB Atlas database.
+         * @param endpoint Endpoint URL of the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpointServiceName The name of the service that hosts the MongoDB Atlas database.
+         * @param endpointServiceName Name of the service that hosts the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpointServiceName The name of the service that hosts the MongoDB Atlas database.
+         * @param endpointServiceName Name of the service that hosts the MongoDB Atlas database.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param textIndexName The name of the vector index.
+         * @param textIndexName Name of the vector index.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param textIndexName The name of the vector index.
+         * @param textIndexName Name of the vector index.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param vectorIndexName The name of the vector index.
+         * @param vectorIndexName Name of the vector index.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param vectorIndexName The name of the vector index.
+         * @param vectorIndexName Name of the vector index.
          * 
          * @return builder
          * 

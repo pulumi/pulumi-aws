@@ -16,14 +16,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs();
 
     /**
-     * Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+     * Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
      * 
      */
     @Import(name="authConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration;
 
     /**
-     * @return Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+     * @return Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> authConfiguration() {
@@ -71,7 +71,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+         * @param authConfiguration Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
          * 
          * @return builder
          * 

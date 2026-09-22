@@ -17,14 +17,14 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
     public static final AgentcoreHarnessEnvironmentArgs Empty = new AgentcoreHarnessEnvironmentArgs();
 
     /**
-     * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
      * 
      */
     @Import(name="agentcoreRuntimeEnvironments")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments;
 
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>>> agentcoreRuntimeEnvironments() {
@@ -56,7 +56,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 

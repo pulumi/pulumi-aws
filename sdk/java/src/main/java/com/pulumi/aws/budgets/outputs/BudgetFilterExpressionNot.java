@@ -18,27 +18,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BudgetFilterExpressionNot {
     /**
-     * @return (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
      * 
      */
     private @Nullable List<BudgetFilterExpressionNotAnd> ands;
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     private @Nullable BudgetFilterExpressionNotCostCategories costCategories;
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     private @Nullable BudgetFilterExpressionNotDimensions dimensions;
     /**
-     * @return (Optional) A single filter expression to negate. Must contain exactly one root.
+     * @return Single filter expression to negate. Must contain exactly one root.
      * 
      */
     private @Nullable BudgetFilterExpressionNotNot not;
     /**
-     * @return (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
      * 
      */
     private @Nullable List<BudgetFilterExpressionNotOr> ors;
@@ -50,35 +50,35 @@ public final class BudgetFilterExpressionNot {
 
     private BudgetFilterExpressionNot() {}
     /**
-     * @return (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
      * 
      */
     public List<BudgetFilterExpressionNotAnd> ands() {
         return this.ands == null ? List.of() : this.ands;
     }
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     public Optional<BudgetFilterExpressionNotCostCategories> costCategories() {
         return Optional.ofNullable(this.costCategories);
     }
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     public Optional<BudgetFilterExpressionNotDimensions> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
     /**
-     * @return (Optional) A single filter expression to negate. Must contain exactly one root.
+     * @return Single filter expression to negate. Must contain exactly one root.
      * 
      */
     public Optional<BudgetFilterExpressionNotNot> not() {
         return Optional.ofNullable(this.not);
     }
     /**
-     * @return (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+     * @return List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
      * 
      */
     public List<BudgetFilterExpressionNotOr> ors() {

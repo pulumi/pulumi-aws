@@ -14,7 +14,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool
     {
         /// <summary>
-        /// The name of the tool.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
 

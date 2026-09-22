@@ -13,8 +13,7 @@ namespace Pulumi.Aws.BcmData.Inputs
     public sealed class ExportExportDataQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Query statement.
-        /// See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+        /// Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
         /// </summary>
         [Input("queryStatement", required: true)]
         public Input<string> QueryStatement { get; set; } = null!;
@@ -23,10 +22,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputMap<ImmutableDictionary<string, string>>? _tableConfigurations;
 
         /// <summary>
-        /// Table configuration.
-        /// See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-        /// If a value is set for `TableConfigurations`, all configuration values must be set.
-        /// For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+        /// Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `TableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
         /// </summary>
         public InputMap<ImmutableDictionary<string, string>> TableConfigurations
         {

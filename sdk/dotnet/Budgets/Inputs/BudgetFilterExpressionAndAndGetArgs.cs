@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetFilterExpressionAndAndGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) A Cost Category Filter block.
+        /// Cost Categories block.
         /// </summary>
         [Input("costCategories")]
         public Input<Inputs.BudgetFilterExpressionAndAndCostCategoriesGetArgs>? CostCategories { get; set; }
 
         /// <summary>
-        /// (Optional) A Dimension Filter block.
+        /// Dimensions block.
         /// </summary>
         [Input("dimensions")]
         public Input<Inputs.BudgetFilterExpressionAndAndDimensionsGetArgs>? Dimensions { get; set; }

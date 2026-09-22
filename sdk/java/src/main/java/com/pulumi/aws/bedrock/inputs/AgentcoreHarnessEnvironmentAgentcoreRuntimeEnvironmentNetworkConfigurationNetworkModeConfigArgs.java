@@ -19,14 +19,14 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
     public static final AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs Empty = new AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs();
 
     /**
-     * Whether to require an S3 endpoint for the service in the VPC.
+     * Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     @Import(name="requireServiceS3Endpoint")
     private @Nullable Output<Boolean> requireServiceS3Endpoint;
 
     /**
-     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * @return Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     public Optional<Output<Boolean>> requireServiceS3Endpoint() {
@@ -90,7 +90,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         /**
-         * @param requireServiceS3Endpoint Whether to require an S3 endpoint for the service in the VPC.
+         * @param requireServiceS3Endpoint Whether an S3 endpoint is required for the service in the VPC.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         /**
-         * @param requireServiceS3Endpoint Whether to require an S3 endpoint for the service in the VPC.
+         * @param requireServiceS3Endpoint Whether an S3 endpoint is required for the service in the VPC.
          * 
          * @return builder
          * 

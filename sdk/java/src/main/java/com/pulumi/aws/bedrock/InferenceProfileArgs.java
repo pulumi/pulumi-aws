@@ -19,14 +19,14 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
     public static final InferenceProfileArgs Empty = new InferenceProfileArgs();
 
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the inference profile.
+     * @return Description of the inference profile.
      * 
      */
     public Optional<Output<String>> description() {
@@ -34,18 +34,14 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
+     * Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      */
     @Import(name="modelSource")
     private @Nullable Output<InferenceProfileModelSourceArgs> modelSource;
 
     /**
-     * @return The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
+     * @return Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      */
     public Optional<Output<InferenceProfileModelSourceArgs>> modelSource() {
@@ -53,14 +49,18 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the inference profile.
+     * Name of the inference profile.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the inference profile.
+     * @return Name of the inference profile.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -134,7 +134,7 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description The description of the inference profile.
+         * @param description Description of the inference profile.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description The description of the inference profile.
+         * @param description Description of the inference profile.
          * 
          * @return builder
          * 
@@ -155,9 +155,7 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-         * 
-         * The following arguments are optional:
+         * @param modelSource Source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * @return builder
          * 
@@ -168,9 +166,7 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-         * 
-         * The following arguments are optional:
+         * @param modelSource Source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * @return builder
          * 
@@ -180,7 +176,9 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the inference profile.
+         * @param name Name of the inference profile.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -191,7 +189,9 @@ public final class InferenceProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the inference profile.
+         * @param name Name of the inference profile.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     public static final BudgetCostTypesArgs Empty = new BudgetCostTypesArgs();
 
     /**
-     * A boolean value whether to include credits in the cost budget. Defaults to `true`
+     * Whether to include credits in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeCredit")
     private @Nullable Output<Boolean> includeCredit;
 
     /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`
+     * @return Whether to include credits in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeCredit() {
@@ -31,14 +31,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether a budget includes discounts. Defaults to `true`
+     * Whether a budget includes discounts. Defaults to `true`.
      * 
      */
     @Import(name="includeDiscount")
     private @Nullable Output<Boolean> includeDiscount;
 
     /**
-     * @return Whether a budget includes discounts. Defaults to `true`
+     * @return Whether a budget includes discounts. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeDiscount() {
@@ -46,14 +46,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+     * Whether to include other subscription costs in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeOtherSubscription")
     private @Nullable Output<Boolean> includeOtherSubscription;
 
     /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+     * @return Whether to include other subscription costs in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeOtherSubscription() {
@@ -61,14 +61,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+     * Whether to include recurring costs in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeRecurring")
     private @Nullable Output<Boolean> includeRecurring;
 
     /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+     * @return Whether to include recurring costs in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeRecurring() {
@@ -76,14 +76,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include refunds in the cost budget. Defaults to `true`
+     * Whether to include refunds in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeRefund")
     private @Nullable Output<Boolean> includeRefund;
 
     /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`
+     * @return Whether to include refunds in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeRefund() {
@@ -91,14 +91,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+     * Whether to include subscriptions in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeSubscription")
     private @Nullable Output<Boolean> includeSubscription;
 
     /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+     * @return Whether to include subscriptions in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeSubscription() {
@@ -106,14 +106,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include support costs in the cost budget. Defaults to `true`
+     * Whether to include support costs in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeSupport")
     private @Nullable Output<Boolean> includeSupport;
 
     /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`
+     * @return Whether to include support costs in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeSupport() {
@@ -121,14 +121,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include tax in the cost budget. Defaults to `true`
+     * Whether to include tax in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeTax")
     private @Nullable Output<Boolean> includeTax;
 
     /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`
+     * @return Whether to include tax in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeTax() {
@@ -136,14 +136,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+     * Whether to include upfront costs in the cost budget. Defaults to `true`.
      * 
      */
     @Import(name="includeUpfront")
     private @Nullable Output<Boolean> includeUpfront;
 
     /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+     * @return Whether to include upfront costs in the cost budget. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeUpfront() {
@@ -151,14 +151,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether a budget uses the amortized rate. Defaults to `false`
+     * Whether a budget uses the amortized rate. Defaults to `false`.
      * 
      */
     @Import(name="useAmortized")
     private @Nullable Output<Boolean> useAmortized;
 
     /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`
+     * @return Whether a budget uses the amortized rate. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useAmortized() {
@@ -166,14 +166,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+     * Whether to use blended costs in the cost budget. Defaults to `false`.
      * 
      */
     @Import(name="useBlended")
     private @Nullable Output<Boolean> useBlended;
 
     /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+     * @return Whether to use blended costs in the cost budget. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useBlended() {
@@ -215,7 +215,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeCredit A boolean value whether to include credits in the cost budget. Defaults to `true`
+         * @param includeCredit Whether to include credits in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeCredit A boolean value whether to include credits in the cost budget. Defaults to `true`
+         * @param includeCredit Whether to include credits in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`
+         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`
+         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeOtherSubscription A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+         * @param includeOtherSubscription Whether to include other subscription costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeOtherSubscription A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+         * @param includeOtherSubscription Whether to include other subscription costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeRecurring A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+         * @param includeRecurring Whether to include recurring costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeRecurring A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+         * @param includeRecurring Whether to include recurring costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeRefund A boolean value whether to include refunds in the cost budget. Defaults to `true`
+         * @param includeRefund Whether to include refunds in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeRefund A boolean value whether to include refunds in the cost budget. Defaults to `true`
+         * @param includeRefund Whether to include refunds in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeSubscription A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+         * @param includeSubscription Whether to include subscriptions in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeSubscription A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+         * @param includeSubscription Whether to include subscriptions in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeSupport A boolean value whether to include support costs in the cost budget. Defaults to `true`
+         * @param includeSupport Whether to include support costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeSupport A boolean value whether to include support costs in the cost budget. Defaults to `true`
+         * @param includeSupport Whether to include support costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeTax A boolean value whether to include tax in the cost budget. Defaults to `true`
+         * @param includeTax Whether to include tax in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeTax A boolean value whether to include tax in the cost budget. Defaults to `true`
+         * @param includeTax Whether to include tax in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeUpfront A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+         * @param includeUpfront Whether to include upfront costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeUpfront A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+         * @param includeUpfront Whether to include upfront costs in the cost budget. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`
+         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`
+         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useBlended A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+         * @param useBlended Whether to use blended costs in the cost budget. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useBlended A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+         * @param useBlended Whether to use blended costs in the cost budget. Defaults to `false`.
          * 
          * @return builder
          * 

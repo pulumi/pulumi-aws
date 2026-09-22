@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinition
     {
         /// <summary>
-        /// A list of connection definitions in the flow. See Connection for more information.
+        /// List of connection definitions in the flow. See `definition.connection` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionConnection> Connections;
         /// <summary>
-        /// A list of node definitions in the flow. See Node for more information.
+        /// List of node definitions in the flow. See `definition.node` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNode> Nodes;
 

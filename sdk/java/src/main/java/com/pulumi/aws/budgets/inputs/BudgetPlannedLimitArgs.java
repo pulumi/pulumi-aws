@@ -15,14 +15,14 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
     public static final BudgetPlannedLimitArgs Empty = new BudgetPlannedLimitArgs();
 
     /**
-     * (Required) The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      * 
      */
     @Import(name="amount", required=true)
     private Output<String> amount;
 
     /**
-     * @return (Required) The amount of cost or usage being measured for a budget.
+     * @return Amount of cost or usage being measured for a budget.
      * 
      */
     public Output<String> amount() {
@@ -30,14 +30,14 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
     @Import(name="startTime", required=true)
     private Output<String> startTime;
 
     /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * @return Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
     public Output<String> startTime() {
@@ -45,14 +45,14 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
     /**
-     * @return (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * @return Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     public Output<String> unit() {
@@ -86,7 +86,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param amount (Required) The amount of cost or usage being measured for a budget.
+         * @param amount Amount of cost or usage being measured for a budget.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param amount (Required) The amount of cost or usage being measured for a budget.
+         * @param amount Amount of cost or usage being measured for a budget.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param startTime (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * @param startTime Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param startTime (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * @param startTime Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param unit (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * @param unit Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param unit (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * @param unit Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          * 
          * @return builder
          * 

@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class BudgetActionDefinitionSsmActionDefinition {
     /**
-     * @return The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+     * @return Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
     private String actionSubType;
     /**
-     * @return The EC2 and RDS instance IDs.
+     * @return EC2 and RDS instance IDs.
      * 
      */
     private List<String> instanceIds;
     /**
-     * @return The Region to run the SSM document.
+     * @return Region to run the SSM document.
      * 
      */
     private String region;
 
     private BudgetActionDefinitionSsmActionDefinition() {}
     /**
-     * @return The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+     * @return Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
     public String actionSubType() {
         return this.actionSubType;
     }
     /**
-     * @return The EC2 and RDS instance IDs.
+     * @return EC2 and RDS instance IDs.
      * 
      */
     public List<String> instanceIds() {
         return this.instanceIds;
     }
     /**
-     * @return The Region to run the SSM document.
+     * @return Region to run the SSM document.
      * 
      */
     public String region() {

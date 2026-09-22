@@ -36,7 +36,7 @@ class ProvisionedModelThroughputArgs:
         :param pulumi.Input[_builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[_builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "model_arn", model_arn)
         pulumi.set(__self__, "model_units", model_units)
@@ -114,7 +114,7 @@ class ProvisionedModelThroughputArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -150,10 +150,10 @@ class _ProvisionedModelThroughputState:
         :param pulumi.Input[_builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         :param pulumi.Input[_builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[_builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-        :param pulumi.Input[_builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
+        :param pulumi.Input[_builtins.str] provisioned_model_arn: ARN of the Provisioned Throughput.
         :param pulumi.Input[_builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if commitment_duration is not None:
@@ -215,7 +215,7 @@ class _ProvisionedModelThroughputState:
     @pulumi.getter(name="provisionedModelArn")
     def provisioned_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Provisioned Throughput.
+        ARN of the Provisioned Throughput.
         """
         return pulumi.get(self, "provisioned_model_arn")
 
@@ -251,7 +251,7 @@ class _ProvisionedModelThroughputState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -333,7 +333,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[_builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -447,10 +447,10 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         :param pulumi.Input[_builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[_builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-        :param pulumi.Input[_builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
+        :param pulumi.Input[_builtins.str] provisioned_model_arn: ARN of the Provisioned Throughput.
         :param pulumi.Input[_builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -496,7 +496,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     @pulumi.getter(name="provisionedModelArn")
     def provisioned_model_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Provisioned Throughput.
+        ARN of the Provisioned Throughput.
         """
         return pulumi.get(self, "provisioned_model_arn")
 
@@ -520,7 +520,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

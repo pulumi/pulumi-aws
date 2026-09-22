@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class CustomModelTrainingDataConfig {
     /**
-     * @return The S3 URI where the training data is stored.
+     * @return S3 URI where the training data is stored.
      * 
      */
     private String s3Uri;
 
     private CustomModelTrainingDataConfig() {}
     /**
-     * @return The S3 URI where the training data is stored.
+     * @return S3 URI where the training data is stored.
      * 
      */
     public String s3Uri() {

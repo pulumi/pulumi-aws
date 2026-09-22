@@ -61,21 +61,21 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
+	// ARN of the vault.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// The server-side encryption key that is used to protect your backups.
+	// Server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of recovery points that are stored in a backup vault.
+	// Number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -109,40 +109,40 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	Arn *string `pulumi:"arn"`
-	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The server-side encryption key that is used to protect your backups.
+	// Server-side encryption key that is used to protect your backups.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name *string `pulumi:"name"`
-	// The number of recovery points that are stored in a backup vault.
+	// Number of recovery points that are stored in a backup vault.
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VaultState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	Arn pulumi.StringPtrInput
-	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 	ForceDestroy pulumi.BoolPtrInput
-	// The server-side encryption key that is used to protect your backups.
+	// Server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
 	Name pulumi.StringPtrInput
-	// The number of recovery points that are stored in a backup vault.
+	// Number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -151,9 +151,9 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
-	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The server-side encryption key that is used to protect your backups.
+	// Server-side encryption key that is used to protect your backups.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name *string `pulumi:"name"`
@@ -165,9 +165,9 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
-	// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+	// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 	ForceDestroy pulumi.BoolPtrInput
-	// The server-side encryption key that is used to protect your backups.
+	// Server-side encryption key that is used to protect your backups.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
 	Name pulumi.StringPtrInput
@@ -264,17 +264,17 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
 }
 
-// The ARN of the vault.
+// ARN of the vault.
 func (o VaultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
 func (o VaultOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// The server-side encryption key that is used to protect your backups.
+// Server-side encryption key that is used to protect your backups.
 func (o VaultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -284,7 +284,7 @@ func (o VaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of recovery points that are stored in a backup vault.
+// Number of recovery points that are stored in a backup vault.
 func (o VaultOutput) RecoveryPoints() pulumi.IntOutput {
 	return o.ApplyT(func(v *Vault) pulumi.IntOutput { return v.RecoveryPoints }).(pulumi.IntOutput)
 }
@@ -299,7 +299,7 @@ func (o VaultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VaultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

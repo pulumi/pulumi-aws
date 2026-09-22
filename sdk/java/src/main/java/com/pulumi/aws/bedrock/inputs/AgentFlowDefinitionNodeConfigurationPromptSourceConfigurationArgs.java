@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs();
 
     /**
-     * Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+     * Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
      * 
      */
     @Import(name="inline")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs> inline;
 
     /**
-     * @return Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+     * @return Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs>> inline() {
@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+     * Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
      * 
      */
     @Import(name="resource")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs> resource;
 
     /**
-     * @return Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+     * @return Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs>> resource() {
@@ -72,7 +72,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inline Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+         * @param inline Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inline Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+         * @param inline Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param resource Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+         * @param resource Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param resource Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+         * @param resource Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
          * 
          * @return builder
          * 

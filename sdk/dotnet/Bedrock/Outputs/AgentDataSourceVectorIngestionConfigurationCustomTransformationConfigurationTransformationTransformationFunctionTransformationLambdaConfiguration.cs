@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration
     {
         /// <summary>
-        /// The ARN of the lambda to use for custom transformation.
+        /// ARN of the Lambda to use for custom transformation.
         /// </summary>
         public readonly string LambdaArn;
 

@@ -337,14 +337,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eksConfiguration);
     }
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * @return Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -393,42 +393,42 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.serviceRole;
     }
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
-     * @return The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * @return State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
     /**
-     * The current status of the compute environment (for example, CREATING or VALID).
+     * Current status of the compute environment (for example, CREATING or VALID).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the compute environment (for example, CREATING or VALID).
+     * @return Current status of the compute environment (for example, CREATING or VALID).
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     * Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
-     * @return A short, human-readable string to provide additional details about the current status of the compute environment.
+     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     public Output<String> statusReason() {
@@ -449,42 +449,42 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * @return Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      * 
      */
     @Export(name="updatePolicy", refs={ComputeEnvironmentUpdatePolicy.class}, tree="[0]")
     private Output<ComputeEnvironmentUpdatePolicy> updatePolicy;
 
     /**
-     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * @return Infrastructure update policy for the compute environment. See details below.
      * 
      */
     public Output<ComputeEnvironmentUpdatePolicy> updatePolicy() {

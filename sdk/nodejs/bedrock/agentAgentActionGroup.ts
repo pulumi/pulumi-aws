@@ -158,8 +158,6 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
 
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-     *
-     * The following arguments are optional:
      */
     declare public readonly actionGroupExecutor: pulumi.Output<outputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
@@ -175,11 +173,13 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     declare public readonly actionGroupState: pulumi.Output<string>;
     /**
-     * The unique identifier of the agent for which to create the action group.
+     * Unique identifier of the agent for which to create the action group.
      */
     declare public readonly agentId: pulumi.Output<string>;
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly agentVersion: pulumi.Output<string>;
     /**
@@ -191,9 +191,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      */
     declare public readonly functionSchema: pulumi.Output<outputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**
@@ -278,8 +276,6 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
 export interface AgentAgentActionGroupState {
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-     *
-     * The following arguments are optional:
      */
     actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
@@ -295,11 +291,13 @@ export interface AgentAgentActionGroupState {
      */
     actionGroupState?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the agent for which to create the action group.
+     * Unique identifier of the agent for which to create the action group.
      */
     agentId?: pulumi.Input<string | undefined>;
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
+     *
+     * The following arguments are optional:
      */
     agentVersion?: pulumi.Input<string | undefined>;
     /**
@@ -311,9 +309,7 @@ export interface AgentAgentActionGroupState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      */
     functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**
@@ -341,8 +337,6 @@ export interface AgentAgentActionGroupState {
 export interface AgentAgentActionGroupArgs {
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-     *
-     * The following arguments are optional:
      */
     actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
@@ -354,11 +348,13 @@ export interface AgentAgentActionGroupArgs {
      */
     actionGroupState?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the agent for which to create the action group.
+     * Unique identifier of the agent for which to create the action group.
      */
     agentId: pulumi.Input<string>;
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
+     *
+     * The following arguments are optional:
      */
     agentVersion: pulumi.Input<string>;
     /**
@@ -370,9 +366,7 @@ export interface AgentAgentActionGroupArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      */
     functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**

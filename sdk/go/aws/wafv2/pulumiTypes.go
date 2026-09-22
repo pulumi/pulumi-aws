@@ -2796,7 +2796,7 @@ func (o RuleGroupRuleRuleLabelArrayOutput) Index(i pulumi.IntInput) RuleGroupRul
 type RuleGroupRuleStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement *RuleGroupRuleStatementAndStatement `pulumi:"andStatement"`
-	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement *RuleGroupRuleStatementAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement *RuleGroupRuleStatementByteMatchStatement `pulumi:"byteMatchStatement"`
@@ -2838,7 +2838,7 @@ type RuleGroupRuleStatementInput interface {
 type RuleGroupRuleStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement RuleGroupRuleStatementAndStatementPtrInput `pulumi:"andStatement"`
-	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement RuleGroupRuleStatementAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement RuleGroupRuleStatementByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
@@ -2922,7 +2922,7 @@ func (o RuleGroupRuleStatementOutput) AndStatement() RuleGroupRuleStatementAndSt
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementAndStatement { return v.AndStatement }).(RuleGroupRuleStatementAndStatementPtrOutput)
 }
 
-// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) AsnMatchStatement() RuleGroupRuleStatementAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementAsnMatchStatement { return v.AsnMatchStatement }).(RuleGroupRuleStatementAsnMatchStatementPtrOutput)
 }
@@ -10801,7 +10801,7 @@ func (o RuleGroupRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) Head
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement `pulumi:"andStatement"`
-	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement `pulumi:"byteMatchStatement"`
@@ -10841,7 +10841,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementInput interface {
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput `pulumi:"andStatement"`
-	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
@@ -10951,7 +10951,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) AndSta
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
 }
 
-// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) AsnMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement {
 		return v.AsnMatchStatement
@@ -11069,7 +11069,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) And
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
 }
 
-// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) AsnMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement {
 		if v == nil {
@@ -69086,6 +69086,7 @@ func (o WebAclRuleStatementAsnMatchStatementPtrOutput) ForwardedIpConfig() WebAc
 }
 
 type WebAclRuleStatementAsnMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -69103,6 +69104,7 @@ type WebAclRuleStatementAsnMatchStatementForwardedIpConfigInput interface {
 }
 
 type WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -69185,6 +69187,7 @@ func (o WebAclRuleStatementAsnMatchStatementForwardedIpConfigOutput) ToWebAclRul
 	}).(WebAclRuleStatementAsnMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementAsnMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementAsnMatchStatementForwardedIpConfig) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
@@ -69218,6 +69221,7 @@ func (o WebAclRuleStatementAsnMatchStatementForwardedIpConfigPtrOutput) Elem() W
 	}).(WebAclRuleStatementAsnMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementAsnMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementAsnMatchStatementForwardedIpConfig) *string {
 		if v == nil {

@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetFrameworkControlScope {
     /**
-     * @return The ID of the only AWS resource that you want your control scope to contain.
+     * @return ID of the only AWS resource that you want your control scope to contain.
      * 
      */
     private List<String> complianceResourceIds;
     /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+     * @return Whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
     private List<String> complianceResourceTypes;
@@ -30,14 +30,14 @@ public final class GetFrameworkControlScope {
 
     private GetFrameworkControlScope() {}
     /**
-     * @return The ID of the only AWS resource that you want your control scope to contain.
+     * @return ID of the only AWS resource that you want your control scope to contain.
      * 
      */
     public List<String> complianceResourceIds() {
         return this.complianceResourceIds;
     }
     /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+     * @return Whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
     public List<String> complianceResourceTypes() {

@@ -552,21 +552,29 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * List of failure reasons reported when the knowledge base is in a failed state.
+     * 
+     */
     @Export(name="failureReasons", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> failureReasons;
 
+    /**
+     * @return List of failure reasons reported when the knowledge base is in a failed state.
+     * 
+     */
     public Output<List<String>> failureReasons() {
         return this.failureReasons;
     }
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     @Export(name="knowledgeBaseConfiguration", refs={AgentKnowledgeBaseKnowledgeBaseConfiguration.class}, tree="[0]")
     private Output<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration() {
@@ -619,14 +627,14 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     @Export(name="storageConfiguration", refs={AgentKnowledgeBaseStorageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     public Output<Optional<AgentKnowledgeBaseStorageConfiguration>> storageConfiguration() {

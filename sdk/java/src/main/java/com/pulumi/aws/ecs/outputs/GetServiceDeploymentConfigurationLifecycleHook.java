@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,7 +18,7 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
      */
     private String hookDetails;
     /**
-     * @return ARN of the Lambda function to invoke
+     * @return ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
      * 
      */
     private String hookTargetArn;
@@ -31,6 +32,16 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
      * 
      */
     private String roleArn;
+    /**
+     * @return Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+     * 
+     */
+    private String targetType;
+    /**
+     * @return Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+     * 
+     */
+    private List<GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration> timeoutConfigurations;
 
     private GetServiceDeploymentConfigurationLifecycleHook() {}
     /**
@@ -41,7 +52,7 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
         return this.hookDetails;
     }
     /**
-     * @return ARN of the Lambda function to invoke
+     * @return ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
      * 
      */
     public String hookTargetArn() {
@@ -61,6 +72,20 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+     * 
+     */
+    public String targetType() {
+        return this.targetType;
+    }
+    /**
+     * @return Timeout configuration for `PAUSE` hooks. See `timeoutConfiguration` Block for details.
+     * 
+     */
+    public List<GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration> timeoutConfigurations() {
+        return this.timeoutConfigurations;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,6 +100,8 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
         private String hookTargetArn;
         private List<String> lifecycleStages;
         private String roleArn;
+        private String targetType;
+        private List<GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration> timeoutConfigurations;
         public Builder() {}
         public Builder(GetServiceDeploymentConfigurationLifecycleHook defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,6 +109,8 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
     	      this.hookTargetArn = defaults.hookTargetArn;
     	      this.lifecycleStages = defaults.lifecycleStages;
     	      this.roleArn = defaults.roleArn;
+    	      this.targetType = defaults.targetType;
+    	      this.timeoutConfigurations = defaults.timeoutConfigurations;
         }
 
         @CustomType.Setter
@@ -119,12 +148,33 @@ public final class GetServiceDeploymentConfigurationLifecycleHook {
             this.roleArn = roleArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder targetType(String targetType) {
+            if (targetType == null) {
+              throw new MissingRequiredPropertyException("GetServiceDeploymentConfigurationLifecycleHook", "targetType");
+            }
+            this.targetType = targetType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeoutConfigurations(List<GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration> timeoutConfigurations) {
+            if (timeoutConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceDeploymentConfigurationLifecycleHook", "timeoutConfigurations");
+            }
+            this.timeoutConfigurations = timeoutConfigurations;
+            return this;
+        }
+        public Builder timeoutConfigurations(GetServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration... timeoutConfigurations) {
+            return timeoutConfigurations(List.of(timeoutConfigurations));
+        }
         public GetServiceDeploymentConfigurationLifecycleHook build() {
             final var _resultValue = new GetServiceDeploymentConfigurationLifecycleHook();
             _resultValue.hookDetails = hookDetails;
             _resultValue.hookTargetArn = hookTargetArn;
             _resultValue.lifecycleStages = lifecycleStages;
             _resultValue.roleArn = roleArn;
+            _resultValue.targetType = targetType;
+            _resultValue.timeoutConfigurations = timeoutConfigurations;
             return _resultValue;
         }
     }

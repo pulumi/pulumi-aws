@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Billing.Outputs
     public sealed class ViewDataFilterExpression
     {
         /// <summary>
-        /// Dimension to use for `Expression`. Refer to #dimensions for more details.
+        /// Dimension to use for the expression. See `Dimensions` below for details.
         /// </summary>
         public readonly Outputs.ViewDataFilterExpressionDimensions? Dimensions;
         /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
+        /// Tags to use for the expression. See `Tags` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ViewDataFilterExpressionTag> Tags;
         /// <summary>
-        /// Time range to use for `Expression`. Refer to #time-range for more details.
+        /// Time range to use for the expression. See `TimeRange` below for details.
         /// </summary>
         public readonly Outputs.ViewDataFilterExpressionTimeRange? TimeRange;
 

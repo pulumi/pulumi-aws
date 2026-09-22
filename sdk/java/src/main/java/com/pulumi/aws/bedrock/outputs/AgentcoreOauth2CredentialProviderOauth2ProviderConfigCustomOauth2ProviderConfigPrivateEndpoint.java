@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
     /**
-     * @return Service-managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Service-managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource managedVpcResource;
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource selfManagedLatticeResource;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint() {}
     /**
-     * @return Service-managed VPC resource configuration. See `managedVpcResource` below.
+     * @return Service-managed VPC resource configuration. See `managedVpcResource` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource> managedVpcResource() {
         return Optional.ofNullable(this.managedVpcResource);
     }
     /**
-     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource> selfManagedLatticeResource() {

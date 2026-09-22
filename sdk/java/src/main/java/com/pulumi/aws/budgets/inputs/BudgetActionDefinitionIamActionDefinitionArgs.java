@@ -18,14 +18,14 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
     public static final BudgetActionDefinitionIamActionDefinitionArgs Empty = new BudgetActionDefinitionIamActionDefinitionArgs();
 
     /**
-     * A list of groups to be attached. There must be at least one group.
+     * List of groups to be attached. There must be at least one group.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return A list of groups to be attached. There must be at least one group.
+     * @return List of groups to be attached. There must be at least one group.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -48,14 +48,14 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
     }
 
     /**
-     * A list of roles to be attached. There must be at least one role.
+     * List of roles to be attached. There must be at least one role.
      * 
      */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
     /**
-     * @return A list of roles to be attached. There must be at least one role.
+     * @return List of roles to be attached. There must be at least one role.
      * 
      */
     public Optional<Output<List<String>>> roles() {
@@ -63,14 +63,14 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
     }
 
     /**
-     * A list of users to be attached. There must be at least one user.
+     * List of users to be attached. There must be at least one user.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
     /**
-     * @return A list of users to be attached. There must be at least one user.
+     * @return List of users to be attached. There must be at least one user.
      * 
      */
     public Optional<Output<List<String>>> users() {
@@ -105,7 +105,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param groups A list of groups to be attached. There must be at least one group.
+         * @param groups List of groups to be attached. There must be at least one group.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param groups A list of groups to be attached. There must be at least one group.
+         * @param groups List of groups to be attached. There must be at least one group.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param groups A list of groups to be attached. There must be at least one group.
+         * @param groups List of groups to be attached. There must be at least one group.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param roles A list of roles to be attached. There must be at least one role.
+         * @param roles List of roles to be attached. There must be at least one role.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param roles A list of roles to be attached. There must be at least one role.
+         * @param roles List of roles to be attached. There must be at least one role.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param roles A list of roles to be attached. There must be at least one role.
+         * @param roles List of roles to be attached. There must be at least one role.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param users A list of users to be attached. There must be at least one user.
+         * @param users List of users to be attached. There must be at least one user.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param users A list of users to be attached. There must be at least one user.
+         * @param users List of users to be attached. There must be at least one user.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param users A list of users to be attached. There must be at least one user.
+         * @param users List of users to be attached. There must be at least one user.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
      */
     private String databaseName;
     /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
@@ -53,7 +53,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
         return this.databaseName;
     }
     /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping() {

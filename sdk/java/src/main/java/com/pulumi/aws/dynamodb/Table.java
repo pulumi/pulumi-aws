@@ -298,7 +298,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Global Tables with Multi-Region Strong Consistency
+ * #### Global Tables with Multi-Region Strong Consistency
  * 
  * A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you&#39;re always reading the latest version of an item, irrespective of the Region in which you&#39;re performing the read.
  * 
@@ -308,7 +308,7 @@ import javax.annotation.Nullable;
  * 
  * Consistency Mode (`consistencyMode`) on the embedded `replica` allows you to configure consistency mode for Global Tables.
  * 
- * ##### Consistency mode with 3 Replicas
+ * ### Consistency mode with 3 Replicas
  * 
  * <pre>
  * {@code
@@ -360,7 +360,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ##### Consistency Mode with 2 Replicas and Witness Region
+ * ### Consistency Mode with 2 Replicas and Witness Region
  * 
  * <pre>
  * {@code

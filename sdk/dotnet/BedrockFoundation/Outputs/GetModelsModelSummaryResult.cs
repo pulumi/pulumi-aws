@@ -46,7 +46,7 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
         /// </summary>
         public readonly string ProviderName;
         /// <summary>
-        /// Indicates whether the model supports streaming.
+        /// Whether the model supports streaming.
         /// </summary>
         public readonly bool ResponseStreamingSupported;
 

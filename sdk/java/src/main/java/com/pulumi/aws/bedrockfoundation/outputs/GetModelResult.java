@@ -51,7 +51,7 @@ public final class GetModelResult {
     private String providerName;
     private String region;
     /**
-     * @return Indicates whether the model supports streaming.
+     * @return Whether the model supports streaming.
      * 
      */
     private Boolean responseStreamingSupported;
@@ -116,7 +116,7 @@ public final class GetModelResult {
         return this.region;
     }
     /**
-     * @return Indicates whether the model supports streaming.
+     * @return Whether the model supports streaming.
      * 
      */
     public Boolean responseStreamingSupported() {

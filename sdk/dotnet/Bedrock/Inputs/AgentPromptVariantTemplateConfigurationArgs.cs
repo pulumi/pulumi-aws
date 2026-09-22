@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantTemplateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        /// Configurations to use the prompt in a conversational format. See `Chat` Block for more information.
         /// </summary>
         [Input("chat")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationChatArgs>? Chat { get; set; }
 
         /// <summary>
-        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+        /// Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
         /// </summary>
         [Input("text")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationTextArgs>? Text { get; set; }

@@ -108,28 +108,28 @@ public class RegionSettings extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+     * Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+     * @return Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {
         return this.resourceTypeManagementPreference;
     }
     /**
-     * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+     * Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     @Export(name="resourceTypeOptInPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
     /**
-     * @return A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+     * @return Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeOptInPreference() {

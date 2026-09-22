@@ -16,14 +16,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs();
 
     /**
-     * The configuration of the lambda function.
+     * Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
      * 
      */
     @Import(name="transformationLambdaConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> transformationLambdaConfiguration;
 
     /**
-     * @return The configuration of the lambda function.
+     * @return Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs>> transformationLambdaConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationLambdaConfiguration The configuration of the lambda function.
+         * @param transformationLambdaConfiguration Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationLambdaConfiguration The configuration of the lambda function.
+         * @param transformationLambdaConfiguration Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
          * 
          * @return builder
          * 

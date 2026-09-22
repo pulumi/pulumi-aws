@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the lambda to use for custom transformation.
+        /// ARN of the Lambda to use for custom transformation.
         /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;

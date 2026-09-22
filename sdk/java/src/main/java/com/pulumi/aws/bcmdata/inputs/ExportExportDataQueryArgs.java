@@ -18,16 +18,14 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
     public static final ExportExportDataQueryArgs Empty = new ExportExportDataQueryArgs();
 
     /**
-     * Query statement.
-     * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+     * Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
      * 
      */
     @Import(name="queryStatement", required=true)
     private Output<String> queryStatement;
 
     /**
-     * @return Query statement.
-     * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+     * @return Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
      * 
      */
     public Output<String> queryStatement() {
@@ -35,20 +33,14 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Table configuration.
-     * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-     * If a value is set for `tableConfigurations`, all configuration values must be set.
-     * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+     * Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
      * 
      */
     @Import(name="tableConfigurations")
     private @Nullable Output<Map<String,Map<String,String>>> tableConfigurations;
 
     /**
-     * @return Table configuration.
-     * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-     * If a value is set for `tableConfigurations`, all configuration values must be set.
-     * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+     * @return Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
      * 
      */
     public Optional<Output<Map<String,Map<String,String>>>> tableConfigurations() {
@@ -81,8 +73,7 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param queryStatement Query statement.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+         * @param queryStatement Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
          * 
          * @return builder
          * 
@@ -93,8 +84,7 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param queryStatement Query statement.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+         * @param queryStatement Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
          * 
          * @return builder
          * 
@@ -104,10 +94,7 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tableConfigurations Table configuration.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-         * If a value is set for `tableConfigurations`, all configuration values must be set.
-         * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+         * @param tableConfigurations Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
          * 
          * @return builder
          * 
@@ -118,10 +105,7 @@ public final class ExportExportDataQueryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tableConfigurations Table configuration.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-         * If a value is set for `tableConfigurations`, all configuration values must be set.
-         * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+         * @param tableConfigurations Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
          * 
          * @return builder
          * 

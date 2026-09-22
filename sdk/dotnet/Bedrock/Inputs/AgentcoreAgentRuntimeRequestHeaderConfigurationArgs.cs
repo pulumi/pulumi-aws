@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _requestHeaderAllowlists;
 
         /// <summary>
-        /// A list of HTTP request headers that are allowed to be passed through to the runtime.
+        /// List of HTTP request headers that are allowed to be passed through to the runtime.
         /// </summary>
         public InputList<string> RequestHeaderAllowlists
         {

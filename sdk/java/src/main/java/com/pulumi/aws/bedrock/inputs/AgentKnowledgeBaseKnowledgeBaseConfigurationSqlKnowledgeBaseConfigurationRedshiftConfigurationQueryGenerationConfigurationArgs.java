@@ -32,14 +32,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Configurations for context to use during query generation. See `generationContext` block for details.
+     * Configurations for context to use during query generation. See `generationContext` Block for details.
      * 
      */
     @Import(name="generationContext")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs> generationContext;
 
     /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
+     * @return Configurations for context to use during query generation. See `generationContext` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs>> generationContext() {
@@ -93,7 +93,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param generationContext Configurations for context to use during query generation. See `generationContext` block for details.
+         * @param generationContext Configurations for context to use during query generation. See `generationContext` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param generationContext Configurations for context to use during query generation. See `generationContext` block for details.
+         * @param generationContext Configurations for context to use during query generation. See `generationContext` Block for details.
          * 
          * @return builder
          * 

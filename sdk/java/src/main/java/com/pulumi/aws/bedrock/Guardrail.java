@@ -164,28 +164,28 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return this.blockedOutputsMessaging;
     }
     /**
-     * Content policy config for a guardrail. See Content Policy Config for more information.
+     * Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
      * 
      */
     @Export(name="contentPolicyConfig", refs={GuardrailContentPolicyConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailContentPolicyConfig> contentPolicyConfig;
 
     /**
-     * @return Content policy config for a guardrail. See Content Policy Config for more information.
+     * @return Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
      * 
      */
     public Output<Optional<GuardrailContentPolicyConfig>> contentPolicyConfig() {
         return Codegen.optional(this.contentPolicyConfig);
     }
     /**
-     * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+     * Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
      * 
      */
     @Export(name="contextualGroundingPolicyConfig", refs={GuardrailContextualGroundingPolicyConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailContextualGroundingPolicyConfig> contextualGroundingPolicyConfig;
 
     /**
-     * @return Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+     * @return Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
      * 
      */
     public Output<Optional<GuardrailContextualGroundingPolicyConfig>> contextualGroundingPolicyConfig() {
@@ -205,9 +205,17 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * 
+     */
     @Export(name="crossRegionConfig", refs={GuardrailCrossRegionConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailCrossRegionConfig> crossRegionConfig;
 
+    /**
+     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * 
+     */
     public Output<Optional<GuardrailCrossRegionConfig>> crossRegionConfig() {
         return Codegen.optional(this.crossRegionConfig);
     }
@@ -254,14 +262,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return this.guardrailId;
     }
     /**
-     * The KMS key with which the guardrail was encrypted at rest.
+     * KMS key with which the guardrail was encrypted at rest.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return The KMS key with which the guardrail was encrypted at rest.
+     * @return KMS key with which the guardrail was encrypted at rest.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
@@ -300,14 +308,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+     * Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
      * 
      */
     @Export(name="sensitiveInformationPolicyConfig", refs={GuardrailSensitiveInformationPolicyConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailSensitiveInformationPolicyConfig> sensitiveInformationPolicyConfig;
 
     /**
-     * @return Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+     * @return Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
      * 
      */
     public Output<Optional<GuardrailSensitiveInformationPolicyConfig>> sensitiveInformationPolicyConfig() {
@@ -354,14 +362,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Topic policy config for a guardrail. See Topic Policy Config for more information.
+     * Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
      * 
      */
     @Export(name="topicPolicyConfig", refs={GuardrailTopicPolicyConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailTopicPolicyConfig> topicPolicyConfig;
 
     /**
-     * @return Topic policy config for a guardrail. See Topic Policy Config for more information.
+     * @return Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
      * 
      */
     public Output<Optional<GuardrailTopicPolicyConfig>> topicPolicyConfig() {
@@ -396,14 +404,14 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return this.version;
     }
     /**
-     * Word policy config for a guardrail. See Word Policy Config for more information.
+     * Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
      * 
      */
     @Export(name="wordPolicyConfig", refs={GuardrailWordPolicyConfig.class}, tree="[0]")
     private Output</* @Nullable */ GuardrailWordPolicyConfig> wordPolicyConfig;
 
     /**
-     * @return Word policy config for a guardrail. See Word Policy Config for more information.
+     * @return Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
      * 
      */
     public Output<Optional<GuardrailWordPolicyConfig>> wordPolicyConfig() {

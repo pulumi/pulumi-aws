@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration of the lambda function.
+        /// Configuration of the Lambda function. See `TransformationLambdaConfiguration` Block for details.
         /// </summary>
         [Input("transformationLambdaConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationGetArgs>? TransformationLambdaConfiguration { get; set; }

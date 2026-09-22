@@ -22,14 +22,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     public static final AgentPromptVariantArgs Empty = new AgentPromptVariantArgs();
 
     /**
-     * Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     @Import(name="additionalModelRequestFields")
     private @Nullable Output<String> additionalModelRequestFields;
 
     /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     public Optional<Output<String>> additionalModelRequestFields() {
@@ -37,14 +37,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+     * Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
      * 
      */
     @Import(name="genAiResource")
     private @Nullable Output<AgentPromptVariantGenAiResourceArgs> genAiResource;
 
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+     * @return Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantGenAiResourceArgs>> genAiResource() {
@@ -52,14 +52,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+     * Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
      * 
      */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentPromptVariantInferenceConfigurationArgs> inferenceConfiguration;
 
     /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantInferenceConfigurationArgs>> inferenceConfiguration() {
@@ -67,14 +67,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+     * List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
      * 
      */
     @Import(name="metadatas")
     private @Nullable Output<List<AgentPromptVariantMetadataArgs>> metadatas;
 
     /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+     * @return List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
      * 
      */
     public Optional<Output<List<AgentPromptVariantMetadataArgs>>> metadatas() {
@@ -97,14 +97,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the prompt variant.
+     * Name of the tool.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the prompt variant.
+     * @return Name of the tool.
      * 
      */
     public Output<String> name() {
@@ -112,14 +112,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Contains configurations for the prompt template. See Template Configuration for more information.
+     * Configurations for the prompt template. See `templateConfiguration` Block for more information.
      * 
      */
     @Import(name="templateConfiguration")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationArgs> templateConfiguration;
 
     /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
+     * @return Configurations for the prompt template. See `templateConfiguration` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationArgs>> templateConfiguration() {
@@ -173,7 +173,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalModelRequestFields Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalModelRequestFields Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+         * @param genAiResource Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+         * @param genAiResource Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+         * @param metadatas List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+         * @param metadatas List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param metadatas A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+         * @param metadatas List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of the prompt variant.
+         * @param name Name of the tool.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of the prompt variant.
+         * @param name Name of the tool.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param templateConfiguration Contains configurations for the prompt template. See Template Configuration for more information.
+         * @param templateConfiguration Configurations for the prompt template. See `templateConfiguration` Block for more information.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param templateConfiguration Contains configurations for the prompt template. See Template Configuration for more information.
+         * @param templateConfiguration Configurations for the prompt template. See `templateConfiguration` Block for more information.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     }
 
     /**
-     * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+     * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
      * 
      */
     @Import(name="embeddingModelConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> embeddingModelConfiguration;
 
     /**
-     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs>> embeddingModelConfiguration() {
@@ -63,14 +63,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     }
 
     /**
-     * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+     * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
     /**
-     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
@@ -126,7 +126,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param embeddingModelConfiguration Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+         * @param embeddingModelConfiguration Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param embeddingModelConfiguration Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+         * @param embeddingModelConfiguration Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param serverSideEncryptionConfiguration Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+         * @param serverSideEncryptionConfiguration Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param serverSideEncryptionConfiguration Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+         * @param serverSideEncryptionConfiguration Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
          * 
          * @return builder
          * 

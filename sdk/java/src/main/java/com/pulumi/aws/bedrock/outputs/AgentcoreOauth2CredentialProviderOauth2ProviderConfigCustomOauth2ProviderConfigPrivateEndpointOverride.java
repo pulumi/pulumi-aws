@@ -17,7 +17,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      */
     private String domain;
     /**
-     * @return Private endpoint configuration for the domain. See `privateEndpoint` above.
+     * @return Private endpoint configuration for the domain. See `privateEndpoint` Block above.
      * 
      */
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint privateEndpoint;
@@ -31,7 +31,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return this.domain;
     }
     /**
-     * @return Private endpoint configuration for the domain. See `privateEndpoint` above.
+     * @return Private endpoint configuration for the domain. See `privateEndpoint` Block above.
      * 
      */
     public AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint privateEndpoint() {

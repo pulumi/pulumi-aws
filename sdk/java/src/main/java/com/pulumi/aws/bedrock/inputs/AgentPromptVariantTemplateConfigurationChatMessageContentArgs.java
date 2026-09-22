@@ -16,16 +16,32 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageContentArgs
 
     public static final AgentPromptVariantTemplateConfigurationChatMessageContentArgs Empty = new AgentPromptVariantTemplateConfigurationChatMessageContentArgs();
 
+    /**
+     * Cache checkpoint within a message. See `cachePoint` Block for more information.
+     * 
+     */
     @Import(name="cachePoint")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs> cachePoint;
 
+    /**
+     * @return Cache checkpoint within a message. See `cachePoint` Block for more information.
+     * 
+     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs>> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
 
+    /**
+     * Text in the message.
+     * 
+     */
     @Import(name="text")
     private @Nullable Output<String> text;
 
+    /**
+     * @return Text in the message.
+     * 
+     */
     public Optional<Output<String>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -55,20 +71,44 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageContentArgs
             $ = new AgentPromptVariantTemplateConfigurationChatMessageContentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cachePoint Cache checkpoint within a message. See `cachePoint` Block for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(@Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs> cachePoint) {
             $.cachePoint = cachePoint;
             return this;
         }
 
+        /**
+         * @param cachePoint Cache checkpoint within a message. See `cachePoint` Block for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs cachePoint) {
             return cachePoint(Output.of(cachePoint));
         }
 
+        /**
+         * @param text Text in the message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(@Nullable Output<String> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text Text in the message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(String text) {
             return text(Output.of(text));
         }

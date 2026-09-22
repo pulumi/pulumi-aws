@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
     /**
-     * @return Inline tool definition. See `inlinePayload` Block below.
+     * @return Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> inlinePayloads;
@@ -26,7 +26,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema 
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema() {}
     /**
-     * @return Inline tool definition. See `inlinePayload` Block below.
+     * @return Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> inlinePayloads() {

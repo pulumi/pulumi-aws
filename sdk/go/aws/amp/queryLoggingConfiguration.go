@@ -69,7 +69,7 @@ import (
 type QueryLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for the logging destinations. See `destinations`.
+	// Configuration block for the logging destinations. See `destination`.
 	Destinations QueryLoggingConfigurationDestinationArrayOutput `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                        `pulumi:"region"`
@@ -116,7 +116,7 @@ func GetQueryLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryLoggingConfiguration resources.
 type queryLoggingConfigurationState struct {
-	// Configuration block for the logging destinations. See `destinations`.
+	// Configuration block for the logging destinations. See `destination`.
 	Destinations []QueryLoggingConfigurationDestination `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                            `pulumi:"region"`
@@ -128,7 +128,7 @@ type queryLoggingConfigurationState struct {
 }
 
 type QueryLoggingConfigurationState struct {
-	// Configuration block for the logging destinations. See `destinations`.
+	// Configuration block for the logging destinations. See `destination`.
 	Destinations QueryLoggingConfigurationDestinationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
@@ -144,7 +144,7 @@ func (QueryLoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type queryLoggingConfigurationArgs struct {
-	// Configuration block for the logging destinations. See `destinations`.
+	// Configuration block for the logging destinations. See `destination`.
 	Destinations []QueryLoggingConfigurationDestination `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                            `pulumi:"region"`
@@ -157,7 +157,7 @@ type queryLoggingConfigurationArgs struct {
 
 // The set of arguments for constructing a QueryLoggingConfiguration resource.
 type QueryLoggingConfigurationArgs struct {
-	// Configuration block for the logging destinations. See `destinations`.
+	// Configuration block for the logging destinations. See `destination`.
 	Destinations QueryLoggingConfigurationDestinationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
@@ -255,7 +255,7 @@ func (o QueryLoggingConfigurationOutput) ToQueryLoggingConfigurationOutputWithCo
 	return o
 }
 
-// Configuration block for the logging destinations. See `destinations`.
+// Configuration block for the logging destinations. See `destination`.
 func (o QueryLoggingConfigurationOutput) Destinations() QueryLoggingConfigurationDestinationArrayOutput {
 	return o.ApplyT(func(v *QueryLoggingConfiguration) QueryLoggingConfigurationDestinationArrayOutput {
 		return v.Destinations

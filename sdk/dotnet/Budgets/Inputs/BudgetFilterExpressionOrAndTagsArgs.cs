@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetFilterExpressionOrAndTagsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) The cost category key to filter on.
+        /// Tag key to filter on.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _matchOptions;
 
         /// <summary>
-        /// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        /// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         /// </summary>
         public InputList<string> MatchOptions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// (Optional) A list of cost category values to match. At least one value is required.
+        /// List of tag values to match. At least one value is required.
         /// </summary>
         public InputList<string> Values
         {

@@ -19,7 +19,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      */
     private String stepToApply;
     /**
-     * @return The lambda function that processes documents.
+     * @return Lambda function that processes documents. See `transformationFunction` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction transformationFunction;
@@ -33,7 +33,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         return this.stepToApply;
     }
     /**
-     * @return The lambda function that processes documents.
+     * @return Lambda function that processes documents. See `transformationFunction` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction> transformationFunction() {

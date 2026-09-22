@@ -145,6 +145,8 @@ __all__ = [
     'ServiceDeploymentConfigurationCanaryConfigurationArgsDict',
     'ServiceDeploymentConfigurationLifecycleHookArgs',
     'ServiceDeploymentConfigurationLifecycleHookArgsDict',
+    'ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs',
+    'ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgsDict',
     'ServiceDeploymentConfigurationLinearConfigurationArgs',
     'ServiceDeploymentConfigurationLinearConfigurationArgsDict',
     'ServiceDeploymentControllerArgs',
@@ -5027,53 +5029,59 @@ class ServiceDeploymentConfigurationCanaryConfigurationArgs:
 
 
 class ServiceDeploymentConfigurationLifecycleHookArgsDict(TypedDict):
-    hook_target_arn: pulumi.Input[_builtins.str]
-    """
-    ARN of the Lambda function to invoke for the lifecycle hook.
-    """
     lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-    """
-    role_arn: pulumi.Input[_builtins.str]
-    """
-    ARN of the IAM role that grants the service permission to invoke the Lambda function.
     """
     hook_details: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
     """
+    hook_target_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the Lambda function to invoke for the lifecycle hook. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+    """
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+    """
+    target_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+    """
+    timeout_configuration: NotRequired[pulumi.Input[Optional['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgsDict']]]
+    """
+    Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `target_type` is `PAUSE`. See below.
+    """
 
 @pulumi.input_type
 class ServiceDeploymentConfigurationLifecycleHookArgs:
     def __init__(__self__, *,
-                 hook_target_arn: pulumi.Input[_builtins.str],
                  lifecycle_stages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 role_arn: pulumi.Input[_builtins.str],
-                 hook_details: pulumi.Input[Optional[_builtins.str]] = None):
+                 hook_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 hook_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_configuration: pulumi.Input[Optional['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_stages: Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function.
         :param pulumi.Input[_builtins.str] hook_details: Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
+        :param pulumi.Input[_builtins.str] hook_target_arn: ARN of the Lambda function to invoke for the lifecycle hook. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+        :param pulumi.Input[_builtins.str] target_type: Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+        :param pulumi.Input['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs'] timeout_configuration: Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `target_type` is `PAUSE`. See below.
         """
-        pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
-        pulumi.set(__self__, "role_arn", role_arn)
         if hook_details is not None:
             pulumi.set(__self__, "hook_details", hook_details)
-
-    @_builtins.property
-    @pulumi.getter(name="hookTargetArn")
-    def hook_target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Lambda function to invoke for the lifecycle hook.
-        """
-        return pulumi.get(self, "hook_target_arn")
-
-    @hook_target_arn.setter
-    def hook_target_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hook_target_arn", value)
+        if hook_target_arn is not None:
+            pulumi.set(__self__, "hook_target_arn", hook_target_arn)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+        if timeout_configuration is not None:
+            pulumi.set(__self__, "timeout_configuration", timeout_configuration)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleStages")
@@ -5088,18 +5096,6 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
         pulumi.set(self, "lifecycle_stages", value)
 
     @_builtins.property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role that grants the service permission to invoke the Lambda function.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="hookDetails")
     def hook_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -5110,6 +5106,103 @@ class ServiceDeploymentConfigurationLifecycleHookArgs:
     @hook_details.setter
     def hook_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hook_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hookTargetArn")
+    def hook_target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the Lambda function to invoke for the lifecycle hook. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+        """
+        return pulumi.get(self, "hook_target_arn")
+
+    @hook_target_arn.setter
+    def hook_target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hook_target_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `target_type` is `AWS_LAMBDA`. Not used when `target_type` is `PAUSE`.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutConfiguration")
+    def timeout_configuration(self) -> pulumi.Input[Optional['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs']]:
+        """
+        Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `target_type` is `PAUSE`. See below.
+        """
+        return pulumi.get(self, "timeout_configuration")
+
+    @timeout_configuration.setter
+    def timeout_configuration(self, value: pulumi.Input[Optional['ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs']]):
+        pulumi.set(self, "timeout_configuration", value)
+
+
+class ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+    """
+    timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+    """
+
+@pulumi.input_type
+class ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] action: Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+        :param pulumi.Input[_builtins.str] timeout_in_minutes: Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timeout_in_minutes", value)
 
 
 class ServiceDeploymentConfigurationLinearConfigurationArgsDict(TypedDict):

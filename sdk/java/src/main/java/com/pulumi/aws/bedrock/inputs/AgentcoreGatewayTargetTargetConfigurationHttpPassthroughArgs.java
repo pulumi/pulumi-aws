@@ -50,14 +50,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs 
     }
 
     /**
-     * API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+     * API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs> schema;
 
     /**
-     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs>> schema() {
@@ -181,7 +181,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs 
         }
 
         /**
-         * @param schema API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         * @param schema API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs 
         }
 
         /**
-         * @param schema API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         * @param schema API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
          * 
          * @return builder
          * 

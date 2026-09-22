@@ -21,14 +21,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationArgs();
 
     /**
-     * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+     * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="kendraKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs> kendraKnowledgeBaseConfiguration;
 
     /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs>> kendraKnowledgeBaseConfiguration() {
@@ -36,14 +36,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="managedKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs> managedKnowledgeBaseConfiguration;
 
     /**
-     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs>> managedKnowledgeBaseConfiguration() {
@@ -51,14 +51,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+     * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="sqlKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs> sqlKnowledgeBaseConfiguration;
 
     /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs>> sqlKnowledgeBaseConfiguration() {
@@ -81,14 +81,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+     * Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="vectorKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration;
 
     /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>> vectorKnowledgeBaseConfiguration() {
@@ -124,7 +124,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 

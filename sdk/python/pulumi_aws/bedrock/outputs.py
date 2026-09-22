@@ -253,6 +253,7 @@ __all__ = [
     'AgentcoreAgentRuntimeTimeouts',
     'AgentcoreAgentRuntimeWorkloadIdentityDetail',
     'AgentcoreApiKeyCredentialProviderApiKeySecretArn',
+    'AgentcoreApiKeyCredentialProviderApiKeySecretConfig',
     'AgentcoreBrowserBrowserSigning',
     'AgentcoreBrowserCertificate',
     'AgentcoreBrowserCertificateLocation',
@@ -686,11 +687,8 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
                  custom_control: Optional[_builtins.str] = None,
                  lambda_: Optional[_builtins.str] = None):
         """
-        :param _builtins.str custom_control: Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-               To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-               Only one of `custom_control` or `lambda` can be specified.
-        :param _builtins.str lambda_: ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-               Only one of `lambda` or `custom_control` can be specified.
+        :param _builtins.str custom_control: Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `custom_control` or `lambda` can be specified.
+        :param _builtins.str lambda_: ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `custom_control` can be specified.
         """
         if custom_control is not None:
             pulumi.set(__self__, "custom_control", custom_control)
@@ -701,9 +699,7 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
     @pulumi.getter(name="customControl")
     def custom_control(self) -> Optional[_builtins.str]:
         """
-        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-        To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-        Only one of `custom_control` or `lambda` can be specified.
+        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `custom_control` or `lambda` can be specified.
         """
         return pulumi.get(self, "custom_control")
 
@@ -711,8 +707,7 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[_builtins.str]:
         """
-        ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-        Only one of `lambda` or `custom_control` can be specified.
+        ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `custom_control` can be specified.
         """
         return pulumi.get(self, "lambda_")
 
@@ -723,10 +718,8 @@ class AgentAgentActionGroupApiSchema(dict):
                  payload: Optional[_builtins.str] = None,
                  s3: Optional['outputs.AgentAgentActionGroupApiSchemaS3'] = None):
         """
-        :param _builtins.str payload: JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-               Only one of `payload` or `s3` can be specified.
-        :param 'AgentAgentActionGroupApiSchemaS3Args' s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-               Only one of `s3` or `payload` can be specified.
+        :param _builtins.str payload: JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
+        :param 'AgentAgentActionGroupApiSchemaS3Args' s3: Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
         """
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
@@ -737,8 +730,7 @@ class AgentAgentActionGroupApiSchema(dict):
     @pulumi.getter
     def payload(self) -> Optional[_builtins.str]:
         """
-        JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-        Only one of `payload` or `s3` can be specified.
+        JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
         """
         return pulumi.get(self, "payload")
 
@@ -746,8 +738,7 @@ class AgentAgentActionGroupApiSchema(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentAgentActionGroupApiSchemaS3']:
         """
-        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-        Only one of `s3` or `payload` can be specified.
+        Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
         """
         return pulumi.get(self, "s3")
 
@@ -824,9 +815,7 @@ class AgentAgentActionGroupFunctionSchema(dict):
     def __init__(__self__, *,
                  member_functions: Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions'] = None):
         """
-        :param 'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs' member_functions: Contains a list of functions.
-               Each function describes and action in the action group.
-               See `member_functions` Block for details.
+        :param 'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs' member_functions: List of functions. Each function describes an action in the action group. See `member_functions` Block for details.
         """
         if member_functions is not None:
             pulumi.set(__self__, "member_functions", member_functions)
@@ -835,9 +824,7 @@ class AgentAgentActionGroupFunctionSchema(dict):
     @pulumi.getter(name="memberFunctions")
     def member_functions(self) -> Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions']:
         """
-        Contains a list of functions.
-        Each function describes and action in the action group.
-        See `member_functions` Block for details.
+        List of functions. Each function describes an action in the action group. See `member_functions` Block for details.
         """
         return pulumi.get(self, "member_functions")
 
@@ -1284,9 +1271,9 @@ class AgentAgentMemoryConfiguration(dict):
                  session_summary_configurations: Sequence['outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration'],
                  storage_days: _builtins.int):
         """
-        :param Sequence[_builtins.str] enabled_memory_types: The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        :param Sequence[_builtins.str] enabled_memory_types: Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
         :param Sequence['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs'] session_summary_configurations: Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
-        :param _builtins.int storage_days: The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+        :param _builtins.int storage_days: Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         """
         pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
         pulumi.set(__self__, "session_summary_configurations", session_summary_configurations)
@@ -1296,7 +1283,7 @@ class AgentAgentMemoryConfiguration(dict):
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Sequence[_builtins.str]:
         """
-        The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
         """
         return pulumi.get(self, "enabled_memory_types")
 
@@ -1312,7 +1299,7 @@ class AgentAgentMemoryConfiguration(dict):
     @pulumi.getter(name="storageDays")
     def storage_days(self) -> _builtins.int:
         """
-        The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+        Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         """
         return pulumi.get(self, "storage_days")
 
@@ -1667,12 +1654,12 @@ class AgentDataSourceDataSourceConfiguration(dict):
                  web_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration'] = None):
         """
         :param _builtins.str type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
-        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs' managed_knowledge_base_connector_configuration: Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs' share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationArgs' web_configuration: Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs' managed_knowledge_base_connector_configuration: Configuration details for a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Configuration details for the S3 object that contains the data source. See `s3_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs' share_point_configuration: Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationArgs' web_configuration: Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
@@ -1700,7 +1687,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="confluenceConfiguration")
     def confluence_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration']:
         """
-        Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
         """
         return pulumi.get(self, "confluence_configuration")
 
@@ -1708,7 +1695,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
     def managed_knowledge_base_connector_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration']:
         """
-        Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
+        Configuration details for a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` Block for details.
         """
         return pulumi.get(self, "managed_knowledge_base_connector_configuration")
 
@@ -1716,7 +1703,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration']:
         """
-        Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        Configuration details for the S3 object that contains the data source. See `s3_configuration` Block for details.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -1724,7 +1711,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="salesforceConfiguration")
     def salesforce_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration']:
         """
-        Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+        Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
         """
         return pulumi.get(self, "salesforce_configuration")
 
@@ -1732,7 +1719,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration']:
         """
-        Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+        Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
         """
         return pulumi.get(self, "share_point_configuration")
 
@@ -1740,7 +1727,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="webConfiguration")
     def web_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration']:
         """
-        Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
         """
         return pulumi.get(self, "web_configuration")
 
@@ -1769,6 +1756,10 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfiguration(dict):
     def __init__(__self__, *,
                  crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs' crawler_configuration: Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs' source_configuration: Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+        """
         if crawler_configuration is not None:
             pulumi.set(__self__, "crawler_configuration", crawler_configuration)
         if source_configuration is not None:
@@ -1777,11 +1768,17 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration']:
+        """
+        Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration']:
+        """
+        Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+        """
         return pulumi.get(self, "source_configuration")
 
 
@@ -1807,7 +1804,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
         """
-        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -1816,7 +1813,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration']:
         """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         return pulumi.get(self, "filter_configuration")
 
@@ -1844,8 +1841,8 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
         """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        :param _builtins.str type: Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
@@ -1855,7 +1852,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
         """
         return pulumi.get(self, "type")
 
@@ -1863,7 +1860,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
         """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         return pulumi.get(self, "pattern_object_filters")
 
@@ -1873,9 +1870,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
         """
-        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
+        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -1884,9 +1879,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
         """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
+        Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         return pulumi.get(self, "filters")
 
@@ -1919,7 +1912,9 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
+        :param _builtins.str object_type: Object type or content type of the data source.
+        :param Sequence[_builtins.str] exclusion_filters: One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        :param Sequence[_builtins.str] inclusion_filters: One or more inclusion regular expression patterns to include object types that match the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -1931,18 +1926,24 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-        The supported object type or content type of the data source.
+        Object type or content type of the data source.
         """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        """
         return pulumi.get(self, "exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more inclusion regular expression patterns to include object types that match the pattern.
+        """
         return pulumi.get(self, "inclusion_filters")
 
 
@@ -1977,10 +1978,10 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
                  host_type: _builtins.str,
                  host_url: _builtins.str):
         """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        :param _builtins.str auth_type: Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
+        :param _builtins.str host_type: Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        :param _builtins.str host_url: Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -1991,7 +1992,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
         """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
         """
         return pulumi.get(self, "auth_type")
 
@@ -1999,7 +2000,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -2007,7 +2008,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @pulumi.getter(name="hostType")
     def host_type(self) -> _builtins.str:
         """
-        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
         """
         return pulumi.get(self, "host_type")
 
@@ -2015,7 +2016,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @pulumi.getter(name="hostUrl")
     def host_url(self) -> _builtins.str:
         """
-        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         return pulumi.get(self, "host_url")
 
@@ -2049,8 +2050,8 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
                  media_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration'] = None):
         """
         :param _builtins.str connector_parameters: JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs' deletion_protection_configuration: Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs' media_extraction_configuration: Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs' deletion_protection_configuration: Configuration for deletion protection on the data source. See `deletion_protection_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs' media_extraction_configuration: Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` Block for details.
         """
         if connector_parameters is not None:
             pulumi.set(__self__, "connector_parameters", connector_parameters)
@@ -2071,7 +2072,7 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
     @pulumi.getter(name="deletionProtectionConfiguration")
     def deletion_protection_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration']:
         """
-        Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+        Configuration for deletion protection on the data source. See `deletion_protection_configuration` Block for details.
         """
         return pulumi.get(self, "deletion_protection_configuration")
 
@@ -2079,7 +2080,7 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
     @pulumi.getter(name="mediaExtractionConfiguration")
     def media_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration']:
         """
-        Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` Block for details.
         """
         return pulumi.get(self, "media_extraction_configuration")
 
@@ -2161,9 +2162,9 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
                  image_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration'] = None,
                  video_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration'] = None):
         """
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs' audio_extraction_configuration: Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs' image_extraction_configuration: Configuration for extracting image content. See `image_extraction_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs' video_extraction_configuration: Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs' audio_extraction_configuration: Configuration for extracting audio content. See `audio_extraction_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs' image_extraction_configuration: Configuration for extracting image content. See `image_extraction_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs' video_extraction_configuration: Configuration for extracting video content. See `video_extraction_configuration` Block for details.
         """
         if audio_extraction_configuration is not None:
             pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
@@ -2176,7 +2177,7 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
     @pulumi.getter(name="audioExtractionConfiguration")
     def audio_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration']:
         """
-        Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+        Configuration for extracting audio content. See `audio_extraction_configuration` Block for details.
         """
         return pulumi.get(self, "audio_extraction_configuration")
 
@@ -2184,7 +2185,7 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
     @pulumi.getter(name="imageExtractionConfiguration")
     def image_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration']:
         """
-        Configuration for extracting image content. See `image_extraction_configuration` block for details.
+        Configuration for extracting image content. See `image_extraction_configuration` Block for details.
         """
         return pulumi.get(self, "image_extraction_configuration")
 
@@ -2192,7 +2193,7 @@ class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigu
     @pulumi.getter(name="videoExtractionConfiguration")
     def video_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration']:
         """
-        Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        Configuration for extracting video content. See `video_extraction_configuration` Block for details.
         """
         return pulumi.get(self, "video_extraction_configuration")
 
@@ -2389,6 +2390,10 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfiguration(dict):
     def __init__(__self__, *,
                  crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs' crawler_configuration: Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs' source_configuration: Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+        """
         if crawler_configuration is not None:
             pulumi.set(__self__, "crawler_configuration", crawler_configuration)
         if source_configuration is not None:
@@ -2397,11 +2402,17 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration']:
+        """
+        Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration']:
+        """
+        Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+        """
         return pulumi.get(self, "source_configuration")
 
 
@@ -2427,7 +2438,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
         """
-        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -2436,7 +2447,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration']:
         """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         return pulumi.get(self, "filter_configuration")
 
@@ -2464,8 +2475,8 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
         """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        :param _builtins.str type: Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
@@ -2475,7 +2486,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
         """
         return pulumi.get(self, "type")
 
@@ -2483,7 +2494,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
         """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         return pulumi.get(self, "pattern_object_filters")
 
@@ -2493,9 +2504,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
         """
-        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
+        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -2504,9 +2513,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
         """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
+        Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         return pulumi.get(self, "filters")
 
@@ -2539,7 +2546,9 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
+        :param _builtins.str object_type: Object type or content type of the data source.
+        :param Sequence[_builtins.str] exclusion_filters: One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        :param Sequence[_builtins.str] inclusion_filters: One or more inclusion regular expression patterns to include object types that match the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -2551,18 +2560,24 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-        The supported object type or content type of the data source.
+        Object type or content type of the data source.
         """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        """
         return pulumi.get(self, "exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more inclusion regular expression patterns to include object types that match the pattern.
+        """
         return pulumi.get(self, "inclusion_filters")
 
 
@@ -2594,9 +2609,9 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
                  credentials_secret_arn: _builtins.str,
                  host_url: _builtins.str):
         """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        :param _builtins.str auth_type: Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
+        :param _builtins.str host_url: Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -2606,7 +2621,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
         """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
         """
         return pulumi.get(self, "auth_type")
 
@@ -2614,7 +2629,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -2622,7 +2637,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
     @pulumi.getter(name="hostUrl")
     def host_url(self) -> _builtins.str:
         """
-        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         return pulumi.get(self, "host_url")
 
@@ -2651,6 +2666,10 @@ class AgentDataSourceDataSourceConfigurationSharePointConfiguration(dict):
     def __init__(__self__, *,
                  crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs' crawler_configuration: Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs' source_configuration: Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+        """
         if crawler_configuration is not None:
             pulumi.set(__self__, "crawler_configuration", crawler_configuration)
         if source_configuration is not None:
@@ -2659,11 +2678,17 @@ class AgentDataSourceDataSourceConfigurationSharePointConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration']:
+        """
+        Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration']:
+        """
+        Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+        """
         return pulumi.get(self, "source_configuration")
 
 
@@ -2689,7 +2714,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration'] = None):
         """
-        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -2698,7 +2723,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration']:
         """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
         """
         return pulumi.get(self, "filter_configuration")
 
@@ -2726,8 +2751,8 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
         """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        :param _builtins.str type: Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
@@ -2737,7 +2762,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
         """
         return pulumi.get(self, "type")
 
@@ -2745,7 +2770,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
         """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
         """
         return pulumi.get(self, "pattern_object_filters")
 
@@ -2755,9 +2780,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
         """
-        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
+        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -2766,9 +2789,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
         """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
+        Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
         """
         return pulumi.get(self, "filters")
 
@@ -2801,7 +2822,9 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
+        :param _builtins.str object_type: Object type or content type of the data source.
+        :param Sequence[_builtins.str] exclusion_filters: One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        :param Sequence[_builtins.str] inclusion_filters: One or more inclusion regular expression patterns to include object types that match the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -2813,18 +2836,24 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-        The supported object type or content type of the data source.
+        Object type or content type of the data source.
         """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        """
         return pulumi.get(self, "exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        One or more inclusion regular expression patterns to include object types that match the pattern.
+        """
         return pulumi.get(self, "inclusion_filters")
 
 
@@ -2863,12 +2892,12 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
                  site_urls: Sequence[_builtins.str],
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str domain: The domain of your SharePoint instance or site URL/URLs.
-        :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        :param Sequence[_builtins.str] site_urls: A list of one or more SharePoint site URLs.
-        :param _builtins.str tenant_id: The identifier of your Microsoft 365 tenant.
+        :param _builtins.str auth_type: Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
+        :param _builtins.str domain: Domain of your SharePoint instance or site URL/URLs.
+        :param _builtins.str host_type: Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        :param Sequence[_builtins.str] site_urls: One or more SharePoint site URLs.
+        :param _builtins.str tenant_id: Identifier of your Microsoft 365 tenant.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -2882,7 +2911,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
         """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
         """
         return pulumi.get(self, "auth_type")
 
@@ -2890,7 +2919,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -2898,7 +2927,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter
     def domain(self) -> _builtins.str:
         """
-        The domain of your SharePoint instance or site URL/URLs.
+        Domain of your SharePoint instance or site URL/URLs.
         """
         return pulumi.get(self, "domain")
 
@@ -2906,7 +2935,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="hostType")
     def host_type(self) -> _builtins.str:
         """
-        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
         """
         return pulumi.get(self, "host_type")
 
@@ -2914,7 +2943,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="siteUrls")
     def site_urls(self) -> Sequence[_builtins.str]:
         """
-        A list of one or more SharePoint site URLs.
+        One or more SharePoint site URLs.
         """
         return pulumi.get(self, "site_urls")
 
@@ -2922,7 +2951,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
         """
-        The identifier of your Microsoft 365 tenant.
+        Identifier of your Microsoft 365 tenant.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2951,6 +2980,10 @@ class AgentDataSourceDataSourceConfigurationWebConfiguration(dict):
     def __init__(__self__, *,
                  crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs' crawler_configuration: Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs' source_configuration: Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+        """
         if crawler_configuration is not None:
             pulumi.set(__self__, "crawler_configuration", crawler_configuration)
         if source_configuration is not None:
@@ -2959,11 +2992,17 @@ class AgentDataSourceDataSourceConfigurationWebConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration']:
+        """
+        Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+        """
         return pulumi.get(self, "crawler_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration']:
+        """
+        Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+        """
         return pulumi.get(self, "source_configuration")
 
 
@@ -2999,11 +3038,11 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
                  scope: Optional[_builtins.str] = None,
                  user_agent: Optional[_builtins.str] = None):
         """
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs' crawler_limits: Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
-        :param Sequence[_builtins.str] exclusion_filters: List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param Sequence[_builtins.str] inclusion_filters: List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs' crawler_limits: Configuration of crawl limits for the web URLs. See `crawler_limits` Block for details.
+        :param Sequence[_builtins.str] exclusion_filters: List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+        :param Sequence[_builtins.str] inclusion_filters: List of one or more inclusion regular expression patterns to include object types that match the pattern.
         :param _builtins.str scope: Scope of what is crawled for your URLs.
-        :param _builtins.str user_agent: String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        :param _builtins.str user_agent: String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
         """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -3020,7 +3059,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="crawlerLimits")
     def crawler_limits(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits']:
         """
-        Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        Configuration of crawl limits for the web URLs. See `crawler_limits` Block for details.
         """
         return pulumi.get(self, "crawler_limits")
 
@@ -3028,7 +3067,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
         """
         return pulumi.get(self, "exclusion_filters")
 
@@ -3036,7 +3075,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        List of one or more inclusion regular expression patterns to include object types that match the pattern.
         """
         return pulumi.get(self, "inclusion_filters")
 
@@ -3052,7 +3091,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="userAgent")
     def user_agent(self) -> Optional[_builtins.str]:
         """
-        String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
         """
         return pulumi.get(self, "user_agent")
 
@@ -3129,7 +3168,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration(
     def __init__(__self__, *,
                  url_configuration: 'outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration'):
         """
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs' url_configuration: The URL configuration of your web data source. See `url_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs' url_configuration: URL configuration of your web data source. See `url_configuration` Block for details.
         """
         pulumi.set(__self__, "url_configuration", url_configuration)
 
@@ -3137,7 +3176,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration(
     @pulumi.getter(name="urlConfiguration")
     def url_configuration(self) -> 'outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration':
         """
-        The URL configuration of your web data source. See `url_configuration` block for details.
+        URL configuration of your web data source. See `url_configuration` Block for details.
         """
         return pulumi.get(self, "url_configuration")
 
@@ -3164,7 +3203,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationU
     def __init__(__self__, *,
                  seed_urls: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']] = None):
         """
-        :param Sequence['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs'] seed_urls: List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        :param Sequence['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs'] seed_urls: List of one or more seed URLs to crawl. See `seed_urls` Block for details.
         """
         if seed_urls is not None:
             pulumi.set(__self__, "seed_urls", seed_urls)
@@ -3173,7 +3212,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationU
     @pulumi.getter(name="seedUrls")
     def seed_urls(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']]:
         """
-        List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        List of one or more seed URLs to crawl. See `seed_urls` Block for details.
         """
         return pulumi.get(self, "seed_urls")
 
@@ -3304,9 +3343,9 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
                  custom_transformation_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration'] = None,
                  parsing_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration'] = None):
         """
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs' chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs' custom_transformation_configuration: Configuration for custom transformation of data source documents.
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs' parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs' chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs' custom_transformation_configuration: Configuration for custom transformation of data source documents. See `custom_transformation_configuration` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs' parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` Block for details.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
@@ -3319,7 +3358,7 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
     @pulumi.getter(name="chunkingConfiguration")
     def chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration']:
         """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` Block for details.
         """
         return pulumi.get(self, "chunking_configuration")
 
@@ -3327,7 +3366,7 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
     @pulumi.getter(name="customTransformationConfiguration")
     def custom_transformation_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration']:
         """
-        Configuration for custom transformation of data source documents.
+        Configuration for custom transformation of data source documents. See `custom_transformation_configuration` Block for details.
         """
         return pulumi.get(self, "custom_transformation_configuration")
 
@@ -3335,7 +3374,7 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
     @pulumi.getter(name="parsingConfiguration")
     def parsing_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration']:
         """
-        Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+        Configuration for custom parsing of data source documents. See `parsing_configuration` Block for details.
         """
         return pulumi.get(self, "parsing_configuration")
 
@@ -3372,9 +3411,9 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
                  semantic_chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration'] = None):
         """
         :param _builtins.str chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs' fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs' hierarchical_chunking_configuration: Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs' semantic_chunking_configuration: Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs' fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. Requires `chunking_strategy` as `FIXED_SIZE`. See `fixed_size_chunking_configuration` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs' hierarchical_chunking_configuration: Configurations for when you choose hierarchical chunking. Requires `chunking_strategy` as `HIERARCHICAL`. See `hierarchical_chunking_configuration` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs' semantic_chunking_configuration: Configurations for when you choose semantic chunking. Requires `chunking_strategy` as `SEMANTIC`. See `semantic_chunking_configuration` Block for details.
         """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
@@ -3396,7 +3435,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
     @pulumi.getter(name="fixedSizeChunkingConfiguration")
     def fixed_size_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration']:
         """
-        Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
+        Configurations for when you choose fixed-size chunking. Requires `chunking_strategy` as `FIXED_SIZE`. See `fixed_size_chunking_configuration` Block for details.
         """
         return pulumi.get(self, "fixed_size_chunking_configuration")
 
@@ -3404,7 +3443,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
     @pulumi.getter(name="hierarchicalChunkingConfiguration")
     def hierarchical_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration']:
         """
-        Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        Configurations for when you choose hierarchical chunking. Requires `chunking_strategy` as `HIERARCHICAL`. See `hierarchical_chunking_configuration` Block for details.
         """
         return pulumi.get(self, "hierarchical_chunking_configuration")
 
@@ -3412,7 +3451,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
     @pulumi.getter(name="semanticChunkingConfiguration")
     def semantic_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration']:
         """
-        Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+        Configurations for when you choose semantic chunking. Requires `chunking_strategy` as `SEMANTIC`. See `semantic_chunking_configuration` Block for details.
         """
         return pulumi.get(self, "semantic_chunking_configuration")
 
@@ -3490,8 +3529,8 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
                  overlap_tokens: _builtins.int,
                  level_configurations: Optional[Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']] = None):
         """
-        :param _builtins.int overlap_tokens: The number of tokens to repeat across chunks in the same layer.
-        :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        :param _builtins.int overlap_tokens: Number of tokens to repeat across chunks in the same layer.
+        :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Token settings for each layer. Must contain two `level_configuration` blocks. See `level_configuration` Block for details.
         """
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
         if level_configurations is not None:
@@ -3501,7 +3540,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     @pulumi.getter(name="overlapTokens")
     def overlap_tokens(self) -> _builtins.int:
         """
-        The number of tokens to repeat across chunks in the same layer.
+        Number of tokens to repeat across chunks in the same layer.
         """
         return pulumi.get(self, "overlap_tokens")
 
@@ -3509,7 +3548,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     @pulumi.getter(name="levelConfigurations")
     def level_configurations(self) -> Optional[Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']]:
         """
-        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        Token settings for each layer. Must contain two `level_configuration` blocks. See `level_configuration` Block for details.
         """
         return pulumi.get(self, "level_configurations")
 
@@ -3536,7 +3575,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     def __init__(__self__, *,
                  max_tokens: _builtins.int):
         """
-        :param _builtins.int max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        :param _builtins.int max_tokens: Maximum number of tokens that a chunk can contain in this layer.
         """
         pulumi.set(__self__, "max_tokens", max_tokens)
 
@@ -3544,7 +3583,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> _builtins.int:
         """
-        The maximum number of tokens that a chunk can contain in this layer.
+        Maximum number of tokens that a chunk can contain in this layer.
         """
         return pulumi.get(self, "max_tokens")
 
@@ -3577,9 +3616,9 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
                  buffer_size: _builtins.int,
                  max_token: _builtins.int):
         """
-        :param _builtins.int breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
-        :param _builtins.int buffer_size: The buffer size.
-        :param _builtins.int max_token: The maximum number of tokens a chunk can contain.
+        :param _builtins.int breakpoint_percentile_threshold: Dissimilarity threshold for splitting chunks.
+        :param _builtins.int buffer_size: Buffer size.
+        :param _builtins.int max_token: Maximum number of tokens a chunk can contain.
         """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
@@ -3589,7 +3628,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @pulumi.getter(name="breakpointPercentileThreshold")
     def breakpoint_percentile_threshold(self) -> _builtins.int:
         """
-        The dissimilarity threshold for splitting chunks.
+        Dissimilarity threshold for splitting chunks.
         """
         return pulumi.get(self, "breakpoint_percentile_threshold")
 
@@ -3597,7 +3636,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @pulumi.getter(name="bufferSize")
     def buffer_size(self) -> _builtins.int:
         """
-        The buffer size.
+        Buffer size.
         """
         return pulumi.get(self, "buffer_size")
 
@@ -3605,7 +3644,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @pulumi.getter(name="maxToken")
     def max_token(self) -> _builtins.int:
         """
-        The maximum number of tokens a chunk can contain.
+        Maximum number of tokens a chunk can contain.
         """
         return pulumi.get(self, "max_token")
 
@@ -3633,8 +3672,8 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
                  intermediate_storage: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage'] = None,
                  transformation: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation'] = None):
         """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs' intermediate_storage: The intermediate storage for custom transformation.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs' transformation: A custom processing step for documents moving through the data source ingestion pipeline.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs' intermediate_storage: Intermediate storage for custom transformation. See `intermediate_storage` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs' transformation: Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
         """
         if intermediate_storage is not None:
             pulumi.set(__self__, "intermediate_storage", intermediate_storage)
@@ -3645,7 +3684,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="intermediateStorage")
     def intermediate_storage(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage']:
         """
-        The intermediate storage for custom transformation.
+        Intermediate storage for custom transformation. See `intermediate_storage` Block for details.
         """
         return pulumi.get(self, "intermediate_storage")
 
@@ -3653,7 +3692,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter
     def transformation(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation']:
         """
-        A custom processing step for documents moving through the data source ingestion pipeline.
+        Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
         """
         return pulumi.get(self, "transformation")
 
@@ -3680,7 +3719,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  s3_location: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location'] = None):
         """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs' s3_location: Configuration block for intermedia S3 storage.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs' s3_location: Configuration block for intermediate S3 storage. See `s3_location` Block for details.
         """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
@@ -3689,7 +3728,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location']:
         """
-        Configuration block for intermedia S3 storage.
+        Configuration block for intermediate S3 storage. See `s3_location` Block for details.
         """
         return pulumi.get(self, "s3_location")
 
@@ -3738,7 +3777,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
                  transformation_function: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction'] = None):
         """
         :param _builtins.str step_to_apply: When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: The lambda function that processes documents.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: Lambda function that processes documents. See `transformation_function` Block for details.
         """
         pulumi.set(__self__, "step_to_apply", step_to_apply)
         if transformation_function is not None:
@@ -3756,7 +3795,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="transformationFunction")
     def transformation_function(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction']:
         """
-        The lambda function that processes documents.
+        Lambda function that processes documents. See `transformation_function` Block for details.
         """
         return pulumi.get(self, "transformation_function")
 
@@ -3783,7 +3822,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  transformation_lambda_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration'] = None):
         """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: The configuration of the lambda function.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: Configuration of the Lambda function. See `transformation_lambda_configuration` Block for details.
         """
         if transformation_lambda_configuration is not None:
             pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
@@ -3792,7 +3831,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="transformationLambdaConfiguration")
     def transformation_lambda_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration']:
         """
-        The configuration of the lambda function.
+        Configuration of the Lambda function. See `transformation_lambda_configuration` Block for details.
         """
         return pulumi.get(self, "transformation_lambda_configuration")
 
@@ -3819,7 +3858,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  lambda_arn: _builtins.str):
         """
-        :param _builtins.str lambda_arn: The ARN of the lambda to use for custom transformation.
+        :param _builtins.str lambda_arn: ARN of the Lambda to use for custom transformation.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
@@ -3827,7 +3866,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
         """
-        The ARN of the lambda to use for custom transformation.
+        ARN of the Lambda to use for custom transformation.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -3860,9 +3899,9 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
                  bedrock_data_automation_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration'] = None,
                  bedrock_foundation_model_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration'] = None):
         """
-        :param _builtins.str parsing_strategy: The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs' bedrock_data_automation_configuration: Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs' bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        :param _builtins.str parsing_strategy: Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs' bedrock_data_automation_configuration: Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` Block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs' bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` Block for details.
         """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
         if bedrock_data_automation_configuration is not None:
@@ -3874,7 +3913,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
     @pulumi.getter(name="parsingStrategy")
     def parsing_strategy(self) -> _builtins.str:
         """
-        The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
         """
         return pulumi.get(self, "parsing_strategy")
 
@@ -3882,7 +3921,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
     @pulumi.getter(name="bedrockDataAutomationConfiguration")
     def bedrock_data_automation_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration']:
         """
-        Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
+        Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` Block for details.
         """
         return pulumi.get(self, "bedrock_data_automation_configuration")
 
@@ -3890,7 +3929,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
     def bedrock_foundation_model_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration']:
         """
-        Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` Block for details.
         """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
@@ -3917,7 +3956,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockData
     def __init__(__self__, *,
                  parsing_modality: Optional[_builtins.str] = None):
         """
-        :param _builtins.str parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        :param _builtins.str parsing_modality: Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
         """
         if parsing_modality is not None:
             pulumi.set(__self__, "parsing_modality", parsing_modality)
@@ -3926,7 +3965,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockData
     @pulumi.getter(name="parsingModality")
     def parsing_modality(self) -> Optional[_builtins.str]:
         """
-        Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
         """
         return pulumi.get(self, "parsing_modality")
 
@@ -3959,9 +3998,9 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
                  parsing_modality: Optional[_builtins.str] = None,
                  parsing_prompt: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt'] = None):
         """
-        :param _builtins.str model_arn: The ARN of the model used to parse documents
-        :param _builtins.str parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs' parsing_prompt: Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        :param _builtins.str model_arn: ARN of the model used to parse documents.
+        :param _builtins.str parsing_modality: Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs' parsing_prompt: Instructions for interpreting the contents of the document. See `parsing_prompt` Block for details.
         """
         pulumi.set(__self__, "model_arn", model_arn)
         if parsing_modality is not None:
@@ -3973,7 +4012,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The ARN of the model used to parse documents
+        ARN of the model used to parse documents.
         """
         return pulumi.get(self, "model_arn")
 
@@ -3981,7 +4020,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @pulumi.getter(name="parsingModality")
     def parsing_modality(self) -> Optional[_builtins.str]:
         """
-        Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+        Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
         """
         return pulumi.get(self, "parsing_modality")
 
@@ -3989,7 +4028,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @pulumi.getter(name="parsingPrompt")
     def parsing_prompt(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt']:
         """
-        Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        Instructions for interpreting the contents of the document. See `parsing_prompt` Block for details.
         """
         return pulumi.get(self, "parsing_prompt")
 
@@ -4035,8 +4074,8 @@ class AgentFlowDefinition(dict):
                  connections: Optional[Sequence['outputs.AgentFlowDefinitionConnection']] = None,
                  nodes: Optional[Sequence['outputs.AgentFlowDefinitionNode']] = None):
         """
-        :param Sequence['AgentFlowDefinitionConnectionArgs'] connections: A list of connection definitions in the flow. See Connection for more information.
-        :param Sequence['AgentFlowDefinitionNodeArgs'] nodes: A list of node definitions in the flow. See Node for more information.
+        :param Sequence['AgentFlowDefinitionConnectionArgs'] connections: List of connection definitions in the flow. See `definition.connection` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeArgs'] nodes: List of node definitions in the flow. See `definition.node` Block for details.
         """
         if connections is not None:
             pulumi.set(__self__, "connections", connections)
@@ -4047,7 +4086,7 @@ class AgentFlowDefinition(dict):
     @pulumi.getter
     def connections(self) -> Optional[Sequence['outputs.AgentFlowDefinitionConnection']]:
         """
-        A list of connection definitions in the flow. See Connection for more information.
+        List of connection definitions in the flow. See `definition.connection` Block for details.
         """
         return pulumi.get(self, "connections")
 
@@ -4055,7 +4094,7 @@ class AgentFlowDefinition(dict):
     @pulumi.getter
     def nodes(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNode']]:
         """
-        A list of node definitions in the flow. See Node for more information.
+        List of node definitions in the flow. See `definition.node` Block for details.
         """
         return pulumi.get(self, "nodes")
 
@@ -4069,11 +4108,13 @@ class AgentFlowDefinitionConnection(dict):
                  type: _builtins.str,
                  configuration: Optional['outputs.AgentFlowDefinitionConnectionConfiguration'] = None):
         """
-        :param _builtins.str name: A name for the connection that you can reference.
-        :param _builtins.str source: The node that the connection starts at.
-        :param _builtins.str target: The node that the connection ends at.
-        :param _builtins.str type: Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-        :param 'AgentFlowDefinitionConnectionConfigurationArgs' configuration: Configuration of the connection. See Connection Configuration for more information.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str source: Node that the connection starts at.
+        :param _builtins.str target: Node that the connection ends at.
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
+        :param 'AgentFlowDefinitionConnectionConfigurationArgs' configuration: Configurations for the node. See `definition.node.configuration` Block for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
@@ -4086,7 +4127,9 @@ class AgentFlowDefinitionConnection(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A name for the connection that you can reference.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -4094,7 +4137,7 @@ class AgentFlowDefinitionConnection(dict):
     @pulumi.getter
     def source(self) -> _builtins.str:
         """
-        The node that the connection starts at.
+        Node that the connection starts at.
         """
         return pulumi.get(self, "source")
 
@@ -4102,7 +4145,7 @@ class AgentFlowDefinitionConnection(dict):
     @pulumi.getter
     def target(self) -> _builtins.str:
         """
-        The node that the connection ends at.
+        Node that the connection ends at.
         """
         return pulumi.get(self, "target")
 
@@ -4110,7 +4153,7 @@ class AgentFlowDefinitionConnection(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -4118,7 +4161,7 @@ class AgentFlowDefinitionConnection(dict):
     @pulumi.getter
     def configuration(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfiguration']:
         """
-        Configuration of the connection. See Connection Configuration for more information.
+        Configurations for the node. See `definition.node.configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -4129,8 +4172,8 @@ class AgentFlowDefinitionConnectionConfiguration(dict):
                  conditional: Optional['outputs.AgentFlowDefinitionConnectionConfigurationConditional'] = None,
                  data: Optional['outputs.AgentFlowDefinitionConnectionConfigurationData'] = None):
         """
-        :param 'AgentFlowDefinitionConnectionConfigurationConditionalArgs' conditional: The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-        :param 'AgentFlowDefinitionConnectionConfigurationDataArgs' data: The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+        :param 'AgentFlowDefinitionConnectionConfigurationConditionalArgs' conditional: Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
+        :param 'AgentFlowDefinitionConnectionConfigurationDataArgs' data: Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
         """
         if conditional is not None:
             pulumi.set(__self__, "conditional", conditional)
@@ -4141,7 +4184,7 @@ class AgentFlowDefinitionConnectionConfiguration(dict):
     @pulumi.getter
     def conditional(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfigurationConditional']:
         """
-        The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+        Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
         """
         return pulumi.get(self, "conditional")
 
@@ -4149,7 +4192,7 @@ class AgentFlowDefinitionConnectionConfiguration(dict):
     @pulumi.getter
     def data(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfigurationData']:
         """
-        The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+        Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
         """
         return pulumi.get(self, "data")
 
@@ -4159,7 +4202,7 @@ class AgentFlowDefinitionConnectionConfigurationConditional(dict):
     def __init__(__self__, *,
                  condition: _builtins.str):
         """
-        :param _builtins.str condition: The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        :param _builtins.str condition: List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         """
         pulumi.set(__self__, "condition", condition)
 
@@ -4167,7 +4210,7 @@ class AgentFlowDefinitionConnectionConfigurationConditional(dict):
     @pulumi.getter
     def condition(self) -> _builtins.str:
         """
-        The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         """
         return pulumi.get(self, "condition")
 
@@ -4197,8 +4240,8 @@ class AgentFlowDefinitionConnectionConfigurationData(dict):
                  source_output: _builtins.str,
                  target_input: _builtins.str):
         """
-        :param _builtins.str source_output: The name of the output in the source node that the connection begins from.
-        :param _builtins.str target_input: The name of the input in the target node that the connection ends at.
+        :param _builtins.str source_output: Name of the output in the source node that the connection begins from.
+        :param _builtins.str target_input: Name of the input in the target node that the connection ends at.
         """
         pulumi.set(__self__, "source_output", source_output)
         pulumi.set(__self__, "target_input", target_input)
@@ -4207,7 +4250,7 @@ class AgentFlowDefinitionConnectionConfigurationData(dict):
     @pulumi.getter(name="sourceOutput")
     def source_output(self) -> _builtins.str:
         """
-        The name of the output in the source node that the connection begins from.
+        Name of the output in the source node that the connection begins from.
         """
         return pulumi.get(self, "source_output")
 
@@ -4215,7 +4258,7 @@ class AgentFlowDefinitionConnectionConfigurationData(dict):
     @pulumi.getter(name="targetInput")
     def target_input(self) -> _builtins.str:
         """
-        The name of the input in the target node that the connection ends at.
+        Name of the input in the target node that the connection ends at.
         """
         return pulumi.get(self, "target_input")
 
@@ -4229,11 +4272,13 @@ class AgentFlowDefinitionNode(dict):
                  inputs: Optional[Sequence['outputs.AgentFlowDefinitionNodeInput']] = None,
                  outputs: Optional[Sequence['outputs.AgentFlowDefinitionNodeOutput']] = None):
         """
-        :param _builtins.str name: A name for the node.
-        :param _builtins.str type: Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-        :param 'AgentFlowDefinitionNodeConfigurationArgs' configuration: Contains configurations for the node. See Node Configuration for more information.
-        :param Sequence['AgentFlowDefinitionNodeInputArgs'] inputs: A list of objects containing information about an input into the node. See Node Input for more information.
-        :param Sequence['AgentFlowDefinitionNodeOutputArgs'] outputs: A list of objects containing information about an output from the node. See Node Output for more information.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
+        :param 'AgentFlowDefinitionNodeConfigurationArgs' configuration: Configurations for the node. See `definition.node.configuration` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeInputArgs'] inputs: Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+        :param Sequence['AgentFlowDefinitionNodeOutputArgs'] outputs: Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -4248,7 +4293,9 @@ class AgentFlowDefinitionNode(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A name for the node.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -4256,7 +4303,7 @@ class AgentFlowDefinitionNode(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -4264,7 +4311,7 @@ class AgentFlowDefinitionNode(dict):
     @pulumi.getter
     def configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfiguration']:
         """
-        Contains configurations for the node. See Node Configuration for more information.
+        Configurations for the node. See `definition.node.configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -4272,7 +4319,7 @@ class AgentFlowDefinitionNode(dict):
     @pulumi.getter
     def inputs(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeInput']]:
         """
-        A list of objects containing information about an input into the node. See Node Input for more information.
+        Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
         """
         return pulumi.get(self, "inputs")
 
@@ -4280,7 +4327,7 @@ class AgentFlowDefinitionNode(dict):
     @pulumi.getter
     def outputs(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeOutput']]:
         """
-        A list of objects containing information about an output from the node. See Node Output for more information.
+        Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
         """
         return pulumi.get(self, "outputs")
 
@@ -4323,19 +4370,19 @@ class AgentFlowDefinitionNodeConfiguration(dict):
                  retrieval: Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrieval'] = None,
                  storage: Optional['outputs.AgentFlowDefinitionNodeConfigurationStorage'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationAgentArgs' agent: Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationCollectorArgs' collector: Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationConditionArgs' condition: Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationInlineCodeArgs' inline_code: Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationInputArgs' input: Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationIteratorArgs' iterator: Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs' knowledge_base: Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs' lambda_function: Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationLexArgs' lex: Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationOutputArgs' output: Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptArgs' prompt: Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationRetrievalArgs' retrieval: Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationStorageArgs' storage: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationAgentArgs' agent: Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationCollectorArgs' collector: Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationConditionArgs' condition: List of conditions. See `definition.node.configuration.condition.condition` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationInlineCodeArgs' inline_code: Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationInputArgs' input: Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationIteratorArgs' iterator: Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs' knowledge_base: Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs' lambda_function: Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationLexArgs' lex: Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationOutputArgs' output: Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptArgs' prompt: Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationRetrievalArgs' retrieval: Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationStorageArgs' storage: Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
         """
         if agent is not None:
             pulumi.set(__self__, "agent", agent)
@@ -4368,7 +4415,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def agent(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationAgent']:
         """
-        Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+        Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
         """
         return pulumi.get(self, "agent")
 
@@ -4376,7 +4423,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def collector(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationCollector']:
         """
-        Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
         """
         return pulumi.get(self, "collector")
 
@@ -4384,7 +4431,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def condition(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationCondition']:
         """
-        Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+        List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         """
         return pulumi.get(self, "condition")
 
@@ -4392,7 +4439,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter(name="inlineCode")
     def inline_code(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationInlineCode']:
         """
-        Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+        Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
         """
         return pulumi.get(self, "inline_code")
 
@@ -4400,7 +4447,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def input(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationInput']:
         """
-        Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+        Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
         """
         return pulumi.get(self, "input")
 
@@ -4408,7 +4455,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def iterator(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationIterator']:
         """
-        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+        Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
         """
         return pulumi.get(self, "iterator")
 
@@ -4416,7 +4463,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter(name="knowledgeBase")
     def knowledge_base(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBase']:
         """
-        Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+        Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
         """
         return pulumi.get(self, "knowledge_base")
 
@@ -4424,7 +4471,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter(name="lambdaFunction")
     def lambda_function(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationLambdaFunction']:
         """
-        Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+        Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
         """
         return pulumi.get(self, "lambda_function")
 
@@ -4432,7 +4479,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def lex(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationLex']:
         """
-        Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
         """
         return pulumi.get(self, "lex")
 
@@ -4440,7 +4487,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def output(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationOutput']:
         """
-        Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+        Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
         """
         return pulumi.get(self, "output")
 
@@ -4448,7 +4495,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def prompt(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPrompt']:
         """
-        Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+        Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
         """
         return pulumi.get(self, "prompt")
 
@@ -4456,7 +4503,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def retrieval(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrieval']:
         """
-        Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+        Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
         """
         return pulumi.get(self, "retrieval")
 
@@ -4464,7 +4511,7 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @pulumi.getter
     def storage(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationStorage']:
         """
-        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
         """
         return pulumi.get(self, "storage")
 
@@ -4515,7 +4562,7 @@ class AgentFlowDefinitionNodeConfigurationCondition(dict):
     def __init__(__self__, *,
                  conditions: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']] = None):
         """
-        :param Sequence['AgentFlowDefinitionNodeConfigurationConditionConditionArgs'] conditions: A list of conditions. See Condition Config for more information.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationConditionConditionArgs'] conditions: List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -4524,7 +4571,7 @@ class AgentFlowDefinitionNodeConfigurationCondition(dict):
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationConditionCondition']]:
         """
-        A list of conditions. See Condition Config for more information.
+        List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         """
         return pulumi.get(self, "conditions")
 
@@ -4535,7 +4582,10 @@ class AgentFlowDefinitionNodeConfigurationConditionCondition(dict):
                  name: _builtins.str,
                  expression: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: A name for the flow.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str expression: Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
         """
         pulumi.set(__self__, "name", name)
         if expression is not None:
@@ -4545,13 +4595,18 @@ class AgentFlowDefinitionNodeConfigurationConditionCondition(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A name for the flow.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[_builtins.str]:
+        """
+        Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        """
         return pulumi.get(self, "expression")
 
 
@@ -4561,8 +4616,8 @@ class AgentFlowDefinitionNodeConfigurationInlineCode(dict):
                  code: _builtins.str,
                  language: _builtins.str):
         """
-        :param _builtins.str code: The code that's executed in your inline code node.
-        :param _builtins.str language: The programming language used by your inline code node.
+        :param _builtins.str code: Code that's executed in your inline code node.
+        :param _builtins.str language: Programming language used by your inline code node.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "language", language)
@@ -4571,7 +4626,7 @@ class AgentFlowDefinitionNodeConfigurationInlineCode(dict):
     @pulumi.getter
     def code(self) -> _builtins.str:
         """
-        The code that's executed in your inline code node.
+        Code that's executed in your inline code node.
         """
         return pulumi.get(self, "code")
 
@@ -4579,7 +4634,7 @@ class AgentFlowDefinitionNodeConfigurationInlineCode(dict):
     @pulumi.getter
     def language(self) -> _builtins.str:
         """
-        The programming language used by your inline code node.
+        Programming language used by your inline code node.
         """
         return pulumi.get(self, "language")
 
@@ -4630,10 +4685,11 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
                  inference_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration'] = None,
                  number_of_results: Optional[_builtins.int] = None):
         """
-        :param _builtins.str knowledge_base_id: The unique identifier of the knowledge base to query.
-        :param _builtins.str model_id: The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs' guardrail_configuration: Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs' inference_configuration: Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+        :param _builtins.str knowledge_base_id: Unique identifier of the knowledge base to query.
+        :param _builtins.str model_id: Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs' guardrail_configuration: Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs' inference_configuration: Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
+        :param _builtins.int number_of_results: Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         pulumi.set(__self__, "model_id", model_id)
@@ -4648,7 +4704,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> _builtins.str:
         """
-        The unique identifier of the knowledge base to query.
+        Unique identifier of the knowledge base to query.
         """
         return pulumi.get(self, "knowledge_base_id")
 
@@ -4656,7 +4712,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
         """
-        The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+        Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         """
         return pulumi.get(self, "model_id")
 
@@ -4664,7 +4720,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration']:
         """
-        Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+        Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
         """
         return pulumi.get(self, "guardrail_configuration")
 
@@ -4672,13 +4728,16 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration']:
         """
-        Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+        Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
         """
         return pulumi.get(self, "inference_configuration")
 
     @_builtins.property
     @pulumi.getter(name="numberOfResults")
     def number_of_results(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+        """
         return pulumi.get(self, "number_of_results")
 
 
@@ -4707,8 +4766,8 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration(di
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
         """
-        :param _builtins.str guardrail_identifier: The unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: The version of the guardrail.
+        :param _builtins.str guardrail_identifier: Unique identifier of the guardrail.
+        :param _builtins.str guardrail_version: Version of the guardrail.
         """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
@@ -4717,7 +4776,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration(di
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
         """
-        The unique identifier of the guardrail.
+        Unique identifier of the guardrail.
         """
         return pulumi.get(self, "guardrail_identifier")
 
@@ -4725,7 +4784,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration(di
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
         """
-        The version of the guardrail.
+        Version of the guardrail.
         """
         return pulumi.get(self, "guardrail_version")
 
@@ -4735,7 +4794,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration(di
     def __init__(__self__, *,
                  text: Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs' text: Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs' text: Message for the prompt.
         """
         if text is not None:
             pulumi.set(__self__, "text", text)
@@ -4744,7 +4803,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration(di
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText']:
         """
-        Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -4779,7 +4838,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTex
                  top_p: Optional[_builtins.float] = None):
         """
         :param _builtins.int max_tokens: Maximum number of tokens to return in the response.
-        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
+        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model stops generating.
         :param _builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
         :param _builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
         """
@@ -4804,7 +4863,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTex
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of strings that define sequences after which the model will stop generating.
+        List of strings that define sequences after which the model stops generating.
         """
         return pulumi.get(self, "stop_sequences")
 
@@ -4886,7 +4945,7 @@ class AgentFlowDefinitionNodeConfigurationLex(dict):
                  locale_id: _builtins.str):
         """
         :param _builtins.str bot_alias_arn: ARN of the Amazon Lex bot alias to invoke.
-        :param _builtins.str locale_id: The Region to invoke the Amazon Lex bot in
+        :param _builtins.str locale_id: Region to invoke the Amazon Lex bot in.
         """
         pulumi.set(__self__, "bot_alias_arn", bot_alias_arn)
         pulumi.set(__self__, "locale_id", locale_id)
@@ -4903,7 +4962,7 @@ class AgentFlowDefinitionNodeConfigurationLex(dict):
     @pulumi.getter(name="localeId")
     def locale_id(self) -> _builtins.str:
         """
-        The Region to invoke the Amazon Lex bot in
+        Region to invoke the Amazon Lex bot in.
         """
         return pulumi.get(self, "locale_id")
 
@@ -4939,8 +4998,8 @@ class AgentFlowDefinitionNodeConfigurationPrompt(dict):
                  guardrail_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs' guardrail_configuration: Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs' source_configuration: Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs' guardrail_configuration: Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs' source_configuration: Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
         """
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
@@ -4951,7 +5010,7 @@ class AgentFlowDefinitionNodeConfigurationPrompt(dict):
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration']:
         """
-        Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+        Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
         """
         return pulumi.get(self, "guardrail_configuration")
 
@@ -4959,7 +5018,7 @@ class AgentFlowDefinitionNodeConfigurationPrompt(dict):
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration']:
         """
-        Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+        Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
         """
         return pulumi.get(self, "source_configuration")
 
@@ -4989,8 +5048,8 @@ class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration(dict):
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
         """
-        :param _builtins.str guardrail_identifier: The unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: The version of the guardrail.
+        :param _builtins.str guardrail_identifier: Unique identifier of the guardrail.
+        :param _builtins.str guardrail_version: Version of the guardrail.
         """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
@@ -4999,7 +5058,7 @@ class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration(dict):
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
         """
-        The unique identifier of the guardrail.
+        Unique identifier of the guardrail.
         """
         return pulumi.get(self, "guardrail_identifier")
 
@@ -5007,7 +5066,7 @@ class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration(dict):
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
         """
-        The version of the guardrail.
+        Version of the guardrail.
         """
         return pulumi.get(self, "guardrail_version")
 
@@ -5018,8 +5077,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration(dict):
                  inline: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline'] = None,
                  resource: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs' inline: Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs' resource: Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs' inline: Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs' resource: Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
         """
         if inline is not None:
             pulumi.set(__self__, "inline", inline)
@@ -5030,7 +5089,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration(dict):
     @pulumi.getter
     def inline(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline']:
         """
-        Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+        Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
         """
         return pulumi.get(self, "inline")
 
@@ -5038,7 +5097,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration(dict):
     @pulumi.getter
     def resource(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource']:
         """
-        Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
         """
         return pulumi.get(self, "resource")
 
@@ -5077,11 +5136,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
                  inference_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration'] = None,
                  template_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration'] = None):
         """
-        :param _builtins.str model_id: The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
-        :param _builtins.str template_type: The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        :param _builtins.str model_id: Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        :param _builtins.str template_type: Type of prompt template. Valid values: `TEXT`, `CHAT`.
         :param _builtins.str additional_model_request_fields: Additional fields to be included in the model request for the Prompt node.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt. See Inference Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs' template_configuration: Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs' inference_configuration: Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs' template_configuration: Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
         """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "template_type", template_type)
@@ -5096,7 +5155,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
         """
-        The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         """
         return pulumi.get(self, "model_id")
 
@@ -5104,7 +5163,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
     @pulumi.getter(name="templateType")
     def template_type(self) -> _builtins.str:
         """
-        The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        Type of prompt template. Valid values: `TEXT`, `CHAT`.
         """
         return pulumi.get(self, "template_type")
 
@@ -5120,7 +5179,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration']:
         """
-        Contains inference configurations for the prompt. See Inference Configuration for more information.
+        Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
         """
         return pulumi.get(self, "inference_configuration")
 
@@ -5128,7 +5187,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration']:
         """
-        Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
         """
         return pulumi.get(self, "template_configuration")
 
@@ -5138,7 +5197,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
     def __init__(__self__, *,
                  text: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs' text: Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs' text: Message for the prompt.
         """
         if text is not None:
             pulumi.set(__self__, "text", text)
@@ -5147,7 +5206,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText']:
         """
-        Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -5182,7 +5241,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
                  top_p: Optional[_builtins.float] = None):
         """
         :param _builtins.int max_tokens: Maximum number of tokens to return in the response.
-        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
+        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model stops generating.
         :param _builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
         :param _builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
         """
@@ -5207,7 +5266,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of strings that define sequences after which the model will stop generating.
+        List of strings that define sequences after which the model stops generating.
         """
         return pulumi.get(self, "stop_sequences")
 
@@ -5234,8 +5293,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  chat: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat'] = None,
                  text: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs' chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs' text: Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs' chat: Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs' text: Message for the prompt.
         """
         if chat is not None:
             pulumi.set(__self__, "chat", chat)
@@ -5246,7 +5305,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def chat(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat']:
         """
-        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
         """
         return pulumi.get(self, "chat")
 
@@ -5254,7 +5313,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText']:
         """
-        Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -5286,9 +5345,10 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  systems: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration'] = None):
         """
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs'] messages: A list of messages in the chat for the prompt. See Message for more information.
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs'] messages: Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs'] input_variables: Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs'] systems: System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
         """
         pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
@@ -5302,20 +5362,23 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def messages(self) -> Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']:
         """
-        A list of messages in the chat for the prompt. See Message for more information.
+        Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
         """
         return pulumi.get(self, "messages")
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
     def input_variables(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable']]:
+        """
+        Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+        """
         return pulumi.get(self, "input_variables")
 
     @_builtins.property
     @pulumi.getter
     def systems(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem']]:
         """
-        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
         """
         return pulumi.get(self, "systems")
 
@@ -5323,7 +5386,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="toolConfiguration")
     def tool_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration']:
         """
-        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
         """
         return pulumi.get(self, "tool_configuration")
 
@@ -5333,7 +5396,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the variable.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "name", name)
 
@@ -5341,7 +5406,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the variable.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -5352,8 +5419,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  role: _builtins.str,
                  content: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent'] = None):
         """
-        :param _builtins.str role: The role that the message belongs to.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs' content: Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+        :param _builtins.str role: Role that the message belongs to.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs' content: Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
         """
         pulumi.set(__self__, "role", role)
         if content is not None:
@@ -5363,7 +5430,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def role(self) -> _builtins.str:
         """
-        The role that the message belongs to.
+        Role that the message belongs to.
         """
         return pulumi.get(self, "role")
 
@@ -5371,7 +5438,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def content(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent']:
         """
-        Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+        Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
         """
         return pulumi.get(self, "content")
 
@@ -5399,8 +5466,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs' cache_point: Creates a cache checkpoint within a message. See Cache Point for more information.
-        :param _builtins.str text: The text in the message.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs' cache_point: Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
+        :param _builtins.str text: Message for the prompt.
         """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -5411,7 +5478,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint']:
         """
-        Creates a cache checkpoint within a message. See Cache Point for more information.
+        Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         """
         return pulumi.get(self, "cache_point")
 
@@ -5419,7 +5486,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
         """
-        The text in the message.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -5429,7 +5496,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         pulumi.set(__self__, "type", type)
 
@@ -5437,7 +5504,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -5465,8 +5532,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param _builtins.str text: The text in the system prompt.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs' cache_point: Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
+        :param _builtins.str text: Message for the prompt.
         """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -5477,7 +5544,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint']:
         """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         """
         return pulumi.get(self, "cache_point")
 
@@ -5485,7 +5552,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
         """
-        The text in the system prompt.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -5495,7 +5562,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         pulumi.set(__self__, "type", type)
 
@@ -5503,7 +5570,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -5531,8 +5598,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  tool_choice: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice'] = None,
                  tools: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool']] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs'] tools: A list of tools to pass to a model. See Tool for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs'] tools: Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
         """
         if tool_choice is not None:
             pulumi.set(__self__, "tool_choice", tool_choice)
@@ -5543,7 +5610,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="toolChoice")
     def tool_choice(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice']:
         """
-        Defines which tools the model should request when invoked. See Tool Choice for more information.
+        Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
         """
         return pulumi.get(self, "tool_choice")
 
@@ -5551,7 +5618,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def tools(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool']]:
         """
-        A list of tools to pass to a model. See Tool for more information.
+        Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
         """
         return pulumi.get(self, "tools")
 
@@ -5581,8 +5648,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint'] = None,
                  tool_spec: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: The specification for the tool. See Tool Specification for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
         """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -5593,7 +5660,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint']:
         """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         """
         return pulumi.get(self, "cache_point")
 
@@ -5601,7 +5668,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="toolSpec")
     def tool_spec(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec']:
         """
-        The specification for the tool. See Tool Specification for more information.
+        Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
         """
         return pulumi.get(self, "tool_spec")
 
@@ -5611,7 +5678,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         pulumi.set(__self__, "type", type)
 
@@ -5619,7 +5686,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -5631,9 +5698,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  auto: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto'] = None,
                  tool: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
         """
         if any is not None:
             pulumi.set(__self__, "any", any)
@@ -5646,7 +5713,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def any(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny']:
         """
-        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+        Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
         """
         return pulumi.get(self, "any")
 
@@ -5654,7 +5721,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def auto(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto']:
         """
-        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+        Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
         """
         return pulumi.get(self, "auto")
 
@@ -5662,7 +5729,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def tool(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool']:
         """
-        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
         """
         return pulumi.get(self, "tool")
 
@@ -5684,7 +5751,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the tool.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "name", name)
 
@@ -5692,7 +5761,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the tool.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -5721,9 +5792,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  description: Optional[_builtins.str] = None,
                  input_schema: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema'] = None):
         """
-        :param _builtins.str name: The name of the tool.
-        :param _builtins.str description: The description of the tool.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: The input schema of the tool. See Tool Input Schema for more information.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str description: Description for the flow.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -5735,7 +5808,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the tool.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -5743,7 +5818,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the tool.
+        Description for the flow.
         """
         return pulumi.get(self, "description")
 
@@ -5751,7 +5826,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema']:
         """
-        The input schema of the tool. See Tool Input Schema for more information.
+        Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
         """
         return pulumi.get(self, "input_schema")
 
@@ -5761,7 +5836,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  json: Optional[_builtins.str] = None):
         """
-        :param _builtins.str json: A JSON object defining the input schema for the tool.
+        :param _builtins.str json: JSON object defining the input schema for the tool.
         """
         if json is not None:
             pulumi.set(__self__, "json", json)
@@ -5770,7 +5845,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def json(self) -> Optional[_builtins.str]:
         """
-        A JSON object defining the input schema for the tool.
+        JSON object defining the input schema for the tool.
         """
         return pulumi.get(self, "json")
 
@@ -5801,9 +5876,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint'] = None,
                  input_variables: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable']] = None):
         """
-        :param _builtins.str text: The message for the prompt.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs' cache_point: A cache checkpoint within a template configuration. See Cache Point for more information.
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs'] input_variables: A list of variables in the prompt template. See Input Variable for more information.
+        :param _builtins.str text: Message for the prompt.
+        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs' cache_point: Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
+        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs'] input_variables: Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
         """
         pulumi.set(__self__, "text", text)
         if cache_point is not None:
@@ -5815,7 +5890,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def text(self) -> _builtins.str:
         """
-        The message for the prompt.
+        Message for the prompt.
         """
         return pulumi.get(self, "text")
 
@@ -5823,7 +5898,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint']:
         """
-        A cache checkpoint within a template configuration. See Cache Point for more information.
+        Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         """
         return pulumi.get(self, "cache_point")
 
@@ -5831,7 +5906,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter(name="inputVariables")
     def input_variables(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable']]:
         """
-        A list of variables in the prompt template. See Input Variable for more information.
+        Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
         """
         return pulumi.get(self, "input_variables")
 
@@ -5841,7 +5916,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         pulumi.set(__self__, "type", type)
 
@@ -5849,7 +5924,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -5859,7 +5934,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the variable.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "name", name)
 
@@ -5867,7 +5944,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the variable.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -5929,7 +6008,7 @@ class AgentFlowDefinitionNodeConfigurationRetrieval(dict):
     def __init__(__self__, *,
                  service_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs' service_configuration: Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs' service_configuration: Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
         """
         if service_configuration is not None:
             pulumi.set(__self__, "service_configuration", service_configuration)
@@ -5938,7 +6017,7 @@ class AgentFlowDefinitionNodeConfigurationRetrieval(dict):
     @pulumi.getter(name="serviceConfiguration")
     def service_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration']:
         """
-        Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+        Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
         """
         return pulumi.get(self, "service_configuration")
 
@@ -5948,7 +6027,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration(dict):
     def __init__(__self__, *,
                  s3: Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args' s3: Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args' s3: Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -5957,7 +6036,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3']:
         """
-        Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
         """
         return pulumi.get(self, "s3")
 
@@ -5984,7 +6063,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3(dict):
     def __init__(__self__, *,
                  bucket_name: _builtins.str):
         """
-        :param _builtins.str bucket_name: The name of the Amazon S3 bucket in which to store the input into the node.
+        :param _builtins.str bucket_name: Name of the Amazon S3 bucket in which to store the input into the node.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
@@ -5992,7 +6071,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
         """
-        The name of the Amazon S3 bucket in which to store the input into the node.
+        Name of the Amazon S3 bucket in which to store the input into the node.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -6019,7 +6098,7 @@ class AgentFlowDefinitionNodeConfigurationStorage(dict):
     def __init__(__self__, *,
                  service_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs' service_configuration: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs' service_configuration: Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
         """
         if service_configuration is not None:
             pulumi.set(__self__, "service_configuration", service_configuration)
@@ -6028,7 +6107,7 @@ class AgentFlowDefinitionNodeConfigurationStorage(dict):
     @pulumi.getter(name="serviceConfiguration")
     def service_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration']:
         """
-        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+        Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
         """
         return pulumi.get(self, "service_configuration")
 
@@ -6038,7 +6117,7 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration(dict):
     def __init__(__self__, *,
                  s3: Optional['outputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3'] = None):
         """
-        :param 'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args' s3: Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        :param 'AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args' s3: Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -6047,7 +6126,7 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3']:
         """
-        Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
         """
         return pulumi.get(self, "s3")
 
@@ -6074,7 +6153,7 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3(dict):
     def __init__(__self__, *,
                  bucket_name: _builtins.str):
         """
-        :param _builtins.str bucket_name: The name of the Amazon S3 bucket in which to store the input into the node.
+        :param _builtins.str bucket_name: Name of the Amazon S3 bucket in which to store the input into the node.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
@@ -6082,7 +6161,7 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
         """
-        The name of the Amazon S3 bucket in which to store the input into the node.
+        Name of the Amazon S3 bucket in which to store the input into the node.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -6095,9 +6174,11 @@ class AgentFlowDefinitionNodeInput(dict):
                  type: _builtins.str,
                  category: Optional[_builtins.str] = None):
         """
-        :param _builtins.str expression: An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
-        :param _builtins.str name: A name for the input that you can reference.
-        :param _builtins.str type: The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+        :param _builtins.str expression: Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         :param _builtins.str category: How input data flows between iterations in a DoWhile loop.
         """
         pulumi.set(__self__, "expression", expression)
@@ -6110,7 +6191,7 @@ class AgentFlowDefinitionNodeInput(dict):
     @pulumi.getter
     def expression(self) -> _builtins.str:
         """
-        An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
         """
         return pulumi.get(self, "expression")
 
@@ -6118,7 +6199,9 @@ class AgentFlowDefinitionNodeInput(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A name for the input that you can reference.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -6126,7 +6209,7 @@ class AgentFlowDefinitionNodeInput(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -6145,8 +6228,10 @@ class AgentFlowDefinitionNodeOutput(dict):
                  name: _builtins.str,
                  type: _builtins.str):
         """
-        :param _builtins.str name: A name for the output that you can reference.
-        :param _builtins.str type: The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+        :param _builtins.str name: Name for the flow.
+               
+               The following arguments are optional:
+        :param _builtins.str type: Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -6155,7 +6240,9 @@ class AgentFlowDefinitionNodeOutput(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A name for the output that you can reference.
+        Name for the flow.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -6163,7 +6250,7 @@ class AgentFlowDefinitionNodeOutput(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+        Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         """
         return pulumi.get(self, "type")
 
@@ -6244,10 +6331,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
                  vector_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration'] = None):
         """
         :param _builtins.str type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs' managed_knowledge_base_configuration: Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs' sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs' vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs' managed_knowledge_base_configuration: Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs' sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs' vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
@@ -6271,7 +6358,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="kendraKnowledgeBaseConfiguration")
     def kendra_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration']:
         """
-        Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` Block for details.
         """
         return pulumi.get(self, "kendra_knowledge_base_configuration")
 
@@ -6279,7 +6366,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="managedKnowledgeBaseConfiguration")
     def managed_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration']:
         """
-        Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
+        Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` Block for details.
         """
         return pulumi.get(self, "managed_knowledge_base_configuration")
 
@@ -6287,7 +6374,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
     def sql_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration']:
         """
-        Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
+        Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` Block for details.
         """
         return pulumi.get(self, "sql_knowledge_base_configuration")
 
@@ -6295,7 +6382,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration']:
         """
-        Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
+        Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` Block for details.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 
@@ -6367,9 +6454,9 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
                  server_side_encryption_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration'] = None):
         """
         :param _builtins.str embedding_model_arn: ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` Block for details.
         :param _builtins.str embedding_model_type: Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs' server_side_encryption_configuration: Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs' server_side_encryption_configuration: Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` Block for details.
         """
         if embedding_model_arn is not None:
             pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
@@ -6392,7 +6479,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="embeddingModelConfiguration")
     def embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration']:
         """
-        Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` Block for details.
         """
         return pulumi.get(self, "embedding_model_configuration")
 
@@ -6408,7 +6495,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration']:
         """
-        Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` Block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -6435,7 +6522,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     def __init__(__self__, *,
                  bedrock_embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration'] = None):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: Vector configuration details for the Bedrock embeddings model. See `bedrock_embedding_model_configuration` Block for details.
         """
         if bedrock_embedding_model_configuration is not None:
             pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
@@ -6444,7 +6531,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
     def bedrock_embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration']:
         """
-        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        Vector configuration details for the Bedrock embeddings model. See `bedrock_embedding_model_configuration` Block for details.
         """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
 
@@ -6474,10 +6561,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
                  embedding_data_type: Optional[_builtins.str] = None,
                  video: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo'] = None):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
         :param _builtins.int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
-        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
         """
         if audio is not None:
             pulumi.set(__self__, "audio", audio)
@@ -6492,7 +6579,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter
     def audio(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio']:
         """
-        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
         """
         return pulumi.get(self, "audio")
 
@@ -6508,7 +6595,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="embeddingDataType")
     def embedding_data_type(self) -> Optional[_builtins.str]:
         """
-        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
         """
         return pulumi.get(self, "embedding_data_type")
 
@@ -6516,7 +6603,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter
     def video(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo']:
         """
-        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
         """
         return pulumi.get(self, "video")
 
@@ -6543,7 +6630,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     def __init__(__self__, *,
                  segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration'):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` Block for details.
         """
         pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
 
@@ -6551,7 +6638,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="segmentationConfiguration")
     def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration':
         """
-        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` Block for details.
         """
         return pulumi.get(self, "segmentation_configuration")
 
@@ -6613,7 +6700,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     def __init__(__self__, *,
                  segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration'):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` Block for details.
         """
         pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
 
@@ -6621,7 +6708,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurat
     @pulumi.getter(name="segmentationConfiguration")
     def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration':
         """
-        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        Configuration for segmenting video content during processing. See `segmentation_configuration` Block for details.
         """
         return pulumi.get(self, "segmentation_configuration")
 
@@ -6725,7 +6812,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration(
                  redshift_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration'] = None):
         """
         :param _builtins.str type: Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if redshift_configuration is not None:
@@ -6743,7 +6830,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration(
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration']:
         """
-        Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
+        Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
         """
         return pulumi.get(self, "redshift_configuration")
 
@@ -6776,9 +6863,9 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  storage_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration',
                  query_generation_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration'] = None):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs' query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs' storage_configuration: Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs' query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs' query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs' storage_configuration: Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs' query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` Block for details.
         """
         pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
         pulumi.set(__self__, "storage_configuration", storage_configuration)
@@ -6789,7 +6876,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="queryEngineConfiguration")
     def query_engine_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration':
         """
-        Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
+        Configurations for an Amazon Redshift query engine. See `query_engine_configuration` Block for details.
         """
         return pulumi.get(self, "query_engine_configuration")
 
@@ -6797,7 +6884,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration':
         """
-        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
         """
         return pulumi.get(self, "storage_configuration")
 
@@ -6805,7 +6892,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="queryGenerationConfiguration")
     def query_generation_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration']:
         """
-        Configurations for generating queries. See `query_generation_configuration` block for details.
+        Configurations for generating queries. See `query_generation_configuration` Block for details.
         """
         return pulumi.get(self, "query_generation_configuration")
 
@@ -6837,8 +6924,8 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  serverless_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration'] = None):
         """
         :param _builtins.str type: Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs' provisioned_configuration: Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs' serverless_configuration: Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs' provisioned_configuration: Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs' serverless_configuration: Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if provisioned_configuration is not None:
@@ -6858,7 +6945,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="provisionedConfiguration")
     def provisioned_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration']:
         """
-        Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
+        Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` Block for details.
         """
         return pulumi.get(self, "provisioned_configuration")
 
@@ -6866,7 +6953,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="serverlessConfiguration")
     def serverless_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration']:
         """
-        Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
+        Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` Block for details.
         """
         return pulumi.get(self, "serverless_configuration")
 
@@ -6896,7 +6983,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  auth_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration',
                  cluster_identifier: _builtins.str):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
         :param _builtins.str cluster_identifier: ID of the Amazon Redshift cluster.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
@@ -6906,7 +6993,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration':
         """
-        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
         """
         return pulumi.get(self, "auth_configuration")
 
@@ -7005,7 +7092,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  auth_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration',
                  workgroup_arn: _builtins.str):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
         :param _builtins.str workgroup_arn: ARN of the Amazon Redshift workgroup.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
@@ -7015,7 +7102,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration':
         """
-        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
         """
         return pulumi.get(self, "auth_configuration")
 
@@ -7101,7 +7188,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  generation_context: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext'] = None):
         """
         :param _builtins.int execution_timeout_seconds: Time after which query generation will time out.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs' generation_context: Configurations for context to use during query generation. See `generation_context` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs' generation_context: Configurations for context to use during query generation. See `generation_context` Block for details.
         """
         if execution_timeout_seconds is not None:
             pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
@@ -7120,7 +7207,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="generationContext")
     def generation_context(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext']:
         """
-        Configurations for context to use during query generation. See `generation_context` block for details.
+        Configurations for context to use during query generation. See `generation_context` Block for details.
         """
         return pulumi.get(self, "generation_context")
 
@@ -7148,8 +7235,8 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  curated_queries: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery']] = None,
                  tables: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable']] = None):
         """
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs'] curated_queries: Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs'] tables: Information about a table in the database. See `table` block for details.
+        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs'] curated_queries: Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` Block for details.
+        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs'] tables: Information about a table in the database. See `table` Block for details.
         """
         if curated_queries is not None:
             pulumi.set(__self__, "curated_queries", curated_queries)
@@ -7160,7 +7247,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="curatedQueries")
     def curated_queries(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery']]:
         """
-        Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
+        Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` Block for details.
         """
         return pulumi.get(self, "curated_queries")
 
@@ -7168,7 +7255,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter
     def tables(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable']]:
         """
-        Information about a table in the database. See `table` block for details.
+        Information about a table in the database. See `table` Block for details.
         """
         return pulumi.get(self, "tables")
 
@@ -7228,7 +7315,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  inclusion: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: Name of the table for which the other fields in this object apply.
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs'] columns: Information about a column in the table. See `column` block for details.
+        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs'] columns: Information about a column in the table. See `column` Block for details.
         :param _builtins.str description: Description of the table that helps the query engine understand the contents of the table.
         :param _builtins.str inclusion: Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
         """
@@ -7252,7 +7339,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter
     def columns(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn']]:
         """
-        Information about a column in the table. See `column` block for details.
+        Information about a column in the table. See `column` Block for details.
         """
         return pulumi.get(self, "columns")
 
@@ -7343,8 +7430,8 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  redshift_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration'] = None):
         """
         :param _builtins.str type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs' aws_data_catalog_configuration: Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs' aws_data_catalog_configuration: Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if aws_data_catalog_configuration is not None:
@@ -7364,7 +7451,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="awsDataCatalogConfiguration")
     def aws_data_catalog_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration']:
         """
-        Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
+        Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` Block for details.
         """
         return pulumi.get(self, "aws_data_catalog_configuration")
 
@@ -7372,7 +7459,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration']:
         """
-        Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
+        Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
         """
         return pulumi.get(self, "redshift_configuration")
 
@@ -7476,8 +7563,8 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
                  supplemental_data_storage_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration'] = None):
         """
         :param _builtins.str embedding_model_arn: ARN of the model used to create vector embeddings for the knowledge base.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs' supplemental_data_storage_configuration: supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: Embeddings model configuration details for the vector model used in the knowledge base. See `embedding_model_configuration` Block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs' supplemental_data_storage_configuration: Supplemental data storage configuration for images extracted from multimodal documents. See `supplemental_data_storage_configuration` Block for details.
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
@@ -7497,7 +7584,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="embeddingModelConfiguration")
     def embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration']:
         """
-        The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+        Embeddings model configuration details for the vector model used in the knowledge base. See `embedding_model_configuration` Block for details.
         """
         return pulumi.get(self, "embedding_model_configuration")
 
@@ -7505,7 +7592,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="supplementalDataStorageConfiguration")
     def supplemental_data_storage_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration']:
         """
-        supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+        Supplemental data storage configuration for images extracted from multimodal documents. See `supplemental_data_storage_configuration` Block for details.
         """
         return pulumi.get(self, "supplemental_data_storage_configuration")
 
@@ -7532,7 +7619,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  bedrock_embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration'] = None):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: Vector configuration details for the Bedrock embeddings model. See `bedrock_embedding_model_configuration` Block for details.
         """
         if bedrock_embedding_model_configuration is not None:
             pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
@@ -7541,7 +7628,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
     def bedrock_embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration']:
         """
-        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        Vector configuration details for the Bedrock embeddings model. See `bedrock_embedding_model_configuration` Block for details.
         """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
 
@@ -7571,10 +7658,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
                  embedding_data_type: Optional[_builtins.str] = None,
                  video: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo'] = None):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
         :param _builtins.int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
-        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
         """
         if audio is not None:
             pulumi.set(__self__, "audio", audio)
@@ -7589,7 +7676,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter
     def audio(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio']:
         """
-        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
         """
         return pulumi.get(self, "audio")
 
@@ -7605,7 +7692,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="embeddingDataType")
     def embedding_data_type(self) -> Optional[_builtins.str]:
         """
-        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
         """
         return pulumi.get(self, "embedding_data_type")
 
@@ -7613,7 +7700,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter
     def video(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo']:
         """
-        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
         """
         return pulumi.get(self, "video")
 
@@ -7640,7 +7727,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration'):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` Block for details.
         """
         pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
 
@@ -7648,7 +7735,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="segmentationConfiguration")
     def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration':
         """
-        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` Block for details.
         """
         return pulumi.get(self, "segmentation_configuration")
 
@@ -7710,7 +7797,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration'):
         """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` Block for details.
         """
         pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
 
@@ -7718,7 +7805,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="segmentationConfiguration")
     def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration':
         """
-        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        Configuration for segmenting video content during processing. See `segmentation_configuration` Block for details.
         """
         return pulumi.get(self, "segmentation_configuration")
 
@@ -7780,7 +7867,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  storage_locations: Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']):
         """
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs'] storage_locations: A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs'] storage_locations: Storage location specification for images extracted from multimodal documents in your data source. See `storage_location` Block for details.
         """
         pulumi.set(__self__, "storage_locations", storage_locations)
 
@@ -7788,7 +7875,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="storageLocations")
     def storage_locations(self) -> Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']:
         """
-        A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+        Storage location specification for images extracted from multimodal documents in your data source. See `storage_location` Block for details.
         """
         return pulumi.get(self, "storage_locations")
 
@@ -7817,7 +7904,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
                  s3_location: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location'] = None):
         """
         :param _builtins.str type: Storage service used for this location. `S3` is the only valid value.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs' s3_location: Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs' s3_location: Information about the Amazon S3 location for the extracted images. See `s3_location` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if s3_location is not None:
@@ -7835,7 +7922,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location']:
         """
-        Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
+        Information about the Amazon S3 location for the extracted images. See `s3_location` Block for details.
         """
         return pulumi.get(self, "s3_location")
 
@@ -7903,14 +7990,14 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
                  s3_vectors_configuration: Optional['outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration'] = None):
         """
         :param _builtins.str type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs' mongo_db_atlas_configuration: The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs' neptune_analytics_configuration: The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs' opensearch_managed_cluster_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs' opensearch_serverless_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs' pinecone_configuration: The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs' rds_configuration: Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs' redis_enterprise_cloud_configuration: The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs' s3_vectors_configuration: The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs' mongo_db_atlas_configuration: Storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs' neptune_analytics_configuration: Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs' opensearch_managed_cluster_configuration: Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs' opensearch_serverless_configuration: Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs' pinecone_configuration: Storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs' rds_configuration: Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs' redis_enterprise_cloud_configuration: Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` Block for details.
+        :param 'AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs' s3_vectors_configuration: Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if mongo_db_atlas_configuration is not None:
@@ -7942,7 +8029,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="mongoDbAtlasConfiguration")
     def mongo_db_atlas_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration']:
         """
-        The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
+        Storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` Block for details.
         """
         return pulumi.get(self, "mongo_db_atlas_configuration")
 
@@ -7950,7 +8037,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="neptuneAnalyticsConfiguration")
     def neptune_analytics_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration']:
         """
-        The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
+        Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` Block for details.
         """
         return pulumi.get(self, "neptune_analytics_configuration")
 
@@ -7958,7 +8045,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="opensearchManagedClusterConfiguration")
     def opensearch_managed_cluster_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration']:
         """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
+        Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` Block for details.
         """
         return pulumi.get(self, "opensearch_managed_cluster_configuration")
 
@@ -7966,7 +8053,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="opensearchServerlessConfiguration")
     def opensearch_serverless_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration']:
         """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
+        Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` Block for details.
         """
         return pulumi.get(self, "opensearch_serverless_configuration")
 
@@ -7974,7 +8061,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="pineconeConfiguration")
     def pinecone_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration']:
         """
-        The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
+        Storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` Block for details.
         """
         return pulumi.get(self, "pinecone_configuration")
 
@@ -7982,7 +8069,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="rdsConfiguration")
     def rds_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration']:
         """
-        Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
+        Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` Block for details.
         """
         return pulumi.get(self, "rds_configuration")
 
@@ -7990,7 +8077,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="redisEnterpriseCloudConfiguration")
     def redis_enterprise_cloud_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration']:
         """
-        The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
+        Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` Block for details.
         """
         return pulumi.get(self, "redis_enterprise_cloud_configuration")
 
@@ -7998,7 +8085,7 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="s3VectorsConfiguration")
     def s3_vectors_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration']:
         """
-        The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
+        Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` Block for details.
         """
         return pulumi.get(self, "s3_vectors_configuration")
 
@@ -8044,14 +8131,14 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
                  endpoint_service_name: Optional[_builtins.str] = None,
                  text_index_name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str collection_name: The name of the collection in the MongoDB Atlas database.
-        :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
-        :param _builtins.str database_name: The name of the database in the MongoDB Atlas database.
-        :param _builtins.str endpoint: The endpoint URL of the MongoDB Atlas database.
-        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs' field_mapping: Contains the names of the fields to which to map information about the vector store.
-        :param _builtins.str vector_index_name: The name of the vector index.
-        :param _builtins.str endpoint_service_name: The name of the service that hosts the MongoDB Atlas database.
-        :param _builtins.str text_index_name: The name of the vector index.
+        :param _builtins.str collection_name: Name of the collection in the MongoDB Atlas database.
+        :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        :param _builtins.str database_name: Name of the database in the MongoDB Atlas database.
+        :param _builtins.str endpoint: Endpoint URL of the MongoDB Atlas database.
+        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
+        :param _builtins.str vector_index_name: Name of the vector index.
+        :param _builtins.str endpoint_service_name: Name of the service that hosts the MongoDB Atlas database.
+        :param _builtins.str text_index_name: Name of the vector index.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -8068,7 +8155,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> _builtins.str:
         """
-        The name of the collection in the MongoDB Atlas database.
+        Name of the collection in the MongoDB Atlas database.
         """
         return pulumi.get(self, "collection_name")
 
@@ -8076,7 +8163,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -8084,7 +8171,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
         """
-        The name of the database in the MongoDB Atlas database.
+        Name of the database in the MongoDB Atlas database.
         """
         return pulumi.get(self, "database_name")
 
@@ -8092,7 +8179,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
         """
-        The endpoint URL of the MongoDB Atlas database.
+        Endpoint URL of the MongoDB Atlas database.
         """
         return pulumi.get(self, "endpoint")
 
@@ -8100,7 +8187,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping':
         """
-        Contains the names of the fields to which to map information about the vector store.
+        Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8108,7 +8195,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
         """
-        The name of the vector index.
+        Name of the vector index.
         """
         return pulumi.get(self, "vector_index_name")
 
@@ -8116,7 +8203,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="endpointServiceName")
     def endpoint_service_name(self) -> Optional[_builtins.str]:
         """
-        The name of the service that hosts the MongoDB Atlas database.
+        Name of the service that hosts the MongoDB Atlas database.
         """
         return pulumi.get(self, "endpoint_service_name")
 
@@ -8124,7 +8211,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @pulumi.getter(name="textIndexName")
     def text_index_name(self) -> Optional[_builtins.str]:
         """
-        The name of the vector index.
+        Name of the vector index.
         """
         return pulumi.get(self, "text_index_name")
 
@@ -8157,9 +8244,9 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
                  text_field: _builtins.str,
                  vector_field: _builtins.str):
         """
-        :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
@@ -8169,7 +8256,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
         """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
         """
         return pulumi.get(self, "metadata_field")
 
@@ -8177,7 +8264,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
         """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
         return pulumi.get(self, "text_field")
 
@@ -8185,7 +8272,7 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> _builtins.str:
         """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         """
         return pulumi.get(self, "vector_field")
 
@@ -8215,7 +8302,7 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
                  field_mapping: 'outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping',
                  graph_arn: _builtins.str):
         """
-        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
         :param _builtins.str graph_arn: ARN of the Neptune Analytics vector store.
         """
         pulumi.set(__self__, "field_mapping", field_mapping)
@@ -8225,7 +8312,7 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping':
         """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8319,7 +8406,7 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
         """
         :param _builtins.str domain_arn: ARN of the OpenSearch domain.
         :param _builtins.str domain_endpoint: Endpoint URL of the OpenSearch domain.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
         :param _builtins.str vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "domain_arn", domain_arn)
@@ -8347,7 +8434,7 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping':
         """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8450,7 +8537,7 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
                  vector_index_name: _builtins.str):
         """
         :param _builtins.str collection_arn: ARN of the OpenSearch Service vector store.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
         :param _builtins.str vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "collection_arn", collection_arn)
@@ -8469,7 +8556,7 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping':
         """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8574,7 +8661,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
         """
         :param _builtins.str connection_string: Endpoint URL for your index management page.
         :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
         :param _builtins.str namespace: Namespace to be used to write new data to your database.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -8603,7 +8690,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping':
         """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8700,7 +8787,7 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
         """
         :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         :param _builtins.str database_name: Name of your Amazon RDS database.
-        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
         :param _builtins.str resource_arn: ARN of the vector store.
         :param _builtins.str table_name: Name of the table in the database.
         """
@@ -8730,7 +8817,7 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping':
         """
-        Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -8870,7 +8957,7 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
         """
         :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
         :param _builtins.str endpoint: Endpoint URL of the Redis Enterprise Cloud database.
-        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
         :param _builtins.str vector_index_name: Name of the vector index.
         """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
@@ -8898,7 +8985,7 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> 'outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping':
         """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
         """
         return pulumi.get(self, "field_mapping")
 
@@ -9121,14 +9208,14 @@ class AgentPromptVariant(dict):
                  model_id: Optional[_builtins.str] = None,
                  template_configuration: Optional['outputs.AgentPromptVariantTemplateConfiguration'] = None):
         """
-        :param _builtins.str name: Name of the prompt variant.
+        :param _builtins.str name: Name of the tool.
         :param _builtins.str template_type: Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-        :param _builtins.str additional_model_request_fields: Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-        :param 'AgentPromptVariantGenAiResourceArgs' gen_ai_resource: Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
-        :param 'AgentPromptVariantInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-        :param Sequence['AgentPromptVariantMetadataArgs'] metadatas: A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+        :param _builtins.str additional_model_request_fields: Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+        :param 'AgentPromptVariantGenAiResourceArgs' gen_ai_resource: Generative AI resource with which to use the prompt. If this is not supplied, then a `model_id` must be defined. See `gen_ai_resource` Block for more information.
+        :param 'AgentPromptVariantInferenceConfigurationArgs' inference_configuration: Inference configurations for the prompt variant. See `inference_configuration` Block for more information.
+        :param Sequence['AgentPromptVariantMetadataArgs'] metadatas: List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
         :param _builtins.str model_id: Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
-        :param 'AgentPromptVariantTemplateConfigurationArgs' template_configuration: Contains configurations for the prompt template. See Template Configuration for more information.
+        :param 'AgentPromptVariantTemplateConfigurationArgs' template_configuration: Configurations for the prompt template. See `template_configuration` Block for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_type", template_type)
@@ -9149,7 +9236,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the prompt variant.
+        Name of the tool.
         """
         return pulumi.get(self, "name")
 
@@ -9165,7 +9252,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter(name="additionalModelRequestFields")
     def additional_model_request_fields(self) -> Optional[_builtins.str]:
         """
-        Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+        Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
         """
         return pulumi.get(self, "additional_model_request_fields")
 
@@ -9173,7 +9260,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter(name="genAiResource")
     def gen_ai_resource(self) -> Optional['outputs.AgentPromptVariantGenAiResource']:
         """
-        Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+        Generative AI resource with which to use the prompt. If this is not supplied, then a `model_id` must be defined. See `gen_ai_resource` Block for more information.
         """
         return pulumi.get(self, "gen_ai_resource")
 
@@ -9181,7 +9268,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentPromptVariantInferenceConfiguration']:
         """
-        Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+        Inference configurations for the prompt variant. See `inference_configuration` Block for more information.
         """
         return pulumi.get(self, "inference_configuration")
 
@@ -9189,7 +9276,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter
     def metadatas(self) -> Optional[Sequence['outputs.AgentPromptVariantMetadata']]:
         """
-        A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+        List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
         """
         return pulumi.get(self, "metadatas")
 
@@ -9205,7 +9292,7 @@ class AgentPromptVariant(dict):
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfiguration']:
         """
-        Contains configurations for the prompt template. See Template Configuration for more information.
+        Configurations for the prompt template. See `template_configuration` Block for more information.
         """
         return pulumi.get(self, "template_configuration")
 
@@ -9215,7 +9302,7 @@ class AgentPromptVariantGenAiResource(dict):
     def __init__(__self__, *,
                  agent: Optional['outputs.AgentPromptVariantGenAiResourceAgent'] = None):
         """
-        :param 'AgentPromptVariantGenAiResourceAgentArgs' agent: Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+        :param 'AgentPromptVariantGenAiResourceAgentArgs' agent: Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
         """
         if agent is not None:
             pulumi.set(__self__, "agent", agent)
@@ -9224,7 +9311,7 @@ class AgentPromptVariantGenAiResource(dict):
     @pulumi.getter
     def agent(self) -> Optional['outputs.AgentPromptVariantGenAiResourceAgent']:
         """
-        Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+        Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
         """
         return pulumi.get(self, "agent")
 
@@ -9269,7 +9356,7 @@ class AgentPromptVariantInferenceConfiguration(dict):
     def __init__(__self__, *,
                  text: Optional['outputs.AgentPromptVariantInferenceConfigurationText'] = None):
         """
-        :param 'AgentPromptVariantInferenceConfigurationTextArgs' text: Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+        :param 'AgentPromptVariantInferenceConfigurationTextArgs' text: Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
         """
         if text is not None:
             pulumi.set(__self__, "text", text)
@@ -9278,7 +9365,7 @@ class AgentPromptVariantInferenceConfiguration(dict):
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentPromptVariantInferenceConfigurationText']:
         """
-        Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+        Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
         """
         return pulumi.get(self, "text")
 
@@ -9394,8 +9481,8 @@ class AgentPromptVariantTemplateConfiguration(dict):
                  chat: Optional['outputs.AgentPromptVariantTemplateConfigurationChat'] = None,
                  text: Optional['outputs.AgentPromptVariantTemplateConfigurationText'] = None):
         """
-        :param 'AgentPromptVariantTemplateConfigurationChatArgs' chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        :param 'AgentPromptVariantTemplateConfigurationTextArgs' text: Contains configurations for the text in a message for a prompt. See Text Template Configuration
+        :param 'AgentPromptVariantTemplateConfigurationChatArgs' chat: Configurations to use the prompt in a conversational format. See `chat` Block for more information.
+        :param 'AgentPromptVariantTemplateConfigurationTextArgs' text: Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
         """
         if chat is not None:
             pulumi.set(__self__, "chat", chat)
@@ -9406,7 +9493,7 @@ class AgentPromptVariantTemplateConfiguration(dict):
     @pulumi.getter
     def chat(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChat']:
         """
-        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        Configurations to use the prompt in a conversational format. See `chat` Block for more information.
         """
         return pulumi.get(self, "chat")
 
@@ -9414,7 +9501,7 @@ class AgentPromptVariantTemplateConfiguration(dict):
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationText']:
         """
-        Contains configurations for the text in a message for a prompt. See Text Template Configuration
+        Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
         """
         return pulumi.get(self, "text")
 
@@ -9446,9 +9533,10 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
                  systems: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration'] = None):
         """
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatMessageArgs'] messages: A list of messages in the chat for the prompt. See Message for more information.
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatMessageArgs'] messages: List of messages in the chat for the prompt. See `message` Block for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatInputVariableArgs'] input_variables: List of variables in the prompt template. See `input_variable` Block for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatSystemArgs'] systems: List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See `tool_configuration` Block for more information.
         """
         pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
@@ -9462,20 +9550,23 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
     @pulumi.getter
     def messages(self) -> Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']:
         """
-        A list of messages in the chat for the prompt. See Message for more information.
+        List of messages in the chat for the prompt. See `message` Block for more information.
         """
         return pulumi.get(self, "messages")
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
     def input_variables(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']]:
+        """
+        List of variables in the prompt template. See `input_variable` Block for more information.
+        """
         return pulumi.get(self, "input_variables")
 
     @_builtins.property
     @pulumi.getter
     def systems(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']]:
         """
-        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
         """
         return pulumi.get(self, "systems")
 
@@ -9483,7 +9574,7 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
     @pulumi.getter(name="toolConfiguration")
     def tool_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration']:
         """
-        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        Configuration information for the tools that the model can use when generating a response. See `tool_configuration` Block for more information.
         """
         return pulumi.get(self, "tool_configuration")
 
@@ -9493,7 +9584,7 @@ class AgentPromptVariantTemplateConfigurationChatInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the variable.
+        :param _builtins.str name: Name of the variable.
         """
         pulumi.set(__self__, "name", name)
 
@@ -9501,7 +9592,7 @@ class AgentPromptVariantTemplateConfigurationChatInputVariable(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the variable.
+        Name of the variable.
         """
         return pulumi.get(self, "name")
 
@@ -9512,8 +9603,8 @@ class AgentPromptVariantTemplateConfigurationChatMessage(dict):
                  role: _builtins.str,
                  content: Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent'] = None):
         """
-        :param _builtins.str role: The role that the message belongs to.
-        :param 'AgentPromptVariantTemplateConfigurationChatMessageContentArgs' content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        :param _builtins.str role: Role that the message belongs to.
+        :param 'AgentPromptVariantTemplateConfigurationChatMessageContentArgs' content: Content for the message you pass to, or receive from a model. See `content` Block for more information.
         """
         pulumi.set(__self__, "role", role)
         if content is not None:
@@ -9523,7 +9614,7 @@ class AgentPromptVariantTemplateConfigurationChatMessage(dict):
     @pulumi.getter
     def role(self) -> _builtins.str:
         """
-        The role that the message belongs to.
+        Role that the message belongs to.
         """
         return pulumi.get(self, "role")
 
@@ -9531,7 +9622,7 @@ class AgentPromptVariantTemplateConfigurationChatMessage(dict):
     @pulumi.getter
     def content(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent']:
         """
-        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        Content for the message you pass to, or receive from a model. See `content` Block for more information.
         """
         return pulumi.get(self, "content")
 
@@ -9558,6 +9649,10 @@ class AgentPromptVariantTemplateConfigurationChatMessageContent(dict):
     def __init__(__self__, *,
                  cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs' cache_point: Cache checkpoint within a message. See `cache_point` Block for more information.
+        :param _builtins.str text: Text in the message.
+        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if text is not None:
@@ -9566,11 +9661,17 @@ class AgentPromptVariantTemplateConfigurationChatMessageContent(dict):
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint']:
+        """
+        Cache checkpoint within a message. See `cache_point` Block for more information.
+        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
+        """
+        Text in the message.
+        """
         return pulumi.get(self, "text")
 
 
@@ -9579,7 +9680,7 @@ class AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Cache point type. Valid values: `default`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -9587,7 +9688,7 @@ class AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Cache point type. Valid values: `default`.
         """
         return pulumi.get(self, "type")
 
@@ -9615,8 +9716,8 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
                  cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
         """
-        :param 'AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param _builtins.str text: The text in the system prompt.
+        :param 'AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs' cache_point: Cache checkpoint within the system prompt. See `cache_point` Block for more information.
+        :param _builtins.str text: Text in the system prompt.
         """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -9627,7 +9728,7 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint']:
         """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        Cache checkpoint within the system prompt. See `cache_point` Block for more information.
         """
         return pulumi.get(self, "cache_point")
 
@@ -9635,7 +9736,7 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
         """
-        The text in the system prompt.
+        Text in the system prompt.
         """
         return pulumi.get(self, "text")
 
@@ -9645,7 +9746,7 @@ class AgentPromptVariantTemplateConfigurationChatSystemCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Cache point type. Valid values: `default`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -9653,7 +9754,7 @@ class AgentPromptVariantTemplateConfigurationChatSystemCachePoint(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Cache point type. Valid values: `default`.
         """
         return pulumi.get(self, "type")
 
@@ -9681,8 +9782,8 @@ class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
                  tool_choice: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice'] = None,
                  tools: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']] = None):
         """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs'] tools: A list of tools to pass to a model. See Tool for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Configuration for which tools the model should request when invoked. See `tool_choice` Block for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs'] tools: List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
         """
         if tool_choice is not None:
             pulumi.set(__self__, "tool_choice", tool_choice)
@@ -9693,7 +9794,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
     @pulumi.getter(name="toolChoice")
     def tool_choice(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice']:
         """
-        Defines which tools the model should request when invoked. See Tool Choice for more information.
+        Configuration for which tools the model should request when invoked. See `tool_choice` Block for more information.
         """
         return pulumi.get(self, "tool_choice")
 
@@ -9701,7 +9802,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
     @pulumi.getter
     def tools(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']]:
         """
-        A list of tools to pass to a model. See Tool for more information.
+        List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
         """
         return pulumi.get(self, "tools")
 
@@ -9731,8 +9832,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
                  cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint'] = None,
                  tool_spec: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec'] = None):
         """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: The specification for the tool. See Tool Specification for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: Specification for the tool. See `tool_spec` Block for more information.
         """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -9742,16 +9842,13 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint']:
-        """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter(name="toolSpec")
     def tool_spec(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec']:
         """
-        The specification for the tool. See Tool Specification for more information.
+        Specification for the tool. See `tool_spec` Block for more information.
         """
         return pulumi.get(self, "tool_spec")
 
@@ -9761,7 +9858,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Cache point type. Valid values: `default`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -9769,7 +9866,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Cache point type. Valid values: `default`.
         """
         return pulumi.get(self, "type")
 
@@ -9781,9 +9878,9 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
                  auto: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto'] = None,
                  tool: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool'] = None):
         """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
         """
         if any is not None:
             pulumi.set(__self__, "any", any)
@@ -9796,7 +9893,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
     @pulumi.getter
     def any(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny']:
         """
-        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
         """
         return pulumi.get(self, "any")
 
@@ -9804,7 +9901,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
     @pulumi.getter
     def auto(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto']:
         """
-        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
         """
         return pulumi.get(self, "auto")
 
@@ -9812,7 +9909,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
     @pulumi.getter
     def tool(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool']:
         """
-        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
         """
         return pulumi.get(self, "tool")
 
@@ -9875,11 +9972,9 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
                  description: Optional[_builtins.str] = None,
                  input_schema: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema'] = None):
         """
-        :param _builtins.str name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param _builtins.str description: Description of the prompt.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: The input schema of the tool. See Tool Input Schema for more information.
+        :param _builtins.str name: Name of the tool.
+        :param _builtins.str description: Description of the tool.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: Input schema of the tool. See `input_schema` Block for more information.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -9891,9 +9986,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the prompt.
-
-        The following arguments are optional:
+        Name of the tool.
         """
         return pulumi.get(self, "name")
 
@@ -9901,7 +9994,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of the prompt.
+        Description of the tool.
         """
         return pulumi.get(self, "description")
 
@@ -9909,7 +10002,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema']:
         """
-        The input schema of the tool. See Tool Input Schema for more information.
+        Input schema of the tool. See `input_schema` Block for more information.
         """
         return pulumi.get(self, "input_schema")
 
@@ -9919,7 +10012,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecIn
     def __init__(__self__, *,
                  json: Optional[_builtins.str] = None):
         """
-        :param _builtins.str json: A JSON object defining the input schema for the tool.
+        :param _builtins.str json: JSON object defining the input schema for the tool.
         """
         if json is not None:
             pulumi.set(__self__, "json", json)
@@ -9928,7 +10021,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecIn
     @pulumi.getter
     def json(self) -> Optional[_builtins.str]:
         """
-        A JSON object defining the input schema for the tool.
+        JSON object defining the input schema for the tool.
         """
         return pulumi.get(self, "json")
 
@@ -9985,7 +10078,7 @@ class AgentPromptVariantTemplateConfigurationTextCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        :param _builtins.str type: Cache point type. Valid values: `default`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -9993,7 +10086,7 @@ class AgentPromptVariantTemplateConfigurationTextCachePoint(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        Cache point type. Valid values: `default`.
         """
         return pulumi.get(self, "type")
 
@@ -10003,7 +10096,7 @@ class AgentPromptVariantTemplateConfigurationTextInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the variable.
+        :param _builtins.str name: Name of the variable.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10011,7 +10104,7 @@ class AgentPromptVariantTemplateConfigurationTextInputVariable(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the variable.
+        Name of the variable.
         """
         return pulumi.get(self, "name")
 
@@ -11415,7 +11508,7 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
         """
         :param Sequence[_builtins.str] security_groups: Security groups associated with the VPC configuration.
         :param Sequence[_builtins.str] subnets: Subnets associated with the VPC configuration.
-        :param _builtins.bool require_service_s3_endpoint: Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+        :param _builtins.bool require_service_s3_endpoint: Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
         """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
@@ -11442,7 +11535,7 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
     @pulumi.getter(name="requireServiceS3Endpoint")
     def require_service_s3_endpoint(self) -> Optional[_builtins.bool]:
         """
-        Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+        Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
         """
         return pulumi.get(self, "require_service_s3_endpoint")
 
@@ -11505,7 +11598,7 @@ class AgentcoreAgentRuntimeRequestHeaderConfiguration(dict):
     def __init__(__self__, *,
                  request_header_allowlists: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] request_header_allowlists: A list of HTTP request headers that are allowed to be passed through to the runtime.
+        :param Sequence[_builtins.str] request_header_allowlists: List of HTTP request headers that are allowed to be passed through to the runtime.
         """
         if request_header_allowlists is not None:
             pulumi.set(__self__, "request_header_allowlists", request_header_allowlists)
@@ -11514,7 +11607,7 @@ class AgentcoreAgentRuntimeRequestHeaderConfiguration(dict):
     @pulumi.getter(name="requestHeaderAllowlists")
     def request_header_allowlists(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of HTTP request headers that are allowed to be passed through to the runtime.
+        List of HTTP request headers that are allowed to be passed through to the runtime.
         """
         return pulumi.get(self, "request_header_allowlists")
 
@@ -11633,6 +11726,54 @@ class AgentcoreApiKeyCredentialProviderApiKeySecretArn(dict):
 
 
 @pulumi.output_type
+class AgentcoreApiKeyCredentialProviderApiKeySecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreApiKeyCredentialProviderApiKeySecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreApiKeyCredentialProviderApiKeySecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreApiKeyCredentialProviderApiKeySecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the secret value from the AWS Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the secret value from the AWS Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the secret value.
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
 class AgentcoreBrowserBrowserSigning(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
@@ -11655,7 +11796,7 @@ class AgentcoreBrowserCertificate(dict):
     def __init__(__self__, *,
                  location: 'outputs.AgentcoreBrowserCertificateLocation'):
         """
-        :param 'AgentcoreBrowserCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificates.location` below.
+        :param 'AgentcoreBrowserCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificate.location` below.
         """
         pulumi.set(__self__, "location", location)
 
@@ -11663,7 +11804,7 @@ class AgentcoreBrowserCertificate(dict):
     @pulumi.getter
     def location(self) -> 'outputs.AgentcoreBrowserCertificateLocation':
         """
-        Location from which to retrieve the certificate. See `certificates.location` below.
+        Location from which to retrieve the certificate. See `certificate.location` below.
         """
         return pulumi.get(self, "location")
 
@@ -12085,7 +12226,7 @@ class AgentcoreCodeInterpreterCertificate(dict):
     def __init__(__self__, *,
                  location: 'outputs.AgentcoreCodeInterpreterCertificateLocation'):
         """
-        :param 'AgentcoreCodeInterpreterCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificates.location` below.
+        :param 'AgentcoreCodeInterpreterCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificate.location` below.
         """
         pulumi.set(__self__, "location", location)
 
@@ -12093,7 +12234,7 @@ class AgentcoreCodeInterpreterCertificate(dict):
     @pulumi.getter
     def location(self) -> 'outputs.AgentcoreCodeInterpreterCertificateLocation':
         """
-        Location from which to retrieve the certificate. See `certificates.location` below.
+        Location from which to retrieve the certificate. See `certificate.location` below.
         """
         return pulumi.get(self, "location")
 
@@ -15482,7 +15623,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema(dict):
     def __init__(__self__, *,
                  source: 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource'):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs' source: Configuration for API schema. See `api_schema_configuration` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs' source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         """
         pulumi.set(__self__, "source", source)
 
@@ -15490,7 +15631,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema(dict):
     @pulumi.getter
     def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource':
         """
-        Configuration for API schema. See `api_schema_configuration` Block below.
+        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         """
         return pulumi.get(self, "source")
 
@@ -15634,7 +15775,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthrough(dict):
         """
         :param _builtins.str endpoint: HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
         :param _builtins.str protocol_type: Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
-        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs' schema: API schema configuration that defines the structure of the passthrough target's API. Supports the same `inline_payload` and `s3` blocks as `api_schema_configuration`.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs' schema: API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
         :param _builtins.str static_query_parameter_conflict_resolution: Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
         :param Mapping[str, _builtins.str] static_query_parameters: Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
         :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfigurationArgs' stickiness_configuration: Session stickiness configuration routing requests within the same session to the same target. See `stickiness_configuration` below.
@@ -15670,7 +15811,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthrough(dict):
     @pulumi.getter
     def schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema']:
         """
-        API schema configuration that defines the structure of the passthrough target's API. Supports the same `inline_payload` and `s3` blocks as `api_schema_configuration`.
+        API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
         """
         return pulumi.get(self, "schema")
 
@@ -15704,7 +15845,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema(dict):
     def __init__(__self__, *,
                  source: 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource'):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs' source: Configuration for API schema. See `api_schema_configuration` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs' source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         """
         pulumi.set(__self__, "source", source)
 
@@ -15712,7 +15853,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema(dict):
     @pulumi.getter
     def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource':
         """
-        Configuration for API schema. See `api_schema_configuration` Block below.
+        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         """
         return pulumi.get(self, "source")
 
@@ -15886,7 +16027,7 @@ class AgentcoreGatewayTargetTargetConfigurationInference(dict):
                  connector: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnector'] = None,
                  provider: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProvider'] = None):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs' connector: Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs' connector: Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
         :param 'AgentcoreGatewayTargetTargetConfigurationInferenceProviderArgs' provider: Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
         """
         if connector is not None:
@@ -15898,7 +16039,7 @@ class AgentcoreGatewayTargetTargetConfigurationInference(dict):
     @pulumi.getter
     def connector(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnector']:
         """
-        Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+        Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
         """
         return pulumi.get(self, "connector")
 
@@ -15916,7 +16057,7 @@ class AgentcoreGatewayTargetTargetConfigurationInferenceConnector(dict):
     def __init__(__self__, *,
                  source: 'outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource'):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceArgs' source: Source configuration identifying which connector to use. See `source` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceArgs' source: Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         """
         pulumi.set(__self__, "source", source)
 
@@ -15924,7 +16065,7 @@ class AgentcoreGatewayTargetTargetConfigurationInferenceConnector(dict):
     @pulumi.getter
     def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource':
         """
-        Source configuration identifying which connector to use. See `source` Block below.
+        Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         """
         return pulumi.get(self, "source")
 
@@ -16197,11 +16338,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
                  smithy_model: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel'] = None):
         """
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs' api_gateway: API Gateway target configuration. See `api_gateway` Block below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs' connector: Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs' connector: Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs' lambda_: Lambda function target configuration. See `lambda` Block below.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs' mcp_server: MCP server target configuration. See `mcp_server` Block below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` Block below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. See `api_schema_configuration` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
         """
         if api_gateway is not None:
             pulumi.set(__self__, "api_gateway", api_gateway)
@@ -16228,7 +16369,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter
     def connector(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector']:
         """
-        Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+        Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
         """
         return pulumi.get(self, "connector")
 
@@ -16252,7 +16393,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="openApiSchema")
     def open_api_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema']:
         """
-        OpenAPI schema-based target configuration. See `api_schema_configuration` Block below.
+        OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
         """
         return pulumi.get(self, "open_api_schema")
 
@@ -16260,7 +16401,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="smithyModel")
     def smithy_model(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel']:
         """
-        Smithy model-based target configuration. See `api_schema_configuration` Block below.
+        Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
         """
         return pulumi.get(self, "smithy_model")
 
@@ -16481,7 +16622,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpConnector(dict):
                  enableds: Optional[Sequence[_builtins.str]] = None):
         """
         :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationArgs'] configurations: Per-tool configurations for the connector. See `configuration` Block below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceArgs' source: Source configuration identifying which connector to use. See `source` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceArgs' source: Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         :param Sequence[_builtins.str] enableds: List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
         """
         pulumi.set(__self__, "configurations", configurations)
@@ -16501,7 +16642,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpConnector(dict):
     @pulumi.getter
     def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource':
         """
-        Source configuration identifying which connector to use. See `source` Block below.
+        Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         """
         return pulumi.get(self, "source")
 
@@ -16743,7 +16884,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
                  inline_payloads: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']] = None,
                  s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3'] = None):
         """
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs'] inline_payloads: Inline tool definition. See `inline_payload` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs'] inline_payloads: Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args' s3: S3-based tool definition. See `s3` Block below.
         """
         if inline_payloads is not None:
@@ -16755,7 +16896,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
     @pulumi.getter(name="inlinePayloads")
     def inline_payloads(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']]:
         """
-        Inline tool definition. See `inline_payload` Block below.
+        Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
         """
         return pulumi.get(self, "inline_payloads")
 
@@ -16796,9 +16937,9 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
                  output_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema'] = None):
         """
         :param _builtins.str description: Description of what the tool does.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `schema_definition` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `input_schema` Block below.
         :param _builtins.str name: Name of the tool.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `schema_definition` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `output_schema` Block below.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "input_schema", input_schema)
@@ -16818,7 +16959,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema':
         """
-        Schema for the tool's input. See `schema_definition` Block below.
+        Schema for the tool's input. See `input_schema` Block below.
         """
         return pulumi.get(self, "input_schema")
 
@@ -16834,7 +16975,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
     @pulumi.getter(name="outputSchema")
     def output_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema']:
         """
-        Schema for the tool's output. See `schema_definition` Block below.
+        Schema for the tool's output. See `output_schema` Block below.
         """
         return pulumi.get(self, "output_schema")
 
@@ -16847,7 +16988,10 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty']] = None):
         """
-        :param _builtins.str description: Description of the gateway target.
+        :param _builtins.str type: Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+        :param _builtins.str description: Description of the schema element.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs' items: Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs'] properties: Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -16860,24 +17004,33 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of the gateway target.
+        Description of the schema element.
         """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems']:
+        """
+        Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty']]:
+        """
+        Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+        """
         return pulumi.get(self, "properties")
 
 
@@ -16891,8 +17044,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         """
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -16922,7 +17075,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems']:
         """
-        Nested items definition for arrays of arrays.
+        Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -16930,7 +17083,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` Block below.
+        Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17117,8 +17270,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         :param _builtins.str name: Name of the property.
         :param _builtins.str type: Data type of the property.
         :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` Block above.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs' items: Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
         :param _builtins.bool required: Whether this property is required. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
@@ -17160,7 +17313,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems']:
         """
-        Items definition for array properties. See `items` Block above.
+        Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -17168,7 +17321,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty']]:
         """
-        Set of nested property definitions for object properties.
+        Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17191,8 +17344,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         """
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -17222,7 +17375,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems']:
         """
-        Nested items definition for arrays of arrays.
+        Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -17230,7 +17383,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` Block below.
+        Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17508,7 +17661,10 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty']] = None):
         """
-        :param _builtins.str description: Description of the gateway target.
+        :param _builtins.str type: Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+        :param _builtins.str description: Description of the schema element.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs' items: Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs'] properties: Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -17521,24 +17677,33 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of the gateway target.
+        Description of the schema element.
         """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems']:
+        """
+        Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty']]:
+        """
+        Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+        """
         return pulumi.get(self, "properties")
 
 
@@ -17552,8 +17717,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         """
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -17583,7 +17748,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems']:
         """
-        Nested items definition for arrays of arrays.
+        Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -17591,7 +17756,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` Block below.
+        Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17778,8 +17943,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         :param _builtins.str name: Name of the property.
         :param _builtins.str type: Data type of the property.
         :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` Block above.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs' items: Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
         :param _builtins.bool required: Whether this property is required. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
@@ -17821,7 +17986,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems']:
         """
-        Items definition for array properties. See `items` Block above.
+        Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -17829,7 +17994,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty']]:
         """
-        Set of nested property definitions for object properties.
+        Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17852,8 +18017,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         """
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -17883,7 +18048,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems']:
         """
-        Nested items definition for arrays of arrays.
+        Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
         """
         return pulumi.get(self, "items")
 
@@ -17891,7 +18056,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` Block below.
+        Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -19564,7 +19729,7 @@ class AgentcoreHarnessEnvironment(dict):
     def __init__(__self__, *,
                  agentcore_runtime_environments: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']] = None):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
         """
         if agentcore_runtime_environments is not None:
             pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
@@ -19573,7 +19738,7 @@ class AgentcoreHarnessEnvironment(dict):
     @pulumi.getter(name="agentcoreRuntimeEnvironments")
     def agentcore_runtime_environments(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']]:
         """
-        AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
         """
         return pulumi.get(self, "agentcore_runtime_environments")
 
@@ -19600,7 +19765,7 @@ class AgentcoreHarnessEnvironmentActual(dict):
     def __init__(__self__, *,
                  agentcore_runtime_environments: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment']):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
         """
         pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
 
@@ -19608,7 +19773,7 @@ class AgentcoreHarnessEnvironmentActual(dict):
     @pulumi.getter(name="agentcoreRuntimeEnvironments")
     def agentcore_runtime_environments(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment']:
         """
-        AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
+        AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
         """
         return pulumi.get(self, "agentcore_runtime_environments")
 
@@ -19653,11 +19818,9 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment(dict):
         :param _builtins.str agent_runtime_arn: ARN of the agent runtime the service provisions for the harness.
         :param _builtins.str agent_runtime_id: ID of the agent runtime the service provisions for the harness.
         :param _builtins.str agent_runtime_name: Name of the agent runtime the service derives for the harness.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` Block below.
-               
-               The following attributes are exported under `agentcore_runtime_environment`:
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
         """
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
         pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
@@ -19694,7 +19857,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="filesystemConfigurations")
     def filesystem_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration']:
         """
-        Filesystem configurations. See `filesystem_configuration` Block below.
+        Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -19702,7 +19865,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration']:
         """
-        Lifecycle configuration. See `lifecycle_configuration` Block below.
+        Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
         """
         return pulumi.get(self, "lifecycle_configurations")
 
@@ -19710,9 +19873,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration']:
         """
-        Network configuration. See `network_configuration` Block below.
-
-        The following attributes are exported under `agentcore_runtime_environment`:
+        Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
         """
         return pulumi.get(self, "network_configurations")
 
@@ -19745,9 +19906,9 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConf
                  s3_files_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint'],
                  session_storages: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
         """
         pulumi.set(__self__, "efs_access_points", efs_access_points)
         pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
@@ -19757,7 +19918,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConf
     @pulumi.getter(name="efsAccessPoints")
     def efs_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']:
         """
-        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
         """
         return pulumi.get(self, "efs_access_points")
 
@@ -19765,7 +19926,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConf
     @pulumi.getter(name="s3FilesAccessPoints")
     def s3_files_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']:
         """
-        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
         """
         return pulumi.get(self, "s3_files_access_points")
 
@@ -19773,7 +19934,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConf
     @pulumi.getter(name="sessionStorages")
     def session_storages(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']:
         """
-        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
         """
         return pulumi.get(self, "session_storages")
 
@@ -19982,8 +20143,8 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigu
                  network_mode: _builtins.str,
                  network_mode_configs: Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']):
         """
-        :param _builtins.str network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
-        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
+        :param _builtins.str network_mode: Network mode.
+        :param Sequence['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
         pulumi.set(__self__, "network_mode_configs", network_mode_configs)
@@ -19992,7 +20153,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigu
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
         """
-        Network mode. Valid values: `PUBLIC`, `VPC`.
+        Network mode.
         """
         return pulumi.get(self, "network_mode")
 
@@ -20000,7 +20161,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigu
     @pulumi.getter(name="networkModeConfigs")
     def network_mode_configs(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']:
         """
-        VPC configuration. See `network_mode_config` Block below.
+        VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         """
         return pulumi.get(self, "network_mode_configs")
 
@@ -20031,7 +20192,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigu
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
         """
-        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
+        :param _builtins.bool require_service_s3_endpoint: Whether an S3 endpoint is required for the service in the VPC.
         :param Sequence[_builtins.str] security_groups: Security groups for the VPC.
         :param Sequence[_builtins.str] subnets: Subnets for the VPC.
         """
@@ -20043,7 +20204,7 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigu
     @pulumi.getter(name="requireServiceS3Endpoint")
     def require_service_s3_endpoint(self) -> _builtins.bool:
         """
-        Whether to require an S3 endpoint for the service in the VPC.
+        Whether an S3 endpoint is required for the service in the VPC.
         """
         return pulumi.get(self, "require_service_s3_endpoint")
 
@@ -20104,11 +20265,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
         :param _builtins.str agent_runtime_arn: ARN of the agent runtime the service provisions for the harness.
         :param _builtins.str agent_runtime_id: ID of the agent runtime the service provisions for the harness.
         :param _builtins.str agent_runtime_name: Name of the agent runtime the service derives for the harness.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` Block below.
-               
-               The following attributes are exported under `agentcore_runtime_environment`:
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
         """
         if agent_runtime_arn is not None:
             pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -20151,7 +20310,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="filesystemConfigurations")
     def filesystem_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration']]:
         """
-        Filesystem configurations. See `filesystem_configuration` Block below.
+        Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -20159,7 +20318,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration']]:
         """
-        Lifecycle configuration. See `lifecycle_configuration` Block below.
+        Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
         """
         return pulumi.get(self, "lifecycle_configurations")
 
@@ -20167,9 +20326,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']]:
         """
-        Network configuration. See `network_configuration` Block below.
-
-        The following attributes are exported under `agentcore_runtime_environment`:
+        Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
         """
         return pulumi.get(self, "network_configurations")
 
@@ -20202,9 +20359,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
                  s3_files_access_points: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']] = None,
                  session_storages: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']] = None):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
         """
         if efs_access_points is not None:
             pulumi.set(__self__, "efs_access_points", efs_access_points)
@@ -20217,7 +20374,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="efsAccessPoints")
     def efs_access_points(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']]:
         """
-        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
         """
         return pulumi.get(self, "efs_access_points")
 
@@ -20225,7 +20382,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="s3FilesAccessPoints")
     def s3_files_access_points(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']]:
         """
-        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
         """
         return pulumi.get(self, "s3_files_access_points")
 
@@ -20233,7 +20390,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="sessionStorages")
     def session_storages(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']]:
         """
-        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
+        Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
         """
         return pulumi.get(self, "session_storages")
 
@@ -20442,8 +20599,8 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
                  network_mode: _builtins.str,
                  network_mode_configs: Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']] = None):
         """
-        :param _builtins.str network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
+        :param _builtins.str network_mode: Network mode.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
         if network_mode_configs is not None:
@@ -20453,7 +20610,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
         """
-        Network mode. Valid values: `PUBLIC`, `VPC`.
+        Network mode.
         """
         return pulumi.get(self, "network_mode")
 
@@ -20461,7 +20618,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @pulumi.getter(name="networkModeConfigs")
     def network_mode_configs(self) -> Optional[Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']]:
         """
-        VPC configuration. See `network_mode_config` Block below.
+        VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         """
         return pulumi.get(self, "network_mode_configs")
 
@@ -20494,7 +20651,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
         """
         :param Sequence[_builtins.str] security_groups: Security groups for the VPC.
         :param Sequence[_builtins.str] subnets: Subnets for the VPC.
-        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
+        :param _builtins.bool require_service_s3_endpoint: Whether an S3 endpoint is required for the service in the VPC.
         """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
@@ -20521,7 +20678,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @pulumi.getter(name="requireServiceS3Endpoint")
     def require_service_s3_endpoint(self) -> Optional[_builtins.bool]:
         """
-        Whether to require an S3 endpoint for the service in the VPC.
+        Whether an S3 endpoint is required for the service in the VPC.
         """
         return pulumi.get(self, "require_service_s3_endpoint")
 
@@ -20623,9 +20780,9 @@ class AgentcoreHarnessMemory(dict):
                  disabled: Optional['outputs.AgentcoreHarnessMemoryDisabled'] = None,
                  managed_memory_configuration: Optional['outputs.AgentcoreHarnessMemoryManagedMemoryConfiguration'] = None):
         """
-        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs' agentcore_memory_configuration: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
-        :param 'AgentcoreHarnessMemoryDisabledArgs' disabled: Explicitly disable memory for this harness. See `disabled` Block below.
-        :param 'AgentcoreHarnessMemoryManagedMemoryConfigurationArgs' managed_memory_configuration: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs' agentcore_memory_configuration: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
+        :param 'AgentcoreHarnessMemoryDisabledArgs' disabled: Explicitly disable memory for this harness. See `memory.disabled` Block below.
+        :param 'AgentcoreHarnessMemoryManagedMemoryConfigurationArgs' managed_memory_configuration: Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
         """
         if agentcore_memory_configuration is not None:
             pulumi.set(__self__, "agentcore_memory_configuration", agentcore_memory_configuration)
@@ -20638,7 +20795,7 @@ class AgentcoreHarnessMemory(dict):
     @pulumi.getter(name="agentcoreMemoryConfiguration")
     def agentcore_memory_configuration(self) -> Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration']:
         """
-        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
         """
         return pulumi.get(self, "agentcore_memory_configuration")
 
@@ -20646,7 +20803,7 @@ class AgentcoreHarnessMemory(dict):
     @pulumi.getter
     def disabled(self) -> Optional['outputs.AgentcoreHarnessMemoryDisabled']:
         """
-        Explicitly disable memory for this harness. See `disabled` Block below.
+        Explicitly disable memory for this harness. See `memory.disabled` Block below.
         """
         return pulumi.get(self, "disabled")
 
@@ -20654,7 +20811,7 @@ class AgentcoreHarnessMemory(dict):
     @pulumi.getter(name="managedMemoryConfiguration")
     def managed_memory_configuration(self) -> Optional['outputs.AgentcoreHarnessMemoryManagedMemoryConfiguration']:
         """
-        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
         """
         return pulumi.get(self, "managed_memory_configuration")
 
@@ -20685,9 +20842,9 @@ class AgentcoreHarnessMemoryActual(dict):
                  disableds: Sequence['outputs.AgentcoreHarnessMemoryActualDisabled'],
                  managed_memory_configurations: Sequence['outputs.AgentcoreHarnessMemoryActualManagedMemoryConfiguration']):
         """
-        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs'] agentcore_memory_configurations: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
-        :param Sequence['AgentcoreHarnessMemoryActualDisabledArgs'] disableds: Explicitly disable memory for this harness. See `disabled` Block below.
-        :param Sequence['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs'] managed_memory_configurations: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs'] agentcore_memory_configurations: AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualDisabledArgs'] disableds: Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs'] managed_memory_configurations: Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
         """
         pulumi.set(__self__, "agentcore_memory_configurations", agentcore_memory_configurations)
         pulumi.set(__self__, "disableds", disableds)
@@ -20697,7 +20854,7 @@ class AgentcoreHarnessMemoryActual(dict):
     @pulumi.getter(name="agentcoreMemoryConfigurations")
     def agentcore_memory_configurations(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration']:
         """
-        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
         """
         return pulumi.get(self, "agentcore_memory_configurations")
 
@@ -20705,7 +20862,7 @@ class AgentcoreHarnessMemoryActual(dict):
     @pulumi.getter
     def disableds(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualDisabled']:
         """
-        Explicitly disable memory for this harness. See `disabled` Block below.
+        Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
         """
         return pulumi.get(self, "disableds")
 
@@ -20713,7 +20870,7 @@ class AgentcoreHarnessMemoryActual(dict):
     @pulumi.getter(name="managedMemoryConfigurations")
     def managed_memory_configurations(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualManagedMemoryConfiguration']:
         """
-        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
         """
         return pulumi.get(self, "managed_memory_configurations")
 
@@ -20748,9 +20905,9 @@ class AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration(dict):
                  retrieval_configs: Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig']):
         """
         :param _builtins.str actor_id: Actor ID for memory sessions.
-        :param _builtins.str arn: ARN of the AgentCore memory resource.
+        :param _builtins.str arn: ARN of the managed memory resource.
         :param _builtins.int messages_count: Number of messages to retrieve from memory.
-        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs'] retrieval_configs: Retrieval configuration parameters. See `retrieval_config` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs'] retrieval_configs: Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         """
         pulumi.set(__self__, "actor_id", actor_id)
         pulumi.set(__self__, "arn", arn)
@@ -20769,7 +20926,7 @@ class AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the AgentCore memory resource.
+        ARN of the managed memory resource.
         """
         return pulumi.get(self, "arn")
 
@@ -20785,7 +20942,7 @@ class AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration(dict):
     @pulumi.getter(name="retrievalConfigs")
     def retrieval_configs(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig']:
         """
-        Retrieval configuration parameters. See `retrieval_config` Block below.
+        Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         """
         return pulumi.get(self, "retrieval_configs")
 
@@ -20898,11 +21055,9 @@ class AgentcoreHarnessMemoryActualManagedMemoryConfiguration(dict):
                  strategies: Sequence[_builtins.str]):
         """
         :param _builtins.str arn: ARN of the managed memory resource.
-        :param _builtins.str encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
-        :param _builtins.int event_expiry_duration: Event retention in days. Defaults to `30`.
-        :param Sequence[_builtins.str] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-               
-               In addition, the following attribute is exported:
+        :param _builtins.str encryption_key_arn: ARN of the customer-managed KMS key used to encrypt the memory.
+        :param _builtins.int event_expiry_duration: Event retention in days.
+        :param Sequence[_builtins.str] strategies: Set of strategy types enabled.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
@@ -20921,7 +21076,7 @@ class AgentcoreHarnessMemoryActualManagedMemoryConfiguration(dict):
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> _builtins.str:
         """
-        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        ARN of the customer-managed KMS key used to encrypt the memory.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -20929,7 +21084,7 @@ class AgentcoreHarnessMemoryActualManagedMemoryConfiguration(dict):
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> _builtins.int:
         """
-        Event retention in days. Defaults to `30`.
+        Event retention in days.
         """
         return pulumi.get(self, "event_expiry_duration")
 
@@ -20937,9 +21092,7 @@ class AgentcoreHarnessMemoryActualManagedMemoryConfiguration(dict):
     @pulumi.getter
     def strategies(self) -> Sequence[_builtins.str]:
         """
-        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-
-        In addition, the following attribute is exported:
+        Set of strategy types enabled.
         """
         return pulumi.get(self, "strategies")
 
@@ -20973,10 +21126,10 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration(dict):
                  messages_count: Optional[_builtins.int] = None,
                  retrieval_config: Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig'] = None):
         """
-        :param _builtins.str arn: ARN of the AgentCore memory resource.
+        :param _builtins.str arn: ARN of the managed memory resource.
         :param _builtins.str actor_id: Actor ID for memory sessions.
         :param _builtins.int messages_count: Number of messages to retrieve from memory.
-        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs' retrieval_config: Retrieval configuration parameters. See `retrieval_config` Block below.
+        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs' retrieval_config: Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         """
         pulumi.set(__self__, "arn", arn)
         if actor_id is not None:
@@ -20990,7 +21143,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the AgentCore memory resource.
+        ARN of the managed memory resource.
         """
         return pulumi.get(self, "arn")
 
@@ -21014,7 +21167,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration(dict):
     @pulumi.getter(name="retrievalConfig")
     def retrieval_config(self) -> Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig']:
         """
-        Retrieval configuration parameters. See `retrieval_config` Block below.
+        Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         """
         return pulumi.get(self, "retrieval_config")
 
@@ -21130,11 +21283,9 @@ class AgentcoreHarnessMemoryManagedMemoryConfiguration(dict):
                  strategies: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str arn: ARN of the managed memory resource.
-        :param _builtins.str encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
-        :param _builtins.int event_expiry_duration: Event retention in days. Defaults to `30`.
-        :param Sequence[_builtins.str] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-               
-               In addition, the following attribute is exported:
+        :param _builtins.str encryption_key_arn: ARN of the customer-managed KMS key used to encrypt the memory.
+        :param _builtins.int event_expiry_duration: Event retention in days.
+        :param Sequence[_builtins.str] strategies: Set of strategy types enabled.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -21157,7 +21308,7 @@ class AgentcoreHarnessMemoryManagedMemoryConfiguration(dict):
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[_builtins.str]:
         """
-        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        ARN of the customer-managed KMS key used to encrypt the memory.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -21165,7 +21316,7 @@ class AgentcoreHarnessMemoryManagedMemoryConfiguration(dict):
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> Optional[_builtins.int]:
         """
-        Event retention in days. Defaults to `30`.
+        Event retention in days.
         """
         return pulumi.get(self, "event_expiry_duration")
 
@@ -21173,9 +21324,7 @@ class AgentcoreHarnessMemoryManagedMemoryConfiguration(dict):
     @pulumi.getter
     def strategies(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-
-        In addition, the following attribute is exported:
+        Set of strategy types enabled.
         """
         return pulumi.get(self, "strategies")
 
@@ -21978,7 +22127,7 @@ class AgentcoreHarnessTool(dict):
                  name: Optional[_builtins.str] = None):
         """
         :param _builtins.str type: Type of tool. Valid values: `remote_mcp`, `agentcore_browser`, `agentcore_gateway`, `inline_function`, `agentcore_code_interpreter`.
-        :param 'AgentcoreHarnessToolConfigArgs' config: Tool-specific configuration. See `tool config` below.
+        :param 'AgentcoreHarnessToolConfigArgs' config: Tool-specific configuration. See `tool.config` Block below.
         :param _builtins.str name: Name of the tool.
         """
         pulumi.set(__self__, "type", type)
@@ -21999,7 +22148,7 @@ class AgentcoreHarnessTool(dict):
     @pulumi.getter
     def config(self) -> Optional['outputs.AgentcoreHarnessToolConfig']:
         """
-        Tool-specific configuration. See `tool config` below.
+        Tool-specific configuration. See `tool.config` Block below.
         """
         return pulumi.get(self, "config")
 
@@ -22455,7 +22604,7 @@ class AgentcoreHarnessTruncation(dict):
                  configs: Sequence['outputs.AgentcoreHarnessTruncationConfig'],
                  strategy: _builtins.str):
         """
-        :param Sequence['AgentcoreHarnessTruncationConfigArgs'] configs: Strategy-specific configuration. See `truncation config` below.
+        :param Sequence['AgentcoreHarnessTruncationConfigArgs'] configs: Strategy-specific configuration. See `truncation.config` Block below.
         :param _builtins.str strategy: Truncation strategy. Valid values: `sliding_window`, `summarization`, `none`.
         """
         pulumi.set(__self__, "configs", configs)
@@ -22465,7 +22614,7 @@ class AgentcoreHarnessTruncation(dict):
     @pulumi.getter
     def configs(self) -> Sequence['outputs.AgentcoreHarnessTruncationConfig']:
         """
-        Strategy-specific configuration. See `truncation config` below.
+        Strategy-specific configuration. See `truncation.config` Block below.
         """
         return pulumi.get(self, "configs")
 
@@ -24070,17 +24219,15 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
                  salesforce_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig'] = None,
                  slack_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig'] = None):
         """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs' atlassian_oauth2_provider_config: Atlassian OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs' custom_oauth2_provider_config: Custom OAuth2 provider configuration. See `custom` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs' included_oauth2_provider_config: Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-               
-               > **Note:** `included_oauth2_provider_config` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `client_id` and `client_secret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorization_endpoint`, `token_endpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs' linkedin_oauth2_provider_config: LinkedIn OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `predefined providers` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs' atlassian_oauth2_provider_config: Atlassian OAuth provider configuration. See `atlassian_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs' custom_oauth2_provider_config: Custom OAuth2 provider configuration. See `custom_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `github_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `google_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs' included_oauth2_provider_config: Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `included_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs' linkedin_oauth2_provider_config: LinkedIn OAuth provider configuration. See `linkedin_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `microsoft_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `salesforce_oauth2_provider_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `slack_oauth2_provider_config` Block below.
         """
         if atlassian_oauth2_provider_config is not None:
             pulumi.set(__self__, "atlassian_oauth2_provider_config", atlassian_oauth2_provider_config)
@@ -24105,7 +24252,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="atlassianOauth2ProviderConfig")
     def atlassian_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig']:
         """
-        Atlassian OAuth provider configuration. See `predefined providers` below.
+        Atlassian OAuth provider configuration. See `atlassian_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "atlassian_oauth2_provider_config")
 
@@ -24113,7 +24260,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="customOauth2ProviderConfig")
     def custom_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig']:
         """
-        Custom OAuth2 provider configuration. See `custom` below.
+        Custom OAuth2 provider configuration. See `custom_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "custom_oauth2_provider_config")
 
@@ -24121,7 +24268,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="githubOauth2ProviderConfig")
     def github_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig']:
         """
-        GitHub OAuth provider configuration. See `predefined providers` below.
+        GitHub OAuth provider configuration. See `github_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "github_oauth2_provider_config")
 
@@ -24129,7 +24276,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="googleOauth2ProviderConfig")
     def google_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig']:
         """
-        Google OAuth provider configuration. See `predefined providers` below.
+        Google OAuth provider configuration. See `google_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "google_oauth2_provider_config")
 
@@ -24137,9 +24284,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="includedOauth2ProviderConfig")
     def included_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig']:
         """
-        Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-
-        > **Note:** `included_oauth2_provider_config` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `client_id` and `client_secret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorization_endpoint`, `token_endpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+        Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `included_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "included_oauth2_provider_config")
 
@@ -24147,7 +24292,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="linkedinOauth2ProviderConfig")
     def linkedin_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig']:
         """
-        LinkedIn OAuth provider configuration. See `predefined providers` below.
+        LinkedIn OAuth provider configuration. See `linkedin_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "linkedin_oauth2_provider_config")
 
@@ -24155,7 +24300,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="microsoftOauth2ProviderConfig")
     def microsoft_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig']:
         """
-        Microsoft OAuth provider configuration. See `predefined providers` below.
+        Microsoft OAuth provider configuration. See `microsoft_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "microsoft_oauth2_provider_config")
 
@@ -24163,7 +24308,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="salesforceOauth2ProviderConfig")
     def salesforce_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig']:
         """
-        Salesforce OAuth provider configuration. See `predefined providers` below.
+        Salesforce OAuth provider configuration. See `salesforce_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "salesforce_oauth2_provider_config")
 
@@ -24171,7 +24316,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="slackOauth2ProviderConfig")
     def slack_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig']:
         """
-        Slack OAuth provider configuration. See `predefined providers` below.
+        Slack OAuth provider configuration. See `slack_oauth2_provider_config` Block below.
         """
         return pulumi.get(self, "slack_oauth2_provider_config")
 
@@ -24219,28 +24364,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -24263,13 +24396,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -24277,7 +24404,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -24294,9 +24421,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -24304,9 +24429,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -24331,9 +24454,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -24411,8 +24532,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -24421,7 +24542,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -24429,7 +24550,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -24470,7 +24591,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -24514,7 +24635,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provid
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -24577,28 +24698,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride']] = None,
                  private_key_jwt_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig'] = None):
         """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
         :param _builtins.str client_authentication_method: Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **OAuth Discovery Configuration:**
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs' on_behalf_of_token_exchange_config: On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs' private_endpoint: Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` below.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs'] private_endpoint_overrides: Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs' on_behalf_of_token_exchange_config: On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs' private_endpoint: Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` Block below.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs'] private_endpoint_overrides: Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs' private_key_jwt_config: Private key JWT client authentication configuration used when signing client assertions. See `private_key_jwt_config` Block below.
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
         if client_authentication_method is not None:
@@ -24630,9 +24744,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery':
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discovery")
 
@@ -24648,9 +24760,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **OAuth Discovery Configuration:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -24676,8 +24786,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     def client_secret(self) -> Optional[_builtins.str]:
         """
         OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
         """
         return pulumi.get(self, "client_secret")
 
@@ -24685,9 +24793,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -24712,7 +24818,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
     def on_behalf_of_token_exchange_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig']:
         """
-        On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` below.
+        On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` Block below.
         """
         return pulumi.get(self, "on_behalf_of_token_exchange_config")
 
@@ -24720,7 +24826,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint']:
         """
-        Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` below.
+        Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` Block below.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -24728,13 +24834,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="privateEndpointOverrides")
     def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride']]:
         """
-        Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` below.
+        Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` Block below.
         """
         return pulumi.get(self, "private_endpoint_overrides")
 
     @_builtins.property
     @pulumi.getter(name="privateKeyJwtConfig")
     def private_key_jwt_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig']:
+        """
+        Private key JWT client authentication configuration used when signing client assertions. See `private_key_jwt_config` Block below.
+        """
         return pulumi.get(self, "private_key_jwt_config")
 
 
@@ -24811,8 +24920,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  authorization_server_metadata: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'] = None,
                  discovery_url: Optional[_builtins.str] = None):
         """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs' authorization_server_metadata: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs' authorization_server_metadata: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         if authorization_server_metadata is not None:
             pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
@@ -24823,7 +24932,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="authorizationServerMetadata")
     def authorization_server_metadata(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadata")
 
@@ -24831,7 +24940,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> Optional[_builtins.str]:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -24872,7 +24981,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -24918,7 +25027,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -24949,7 +25058,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  token_exchange_grant_type_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig'] = None):
         """
         :param _builtins.str grant_type: Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs' token_exchange_grant_type_config: Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs' token_exchange_grant_type_config: Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` Block below.
         """
         pulumi.set(__self__, "grant_type", grant_type)
         if token_exchange_grant_type_config is not None:
@@ -24967,7 +25076,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="tokenExchangeGrantTypeConfig")
     def token_exchange_grant_type_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig']:
         """
-        Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` below.
+        Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` Block below.
         """
         return pulumi.get(self, "token_exchange_grant_type_config")
 
@@ -25046,8 +25155,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  managed_vpc_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource'] = None,
                  self_managed_lattice_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource'] = None):
         """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -25058,7 +25167,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource']:
         """
-        Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        Service-managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -25066,7 +25175,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource']:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -25196,7 +25305,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  private_endpoint: 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint'):
         """
         :param _builtins.str domain: Domain the private endpoint override applies to.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration for the domain. See `private_endpoint` above.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration for the domain. See `private_endpoint` Block above.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -25213,7 +25322,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint':
         """
-        Private endpoint configuration for the domain. See `private_endpoint` above.
+        Private endpoint configuration for the domain. See `private_endpoint` Block above.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -25243,8 +25352,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  managed_vpc_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
                  self_managed_lattice_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
         """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -25255,7 +25364,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
         """
-        Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        Service-managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -25263,7 +25372,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -25471,6 +25580,12 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  additional_payload_claims: Optional[Mapping[str, _builtins.str]] = None,
                  private_key_source: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource'] = None,
                  signing_algorithm: Optional[_builtins.str] = None):
+        """
+        :param Mapping[str, _builtins.str] additional_header_claims: Key-value map of additional claims to include in the JWT header.
+        :param Mapping[str, _builtins.str] additional_payload_claims: Key-value map of additional claims to include in the JWT payload.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs' private_key_source: Source of the private key used to sign the JWT. See `private_key_source` Block below.
+        :param _builtins.str signing_algorithm: Algorithm used to sign the JWT.
+        """
         if additional_header_claims is not None:
             pulumi.set(__self__, "additional_header_claims", additional_header_claims)
         if additional_payload_claims is not None:
@@ -25483,21 +25598,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="additionalHeaderClaims")
     def additional_header_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Key-value map of additional claims to include in the JWT header.
+        """
         return pulumi.get(self, "additional_header_claims")
 
     @_builtins.property
     @pulumi.getter(name="additionalPayloadClaims")
     def additional_payload_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Key-value map of additional claims to include in the JWT payload.
+        """
         return pulumi.get(self, "additional_payload_claims")
 
     @_builtins.property
     @pulumi.getter(name="privateKeySource")
     def private_key_source(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource']:
+        """
+        Source of the private key used to sign the JWT. See `private_key_source` Block below.
+        """
         return pulumi.get(self, "private_key_source")
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> Optional[_builtins.str]:
+        """
+        Algorithm used to sign the JWT.
+        """
         return pulumi.get(self, "signing_algorithm")
 
 
@@ -25522,12 +25649,18 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
 
     def __init__(__self__, *,
                  kms_key_source: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource'] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs' kms_key_source: AWS KMS key source configuration for the signing key. See `kms_key_source` Block below.
+        """
         if kms_key_source is not None:
             pulumi.set(__self__, "kms_key_source", kms_key_source)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeySource")
     def kms_key_source(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource']:
+        """
+        AWS KMS key source configuration for the signing key. See `kms_key_source` Block below.
+        """
         return pulumi.get(self, "kms_key_source")
 
 
@@ -25552,11 +25685,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
 
     def __init__(__self__, *,
                  kms_key_arn: _builtins.str):
+        """
+        :param _builtins.str kms_key_arn: ARN of the AWS KMS key used to sign the JWT.
+        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS KMS key used to sign the JWT.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -25603,28 +25742,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -25647,13 +25774,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -25661,7 +25782,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -25678,9 +25799,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -25688,9 +25807,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -25715,9 +25832,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -25795,8 +25910,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -25805,7 +25920,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -25813,7 +25928,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -25854,7 +25969,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -25898,7 +26013,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -25946,28 +26061,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -25990,13 +26093,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -26004,7 +26101,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -26021,9 +26118,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -26031,9 +26126,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -26058,9 +26151,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -26138,8 +26229,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -26148,7 +26239,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -26156,7 +26247,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -26197,7 +26288,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -26241,7 +26332,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -26297,29 +26388,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
                  token_endpoint: Optional[_builtins.str] = None):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
         """
         if authorization_endpoint is not None:
@@ -26357,13 +26436,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -26371,7 +26444,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -26388,9 +26461,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -26398,9 +26469,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -26433,9 +26502,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -26521,8 +26588,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -26531,7 +26598,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -26539,7 +26606,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -26580,7 +26647,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -26624,7 +26691,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provide
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -26672,28 +26739,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -26716,13 +26771,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -26730,7 +26779,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -26747,9 +26796,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -26757,9 +26804,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -26784,9 +26829,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -26864,8 +26907,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -26874,7 +26917,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -26882,7 +26925,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -26923,7 +26966,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -26967,7 +27010,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provide
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -27024,36 +27067,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
                  tenant_id_wo: Optional[_builtins.str] = None,
                  tenant_id_wo_version: Optional[_builtins.int] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
-        :param _builtins.str tenant_id: Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id_wo`.
-               
-               **Write-Only Tenant ID:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
+        :param _builtins.str tenant_id: Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenant_id_wo`.
         :param _builtins.str tenant_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id`. Must be used together with `tenant_id_wo_version`.
-        :param _builtins.int tenant_id_wo_version: Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenant_id_wo` is required.
-               
-               **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+               Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenant_id`. Must be used together with `tenant_id_wo_version`.
+        :param _builtins.int tenant_id_wo_version: Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenant_id_wo`.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -27082,13 +27109,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -27096,7 +27117,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -27113,9 +27134,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -27123,9 +27142,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -27150,9 +27167,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -27160,9 +27175,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
         """
-        Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id_wo`.
-
-        **Write-Only Tenant ID:**
+        Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenant_id_wo`.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -27171,7 +27184,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     def tenant_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id`. Must be used together with `tenant_id_wo_version`.
+        Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenant_id`. Must be used together with `tenant_id_wo_version`.
         """
         return pulumi.get(self, "tenant_id_wo")
 
@@ -27179,9 +27192,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="tenantIdWoVersion")
     def tenant_id_wo_version(self) -> Optional[_builtins.int]:
         """
-        Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenant_id_wo` is required.
-
-        **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+        Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenant_id_wo`.
         """
         return pulumi.get(self, "tenant_id_wo_version")
 
@@ -27259,8 +27270,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -27269,7 +27280,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -27277,7 +27288,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -27318,7 +27329,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -27362,7 +27373,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -27410,28 +27421,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -27454,13 +27453,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -27468,7 +27461,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -27485,9 +27478,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -27495,9 +27486,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -27522,9 +27511,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -27602,8 +27589,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -27612,7 +27599,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -27620,7 +27607,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -27661,7 +27648,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -27705,7 +27692,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -27753,28 +27740,16 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-               
-               **Microsoft-Specific Configuration:**
-               
-               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-               
-               **Standard Tenant ID:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.int client_credentials_wo_version: Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-               
-               **Advanced Configuration:**
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
-               
-               **Externally-Managed Client Secret:**
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -27797,13 +27772,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
-
-        **Microsoft-Specific Configuration:**
-
-        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-
-        **Standard Tenant ID:**
+        Version used together with the write-only credentials. Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -27811,7 +27780,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
         """
         return pulumi.get(self, "client_id")
 
@@ -27828,9 +27797,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -27838,9 +27805,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="clientSecretConfig")
     def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig']:
         """
-        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
-
-        **Advanced Configuration:**
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` Block below.
         """
         return pulumi.get(self, "client_secret_config")
 
@@ -27865,9 +27830,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']]:
         """
-        OAuth discovery configuration. See `oauth_discovery` below.
-
-        **Externally-Managed Client Secret:**
+        OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         """
         return pulumi.get(self, "oauth_discoveries")
 
@@ -27945,8 +27908,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
         """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL resolved by the service.
         """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
@@ -27955,7 +27918,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
         """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        OAuth2 authorization server metadata resolved by the service. See `authorization_server_metadata` Block below.
         """
         return pulumi.get(self, "authorization_server_metadatas")
 
@@ -27963,7 +27926,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        OpenID Connect discovery URL resolved by the service.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -28004,7 +27967,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
@@ -28048,7 +28011,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @pulumi.getter(name="tokenEndpointAuthMethods")
     def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
         """
-        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        List of authentication methods supported by the token endpoint.
         """
         return pulumi.get(self, "token_endpoint_auth_methods")
 
@@ -29650,7 +29613,7 @@ class CustomModelOutputDataConfig(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the output data is stored.
+        :param _builtins.str s3_uri: S3 URI where the output data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -29658,7 +29621,7 @@ class CustomModelOutputDataConfig(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the output data is stored.
+        S3 URI where the output data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -29716,7 +29679,7 @@ class CustomModelTrainingDataConfig(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the training data is stored.
+        :param _builtins.str s3_uri: S3 URI where the training data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -29724,7 +29687,7 @@ class CustomModelTrainingDataConfig(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the training data is stored.
+        S3 URI where the training data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -29769,7 +29732,7 @@ class CustomModelValidationDataConfig(dict):
     def __init__(__self__, *,
                  validators: Sequence['outputs.CustomModelValidationDataConfigValidator']):
         """
-        :param Sequence['CustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators.
+        :param Sequence['CustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators. See `validator` below.
         """
         pulumi.set(__self__, "validators", validators)
 
@@ -29777,7 +29740,7 @@ class CustomModelValidationDataConfig(dict):
     @pulumi.getter
     def validators(self) -> Sequence['outputs.CustomModelValidationDataConfigValidator']:
         """
-        Information about the validators.
+        Information about the validators. See `validator` below.
         """
         return pulumi.get(self, "validators")
 
@@ -29804,7 +29767,7 @@ class CustomModelValidationDataConfigValidator(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored.
+        :param _builtins.str s3_uri: S3 URI where the validation data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -29812,7 +29775,7 @@ class CustomModelValidationDataConfigValidator(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the validation data is stored.
+        S3 URI where the validation data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -29839,7 +29802,7 @@ class CustomModelValidationMetric(dict):
     def __init__(__self__, *,
                  validation_loss: _builtins.float):
         """
-        :param _builtins.float validation_loss: The validation loss associated with the validator.
+        :param _builtins.float validation_loss: Validation loss associated with the validator.
         """
         pulumi.set(__self__, "validation_loss", validation_loss)
 
@@ -29847,7 +29810,7 @@ class CustomModelValidationMetric(dict):
     @pulumi.getter(name="validationLoss")
     def validation_loss(self) -> _builtins.float:
         """
-        The validation loss associated with the validator.
+        Validation loss associated with the validator.
         """
         return pulumi.get(self, "validation_loss")
 
@@ -31583,9 +31546,8 @@ class GuardrailContentPolicyConfig(dict):
                  filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None,
                  tier_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']] = None):
         """
-        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: Set of content filter configs in content policy.
-               See Filters Config for more information.
-        :param Sequence['GuardrailContentPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the content policy tier. See Tier Config for more information.
+        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
+        :param Sequence['GuardrailContentPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
@@ -31596,8 +31558,7 @@ class GuardrailContentPolicyConfig(dict):
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']]:
         """
-        Set of content filter configs in content policy.
-        See Filters Config for more information.
+        Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
         """
         return pulumi.get(self, "filters_configs")
 
@@ -31605,7 +31566,7 @@ class GuardrailContentPolicyConfig(dict):
     @pulumi.getter(name="tierConfigs")
     def tier_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']]:
         """
-        Configuration block for the content policy tier. See Tier Config for more information.
+        Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
         """
         return pulumi.get(self, "tier_configs")
 
@@ -31775,7 +31736,7 @@ class GuardrailContentPolicyConfigTierConfig(dict):
     def __init__(__self__, *,
                  tier_name: _builtins.str):
         """
-        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        :param _builtins.str tier_name: Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         """
         pulumi.set(__self__, "tier_name", tier_name)
 
@@ -31783,7 +31744,7 @@ class GuardrailContentPolicyConfigTierConfig(dict):
     @pulumi.getter(name="tierName")
     def tier_name(self) -> _builtins.str:
         """
-        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         """
         return pulumi.get(self, "tier_name")
 
@@ -31810,7 +31771,7 @@ class GuardrailContextualGroundingPolicyConfig(dict):
     def __init__(__self__, *,
                  filters_configs: Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']] = None):
         """
-        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
@@ -31819,7 +31780,7 @@ class GuardrailContextualGroundingPolicyConfig(dict):
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']]:
         """
-        One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
         """
         return pulumi.get(self, "filters_configs")
 
@@ -31830,7 +31791,7 @@ class GuardrailContextualGroundingPolicyConfigFiltersConfig(dict):
                  threshold: _builtins.float,
                  type: _builtins.str):
         """
-        :param _builtins.float threshold: The threshold for this filter.
+        :param _builtins.float threshold: Threshold for this filter.
         :param _builtins.str type: Type of contextual grounding filter.
         """
         pulumi.set(__self__, "threshold", threshold)
@@ -31840,7 +31801,7 @@ class GuardrailContextualGroundingPolicyConfigFiltersConfig(dict):
     @pulumi.getter
     def threshold(self) -> _builtins.float:
         """
-        The threshold for this filter.
+        Threshold for this filter.
         """
         return pulumi.get(self, "threshold")
 
@@ -31913,8 +31874,8 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
                  pii_entities_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']] = None,
                  regexes_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']] = None):
         """
-        :param Sequence['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs'] pii_entities_configs: List of entities. See PII Entities Config for more information.
-        :param Sequence['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs'] regexes_configs: List of regex. See Regexes Config for more information.
+        :param Sequence['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs'] pii_entities_configs: List of entities. See `pii_entities_config` Block for more information.
+        :param Sequence['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs'] regexes_configs: List of regex. See `regexes_config` Block for more information.
         """
         if pii_entities_configs is not None:
             pulumi.set(__self__, "pii_entities_configs", pii_entities_configs)
@@ -31925,7 +31886,7 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
     @pulumi.getter(name="piiEntitiesConfigs")
     def pii_entities_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']]:
         """
-        List of entities. See PII Entities Config for more information.
+        List of entities. See `pii_entities_config` Block for more information.
         """
         return pulumi.get(self, "pii_entities_configs")
 
@@ -31933,7 +31894,7 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
     @pulumi.getter(name="regexesConfigs")
     def regexes_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']]:
         """
-        List of regex. See Regexes Config for more information.
+        List of regex. See `regexes_config` Block for more information.
         """
         return pulumi.get(self, "regexes_configs")
 
@@ -31972,7 +31933,7 @@ class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.str type: The currently supported PII entities.
+        :param _builtins.str type: Currently supported PII entities.
         :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
         :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
@@ -32001,7 +31962,7 @@ class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The currently supported PII entities.
+        Currently supported PII entities.
         """
         return pulumi.get(self, "type")
 
@@ -32074,9 +32035,9 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.str name: The regex name.
-        :param _builtins.str pattern: The regex pattern.
-        :param _builtins.str description: The regex description.
+        :param _builtins.str name: Regex name.
+        :param _builtins.str pattern: Regex pattern.
+        :param _builtins.str description: Regex description.
         :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
         :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
         :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
@@ -32108,7 +32069,7 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The regex name.
+        Regex name.
         """
         return pulumi.get(self, "name")
 
@@ -32116,7 +32077,7 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
     @pulumi.getter
     def pattern(self) -> _builtins.str:
         """
-        The regex pattern.
+        Regex pattern.
         """
         return pulumi.get(self, "pattern")
 
@@ -32124,7 +32085,7 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The regex description.
+        Regex description.
         """
         return pulumi.get(self, "description")
 
@@ -32229,8 +32190,8 @@ class GuardrailTopicPolicyConfig(dict):
                  tier_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']] = None,
                  topics_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']] = None):
         """
-        :param Sequence['GuardrailTopicPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the topic policy tier. See Tier Config for more information.
-        :param Sequence['GuardrailTopicPolicyConfigTopicsConfigArgs'] topics_configs: List of topic configs in topic policy. See Topics Config for more information.
+        :param Sequence['GuardrailTopicPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
+        :param Sequence['GuardrailTopicPolicyConfigTopicsConfigArgs'] topics_configs: List of topic configs in topic policy. See `topics_config` Block for more information.
         """
         if tier_configs is not None:
             pulumi.set(__self__, "tier_configs", tier_configs)
@@ -32241,7 +32202,7 @@ class GuardrailTopicPolicyConfig(dict):
     @pulumi.getter(name="tierConfigs")
     def tier_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']]:
         """
-        Configuration block for the topic policy tier. See Tier Config for more information.
+        Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
         """
         return pulumi.get(self, "tier_configs")
 
@@ -32249,7 +32210,7 @@ class GuardrailTopicPolicyConfig(dict):
     @pulumi.getter(name="topicsConfigs")
     def topics_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']]:
         """
-        List of topic configs in topic policy. See Topics Config for more information.
+        List of topic configs in topic policy. See `topics_config` Block for more information.
         """
         return pulumi.get(self, "topics_configs")
 
@@ -32276,7 +32237,7 @@ class GuardrailTopicPolicyConfigTierConfig(dict):
     def __init__(__self__, *,
                  tier_name: _builtins.str):
         """
-        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        :param _builtins.str tier_name: Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         """
         pulumi.set(__self__, "tier_name", tier_name)
 
@@ -32284,7 +32245,7 @@ class GuardrailTopicPolicyConfigTierConfig(dict):
     @pulumi.getter(name="tierName")
     def tier_name(self) -> _builtins.str:
         """
-        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         """
         return pulumi.get(self, "tier_name")
 
@@ -32397,8 +32358,8 @@ class GuardrailWordPolicyConfig(dict):
                  managed_word_lists_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']] = None,
                  words_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']] = None):
         """
-        :param Sequence['GuardrailWordPolicyConfigManagedWordListsConfigArgs'] managed_word_lists_configs: A config for the list of managed words. See Managed Word Lists Config for more information.
-        :param Sequence['GuardrailWordPolicyConfigWordsConfigArgs'] words_configs: List of custom word configs. See Words Config for more information.
+        :param Sequence['GuardrailWordPolicyConfigManagedWordListsConfigArgs'] managed_word_lists_configs: Config for the list of managed words. See `managed_word_lists_config` Block for more information.
+        :param Sequence['GuardrailWordPolicyConfigWordsConfigArgs'] words_configs: List of custom word configs. See `words_config` Block for more information.
         """
         if managed_word_lists_configs is not None:
             pulumi.set(__self__, "managed_word_lists_configs", managed_word_lists_configs)
@@ -32409,7 +32370,7 @@ class GuardrailWordPolicyConfig(dict):
     @pulumi.getter(name="managedWordListsConfigs")
     def managed_word_lists_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']]:
         """
-        A config for the list of managed words. See Managed Word Lists Config for more information.
+        Config for the list of managed words. See `managed_word_lists_config` Block for more information.
         """
         return pulumi.get(self, "managed_word_lists_configs")
 
@@ -32417,7 +32378,7 @@ class GuardrailWordPolicyConfig(dict):
     @pulumi.getter(name="wordsConfigs")
     def words_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']]:
         """
-        List of custom word configs. See Words Config for more information.
+        List of custom word configs. See `words_config` Block for more information.
         """
         return pulumi.get(self, "words_configs")
 
@@ -32543,7 +32504,7 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str text: The custom word text.
+        :param _builtins.str text: Custom word text.
         :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
         :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
         :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
@@ -32563,7 +32524,7 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
     @pulumi.getter
     def text(self) -> _builtins.str:
         """
-        The custom word text.
+        Custom word text.
         """
         return pulumi.get(self, "text")
 
@@ -32622,7 +32583,7 @@ class InferenceProfileModel(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
         """
-        :param _builtins.str model_arn: The ARN of the model.
+        :param _builtins.str model_arn: ARN of the model.
         """
         pulumi.set(__self__, "model_arn", model_arn)
 
@@ -32630,7 +32591,7 @@ class InferenceProfileModel(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The ARN of the model.
+        ARN of the model.
         """
         return pulumi.get(self, "model_arn")
 
@@ -32657,7 +32618,7 @@ class InferenceProfileModelSource(dict):
     def __init__(__self__, *,
                  copy_from: _builtins.str):
         """
-        :param _builtins.str copy_from: The ARN of the model.
+        :param _builtins.str copy_from: ARN of the model.
         """
         pulumi.set(__self__, "copy_from", copy_from)
 
@@ -32665,7 +32626,7 @@ class InferenceProfileModelSource(dict):
     @pulumi.getter(name="copyFrom")
     def copy_from(self) -> _builtins.str:
         """
-        The ARN of the model.
+        ARN of the model.
         """
         return pulumi.get(self, "copy_from")
 
@@ -32748,8 +32709,8 @@ class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
         :param _builtins.str agent_version: Version of the agent.
         :param _builtins.str created_at: Time at which the version was created.
         :param _builtins.str description: Description of the version of the agent.
-               * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
         :param _builtins.str updated_at: Time at which the version was last updated.
+        :param Sequence['GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs'] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block
         """
         pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "agent_status", agent_status)
@@ -32797,7 +32758,6 @@ class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
     def description(self) -> _builtins.str:
         """
         Description of the version of the agent.
-        * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
         """
         return pulumi.get(self, "description")
 
@@ -32812,6 +32772,9 @@ class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
     @_builtins.property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult']]:
+        """
+        Details about the guardrail associated with the agent. See `guardrail_configuration` Block
+        """
         return pulumi.get(self, "guardrail_configurations")
 
 
@@ -32849,7 +32812,7 @@ class GetCustomModelOutputDataConfigResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
+        :param _builtins.str s3_uri: S3 URI where the validation data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -32857,7 +32820,7 @@ class GetCustomModelOutputDataConfigResult(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the validation data is stored..
+        S3 URI where the validation data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -32867,7 +32830,7 @@ class GetCustomModelTrainingDataConfigResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
+        :param _builtins.str s3_uri: S3 URI where the validation data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -32875,7 +32838,7 @@ class GetCustomModelTrainingDataConfigResult(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the validation data is stored..
+        S3 URI where the validation data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -32921,7 +32884,7 @@ class GetCustomModelValidationDataConfigValidatorResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
         """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
+        :param _builtins.str s3_uri: S3 URI where the validation data is stored.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -32929,7 +32892,7 @@ class GetCustomModelValidationDataConfigValidatorResult(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
         """
-        The S3 URI where the validation data is stored..
+        S3 URI where the validation data is stored.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -32939,7 +32902,7 @@ class GetCustomModelValidationMetricResult(dict):
     def __init__(__self__, *,
                  validation_loss: _builtins.float):
         """
-        :param _builtins.float validation_loss: The validation loss associated with the validator.
+        :param _builtins.float validation_loss: Validation loss associated with the validator.
         """
         pulumi.set(__self__, "validation_loss", validation_loss)
 
@@ -32947,7 +32910,7 @@ class GetCustomModelValidationMetricResult(dict):
     @pulumi.getter(name="validationLoss")
     def validation_loss(self) -> _builtins.float:
         """
-        The validation loss associated with the validator.
+        Validation loss associated with the validator.
         """
         return pulumi.get(self, "validation_loss")
 
@@ -32960,8 +32923,8 @@ class GetCustomModelsModelSummaryResult(dict):
                  model_name: _builtins.str):
         """
         :param _builtins.str creation_time: Creation time of the model.
-        :param _builtins.str model_arn: The ARN of the custom model.
-        :param _builtins.str model_name: The name of the custom model.
+        :param _builtins.str model_arn: ARN of the custom model.
+        :param _builtins.str model_name: Name of the custom model.
         """
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "model_arn", model_arn)
@@ -32979,7 +32942,7 @@ class GetCustomModelsModelSummaryResult(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The ARN of the custom model.
+        ARN of the custom model.
         """
         return pulumi.get(self, "model_arn")
 
@@ -32987,7 +32950,7 @@ class GetCustomModelsModelSummaryResult(dict):
     @pulumi.getter(name="modelName")
     def model_name(self) -> _builtins.str:
         """
-        The name of the custom model.
+        Name of the custom model.
         """
         return pulumi.get(self, "model_name")
 
@@ -32997,7 +32960,7 @@ class GetInferenceProfileModelResult(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
         """
-        :param _builtins.str model_arn: The ARN of the model.
+        :param _builtins.str model_arn: ARN of the model.
         """
         pulumi.set(__self__, "model_arn", model_arn)
 
@@ -33005,7 +32968,7 @@ class GetInferenceProfileModelResult(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The ARN of the model.
+        ARN of the model.
         """
         return pulumi.get(self, "model_arn")
 

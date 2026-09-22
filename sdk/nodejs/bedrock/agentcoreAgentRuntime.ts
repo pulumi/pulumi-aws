@@ -241,8 +241,6 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
     declare public readonly lifecycleConfigurations: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration[]>;
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
      */
     declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
     /**
@@ -259,6 +257,8 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
     declare public readonly requestHeaderConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration | undefined>;
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
+     *
+     * The following arguments are optional:
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -266,7 +266,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeTimeouts | undefined>;
@@ -392,8 +392,6 @@ export interface AgentcoreAgentRuntimeState {
     lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[] | undefined>;
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
      */
     networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration | undefined>;
     /**
@@ -410,6 +408,8 @@ export interface AgentcoreAgentRuntimeState {
     requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration | undefined>;
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
+     *
+     * The following arguments are optional:
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -417,7 +417,7 @@ export interface AgentcoreAgentRuntimeState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeTimeouts | undefined>;
@@ -461,8 +461,6 @@ export interface AgentcoreAgentRuntimeArgs {
     lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[] | undefined>;
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
      */
     networkConfiguration: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
     /**
@@ -479,6 +477,8 @@ export interface AgentcoreAgentRuntimeArgs {
     requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration | undefined>;
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
+     *
+     * The following arguments are optional:
      */
     roleArn: pulumi.Input<string>;
     /**

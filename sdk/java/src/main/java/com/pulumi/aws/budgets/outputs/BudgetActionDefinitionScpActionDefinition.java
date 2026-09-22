@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class BudgetActionDefinitionScpActionDefinition {
     /**
-     * @return The policy ID attached.
+     * @return Policy ID attached.
      * 
      */
     private String policyId;
     /**
-     * @return A list of target IDs.
+     * @return List of target IDs.
      * 
      */
     private List<String> targetIds;
 
     private BudgetActionDefinitionScpActionDefinition() {}
     /**
-     * @return The policy ID attached.
+     * @return Policy ID attached.
      * 
      */
     public String policyId() {
         return this.policyId;
     }
     /**
-     * @return A list of target IDs.
+     * @return List of target IDs.
      * 
      */
     public List<String> targetIds() {

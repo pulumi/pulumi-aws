@@ -33,14 +33,14 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+     * Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     @Import(name="resourceTypeManagementPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+     * @return Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     public Optional<Output<Map<String,Boolean>>> resourceTypeManagementPreference() {
@@ -48,14 +48,14 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+     * Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     @Import(name="resourceTypeOptInPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
     /**
-     * @return A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+     * @return Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     public Optional<Output<Map<String,Boolean>>> resourceTypeOptInPreference() {
@@ -110,7 +110,7 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypeManagementPreference A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+         * @param resourceTypeManagementPreference Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypeManagementPreference A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+         * @param resourceTypeManagementPreference Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypeOptInPreference A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+         * @param resourceTypeOptInPreference Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RegionSettingsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypeOptInPreference A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+         * @param resourceTypeOptInPreference Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
          * 
          * @return builder
          * 

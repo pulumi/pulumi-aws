@@ -11,14 +11,18 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
     /**
-     * @return The name of the tool.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool() {}
     /**
-     * @return The name of the tool.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

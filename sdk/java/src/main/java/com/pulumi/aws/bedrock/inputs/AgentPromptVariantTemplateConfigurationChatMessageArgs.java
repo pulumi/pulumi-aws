@@ -18,14 +18,14 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
     public static final AgentPromptVariantTemplateConfigurationChatMessageArgs Empty = new AgentPromptVariantTemplateConfigurationChatMessageArgs();
 
     /**
-     * Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * Content for the message you pass to, or receive from a model. See `content` Block for more information.
      * 
      */
     @Import(name="content")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs> content;
 
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs>> content() {
@@ -33,14 +33,14 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
     }
 
     /**
-     * The role that the message belongs to.
+     * Role that the message belongs to.
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     public Output<String> role() {
@@ -73,7 +73,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * @param content Content for the message you pass to, or receive from a model. See `content` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * @param content Content for the message you pass to, or receive from a model. See `content` Block for more information.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param role The role that the message belongs to.
+         * @param role Role that the message belongs to.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param role The role that the message belongs to.
+         * @param role Role that the message belongs to.
          * 
          * @return builder
          * 

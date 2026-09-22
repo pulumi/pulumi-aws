@@ -33,14 +33,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     }
 
     /**
-     * The lambda function that processes documents.
+     * Lambda function that processes documents. See `transformationFunction` Block for details.
      * 
      */
     @Import(name="transformationFunction")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs> transformationFunction;
 
     /**
-     * @return The lambda function that processes documents.
+     * @return Lambda function that processes documents. See `transformationFunction` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs>> transformationFunction() {
@@ -94,7 +94,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationFunction The lambda function that processes documents.
+         * @param transformationFunction Lambda function that processes documents. See `transformationFunction` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationFunction The lambda function that processes documents.
+         * @param transformationFunction Lambda function that processes documents. See `transformationFunction` Block for details.
          * 
          * @return builder
          * 

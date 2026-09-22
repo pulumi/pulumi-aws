@@ -48,14 +48,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
     }
 
     /**
-     * The role ARN.
+     * Role ARN.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The role ARN.
+     * @return Role ARN.
      * 
      */
     public Output<String> roleArn() {
@@ -131,7 +131,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param roleArn The role ARN.
+         * @param roleArn Role ARN.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param roleArn The role ARN.
+         * @param roleArn Role ARN.
          * 
          * @return builder
          * 

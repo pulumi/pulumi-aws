@@ -88,28 +88,28 @@ public class RestoreTestingPlan extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * @return Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * Recovery point selection configuration. See `recoveryPointSelection` below.
      * 
      */
     @Export(name="recoveryPointSelection", refs={RestoreTestingPlanRecoveryPointSelection.class}, tree="[0]")
     private Output<RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection;
 
     /**
-     * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * @return Recovery point selection configuration. See `recoveryPointSelection` below.
      * 
      */
     public Output<RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection() {
@@ -130,62 +130,70 @@ public class RestoreTestingPlan extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The schedule expression for the restore testing plan.
+     * Schedule expression for the restore testing plan.
      * 
      */
     @Export(name="scheduleExpression", refs={String.class}, tree="[0]")
     private Output<String> scheduleExpression;
 
     /**
-     * @return The schedule expression for the restore testing plan.
+     * @return Schedule expression for the restore testing plan.
      * 
      */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
     /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
+     * Timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
     @Export(name="scheduleExpressionTimezone", refs={String.class}, tree="[0]")
     private Output<String> scheduleExpressionTimezone;
 
     /**
-     * @return The timezone for the schedule expression. If not provided, the state value will be used.
+     * @return Timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
     public Output<String> scheduleExpressionTimezone() {
         return this.scheduleExpressionTimezone;
     }
     /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
     @Export(name="startWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> startWindowHours;
 
     /**
-     * @return The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * @return Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
     public Output<Integer> startWindowHours() {
         return this.startWindowHours;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

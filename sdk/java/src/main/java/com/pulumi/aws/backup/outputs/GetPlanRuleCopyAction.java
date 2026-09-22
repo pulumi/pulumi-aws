@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanRuleCopyAction {
+    /**
+     * @return ARN of the destination backup vault for the copied backup.
+     * 
+     */
     private String destinationVaultArn;
+    /**
+     * @return Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+     * 
+     */
     private List<GetPlanRuleCopyActionLifecycle> lifecycles;
 
     private GetPlanRuleCopyAction() {}
+    /**
+     * @return ARN of the destination backup vault for the copied backup.
+     * 
+     */
     public String destinationVaultArn() {
         return this.destinationVaultArn;
     }
+    /**
+     * @return Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+     * 
+     */
     public List<GetPlanRuleCopyActionLifecycle> lifecycles() {
         return this.lifecycles;
     }

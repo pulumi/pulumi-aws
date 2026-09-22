@@ -16,14 +16,14 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
     public static final CustomModelValidationDataConfigArgs Empty = new CustomModelValidationDataConfigArgs();
 
     /**
-     * Information about the validators.
+     * Information about the validators. See `validator` below.
      * 
      */
     @Import(name="validators", required=true)
     private Output<List<CustomModelValidationDataConfigValidatorArgs>> validators;
 
     /**
-     * @return Information about the validators.
+     * @return Information about the validators. See `validator` below.
      * 
      */
     public Output<List<CustomModelValidationDataConfigValidatorArgs>> validators() {
@@ -55,7 +55,7 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param validators Information about the validators.
+         * @param validators Information about the validators. See `validator` below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param validators Information about the validators.
+         * @param validators Information about the validators. See `validator` below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param validators Information about the validators.
+         * @param validators Information about the validators. See `validator` below.
          * 
          * @return builder
          * 

@@ -76,7 +76,7 @@ import (
 type Stage struct {
 	pulumi.CustomResourceState
 
-	// Enables access logs for the API stage. See Access Log Settings below.
+	// Enables access logs for the API stage. See `accessLogSettings` Block below.
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
 	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -84,7 +84,7 @@ type Stage struct {
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
-	// Configuration settings of a canary deployment. See Canary Settings below.
+	// Configuration settings of a canary deployment. See `canarySettings` Block below.
 	CanarySettings StageCanarySettingsPtrOutput `pulumi:"canarySettings"`
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
@@ -155,7 +155,7 @@ func GetStage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stage resources.
 type stageState struct {
-	// Enables access logs for the API stage. See Access Log Settings below.
+	// Enables access logs for the API stage. See `accessLogSettings` Block below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// ARN
 	Arn *string `pulumi:"arn"`
@@ -163,7 +163,7 @@ type stageState struct {
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
-	// Configuration settings of a canary deployment. See Canary Settings below.
+	// Configuration settings of a canary deployment. See `canarySettings` Block below.
 	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
@@ -196,7 +196,7 @@ type stageState struct {
 }
 
 type StageState struct {
-	// Enables access logs for the API stage. See Access Log Settings below.
+	// Enables access logs for the API stage. See `accessLogSettings` Block below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// ARN
 	Arn pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type StageState struct {
 	CacheClusterEnabled pulumi.BoolPtrInput
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
-	// Configuration settings of a canary deployment. See Canary Settings below.
+	// Configuration settings of a canary deployment. See `canarySettings` Block below.
 	CanarySettings StageCanarySettingsPtrInput
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
@@ -241,13 +241,13 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
-	// Enables access logs for the API stage. See Access Log Settings below.
+	// Enables access logs for the API stage. See `accessLogSettings` Block below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
-	// Configuration settings of a canary deployment. See Canary Settings below.
+	// Configuration settings of a canary deployment. See `canarySettings` Block below.
 	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
@@ -273,13 +273,13 @@ type stageArgs struct {
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
-	// Enables access logs for the API stage. See Access Log Settings below.
+	// Enables access logs for the API stage. See `accessLogSettings` Block below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// Whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
 	// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
-	// Configuration settings of a canary deployment. See Canary Settings below.
+	// Configuration settings of a canary deployment. See `canarySettings` Block below.
 	CanarySettings StageCanarySettingsPtrInput
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
@@ -390,7 +390,7 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
-// Enables access logs for the API stage. See Access Log Settings below.
+// Enables access logs for the API stage. See `accessLogSettings` Block below.
 func (o StageOutput) AccessLogSettings() StageAccessLogSettingsPtrOutput {
 	return o.ApplyT(func(v *Stage) StageAccessLogSettingsPtrOutput { return v.AccessLogSettings }).(StageAccessLogSettingsPtrOutput)
 }
@@ -410,7 +410,7 @@ func (o StageOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings of a canary deployment. See Canary Settings below.
+// Configuration settings of a canary deployment. See `canarySettings` Block below.
 func (o StageOutput) CanarySettings() StageCanarySettingsPtrOutput {
 	return o.ApplyT(func(v *Stage) StageCanarySettingsPtrOutput { return v.CanarySettings }).(StageCanarySettingsPtrOutput)
 }

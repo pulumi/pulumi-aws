@@ -60,7 +60,8 @@ type LookupSchedulingPolicyArgs struct {
 
 // A collection of values returned by getSchedulingPolicy.
 type LookupSchedulingPolicyResult struct {
-	Arn               string                               `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Fair share policy block of the scheduling policy. The `fairSharePolicy` block is documented below.
 	FairSharePolicies []GetSchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicies"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -109,6 +110,7 @@ func (o LookupSchedulingPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Fair share policy block of the scheduling policy. The `fairSharePolicy` block is documented below.
 func (o LookupSchedulingPolicyResultOutput) FairSharePolicies() GetSchedulingPolicyFairSharePolicyArrayOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) []GetSchedulingPolicyFairSharePolicy { return v.FairSharePolicies }).(GetSchedulingPolicyFairSharePolicyArrayOutput)
 }

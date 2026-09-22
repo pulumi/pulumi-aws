@@ -36,14 +36,14 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      * 
      */
     @Import(name="export")
     private @Nullable Output<ExportExportArgs> export;
 
     /**
-     * @return The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * @return Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      * 
      */
     public Optional<Output<ExportExportArgs>> export() {
@@ -131,7 +131,7 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param export The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+         * @param export Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param export The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+         * @param export Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
          * 
          * @return builder
          * 

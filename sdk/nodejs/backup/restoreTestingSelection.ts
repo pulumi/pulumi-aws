@@ -84,23 +84,23 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      */
     declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
-     * The name of the backup restore testing selection.
+     * Name of the backup restore testing selection.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The ARNs for the protected resources.
+     * ARNs for the protected resources.
      */
     declare public readonly protectedResourceArns: pulumi.Output<string[]>;
     /**
-     * The conditions for the protected resource.
+     * Conditions for the protected resource. See `protectedResourceConditions` below.
      */
     declare public readonly protectedResourceConditions: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
-     * The type of the protected resource.
+     * Type of the protected resource.
      */
     declare public readonly protectedResourceType: pulumi.Output<string>;
     /**
@@ -112,11 +112,11 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
      */
     declare public readonly restoreMetadataOverrides: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the restore testing plan.
+     * Name of the restore testing plan.
      */
     declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
     declare public readonly validationWindowHours: pulumi.Output<number>;
 
@@ -173,23 +173,23 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
  */
 export interface RestoreTestingSelectionState {
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      */
     iamRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the backup restore testing selection.
+     * Name of the backup restore testing selection.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ARNs for the protected resources.
+     * ARNs for the protected resources.
      */
     protectedResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The conditions for the protected resource.
+     * Conditions for the protected resource. See `protectedResourceConditions` below.
      */
     protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
-     * The type of the protected resource.
+     * Type of the protected resource.
      */
     protectedResourceType?: pulumi.Input<string | undefined>;
     /**
@@ -201,11 +201,11 @@ export interface RestoreTestingSelectionState {
      */
     restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The name of the restore testing plan.
+     * Name of the restore testing plan.
      */
     restoreTestingPlanName?: pulumi.Input<string | undefined>;
     /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
     validationWindowHours?: pulumi.Input<number | undefined>;
 }
@@ -215,23 +215,23 @@ export interface RestoreTestingSelectionState {
  */
 export interface RestoreTestingSelectionArgs {
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      */
     iamRoleArn: pulumi.Input<string>;
     /**
-     * The name of the backup restore testing selection.
+     * Name of the backup restore testing selection.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ARNs for the protected resources.
+     * ARNs for the protected resources.
      */
     protectedResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The conditions for the protected resource.
+     * Conditions for the protected resource. See `protectedResourceConditions` below.
      */
     protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
-     * The type of the protected resource.
+     * Type of the protected resource.
      */
     protectedResourceType: pulumi.Input<string>;
     /**
@@ -243,11 +243,11 @@ export interface RestoreTestingSelectionArgs {
      */
     restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The name of the restore testing plan.
+     * Name of the restore testing plan.
      */
     restoreTestingPlanName: pulumi.Input<string>;
     /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
     validationWindowHours?: pulumi.Input<number | undefined>;
 }

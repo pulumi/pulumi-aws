@@ -97,14 +97,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/vaultPolicy:VaultPolicy")
 public class VaultPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Output<String> backupVaultArn() {
@@ -125,14 +125,14 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
         return this.backupVaultName;
     }
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The backup vault access policy document in JSON format.
+     * @return Backup vault access policy document in JSON format.
      * 
      */
     public Output<String> policy() {

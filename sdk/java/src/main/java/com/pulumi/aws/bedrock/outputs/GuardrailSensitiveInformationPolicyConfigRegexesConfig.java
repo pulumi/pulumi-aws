@@ -19,7 +19,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
      */
     private String action;
     /**
-     * @return The regex description.
+     * @return Regex description.
      * 
      */
     private @Nullable String description;
@@ -34,7 +34,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
      */
     private @Nullable Boolean inputEnabled;
     /**
-     * @return The regex name.
+     * @return Regex name.
      * 
      */
     private String name;
@@ -49,7 +49,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
      */
     private @Nullable Boolean outputEnabled;
     /**
-     * @return The regex pattern.
+     * @return Regex pattern.
      * 
      */
     private String pattern;
@@ -63,7 +63,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
         return this.action;
     }
     /**
-     * @return The regex description.
+     * @return Regex description.
      * 
      */
     public Optional<String> description() {
@@ -84,7 +84,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
         return Optional.ofNullable(this.inputEnabled);
     }
     /**
-     * @return The regex name.
+     * @return Regex name.
      * 
      */
     public String name() {
@@ -105,7 +105,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfig {
         return Optional.ofNullable(this.outputEnabled);
     }
     /**
-     * @return The regex pattern.
+     * @return Regex pattern.
      * 
      */
     public String pattern() {

@@ -247,14 +247,14 @@ public class AgentPrompt extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -275,14 +275,14 @@ public class AgentPrompt extends com.pulumi.resources.CustomResource {
         return this.updatedAt;
     }
     /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     @Export(name="variants", refs={List.class,AgentPromptVariant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentPromptVariant>> variants;
 
     /**
-     * @return A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * @return List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     public Output<Optional<List<AgentPromptVariant>>> variants() {

@@ -33,15 +33,15 @@ class RestoreTestingSelectionArgs:
         """
         The set of arguments for constructing a RestoreTestingSelection resource.
 
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
-        :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
-        :param pulumi.Input[_builtins.str] restore_testing_plan_name: The name of the restore testing plan.
-        :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions for the protected resource.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role.
+        :param pulumi.Input[_builtins.str] protected_resource_type: Type of the protected resource.
+        :param pulumi.Input[_builtins.str] restore_testing_plan_name: Name of the restore testing plan.
+        :param pulumi.Input[_builtins.str] name: Name of the backup restore testing selection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: ARNs for the protected resources.
+        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: Conditions for the protected resource. See `protected_resource_conditions` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        :param pulumi.Input[_builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        :param pulumi.Input[_builtins.int] validation_window_hours: Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "protected_resource_type", protected_resource_type)
@@ -63,7 +63,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -75,7 +75,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="protectedResourceType")
     def protected_resource_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the protected resource.
+        Type of the protected resource.
         """
         return pulumi.get(self, "protected_resource_type")
 
@@ -87,7 +87,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="restoreTestingPlanName")
     def restore_testing_plan_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the restore testing plan.
+        Name of the restore testing plan.
         """
         return pulumi.get(self, "restore_testing_plan_name")
 
@@ -99,7 +99,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the backup restore testing selection.
+        Name of the backup restore testing selection.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="protectedResourceArns")
     def protected_resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ARNs for the protected resources.
+        ARNs for the protected resources.
         """
         return pulumi.get(self, "protected_resource_arns")
 
@@ -123,7 +123,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> pulumi.Input[Optional['RestoreTestingSelectionProtectedResourceConditionsArgs']]:
         """
-        The conditions for the protected resource.
+        Conditions for the protected resource. See `protected_resource_conditions` below.
         """
         return pulumi.get(self, "protected_resource_conditions")
 
@@ -159,7 +159,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         return pulumi.get(self, "validation_window_hours")
 
@@ -183,15 +183,15 @@ class _RestoreTestingSelectionState:
         """
         Input properties used for looking up and filtering RestoreTestingSelection resources.
 
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
-        :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions for the protected resource.
-        :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role.
+        :param pulumi.Input[_builtins.str] name: Name of the backup restore testing selection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: ARNs for the protected resources.
+        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: Conditions for the protected resource. See `protected_resource_conditions` below.
+        :param pulumi.Input[_builtins.str] protected_resource_type: Type of the protected resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        :param pulumi.Input[_builtins.str] restore_testing_plan_name: The name of the restore testing plan.
-        :param pulumi.Input[_builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        :param pulumi.Input[_builtins.str] restore_testing_plan_name: Name of the restore testing plan.
+        :param pulumi.Input[_builtins.int] validation_window_hours: Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         if iam_role_arn is not None:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -216,7 +216,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -228,7 +228,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the backup restore testing selection.
+        Name of the backup restore testing selection.
         """
         return pulumi.get(self, "name")
 
@@ -240,7 +240,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="protectedResourceArns")
     def protected_resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ARNs for the protected resources.
+        ARNs for the protected resources.
         """
         return pulumi.get(self, "protected_resource_arns")
 
@@ -252,7 +252,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> pulumi.Input[Optional['RestoreTestingSelectionProtectedResourceConditionsArgs']]:
         """
-        The conditions for the protected resource.
+        Conditions for the protected resource. See `protected_resource_conditions` below.
         """
         return pulumi.get(self, "protected_resource_conditions")
 
@@ -264,7 +264,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="protectedResourceType")
     def protected_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the protected resource.
+        Type of the protected resource.
         """
         return pulumi.get(self, "protected_resource_type")
 
@@ -300,7 +300,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="restoreTestingPlanName")
     def restore_testing_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the restore testing plan.
+        Name of the restore testing plan.
         """
         return pulumi.get(self, "restore_testing_plan_name")
 
@@ -312,7 +312,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         return pulumi.get(self, "validation_window_hours")
 
@@ -386,15 +386,15 @@ class RestoreTestingSelection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
-        :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: The conditions for the protected resource.
-        :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role.
+        :param pulumi.Input[_builtins.str] name: Name of the backup restore testing selection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: ARNs for the protected resources.
+        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: Conditions for the protected resource. See `protected_resource_conditions` below.
+        :param pulumi.Input[_builtins.str] protected_resource_type: Type of the protected resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        :param pulumi.Input[_builtins.str] restore_testing_plan_name: The name of the restore testing plan.
-        :param pulumi.Input[_builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        :param pulumi.Input[_builtins.str] restore_testing_plan_name: Name of the restore testing plan.
+        :param pulumi.Input[_builtins.int] validation_window_hours: Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         ...
     @overload
@@ -523,15 +523,15 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
-        :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
-        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: The conditions for the protected resource.
-        :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role.
+        :param pulumi.Input[_builtins.str] name: Name of the backup restore testing selection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: ARNs for the protected resources.
+        :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict', 'outputs.RestoreTestingSelectionProtectedResourceConditions']] protected_resource_conditions: Conditions for the protected resource. See `protected_resource_conditions` below.
+        :param pulumi.Input[_builtins.str] protected_resource_type: Type of the protected resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-        :param pulumi.Input[_builtins.str] restore_testing_plan_name: The name of the restore testing plan.
-        :param pulumi.Input[_builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        :param pulumi.Input[_builtins.str] restore_testing_plan_name: Name of the restore testing plan.
+        :param pulumi.Input[_builtins.int] validation_window_hours: Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -552,7 +552,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -560,7 +560,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the backup restore testing selection.
+        Name of the backup restore testing selection.
         """
         return pulumi.get(self, "name")
 
@@ -568,7 +568,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="protectedResourceArns")
     def protected_resource_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The ARNs for the protected resources.
+        ARNs for the protected resources.
         """
         return pulumi.get(self, "protected_resource_arns")
 
@@ -576,7 +576,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> pulumi.Output[Optional['outputs.RestoreTestingSelectionProtectedResourceConditions']]:
         """
-        The conditions for the protected resource.
+        Conditions for the protected resource. See `protected_resource_conditions` below.
         """
         return pulumi.get(self, "protected_resource_conditions")
 
@@ -584,7 +584,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="protectedResourceType")
     def protected_resource_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the protected resource.
+        Type of the protected resource.
         """
         return pulumi.get(self, "protected_resource_type")
 
@@ -608,7 +608,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="restoreTestingPlanName")
     def restore_testing_plan_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the restore testing plan.
+        Name of the restore testing plan.
         """
         return pulumi.get(self, "restore_testing_plan_name")
 
@@ -616,7 +616,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> pulumi.Output[_builtins.int]:
         """
-        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         return pulumi.get(self, "validation_window_hours")
 

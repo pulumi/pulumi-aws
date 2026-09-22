@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
     /**
-     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * @return Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     private @Nullable Boolean requireServiceS3Endpoint;
@@ -32,7 +32,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig() {}
     /**
-     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * @return Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     public Optional<Boolean> requireServiceS3Endpoint() {

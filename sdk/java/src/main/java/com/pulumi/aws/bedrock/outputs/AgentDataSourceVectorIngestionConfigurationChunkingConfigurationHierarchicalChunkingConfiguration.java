@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+     * @return Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
      * 
      */
     private @Nullable List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
     /**
-     * @return The number of tokens to repeat across chunks in the same layer.
+     * @return Number of tokens to repeat across chunks in the same layer.
      * 
      */
     private Integer overlapTokens;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration() {}
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+     * @return Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
      * 
      */
     public List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations() {
         return this.levelConfigurations == null ? List.of() : this.levelConfigurations;
     }
     /**
-     * @return The number of tokens to repeat across chunks in the same layer.
+     * @return Number of tokens to repeat across chunks in the same layer.
      * 
      */
     public Integer overlapTokens() {

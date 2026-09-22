@@ -67,15 +67,16 @@ type SchedulingPolicy struct {
 	pulumi.CustomResourceState
 
 	// ARN of the scheduling policy.
-	Arn             pulumi.StringOutput                      `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrOutput `pulumi:"fairSharePolicy"`
-	// Specifies the name of the scheduling policy.
+	// Name of the scheduling policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -110,29 +111,31 @@ func GetSchedulingPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SchedulingPolicy resources.
 type schedulingPolicyState struct {
 	// ARN of the scheduling policy.
-	Arn             *string                          `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 	FairSharePolicy *SchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicy"`
-	// Specifies the name of the scheduling policy.
+	// Name of the scheduling policy.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SchedulingPolicyState struct {
 	// ARN of the scheduling policy.
-	Arn             pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrInput
-	// Specifies the name of the scheduling policy.
+	// Name of the scheduling policy.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -141,8 +144,9 @@ func (SchedulingPolicyState) ElementType() reflect.Type {
 }
 
 type schedulingPolicyArgs struct {
+	// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 	FairSharePolicy *SchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicy"`
-	// Specifies the name of the scheduling policy.
+	// Name of the scheduling policy.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -152,8 +156,9 @@ type schedulingPolicyArgs struct {
 
 // The set of arguments for constructing a SchedulingPolicy resource.
 type SchedulingPolicyArgs struct {
+	// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrInput
-	// Specifies the name of the scheduling policy.
+	// Name of the scheduling policy.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -253,11 +258,12 @@ func (o SchedulingPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
 func (o SchedulingPolicyOutput) FairSharePolicy() SchedulingPolicyFairSharePolicyPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) SchedulingPolicyFairSharePolicyPtrOutput { return v.FairSharePolicy }).(SchedulingPolicyFairSharePolicyPtrOutput)
 }
 
-// Specifies the name of the scheduling policy.
+// Name of the scheduling policy.
 func (o SchedulingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -272,7 +278,7 @@ func (o SchedulingPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SchedulingPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

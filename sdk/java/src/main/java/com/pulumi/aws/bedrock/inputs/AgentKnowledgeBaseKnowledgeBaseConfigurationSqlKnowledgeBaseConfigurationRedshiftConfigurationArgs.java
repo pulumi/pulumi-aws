@@ -19,14 +19,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs();
 
     /**
-     * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+     * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
      * 
      */
     @Import(name="queryEngineConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration;
 
     /**
-     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration() {
@@ -34,14 +34,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+     * Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
      * 
      */
     @Import(name="queryGenerationConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs> queryGenerationConfiguration;
 
     /**
-     * @return Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+     * @return Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs>> queryGenerationConfiguration() {
@@ -49,14 +49,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+     * Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
      * 
      */
     @Import(name="storageConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+     * @return Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration() {
@@ -90,7 +90,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param queryEngineConfiguration Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+         * @param queryEngineConfiguration Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param queryEngineConfiguration Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+         * @param queryEngineConfiguration Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param queryGenerationConfiguration Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+         * @param queryGenerationConfiguration Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param queryGenerationConfiguration Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+         * @param queryGenerationConfiguration Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param storageConfiguration Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+         * @param storageConfiguration Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param storageConfiguration Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+         * @param storageConfiguration Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
          * 
          * @return builder
          * 

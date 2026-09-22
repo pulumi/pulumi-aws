@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration
     {
         /// <summary>
-        /// The vector configuration details on the Bedrock embeddings model.  See `BedrockEmbeddingModelConfiguration` block for details.
+        /// Vector configuration details for the Bedrock embeddings model. See `BedrockEmbeddingModelConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration? BedrockEmbeddingModelConfiguration;
 

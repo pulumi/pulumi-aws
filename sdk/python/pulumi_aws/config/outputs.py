@@ -280,6 +280,7 @@ class Endpoints(dict):
                  bedrock: Optional[_builtins.str] = None,
                  bedrockagent: Optional[_builtins.str] = None,
                  bedrockagentcore: Optional[_builtins.str] = None,
+                 bedrockruntime: Optional[_builtins.str] = None,
                  billing: Optional[_builtins.str] = None,
                  budgets: Optional[_builtins.str] = None,
                  ce: Optional[_builtins.str] = None,
@@ -601,6 +602,7 @@ class Endpoints(dict):
         :param _builtins.str bedrock: Use this to override the default service endpoint URL
         :param _builtins.str bedrockagent: Use this to override the default service endpoint URL
         :param _builtins.str bedrockagentcore: Use this to override the default service endpoint URL
+        :param _builtins.str bedrockruntime: Use this to override the default service endpoint URL
         :param _builtins.str billing: Use this to override the default service endpoint URL
         :param _builtins.str budgets: Use this to override the default service endpoint URL
         :param _builtins.str ce: Use this to override the default service endpoint URL
@@ -960,6 +962,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "bedrockagent", bedrockagent)
         if bedrockagentcore is not None:
             pulumi.set(__self__, "bedrockagentcore", bedrockagentcore)
+        if bedrockruntime is not None:
+            pulumi.set(__self__, "bedrockruntime", bedrockruntime)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
         if budgets is not None:
@@ -1828,6 +1832,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "bedrockagentcore")
+
+    @_builtins.property
+    @pulumi.getter
+    def bedrockruntime(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockruntime")
 
     @_builtins.property
     @pulumi.getter

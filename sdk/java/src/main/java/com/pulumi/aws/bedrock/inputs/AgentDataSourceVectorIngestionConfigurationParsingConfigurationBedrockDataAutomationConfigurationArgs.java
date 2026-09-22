@@ -16,14 +16,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs();
 
     /**
-     * Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+     * Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
      * 
      */
     @Import(name="parsingModality")
     private @Nullable Output<String> parsingModality;
 
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
      * 
      */
     public Optional<Output<String>> parsingModality() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+         * @param parsingModality Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+         * @param parsingModality Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
          * 
          * @return builder
          * 

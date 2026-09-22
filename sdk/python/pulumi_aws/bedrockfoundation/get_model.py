@@ -136,7 +136,7 @@ class GetModelResult:
     @pulumi.getter(name="responseStreamingSupported")
     def response_streaming_supported(self) -> _builtins.bool:
         """
-        Indicates whether the model supports streaming.
+        Whether the model supports streaming.
         """
         return pulumi.get(self, "response_streaming_supported")
 

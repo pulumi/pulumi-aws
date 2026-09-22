@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetActionSubscriberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address that AWS sends budget notifications to, either an SNS topic or an email.
+        /// Address that AWS sends budget notifications to, either an SNS topic or an email.
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        /// Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         /// </summary>
         [Input("subscriptionType", required: true)]
         public Input<string> SubscriptionType { get; set; } = null!;

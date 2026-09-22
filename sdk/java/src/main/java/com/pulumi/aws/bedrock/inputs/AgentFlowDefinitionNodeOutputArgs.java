@@ -15,14 +15,18 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
     public static final AgentFlowDefinitionNodeOutputArgs Empty = new AgentFlowDefinitionNodeOutputArgs();
 
     /**
-     * A name for the output that you can reference.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the output that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -30,14 +34,14 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
     }
 
     /**
-     * The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public Output<String> type() {
@@ -70,7 +74,9 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the output that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -81,7 +87,9 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the output that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -91,7 +99,7 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 
@@ -102,7 +110,7 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 

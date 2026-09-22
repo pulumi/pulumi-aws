@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.GuardrailTopicPolicyConfigTierConfigArgs>? _tierConfigs;
 
         /// <summary>
-        /// Configuration block for the topic policy tier. See Tier Config for more information.
+        /// Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
         /// </summary>
         public InputList<Inputs.GuardrailTopicPolicyConfigTierConfigArgs> TierConfigs
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>? _topicsConfigs;
 
         /// <summary>
-        /// List of topic configs in topic policy. See Topics Config for more information.
+        /// List of topic configs in topic policy. See `TopicsConfig` Block for more information.
         /// </summary>
         public InputList<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs> TopicsConfigs
         {

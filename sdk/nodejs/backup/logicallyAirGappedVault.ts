@@ -62,11 +62,11 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Logically Air Gapped Backup Vault.
+     * ARN of the Logically Air Gapped Backup Vault.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      */
     declare public readonly encryptionKeyArn: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.backup.LogicallyAirGappedVaultTimeouts | undefined>;
@@ -145,11 +145,11 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
  */
 export interface LogicallyAirGappedVaultState {
     /**
-     * The ARN of the Logically Air Gapped Backup Vault.
+     * ARN of the Logically Air Gapped Backup Vault.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      */
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface LogicallyAirGappedVaultState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.backup.LogicallyAirGappedVaultTimeouts | undefined>;
@@ -184,7 +184,7 @@ export interface LogicallyAirGappedVaultState {
  */
 export interface LogicallyAirGappedVaultArgs {
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      */
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**

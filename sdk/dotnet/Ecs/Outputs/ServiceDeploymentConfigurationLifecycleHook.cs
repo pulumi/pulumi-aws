@@ -18,32 +18,46 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? HookDetails;
         /// <summary>
-        /// ARN of the Lambda function to invoke for the lifecycle hook.
+        /// ARN of the Lambda function to invoke for the lifecycle hook. Required when `TargetType` is `AWS_LAMBDA`. Not used when `TargetType` is `PAUSE`.
         /// </summary>
-        public readonly string HookTargetArn;
+        public readonly string? HookTargetArn;
         /// <summary>
         /// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
         /// </summary>
         public readonly ImmutableArray<string> LifecycleStages;
         /// <summary>
-        /// ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        /// ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `TargetType` is `AWS_LAMBDA`. Not used when `TargetType` is `PAUSE`.
         /// </summary>
-        public readonly string RoleArn;
+        public readonly string? RoleArn;
+        /// <summary>
+        /// Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+        /// </summary>
+        public readonly string? TargetType;
+        /// <summary>
+        /// Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `TargetType` is `PAUSE`. See below.
+        /// </summary>
+        public readonly Outputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration? TimeoutConfiguration;
 
         [OutputConstructor]
         private ServiceDeploymentConfigurationLifecycleHook(
             string? hookDetails,
 
-            string hookTargetArn,
+            string? hookTargetArn,
 
             ImmutableArray<string> lifecycleStages,
 
-            string roleArn)
+            string? roleArn,
+
+            string? targetType,
+
+            Outputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration? timeoutConfiguration)
         {
             HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;
+            TargetType = targetType;
+            TimeoutConfiguration = timeoutConfiguration;
         }
     }
 }

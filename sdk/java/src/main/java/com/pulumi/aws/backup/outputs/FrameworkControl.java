@@ -21,12 +21,12 @@ public final class FrameworkControl {
      */
     private @Nullable List<FrameworkControlInputParameter> inputParameters;
     /**
-     * @return The name of a control. This name is between 1 and 256 characters.
+     * @return Name of a control. This name is between 1 and 256 characters.
      * 
      */
     private String name;
     /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     private @Nullable FrameworkControlScope scope;
@@ -40,14 +40,14 @@ public final class FrameworkControl {
         return this.inputParameters == null ? List.of() : this.inputParameters;
     }
     /**
-     * @return The name of a control. This name is between 1 and 256 characters.
+     * @return Name of a control. This name is between 1 and 256 characters.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     public Optional<FrameworkControlScope> scope() {

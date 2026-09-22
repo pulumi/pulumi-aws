@@ -18,17 +18,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? AuthorizationEndpoint;
         /// <summary>
-        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
-        /// 
-        /// **Microsoft-Specific Configuration:**
-        /// 
-        /// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-        /// 
-        /// **Standard Tenant ID:**
+        /// Version used together with the write-only credentials. Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// </summary>
         public readonly int? ClientCredentialsWoVersion;
         /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
@@ -37,15 +31,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ClientIdWo;
         /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
+        /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
-        /// 
-        /// **Advanced Configuration:**
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig? ClientSecretConfig;
         /// <summary>
@@ -62,9 +52,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Issuer;
         /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// 
-        /// **Externally-Managed Client Secret:**
+        /// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery> OauthDiscoveries;
         /// <summary>

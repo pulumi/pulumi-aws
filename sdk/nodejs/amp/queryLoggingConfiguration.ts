@@ -60,7 +60,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block for the logging destinations. See `destinations`.
+     * Configuration block for the logging destinations. See `destination`.
      */
     declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[]>;
     /**
@@ -115,7 +115,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface QueryLoggingConfigurationState {
     /**
-     * Configuration block for the logging destinations. See `destinations`.
+     * Configuration block for the logging destinations. See `destination`.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[] | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface QueryLoggingConfigurationState {
  */
 export interface QueryLoggingConfigurationArgs {
     /**
-     * Configuration block for the logging destinations. See `destinations`.
+     * Configuration block for the logging destinations. See `destination`.
      */
     destinations: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
     /**

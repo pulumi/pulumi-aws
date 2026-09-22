@@ -24,14 +24,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     public static final BudgetState Empty = new BudgetState();
 
     /**
-     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * @return ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -39,14 +39,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the budget.
+     * ARN of the budget.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the budget.
+     * @return ARN of the budget.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -99,14 +99,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     @Import(name="costFilters")
     private @Nullable Output<List<BudgetCostFilterArgs>> costFilters;
 
     /**
-     * @return A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * @return List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     public Optional<Output<List<BudgetCostFilterArgs>>> costFilters() {
@@ -114,14 +114,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     @Import(name="costTypes")
     private @Nullable Output<BudgetCostTypesArgs> costTypes;
 
     /**
-     * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * @return Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     public Optional<Output<BudgetCostTypesArgs>> costTypes() {
@@ -144,14 +144,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      * 
      */
     @Import(name="limitAmount")
     private @Nullable Output<String> limitAmount;
 
     /**
-     * @return The amount of cost or usage being measured for a budget.
+     * @return Amount of cost or usage being measured for a budget.
      * 
      */
     public Optional<Output<String>> limitAmount() {
@@ -159,14 +159,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     @Import(name="limitUnit")
     private @Nullable Output<String> limitUnit;
 
     /**
-     * @return The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * @return Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     public Optional<Output<String>> limitUnit() {
@@ -174,14 +174,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      * 
      */
     @Import(name="metrics")
     private @Nullable Output<String> metrics;
 
     /**
-     * @return List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * @return List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      * 
      */
     public Optional<Output<String>> metrics() {
@@ -189,14 +189,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of a budget. Unique within accounts.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of a budget. Unique within accounts.
      * 
      */
     public Optional<Output<String>> name() {
@@ -204,14 +204,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the name of a budget. Unique within accounts.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return The prefix of the name of a budget. Unique within accounts.
+     * @return Prefix of the name of a budget. Unique within accounts.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -279,14 +279,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
     @Import(name="timePeriodEnd")
     private @Nullable Output<String> timePeriodEnd;
 
     /**
-     * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * @return End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
     public Optional<Output<String>> timePeriodEnd() {
@@ -294,20 +294,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
     @Import(name="timePeriodStart")
     private @Nullable Output<String> timePeriodStart;
 
     /**
-     * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * @return Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
     public Optional<Output<String>> timePeriodStart() {
@@ -315,7 +309,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      * The following arguments are optional:
      * 
@@ -324,7 +318,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> timeUnit;
 
     /**
-     * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * @return Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      * The following arguments are optional:
      * 
@@ -377,7 +371,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+         * @param accountId ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
          * 
          * @return builder
          * 
@@ -388,7 +382,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+         * @param accountId ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
          * 
          * @return builder
          * 
@@ -398,7 +392,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the budget.
+         * @param arn ARN of the budget.
          * 
          * @return builder
          * 
@@ -409,7 +403,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the budget.
+         * @param arn ARN of the budget.
          * 
          * @return builder
          * 
@@ -482,7 +476,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+         * @param costFilters List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -493,7 +487,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+         * @param costFilters List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -503,7 +497,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+         * @param costFilters List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -513,7 +507,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costTypes Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+         * @param costTypes Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
          * 
          * @return builder
          * 
@@ -524,7 +518,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costTypes Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+         * @param costTypes Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
          * 
          * @return builder
          * 
@@ -555,7 +549,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param limitAmount The amount of cost or usage being measured for a budget.
+         * @param limitAmount Amount of cost or usage being measured for a budget.
          * 
          * @return builder
          * 
@@ -566,7 +560,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param limitAmount The amount of cost or usage being measured for a budget.
+         * @param limitAmount Amount of cost or usage being measured for a budget.
          * 
          * @return builder
          * 
@@ -576,7 +570,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param limitUnit The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * @param limitUnit Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          * 
          * @return builder
          * 
@@ -587,7 +581,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param limitUnit The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * @param limitUnit Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          * 
          * @return builder
          * 
@@ -597,7 +591,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metrics List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+         * @param metrics List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
          * 
          * @return builder
          * 
@@ -608,7 +602,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metrics List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+         * @param metrics List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
          * 
          * @return builder
          * 
@@ -618,7 +612,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of a budget. Unique within accounts.
+         * @param name Name of a budget. Unique within accounts.
          * 
          * @return builder
          * 
@@ -629,7 +623,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of a budget. Unique within accounts.
+         * @param name Name of a budget. Unique within accounts.
          * 
          * @return builder
          * 
@@ -639,7 +633,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix The prefix of the name of a budget. Unique within accounts.
+         * @param namePrefix Prefix of the name of a budget. Unique within accounts.
          * 
          * @return builder
          * 
@@ -650,7 +644,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix The prefix of the name of a budget. Unique within accounts.
+         * @param namePrefix Prefix of the name of a budget. Unique within accounts.
          * 
          * @return builder
          * 
@@ -764,7 +758,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timePeriodEnd The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+         * @param timePeriodEnd End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
          * 
          * @return builder
          * 
@@ -775,7 +769,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timePeriodEnd The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+         * @param timePeriodEnd End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
          * 
          * @return builder
          * 
@@ -785,10 +779,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-         * 
-         * For more detailed documentation about each argument, refer to the [AWS official
-         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+         * @param timePeriodStart Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
          * 
          * @return builder
          * 
@@ -799,10 +790,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-         * 
-         * For more detailed documentation about each argument, refer to the [AWS official
-         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+         * @param timePeriodStart Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
          * 
          * @return builder
          * 
@@ -812,7 +800,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeUnit The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+         * @param timeUnit Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
          * 
          * The following arguments are optional:
          * 
@@ -825,7 +813,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeUnit The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+         * @param timeUnit Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
          * 
          * The following arguments are optional:
          * 

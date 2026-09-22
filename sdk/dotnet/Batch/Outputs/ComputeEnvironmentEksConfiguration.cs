@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string EksClusterArn;
         /// <summary>
-        /// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        /// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         /// </summary>
         public readonly string KubernetesNamespace;
 

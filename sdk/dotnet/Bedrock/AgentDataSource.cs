@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> DataDeletionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
+        /// Details about how the data source is stored. See `DataSourceConfiguration` Block for details.
         /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.AgentDataSourceDataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
+        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` Block for details.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.AgentDataSourceServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentDataSourceTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
+        /// Details about how to ingest the documents in the data source. See `VectorIngestionConfiguration` Block for details.
         /// </summary>
         [Output("vectorIngestionConfiguration")]
         public Output<Outputs.AgentDataSourceVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? DataDeletionPolicy { get; set; }
 
         /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
+        /// Details about how the data source is stored. See `DataSourceConfiguration` Block for details.
         /// </summary>
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
+        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` Block for details.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentDataSourceTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
+        /// Details about how to ingest the documents in the data source. See `VectorIngestionConfiguration` Block for details.
         /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? DataDeletionPolicy { get; set; }
 
         /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
+        /// Details about how the data source is stored. See `DataSourceConfiguration` Block for details.
         /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationGetArgs>? DataSourceConfiguration { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
+        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` Block for details.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AgentDataSourceServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentDataSourceTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
+        /// Details about how to ingest the documents in the data source. See `VectorIngestionConfiguration` Block for details.
         /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationGetArgs>? VectorIngestionConfiguration { get; set; }

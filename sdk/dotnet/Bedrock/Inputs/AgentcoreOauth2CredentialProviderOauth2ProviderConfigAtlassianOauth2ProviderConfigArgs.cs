@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
-        /// 
-        /// **Microsoft-Specific Configuration:**
-        /// 
-        /// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-        /// 
-        /// **Standard Tenant ID:**
+        /// Version used together with the write-only credentials. Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// </summary>
         [Input("clientCredentialsWoVersion")]
         public Input<int>? ClientCredentialsWoVersion { get; set; }
@@ -28,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientId;
 
         /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
         /// </summary>
         public Input<string>? ClientId
         {
@@ -61,9 +55,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
+        /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -76,9 +68,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
-        /// 
-        /// **Advanced Configuration:**
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` Block below.
         /// </summary>
         [Input("clientSecretConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigArgs>? ClientSecretConfig { get; set; }
@@ -110,9 +100,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs>? _oauthDiscoveries;
 
         /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// 
-        /// **Externally-Managed Client Secret:**
+        /// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs> OauthDiscoveries
         {

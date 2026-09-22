@@ -16,16 +16,32 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs();
 
+    /**
+     * Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+     * 
+     */
     @Import(name="crawlerConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
 
+    /**
+     * @return Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs>> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
 
+    /**
+     * Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+     * 
+     */
     @Import(name="sourceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs> sourceConfiguration;
 
+    /**
+     * @return Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs>> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }
@@ -55,20 +71,44 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
             $ = new AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param crawlerConfiguration Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crawlerConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs> crawlerConfiguration) {
             $.crawlerConfiguration = crawlerConfiguration;
             return this;
         }
 
+        /**
+         * @param crawlerConfiguration Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crawlerConfiguration(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs crawlerConfiguration) {
             return crawlerConfiguration(Output.of(crawlerConfiguration));
         }
 
+        /**
+         * @param sourceConfiguration Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs> sourceConfiguration) {
             $.sourceConfiguration = sourceConfiguration;
             return this;
         }
 
+        /**
+         * @param sourceConfiguration Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs sourceConfiguration) {
             return sourceConfiguration(Output.of(sourceConfiguration));
         }

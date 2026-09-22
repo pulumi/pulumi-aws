@@ -80,14 +80,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * @return Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -140,14 +140,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * @return State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -155,14 +155,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The current status of the compute environment (for example, CREATING or VALID).
+     * Current status of the compute environment (for example, CREATING or VALID).
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the compute environment (for example, CREATING or VALID).
+     * @return Current status of the compute environment (for example, CREATING or VALID).
      * 
      */
     public Optional<Output<String>> status() {
@@ -170,14 +170,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     * Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     @Import(name="statusReason")
     private @Nullable Output<String> statusReason;
 
     /**
-     * @return A short, human-readable string to provide additional details about the current status of the compute environment.
+     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
     public Optional<Output<String>> statusReason() {
@@ -200,14 +200,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -215,14 +215,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * @return Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -230,14 +230,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      * 
      */
     @Import(name="updatePolicy")
     private @Nullable Output<ComputeEnvironmentUpdatePolicyArgs> updatePolicy;
 
     /**
-     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * @return Infrastructure update policy for the compute environment. See details below.
      * 
      */
     public Optional<Output<ComputeEnvironmentUpdatePolicyArgs>> updatePolicy() {
@@ -367,7 +367,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * @param name Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * @param name Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param state The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param state State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param state The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param state State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The current status of the compute environment (for example, CREATING or VALID).
+         * @param status Current status of the compute environment (for example, CREATING or VALID).
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The current status of the compute environment (for example, CREATING or VALID).
+         * @param status Current status of the compute environment (for example, CREATING or VALID).
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param statusReason A short, human-readable string to provide additional details about the current status of the compute environment.
+         * @param statusReason Short, human-readable string to provide additional details about the current status of the compute environment.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param statusReason A short, human-readable string to provide additional details about the current status of the compute environment.
+         * @param statusReason Short, human-readable string to provide additional details about the current status of the compute environment.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+         * @param type Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+         * @param type Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * @param updatePolicy Infrastructure update policy for the compute environment. See details below.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * @param updatePolicy Infrastructure update policy for the compute environment. See details below.
          * 
          * @return builder
          * 

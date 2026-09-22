@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetFilterExpressionAnd
     {
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetFilterExpressionAndAnd> Ands;
         /// <summary>
-        /// (Optional) A Cost Category Filter block.
+        /// Cost Categories block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionAndCostCategories? CostCategories;
         /// <summary>
-        /// (Optional) A Dimension Filter block.
+        /// Dimensions block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionAndDimensions? Dimensions;
         /// <summary>
-        /// (Optional) A single filter expression to negate. Must contain exactly one root.
+        /// Single filter expression to negate. Must contain exactly one root.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionAndNot? Not;
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetFilterExpressionAndOr> Ors;
         /// <summary>

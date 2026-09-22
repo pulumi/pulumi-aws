@@ -19,14 +19,14 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
     public static final LogicallyAirGappedVaultState Empty = new LogicallyAirGappedVaultState();
 
     /**
-     * The ARN of the Logically Air Gapped Backup Vault.
+     * ARN of the Logically Air Gapped Backup Vault.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Logically Air Gapped Backup Vault.
+     * @return ARN of the Logically Air Gapped Backup Vault.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
     }
 
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
     /**
-     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * @return AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     public Optional<Output<String>> encryptionKeyArn() {
@@ -124,14 +124,14 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -178,7 +178,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The ARN of the Logically Air Gapped Backup Vault.
+         * @param arn ARN of the Logically Air Gapped Backup Vault.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The ARN of the Logically Air Gapped Backup Vault.
+         * @param arn ARN of the Logically Air Gapped Backup Vault.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * @param encryptionKeyArn AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * @param encryptionKeyArn AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class LogicallyAirGappedVaultState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

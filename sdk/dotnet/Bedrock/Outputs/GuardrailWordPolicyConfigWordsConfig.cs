@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
-        /// The custom word text.
+        /// Custom word text.
         /// </summary>
         public readonly string Text;
 

@@ -51,37 +51,37 @@ export interface GetInferenceProfileArgs {
  */
 export interface GetInferenceProfileResult {
     /**
-     * The time at which the inference profile was created.
+     * Time at which the inference profile was created.
      */
     readonly createdAt: string;
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      */
     readonly description: string;
     /**
-     * The ARN of the inference profile.
+     * ARN of the inference profile.
      */
     readonly inferenceProfileArn: string;
     readonly inferenceProfileId: string;
     /**
-     * The unique identifier of the inference profile.
+     * Unique identifier of the inference profile.
      */
     readonly inferenceProfileName: string;
     /**
-     * A list of information about each model in the inference profile. See `models`.
+     * List of information about each model in the inference profile. See `models`.
      */
     readonly models: outputs.bedrock.GetInferenceProfileModel[];
     readonly region: string;
     /**
-     * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
     readonly status: string;
     /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      */
     readonly type: string;
     /**
-     * The time at which the inference profile was last updated.
+     * Time at which the inference profile was last updated.
      */
     readonly updatedAt: string;
 }

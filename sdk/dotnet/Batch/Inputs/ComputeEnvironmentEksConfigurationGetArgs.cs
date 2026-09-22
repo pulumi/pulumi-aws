@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string> EksClusterArn { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        /// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         /// </summary>
         [Input("kubernetesNamespace", required: true)]
         public Input<string> KubernetesNamespace { get; set; } = null!;

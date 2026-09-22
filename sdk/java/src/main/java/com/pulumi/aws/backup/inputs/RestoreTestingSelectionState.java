@@ -20,14 +20,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     public static final RestoreTestingSelectionState Empty = new RestoreTestingSelectionState();
 
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -35,14 +35,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the backup restore testing selection.
+     * Name of the backup restore testing selection.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the backup restore testing selection.
+     * @return Name of the backup restore testing selection.
      * 
      */
     public Optional<Output<String>> name() {
@@ -50,14 +50,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARNs for the protected resources.
+     * ARNs for the protected resources.
      * 
      */
     @Import(name="protectedResourceArns")
     private @Nullable Output<List<String>> protectedResourceArns;
 
     /**
-     * @return The ARNs for the protected resources.
+     * @return ARNs for the protected resources.
      * 
      */
     public Optional<Output<List<String>>> protectedResourceArns() {
@@ -65,14 +65,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The conditions for the protected resource.
+     * Conditions for the protected resource. See `protectedResourceConditions` below.
      * 
      */
     @Import(name="protectedResourceConditions")
     private @Nullable Output<RestoreTestingSelectionProtectedResourceConditionsArgs> protectedResourceConditions;
 
     /**
-     * @return The conditions for the protected resource.
+     * @return Conditions for the protected resource. See `protectedResourceConditions` below.
      * 
      */
     public Optional<Output<RestoreTestingSelectionProtectedResourceConditionsArgs>> protectedResourceConditions() {
@@ -80,14 +80,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of the protected resource.
+     * Type of the protected resource.
      * 
      */
     @Import(name="protectedResourceType")
     private @Nullable Output<String> protectedResourceType;
 
     /**
-     * @return The type of the protected resource.
+     * @return Type of the protected resource.
      * 
      */
     public Optional<Output<String>> protectedResourceType() {
@@ -125,14 +125,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the restore testing plan.
+     * Name of the restore testing plan.
      * 
      */
     @Import(name="restoreTestingPlanName")
     private @Nullable Output<String> restoreTestingPlanName;
 
     /**
-     * @return The name of the restore testing plan.
+     * @return Name of the restore testing plan.
      * 
      */
     public Optional<Output<String>> restoreTestingPlanName() {
@@ -140,14 +140,14 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
     @Import(name="validationWindowHours")
     private @Nullable Output<Integer> validationWindowHours;
 
     /**
-     * @return The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * @return Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
     public Optional<Output<Integer>> validationWindowHours() {
@@ -187,7 +187,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role.
+         * @param iamRoleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role.
+         * @param iamRoleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the backup restore testing selection.
+         * @param name Name of the backup restore testing selection.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the backup restore testing selection.
+         * @param name Name of the backup restore testing selection.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceArns The ARNs for the protected resources.
+         * @param protectedResourceArns ARNs for the protected resources.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceArns The ARNs for the protected resources.
+         * @param protectedResourceArns ARNs for the protected resources.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceArns The ARNs for the protected resources.
+         * @param protectedResourceArns ARNs for the protected resources.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceConditions The conditions for the protected resource.
+         * @param protectedResourceConditions Conditions for the protected resource. See `protectedResourceConditions` below.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceConditions The conditions for the protected resource.
+         * @param protectedResourceConditions Conditions for the protected resource. See `protectedResourceConditions` below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceType The type of the protected resource.
+         * @param protectedResourceType Type of the protected resource.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param protectedResourceType The type of the protected resource.
+         * @param protectedResourceType Type of the protected resource.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param restoreTestingPlanName The name of the restore testing plan.
+         * @param restoreTestingPlanName Name of the restore testing plan.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param restoreTestingPlanName The name of the restore testing plan.
+         * @param restoreTestingPlanName Name of the restore testing plan.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param validationWindowHours The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param validationWindowHours The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * @param validationWindowHours Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
          * 
          * @return builder
          * 

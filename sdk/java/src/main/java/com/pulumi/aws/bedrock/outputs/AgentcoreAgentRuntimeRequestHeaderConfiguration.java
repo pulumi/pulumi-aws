@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreAgentRuntimeRequestHeaderConfiguration {
     /**
-     * @return A list of HTTP request headers that are allowed to be passed through to the runtime.
+     * @return List of HTTP request headers that are allowed to be passed through to the runtime.
      * 
      */
     private @Nullable List<String> requestHeaderAllowlists;
 
     private AgentcoreAgentRuntimeRequestHeaderConfiguration() {}
     /**
-     * @return A list of HTTP request headers that are allowed to be passed through to the runtime.
+     * @return List of HTTP request headers that are allowed to be passed through to the runtime.
      * 
      */
     public List<String> requestHeaderAllowlists() {

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _groups;
 
         /// <summary>
-        /// A list of groups to be attached. There must be at least one group.
+        /// List of groups to be attached. There must be at least one group.
         /// </summary>
         public InputList<string> Groups
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _roles;
 
         /// <summary>
-        /// A list of roles to be attached. There must be at least one role.
+        /// List of roles to be attached. There must be at least one role.
         /// </summary>
         public InputList<string> Roles
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _users;
 
         /// <summary>
-        /// A list of users to be attached. There must be at least one user.
+        /// List of users to be attached. There must be at least one user.
         /// </summary>
         public InputList<string> Users
         {

@@ -34,14 +34,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Contains inference configurations for the prompt. See Inference Configuration for more information.
+     * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs> inferenceConfiguration;
 
     /**
-     * @return Contains inference configurations for the prompt. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs>> inferenceConfiguration() {
@@ -49,14 +49,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
     /**
-     * @return The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     public Output<String> modelId() {
@@ -64,14 +64,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+     * Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
      * 
      */
     @Import(name="templateConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs> templateConfiguration;
 
     /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+     * @return Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs>> templateConfiguration() {
@@ -79,14 +79,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * The type of prompt template. Valid values: `TEXT`, `CHAT`.
+     * Type of prompt template. Valid values: `TEXT`, `CHAT`.
      * 
      */
     @Import(name="templateType", required=true)
     private Output<String> templateType;
 
     /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
+     * @return Type of prompt template. Valid values: `TEXT`, `CHAT`.
      * 
      */
     public Output<String> templateType() {
@@ -143,7 +143,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Inference Configuration for more information.
+         * @param inferenceConfiguration Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param modelId The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param modelId The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param templateConfiguration Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+         * @param templateConfiguration Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param templateConfiguration Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+         * @param templateConfiguration Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param templateType The type of prompt template. Valid values: `TEXT`, `CHAT`.
+         * @param templateType Type of prompt template. Valid values: `TEXT`, `CHAT`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param templateType The type of prompt template. Valid values: `TEXT`, `CHAT`.
+         * @param templateType Type of prompt template. Valid values: `TEXT`, `CHAT`.
          * 
          * @return builder
          * 

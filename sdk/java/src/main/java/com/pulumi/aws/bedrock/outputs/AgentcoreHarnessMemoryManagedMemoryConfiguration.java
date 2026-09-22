@@ -19,19 +19,17 @@ public final class AgentcoreHarnessMemoryManagedMemoryConfiguration {
      */
     private @Nullable String arn;
     /**
-     * @return ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+     * @return ARN of the customer-managed KMS key used to encrypt the memory.
      * 
      */
     private @Nullable String encryptionKeyArn;
     /**
-     * @return Event retention in days. Defaults to `30`.
+     * @return Event retention in days.
      * 
      */
     private @Nullable Integer eventExpiryDuration;
     /**
-     * @return Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `[&#34;SEMANTIC&#34;, &#34;SUMMARIZATION&#34;]`.
-     * 
-     * In addition, the following attribute is exported:
+     * @return Set of strategy types enabled.
      * 
      */
     private @Nullable List<String> strategies;
@@ -45,23 +43,21 @@ public final class AgentcoreHarnessMemoryManagedMemoryConfiguration {
         return Optional.ofNullable(this.arn);
     }
     /**
-     * @return ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+     * @return ARN of the customer-managed KMS key used to encrypt the memory.
      * 
      */
     public Optional<String> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
     /**
-     * @return Event retention in days. Defaults to `30`.
+     * @return Event retention in days.
      * 
      */
     public Optional<Integer> eventExpiryDuration() {
         return Optional.ofNullable(this.eventExpiryDuration);
     }
     /**
-     * @return Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `[&#34;SEMANTIC&#34;, &#34;SUMMARIZATION&#34;]`.
-     * 
-     * In addition, the following attribute is exported:
+     * @return Set of strategy types enabled.
      * 
      */
     public List<String> strategies() {

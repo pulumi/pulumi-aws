@@ -13,65 +13,65 @@ import java.util.Objects;
 @CustomType
 public final class GetInferenceProfileResult {
     /**
-     * @return The time at which the inference profile was created.
+     * @return Time at which the inference profile was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description of the inference profile.
+     * @return Description of the inference profile.
      * 
      */
     private String description;
     /**
-     * @return The ARN of the inference profile.
+     * @return ARN of the inference profile.
      * 
      */
     private String inferenceProfileArn;
     private String inferenceProfileId;
     /**
-     * @return The unique identifier of the inference profile.
+     * @return Unique identifier of the inference profile.
      * 
      */
     private String inferenceProfileName;
     /**
-     * @return A list of information about each model in the inference profile. See `models`.
+     * @return List of information about each model in the inference profile. See `models`.
      * 
      */
     private List<GetInferenceProfileModel> models;
     private String region;
     /**
-     * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * @return Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
     private String status;
     /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     private String type;
     /**
-     * @return The time at which the inference profile was last updated.
+     * @return Time at which the inference profile was last updated.
      * 
      */
     private String updatedAt;
 
     private GetInferenceProfileResult() {}
     /**
-     * @return The time at which the inference profile was created.
+     * @return Time at which the inference profile was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description of the inference profile.
+     * @return Description of the inference profile.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The ARN of the inference profile.
+     * @return ARN of the inference profile.
      * 
      */
     public String inferenceProfileArn() {
@@ -81,14 +81,14 @@ public final class GetInferenceProfileResult {
         return this.inferenceProfileId;
     }
     /**
-     * @return The unique identifier of the inference profile.
+     * @return Unique identifier of the inference profile.
      * 
      */
     public String inferenceProfileName() {
         return this.inferenceProfileName;
     }
     /**
-     * @return A list of information about each model in the inference profile. See `models`.
+     * @return List of information about each model in the inference profile. See `models`.
      * 
      */
     public List<GetInferenceProfileModel> models() {
@@ -98,21 +98,21 @@ public final class GetInferenceProfileResult {
         return this.region;
     }
     /**
-     * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * @return Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The time at which the inference profile was last updated.
+     * @return Time at which the inference profile was last updated.
      * 
      */
     public String updatedAt() {

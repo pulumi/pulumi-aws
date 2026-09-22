@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreBrowserCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Location from which to retrieve the certificate. See `certificates.location` below.
+        /// Location from which to retrieve the certificate. See `certificate.location` below.
         /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.AgentcoreBrowserCertificateLocationGetArgs> Location { get; set; } = null!;

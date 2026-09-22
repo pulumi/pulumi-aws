@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs();
 
     /**
-     * Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+     * Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
      * 
      */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs> redshiftConfiguration;
 
     /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs>> redshiftConfiguration() {
@@ -73,7 +73,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
          * 
          * @return builder
          * 

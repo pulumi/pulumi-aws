@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string GrantType;
         /// <summary>
-        /// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `TokenExchangeGrantTypeConfig` below.
+        /// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `TokenExchangeGrantTypeConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig? TokenExchangeGrantTypeConfig;
 

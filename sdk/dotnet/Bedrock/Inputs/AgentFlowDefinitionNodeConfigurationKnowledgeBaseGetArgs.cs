@@ -13,29 +13,32 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+        /// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
         /// </summary>
         [Input("guardrailConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationGetArgs>? GuardrailConfiguration { get; set; }
 
         /// <summary>
-        /// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+        /// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
         /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationGetArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
-        /// The unique identifier of the knowledge base to query.
+        /// Unique identifier of the knowledge base to query.
         /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+        /// </summary>
         [Input("numberOfResults")]
         public Input<int>? NumberOfResults { get; set; }
 

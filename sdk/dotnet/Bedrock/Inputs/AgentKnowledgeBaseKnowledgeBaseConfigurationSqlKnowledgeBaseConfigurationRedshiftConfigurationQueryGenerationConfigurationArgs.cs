@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<int>? ExecutionTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Configurations for context to use during query generation. See `GenerationContext` block for details.
+        /// Configurations for context to use during query generation. See `GenerationContext` Block for details.
         /// </summary>
         [Input("generationContext")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs>? GenerationContext { get; set; }

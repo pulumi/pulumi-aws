@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BudgetFilterExpressionAndNot {
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     private @Nullable BudgetFilterExpressionAndNotCostCategories costCategories;
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     private @Nullable BudgetFilterExpressionAndNotDimensions dimensions;
@@ -31,14 +31,14 @@ public final class BudgetFilterExpressionAndNot {
 
     private BudgetFilterExpressionAndNot() {}
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     public Optional<BudgetFilterExpressionAndNotCostCategories> costCategories() {
         return Optional.ofNullable(this.costCategories);
     }
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     public Optional<BudgetFilterExpressionAndNotDimensions> dimensions() {

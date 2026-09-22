@@ -117,20 +117,19 @@ export class JobQueue extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
     declare public readonly computeEnvironmentOrders: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
-     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     declare public readonly jobStateTimeLimitActions: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
     /**
-     * Specifies the name of the job queue.
+     * Name of the job queue.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      */
     declare public readonly priority: pulumi.Output<number>;
     /**
@@ -138,11 +137,11 @@ export class JobQueue extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     * ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
     declare public readonly schedulingPolicyArn: pulumi.Output<string | undefined>;
     /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     declare public readonly state: pulumi.Output<string>;
     /**
@@ -150,7 +149,7 @@ export class JobQueue extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
@@ -213,20 +212,19 @@ export interface JobQueueState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
     computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[] | undefined>;
     /**
-     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[] | undefined>;
     /**
-     * Specifies the name of the job queue.
+     * Name of the job queue.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      */
     priority?: pulumi.Input<number | undefined>;
     /**
@@ -234,11 +232,11 @@ export interface JobQueueState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     * ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
     schedulingPolicyArn?: pulumi.Input<string | undefined>;
     /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     state?: pulumi.Input<string | undefined>;
     /**
@@ -246,7 +244,7 @@ export interface JobQueueState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts | undefined>;
@@ -257,20 +255,19 @@ export interface JobQueueState {
  */
 export interface JobQueueArgs {
     /**
-     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
     computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[] | undefined>;
     /**
-     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[] | undefined>;
     /**
-     * Specifies the name of the job queue.
+     * Name of the job queue.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      */
     priority: pulumi.Input<number>;
     /**
@@ -278,11 +275,11 @@ export interface JobQueueArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+     * ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
     schedulingPolicyArn?: pulumi.Input<string | undefined>;
     /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     state: pulumi.Input<string>;
     /**

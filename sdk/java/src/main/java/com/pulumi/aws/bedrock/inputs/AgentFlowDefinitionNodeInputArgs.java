@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
     }
 
     /**
-     * An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
      * 
      */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
     /**
-     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
      * 
      */
     public Output<String> expression() {
@@ -47,14 +47,18 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
     }
 
     /**
-     * A name for the input that you can reference.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the input that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -62,14 +66,14 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
     }
 
     /**
-     * The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public Output<String> type() {
@@ -125,7 +129,7 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expression An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * @param expression Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
          * 
          * @return builder
          * 
@@ -136,7 +140,7 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expression An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * @param expression Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
          * 
          * @return builder
          * 
@@ -146,7 +150,9 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name A name for the input that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -157,7 +163,9 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name A name for the input that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -167,7 +175,7 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 
@@ -178,7 +186,7 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 

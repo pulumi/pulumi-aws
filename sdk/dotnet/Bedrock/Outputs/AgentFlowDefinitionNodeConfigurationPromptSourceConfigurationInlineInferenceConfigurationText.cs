@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? MaxTokens;
         /// <summary>
-        /// List of strings that define sequences after which the model will stop generating.
+        /// List of strings that define sequences after which the model stops generating.
         /// </summary>
         public readonly ImmutableArray<string> StopSequences;
         /// <summary>

@@ -53,7 +53,7 @@ public final class GetModelsModelSummary {
      */
     private String providerName;
     /**
-     * @return Indicates whether the model supports streaming.
+     * @return Whether the model supports streaming.
      * 
      */
     private Boolean responseStreamingSupported;
@@ -116,7 +116,7 @@ public final class GetModelsModelSummary {
         return this.providerName;
     }
     /**
-     * @return Indicates whether the model supports streaming.
+     * @return Whether the model supports streaming.
      * 
      */
     public Boolean responseStreamingSupported() {

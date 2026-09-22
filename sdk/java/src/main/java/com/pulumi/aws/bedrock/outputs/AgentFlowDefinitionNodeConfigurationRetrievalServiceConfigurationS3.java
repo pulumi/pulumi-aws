@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
     /**
-     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * @return Name of the Amazon S3 bucket in which to store the input into the node.
      * 
      */
     private String bucketName;
 
     private AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3() {}
     /**
-     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * @return Name of the Amazon S3 bucket in which to store the input into the node.
      * 
      */
     public String bucketName() {

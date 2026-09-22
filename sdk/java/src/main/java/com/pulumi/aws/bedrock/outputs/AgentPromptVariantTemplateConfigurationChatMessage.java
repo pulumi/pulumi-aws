@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatMessage {
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatMessageContent content;
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     private String role;
 
     private AgentPromptVariantTemplateConfigurationChatMessage() {}
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatMessageContent> content() {
         return Optional.ofNullable(this.content);
     }
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     public String role() {

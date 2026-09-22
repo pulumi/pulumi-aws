@@ -38,14 +38,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      * 
      */
     @Import(name="customModelKmsKeyId")
     private @Nullable Output<String> customModelKmsKeyId;
 
     /**
-     * @return The custom model is encrypted at rest using this key. Specify the key ARN.
+     * @return Key ARN used to encrypt the custom model at rest.
      * 
      */
     public Optional<Output<String>> customModelKmsKeyId() {
@@ -68,14 +68,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     @Import(name="customizationType")
     private @Nullable Output<String> customizationType;
 
     /**
-     * @return The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * @return Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     public Optional<Output<String>> customizationType() {
@@ -98,14 +98,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      * 
      */
     @Import(name="jobName", required=true)
     private Output<String> jobName;
 
     /**
-     * @return A name for the customization job.
+     * @return Name for the customization job.
      * 
      */
     public Output<String> jobName() {
@@ -113,14 +113,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     @Import(name="outputDataConfig", required=true)
     private Output<CustomModelOutputDataConfigArgs> outputDataConfig;
 
     /**
-     * @return S3 location for the output data.
+     * @return S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     public Output<CustomModelOutputDataConfigArgs> outputDataConfig() {
@@ -158,14 +158,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -180,14 +180,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     @Import(name="trainingDataConfig", required=true)
     private Output<CustomModelTrainingDataConfigArgs> trainingDataConfig;
 
     /**
-     * @return Information about the training dataset.
+     * @return Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     public Output<CustomModelTrainingDataConfigArgs> trainingDataConfig() {
@@ -195,14 +195,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     @Import(name="validationDataConfig")
     private @Nullable Output<CustomModelValidationDataConfigArgs> validationDataConfig;
 
     /**
-     * @return Information about the validation dataset.
+     * @return Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     public Optional<Output<CustomModelValidationDataConfigArgs>> validationDataConfig() {
@@ -210,14 +210,14 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<CustomModelVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * @return Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     public Optional<Output<CustomModelVpcConfigArgs>> vpcConfig() {
@@ -283,7 +283,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelKmsKeyId The custom model is encrypted at rest using this key. Specify the key ARN.
+         * @param customModelKmsKeyId Key ARN used to encrypt the custom model at rest.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelKmsKeyId The custom model is encrypted at rest using this key. Specify the key ARN.
+         * @param customModelKmsKeyId Key ARN used to encrypt the custom model at rest.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customizationType The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+         * @param customizationType Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customizationType The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+         * @param customizationType Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName A name for the customization job.
+         * @param jobName Name for the customization job.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName A name for the customization job.
+         * @param jobName Name for the customization job.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputDataConfig S3 location for the output data.
+         * @param outputDataConfig S3 location for the output data. See `outputDataConfig` below.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputDataConfig S3 location for the output data.
+         * @param outputDataConfig S3 location for the output data. See `outputDataConfig` below.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trainingDataConfig Information about the training dataset.
+         * @param trainingDataConfig Information about the training dataset. See `trainingDataConfig` below.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trainingDataConfig Information about the training dataset.
+         * @param trainingDataConfig Information about the training dataset. See `trainingDataConfig` below.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationDataConfig Information about the validation dataset.
+         * @param validationDataConfig Information about the validation dataset. See `validationDataConfig` below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationDataConfig Information about the validation dataset.
+         * @param validationDataConfig Information about the validation dataset. See `validationDataConfig` below.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class CustomModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
          * 
          * @return builder
          * 

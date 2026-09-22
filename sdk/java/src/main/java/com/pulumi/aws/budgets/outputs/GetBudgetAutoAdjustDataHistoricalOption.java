@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBudgetAutoAdjustDataHistoricalOption {
     /**
-     * @return (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+     * @return Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
      * 
      */
     private Integer budgetAdjustmentPeriod;
     /**
-     * @return (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+     * @return Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
      * 
      */
     private Integer lookbackAvailablePeriods;
 
     private GetBudgetAutoAdjustDataHistoricalOption() {}
     /**
-     * @return (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+     * @return Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
      * 
      */
     public Integer budgetAdjustmentPeriod() {
         return this.budgetAdjustmentPeriod;
     }
     /**
-     * @return (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+     * @return Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
      * 
      */
     public Integer lookbackAvailablePeriods() {

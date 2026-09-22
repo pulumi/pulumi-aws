@@ -22,22 +22,22 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.Vpc("foo", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var alphaSubnet = new Aws.Ec2.Subnet("alpha", new()
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
     ///     {
-    ///         VpcId = foo.Id,
+    ///         VpcId = exampleVpc.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     var example = new Aws.Efs.MountTarget("example", new()
     ///     {
-    ///         FileSystemId = fooAwsEfsFileSystem.Id,
-    ///         SubnetId = alphaSubnet.Id,
+    ///         FileSystemId = exampleAwsEfsFileSystem.Id,
+    ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
     /// });
@@ -45,10 +45,21 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the mount target.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the EFS mount targets using the `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+    /// $ pulumi import aws:efs/mountTarget:MountTarget example fsmt-52a643fb
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/mountTarget:MountTarget")]

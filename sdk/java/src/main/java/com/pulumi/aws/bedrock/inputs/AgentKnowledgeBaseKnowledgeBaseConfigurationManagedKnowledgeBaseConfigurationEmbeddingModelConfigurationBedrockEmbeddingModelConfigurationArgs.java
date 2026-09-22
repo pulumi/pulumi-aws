@@ -19,14 +19,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs();
 
     /**
-     * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
      * 
      */
     @Import(name="audio")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs> audio;
 
     /**
-     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs>> audio() {
@@ -49,14 +49,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     }
 
     /**
-     * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+     * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
      * 
      */
     @Import(name="embeddingDataType")
     private @Nullable Output<String> embeddingDataType;
 
     /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
      * 
      */
     public Optional<Output<String>> embeddingDataType() {
@@ -64,14 +64,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     }
 
     /**
-     * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
      * 
      */
     @Import(name="video")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs> video;
 
     /**
-     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs>> video() {
@@ -106,7 +106,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * @param embeddingDataType Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          * 
          * @return builder
          * 

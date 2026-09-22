@@ -141,6 +141,9 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
      * ID if the agent to associate the collaborator.
      */
     declare public readonly agentId: pulumi.Output<string>;
+    /**
+     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     */
     declare public readonly agentVersion: pulumi.Output<string>;
     /**
      * Instruction to give the collaborator.
@@ -232,6 +235,9 @@ export interface AgentAgentCollaboratorState {
      * ID if the agent to associate the collaborator.
      */
     agentId?: pulumi.Input<string | undefined>;
+    /**
+     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     */
     agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Instruction to give the collaborator.
@@ -271,6 +277,9 @@ export interface AgentAgentCollaboratorArgs {
      * ID if the agent to associate the collaborator.
      */
     agentId: pulumi.Input<string>;
+    /**
+     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     */
     agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Instruction to give the collaborator.

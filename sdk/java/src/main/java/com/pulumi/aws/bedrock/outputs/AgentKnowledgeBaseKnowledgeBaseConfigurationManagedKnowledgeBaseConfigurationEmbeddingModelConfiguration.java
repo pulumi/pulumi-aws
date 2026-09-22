@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration {
     /**
-     * @return The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+     * @return Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration bedrockEmbeddingModelConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration() {}
     /**
-     * @return The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+     * @return Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration> bedrockEmbeddingModelConfiguration() {

@@ -19,19 +19,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> ChunkingStrategy { get; set; } = null!;
 
         /// <summary>
-        /// Configurations for when you choose fixed-size chunking. Requires ChunkingStrategy as `FIXED_SIZE`. See `FixedSizeChunkingConfiguration` for details.
+        /// Configurations for when you choose fixed-size chunking. Requires `ChunkingStrategy` as `FIXED_SIZE`. See `FixedSizeChunkingConfiguration` Block for details.
         /// </summary>
         [Input("fixedSizeChunkingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationGetArgs>? FixedSizeChunkingConfiguration { get; set; }
 
         /// <summary>
-        /// Configurations for when you choose hierarchical chunking. Requires ChunkingStrategy as `HIERARCHICAL`. See `HierarchicalChunkingConfiguration` for details.
+        /// Configurations for when you choose hierarchical chunking. Requires `ChunkingStrategy` as `HIERARCHICAL`. See `HierarchicalChunkingConfiguration` Block for details.
         /// </summary>
         [Input("hierarchicalChunkingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationGetArgs>? HierarchicalChunkingConfiguration { get; set; }
 
         /// <summary>
-        /// Configurations for when you choose semantic chunking. Requires ChunkingStrategy as `SEMANTIC`. See `SemanticChunkingConfiguration` for details.
+        /// Configurations for when you choose semantic chunking. Requires `ChunkingStrategy` as `SEMANTIC`. See `SemanticChunkingConfiguration` Block for details.
         /// </summary>
         [Input("semanticChunkingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationGetArgs>? SemanticChunkingConfiguration { get; set; }

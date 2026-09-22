@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetCalculatedSpend {
+    /**
+     * @return Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
+     * 
+     */
     private List<GetBudgetCalculatedSpendActualSpend> actualSpends;
 
     private GetBudgetCalculatedSpend() {}
+    /**
+     * @return Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
+     * 
+     */
     public List<GetBudgetCalculatedSpendActualSpend> actualSpends() {
         return this.actualSpends;
     }

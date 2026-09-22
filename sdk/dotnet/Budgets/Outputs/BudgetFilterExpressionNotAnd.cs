@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetFilterExpressionNotAnd
     {
         /// <summary>
-        /// (Optional) A Cost Category Filter block.
+        /// Cost Categories block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionNotAndCostCategories? CostCategories;
         /// <summary>
-        /// (Optional) A Dimension Filter block.
+        /// Dimensions block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionNotAndDimensions? Dimensions;
         /// <summary>

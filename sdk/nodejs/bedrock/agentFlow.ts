@@ -169,7 +169,7 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The time at which the flow was created.
+     * Time at which the flow was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
@@ -177,21 +177,21 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      */
     declare public readonly definition: pulumi.Output<outputs.bedrock.AgentFlowDefinition | undefined>;
     /**
-     * A description for the flow.
+     * Description for the flow.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
      */
     declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
-     * A name for the flow.
+     * Name for the flow.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of the flow.
+     * Status of the flow.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -207,16 +207,16 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentFlowTimeouts | undefined>;
     /**
-     * The time at which the flow was last updated.
+     * Time at which the flow was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * The version of the flow.
+     * Version of the flow.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
@@ -281,7 +281,7 @@ export interface AgentFlowState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The time at which the flow was created.
+     * Time at which the flow was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
@@ -289,21 +289,21 @@ export interface AgentFlowState {
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      */
     definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition | undefined>;
     /**
-     * A description for the flow.
+     * Description for the flow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A name for the flow.
+     * Name for the flow.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface AgentFlowState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of the flow.
+     * Status of the flow.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -319,16 +319,16 @@ export interface AgentFlowState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts | undefined>;
     /**
-     * The time at which the flow was last updated.
+     * Time at which the flow was last updated.
      */
     updatedAt?: pulumi.Input<string | undefined>;
     /**
-     * The version of the flow.
+     * Version of the flow.
      */
     version?: pulumi.Input<string | undefined>;
 }
@@ -342,21 +342,21 @@ export interface AgentFlowArgs {
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      */
     definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition | undefined>;
     /**
-     * A description for the flow.
+     * Description for the flow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-     *
-     * The following arguments are optional:
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * A name for the flow.
+     * Name for the flow.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

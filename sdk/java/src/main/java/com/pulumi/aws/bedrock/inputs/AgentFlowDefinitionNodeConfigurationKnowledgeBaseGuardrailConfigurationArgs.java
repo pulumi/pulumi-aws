@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
     public static final AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs();
 
     /**
-     * The unique identifier of the guardrail.
+     * Unique identifier of the guardrail.
      * 
      */
     @Import(name="guardrailIdentifier", required=true)
     private Output<String> guardrailIdentifier;
 
     /**
-     * @return The unique identifier of the guardrail.
+     * @return Unique identifier of the guardrail.
      * 
      */
     public Output<String> guardrailIdentifier() {
@@ -30,14 +30,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
     }
 
     /**
-     * The version of the guardrail.
+     * Version of the guardrail.
      * 
      */
     @Import(name="guardrailVersion", required=true)
     private Output<String> guardrailVersion;
 
     /**
-     * @return The version of the guardrail.
+     * @return Version of the guardrail.
      * 
      */
     public Output<String> guardrailVersion() {
@@ -70,7 +70,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
         }
 
         /**
-         * @param guardrailIdentifier The unique identifier of the guardrail.
+         * @param guardrailIdentifier Unique identifier of the guardrail.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
         }
 
         /**
-         * @param guardrailIdentifier The unique identifier of the guardrail.
+         * @param guardrailIdentifier Unique identifier of the guardrail.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
         }
 
         /**
-         * @param guardrailVersion The version of the guardrail.
+         * @param guardrailVersion Version of the guardrail.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailCon
         }
 
         /**
-         * @param guardrailVersion The version of the guardrail.
+         * @param guardrailVersion Version of the guardrail.
          * 
          * @return builder
          * 

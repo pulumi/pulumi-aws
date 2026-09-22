@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationConditionConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// A list of conditions. See Condition Config for more information.
+        /// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeConfigurationConditionConditionGetArgs> Conditions
         {

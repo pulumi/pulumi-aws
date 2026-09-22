@@ -33,14 +33,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     }
 
     /**
-     * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+     * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
      * 
      */
     @Import(name="tokenExchangeGrantTypeConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs> tokenExchangeGrantTypeConfig;
 
     /**
-     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs>> tokenExchangeGrantTypeConfig() {
@@ -94,7 +94,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param tokenExchangeGrantTypeConfig Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         * @param tokenExchangeGrantTypeConfig Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param tokenExchangeGrantTypeConfig Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         * @param tokenExchangeGrantTypeConfig Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
          * 
          * @return builder
          * 

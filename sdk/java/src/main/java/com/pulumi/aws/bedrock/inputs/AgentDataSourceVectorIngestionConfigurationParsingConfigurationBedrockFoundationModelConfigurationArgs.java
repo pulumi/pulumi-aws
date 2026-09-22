@@ -18,14 +18,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs();
 
     /**
-     * The ARN of the model used to parse documents
+     * ARN of the model used to parse documents.
      * 
      */
     @Import(name="modelArn", required=true)
     private Output<String> modelArn;
 
     /**
-     * @return The ARN of the model used to parse documents
+     * @return ARN of the model used to parse documents.
      * 
      */
     public Output<String> modelArn() {
@@ -33,14 +33,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
      * 
      */
     @Import(name="parsingModality")
     private @Nullable Output<String> parsingModality;
 
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
      * 
      */
     public Optional<Output<String>> parsingModality() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+     * Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
      * 
      */
     @Import(name="parsingPrompt")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs> parsingPrompt;
 
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs>> parsingPrompt() {
@@ -89,7 +89,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param modelArn The ARN of the model used to parse documents
+         * @param modelArn ARN of the model used to parse documents.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param modelArn The ARN of the model used to parse documents
+         * @param modelArn ARN of the model used to parse documents.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * @param parsingModality Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * @param parsingModality Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
          * 
          * @return builder
          * 

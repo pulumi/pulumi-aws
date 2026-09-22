@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationInference
     {
         /// <summary>
-        /// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `Connector` Block below.
+        /// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnector? Connector;
         /// <summary>

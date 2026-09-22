@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Billing.Inputs
     public sealed class ViewDataFilterExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Dimension to use for `Expression`. Refer to #dimensions for more details.
+        /// Dimension to use for the expression. See `Dimensions` below for details.
         /// </summary>
         [Input("dimensions")]
         public Input<Inputs.ViewDataFilterExpressionDimensionsArgs>? Dimensions { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Billing.Inputs
         private InputList<Inputs.ViewDataFilterExpressionTagArgs>? _tags;
 
         /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
+        /// Tags to use for the expression. See `Tags` below for details.
         /// </summary>
         public InputList<Inputs.ViewDataFilterExpressionTagArgs> Tags
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Billing.Inputs
         }
 
         /// <summary>
-        /// Time range to use for `Expression`. Refer to #time-range for more details.
+        /// Time range to use for the expression. See `TimeRange` below for details.
         /// </summary>
         [Input("timeRange")]
         public Input<Inputs.ViewDataFilterExpressionTimeRangeArgs>? TimeRange { get; set; }

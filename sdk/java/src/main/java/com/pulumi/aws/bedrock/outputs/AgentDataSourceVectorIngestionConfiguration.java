@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfiguration {
     /**
-     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration;
     /**
-     * @return Configuration for custom transformation of data source documents.
+     * @return Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration;
     /**
-     * @return Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+     * @return Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfiguration parsingConfiguration;
 
     private AgentDataSourceVectorIngestionConfiguration() {}
     /**
-     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfiguration> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
     }
     /**
-     * @return Configuration for custom transformation of data source documents.
+     * @return Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration> customTransformationConfiguration() {
         return Optional.ofNullable(this.customTransformationConfiguration);
     }
     /**
-     * @return Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+     * @return Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfiguration> parsingConfiguration() {

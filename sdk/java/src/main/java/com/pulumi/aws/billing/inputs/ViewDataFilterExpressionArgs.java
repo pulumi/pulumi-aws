@@ -19,14 +19,14 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
     public static final ViewDataFilterExpressionArgs Empty = new ViewDataFilterExpressionArgs();
 
     /**
-     * Dimension to use for `expression`. Refer to #dimensions for more details.
+     * Dimension to use for the expression. See `dimensions` below for details.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<ViewDataFilterExpressionDimensionsArgs> dimensions;
 
     /**
-     * @return Dimension to use for `expression`. Refer to #dimensions for more details.
+     * @return Dimension to use for the expression. See `dimensions` below for details.
      * 
      */
     public Optional<Output<ViewDataFilterExpressionDimensionsArgs>> dimensions() {
@@ -34,14 +34,14 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Tags to use for the expression. See `tags` below for details.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<ViewDataFilterExpressionTagArgs>> tags;
 
     /**
-     * @return List of key value map specifying tags associated to the billing view being created.
+     * @return Tags to use for the expression. See `tags` below for details.
      * 
      */
     public Optional<Output<List<ViewDataFilterExpressionTagArgs>>> tags() {
@@ -49,14 +49,14 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Time range to use for `expression`. Refer to #time-range for more details.
+     * Time range to use for the expression. See `timeRange` below for details.
      * 
      */
     @Import(name="timeRange")
     private @Nullable Output<ViewDataFilterExpressionTimeRangeArgs> timeRange;
 
     /**
-     * @return Time range to use for `expression`. Refer to #time-range for more details.
+     * @return Time range to use for the expression. See `timeRange` below for details.
      * 
      */
     public Optional<Output<ViewDataFilterExpressionTimeRangeArgs>> timeRange() {
@@ -90,7 +90,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dimensions Dimension to use for `expression`. Refer to #dimensions for more details.
+         * @param dimensions Dimension to use for the expression. See `dimensions` below for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dimensions Dimension to use for `expression`. Refer to #dimensions for more details.
+         * @param dimensions Dimension to use for the expression. See `dimensions` below for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
+         * @param tags Tags to use for the expression. See `tags` below for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
+         * @param tags Tags to use for the expression. See `tags` below for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
+         * @param tags Tags to use for the expression. See `tags` below for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeRange Time range to use for `expression`. Refer to #time-range for more details.
+         * @param timeRange Time range to use for the expression. See `timeRange` below for details.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeRange Time range to use for `expression`. Refer to #time-range for more details.
+         * @param timeRange Time range to use for the expression. See `timeRange` below for details.
          * 
          * @return builder
          * 

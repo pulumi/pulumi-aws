@@ -13,22 +13,32 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the gateway target.
+        /// Description of the schema element.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Schema definition for array items. Can only be used when `Type` is `Array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+        /// </summary>
         [Input("items")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsGetArgs>? Items { get; set; }
 
         [Input("properties")]
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyGetArgs>? _properties;
+
+        /// <summary>
+        /// Set of property definitions for object types. Can only be used when `Type` is `Object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+        /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyGetArgs> Properties
         {
             get => _properties ?? (_properties = new InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyGetArgs>());
             set => _properties = value;
         }
 
+        /// <summary>
+        /// Data type of the schema. Valid values: `String`, `Number`, `Integer`, `Boolean`, `Array`, `Object`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

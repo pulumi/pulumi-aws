@@ -301,6 +301,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    bedrockruntime?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     billing?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -12390,37 +12394,37 @@ export namespace backup {
          */
         inputParameters?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControlInputParameter>[] | undefined>;
         /**
-         * The name of a control. This name is between 1 and 256 characters.
+         * Name of a control. This name is between 1 and 256 characters.
          */
         name: pulumi.Input<string>;
         /**
-         * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         * Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
          */
         scope?: pulumi.Input<inputs.backup.FrameworkControlScope | undefined>;
     }
 
     export interface FrameworkControlInputParameter {
         /**
-         * The name of a parameter, for example, BackupPlanFrequency.
+         * Name of a parameter, for example, BackupPlanFrequency.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * The value of parameter, for example, hourly.
+         * Value of parameter, for example, hourly.
          */
         value?: pulumi.Input<string | undefined>;
     }
 
     export interface FrameworkControlScope {
         /**
-         * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         * ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          */
         complianceResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * Whether the control scope includes one or more types of resources, such as EFS or RDS.
          */
         complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     }
@@ -12434,18 +12438,18 @@ export namespace backup {
 
     export interface PlanAdvancedBackupSetting {
         /**
-         * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+         * Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
          */
         backupOptions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+         * Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
          */
         resourceType: pulumi.Input<string>;
     }
 
     export interface PlanRule {
         /**
-         * The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+         * Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          */
         completionWindow?: pulumi.Input<number | undefined>;
         /**
@@ -12457,7 +12461,7 @@ export namespace backup {
          */
         enableContinuousBackup?: pulumi.Input<boolean | undefined>;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
          */
         lifecycle?: pulumi.Input<inputs.backup.PlanRuleLifecycle | undefined>;
         /**
@@ -12465,31 +12469,31 @@ export namespace backup {
          */
         recoveryPointTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         /**
-         * An display name for a backup rule.
+         * Display name for a backup rule.
          */
         ruleName: pulumi.Input<string>;
         /**
-         * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+         * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
          */
         scanActions?: pulumi.Input<pulumi.Input<inputs.backup.PlanRuleScanAction>[] | undefined>;
         /**
-         * A CRON expression specifying when AWS Backup initiates a backup job.
+         * CRON expression specifying when AWS Backup initiates a backup job.
          */
         schedule?: pulumi.Input<string | undefined>;
         /**
-         * The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+         * Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
          */
         scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
         /**
-         * The amount of time in minutes before beginning a backup.
+         * Amount of time in minutes before beginning a backup.
          */
         startWindow?: pulumi.Input<number | undefined>;
         /**
-         * The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+         * ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
          */
         targetLogicallyAirGappedBackupVaultArn?: pulumi.Input<string | undefined>;
         /**
-         * The name of a logical container where backups are stored.
+         * Name of a logical container where backups are stored.
          */
         targetVaultName: pulumi.Input<string>;
     }
@@ -12500,37 +12504,37 @@ export namespace backup {
          */
         destinationVaultArn: pulumi.Input<string>;
         /**
-         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
          */
         lifecycle?: pulumi.Input<inputs.backup.PlanRuleCopyActionLifecycle | undefined>;
     }
 
     export interface PlanRuleCopyActionLifecycle {
         /**
-         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * Number of days after creation that a recovery point is moved to cold storage.
          */
         coldStorageAfter?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: pulumi.Input<number | undefined>;
         /**
-         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          */
         optInToArchiveForSupportedResources?: pulumi.Input<boolean | undefined>;
     }
 
     export interface PlanRuleLifecycle {
         /**
-         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         * Number of days after creation that a recovery point is moved to cold storage.
          */
         coldStorageAfter?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         * Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: pulumi.Input<number | undefined>;
         /**
-         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
          */
         optInToArchiveForSupportedResources?: pulumi.Input<boolean | undefined>;
     }
@@ -12605,56 +12609,56 @@ export namespace backup {
 
     export interface RestoreTestingPlanRecoveryPointSelection {
         /**
-         * Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+         * Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
          */
         algorithm: pulumi.Input<string>;
         /**
-         * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+         * Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
          */
         excludeVaults?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+         * Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
          */
         includeVaults: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+         * Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
          */
         recoveryPointTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         * Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
          */
         selectionWindowDays?: pulumi.Input<number | undefined>;
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditions {
         /**
-         * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+         * List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `stringEquals` below.
          */
         stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringEqual>[] | undefined>;
         /**
-         * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+         * List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `stringNotEquals` below.
          */
         stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual>[] | undefined>;
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditionsStringEqual {
         /**
-         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          */
         key: pulumi.Input<string>;
         /**
-         * The value of the Tag. Maximum length of 256.
+         * Value of the Tag. Maximum length of 256.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
         /**
-         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          */
         key: pulumi.Input<string>;
         /**
-         * The value of the Tag. Maximum length of 256.
+         * Value of the Tag. Maximum length of 256.
          */
         value: pulumi.Input<string>;
     }
@@ -12728,7 +12732,7 @@ export namespace backup {
          */
         key: pulumi.Input<string>;
         /**
-         * An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+         * Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
          */
         type: pulumi.Input<string>;
         /**
@@ -12741,7 +12745,7 @@ export namespace backup {
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
         /**
-         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         allocationStrategy?: pulumi.Input<string | undefined>;
         /**
@@ -12749,7 +12753,7 @@ export namespace batch {
          */
         bidPercentage?: pulumi.Input<number | undefined>;
         /**
-         * The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         desiredVcpus?: pulumi.Input<number | undefined>;
         /**
@@ -12757,7 +12761,7 @@ export namespace batch {
          */
         ec2Configurations?: pulumi.Input<pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration>[] | undefined>;
         /**
-         * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         ec2KeyPair?: pulumi.Input<string | undefined>;
         /**
@@ -12765,31 +12769,31 @@ export namespace batch {
          */
         imageId?: pulumi.Input<string | undefined>;
         /**
-         * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         instanceRole?: pulumi.Input<string | undefined>;
         /**
-         * A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         instanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         launchTemplate?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesLaunchTemplate | undefined>;
         /**
-         * The maximum number of EC2 vCPUs that an environment can reach.
+         * Maximum number of EC2 vCPUs that an environment can reach.
          */
         maxVcpus: pulumi.Input<number>;
         /**
-         * The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         minVcpus?: pulumi.Input<number | undefined>;
         /**
-         * The Amazon EC2 placement group to associate with your compute resources.
+         * Amazon EC2 placement group to associate with your compute resources.
          */
         placementGroup?: pulumi.Input<string | undefined>;
         /**
-         * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+         * List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -12797,7 +12801,7 @@ export namespace batch {
          */
         spotIamFleetRole?: pulumi.Input<string | undefined>;
         /**
-         * A list of VPC subnets into which the compute resources are launched.
+         * List of VPC subnets into which the compute resources are launched.
          */
         subnets: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -12805,22 +12809,22 @@ export namespace batch {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         /**
-         * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface ComputeEnvironmentComputeResourcesEc2Configuration {
         /**
-         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+         * AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          */
         imageIdOverride?: pulumi.Input<string | undefined>;
         /**
-         * The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
          */
         imageKubernetesVersion?: pulumi.Input<string | undefined>;
         /**
-         * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         * Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
          */
         imageType?: pulumi.Input<string | undefined>;
     }
@@ -12835,7 +12839,7 @@ export namespace batch {
          */
         launchTemplateName?: pulumi.Input<string | undefined>;
         /**
-         * The version number of the launch template. Default: The default version of the launch template.
+         * Version number of the launch template. Default: The default version of the launch template.
          */
         version?: pulumi.Input<string | undefined>;
     }
@@ -12846,18 +12850,18 @@ export namespace batch {
          */
         eksClusterArn: pulumi.Input<string>;
         /**
-         * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+         * Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
          */
         kubernetesNamespace: pulumi.Input<string>;
     }
 
     export interface ComputeEnvironmentUpdatePolicy {
         /**
-         * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         * Job timeout (in minutes) when the compute environment infrastructure is updated.
          */
         jobExecutionTimeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+         * Whether jobs are automatically terminated when the compute environment infrastructure is updated.
          */
         terminateJobsOnUpdate?: pulumi.Input<boolean | undefined>;
     }
@@ -13219,26 +13223,26 @@ export namespace batch {
          */
         computeEnvironment: pulumi.Input<string>;
         /**
-         * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+         * Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
          */
         order: pulumi.Input<number>;
     }
 
     export interface JobQueueJobStateTimeLimitAction {
         /**
-         * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+         * Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
          */
         action: pulumi.Input<string>;
         /**
-         * The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+         * Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
          */
         maxTimeSeconds: pulumi.Input<number>;
         /**
-         * The reason to log for the action being taken.
+         * Reason to log for the action being taken.
          */
         reason: pulumi.Input<string>;
         /**
-         * The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+         * State of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
          */
         state: pulumi.Input<string>;
     }
@@ -13260,9 +13264,12 @@ export namespace batch {
 
     export interface SchedulingPolicyFairSharePolicy {
         /**
-         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
          */
         computeReservation?: pulumi.Input<number | undefined>;
+        /**
+         * Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
         shareDecaySeconds?: pulumi.Input<number | undefined>;
         /**
          * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -13272,11 +13279,11 @@ export namespace batch {
 
     export interface SchedulingPolicyFairSharePolicyShareDistribution {
         /**
-         * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         shareIdentifier: pulumi.Input<string>;
         /**
-         * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+         * Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         weightFactor?: pulumi.Input<number | undefined>;
     }
@@ -13285,7 +13292,7 @@ export namespace batch {
 export namespace bcmdata {
     export interface ExportExport {
         /**
-         * Data query for this specific data export. See the `dataQuery` argument reference below.
+         * Data query for this specific data export. See the `dataQuery` block below.
          */
         dataQueries?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDataQuery>[] | undefined>;
         /**
@@ -13293,7 +13300,7 @@ export namespace bcmdata {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
+         * Destination configuration for this specific data export. See the `destinationConfigurations` block below.
          */
         destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfiguration>[] | undefined>;
         exportArn?: pulumi.Input<string | undefined>;
@@ -13302,29 +13309,25 @@ export namespace bcmdata {
          */
         name: pulumi.Input<string>;
         /**
-         * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
+         * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` block below.
          */
         refreshCadences?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportRefreshCadence>[] | undefined>;
     }
 
     export interface ExportExportDataQuery {
         /**
-         * Query statement.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+         * Query statement. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
          */
         queryStatement: pulumi.Input<string>;
         /**
-         * Table configuration.
-         * See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
-         * If a value is set for `tableConfigurations`, all configuration values must be set.
-         * For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
+         * Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables. If a value is set for `tableConfigurations`, all configuration values must be set. For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
          */
         tableConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
     }
 
     export interface ExportExportDestinationConfiguration {
         /**
-         * Object that describes the destination of the data exports file. See the `s3Destination` argument reference below.
+         * Object that describes the destination of the data exports file. See the `s3Destination` block below.
          */
         s3Destinations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfigurationS3Destination>[] | undefined>;
     }
@@ -13335,7 +13338,7 @@ export namespace bcmdata {
          */
         s3Bucket: pulumi.Input<string>;
         /**
-         * Output configuration for the data export. See the `s3OutputConfigurations` argument reference below.
+         * Output configuration for the data export. See the `s3OutputConfigurations` block below.
          */
         s3OutputConfigurations?: pulumi.Input<pulumi.Input<inputs.bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>[] | undefined>;
         /**
@@ -13362,7 +13365,7 @@ export namespace bcmdata {
          */
         outputType: pulumi.Input<string>;
         /**
-         * The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
+         * Rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
          */
         overwrite: pulumi.Input<string>;
     }
@@ -13389,27 +13392,22 @@ export namespace bcmdata {
 export namespace bedrock {
     export interface AgentAgentActionGroupActionGroupExecutor {
         /**
-         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-         * Only one of `customControl` or `lambda` can be specified.
+         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
          */
         customControl?: pulumi.Input<string | undefined>;
         /**
-         * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-         * Only one of `lambda` or `customControl` can be specified.
+         * ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
          */
         lambda?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentAgentActionGroupApiSchema {
         /**
-         * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
+         * JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
          */
         payload?: pulumi.Input<string | undefined>;
         /**
-         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
+         * Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchemaS3 | undefined>;
     }
@@ -13427,9 +13425,7 @@ export namespace bedrock {
 
     export interface AgentAgentActionGroupFunctionSchema {
         /**
-         * Contains a list of functions.
-         * Each function describes and action in the action group.
-         * See `memberFunctions` Block for details.
+         * List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
          */
         memberFunctions?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctions | undefined>;
     }
@@ -13560,7 +13556,7 @@ export namespace bedrock {
 
     export interface AgentAgentMemoryConfiguration {
         /**
-         * The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+         * Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
          */
         enabledMemoryTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -13568,7 +13564,7 @@ export namespace bedrock {
          */
         sessionSummaryConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfigurationSessionSummaryConfiguration>[]>;
         /**
-         * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+         * Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
          */
         storageDays: pulumi.Input<number>;
     }
@@ -13658,23 +13654,23 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfiguration {
         /**
-         * Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+         * Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
          */
         confluenceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfiguration | undefined>;
         /**
-         * Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
          */
         managedKnowledgeBaseConnectorConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration | undefined>;
         /**
-         * Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+         * Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
          */
         s3Configuration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationS3Configuration | undefined>;
         /**
-         * Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+         * Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
          */
         salesforceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfiguration | undefined>;
         /**
-         * Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+         * Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
          */
         sharePointConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfiguration | undefined>;
         /**
@@ -13682,67 +13678,77 @@ export namespace bedrock {
          */
         type: pulumi.Input<string>;
         /**
-         * Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+         * Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
          */
         webConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+        /**
+         * Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration | undefined>;
+        /**
+         * Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>[] | undefined>;
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter>[] | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: pulumi.Input<string>;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          */
         hostType: pulumi.Input<string>;
         /**
-         * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
          */
         hostUrl: pulumi.Input<string>;
     }
@@ -13753,11 +13759,11 @@ export namespace bedrock {
          */
         connectorParameters?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+         * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
          */
         deletionProtectionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration | undefined>;
         /**
-         * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+         * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
          */
         mediaExtractionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration | undefined>;
     }
@@ -13775,15 +13781,15 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
         /**
-         * Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+         * Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
          */
         audioExtractionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration | undefined>;
         /**
-         * Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+         * Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
          */
         imageExtractionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration | undefined>;
         /**
-         * Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+         * Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
          */
         videoExtractionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration | undefined>;
     }
@@ -13825,145 +13831,171 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+        /**
+         * Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration | undefined>;
+        /**
+         * Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>[] | undefined>;
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter>[] | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: pulumi.Input<string>;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+         * Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
          */
         hostUrl: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+        /**
+         * Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration | undefined>;
+        /**
+         * Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
         /**
-         * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          */
         filterConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
         /**
-         * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          */
         patternObjectFilters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>[] | undefined>;
         /**
-         * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
         /**
-         * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         *
-         * Each filter object should contain the following configuration:
+         * Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
          */
         filters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter>[] | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+        /**
+         * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         */
         exclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more inclusion regular expression patterns to include object types that match the pattern.
+         */
         inclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The supported object type or content type of the data source.
+         * Object type or content type of the data source.
          */
         objectType: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
         /**
-         * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          */
         authType: pulumi.Input<string>;
         /**
-         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The domain of your SharePoint instance or site URL/URLs.
+         * Domain of your SharePoint instance or site URL/URLs.
          */
         domain: pulumi.Input<string>;
         /**
-         * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          */
         hostType: pulumi.Input<string>;
         /**
-         * A list of one or more SharePoint site URLs.
+         * One or more SharePoint site URLs.
          */
         siteUrls: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The identifier of your Microsoft 365 tenant.
+         * Identifier of your Microsoft 365 tenant.
          */
         tenantId?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfiguration {
+        /**
+         * Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+         */
         crawlerConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration | undefined>;
+        /**
+         * Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+         */
         sourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration | undefined>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
         /**
-         * Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+         * Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
          */
         crawlerLimits?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits | undefined>;
         /**
-         * List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+         * List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
          */
         exclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+         * List of one or more inclusion regular expression patterns to include object types that match the pattern.
          */
         inclusionFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -13971,7 +14003,7 @@ export namespace bedrock {
          */
         scope?: pulumi.Input<string | undefined>;
         /**
-         * String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
          */
         userAgent?: pulumi.Input<string | undefined>;
     }
@@ -13989,14 +14021,14 @@ export namespace bedrock {
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
         /**
-         * The URL configuration of your web data source. See `urlConfiguration` block for details.
+         * URL configuration of your web data source. See `urlConfiguration` Block for details.
          */
         urlConfiguration: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration>;
     }
 
     export interface AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
         /**
-         * List of one or more seed URLs to crawl. See `seedUrls` block for details.
+         * List of one or more seed URLs to crawl. See `seedUrls` Block for details.
          */
         seedUrls?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>[] | undefined>;
     }
@@ -14032,15 +14064,15 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfiguration {
         /**
-         * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+         * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
          */
         chunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration | undefined>;
         /**
-         * Configuration for custom transformation of data source documents.
+         * Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
          */
         customTransformationConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration | undefined>;
         /**
-         * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+         * Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
          */
         parsingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration | undefined>;
     }
@@ -14051,15 +14083,15 @@ export namespace bedrock {
          */
         chunkingStrategy: pulumi.Input<string>;
         /**
-         * Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+         * Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
          */
         fixedSizeChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration | undefined>;
         /**
-         * Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+         * Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
          */
         hierarchicalChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration | undefined>;
         /**
-         * Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+         * Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
          */
         semanticChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration | undefined>;
     }
@@ -14077,51 +14109,51 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
         /**
-         * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         * Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
          */
         levelConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>[] | undefined>;
         /**
-         * The number of tokens to repeat across chunks in the same layer.
+         * Number of tokens to repeat across chunks in the same layer.
          */
         overlapTokens: pulumi.Input<number>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
         /**
-         * The maximum number of tokens that a chunk can contain in this layer.
+         * Maximum number of tokens that a chunk can contain in this layer.
          */
         maxTokens: pulumi.Input<number>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
         /**
-         * The dissimilarity threshold for splitting chunks.
+         * Dissimilarity threshold for splitting chunks.
          */
         breakpointPercentileThreshold: pulumi.Input<number>;
         /**
-         * The buffer size.
+         * Buffer size.
          */
         bufferSize: pulumi.Input<number>;
         /**
-         * The maximum number of tokens a chunk can contain.
+         * Maximum number of tokens a chunk can contain.
          */
         maxToken: pulumi.Input<number>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
         /**
-         * The intermediate storage for custom transformation.
+         * Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
          */
         intermediateStorage?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage | undefined>;
         /**
-         * A custom processing step for documents moving through the data source ingestion pipeline.
+         * Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
          */
         transformation?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation | undefined>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
         /**
-         * Configuration block for intermedia S3 storage.
+         * Configuration block for intermediate S3 storage. See `s3Location` Block for details.
          */
         s3Location?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location | undefined>;
     }
@@ -14139,58 +14171,58 @@ export namespace bedrock {
          */
         stepToApply: pulumi.Input<string>;
         /**
-         * The lambda function that processes documents.
+         * Lambda function that processes documents. See `transformationFunction` Block for details.
          */
         transformationFunction?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction | undefined>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
         /**
-         * The configuration of the lambda function.
+         * Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
          */
         transformationLambdaConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration | undefined>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
         /**
-         * The ARN of the lambda to use for custom transformation.
+         * ARN of the Lambda to use for custom transformation.
          */
         lambdaArn: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
         /**
-         * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
          */
         bedrockDataAutomationConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration | undefined>;
         /**
-         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
          */
         bedrockFoundationModelConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration | undefined>;
         /**
-         * The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          */
         parsingStrategy: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
         /**
-         * Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+         * Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
          */
         parsingModality?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
         /**
-         * The ARN of the model used to parse documents
+         * ARN of the model used to parse documents.
          */
         modelArn: pulumi.Input<string>;
         /**
-         * Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
          */
         parsingModality?: pulumi.Input<string | undefined>;
         /**
-         * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         * Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
          */
         parsingPrompt?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt | undefined>;
     }
@@ -14204,141 +14236,145 @@ export namespace bedrock {
 
     export interface AgentFlowDefinition {
         /**
-         * A list of connection definitions in the flow. See Connection for more information.
+         * List of connection definitions in the flow. See `definition.connection` Block for details.
          */
         connections?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionConnection>[] | undefined>;
         /**
-         * A list of node definitions in the flow. See Node for more information.
+         * List of node definitions in the flow. See `definition.node` Block for details.
          */
         nodes?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNode>[] | undefined>;
     }
 
     export interface AgentFlowDefinitionConnection {
         /**
-         * Configuration of the connection. See Connection Configuration for more information.
+         * Configurations for the node. See `definition.node.configuration` Block for details.
          */
         configuration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionConnectionConfiguration | undefined>;
         /**
-         * A name for the connection that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
         /**
-         * The node that the connection starts at.
+         * Node that the connection starts at.
          */
         source: pulumi.Input<string>;
         /**
-         * The node that the connection ends at.
+         * Node that the connection ends at.
          */
         target: pulumi.Input<string>;
         /**
-         * Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionConnectionConfiguration {
         /**
-         * The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+         * Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
          */
         conditional?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionConnectionConfigurationConditional | undefined>;
         /**
-         * The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+         * Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
          */
         data?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionConnectionConfigurationData | undefined>;
     }
 
     export interface AgentFlowDefinitionConnectionConfigurationConditional {
         /**
-         * The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         condition: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionConnectionConfigurationData {
         /**
-         * The name of the output in the source node that the connection begins from.
+         * Name of the output in the source node that the connection begins from.
          */
         sourceOutput: pulumi.Input<string>;
         /**
-         * The name of the input in the target node that the connection ends at.
+         * Name of the input in the target node that the connection ends at.
          */
         targetInput: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNode {
         /**
-         * Contains configurations for the node. See Node Configuration for more information.
+         * Configurations for the node. See `definition.node.configuration` Block for details.
          */
         configuration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfiguration | undefined>;
         /**
-         * A list of objects containing information about an input into the node. See Node Input for more information.
+         * Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
          */
         inputs?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeInput>[] | undefined>;
         /**
-         * A name for the node.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
         /**
-         * A list of objects containing information about an output from the node. See Node Output for more information.
+         * Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
          */
         outputs?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeOutput>[] | undefined>;
         /**
-         * Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfiguration {
         /**
-         * Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+         * Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
          */
         agent?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationAgent | undefined>;
         /**
-         * Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+         * Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
          */
         collector?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationCollector | undefined>;
         /**
-         * Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         condition?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationCondition | undefined>;
         /**
-         * Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+         * Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
          */
         inlineCode?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationInlineCode | undefined>;
         /**
-         * Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
          */
         input?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationInput | undefined>;
         /**
-         * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+         * Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
          */
         iterator?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationIterator | undefined>;
         /**
-         * Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+         * Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
          */
         knowledgeBase?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBase | undefined>;
         /**
-         * Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+         * Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
          */
         lambdaFunction?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationLambdaFunction | undefined>;
         /**
-         * Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+         * Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
          */
         lex?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationLex | undefined>;
         /**
-         * Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
          */
         output?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationOutput | undefined>;
         /**
-         * Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+         * Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
          */
         prompt?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPrompt | undefined>;
         /**
-         * Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+         * Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
          */
         retrieval?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrieval | undefined>;
         /**
-         * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+         * Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
          */
         storage?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationStorage | undefined>;
     }
@@ -14355,26 +14391,31 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationCondition {
         /**
-         * A list of conditions. See Condition Config for more information.
+         * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          */
         conditions?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationConditionCondition>[] | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationConditionCondition {
+        /**
+         * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         */
         expression?: pulumi.Input<string | undefined>;
         /**
-         * A name for the flow.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationInlineCode {
         /**
-         * The code that's executed in your inline code node.
+         * Code that's executed in your inline code node.
          */
         code: pulumi.Input<string>;
         /**
-         * The programming language used by your inline code node.
+         * Programming language used by your inline code node.
          */
         language: pulumi.Input<string>;
     }
@@ -14387,38 +14428,41 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBase {
         /**
-         * Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+         * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          */
         guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration | undefined>;
         /**
-         * Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+         * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          */
         inferenceConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration | undefined>;
         /**
-         * The unique identifier of the knowledge base to query.
+         * Unique identifier of the knowledge base to query.
          */
         knowledgeBaseId: pulumi.Input<string>;
         /**
-         * The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          */
         modelId: pulumi.Input<string>;
+        /**
+         * Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+         */
         numberOfResults?: pulumi.Input<number | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
         /**
-         * The unique identifier of the guardrail.
+         * Unique identifier of the guardrail.
          */
         guardrailIdentifier: pulumi.Input<string>;
         /**
-         * The version of the guardrail.
+         * Version of the guardrail.
          */
         guardrailVersion: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
         /**
-         * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * Message for the prompt.
          */
         text?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText | undefined>;
     }
@@ -14429,7 +14473,7 @@ export namespace bedrock {
          */
         maxTokens?: pulumi.Input<number | undefined>;
         /**
-         * List of strings that define sequences after which the model will stop generating.
+         * List of strings that define sequences after which the model stops generating.
          */
         stopSequences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -14455,7 +14499,7 @@ export namespace bedrock {
          */
         botAliasArn: pulumi.Input<string>;
         /**
-         * The Region to invoke the Amazon Lex bot in
+         * Region to invoke the Amazon Lex bot in.
          */
         localeId: pulumi.Input<string>;
     }
@@ -14465,33 +14509,33 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPrompt {
         /**
-         * Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+         * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          */
         guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration | undefined>;
         /**
-         * Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
          */
         sourceConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
         /**
-         * The unique identifier of the guardrail.
+         * Unique identifier of the guardrail.
          */
         guardrailIdentifier: pulumi.Input<string>;
         /**
-         * The version of the guardrail.
+         * Version of the guardrail.
          */
         guardrailVersion: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
         /**
-         * Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+         * Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
          */
         inline?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline | undefined>;
         /**
-         * Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+         * Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
          */
         resource?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource | undefined>;
     }
@@ -14502,26 +14546,26 @@ export namespace bedrock {
          */
         additionalModelRequestFields?: pulumi.Input<string | undefined>;
         /**
-         * Contains inference configurations for the prompt. See Inference Configuration for more information.
+         * Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
          */
         inferenceConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration | undefined>;
         /**
-         * The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
          */
         modelId: pulumi.Input<string>;
         /**
-         * Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+         * Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
          */
         templateConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration | undefined>;
         /**
-         * The type of prompt template. Valid values: `TEXT`, `CHAT`.
+         * Type of prompt template. Valid values: `TEXT`, `CHAT`.
          */
         templateType: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
         /**
-         * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * Message for the prompt.
          */
         text?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText | undefined>;
     }
@@ -14532,7 +14576,7 @@ export namespace bedrock {
          */
         maxTokens?: pulumi.Input<number | undefined>;
         /**
-         * List of strings that define sequences after which the model will stop generating.
+         * List of strings that define sequences after which the model stops generating.
          */
         stopSequences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -14547,125 +14591,130 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
         /**
-         * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
          */
         chat?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat | undefined>;
         /**
-         * Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * Message for the prompt.
          */
         text?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
+        /**
+         * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+         */
         inputVariables?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable>[] | undefined>;
         /**
-         * A list of messages in the chat for the prompt. See Message for more information.
+         * Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
          */
         messages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage>[]>;
         /**
-         * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
          */
         systems?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem>[] | undefined>;
         /**
-         * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
          */
         toolConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
         /**
-         * The name of the variable.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
         /**
-         * Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+         * Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
          */
         content?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent | undefined>;
         /**
-         * The role that the message belongs to.
+         * Role that the message belongs to.
          */
         role: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
         /**
-         * Creates a cache checkpoint within a message. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint | undefined>;
         /**
-         * The text in the message.
+         * Message for the prompt.
          */
         text?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint | undefined>;
         /**
-         * The text in the system prompt.
+         * Message for the prompt.
          */
         text?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
         /**
-         * Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
          */
         toolChoice?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice | undefined>;
         /**
-         * A list of tools to pass to a model. See Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
          */
         tools?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool>[] | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint | undefined>;
         /**
-         * The specification for the tool. See Tool Specification for more information.
+         * Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
          */
         toolSpec?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
         /**
-         * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+         * Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
          */
         any?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny | undefined>;
         /**
-         * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+         * Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
          */
         auto?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto | undefined>;
         /**
-         * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
          */
         tool?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool | undefined>;
     }
@@ -14678,58 +14727,64 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
         /**
-         * The name of the tool.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
         /**
-         * The description of the tool.
+         * Description for the flow.
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * The input schema of the tool. See Tool Input Schema for more information.
+         * Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
          */
         inputSchema?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema | undefined>;
         /**
-         * The name of the tool.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
         /**
-         * A JSON object defining the input schema for the tool.
+         * JSON object defining the input schema for the tool.
          */
         json?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
         /**
-         * A cache checkpoint within a template configuration. See Cache Point for more information.
+         * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint | undefined>;
         /**
-         * A list of variables in the prompt template. See Input Variable for more information.
+         * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
          */
         inputVariables?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable>[] | undefined>;
         /**
-         * The message for the prompt.
+         * Message for the prompt.
          */
         text: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
         /**
-         * The name of the variable.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
     }
@@ -14743,42 +14798,42 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationRetrieval {
         /**
-         * Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          */
         serviceConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
         /**
-         * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
         /**
-         * The name of the Amazon S3 bucket in which to store the input into the node.
+         * Name of the Amazon S3 bucket in which to store the input into the node.
          */
         bucketName: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorage {
         /**
-         * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          */
         serviceConfiguration?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
         /**
-         * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 | undefined>;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
         /**
-         * The name of the Amazon S3 bucket in which to store the input into the node.
+         * Name of the Amazon S3 bucket in which to store the input into the node.
          */
         bucketName: pulumi.Input<string>;
     }
@@ -14789,26 +14844,30 @@ export namespace bedrock {
          */
         category?: pulumi.Input<string | undefined>;
         /**
-         * An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
          */
         expression: pulumi.Input<string>;
         /**
-         * A name for the input that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
         /**
-         * The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentFlowDefinitionNodeOutput {
         /**
-         * A name for the output that you can reference.
+         * Name for the flow.
+         *
+         * The following arguments are optional:
          */
         name: pulumi.Input<string>;
         /**
-         * The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
          */
         type: pulumi.Input<string>;
     }
@@ -14830,15 +14889,15 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
         /**
-         * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+         * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
          */
         kendraKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration | undefined>;
         /**
-         * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
          */
         managedKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration | undefined>;
         /**
-         * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+         * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
          */
         sqlKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration | undefined>;
         /**
@@ -14846,7 +14905,7 @@ export namespace bedrock {
          */
         type: pulumi.Input<string>;
         /**
-         * Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+         * Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
          */
         vectorKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration | undefined>;
     }
@@ -14864,7 +14923,7 @@ export namespace bedrock {
          */
         embeddingModelArn?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+         * Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
          */
         embeddingModelConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration | undefined>;
         /**
@@ -14872,21 +14931,21 @@ export namespace bedrock {
          */
         embeddingModelType?: pulumi.Input<string | undefined>;
         /**
-         * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+         * Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
          */
         serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration {
         /**
-         * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          */
         bedrockEmbeddingModelConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
         /**
-         * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          */
         audio?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio | undefined>;
         /**
@@ -14894,18 +14953,18 @@ export namespace bedrock {
          */
         dimensions?: pulumi.Input<number | undefined>;
         /**
-         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          */
         embeddingDataType?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          */
         video?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
         /**
-         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration>;
     }
@@ -14919,7 +14978,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
         /**
-         * Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration>;
     }
@@ -14942,7 +15001,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
         /**
-         * Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+         * Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
          */
         redshiftConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration | undefined>;
         /**
@@ -14953,26 +15012,26 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
         /**
-         * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+         * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
          */
         queryEngineConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration>;
         /**
-         * Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+         * Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
          */
         queryGenerationConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration | undefined>;
         /**
-         * Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+         * Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
          */
         storageConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
         /**
-         * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+         * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
          */
         provisionedConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration | undefined>;
         /**
-         * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+         * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
          */
         serverlessConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration | undefined>;
         /**
@@ -14983,7 +15042,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
         /**
-         * Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+         * Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
          */
         authConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration>;
         /**
@@ -15009,7 +15068,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
         /**
-         * Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+         * Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
          */
         authConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration>;
         /**
@@ -15035,18 +15094,18 @@ export namespace bedrock {
          */
         executionTimeoutSeconds?: pulumi.Input<number | undefined>;
         /**
-         * Configurations for context to use during query generation. See `generationContext` block for details.
+         * Configurations for context to use during query generation. See `generationContext` Block for details.
          */
         generationContext?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
         /**
-         * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+         * Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
          */
         curatedQueries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery>[] | undefined>;
         /**
-         * Information about a table in the database. See `table` block for details.
+         * Information about a table in the database. See `table` Block for details.
          */
         tables?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable>[] | undefined>;
     }
@@ -15064,7 +15123,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
         /**
-         * Information about a column in the table. See `column` block for details.
+         * Information about a column in the table. See `column` Block for details.
          */
         columns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn>[] | undefined>;
         /**
@@ -15098,11 +15157,11 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
         /**
-         * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+         * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
          */
         awsDataCatalogConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration | undefined>;
         /**
-         * Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+         * Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
          */
         redshiftConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration | undefined>;
         /**
@@ -15131,25 +15190,25 @@ export namespace bedrock {
          */
         embeddingModelArn: pulumi.Input<string>;
         /**
-         * The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+         * Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
          */
         embeddingModelConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration | undefined>;
         /**
-         * supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+         * Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
          */
         supplementalDataStorageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
         /**
-         * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          */
         bedrockEmbeddingModelConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
         /**
-         * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
          */
         audio?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio | undefined>;
         /**
@@ -15157,18 +15216,18 @@ export namespace bedrock {
          */
         dimensions?: pulumi.Input<number | undefined>;
         /**
-         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+         * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
          */
         embeddingDataType?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
          */
         video?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo | undefined>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
         /**
-         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration>;
     }
@@ -15182,7 +15241,7 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
         /**
-         * Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          */
         segmentationConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration>;
     }
@@ -15196,14 +15255,14 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
         /**
-         * A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+         * Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
          */
         storageLocations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation>[]>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
         /**
-         * Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+         * Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
          */
         s3Location?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location | undefined>;
         /**
@@ -15221,35 +15280,35 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseStorageConfiguration {
         /**
-         * The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+         * Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
          */
         mongoDbAtlasConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
          */
         neptuneAnalyticsConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
          */
         opensearchManagedClusterConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
          */
         opensearchServerlessConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+         * Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
          */
         pineconeConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration | undefined>;
         /**
-         * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+         * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
          */
         rdsConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+         * Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
          */
         redisEnterpriseCloudConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration | undefined>;
         /**
-         * The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+         * Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
          */
         s3VectorsConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration | undefined>;
         /**
@@ -15260,57 +15319,57 @@ export namespace bedrock {
 
     export interface AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
         /**
-         * The name of the collection in the MongoDB Atlas database.
+         * Name of the collection in the MongoDB Atlas database.
          */
         collectionName: pulumi.Input<string>;
         /**
-         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+         * ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The name of the database in the MongoDB Atlas database.
+         * Name of the database in the MongoDB Atlas database.
          */
         databaseName: pulumi.Input<string>;
         /**
-         * The endpoint URL of the MongoDB Atlas database.
+         * Endpoint URL of the MongoDB Atlas database.
          */
         endpoint: pulumi.Input<string>;
         /**
-         * The name of the service that hosts the MongoDB Atlas database.
+         * Name of the service that hosts the MongoDB Atlas database.
          */
         endpointServiceName?: pulumi.Input<string | undefined>;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping>;
         /**
-         * The name of the vector index.
+         * Name of the vector index.
          */
         textIndexName?: pulumi.Input<string | undefined>;
         /**
-         * The name of the vector index.
+         * Name of the vector index.
          */
         vectorIndexName: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          */
         vectorField: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping>;
         /**
@@ -15340,7 +15399,7 @@ export namespace bedrock {
          */
         domainEndpoint: pulumi.Input<string>;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping>;
         /**
@@ -15370,7 +15429,7 @@ export namespace bedrock {
          */
         collectionArn: pulumi.Input<string>;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping>;
         /**
@@ -15404,7 +15463,7 @@ export namespace bedrock {
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping>;
         /**
@@ -15434,7 +15493,7 @@ export namespace bedrock {
          */
         databaseName: pulumi.Input<string>;
         /**
-         * Names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping>;
         /**
@@ -15480,7 +15539,7 @@ export namespace bedrock {
          */
         endpoint: pulumi.Input<string>;
         /**
-         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
          */
         fieldMapping: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping>;
         /**
@@ -15536,19 +15595,19 @@ export namespace bedrock {
 
     export interface AgentPromptVariant {
         /**
-         * Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          */
         additionalModelRequestFields?: pulumi.Input<string | undefined>;
         /**
-         * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+         * Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
          */
         genAiResource?: pulumi.Input<inputs.bedrock.AgentPromptVariantGenAiResource | undefined>;
         /**
-         * Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+         * Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
          */
         inferenceConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptVariantInferenceConfiguration | undefined>;
         /**
-         * A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+         * List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
          */
         metadatas?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariantMetadata>[] | undefined>;
         /**
@@ -15556,11 +15615,11 @@ export namespace bedrock {
          */
         modelId?: pulumi.Input<string | undefined>;
         /**
-         * Name of the prompt variant.
+         * Name of the tool.
          */
         name: pulumi.Input<string>;
         /**
-         * Contains configurations for the prompt template. See Template Configuration for more information.
+         * Configurations for the prompt template. See `templateConfiguration` Block for more information.
          */
         templateConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfiguration | undefined>;
         /**
@@ -15571,7 +15630,7 @@ export namespace bedrock {
 
     export interface AgentPromptVariantGenAiResource {
         /**
-         * Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+         * Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
          */
         agent?: pulumi.Input<inputs.bedrock.AgentPromptVariantGenAiResourceAgent | undefined>;
     }
@@ -15585,7 +15644,7 @@ export namespace bedrock {
 
     export interface AgentPromptVariantInferenceConfiguration {
         /**
-         * Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+         * Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
          */
         text?: pulumi.Input<inputs.bedrock.AgentPromptVariantInferenceConfigurationText | undefined>;
     }
@@ -15622,119 +15681,125 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfiguration {
         /**
-         * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * Configurations to use the prompt in a conversational format. See `chat` Block for more information.
          */
         chat?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChat | undefined>;
         /**
-         * Contains configurations for the text in a message for a prompt. See Text Template Configuration
+         * Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
          */
         text?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationText | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChat {
+        /**
+         * List of variables in the prompt template. See `inputVariable` Block for more information.
+         */
         inputVariables?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatInputVariable>[] | undefined>;
         /**
-         * A list of messages in the chat for the prompt. See Message for more information.
+         * List of messages in the chat for the prompt. See `message` Block for more information.
          */
         messages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessage>[]>;
         /**
-         * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
          */
         systems?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatSystem>[] | undefined>;
         /**
-         * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
          */
         toolConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfiguration | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatInputVariable {
         /**
-         * The name of the variable.
+         * Name of the variable.
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessage {
         /**
-         * Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * Content for the message you pass to, or receive from a model. See `content` Block for more information.
          */
         content?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessageContent | undefined>;
         /**
-         * The role that the message belongs to.
+         * Role that the message belongs to.
          */
         role: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessageContent {
+        /**
+         * Cache checkpoint within a message. See `cachePoint` Block for more information.
+         */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint | undefined>;
+        /**
+         * Text in the message.
+         */
         text?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatSystem {
         /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
          */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatSystemCachePoint | undefined>;
         /**
-         * The text in the system prompt.
+         * Text in the system prompt.
          */
         text?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfiguration {
         /**
-         * Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
          */
         toolChoice?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice | undefined>;
         /**
-         * A list of tools to pass to a model. See Tool for more information.
+         * List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
          */
         tools?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool>[] | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
-        /**
-         * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         */
         cachePoint?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint | undefined>;
         /**
-         * The specification for the tool. See Tool Specification for more information.
+         * Specification for the tool. See `toolSpec` Block for more information.
          */
         toolSpec?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec | undefined>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
         /**
-         * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
          */
         any?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny | undefined>;
         /**
-         * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
          */
         auto?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto | undefined>;
         /**
-         * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
          */
         tool?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool | undefined>;
     }
@@ -15756,24 +15821,22 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
         /**
-         * Description of the prompt.
+         * Description of the tool.
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * The input schema of the tool. See Tool Input Schema for more information.
+         * Input schema of the tool. See `inputSchema` Block for more information.
          */
         inputSchema?: pulumi.Input<inputs.bedrock.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema | undefined>;
         /**
-         * Name of the prompt.
-         *
-         * The following arguments are optional:
+         * Name of the tool.
          */
         name: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
         /**
-         * A JSON object defining the input schema for the tool.
+         * JSON object defining the input schema for the tool.
          */
         json?: pulumi.Input<string | undefined>;
     }
@@ -15786,14 +15849,14 @@ export namespace bedrock {
 
     export interface AgentPromptVariantTemplateConfigurationTextCachePoint {
         /**
-         * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * Cache point type. Valid values: `default`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentPromptVariantTemplateConfigurationTextInputVariable {
         /**
-         * The name of the variable.
+         * Name of the variable.
          */
         name: pulumi.Input<string>;
     }
@@ -16134,7 +16197,7 @@ export namespace bedrock {
 
     export interface AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
          */
         requireServiceS3Endpoint?: pulumi.Input<boolean | undefined>;
         /**
@@ -16156,7 +16219,7 @@ export namespace bedrock {
 
     export interface AgentcoreAgentRuntimeRequestHeaderConfiguration {
         /**
-         * A list of HTTP request headers that are allowed to be passed through to the runtime.
+         * List of HTTP request headers that are allowed to be passed through to the runtime.
          */
         requestHeaderAllowlists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -16190,6 +16253,17 @@ export namespace bedrock {
         secretArn: pulumi.Input<string>;
     }
 
+    export interface AgentcoreApiKeyCredentialProviderApiKeySecretConfig {
+        /**
+         * JSON key used to extract the secret value from the AWS Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the secret value.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
     export interface AgentcoreBrowserBrowserSigning {
         /**
          * Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
@@ -16199,7 +16273,7 @@ export namespace bedrock {
 
     export interface AgentcoreBrowserCertificate {
         /**
-         * Location from which to retrieve the certificate. See `certificates.location` below.
+         * Location from which to retrieve the certificate. See `certificate.location` below.
          */
         location: pulumi.Input<inputs.bedrock.AgentcoreBrowserCertificateLocation>;
     }
@@ -16319,7 +16393,7 @@ export namespace bedrock {
 
     export interface AgentcoreCodeInterpreterCertificate {
         /**
-         * Location from which to retrieve the certificate. See `certificates.location` below.
+         * Location from which to retrieve the certificate. See `certificate.location` below.
          */
         location: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterCertificateLocation>;
     }
@@ -17181,7 +17255,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
         /**
-         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource>;
     }
@@ -17219,7 +17293,7 @@ export namespace bedrock {
          */
         protocolType: pulumi.Input<string>;
         /**
-         * API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         * API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
          */
         schema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema | undefined>;
         /**
@@ -17238,7 +17312,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
         /**
-         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource>;
     }
@@ -17283,7 +17357,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationInference {
         /**
-         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
          */
         connector?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnector | undefined>;
         /**
@@ -17294,7 +17368,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
         /**
-         * Source configuration identifying which connector to use. See `source` Block below.
+         * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource>;
     }
@@ -17364,7 +17438,7 @@ export namespace bedrock {
          */
         apiGateway?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway | undefined>;
         /**
-         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
          */
         connector?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnector | undefined>;
         /**
@@ -17376,11 +17450,11 @@ export namespace bedrock {
          */
         mcpServer?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer | undefined>;
         /**
-         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
          */
         openApiSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema | undefined>;
         /**
-         * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
          */
         smithyModel?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel | undefined>;
     }
@@ -17451,7 +17525,7 @@ export namespace bedrock {
          */
         enableds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Source configuration identifying which connector to use. See `source` Block below.
+         * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource>;
     }
@@ -17511,7 +17585,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
         /**
-         * Inline tool definition. See `inlinePayload` Block below.
+         * Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
          */
         inlinePayloads?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload>[] | undefined>;
         /**
@@ -17526,7 +17600,7 @@ export namespace bedrock {
          */
         description: pulumi.Input<string>;
         /**
-         * Schema for the tool's input. See `schemaDefinition` Block below.
+         * Schema for the tool's input. See `inputSchema` Block below.
          */
         inputSchema: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema>;
         /**
@@ -17534,18 +17608,27 @@ export namespace bedrock {
          */
         name: pulumi.Input<string>;
         /**
-         * Schema for the tool's output. See `schemaDefinition` Block below.
+         * Schema for the tool's output. See `outputSchema` Block below.
          */
         outputSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
         /**
-         * Description of the gateway target.
+         * Description of the schema element.
          */
         description?: pulumi.Input<string | undefined>;
+        /**
+         * Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+         */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems | undefined>;
+        /**
+         * Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+         */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty>[] | undefined>;
+        /**
+         * Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -17555,11 +17638,11 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty>[] | undefined>;
         /**
@@ -17620,7 +17703,7 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Items definition for array properties. See `items` Block above.
+         * Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems | undefined>;
         /**
@@ -17628,7 +17711,7 @@ export namespace bedrock {
          */
         name: pulumi.Input<string>;
         /**
-         * Set of nested property definitions for object properties.
+         * Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty>[] | undefined>;
         /**
@@ -17647,11 +17730,11 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty>[] | undefined>;
         /**
@@ -17735,11 +17818,20 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
         /**
-         * Description of the gateway target.
+         * Description of the schema element.
          */
         description?: pulumi.Input<string | undefined>;
+        /**
+         * Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+         */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems | undefined>;
+        /**
+         * Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+         */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty>[] | undefined>;
+        /**
+         * Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -17749,11 +17841,11 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty>[] | undefined>;
         /**
@@ -17814,7 +17906,7 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Items definition for array properties. See `items` Block above.
+         * Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems | undefined>;
         /**
@@ -17822,7 +17914,7 @@ export namespace bedrock {
          */
         name: pulumi.Input<string>;
         /**
-         * Set of nested property definitions for object properties.
+         * Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty>[] | undefined>;
         /**
@@ -17841,11 +17933,11 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Nested items definition for arrays of arrays.
+         * Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` Block below.
+         * Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty>[] | undefined>;
         /**
@@ -18269,14 +18361,14 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironment {
         /**
-         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
          */
         agentcoreRuntimeEnvironments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentActual {
         /**
-         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
          */
         agentcoreRuntimeEnvironments: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment>[]>;
     }
@@ -18295,32 +18387,30 @@ export namespace bedrock {
          */
         agentRuntimeName: pulumi.Input<string>;
         /**
-         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         * Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
          */
         filesystemConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration>[]>;
         /**
-         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         * Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
          */
         lifecycleConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration>[]>;
         /**
-         * Network configuration. See `networkConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
          */
         networkConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration>[]>;
     }
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
-         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          */
         efsAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[]>;
         /**
-         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          */
         s3FilesAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[]>;
         /**
-         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          */
         sessionStorages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[]>;
     }
@@ -18367,18 +18457,18 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
         /**
-         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         * Network mode.
          */
         networkMode: pulumi.Input<string>;
         /**
-         * VPC configuration. See `networkModeConfig` Block below.
+         * VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          */
         networkModeConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[]>;
     }
 
     export interface AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether to require an S3 endpoint for the service in the VPC.
+         * Whether an S3 endpoint is required for the service in the VPC.
          */
         requireServiceS3Endpoint: pulumi.Input<boolean>;
         /**
@@ -18405,32 +18495,30 @@ export namespace bedrock {
          */
         agentRuntimeName?: pulumi.Input<string | undefined>;
         /**
-         * Filesystem configurations. See `filesystemConfiguration` Block below.
+         * Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
          */
         filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration>[] | undefined>;
         /**
-         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
+         * Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
          */
         lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration>[] | undefined>;
         /**
-         * Network configuration. See `networkConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
          */
         networkConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
-         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          */
         efsAccessPoints?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[] | undefined>;
         /**
-         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          */
         s3FilesAccessPoints?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[] | undefined>;
         /**
-         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          */
         sessionStorages?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[] | undefined>;
     }
@@ -18477,18 +18565,18 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
         /**
-         * Network mode. Valid values: `PUBLIC`, `VPC`.
+         * Network mode.
          */
         networkMode: pulumi.Input<string>;
         /**
-         * VPC configuration. See `networkModeConfig` Block below.
+         * VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          */
         networkModeConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[] | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
         /**
-         * Whether to require an S3 endpoint for the service in the VPC.
+         * Whether an S3 endpoint is required for the service in the VPC.
          */
         requireServiceS3Endpoint?: pulumi.Input<boolean | undefined>;
         /**
@@ -18517,30 +18605,30 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessMemory {
         /**
-         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
          */
         agentcoreMemoryConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration | undefined>;
         /**
-         * Explicitly disable memory for this harness. See `disabled` Block below.
+         * Explicitly disable memory for this harness. See `memory.disabled` Block below.
          */
         disabled?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryDisabled | undefined>;
         /**
-         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
          */
         managedMemoryConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryManagedMemoryConfiguration | undefined>;
     }
 
     export interface AgentcoreHarnessMemoryActual {
         /**
-         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
          */
         agentcoreMemoryConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration>[]>;
         /**
-         * Explicitly disable memory for this harness. See `disabled` Block below.
+         * Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
          */
         disableds: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualDisabled>[]>;
         /**
-         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
          */
         managedMemoryConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualManagedMemoryConfiguration>[]>;
     }
@@ -18551,7 +18639,7 @@ export namespace bedrock {
          */
         actorId: pulumi.Input<string>;
         /**
-         * ARN of the AgentCore memory resource.
+         * ARN of the managed memory resource.
          */
         arn: pulumi.Input<string>;
         /**
@@ -18559,7 +18647,7 @@ export namespace bedrock {
          */
         messagesCount: pulumi.Input<number>;
         /**
-         * Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          */
         retrievalConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig>[]>;
     }
@@ -18592,17 +18680,15 @@ export namespace bedrock {
          */
         arn: pulumi.Input<string>;
         /**
-         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         * ARN of the customer-managed KMS key used to encrypt the memory.
          */
         encryptionKeyArn: pulumi.Input<string>;
         /**
-         * Event retention in days. Defaults to `30`.
+         * Event retention in days.
          */
         eventExpiryDuration: pulumi.Input<number>;
         /**
-         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-         *
-         * In addition, the following attribute is exported:
+         * Set of strategy types enabled.
          */
         strategies: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -18613,7 +18699,7 @@ export namespace bedrock {
          */
         actorId?: pulumi.Input<string | undefined>;
         /**
-         * ARN of the AgentCore memory resource.
+         * ARN of the managed memory resource.
          */
         arn: pulumi.Input<string>;
         /**
@@ -18621,7 +18707,7 @@ export namespace bedrock {
          */
         messagesCount?: pulumi.Input<number | undefined>;
         /**
-         * Retrieval configuration parameters. See `retrievalConfig` Block below.
+         * Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
          */
         retrievalConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig | undefined>;
     }
@@ -18654,17 +18740,15 @@ export namespace bedrock {
          */
         arn?: pulumi.Input<string | undefined>;
         /**
-         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         * ARN of the customer-managed KMS key used to encrypt the memory.
          */
         encryptionKeyArn?: pulumi.Input<string | undefined>;
         /**
-         * Event retention in days. Defaults to `30`.
+         * Event retention in days.
          */
         eventExpiryDuration?: pulumi.Input<number | undefined>;
         /**
-         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-         *
-         * In addition, the following attribute is exported:
+         * Set of strategy types enabled.
          */
         strategies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -18891,7 +18975,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessTool {
         /**
-         * Tool-specific configuration. See `tool config` below.
+         * Tool-specific configuration. See `tool.config` Block below.
          */
         config?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfig | undefined>;
         /**
@@ -19014,7 +19098,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessTruncation {
         /**
-         * Strategy-specific configuration. See `truncation config` below.
+         * Strategy-specific configuration. See `truncation.config` Block below.
          */
         configs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTruncationConfig>[]>;
         /**
@@ -19403,58 +19487,50 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         /**
-         * Atlassian OAuth provider configuration. See `predefined providers` below.
+         * Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
          */
         atlassianOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig | undefined>;
         /**
-         * Custom OAuth2 provider configuration. See `custom` below.
+         * Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
          */
         customOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig | undefined>;
         /**
-         * GitHub OAuth provider configuration. See `predefined providers` below.
+         * GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
          */
         githubOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig | undefined>;
         /**
-         * Google OAuth provider configuration. See `predefined providers` below.
+         * Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
          */
         googleOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig | undefined>;
         /**
-         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-         *
-         * > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
          */
         includedOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig | undefined>;
         /**
-         * LinkedIn OAuth provider configuration. See `predefined providers` below.
+         * LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
          */
         linkedinOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig | undefined>;
         /**
-         * Microsoft OAuth provider configuration. See `predefined providers` below.
+         * Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
          */
         microsoftOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig | undefined>;
         /**
-         * Salesforce OAuth provider configuration. See `predefined providers` below.
+         * Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
          */
         salesforceOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig | undefined>;
         /**
-         * Slack OAuth provider configuration. See `predefined providers` below.
+         * Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
          */
         slackOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig | undefined>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -19463,15 +19539,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -19484,9 +19556,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -19504,11 +19574,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -19531,7 +19601,7 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -19542,9 +19612,7 @@ export namespace bedrock {
          */
         clientAuthenticationMethod?: pulumi.Input<string | undefined>;
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **OAuth Discovery Configuration:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
@@ -19558,14 +19626,10 @@ export namespace bedrock {
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -19578,23 +19642,24 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscovery: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery>;
         /**
-         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
          */
         onBehalfOfTokenExchangeConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig | undefined>;
         /**
-         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
          */
         privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint | undefined>;
         /**
-         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
          */
         privateEndpointOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride>[] | undefined>;
+        /**
+         * Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+         */
         privateKeyJwtConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig | undefined>;
     }
 
@@ -19611,11 +19676,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadata?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata | undefined>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl?: pulumi.Input<string | undefined>;
     }
@@ -19638,7 +19703,7 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -19649,7 +19714,7 @@ export namespace bedrock {
          */
         grantType: pulumi.Input<string>;
         /**
-         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
          */
         tokenExchangeGrantTypeConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig | undefined>;
     }
@@ -19667,11 +19732,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
         /**
-         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource | undefined>;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource | undefined>;
     }
@@ -19709,18 +19774,18 @@ export namespace bedrock {
          */
         domain: pulumi.Input<string>;
         /**
-         * Private endpoint configuration for the domain. See `privateEndpoint` above.
+         * Private endpoint configuration for the domain. See `privateEndpoint` Block above.
          */
         privateEndpoint: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
         /**
-         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         * Service-managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource | undefined>;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource | undefined>;
     }
@@ -19767,33 +19832,45 @@ export namespace bedrock {
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+        /**
+         * Key-value map of additional claims to include in the JWT header.
+         */
         additionalHeaderClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Key-value map of additional claims to include in the JWT payload.
+         */
         additionalPayloadClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+         */
         privateKeySource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource | undefined>;
+        /**
+         * Algorithm used to sign the JWT.
+         */
         signingAlgorithm?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+        /**
+         * AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+         */
         kmsKeySource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource | undefined>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+        /**
+         * ARN of the AWS KMS key used to sign the JWT.
+         */
         kmsKeyArn: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -19802,15 +19879,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -19823,9 +19896,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -19843,11 +19914,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -19870,24 +19941,18 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -19896,15 +19961,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -19917,9 +19978,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -19937,11 +19996,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -19964,7 +20023,7 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -19975,17 +20034,11 @@ export namespace bedrock {
          */
         authorizationEndpoint?: pulumi.Input<string | undefined>;
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -19994,15 +20047,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -20019,9 +20068,7 @@ export namespace bedrock {
          */
         issuer?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery>[] | undefined>;
         /**
@@ -20043,11 +20090,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -20070,24 +20117,18 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -20096,15 +20137,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -20117,9 +20154,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -20137,11 +20172,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -20164,24 +20199,18 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -20190,15 +20219,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -20211,26 +20236,20 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery>[] | undefined>;
         /**
-         * Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-         *
-         * **Write-Only Tenant ID:**
+         * Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
          */
         tenantId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+         * Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
          */
         tenantIdWo?: pulumi.Input<string | undefined>;
         /**
-         * Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-         *
-         * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+         * Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
          */
         tenantIdWoVersion?: pulumi.Input<number | undefined>;
     }
@@ -20248,11 +20267,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -20275,24 +20294,18 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -20301,15 +20314,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -20322,9 +20331,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -20342,11 +20349,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -20369,24 +20376,18 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
         /**
-         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-         *
-         * **Microsoft-Specific Configuration:**
-         *
-         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-         *
-         * **Standard Tenant ID:**
+         * Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
-         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
          */
         clientId?: pulumi.Input<string | undefined>;
         /**
@@ -20395,15 +20396,11 @@ export namespace bedrock {
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-         *
-         * **Write-Only Credentials (choose one pair):**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
-         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-         *
-         * **Advanced Configuration:**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
          */
         clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig | undefined>;
         /**
@@ -20416,9 +20413,7 @@ export namespace bedrock {
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
-         * OAuth discovery configuration. See `oauthDiscovery` below.
-         *
-         * **Externally-Managed Client Secret:**
+         * OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery>[] | undefined>;
     }
@@ -20436,11 +20431,11 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
         /**
-         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          */
         authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
         /**
-         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * OpenID Connect discovery URL resolved by the service.
          */
         discoveryUrl: pulumi.Input<string>;
     }
@@ -20463,7 +20458,7 @@ export namespace bedrock {
          */
         tokenEndpoint: pulumi.Input<string>;
         /**
-         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * List of authentication methods supported by the token endpoint.
          */
         tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -20873,7 +20868,7 @@ export namespace bedrock {
 
     export interface CustomModelOutputDataConfig {
         /**
-         * The S3 URI where the output data is stored.
+         * S3 URI where the output data is stored.
          */
         s3Uri: pulumi.Input<string>;
     }
@@ -20891,7 +20886,7 @@ export namespace bedrock {
 
     export interface CustomModelTrainingDataConfig {
         /**
-         * The S3 URI where the training data is stored.
+         * S3 URI where the training data is stored.
          */
         s3Uri: pulumi.Input<string>;
     }
@@ -20905,21 +20900,21 @@ export namespace bedrock {
 
     export interface CustomModelValidationDataConfig {
         /**
-         * Information about the validators.
+         * Information about the validators. See `validator` below.
          */
         validators: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationDataConfigValidator>[]>;
     }
 
     export interface CustomModelValidationDataConfigValidator {
         /**
-         * The S3 URI where the validation data is stored.
+         * S3 URI where the validation data is stored.
          */
         s3Uri: pulumi.Input<string>;
     }
 
     export interface CustomModelValidationMetric {
         /**
-         * The validation loss associated with the validator.
+         * Validation loss associated with the validator.
          */
         validationLoss: pulumi.Input<number>;
     }
@@ -21340,9 +21335,11 @@ export namespace bedrock {
         createdAt?: string;
         /**
          * Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          */
         description?: string;
+        /**
+         * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         */
         guardrailConfigurations?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration[];
         /**
          * Time at which the version was last updated.
@@ -21369,9 +21366,11 @@ export namespace bedrock {
         createdAt?: pulumi.Input<string | undefined>;
         /**
          * Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          */
         description?: pulumi.Input<string | undefined>;
+        /**
+         * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         */
         guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>[] | undefined>;
         /**
          * Time at which the version was last updated.
@@ -21403,12 +21402,11 @@ export namespace bedrock {
 
     export interface GuardrailContentPolicyConfig {
         /**
-         * Set of content filter configs in content policy.
-         * See Filters Config for more information.
+         * Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
          */
         filtersConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigFiltersConfig>[] | undefined>;
         /**
-         * Configuration block for the content policy tier. See Tier Config for more information.
+         * Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
          */
         tierConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigTierConfig>[] | undefined>;
     }
@@ -21454,21 +21452,21 @@ export namespace bedrock {
 
     export interface GuardrailContentPolicyConfigTierConfig {
         /**
-         * The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+         * Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
          */
         tierName: pulumi.Input<string>;
     }
 
     export interface GuardrailContextualGroundingPolicyConfig {
         /**
-         * One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         * One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
          */
         filtersConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigFiltersConfig>[] | undefined>;
     }
 
     export interface GuardrailContextualGroundingPolicyConfigFiltersConfig {
         /**
-         * The threshold for this filter.
+         * Threshold for this filter.
          */
         threshold: pulumi.Input<number>;
         /**
@@ -21486,11 +21484,11 @@ export namespace bedrock {
 
     export interface GuardrailSensitiveInformationPolicyConfig {
         /**
-         * List of entities. See PII Entities Config for more information.
+         * List of entities. See `piiEntitiesConfig` Block for more information.
          */
         piiEntitiesConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig>[] | undefined>;
         /**
-         * List of regex. See Regexes Config for more information.
+         * List of regex. See `regexesConfig` Block for more information.
          */
         regexesConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfig>[] | undefined>;
     }
@@ -21517,7 +21515,7 @@ export namespace bedrock {
          */
         outputEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * The currently supported PII entities.
+         * Currently supported PII entities.
          */
         type: pulumi.Input<string>;
     }
@@ -21528,7 +21526,7 @@ export namespace bedrock {
          */
         action: pulumi.Input<string>;
         /**
-         * The regex description.
+         * Regex description.
          */
         description?: pulumi.Input<string | undefined>;
         /**
@@ -21540,7 +21538,7 @@ export namespace bedrock {
          */
         inputEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * The regex name.
+         * Regex name.
          */
         name: pulumi.Input<string>;
         /**
@@ -21552,7 +21550,7 @@ export namespace bedrock {
          */
         outputEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * The regex pattern.
+         * Regex pattern.
          */
         pattern: pulumi.Input<string>;
     }
@@ -21574,18 +21572,18 @@ export namespace bedrock {
 
     export interface GuardrailTopicPolicyConfig {
         /**
-         * Configuration block for the topic policy tier. See Tier Config for more information.
+         * Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
          */
         tierConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigTierConfig>[] | undefined>;
         /**
-         * List of topic configs in topic policy. See Topics Config for more information.
+         * List of topic configs in topic policy. See `topicsConfig` Block for more information.
          */
         topicsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigTopicsConfig>[] | undefined>;
     }
 
     export interface GuardrailTopicPolicyConfigTierConfig {
         /**
-         * The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+         * Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
          */
         tierName: pulumi.Input<string>;
     }
@@ -21622,11 +21620,11 @@ export namespace bedrock {
 
     export interface GuardrailWordPolicyConfig {
         /**
-         * A config for the list of managed words. See Managed Word Lists Config for more information.
+         * Config for the list of managed words. See `managedWordListsConfig` Block for more information.
          */
         managedWordListsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigManagedWordListsConfig>[] | undefined>;
         /**
-         * List of custom word configs. See Words Config for more information.
+         * List of custom word configs. See `wordsConfig` Block for more information.
          */
         wordsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigWordsConfig>[] | undefined>;
     }
@@ -21672,21 +21670,21 @@ export namespace bedrock {
          */
         outputEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * The custom word text.
+         * Custom word text.
          */
         text: pulumi.Input<string>;
     }
 
     export interface InferenceProfileModel {
         /**
-         * The ARN of the model.
+         * ARN of the model.
          */
         modelArn: pulumi.Input<string>;
     }
 
     export interface InferenceProfileModelSource {
         /**
-         * The ARN of the model.
+         * ARN of the model.
          */
         copyFrom: pulumi.Input<string>;
     }
@@ -21831,7 +21829,7 @@ export namespace bedrockmodel {
          */
         logGroupName: pulumi.Input<string>;
         /**
-         * The role ARN.
+         * Role ARN.
          */
         roleArn: pulumi.Input<string>;
     }
@@ -21862,22 +21860,22 @@ export namespace bedrockmodel {
 export namespace billing {
     export interface ViewDataFilterExpression {
         /**
-         * Dimension to use for `expression`. Refer to #dimensions for more details.
+         * Dimension to use for the expression. See `dimensions` below for details.
          */
         dimensions?: pulumi.Input<inputs.billing.ViewDataFilterExpressionDimensions | undefined>;
         /**
-         * List of key value map specifying tags associated to the billing view being created.
+         * Tags to use for the expression. See `tags` below for details.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.billing.ViewDataFilterExpressionTag>[] | undefined>;
         /**
-         * Time range to use for `expression`. Refer to #time-range for more details.
+         * Time range to use for the expression. See `timeRange` below for details.
          */
         timeRange?: pulumi.Input<inputs.billing.ViewDataFilterExpressionTimeRange | undefined>;
     }
 
     export interface ViewDataFilterExpressionDimensions {
         /**
-         * Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+         * Key of the dimension. Valid values are `LINKED_ACCOUNT`.
          */
         key: pulumi.Input<string>;
         /**
@@ -21899,9 +21897,12 @@ export namespace billing {
 
     export interface ViewDataFilterExpressionTimeRange {
         /**
-         * Inclusive end date of the time range.
+         * Inclusive start date of the time range.
          */
         beginDateInclusive: pulumi.Input<string>;
+        /**
+         * Inclusive end date of the time range.
+         */
         endDateInclusive: pulumi.Input<string>;
     }
 
@@ -21924,33 +21925,33 @@ export namespace billing {
 export namespace budgets {
     export interface BudgetActionActionThreshold {
         /**
-         * The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+         * Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
          */
         actionThresholdType: pulumi.Input<string>;
         /**
-         * The threshold of a notification.
+         * Threshold of a notification.
          */
         actionThresholdValue: pulumi.Input<number>;
     }
 
     export interface BudgetActionDefinition {
         /**
-         * The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+         * AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
          */
         iamActionDefinition?: pulumi.Input<inputs.budgets.BudgetActionDefinitionIamActionDefinition | undefined>;
         /**
-         * The service control policies (SCPs) action definition details. See SCP Action Definition.
+         * Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
          */
         scpActionDefinition?: pulumi.Input<inputs.budgets.BudgetActionDefinitionScpActionDefinition | undefined>;
         /**
-         * The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+         * AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
          */
         ssmActionDefinition?: pulumi.Input<inputs.budgets.BudgetActionDefinitionSsmActionDefinition | undefined>;
     }
 
     export interface BudgetActionDefinitionIamActionDefinition {
         /**
-         * A list of groups to be attached. There must be at least one group.
+         * List of groups to be attached. There must be at least one group.
          */
         groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -21958,182 +21959,182 @@ export namespace budgets {
          */
         policyArn: pulumi.Input<string>;
         /**
-         * A list of roles to be attached. There must be at least one role.
+         * List of roles to be attached. There must be at least one role.
          */
         roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * A list of users to be attached. There must be at least one user.
+         * List of users to be attached. There must be at least one user.
          */
         users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetActionDefinitionScpActionDefinition {
         /**
-         * The policy ID attached.
+         * Policy ID attached.
          */
         policyId: pulumi.Input<string>;
         /**
-         * A list of target IDs.
+         * List of target IDs.
          */
         targetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetActionDefinitionSsmActionDefinition {
         /**
-         * The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+         * Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
          */
         actionSubType: pulumi.Input<string>;
         /**
-         * The EC2 and RDS instance IDs.
+         * EC2 and RDS instance IDs.
          */
         instanceIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Region to run the SSM document.
+         * Region to run the SSM document.
          */
         region: pulumi.Input<string>;
     }
 
     export interface BudgetActionSubscriber {
         /**
-         * The address that AWS sends budget notifications to, either an SNS topic or an email.
+         * Address that AWS sends budget notifications to, either an SNS topic or an email.
          */
         address: pulumi.Input<string>;
         /**
-         * The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+         * Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
          */
         subscriptionType: pulumi.Input<string>;
     }
 
     export interface BudgetAutoAdjustData {
         /**
-         * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
          */
         autoAdjustType: pulumi.Input<string>;
         /**
-         * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
          */
         historicalOptions?: pulumi.Input<inputs.budgets.BudgetAutoAdjustDataHistoricalOptions | undefined>;
         /**
-         * (Optional) - The last time that your budget was auto-adjusted.
+         * Last time that your budget was auto-adjusted.
          */
         lastAutoAdjustTime?: pulumi.Input<string | undefined>;
     }
 
     export interface BudgetAutoAdjustDataHistoricalOptions {
         /**
-         * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         * Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
          */
         budgetAdjustmentPeriod: pulumi.Input<number>;
         /**
-         * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         * Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
          */
         lookbackAvailablePeriods?: pulumi.Input<number | undefined>;
     }
 
     export interface BudgetCostFilter {
         /**
-         * The name of a budget. Unique within accounts.
+         * Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
          */
         name: pulumi.Input<string>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values used for filtering.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetCostTypes {
         /**
-         * A boolean value whether to include credits in the cost budget. Defaults to `true`
+         * Whether to include credits in the cost budget. Defaults to `true`.
          */
         includeCredit?: pulumi.Input<boolean | undefined>;
         /**
-         * Whether a budget includes discounts. Defaults to `true`
+         * Whether a budget includes discounts. Defaults to `true`.
          */
         includeDiscount?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+         * Whether to include other subscription costs in the cost budget. Defaults to `true`.
          */
         includeOtherSubscription?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+         * Whether to include recurring costs in the cost budget. Defaults to `true`.
          */
         includeRecurring?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include refunds in the cost budget. Defaults to `true`
+         * Whether to include refunds in the cost budget. Defaults to `true`.
          */
         includeRefund?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+         * Whether to include subscriptions in the cost budget. Defaults to `true`.
          */
         includeSubscription?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include support costs in the cost budget. Defaults to `true`
+         * Whether to include support costs in the cost budget. Defaults to `true`.
          */
         includeSupport?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include tax in the cost budget. Defaults to `true`
+         * Whether to include tax in the cost budget. Defaults to `true`.
          */
         includeTax?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+         * Whether to include upfront costs in the cost budget. Defaults to `true`.
          */
         includeUpfront?: pulumi.Input<boolean | undefined>;
         /**
-         * Whether a budget uses the amortized rate. Defaults to `false`
+         * Whether a budget uses the amortized rate. Defaults to `false`.
          */
         useAmortized?: pulumi.Input<boolean | undefined>;
         /**
-         * A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+         * Whether to use blended costs in the cost budget. Defaults to `false`.
          */
         useBlended?: pulumi.Input<boolean | undefined>;
     }
 
     export interface BudgetFilterExpression {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionAnd>[] | undefined>;
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionDimensions | undefined>;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNot | undefined>;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionOr>[] | undefined>;
         /**
-         * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * Tags block.
          */
         tags?: pulumi.Input<inputs.budgets.BudgetFilterExpressionTags | undefined>;
     }
 
     export interface BudgetFilterExpressionAnd {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionAndAnd>[] | undefined>;
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndDimensions | undefined>;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndNot | undefined>;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionAndOr>[] | undefined>;
         /**
@@ -22144,11 +22145,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndAndCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndAndDimensions | undefined>;
         /**
@@ -22159,86 +22160,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionAndAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionAndNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndNotCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndNotDimensions | undefined>;
         /**
@@ -22249,56 +22250,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionAndNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndOrCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionAndOrDimensions | undefined>;
         /**
@@ -22309,113 +22310,113 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionAndOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionAndOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionNot {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionNotAnd>[] | undefined>;
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotDimensions | undefined>;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotNot | undefined>;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionNotOr>[] | undefined>;
         /**
@@ -22426,11 +22427,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotAndCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotAndDimensions | undefined>;
         /**
@@ -22441,86 +22442,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionNotAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionNotNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotNotCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotNotDimensions | undefined>;
         /**
@@ -22531,56 +22532,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionNotNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotOrCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionNotOrDimensions | undefined>;
         /**
@@ -22591,83 +22592,83 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionNotOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionNotOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOr {
         /**
-         * (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
          */
         ands?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionOrAnd>[] | undefined>;
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrDimensions | undefined>;
         /**
-         * (Optional) A single filter expression to negate. Must contain exactly one root.
+         * Single filter expression to negate. Must contain exactly one root.
          */
         not?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrNot | undefined>;
         /**
-         * (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+         * List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
          */
         ors?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetFilterExpressionOrOr>[] | undefined>;
         /**
@@ -22678,11 +22679,11 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrAnd {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrAndCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrAndDimensions | undefined>;
         /**
@@ -22693,86 +22694,86 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrAndCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrAndDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionOrAndTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionOrNot {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrNotCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrNotDimensions | undefined>;
         /**
@@ -22783,56 +22784,56 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrNotCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrNotDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionOrNotTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrOr {
         /**
-         * (Optional) A Cost Category Filter block.
+         * Cost Categories block.
          */
         costCategories?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrOrCostCategories | undefined>;
         /**
-         * (Optional) A Dimension Filter block.
+         * Dimensions block.
          */
         dimensions?: pulumi.Input<inputs.budgets.BudgetFilterExpressionOrOrDimensions | undefined>;
         /**
@@ -22843,117 +22844,117 @@ export namespace budgets {
 
     export interface BudgetFilterExpressionOrOrCostCategories {
         /**
-         * (Optional) The cost category key to filter on.
+         * Cost category key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of cost category values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrOrDimensions {
         /**
-         * (Optional) The cost category key to filter on.
+         * Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
          */
         key: pulumi.Input<string>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of values to match against the dimension. At least one value is required.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BudgetFilterExpressionOrOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionOrTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetFilterExpressionTags {
         /**
-         * (Optional) The cost category key to filter on.
+         * Tag key to filter on.
          */
         key?: pulumi.Input<string | undefined>;
         /**
-         * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          */
         matchOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) A list of cost category values to match. At least one value is required.
+         * List of tag values to match. At least one value is required.
          */
         values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface BudgetNotification {
         /**
-         * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+         * Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          */
         comparisonOperator: pulumi.Input<string>;
         /**
-         * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+         * What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
          */
         notificationType: pulumi.Input<string>;
         /**
-         * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          */
         subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          */
         subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * (Required) Threshold when the notification should be sent.
+         * Threshold when the notification should be sent.
          */
         threshold: pulumi.Input<number>;
         /**
-         * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+         * What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          */
         thresholdType: pulumi.Input<string>;
     }
 
     export interface BudgetPlannedLimit {
         /**
-         * (Required) The amount of cost or usage being measured for a budget.
+         * Amount of cost or usage being measured for a budget.
          */
         amount: pulumi.Input<string>;
         /**
-         * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+         * Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
          */
         startTime: pulumi.Input<string>;
         /**
-         * (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+         * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
          */
         unit: pulumi.Input<string>;
     }
@@ -44782,17 +44783,36 @@ export namespace ecs {
          */
         hookDetails?: pulumi.Input<string | undefined>;
         /**
-         * ARN of the Lambda function to invoke for the lifecycle hook.
+         * ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          */
-        hookTargetArn: pulumi.Input<string>;
+        hookTargetArn?: pulumi.Input<string | undefined>;
         /**
          * Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
          */
         lifecycleStages: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * ARN of the IAM role that grants the service permission to invoke the Lambda function.
+         * ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          */
-        roleArn: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+         */
+        targetType?: pulumi.Input<string | undefined>;
+        /**
+         * Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+         */
+        timeoutConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration | undefined>;
+    }
+
+    export interface ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration {
+        /**
+         * Action ECS takes when the pause hook times out. Valid values: `ROLLBACK`, `CONTINUE`. Default: `ROLLBACK`.
+         */
+        action?: pulumi.Input<string | undefined>;
+        /**
+         * Number of minutes to wait before executing the timeout action. Valid range: 1-20160 minutes. Default: `1440` (24 hours).
+         */
+        timeoutInMinutes?: pulumi.Input<string | undefined>;
     }
 
     export interface ServiceDeploymentConfigurationLinearConfiguration {
@@ -79920,6 +79940,300 @@ export namespace mq {
 }
 
 export namespace msk {
+    export interface ChannelEncryptionConfiguration {
+        /**
+         * ARN of the AWS KMS key used to encrypt the data.
+         */
+        kmsKeyArn: pulumi.Input<string>;
+    }
+
+    export interface ChannelIcebergDestination {
+        /**
+         * Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+         */
+        appendOnly: pulumi.Input<boolean>;
+        /**
+         * AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+         */
+        catalog?: pulumi.Input<inputs.msk.ChannelIcebergDestinationCatalog | undefined>;
+        /**
+         * Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+         */
+        compressionType?: pulumi.Input<string | undefined>;
+        /**
+         * Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+         */
+        dataFreshnessInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+         */
+        deadLetterQueueS3: pulumi.Input<inputs.msk.ChannelIcebergDestinationDeadLetterQueueS3>;
+        /**
+         * Destination Iceberg table. See `destinationTable` Block below.
+         */
+        destinationTable: pulumi.Input<inputs.msk.ChannelIcebergDestinationDestinationTable>;
+        /**
+         * Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schemaEvolution` Block below.
+         */
+        schemaEvolution: pulumi.Input<inputs.msk.ChannelIcebergDestinationSchemaEvolution>;
+        /**
+         * ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+         */
+        serviceExecutionRoleArn: pulumi.Input<string>;
+        /**
+         * Configuration controlling whether MSK creates the destination table if it does not already exist. See `tableCreation` Block below.
+         *
+         * The following arguments are optional:
+         */
+        tableCreation: pulumi.Input<inputs.msk.ChannelIcebergDestinationTableCreation>;
+    }
+
+    export interface ChannelIcebergDestinationCatalog {
+        /**
+         * ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+         */
+        catalogArn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+         */
+        warehouseLocation?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationDeadLetterQueueS3 {
+        /**
+         * ARN of the dead-letter Amazon S3 bucket.
+         *
+         * The following arguments are optional:
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Prefix prepended to every dead-letter Amazon S3 object key.
+         */
+        errorOutputPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationDestinationTable {
+        /**
+         * Name of the destination namespace (database) in the AWS Glue Data Catalog.
+         */
+        destinationDatabaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the destination Apache Iceberg table.
+         */
+        destinationTableName?: pulumi.Input<string | undefined>;
+        /**
+         * Partition specification for the destination table. See `partitionSpec` Block below.
+         */
+        partitionSpec?: pulumi.Input<inputs.msk.ChannelIcebergDestinationDestinationTablePartitionSpec | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationDestinationTablePartitionSpec {
+        /**
+         * Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+         */
+        partitionStrategy: pulumi.Input<string>;
+        /**
+         * Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+         */
+        sources?: pulumi.Input<pulumi.Input<inputs.msk.ChannelIcebergDestinationDestinationTablePartitionSpecSource>[] | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationDestinationTablePartitionSpecSource {
+        /**
+         * Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+         */
+        sourceName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationSchemaEvolution {
+        /**
+         * Whether to allow MSK to evolve the destination table's schema.
+         */
+        enableSchemaEvolution?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface ChannelIcebergDestinationTableCreation {
+        /**
+         * Whether MSK creates the destination table on the customer's behalf.
+         */
+        enableTableCreation?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface ChannelLoggingInfo {
+        /**
+         * CloudWatch Logs destination for channel logs. See `cloudwatchLogs` Block below.
+         */
+        cloudwatchLogs?: pulumi.Input<inputs.msk.ChannelLoggingInfoCloudwatchLogs | undefined>;
+        /**
+         * Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+         */
+        firehose?: pulumi.Input<inputs.msk.ChannelLoggingInfoFirehose | undefined>;
+        /**
+         * Amazon S3 destination for channel logs. See `s3` Block below.
+         */
+        s3?: pulumi.Input<inputs.msk.ChannelLoggingInfoS3 | undefined>;
+    }
+
+    export interface ChannelLoggingInfoCloudwatchLogs {
+        /**
+         * Whether the CloudWatch Logs destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Name of the CloudWatch log group that receives the logs.
+         */
+        logGroup?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelLoggingInfoFirehose {
+        /**
+         * Name of the Kinesis Data Firehose delivery stream that receives the logs.
+         */
+        deliveryStream?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the Firehose destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ChannelLoggingInfoS3 {
+        /**
+         * Name of the Amazon S3 bucket that receives the logs.
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the Amazon S3 destination is enabled.
+         *
+         * The following arguments are optional:
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Prefix applied to the Amazon S3 log object keys.
+         */
+        prefix?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelS3Destination {
+        /**
+         * Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+         */
+        dataFreshnessInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `deadLetterQueueS3` Block below.
+         */
+        deadLetterQueueS3: pulumi.Input<inputs.msk.ChannelS3DestinationDeadLetterQueueS3>;
+        /**
+         * ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+         */
+        serviceExecutionRoleArn: pulumi.Input<string>;
+        /**
+         * Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+         *
+         * The following arguments are optional:
+         */
+        storage: pulumi.Input<inputs.msk.ChannelS3DestinationStorage>;
+    }
+
+    export interface ChannelS3DestinationDeadLetterQueueS3 {
+        /**
+         * ARN of the dead-letter Amazon S3 bucket.
+         *
+         * The following arguments are optional:
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Prefix prepended to every dead-letter Amazon S3 object key.
+         */
+        errorOutputPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelS3DestinationStorage {
+        /**
+         * ARN of the destination Amazon S3 bucket.
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Compression codec applied to delivered Amazon S3 objects.
+         */
+        compressionType: pulumi.Input<string>;
+        /**
+         * 12-digit AWS account ID expected to own the Amazon S3 bucket.
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * Template that controls the Amazon S3 object key for each delivered record.
+         */
+        outputKeyTemplate?: pulumi.Input<string | undefined>;
+        /**
+         * Prefix prepended to every Amazon S3 object key written by the channel.
+         */
+        outputPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * Amazon S3 storage class for delivered objects.
+         *
+         * The following arguments are optional:
+         */
+        storageClass: pulumi.Input<string>;
+    }
+
+    export interface ChannelTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ChannelTopicConfiguration {
+        /**
+         * Configuration that controls how Apache Kafka record values are deserialized for the destination. See `recordConverter` Block below.
+         */
+        recordConverter: pulumi.Input<inputs.msk.ChannelTopicConfigurationRecordConverter>;
+        /**
+         * Schema used to validate records when the value converter requires one. See `recordSchema` Block below.
+         */
+        recordSchema?: pulumi.Input<inputs.msk.ChannelTopicConfigurationRecordSchema | undefined>;
+        /**
+         * ARN that uniquely identifies the topic.
+         *
+         * The following arguments are optional:
+         */
+        topicArn: pulumi.Input<string>;
+    }
+
+    export interface ChannelTopicConfigurationRecordConverter {
+        /**
+         * Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `icebergDestination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3Destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+         */
+        valueConverter: pulumi.Input<string>;
+    }
+
+    export interface ChannelTopicConfigurationRecordSchema {
+        /**
+         * ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+         */
+        gsrArn: pulumi.Input<string>;
+    }
+
     export interface ClusterBrokerNodeGroupInfo {
         /**
          * The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
@@ -97994,7 +98308,7 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig | undefined>;
         /**
@@ -98045,7 +98359,7 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig | undefined>;
         /**
@@ -98141,7 +98455,7 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig | undefined>;
         /**
@@ -98192,7 +98506,7 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
-         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
          */
         modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig | undefined>;
         /**
@@ -107871,7 +108185,7 @@ export namespace wafv2 {
          */
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatement | undefined>;
         /**
-         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
          */
         asnMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAsnMatchStatement | undefined>;
         /**
@@ -108509,7 +108823,7 @@ export namespace wafv2 {
          */
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement | undefined>;
         /**
-         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asnMatchStatement` below for details.
+         * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
          */
         asnMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement | undefined>;
         /**
@@ -112822,6 +113136,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -113081,6 +113398,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -113578,6 +113898,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -113837,6 +114160,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -115273,6 +115599,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -115356,6 +115685,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.
@@ -115615,6 +115947,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         */
         fallbackBehavior: pulumi.Input<string>;
         /**
          * Name of the header containing the forwarded IP address.

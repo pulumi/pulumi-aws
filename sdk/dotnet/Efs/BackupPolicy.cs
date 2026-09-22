@@ -42,6 +42,17 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the file system.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the EFS backup policies using the `Id`. For example:
     /// 
     /// ```sh

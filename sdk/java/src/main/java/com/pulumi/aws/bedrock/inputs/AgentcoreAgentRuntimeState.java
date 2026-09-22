@@ -179,16 +179,12 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration;
 
     /**
      * @return Network configuration for the agent runtime. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentcoreAgentRuntimeNetworkConfigurationArgs>> networkConfiguration() {
@@ -243,12 +239,16 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role that the agent runtime assumes to access AWS services.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -271,14 +271,14 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -582,8 +582,6 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         /**
          * @param networkConfiguration Network configuration for the agent runtime. See `networkConfiguration` below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -594,8 +592,6 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
 
         /**
          * @param networkConfiguration Network configuration for the agent runtime. See `networkConfiguration` below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -670,6 +666,8 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         /**
          * @param roleArn ARN of the IAM role that the agent runtime assumes to access AWS services.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -680,6 +678,8 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
 
         /**
          * @param roleArn ARN of the IAM role that the agent runtime assumes to access AWS services.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

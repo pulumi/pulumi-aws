@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
     /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration awsDataCatalogConfiguration;
     /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+     * @return Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration redshiftConfiguration;
@@ -32,14 +32,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration() {}
     /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration> awsDataCatalogConfiguration() {
         return Optional.ofNullable(this.awsDataCatalogConfiguration);
     }
     /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+     * @return Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration> redshiftConfiguration() {

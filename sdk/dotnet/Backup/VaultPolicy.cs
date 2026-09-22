@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Backup
     public partial class VaultPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// The backup vault access policy document in JSON format.
+        /// Backup vault access policy document in JSON format.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Backup
         public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
-        /// The backup vault access policy document in JSON format.
+        /// Backup vault access policy document in JSON format.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Backup
     public sealed class VaultPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
         public Input<string>? BackupVaultArn { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? BackupVaultName { get; set; }
 
         /// <summary>
-        /// The backup vault access policy document in JSON format.
+        /// Backup vault access policy document in JSON format.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

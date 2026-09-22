@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema
     {
         /// <summary>
-        /// Configuration for API schema. See `ApiSchemaConfiguration` Block below.
+        /// Configuration for the API schema. Supports exactly one of `InlinePayload` or `S3` (see `S3` Block). For HTTP targets, the `InlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource Source;
 

@@ -14,7 +14,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable
     {
         /// <summary>
-        /// The name of the variable.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
 

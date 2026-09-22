@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetActionSubscriber
     {
         /// <summary>
-        /// The address that AWS sends budget notifications to, either an SNS topic or an email.
+        /// Address that AWS sends budget notifications to, either an SNS topic or an email.
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        /// Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         /// </summary>
         public readonly string SubscriptionType;
 

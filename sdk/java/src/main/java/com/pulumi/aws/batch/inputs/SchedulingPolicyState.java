@@ -32,22 +32,30 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     @Import(name="fairSharePolicy")
     private @Nullable Output<SchedulingPolicyFairSharePolicyArgs> fairSharePolicy;
 
+    /**
+     * @return Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     public Optional<Output<SchedulingPolicyFairSharePolicyArgs>> fairSharePolicy() {
         return Optional.ofNullable(this.fairSharePolicy);
     }
 
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the scheduling policy.
+     * @return Name of the scheduling policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -85,14 +93,14 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -149,17 +157,29 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param fairSharePolicy Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fairSharePolicy(@Nullable Output<SchedulingPolicyFairSharePolicyArgs> fairSharePolicy) {
             $.fairSharePolicy = fairSharePolicy;
             return this;
         }
 
+        /**
+         * @param fairSharePolicy Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fairSharePolicy(SchedulingPolicyFairSharePolicyArgs fairSharePolicy) {
             return fairSharePolicy(Output.of(fairSharePolicy));
         }
 
         /**
-         * @param name Specifies the name of the scheduling policy.
+         * @param name Name of the scheduling policy.
          * 
          * @return builder
          * 
@@ -170,7 +190,7 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the scheduling policy.
+         * @param name Name of the scheduling policy.
          * 
          * @return builder
          * 
@@ -222,7 +242,7 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -233,7 +253,7 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

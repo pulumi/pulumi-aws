@@ -55,39 +55,39 @@ namespace Pulumi.Aws.Bedrock
     public partial class InferenceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the inference profile.
+        /// ARN of the inference profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the inference profile was created.
+        /// Time at which the inference profile was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the inference profile.
+        /// Description of the inference profile.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
-        /// 
-        /// The following arguments are optional:
+        /// Source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// </summary>
         [Output("modelSource")]
         public Output<Outputs.InferenceProfileModelSource?> ModelSource { get; private set; } = null!;
 
         /// <summary>
-        /// A list of information about each model in the inference profile. See `Models`.
+        /// List of information about each model in the inference profile. See `Models`.
         /// </summary>
         [Output("models")]
         public Output<ImmutableArray<Outputs.InferenceProfileModel>> Models { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the inference profile.
+        /// Name of the inference profile.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        /// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.InferenceProfileTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+        /// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the inference profile was last updated.
+        /// Time at which the inference profile was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -175,21 +175,21 @@ namespace Pulumi.Aws.Bedrock
     public sealed class InferenceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the inference profile.
+        /// Description of the inference profile.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
-        /// 
-        /// The following arguments are optional:
+        /// Source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// </summary>
         [Input("modelSource")]
         public Input<Inputs.InferenceProfileModelSourceArgs>? ModelSource { get; set; }
 
         /// <summary>
-        /// The name of the inference profile.
+        /// Name of the inference profile.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,27 +224,25 @@ namespace Pulumi.Aws.Bedrock
     public sealed class InferenceProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the inference profile.
+        /// ARN of the inference profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The time at which the inference profile was created.
+        /// Time at which the inference profile was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The description of the inference profile.
+        /// Description of the inference profile.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
-        /// 
-        /// The following arguments are optional:
+        /// Source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// </summary>
         [Input("modelSource")]
         public Input<Inputs.InferenceProfileModelSourceGetArgs>? ModelSource { get; set; }
@@ -253,7 +251,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.InferenceProfileModelGetArgs>? _models;
 
         /// <summary>
-        /// A list of information about each model in the inference profile. See `Models`.
+        /// List of information about each model in the inference profile. See `Models`.
         /// </summary>
         public InputList<Inputs.InferenceProfileModelGetArgs> Models
         {
@@ -262,7 +260,9 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// The name of the inference profile.
+        /// Name of the inference profile.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        /// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -303,13 +303,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.InferenceProfileTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+        /// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The time at which the inference profile was last updated.
+        /// Time at which the inference profile was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

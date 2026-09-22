@@ -14,41 +14,39 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfig
     {
         /// <summary>
-        /// Atlassian OAuth provider configuration. See `predefined providers` below.
+        /// Atlassian OAuth provider configuration. See `AtlassianOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig? AtlassianOauth2ProviderConfig;
         /// <summary>
-        /// Custom OAuth2 provider configuration. See `Custom` below.
+        /// Custom OAuth2 provider configuration. See `CustomOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig? CustomOauth2ProviderConfig;
         /// <summary>
-        /// GitHub OAuth provider configuration. See `predefined providers` below.
+        /// GitHub OAuth provider configuration. See `GithubOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig? GithubOauth2ProviderConfig;
         /// <summary>
-        /// Google OAuth provider configuration. See `predefined providers` below.
+        /// Google OAuth provider configuration. See `GoogleOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig? GoogleOauth2ProviderConfig;
         /// <summary>
-        /// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-        /// 
-        /// &gt; **Note:** `IncludedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `ClientId` and `ClientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`Issuer`, `AuthorizationEndpoint`, `TokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+        /// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `IncludedOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig? IncludedOauth2ProviderConfig;
         /// <summary>
-        /// LinkedIn OAuth provider configuration. See `predefined providers` below.
+        /// LinkedIn OAuth provider configuration. See `LinkedinOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig? LinkedinOauth2ProviderConfig;
         /// <summary>
-        /// Microsoft OAuth provider configuration. See `predefined providers` below.
+        /// Microsoft OAuth provider configuration. See `MicrosoftOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig? MicrosoftOauth2ProviderConfig;
         /// <summary>
-        /// Salesforce OAuth provider configuration. See `predefined providers` below.
+        /// Salesforce OAuth provider configuration. See `SalesforceOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig? SalesforceOauth2ProviderConfig;
         /// <summary>
-        /// Slack OAuth provider configuration. See `predefined providers` below.
+        /// Slack OAuth provider configuration. See `SlackOauth2ProviderConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig? SlackOauth2ProviderConfig;
 

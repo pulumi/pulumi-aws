@@ -15,14 +15,14 @@ public final class AgentcoreBrowserCertificateArgs extends com.pulumi.resources.
     public static final AgentcoreBrowserCertificateArgs Empty = new AgentcoreBrowserCertificateArgs();
 
     /**
-     * Location from which to retrieve the certificate. See `certificates.location` below.
+     * Location from which to retrieve the certificate. See `certificate.location` below.
      * 
      */
     @Import(name="location", required=true)
     private Output<AgentcoreBrowserCertificateLocationArgs> location;
 
     /**
-     * @return Location from which to retrieve the certificate. See `certificates.location` below.
+     * @return Location from which to retrieve the certificate. See `certificate.location` below.
      * 
      */
     public Output<AgentcoreBrowserCertificateLocationArgs> location() {
@@ -54,7 +54,7 @@ public final class AgentcoreBrowserCertificateArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param location Location from which to retrieve the certificate. See `certificates.location` below.
+         * @param location Location from which to retrieve the certificate. See `certificate.location` below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreBrowserCertificateArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param location Location from which to retrieve the certificate. See `certificates.location` below.
+         * @param location Location from which to retrieve the certificate. See `certificate.location` below.
          * 
          * @return builder
          * 

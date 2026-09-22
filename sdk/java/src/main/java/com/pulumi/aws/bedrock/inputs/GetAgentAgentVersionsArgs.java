@@ -34,14 +34,14 @@ public final class GetAgentAgentVersionsArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
      * 
      */
     @Import(name="agentVersionSummaries")
     private @Nullable Output<List<GetAgentAgentVersionsAgentVersionSummaryArgs>> agentVersionSummaries;
 
     /**
-     * @return List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+     * @return List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
      * 
      */
     public Optional<Output<List<GetAgentAgentVersionsAgentVersionSummaryArgs>>> agentVersionSummaries() {
@@ -111,7 +111,7 @@ public final class GetAgentAgentVersionsArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class GetAgentAgentVersionsArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetAgentAgentVersionsArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
          * 
          * @return builder
          * 

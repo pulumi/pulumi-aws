@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _complianceResourceIds;
 
         /// <summary>
-        /// The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        /// ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<string> ComplianceResourceIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _complianceResourceTypes;
 
         /// <summary>
-        /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        /// Whether the control scope includes one or more types of resources, such as EFS or RDS.
         /// </summary>
         public InputList<string> ComplianceResourceTypes
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
         public InputMap<string> Tags
         {

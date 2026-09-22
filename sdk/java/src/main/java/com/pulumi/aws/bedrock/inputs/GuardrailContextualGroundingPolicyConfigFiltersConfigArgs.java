@@ -16,14 +16,14 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs ext
     public static final GuardrailContextualGroundingPolicyConfigFiltersConfigArgs Empty = new GuardrailContextualGroundingPolicyConfigFiltersConfigArgs();
 
     /**
-     * The threshold for this filter.
+     * Threshold for this filter.
      * 
      */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
     /**
-     * @return The threshold for this filter.
+     * @return Threshold for this filter.
      * 
      */
     public Output<Double> threshold() {
@@ -71,7 +71,7 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs ext
         }
 
         /**
-         * @param threshold The threshold for this filter.
+         * @param threshold Threshold for this filter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfigArgs ext
         }
 
         /**
-         * @param threshold The threshold for this filter.
+         * @param threshold Threshold for this filter.
          * 
          * @return builder
          * 

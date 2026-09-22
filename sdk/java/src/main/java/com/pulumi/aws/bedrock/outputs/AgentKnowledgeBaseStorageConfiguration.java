@@ -21,42 +21,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfiguration {
     /**
-     * @return The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration mongoDbAtlasConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration neptuneAnalyticsConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration opensearchManagedClusterConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration opensearchServerlessConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfiguration pineconeConfiguration;
     /**
-     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfiguration rdsConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration redisEnterpriseCloudConfiguration;
     /**
-     * @return The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration s3VectorsConfiguration;
@@ -68,56 +68,56 @@ public final class AgentKnowledgeBaseStorageConfiguration {
 
     private AgentKnowledgeBaseStorageConfiguration() {}
     /**
-     * @return The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration> mongoDbAtlasConfiguration() {
         return Optional.ofNullable(this.mongoDbAtlasConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration> neptuneAnalyticsConfiguration() {
         return Optional.ofNullable(this.neptuneAnalyticsConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration> opensearchManagedClusterConfiguration() {
         return Optional.ofNullable(this.opensearchManagedClusterConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration> opensearchServerlessConfiguration() {
         return Optional.ofNullable(this.opensearchServerlessConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationPineconeConfiguration> pineconeConfiguration() {
         return Optional.ofNullable(this.pineconeConfiguration);
     }
     /**
-     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRdsConfiguration> rdsConfiguration() {
         return Optional.ofNullable(this.rdsConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration> redisEnterpriseCloudConfiguration() {
         return Optional.ofNullable(this.redisEnterpriseCloudConfiguration);
     }
     /**
-     * @return The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration> s3VectorsConfiguration() {

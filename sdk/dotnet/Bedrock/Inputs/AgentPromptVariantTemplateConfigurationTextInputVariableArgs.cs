@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantTemplateConfigurationTextInputVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the variable.
+        /// Name of the variable.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

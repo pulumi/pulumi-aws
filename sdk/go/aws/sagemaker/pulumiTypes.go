@@ -42809,7 +42809,7 @@ func (o ModelContainerAdditionalModelDataSourceArrayOutput) Index(i pulumi.IntIn
 type ModelContainerAdditionalModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
@@ -42831,7 +42831,7 @@ type ModelContainerAdditionalModelDataSourceS3DataSourceInput interface {
 type ModelContainerAdditionalModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
@@ -42895,7 +42895,7 @@ func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) CompressionTy
 	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerAdditionalModelDataSourceS3DataSource) *ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig
@@ -43508,7 +43508,7 @@ func (o ModelContainerModelDataSourcePtrOutput) S3DataSources() ModelContainerMo
 type ModelContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
@@ -43530,7 +43530,7 @@ type ModelContainerModelDataSourceS3DataSourceInput interface {
 type ModelContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
@@ -43594,7 +43594,7 @@ func (o ModelContainerModelDataSourceS3DataSourceOutput) CompressionType() pulum
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) *ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig
@@ -44482,7 +44482,7 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceArrayOutput) Index(i pulum
 type ModelPrimaryContainerAdditionalModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
@@ -44504,7 +44504,7 @@ type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceInput interface {
 type ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
@@ -44568,7 +44568,7 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) Compre
 	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerAdditionalModelDataSourceS3DataSource) *ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig
@@ -45183,7 +45183,7 @@ func (o ModelPrimaryContainerModelDataSourcePtrOutput) S3DataSources() ModelPrim
 type ModelPrimaryContainerModelDataSourceS3DataSource struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType string `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType string `pulumi:"s3DataType"`
@@ -45205,7 +45205,7 @@ type ModelPrimaryContainerModelDataSourceS3DataSourceInput interface {
 type ModelPrimaryContainerModelDataSourceS3DataSourceArgs struct {
 	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
 	CompressionType pulumi.StringInput `pulumi:"compressionType"`
-	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+	// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 	ModelAccessConfig ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
 	// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
 	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
@@ -45269,7 +45269,7 @@ func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) CompressionType(
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
 }
 
-// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
+// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `modelAccessConfig` configuration block. See Model Access Config.
 func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) *ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
 		return v.ModelAccessConfig

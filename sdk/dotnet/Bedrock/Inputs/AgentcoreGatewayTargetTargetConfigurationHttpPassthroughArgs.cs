@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> ProtocolType { get; set; } = null!;
 
         /// <summary>
-        /// API schema configuration that defines the structure of the passthrough target's API. Supports the same `InlinePayload` and `S3` blocks as `ApiSchemaConfiguration`.
+        /// API schema configuration that defines the structure of the passthrough target's API. See `Schema` Block below.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs>? Schema { get; set; }

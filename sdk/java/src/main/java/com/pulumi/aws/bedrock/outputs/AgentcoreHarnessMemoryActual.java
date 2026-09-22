@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessMemoryActual {
     /**
-     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * @return AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
      * 
      */
     private List<AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration> agentcoreMemoryConfigurations;
     /**
-     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * @return Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
      * 
      */
     private List<AgentcoreHarnessMemoryActualDisabled> disableds;
     /**
-     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * @return Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
      * 
      */
     private List<AgentcoreHarnessMemoryActualManagedMemoryConfiguration> managedMemoryConfigurations;
 
     private AgentcoreHarnessMemoryActual() {}
     /**
-     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * @return AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
      * 
      */
     public List<AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration> agentcoreMemoryConfigurations() {
         return this.agentcoreMemoryConfigurations;
     }
     /**
-     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * @return Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
      * 
      */
     public List<AgentcoreHarnessMemoryActualDisabled> disableds() {
         return this.disableds;
     }
     /**
-     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * @return Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
      * 
      */
     public List<AgentcoreHarnessMemoryActualManagedMemoryConfiguration> managedMemoryConfigurations() {

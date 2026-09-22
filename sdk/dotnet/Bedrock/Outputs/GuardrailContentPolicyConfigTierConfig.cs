@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailContentPolicyConfigTierConfig
     {
         /// <summary>
-        /// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        /// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         /// </summary>
         public readonly string TierName;
 

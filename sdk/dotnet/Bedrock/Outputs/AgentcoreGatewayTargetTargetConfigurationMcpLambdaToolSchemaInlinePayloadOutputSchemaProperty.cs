@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Items definition for array properties. See `Items` Block above.
+        /// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems? Items;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of nested property definitions for object properties.
+        /// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> Properties;
         /// <summary>

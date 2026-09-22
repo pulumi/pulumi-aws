@@ -17,14 +17,14 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
     public static final ComputeEnvironmentUpdatePolicyArgs Empty = new ComputeEnvironmentUpdatePolicyArgs();
 
     /**
-     * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+     * Job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
     @Import(name="jobExecutionTimeoutMinutes")
     private @Nullable Output<Integer> jobExecutionTimeoutMinutes;
 
     /**
-     * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+     * @return Job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
     public Optional<Output<Integer>> jobExecutionTimeoutMinutes() {
@@ -32,14 +32,14 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+     * Whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     @Import(name="terminateJobsOnUpdate")
     private @Nullable Output<Boolean> terminateJobsOnUpdate;
 
     /**
-     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+     * @return Whether jobs are automatically terminated when the compute environment infrastructure is updated.
      * 
      */
     public Optional<Output<Boolean>> terminateJobsOnUpdate() {
@@ -72,7 +72,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param jobExecutionTimeoutMinutes Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         * @param jobExecutionTimeoutMinutes Job timeout (in minutes) when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param jobExecutionTimeoutMinutes Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         * @param jobExecutionTimeoutMinutes Job timeout (in minutes) when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+         * @param terminateJobsOnUpdate Whether jobs are automatically terminated when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+         * @param terminateJobsOnUpdate Whether jobs are automatically terminated when the compute environment infrastructure is updated.
          * 
          * @return builder
          * 

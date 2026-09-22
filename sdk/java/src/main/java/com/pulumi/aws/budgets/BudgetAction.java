@@ -147,168 +147,168 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:budgets/budgetAction:BudgetAction")
 public class BudgetAction extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * @return ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The id of the budget action.
+     * ID of the budget action.
      * 
      */
     @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
     /**
-     * @return The id of the budget action.
+     * @return ID of the budget action.
      * 
      */
     public Output<String> actionId() {
         return this.actionId;
     }
     /**
-     * The trigger threshold of the action. See Action Threshold.
+     * Trigger threshold of the action. See `actionThreshold` Block.
      * 
      */
     @Export(name="actionThreshold", refs={BudgetActionActionThreshold.class}, tree="[0]")
     private Output<BudgetActionActionThreshold> actionThreshold;
 
     /**
-     * @return The trigger threshold of the action. See Action Threshold.
+     * @return Trigger threshold of the action. See `actionThreshold` Block.
      * 
      */
     public Output<BudgetActionActionThreshold> actionThreshold() {
         return this.actionThreshold;
     }
     /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
     @Export(name="actionType", refs={String.class}, tree="[0]")
     private Output<String> actionType;
 
     /**
-     * @return The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * @return Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
     public Output<String> actionType() {
         return this.actionType;
     }
     /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
     @Export(name="approvalModel", refs={String.class}, tree="[0]")
     private Output<String> approvalModel;
 
     /**
-     * @return This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * @return Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
     public Output<String> approvalModel() {
         return this.approvalModel;
     }
     /**
-     * The ARN of the budget action.
+     * ARN of the budget action.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the budget action.
+     * @return ARN of the budget action.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of a budget.
+     * Name of a budget.
      * 
      */
     @Export(name="budgetName", refs={String.class}, tree="[0]")
     private Output<String> budgetName;
 
     /**
-     * @return The name of a budget.
+     * @return Name of a budget.
      * 
      */
     public Output<String> budgetName() {
         return this.budgetName;
     }
     /**
-     * Specifies all of the type-specific parameters. See Definition.
+     * Type-specific parameters. See `definition` Block.
      * 
      */
     @Export(name="definition", refs={BudgetActionDefinition.class}, tree="[0]")
     private Output<BudgetActionDefinition> definition;
 
     /**
-     * @return Specifies all of the type-specific parameters. See Definition.
+     * @return Type-specific parameters. See `definition` Block.
      * 
      */
     public Output<BudgetActionDefinition> definition() {
         return this.definition;
     }
     /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * Role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
     /**
-     * @return The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * @return Role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
     /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**
-     * @return The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * @return Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
     public Output<String> notificationType() {
         return this.notificationType;
     }
     /**
-     * The status of the budget action.
+     * Status of the budget action.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the budget action.
+     * @return Status of the budget action.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A list of subscribers. See Subscriber.
+     * Set of subscribers. See `subscriber` Block.
      * 
      */
     @Export(name="subscribers", refs={List.class,BudgetActionSubscriber.class}, tree="[0,1]")
     private Output<List<BudgetActionSubscriber>> subscribers;
 
     /**
-     * @return A list of subscribers. See Subscriber.
+     * @return Set of subscribers. See `subscriber` Block.
      * 
      */
     public Output<List<BudgetActionSubscriber>> subscribers() {

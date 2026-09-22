@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("additionalHeaderClaims")]
         private InputMap<string>? _additionalHeaderClaims;
+
+        /// <summary>
+        /// Key-value map of additional claims to include in the JWT header.
+        /// </summary>
         public InputMap<string> AdditionalHeaderClaims
         {
             get => _additionalHeaderClaims ?? (_additionalHeaderClaims = new InputMap<string>());
@@ -22,15 +26,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("additionalPayloadClaims")]
         private InputMap<string>? _additionalPayloadClaims;
+
+        /// <summary>
+        /// Key-value map of additional claims to include in the JWT payload.
+        /// </summary>
         public InputMap<string> AdditionalPayloadClaims
         {
             get => _additionalPayloadClaims ?? (_additionalPayloadClaims = new InputMap<string>());
             set => _additionalPayloadClaims = value;
         }
 
+        /// <summary>
+        /// Source of the private key used to sign the JWT. See `PrivateKeySource` Block below.
+        /// </summary>
         [Input("privateKeySource")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceGetArgs>? PrivateKeySource { get; set; }
 
+        /// <summary>
+        /// Algorithm used to sign the JWT.
+        /// </summary>
         [Input("signingAlgorithm")]
         public Input<string>? SigningAlgorithm { get; set; }
 

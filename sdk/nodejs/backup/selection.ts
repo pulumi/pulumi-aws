@@ -182,11 +182,11 @@ export class Selection extends pulumi.CustomResource {
      */
     declare public readonly conditions: pulumi.Output<outputs.backup.SelectionCondition[]>;
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
     declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export class Selection extends pulumi.CustomResource {
      */
     declare public readonly notResources: pulumi.Output<string[]>;
     /**
-     * The backup plan ID to be associated with the selection of resources.
+     * Backup plan ID to be associated with the selection of resources.
      */
     declare public readonly planId: pulumi.Output<string>;
     /**
@@ -262,11 +262,11 @@ export interface SelectionState {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[] | undefined>;
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
     iamRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -274,7 +274,7 @@ export interface SelectionState {
      */
     notResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The backup plan ID to be associated with the selection of resources.
+     * Backup plan ID to be associated with the selection of resources.
      */
     planId?: pulumi.Input<string | undefined>;
     /**
@@ -300,11 +300,11 @@ export interface SelectionArgs {
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[] | undefined>;
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
     iamRoleArn: pulumi.Input<string>;
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface SelectionArgs {
      */
     notResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The backup plan ID to be associated with the selection of resources.
+     * Backup plan ID to be associated with the selection of resources.
      */
     planId: pulumi.Input<string>;
     /**

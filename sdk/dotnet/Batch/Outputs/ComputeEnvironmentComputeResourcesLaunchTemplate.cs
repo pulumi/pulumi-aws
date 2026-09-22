@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string? LaunchTemplateName;
         /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
+        /// Version number of the launch template. Default: The default version of the launch template.
         /// </summary>
         public readonly string? Version;
 

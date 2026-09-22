@@ -54,19 +54,19 @@ namespace Pulumi.Aws.Backup
     public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `False`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// The server-side encryption key that is used to protect your backups.
+        /// Server-side encryption key that is used to protect your backups.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of recovery points that are stored in a backup vault.
+        /// Number of recovery points that are stored in a backup vault.
         /// </summary>
         [Output("recoveryPoints")]
         public Output<int> RecoveryPoints { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.Aws.Backup
     public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The server-side encryption key that is used to protect your backups.
+        /// Server-side encryption key that is used to protect your backups.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -192,19 +192,19 @@ namespace Pulumi.Aws.Backup
     public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// The server-side encryption key that is used to protect your backups.
+        /// Server-side encryption key that is used to protect your backups.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of recovery points that are stored in a backup vault.
+        /// Number of recovery points that are stored in a backup vault.
         /// </summary>
         [Input("recoveryPoints")]
         public Input<int>? RecoveryPoints { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

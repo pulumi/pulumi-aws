@@ -83,15 +83,15 @@ export class Plan extends pulumi.CustomResource {
     }
 
     /**
-     * An object that specifies backup options for each resource type.
+     * Object that specifies backup options for each resource type. Detailed below.
      */
     declare public readonly advancedBackupSettings: pulumi.Output<outputs.backup.PlanAdvancedBackupSetting[] | undefined>;
     /**
-     * The ARN of the backup plan.
+     * ARN of the backup plan.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      */
     declare public readonly rules: pulumi.Output<outputs.backup.PlanRule[]>;
     /**
@@ -111,7 +111,7 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -166,15 +166,15 @@ export class Plan extends pulumi.CustomResource {
  */
 export interface PlanState {
     /**
-     * An object that specifies backup options for each resource type.
+     * Object that specifies backup options for each resource type. Detailed below.
      */
     advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[] | undefined>;
     /**
-     * The ARN of the backup plan.
+     * ARN of the backup plan.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface PlanState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[] | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface PlanState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -208,11 +208,11 @@ export interface PlanState {
  */
 export interface PlanArgs {
     /**
-     * An object that specifies backup options for each resource type.
+     * Object that specifies backup options for each resource type. Detailed below.
      */
     advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[] | undefined>;
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface PlanArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**

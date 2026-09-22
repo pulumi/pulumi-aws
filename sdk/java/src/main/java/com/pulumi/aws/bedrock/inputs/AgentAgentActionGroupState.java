@@ -23,16 +23,12 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="actionGroupExecutor")
     private @Nullable Output<AgentAgentActionGroupActionGroupExecutorArgs> actionGroupExecutor;
 
     /**
      * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentAgentActionGroupActionGroupExecutorArgs>> actionGroupExecutor() {
@@ -85,14 +81,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The unique identifier of the agent for which to create the action group.
+     * Unique identifier of the agent for which to create the action group.
      * 
      */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
 
     /**
-     * @return The unique identifier of the agent for which to create the action group.
+     * @return Unique identifier of the agent for which to create the action group.
      * 
      */
     public Optional<Output<String>> agentId() {
@@ -102,12 +98,16 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
      * @return Version of the agent for which to create the action group. Valid values: `DRAFT`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -145,18 +145,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      * 
      */
     @Import(name="functionSchema")
     private @Nullable Output<AgentAgentActionGroupFunctionSchemaArgs> functionSchema;
 
     /**
-     * @return Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * @return Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupFunctionSchemaArgs>> functionSchema() {
@@ -270,8 +266,6 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         /**
          * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -282,8 +276,6 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
 
         /**
          * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -356,7 +348,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentId The unique identifier of the agent for which to create the action group.
+         * @param agentId Unique identifier of the agent for which to create the action group.
          * 
          * @return builder
          * 
@@ -367,7 +359,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentId The unique identifier of the agent for which to create the action group.
+         * @param agentId Unique identifier of the agent for which to create the action group.
          * 
          * @return builder
          * 
@@ -379,6 +371,8 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         /**
          * @param agentVersion Version of the agent for which to create the action group. Valid values: `DRAFT`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -389,6 +383,8 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
 
         /**
          * @param agentVersion Version of the agent for which to create the action group. Valid values: `DRAFT`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -440,9 +436,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functionSchema Describes the function schema for the action group.
-         * Each function represents an action in an action group.
-         * See `functionSchema` Block for details.
+         * @param functionSchema Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
          * 
          * @return builder
          * 
@@ -453,9 +447,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functionSchema Describes the function schema for the action group.
-         * Each function represents an action in an action group.
-         * See `functionSchema` Block for details.
+         * @param functionSchema Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
          * 
          * @return builder
          * 

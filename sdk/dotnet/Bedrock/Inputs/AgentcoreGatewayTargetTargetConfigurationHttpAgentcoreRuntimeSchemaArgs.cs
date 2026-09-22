@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for API schema. See `ApiSchemaConfiguration` Block below.
+        /// Configuration for the API schema. Supports exactly one of `InlinePayload` or `S3` (see `S3` Block). For HTTP targets, the `InlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs> Source { get; set; } = null!;

@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionConnectionConfigurationConditionalArgs ext
     public static final AgentFlowDefinitionConnectionConfigurationConditionalArgs Empty = new AgentFlowDefinitionConnectionConfigurationConditionalArgs();
 
     /**
-     * The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     @Import(name="condition", required=true)
     private Output<String> condition;
 
     /**
-     * @return The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     public Output<String> condition() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionConnectionConfigurationConditionalArgs ext
         }
 
         /**
-         * @param condition The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * @param condition List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionConnectionConfigurationConditionalArgs ext
         }
 
         /**
-         * @param condition The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * @param condition List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 

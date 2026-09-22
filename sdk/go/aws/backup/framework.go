@@ -134,25 +134,25 @@ import (
 type Framework struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the backup framework.
+	// ARN of the backup framework.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls FrameworkControlArrayOutput `pulumi:"controls"`
-	// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+	// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
 	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// The description of the framework with a maximum of 1,024 characters
+	// Description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+	// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -189,48 +189,48 @@ func GetFramework(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Framework resources.
 type frameworkState struct {
-	// The ARN of the backup framework.
+	// ARN of the backup framework.
 	Arn *string `pulumi:"arn"`
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls []FrameworkControl `pulumi:"controls"`
-	// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime *string `pulumi:"creationTime"`
-	// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+	// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
 	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// The description of the framework with a maximum of 1,024 characters
+	// Description of the framework with a maximum of 1,024 characters
 	Description *string `pulumi:"description"`
-	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+	// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status *string `pulumi:"status"`
 	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type FrameworkState struct {
-	// The ARN of the backup framework.
+	// ARN of the backup framework.
 	Arn pulumi.StringPtrInput
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls FrameworkControlArrayInput
-	// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime pulumi.StringPtrInput
-	// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+	// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
 	DeploymentStatus pulumi.StringPtrInput
-	// The description of the framework with a maximum of 1,024 characters
+	// Description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrInput
-	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+	// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -241,9 +241,9 @@ func (FrameworkState) ElementType() reflect.Type {
 type frameworkArgs struct {
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls []FrameworkControl `pulumi:"controls"`
-	// The description of the framework with a maximum of 1,024 characters
+	// Description of the framework with a maximum of 1,024 characters
 	Description *string `pulumi:"description"`
-	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -255,9 +255,9 @@ type frameworkArgs struct {
 type FrameworkArgs struct {
 	// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
 	Controls FrameworkControlArrayInput
-	// The description of the framework with a maximum of 1,024 characters
+	// Description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrInput
-	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -352,7 +352,7 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 	return o
 }
 
-// The ARN of the backup framework.
+// ARN of the backup framework.
 func (o FrameworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -362,22 +362,22 @@ func (o FrameworkOutput) Controls() FrameworkControlArrayOutput {
 	return o.ApplyT(func(v *Framework) FrameworkControlArrayOutput { return v.Controls }).(FrameworkControlArrayOutput)
 }
 
-// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
 func (o FrameworkOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
 func (o FrameworkOutput) DeploymentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
 }
 
-// The description of the framework with a maximum of 1,024 characters
+// Description of the framework with a maximum of 1,024 characters
 func (o FrameworkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 func (o FrameworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -387,7 +387,7 @@ func (o FrameworkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 func (o FrameworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -397,7 +397,7 @@ func (o FrameworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FrameworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

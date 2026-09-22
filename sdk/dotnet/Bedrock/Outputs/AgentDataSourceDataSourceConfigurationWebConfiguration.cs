@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationWebConfiguration
     {
+        /// <summary>
+        /// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration? SourceConfiguration;
 
         [OutputConstructor]

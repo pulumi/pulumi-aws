@@ -50,14 +50,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs ext
     }
 
     /**
-     * Source configuration identifying which connector to use. See `source` Block below.
+     * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     @Import(name="source", required=true)
     private Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceArgs> source;
 
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     public Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceArgs> source() {
@@ -153,7 +153,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs ext
         }
 
         /**
-         * @param source Source configuration identifying which connector to use. See `source` Block below.
+         * @param source Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs ext
         }
 
         /**
-         * @param source Source configuration identifying which connector to use. See `source` Block below.
+         * @param source Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          * 
          * @return builder
          * 

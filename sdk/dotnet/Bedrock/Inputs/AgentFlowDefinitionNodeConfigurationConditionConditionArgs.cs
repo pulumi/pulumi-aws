@@ -12,11 +12,16 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationConditionConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         /// <summary>
-        /// A name for the flow.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

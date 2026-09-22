@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
     public static final AgentFlowDefinitionNodeConfigurationConditionArgs Empty = new AgentFlowDefinitionNodeConfigurationConditionArgs();
 
     /**
-     * A list of conditions. See Condition Config for more information.
+     * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions;
 
     /**
-     * @return A list of conditions. See Condition Config for more information.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>>> conditions() {
@@ -56,7 +56,7 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
         }
 
         /**
-         * @param conditions A list of conditions. See Condition Config for more information.
+         * @param conditions List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
         }
 
         /**
-         * @param conditions A list of conditions. See Condition Config for more information.
+         * @param conditions List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
         }
 
         /**
-         * @param conditions A list of conditions. See Condition Config for more information.
+         * @param conditions List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 

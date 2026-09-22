@@ -400,11 +400,14 @@ namespace Pulumi.Aws.Bedrock
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// List of failure reasons reported when the knowledge base is in a failed state.
+        /// </summary>
         [Output("failureReasons")]
         public Output<ImmutableArray<string>> FailureReasons { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Output("knowledgeBaseConfiguration")]
         public Output<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration> KnowledgeBaseConfiguration { get; private set; } = null!;
@@ -430,7 +433,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` Block for details.
         /// </summary>
         [Output("storageConfiguration")]
         public Output<Outputs.AgentKnowledgeBaseStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
@@ -509,7 +512,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("knowledgeBaseConfiguration", required: true)]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> KnowledgeBaseConfiguration { get; set; } = null!;
@@ -535,7 +538,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` Block for details.
         /// </summary>
         [Input("storageConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationArgs>? StorageConfiguration { get; set; }
@@ -583,6 +586,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("failureReasons")]
         private InputList<string>? _failureReasons;
+
+        /// <summary>
+        /// List of failure reasons reported when the knowledge base is in a failed state.
+        /// </summary>
         public InputList<string> FailureReasons
         {
             get => _failureReasons ?? (_failureReasons = new InputList<string>());
@@ -590,7 +597,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` block for details.
+        /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("knowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationGetArgs>? KnowledgeBaseConfiguration { get; set; }
@@ -616,7 +623,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` block for details.
+        /// Details about the storage configuration of the knowledge base. See `StorageConfiguration` Block for details.
         /// </summary>
         [Input("storageConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationGetArgs>? StorageConfiguration { get; set; }

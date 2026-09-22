@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessTruncationConfigGetArgs>? _configs;
 
         /// <summary>
-        /// Strategy-specific configuration. See `truncation config` below.
+        /// Strategy-specific configuration. See `truncation.config` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessTruncationConfigGetArgs> Configs
         {

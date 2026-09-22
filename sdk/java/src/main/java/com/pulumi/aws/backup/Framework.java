@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/framework:Framework")
 public class Framework extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the backup framework.
+     * ARN of the backup framework.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the backup framework.
+     * @return ARN of the backup framework.
      * 
      */
     public Output<String> arn() {
@@ -166,56 +166,56 @@ public class Framework extends com.pulumi.resources.CustomResource {
         return this.controls;
     }
     /**
-     * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
-     * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public Output<String> creationTime() {
         return this.creationTime;
     }
     /**
-     * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+     * Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
     @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
     private Output<String> deploymentStatus;
 
     /**
-     * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
     public Output<String> deploymentStatus() {
         return this.deploymentStatus;
     }
     /**
-     * The description of the framework with a maximum of 1,024 characters
+     * Description of the framework with a maximum of 1,024 characters
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the framework with a maximum of 1,024 characters
+     * @return Description of the framework with a maximum of 1,024 characters
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Output<String> name() {
@@ -236,14 +236,14 @@ public class Framework extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     public Output<String> status() {
@@ -264,14 +264,14 @@ public class Framework extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

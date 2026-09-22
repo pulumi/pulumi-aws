@@ -13,19 +13,21 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the tool.
+        /// Description for the flow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The input schema of the tool. See Tool Input Schema for more information.
+        /// Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
         /// </summary>
         [Input("inputSchema")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs>? InputSchema { get; set; }
 
         /// <summary>
-        /// The name of the tool.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

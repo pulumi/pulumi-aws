@@ -53,15 +53,15 @@ import (
 type VaultLockConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrOutput `pulumi:"changeableForDays"`
-	// The maximum retention period that the vault retains its recovery points.
+	// Maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
-	// The minimum retention period that the vault retains its recovery points.
+	// Minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrOutput `pulumi:"minRetentionDays"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -100,30 +100,30 @@ func GetVaultLockConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultLockConfiguration resources.
 type vaultLockConfigurationState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName *string `pulumi:"backupVaultName"`
-	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays *int `pulumi:"changeableForDays"`
-	// The maximum retention period that the vault retains its recovery points.
+	// Maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
-	// The minimum retention period that the vault retains its recovery points.
+	// Minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type VaultLockConfigurationState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn pulumi.StringPtrInput
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringPtrInput
-	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
-	// The maximum retention period that the vault retains its recovery points.
+	// Maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
-	// The minimum retention period that the vault retains its recovery points.
+	// Minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -136,11 +136,11 @@ func (VaultLockConfigurationState) ElementType() reflect.Type {
 type vaultLockConfigurationArgs struct {
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName string `pulumi:"backupVaultName"`
-	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays *int `pulumi:"changeableForDays"`
-	// The maximum retention period that the vault retains its recovery points.
+	// Maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
-	// The minimum retention period that the vault retains its recovery points.
+	// Minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -150,11 +150,11 @@ type vaultLockConfigurationArgs struct {
 type VaultLockConfigurationArgs struct {
 	// Name of the backup vault to add a lock configuration for.
 	BackupVaultName pulumi.StringInput
-	// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+	// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 	ChangeableForDays pulumi.IntPtrInput
-	// The maximum retention period that the vault retains its recovery points.
+	// Maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
-	// The minimum retention period that the vault retains its recovery points.
+	// Minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -247,7 +247,7 @@ func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutputWithContext(
 	return o
 }
 
-// The ARN of the vault.
+// ARN of the vault.
 func (o VaultLockConfigurationOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
@@ -257,17 +257,17 @@ func (o VaultLockConfigurationOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+// Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
 func (o VaultLockConfigurationOutput) ChangeableForDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.ChangeableForDays }).(pulumi.IntPtrOutput)
 }
 
-// The maximum retention period that the vault retains its recovery points.
+// Maximum retention period that the vault retains its recovery points.
 func (o VaultLockConfigurationOutput) MaxRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MaxRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The minimum retention period that the vault retains its recovery points.
+// Minimum retention period that the vault retains its recovery points.
 func (o VaultLockConfigurationOutput) MinRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MinRetentionDays }).(pulumi.IntPtrOutput)
 }

@@ -93,9 +93,9 @@ import (
 type VaultNotifications struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayOutput `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
@@ -144,9 +144,9 @@ func GetVaultNotifications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultNotifications resources.
 type vaultNotificationsState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName *string `pulumi:"backupVaultName"`
@@ -157,9 +157,9 @@ type vaultNotificationsState struct {
 }
 
 type VaultNotificationsState struct {
-	// The ARN of the vault.
+	// ARN of the vault.
 	BackupVaultArn pulumi.StringPtrInput
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayInput
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringPtrInput
@@ -174,7 +174,7 @@ func (VaultNotificationsState) ElementType() reflect.Type {
 }
 
 type vaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName string `pulumi:"backupVaultName"`
@@ -186,7 +186,7 @@ type vaultNotificationsArgs struct {
 
 // The set of arguments for constructing a VaultNotifications resource.
 type VaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	// Array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayInput
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringInput
@@ -283,12 +283,12 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the vault.
+// ARN of the vault.
 func (o VaultNotificationsOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
-// An array of events that indicate the status of jobs to back up resources to the backup vault.
+// Array of events that indicate the status of jobs to back up resources to the backup vault.
 func (o VaultNotificationsOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringArrayOutput { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }

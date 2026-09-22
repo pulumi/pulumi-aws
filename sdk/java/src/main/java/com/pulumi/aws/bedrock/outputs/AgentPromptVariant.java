@@ -18,22 +18,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentPromptVariant {
     /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     private @Nullable String additionalModelRequestFields;
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+     * @return Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantGenAiResource genAiResource;
     /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantInferenceConfiguration inferenceConfiguration;
     /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+     * @return List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
      * 
      */
     private @Nullable List<AgentPromptVariantMetadata> metadatas;
@@ -43,12 +43,12 @@ public final class AgentPromptVariant {
      */
     private @Nullable String modelId;
     /**
-     * @return Name of the prompt variant.
+     * @return Name of the tool.
      * 
      */
     private String name;
     /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
+     * @return Configurations for the prompt template. See `templateConfiguration` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfiguration templateConfiguration;
@@ -60,28 +60,28 @@ public final class AgentPromptVariant {
 
     private AgentPromptVariant() {}
     /**
-     * @return Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     public Optional<String> additionalModelRequestFields() {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+     * @return Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantGenAiResource> genAiResource() {
         return Optional.ofNullable(this.genAiResource);
     }
     /**
-     * @return Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
     /**
-     * @return A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+     * @return List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
      * 
      */
     public List<AgentPromptVariantMetadata> metadatas() {
@@ -95,14 +95,14 @@ public final class AgentPromptVariant {
         return Optional.ofNullable(this.modelId);
     }
     /**
-     * @return Name of the prompt variant.
+     * @return Name of the tool.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Contains configurations for the prompt template. See Template Configuration for more information.
+     * @return Configurations for the prompt template. See `templateConfiguration` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfiguration> templateConfiguration() {

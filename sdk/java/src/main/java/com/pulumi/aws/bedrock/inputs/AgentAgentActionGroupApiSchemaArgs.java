@@ -17,16 +17,14 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
     public static final AgentAgentActionGroupApiSchemaArgs Empty = new AgentAgentActionGroupApiSchemaArgs();
 
     /**
-     * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-     * Only one of `payload` or `s3` can be specified.
+     * JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
      * 
      */
     @Import(name="payload")
     private @Nullable Output<String> payload;
 
     /**
-     * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-     * Only one of `payload` or `s3` can be specified.
+     * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
      * 
      */
     public Optional<Output<String>> payload() {
@@ -34,16 +32,14 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
     }
 
     /**
-     * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-     * Only one of `s3` or `payload` can be specified.
+     * Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentAgentActionGroupApiSchemaS3Args> s3;
 
     /**
-     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-     * Only one of `s3` or `payload` can be specified.
+     * @return Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupApiSchemaS3Args>> s3() {
@@ -76,8 +72,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
+         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
          * 
          * @return builder
          * 
@@ -88,8 +83,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-         * Only one of `payload` or `s3` can be specified.
+         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
          * 
          * @return builder
          * 
@@ -99,8 +93,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
+         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
          * 
          * @return builder
          * 
@@ -111,8 +104,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-         * Only one of `s3` or `payload` can be specified.
+         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
          * 
          * @return builder
          * 

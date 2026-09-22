@@ -41,7 +41,7 @@ export interface GetAgentAgentVersionsArgs {
      */
     agentId: string;
     /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
      */
     agentVersionSummaries?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
     /**
@@ -56,7 +56,7 @@ export interface GetAgentAgentVersionsArgs {
 export interface GetAgentAgentVersionsResult {
     readonly agentId: string;
     /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
      */
     readonly agentVersionSummaries?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
     readonly region: string;
@@ -95,7 +95,7 @@ export interface GetAgentAgentVersionsOutputArgs {
      */
     agentId: pulumi.Input<string>;
     /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+     * List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
      */
     agentVersionSummaries?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryArgs>[] | undefined>;
     /**

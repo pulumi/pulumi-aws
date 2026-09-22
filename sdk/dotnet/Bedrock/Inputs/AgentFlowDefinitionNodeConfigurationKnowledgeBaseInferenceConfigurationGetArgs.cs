@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        /// Message for the prompt.
         /// </summary>
         [Input("text")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextGetArgs>? Text { get; set; }

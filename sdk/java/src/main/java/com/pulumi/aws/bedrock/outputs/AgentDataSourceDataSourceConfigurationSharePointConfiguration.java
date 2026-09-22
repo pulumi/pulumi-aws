@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+    /**
+     * @return Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration crawlerConfiguration;
+    /**
+     * @return Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration sourceConfiguration;
 
     private AgentDataSourceDataSourceConfigurationSharePointConfiguration() {}
+    /**
+     * @return Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
+    /**
+     * @return Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }

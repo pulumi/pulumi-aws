@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        /// Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         /// </summary>
         [Output("resourceTypeManagementPreference")]
         public Output<ImmutableDictionary<string, bool>> ResourceTypeManagementPreference { get; private set; } = null!;
 
         /// <summary>
-        /// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+        /// Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         /// </summary>
         [Output("resourceTypeOptInPreference")]
         public Output<ImmutableDictionary<string, bool>> ResourceTypeOptInPreference { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeManagementPreference;
 
         /// <summary>
-        /// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        /// Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeOptInPreference;
 
         /// <summary>
-        /// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+        /// Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         /// </summary>
         public InputMap<bool> ResourceTypeOptInPreference
         {
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeManagementPreference;
 
         /// <summary>
-        /// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        /// Map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeOptInPreference;
 
         /// <summary>
-        /// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+        /// Map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         /// </summary>
         public InputMap<bool> ResourceTypeOptInPreference
         {

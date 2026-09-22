@@ -16,14 +16,14 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
     public static final BudgetActionDefinitionSsmActionDefinitionArgs Empty = new BudgetActionDefinitionSsmActionDefinitionArgs();
 
     /**
-     * The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+     * Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
     @Import(name="actionSubType", required=true)
     private Output<String> actionSubType;
 
     /**
-     * @return The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+     * @return Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
     public Output<String> actionSubType() {
@@ -31,14 +31,14 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
     }
 
     /**
-     * The EC2 and RDS instance IDs.
+     * EC2 and RDS instance IDs.
      * 
      */
     @Import(name="instanceIds", required=true)
     private Output<List<String>> instanceIds;
 
     /**
-     * @return The EC2 and RDS instance IDs.
+     * @return EC2 and RDS instance IDs.
      * 
      */
     public Output<List<String>> instanceIds() {
@@ -46,14 +46,14 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
     }
 
     /**
-     * The Region to run the SSM document.
+     * Region to run the SSM document.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return The Region to run the SSM document.
+     * @return Region to run the SSM document.
      * 
      */
     public Output<String> region() {
@@ -87,7 +87,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param actionSubType The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+         * @param actionSubType Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param actionSubType The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+         * @param actionSubType Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param instanceIds The EC2 and RDS instance IDs.
+         * @param instanceIds EC2 and RDS instance IDs.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param instanceIds The EC2 and RDS instance IDs.
+         * @param instanceIds EC2 and RDS instance IDs.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param instanceIds The EC2 and RDS instance IDs.
+         * @param instanceIds EC2 and RDS instance IDs.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param region The Region to run the SSM document.
+         * @param region Region to run the SSM document.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param region The Region to run the SSM document.
+         * @param region Region to run the SSM document.
          * 
          * @return builder
          * 

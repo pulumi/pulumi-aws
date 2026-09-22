@@ -11,20 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class ViewDataFilterExpressionTimeRange {
     /**
-     * @return Inclusive end date of the time range.
+     * @return Inclusive start date of the time range.
      * 
      */
     private String beginDateInclusive;
+    /**
+     * @return Inclusive end date of the time range.
+     * 
+     */
     private String endDateInclusive;
 
     private ViewDataFilterExpressionTimeRange() {}
     /**
-     * @return Inclusive end date of the time range.
+     * @return Inclusive start date of the time range.
      * 
      */
     public String beginDateInclusive() {
         return this.beginDateInclusive;
     }
+    /**
+     * @return Inclusive end date of the time range.
+     * 
+     */
     public String endDateInclusive() {
         return this.endDateInclusive;
     }

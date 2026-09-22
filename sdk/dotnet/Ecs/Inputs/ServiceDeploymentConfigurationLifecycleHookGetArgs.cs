@@ -19,10 +19,10 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? HookDetails { get; set; }
 
         /// <summary>
-        /// ARN of the Lambda function to invoke for the lifecycle hook.
+        /// ARN of the Lambda function to invoke for the lifecycle hook. Required when `TargetType` is `AWS_LAMBDA`. Not used when `TargetType` is `PAUSE`.
         /// </summary>
-        [Input("hookTargetArn", required: true)]
-        public Input<string> HookTargetArn { get; set; } = null!;
+        [Input("hookTargetArn")]
+        public Input<string>? HookTargetArn { get; set; }
 
         [Input("lifecycleStages", required: true)]
         private InputList<string>? _lifecycleStages;
@@ -37,10 +37,22 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// ARN of the IAM role that grants the service permission to invoke the Lambda function.
+        /// ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `TargetType` is `AWS_LAMBDA`. Not used when `TargetType` is `PAUSE`.
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+        /// </summary>
+        [Input("targetType")]
+        public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `TargetType` is `PAUSE`. See below.
+        /// </summary>
+        [Input("timeoutConfiguration")]
+        public Input<Inputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationGetArgs>? TimeoutConfiguration { get; set; }
 
         public ServiceDeploymentConfigurationLifecycleHookGetArgs()
         {

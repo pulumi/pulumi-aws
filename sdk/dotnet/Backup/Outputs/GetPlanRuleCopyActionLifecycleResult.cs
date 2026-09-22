@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetPlanRuleCopyActionLifecycleResult
     {
+        /// <summary>
+        /// Number of days after creation that a recovery point is moved to cold storage.
+        /// </summary>
         public readonly int ColdStorageAfter;
+        /// <summary>
+        /// Number of days after creation that a recovery point is deleted.
+        /// </summary>
         public readonly int DeleteAfter;
+        /// <summary>
+        /// Whether the recovery point is transitioned to cold storage for supported resource types.
+        /// </summary>
         public readonly bool OptInToArchiveForSupportedResources;
 
         [OutputConstructor]

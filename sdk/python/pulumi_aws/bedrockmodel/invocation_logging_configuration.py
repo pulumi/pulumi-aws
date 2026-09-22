@@ -26,7 +26,7 @@ class InvocationLoggingConfigurationArgs:
         """
         The set of arguments for constructing a InvocationLoggingConfiguration resource.
 
-        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: Logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "logging_config", logging_config)
@@ -37,7 +37,7 @@ class InvocationLoggingConfigurationArgs:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']:
         """
-        The logging configuration values to set. See `logging_config` Block for details.
+        Logging configuration values to set. See `logging_config` Block for details.
         """
         return pulumi.get(self, "logging_config")
 
@@ -66,7 +66,7 @@ class _InvocationLoggingConfigurationState:
         """
         Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
 
-        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'] logging_config: Logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if logging_config is not None:
@@ -78,7 +78,7 @@ class _InvocationLoggingConfigurationState:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigArgs']]:
         """
-        The logging configuration values to set. See `logging_config` Block for details.
+        Logging configuration values to set. See `logging_config` Block for details.
         """
         return pulumi.get(self, "logging_config")
 
@@ -188,7 +188,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: Logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -324,7 +324,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: The logging configuration values to set. See `logging_config` Block for details.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict', 'outputs.InvocationLoggingConfigurationLoggingConfig']] logging_config: Logging configuration values to set. See `logging_config` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -339,7 +339,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output['outputs.InvocationLoggingConfigurationLoggingConfig']:
         """
-        The logging configuration values to set. See `logging_config` Block for details.
+        Logging configuration values to set. See `logging_config` Block for details.
         """
         return pulumi.get(self, "logging_config")
 

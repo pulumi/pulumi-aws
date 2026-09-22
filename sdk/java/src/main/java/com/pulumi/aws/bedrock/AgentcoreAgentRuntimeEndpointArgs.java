@@ -21,16 +21,12 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
     /**
      * ID of the agent runtime this endpoint belongs to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="agentRuntimeId", required=true)
     private Output<String> agentRuntimeId;
 
     /**
      * @return ID of the agent runtime this endpoint belongs to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> agentRuntimeId() {
@@ -70,12 +66,16 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
     /**
      * Name of the agent runtime endpoint.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the agent runtime endpoint.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -152,8 +152,6 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
         /**
          * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -164,8 +162,6 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
 
         /**
          * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -219,6 +215,8 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
         /**
          * @param name Name of the agent runtime endpoint.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -229,6 +227,8 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
 
         /**
          * @param name Name of the agent runtime endpoint.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

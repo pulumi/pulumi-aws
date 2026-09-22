@@ -20,12 +20,12 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      */
     private String embeddingModelArn;
     /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+     * @return Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
     /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+     * @return Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration;
@@ -39,14 +39,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         return this.embeddingModelArn;
     }
     /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+     * @return Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration> embeddingModelConfiguration() {
         return Optional.ofNullable(this.embeddingModelConfiguration);
     }
     /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+     * @return Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration> supplementalDataStorageConfiguration() {

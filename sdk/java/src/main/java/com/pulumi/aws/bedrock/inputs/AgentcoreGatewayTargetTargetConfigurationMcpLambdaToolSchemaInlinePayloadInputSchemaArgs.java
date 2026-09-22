@@ -20,37 +20,61 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs();
 
     /**
-     * Description of the gateway target.
+     * Description of the schema element.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the gateway target.
+     * @return Description of the schema element.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+     * 
+     */
     @Import(name="items")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs> items;
 
+    /**
+     * @return Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+     * 
+     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs>> items() {
         return Optional.ofNullable(this.items);
     }
 
+    /**
+     * Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+     * 
+     */
     @Import(name="properties")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs>> properties;
 
+    /**
+     * @return Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+     * 
+     */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs>>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
+    /**
+     * Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -83,7 +107,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param description Description of the gateway target.
+         * @param description Description of the schema element.
          * 
          * @return builder
          * 
@@ -94,7 +118,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param description Description of the gateway target.
+         * @param description Description of the schema element.
          * 
          * @return builder
          * 
@@ -103,33 +127,75 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             return description(Output.of(description));
         }
 
+        /**
+         * @param items Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder items(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs> items) {
             $.items = items;
             return this;
         }
 
+        /**
+         * @param items Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder items(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs items) {
             return items(Output.of(items));
         }
 
+        /**
+         * @param properties Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(@Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs>> properties) {
             $.properties = properties;
             return this;
         }
 
+        /**
+         * @param properties Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs> properties) {
             return properties(Output.of(properties));
         }
 
+        /**
+         * @param properties Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs... properties) {
             return properties(List.of(properties));
         }
 
+        /**
+         * @param type Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
     /**
-     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     private AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration segmentationConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo() {}
     /**
-     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     public AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration segmentationConfiguration() {

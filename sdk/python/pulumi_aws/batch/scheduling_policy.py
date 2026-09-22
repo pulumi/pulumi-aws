@@ -28,7 +28,8 @@ class SchedulingPolicyArgs:
         """
         The set of arguments for constructing a SchedulingPolicy resource.
 
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input['SchedulingPolicyFairSharePolicyArgs'] fair_share_policy: Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -44,6 +45,9 @@ class SchedulingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="fairSharePolicy")
     def fair_share_policy(self) -> pulumi.Input[Optional['SchedulingPolicyFairSharePolicyArgs']]:
+        """
+        Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        """
         return pulumi.get(self, "fair_share_policy")
 
     @fair_share_policy.setter
@@ -54,7 +58,7 @@ class SchedulingPolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the scheduling policy.
+        Name of the scheduling policy.
         """
         return pulumi.get(self, "name")
 
@@ -100,10 +104,11 @@ class _SchedulingPolicyState:
         Input properties used for looking up and filtering SchedulingPolicy resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the scheduling policy.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input['SchedulingPolicyFairSharePolicyArgs'] fair_share_policy: Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -133,6 +138,9 @@ class _SchedulingPolicyState:
     @_builtins.property
     @pulumi.getter(name="fairSharePolicy")
     def fair_share_policy(self) -> pulumi.Input[Optional['SchedulingPolicyFairSharePolicyArgs']]:
+        """
+        Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        """
         return pulumi.get(self, "fair_share_policy")
 
     @fair_share_policy.setter
@@ -143,7 +151,7 @@ class _SchedulingPolicyState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the scheduling policy.
+        Name of the scheduling policy.
         """
         return pulumi.get(self, "name")
 
@@ -179,7 +187,7 @@ class _SchedulingPolicyState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -240,7 +248,8 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict', 'outputs.SchedulingPolicyFairSharePolicy']] fair_share_policy: Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -347,10 +356,11 @@ class SchedulingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the scheduling policy.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
+        :param pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict', 'outputs.SchedulingPolicyFairSharePolicy']] fair_share_policy: Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        :param pulumi.Input[_builtins.str] name: Name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -375,13 +385,16 @@ class SchedulingPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="fairSharePolicy")
     def fair_share_policy(self) -> pulumi.Output[Optional['outputs.SchedulingPolicyFairSharePolicy']]:
+        """
+        Fair share scheduling policy details. The `fair_share_policy` block is documented below.
+        """
         return pulumi.get(self, "fair_share_policy")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the scheduling policy.
+        Name of the scheduling policy.
         """
         return pulumi.get(self, "name")
 
@@ -405,7 +418,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

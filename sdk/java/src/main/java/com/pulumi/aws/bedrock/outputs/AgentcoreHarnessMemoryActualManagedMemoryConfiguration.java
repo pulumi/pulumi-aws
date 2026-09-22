@@ -18,19 +18,17 @@ public final class AgentcoreHarnessMemoryActualManagedMemoryConfiguration {
      */
     private String arn;
     /**
-     * @return ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+     * @return ARN of the customer-managed KMS key used to encrypt the memory.
      * 
      */
     private String encryptionKeyArn;
     /**
-     * @return Event retention in days. Defaults to `30`.
+     * @return Event retention in days.
      * 
      */
     private Integer eventExpiryDuration;
     /**
-     * @return Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `[&#34;SEMANTIC&#34;, &#34;SUMMARIZATION&#34;]`.
-     * 
-     * In addition, the following attribute is exported:
+     * @return Set of strategy types enabled.
      * 
      */
     private List<String> strategies;
@@ -44,23 +42,21 @@ public final class AgentcoreHarnessMemoryActualManagedMemoryConfiguration {
         return this.arn;
     }
     /**
-     * @return ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+     * @return ARN of the customer-managed KMS key used to encrypt the memory.
      * 
      */
     public String encryptionKeyArn() {
         return this.encryptionKeyArn;
     }
     /**
-     * @return Event retention in days. Defaults to `30`.
+     * @return Event retention in days.
      * 
      */
     public Integer eventExpiryDuration() {
         return this.eventExpiryDuration;
     }
     /**
-     * @return Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `[&#34;SEMANTIC&#34;, &#34;SUMMARIZATION&#34;]`.
-     * 
-     * In addition, the following attribute is exported:
+     * @return Set of strategy types enabled.
      * 
      */
     public List<String> strategies() {

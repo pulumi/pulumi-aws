@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreBrowserCertificate {
     /**
-     * @return Location from which to retrieve the certificate. See `certificates.location` below.
+     * @return Location from which to retrieve the certificate. See `certificate.location` below.
      * 
      */
     private AgentcoreBrowserCertificateLocation location;
 
     private AgentcoreBrowserCertificate() {}
     /**
-     * @return Location from which to retrieve the certificate. See `certificates.location` below.
+     * @return Location from which to retrieve the certificate. See `certificate.location` below.
      * 
      */
     public AgentcoreBrowserCertificateLocation location() {

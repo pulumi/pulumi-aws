@@ -13,13 +13,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeOutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A name for the output that you can reference.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+        /// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

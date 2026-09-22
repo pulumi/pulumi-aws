@@ -17,14 +17,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs();
 
     /**
-     * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     @Import(name="authorizationServerMetadata")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs> authorizationServerMetadata;
 
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadata() {
@@ -32,14 +32,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     }
 
     /**
-     * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * OpenID Connect discovery URL resolved by the service.
      * 
      */
     @Import(name="discoveryUrl")
     private @Nullable Output<String> discoveryUrl;
 
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     public Optional<Output<String>> discoveryUrl() {
@@ -72,7 +72,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param authorizationServerMetadata Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * @param authorizationServerMetadata OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param authorizationServerMetadata Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * @param authorizationServerMetadata OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * @param discoveryUrl OpenID Connect discovery URL resolved by the service.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * @param discoveryUrl OpenID Connect discovery URL resolved by the service.
          * 
          * @return builder
          * 

@@ -292,14 +292,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.allowedTools;
     }
     /**
-     * ARN of the Harness.
+     * ARN of the managed memory resource.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the Harness.
+     * @return ARN of the managed memory resource.
      * 
      */
     public Output<String> arn() {
@@ -320,14 +320,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerConfiguration);
     }
     /**
-     * Actual deployed environment configuration.
+     * Actual deployed environment configuration. See `environmentActual` Block below.
      * 
      */
     @Export(name="environmentActuals", refs={List.class,AgentcoreHarnessEnvironmentActual.class}, tree="[0,1]")
     private Output<List<AgentcoreHarnessEnvironmentActual>> environmentActuals;
 
     /**
-     * @return Actual deployed environment configuration.
+     * @return Actual deployed environment configuration. See `environmentActual` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActual>> environmentActuals() {
@@ -460,14 +460,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.memory);
     }
     /**
-     * Actual deployed memory configuration.
+     * Actual deployed memory configuration. See `memoryActual` Block below.
      * 
      */
     @Export(name="memoryActuals", refs={List.class,AgentcoreHarnessMemoryActual.class}, tree="[0,1]")
     private Output<List<AgentcoreHarnessMemoryActual>> memoryActuals;
 
     /**
-     * @return Actual deployed memory configuration.
+     * @return Actual deployed memory configuration. See `memoryActual` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessMemoryActual>> memoryActuals() {
@@ -548,14 +548,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

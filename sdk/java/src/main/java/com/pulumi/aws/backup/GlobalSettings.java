@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/globalSettings:GlobalSettings")
 public class GlobalSettings extends com.pulumi.resources.CustomResource {
     /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+     * Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     @Export(name="globalSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> globalSettings;
 
     /**
-     * @return A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+     * @return Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      * 
      */
     public Output<Map<String,String>> globalSettings() {

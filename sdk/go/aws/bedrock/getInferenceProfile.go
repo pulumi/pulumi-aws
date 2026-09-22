@@ -64,23 +64,23 @@ type LookupInferenceProfileArgs struct {
 
 // A collection of values returned by getInferenceProfile.
 type LookupInferenceProfileResult struct {
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description string `pulumi:"description"`
-	// The ARN of the inference profile.
+	// ARN of the inference profile.
 	InferenceProfileArn string `pulumi:"inferenceProfileArn"`
 	InferenceProfileId  string `pulumi:"inferenceProfileId"`
-	// The unique identifier of the inference profile.
+	// Unique identifier of the inference profile.
 	InferenceProfileName string `pulumi:"inferenceProfileName"`
-	// A list of information about each model in the inference profile. See `models`.
+	// List of information about each model in the inference profile. See `models`.
 	Models []GetInferenceProfileModel `pulumi:"models"`
 	Region string                     `pulumi:"region"`
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status string `pulumi:"status"`
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 	Type string `pulumi:"type"`
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -116,17 +116,17 @@ func (o LookupInferenceProfileResultOutput) ToLookupInferenceProfileResultOutput
 	return o
 }
 
-// The time at which the inference profile was created.
+// Time at which the inference profile was created.
 func (o LookupInferenceProfileResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the inference profile.
+// Description of the inference profile.
 func (o LookupInferenceProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ARN of the inference profile.
+// ARN of the inference profile.
 func (o LookupInferenceProfileResultOutput) InferenceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.InferenceProfileArn }).(pulumi.StringOutput)
 }
@@ -135,12 +135,12 @@ func (o LookupInferenceProfileResultOutput) InferenceProfileId() pulumi.StringOu
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.InferenceProfileId }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the inference profile.
+// Unique identifier of the inference profile.
 func (o LookupInferenceProfileResultOutput) InferenceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.InferenceProfileName }).(pulumi.StringOutput)
 }
 
-// A list of information about each model in the inference profile. See `models`.
+// List of information about each model in the inference profile. See `models`.
 func (o LookupInferenceProfileResultOutput) Models() GetInferenceProfileModelArrayOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) []GetInferenceProfileModel { return v.Models }).(GetInferenceProfileModelArrayOutput)
 }
@@ -149,17 +149,17 @@ func (o LookupInferenceProfileResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 func (o LookupInferenceProfileResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 func (o LookupInferenceProfileResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The time at which the inference profile was last updated.
+// Time at which the inference profile was last updated.
 func (o LookupInferenceProfileResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

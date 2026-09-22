@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier of the guardrail.
+        /// Unique identifier of the guardrail.
         /// </summary>
         [Input("guardrailIdentifier", required: true)]
         public Input<string> GuardrailIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The version of the guardrail.
+        /// Version of the guardrail.
         /// </summary>
         [Input("guardrailVersion", required: true)]
         public Input<string> GuardrailVersion { get; set; } = null!;

@@ -19,14 +19,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs();
 
     /**
-     * The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+     * Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
      * 
      */
     @Import(name="patternObjectFilters")
     private @Nullable Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>> patternObjectFilters;
 
     /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+     * @return Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
      * 
      */
     public Optional<Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>>> patternObjectFilters() {
@@ -34,14 +34,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+     * Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+     * @return Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
      * 
      */
     public Output<String> type() {
@@ -74,7 +74,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * @param patternObjectFilters Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * @param patternObjectFilters Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param patternObjectFilters The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+         * @param patternObjectFilters Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param type The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * @param type Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param type The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+         * @param type Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
          * 
          * @return builder
          * 

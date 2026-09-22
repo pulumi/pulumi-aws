@@ -70,11 +70,11 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * Recovery point selection configuration. See `recoveryPointSelection` below.
      */
     declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection>;
     /**
@@ -82,20 +82,23 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The schedule expression for the restore testing plan.
+     * Schedule expression for the restore testing plan.
      */
     declare public readonly scheduleExpression: pulumi.Output<string>;
     /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
+     * Timezone for the schedule expression. If not provided, the state value will be used.
      */
     declare public readonly scheduleExpressionTimezone: pulumi.Output<string>;
     /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
     declare public readonly startWindowHours: pulumi.Output<number>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -153,11 +156,11 @@ export interface RestoreTestingPlanState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * Recovery point selection configuration. See `recoveryPointSelection` below.
      */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
     /**
@@ -165,20 +168,23 @@ export interface RestoreTestingPlanState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The schedule expression for the restore testing plan.
+     * Schedule expression for the restore testing plan.
      */
     scheduleExpression?: pulumi.Input<string | undefined>;
     /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
+     * Timezone for the schedule expression. If not provided, the state value will be used.
      */
     scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
     startWindowHours?: pulumi.Input<number | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -188,11 +194,11 @@ export interface RestoreTestingPlanState {
  */
 export interface RestoreTestingPlanArgs {
     /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * Recovery point selection configuration. See `recoveryPointSelection` below.
      */
     recoveryPointSelection: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
     /**
@@ -200,16 +206,19 @@ export interface RestoreTestingPlanArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The schedule expression for the restore testing plan.
+     * Schedule expression for the restore testing plan.
      */
     scheduleExpression: pulumi.Input<string>;
     /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
+     * Timezone for the schedule expression. If not provided, the state value will be used.
      */
     scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
     startWindowHours?: pulumi.Input<number | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata authorizationServerMetadata;
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     private @Nullable String discoveryUrl;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery() {}
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata> authorizationServerMetadata() {
         return Optional.ofNullable(this.authorizationServerMetadata);
     }
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     public Optional<String> discoveryUrl() {

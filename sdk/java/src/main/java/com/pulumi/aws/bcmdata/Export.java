@@ -131,14 +131,14 @@ public class Export extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      * 
      */
     @com.pulumi.core.annotations.Export(name="export", refs={ExportExport.class}, tree="[0]")
     private Output</* @Nullable */ ExportExport> export;
 
     /**
-     * @return The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * @return Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      * 
      */
     public Output<Optional<ExportExport>> export() {

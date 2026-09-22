@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessTruncation {
     /**
-     * @return Strategy-specific configuration. See `truncation config` below.
+     * @return Strategy-specific configuration. See `truncation.config` Block below.
      * 
      */
     private List<AgentcoreHarnessTruncationConfig> configs;
@@ -25,7 +25,7 @@ public final class AgentcoreHarnessTruncation {
 
     private AgentcoreHarnessTruncation() {}
     /**
-     * @return Strategy-specific configuration. See `truncation config` below.
+     * @return Strategy-specific configuration. See `truncation.config` Block below.
      * 
      */
     public List<AgentcoreHarnessTruncationConfig> configs() {

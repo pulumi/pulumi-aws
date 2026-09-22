@@ -134,14 +134,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")
 public class InvocationLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The logging configuration values to set. See `loggingConfig` Block for details.
+     * Logging configuration values to set. See `loggingConfig` Block for details.
      * 
      */
     @Export(name="loggingConfig", refs={InvocationLoggingConfigurationLoggingConfig.class}, tree="[0]")
     private Output<InvocationLoggingConfigurationLoggingConfig> loggingConfig;
 
     /**
-     * @return The logging configuration values to set. See `loggingConfig` Block for details.
+     * @return Logging configuration values to set. See `loggingConfig` Block for details.
      * 
      */
     public Output<InvocationLoggingConfigurationLoggingConfig> loggingConfig() {

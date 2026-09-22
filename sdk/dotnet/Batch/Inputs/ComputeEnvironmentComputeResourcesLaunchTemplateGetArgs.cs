@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? LaunchTemplateName { get; set; }
 
         /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
+        /// Version number of the launch template. Default: The default version of the launch template.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

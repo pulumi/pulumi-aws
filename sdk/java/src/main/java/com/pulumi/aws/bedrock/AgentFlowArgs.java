@@ -35,14 +35,14 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     @Import(name="definition")
     private @Nullable Output<AgentFlowDefinitionArgs> definition;
 
     /**
-     * @return A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * @return Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionArgs>> definition() {
@@ -50,14 +50,14 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the flow.
+     * Description for the flow.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the flow.
+     * @return Description for the flow.
      * 
      */
     public Optional<Output<String>> description() {
@@ -67,8 +67,6 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="executionRoleArn", required=true)
     private Output<String> executionRoleArn;
@@ -76,22 +74,24 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
 
     /**
-     * A name for the flow.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -188,7 +188,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+         * @param definition Nodes and connections between nodes in the flow. See `definition` Block for details.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+         * @param definition Nodes and connections between nodes in the flow. See `definition` Block for details.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the flow.
+         * @param description Description for the flow.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the flow.
+         * @param description Description for the flow.
          * 
          * @return builder
          * 
@@ -231,8 +231,6 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -245,8 +243,6 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -255,7 +251,9 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -266,7 +264,9 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

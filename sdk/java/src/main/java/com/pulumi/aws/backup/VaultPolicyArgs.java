@@ -32,14 +32,14 @@ public final class VaultPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
-     * @return The backup vault access policy document in JSON format.
+     * @return Backup vault access policy document in JSON format.
      * 
      */
     public Output<String> policy() {
@@ -109,7 +109,7 @@ public final class VaultPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The backup vault access policy document in JSON format.
+         * @param policy Backup vault access policy document in JSON format.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class VaultPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The backup vault access policy document in JSON format.
+         * @param policy Backup vault access policy document in JSON format.
          * 
          * @return builder
          * 

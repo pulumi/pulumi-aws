@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration
     {
         /// <summary>
-        /// A storage location specification for images extracted from multimodal documents in your data source.  See `StorageLocation` block for details.
+        /// Storage location specification for images extracted from multimodal documents in your data source. See `StorageLocation` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> StorageLocations;
 

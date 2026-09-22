@@ -15,14 +15,18 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs();
 
     /**
-     * The name of the variable.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -54,7 +58,9 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -65,7 +71,9 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

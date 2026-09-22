@@ -16294,7 +16294,7 @@ class ModelContainerAdditionalModelDataSourceS3DataSource(dict):
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        :param 'ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -16330,7 +16330,7 @@ class ModelContainerAdditionalModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 
@@ -16523,7 +16523,7 @@ class ModelContainerModelDataSourceS3DataSource(dict):
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        :param 'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -16559,7 +16559,7 @@ class ModelContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 
@@ -16903,7 +16903,7 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSource(dict):
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        :param 'ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -16939,7 +16939,7 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 
@@ -17132,7 +17132,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSource(dict):
         :param _builtins.str compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param _builtins.str s3_data_type: Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param _builtins.str s3_uri: The S3 path of model data to deploy.
-        :param 'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        :param 'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
@@ -17168,7 +17168,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSource(dict):
     @pulumi.getter(name="modelAccessConfig")
     def model_access_config(self) -> Optional['outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig']:
         """
-        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `model_access_config` configuration block. See Model Access Config.
         """
         return pulumi.get(self, "model_access_config")
 

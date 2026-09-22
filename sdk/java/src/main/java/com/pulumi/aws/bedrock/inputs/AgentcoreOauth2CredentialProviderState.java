@@ -36,14 +36,14 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     }
 
     /**
-     * ARN of the AWS Secrets Manager secret containing the client secret.
+     * ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
      * 
      */
     @Import(name="clientSecretArns")
     private @Nullable Output<List<AgentcoreOauth2CredentialProviderClientSecretArnArgs>> clientSecretArns;
 
     /**
-     * @return ARN of the AWS Secrets Manager secret containing the client secret.
+     * @return ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreOauth2CredentialProviderClientSecretArnArgs>>> clientSecretArns() {
@@ -66,14 +66,14 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     }
 
     /**
-     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
      * 
      */
     @Import(name="credentialProviderVendor")
     private @Nullable Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
      * 
      */
     public Optional<Output<String>> credentialProviderVendor() {
@@ -96,7 +96,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     }
 
     /**
-     * OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+     * OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -105,7 +105,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig;
 
     /**
-     * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+     * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -145,14 +145,14 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -221,7 +221,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret.
+         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret.
+         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret.
+         * @param clientSecretArns ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -328,7 +328,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -382,7 +382,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

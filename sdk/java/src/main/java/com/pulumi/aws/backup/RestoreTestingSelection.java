@@ -116,70 +116,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/restoreTestingSelection:RestoreTestingSelection")
 public class RestoreTestingSelection extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
     /**
-     * The name of the backup restore testing selection.
+     * Name of the backup restore testing selection.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the backup restore testing selection.
+     * @return Name of the backup restore testing selection.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ARNs for the protected resources.
+     * ARNs for the protected resources.
      * 
      */
     @Export(name="protectedResourceArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protectedResourceArns;
 
     /**
-     * @return The ARNs for the protected resources.
+     * @return ARNs for the protected resources.
      * 
      */
     public Output<List<String>> protectedResourceArns() {
         return this.protectedResourceArns;
     }
     /**
-     * The conditions for the protected resource.
+     * Conditions for the protected resource. See `protectedResourceConditions` below.
      * 
      */
     @Export(name="protectedResourceConditions", refs={RestoreTestingSelectionProtectedResourceConditions.class}, tree="[0]")
     private Output</* @Nullable */ RestoreTestingSelectionProtectedResourceConditions> protectedResourceConditions;
 
     /**
-     * @return The conditions for the protected resource.
+     * @return Conditions for the protected resource. See `protectedResourceConditions` below.
      * 
      */
     public Output<Optional<RestoreTestingSelectionProtectedResourceConditions>> protectedResourceConditions() {
         return Codegen.optional(this.protectedResourceConditions);
     }
     /**
-     * The type of the protected resource.
+     * Type of the protected resource.
      * 
      */
     @Export(name="protectedResourceType", refs={String.class}, tree="[0]")
     private Output<String> protectedResourceType;
 
     /**
-     * @return The type of the protected resource.
+     * @return Type of the protected resource.
      * 
      */
     public Output<String> protectedResourceType() {
@@ -214,28 +214,28 @@ public class RestoreTestingSelection extends com.pulumi.resources.CustomResource
         return this.restoreMetadataOverrides;
     }
     /**
-     * The name of the restore testing plan.
+     * Name of the restore testing plan.
      * 
      */
     @Export(name="restoreTestingPlanName", refs={String.class}, tree="[0]")
     private Output<String> restoreTestingPlanName;
 
     /**
-     * @return The name of the restore testing plan.
+     * @return Name of the restore testing plan.
      * 
      */
     public Output<String> restoreTestingPlanName() {
         return this.restoreTestingPlanName;
     }
     /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
     @Export(name="validationWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> validationWindowHours;
 
     /**
-     * @return The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * @return Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
     public Output<Integer> validationWindowHours() {

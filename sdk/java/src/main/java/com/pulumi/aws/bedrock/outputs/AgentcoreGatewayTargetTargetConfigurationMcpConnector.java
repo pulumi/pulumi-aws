@@ -25,7 +25,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnector {
      */
     private @Nullable List<String> enableds;
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     private AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource source;
@@ -46,7 +46,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnector {
         return this.enableds == null ? List.of() : this.enableds;
     }
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     public AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource source() {

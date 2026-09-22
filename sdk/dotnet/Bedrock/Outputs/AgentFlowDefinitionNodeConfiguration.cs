@@ -14,55 +14,55 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfiguration
     {
         /// <summary>
-        /// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+        /// Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationAgent? Agent;
         /// <summary>
-        /// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        /// Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationCollector? Collector;
         /// <summary>
-        /// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+        /// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationCondition? Condition;
         /// <summary>
-        /// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+        /// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInlineCode? InlineCode;
         /// <summary>
-        /// Contains configurations for an input flow node in your flow. The node `Inputs` can’t be specified for this node. This block has no fields.
+        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInput? Input;
         /// <summary>
-        /// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+        /// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationIterator? Iterator;
         /// <summary>
-        /// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+        /// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBase? KnowledgeBase;
         /// <summary>
-        /// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+        /// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationLambdaFunction? LambdaFunction;
         /// <summary>
-        /// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        /// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationLex? Lex;
         /// <summary>
-        /// Contains configurations for an output flow node in your flow. The node `Outputs` can’t be specified for this node. This block has no fields.
+        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationOutput? Output;
         /// <summary>
-        /// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+        /// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPrompt? Prompt;
         /// <summary>
-        /// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+        /// Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationRetrieval? Retrieval;
         /// <summary>
-        /// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+        /// Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationStorage? Storage;
 

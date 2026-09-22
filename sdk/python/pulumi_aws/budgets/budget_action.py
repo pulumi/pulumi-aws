@@ -34,15 +34,15 @@ class BudgetActionArgs:
         """
         The set of arguments for constructing a BudgetAction resource.
 
-        :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: The trigger threshold of the action. See Action Threshold.
-        :param pulumi.Input[_builtins.str] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-        :param pulumi.Input[_builtins.str] approval_model: This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-        :param pulumi.Input[_builtins.str] budget_name: The name of a budget.
-        :param pulumi.Input['BudgetActionDefinitionArgs'] definition: Specifies all of the type-specific parameters. See Definition.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
-        :param pulumi.Input[_builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: Trigger threshold of the action. See `action_threshold` Block.
+        :param pulumi.Input[_builtins.str] action_type: Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        :param pulumi.Input[_builtins.str] approval_model: Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        :param pulumi.Input[_builtins.str] budget_name: Name of a budget.
+        :param pulumi.Input['BudgetActionDefinitionArgs'] definition: Type-specific parameters. See `definition` Block.
+        :param pulumi.Input[_builtins.str] execution_role_arn: Role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input[_builtins.str] notification_type: Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: Set of subscribers. See `subscriber` Block.
+        :param pulumi.Input[_builtins.str] account_id: ID of the target account for the budget. Uses the current user's account ID by default if omitted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action_threshold", action_threshold)
@@ -62,7 +62,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Input['BudgetActionActionThresholdArgs']:
         """
-        The trigger threshold of the action. See Action Threshold.
+        Trigger threshold of the action. See `action_threshold` Block.
         """
         return pulumi.get(self, "action_threshold")
 
@@ -74,7 +74,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         """
         return pulumi.get(self, "action_type")
 
@@ -86,7 +86,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> pulumi.Input[_builtins.str]:
         """
-        This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         """
         return pulumi.get(self, "approval_model")
 
@@ -98,7 +98,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of a budget.
+        Name of a budget.
         """
         return pulumi.get(self, "budget_name")
 
@@ -110,7 +110,7 @@ class BudgetActionArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input['BudgetActionDefinitionArgs']:
         """
-        Specifies all of the type-specific parameters. See Definition.
+        Type-specific parameters. See `definition` Block.
         """
         return pulumi.get(self, "definition")
 
@@ -122,7 +122,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        Role passed for action execution and reversion. Roles and actions must be in the same account.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -134,7 +134,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -146,7 +146,7 @@ class BudgetActionArgs:
     @pulumi.getter
     def subscribers(self) -> pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]:
         """
-        A list of subscribers. See Subscriber.
+        Set of subscribers. See `subscriber` Block.
         """
         return pulumi.get(self, "subscribers")
 
@@ -158,7 +158,7 @@ class BudgetActionArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        ID of the target account for the budget. Uses the current user's account ID by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -199,18 +199,18 @@ class _BudgetActionState:
         """
         Input properties used for looking up and filtering BudgetAction resources.
 
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[_builtins.str] action_id: The id of the budget action.
-        :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: The trigger threshold of the action. See Action Threshold.
-        :param pulumi.Input[_builtins.str] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-        :param pulumi.Input[_builtins.str] approval_model: This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the budget action.
-        :param pulumi.Input[_builtins.str] budget_name: The name of a budget.
-        :param pulumi.Input['BudgetActionDefinitionArgs'] definition: Specifies all of the type-specific parameters. See Definition.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
-        :param pulumi.Input[_builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-        :param pulumi.Input[_builtins.str] status: The status of the budget action.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[_builtins.str] account_id: ID of the target account for the budget. Uses the current user's account ID by default if omitted.
+        :param pulumi.Input[_builtins.str] action_id: ID of the budget action.
+        :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: Trigger threshold of the action. See `action_threshold` Block.
+        :param pulumi.Input[_builtins.str] action_type: Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        :param pulumi.Input[_builtins.str] approval_model: Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the budget action.
+        :param pulumi.Input[_builtins.str] budget_name: Name of a budget.
+        :param pulumi.Input['BudgetActionDefinitionArgs'] definition: Type-specific parameters. See `definition` Block.
+        :param pulumi.Input[_builtins.str] execution_role_arn: Role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input[_builtins.str] notification_type: Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[_builtins.str] status: Status of the budget action.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: Set of subscribers. See `subscriber` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -247,7 +247,7 @@ class _BudgetActionState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        ID of the target account for the budget. Uses the current user's account ID by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -259,7 +259,7 @@ class _BudgetActionState:
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the budget action.
+        ID of the budget action.
         """
         return pulumi.get(self, "action_id")
 
@@ -271,7 +271,7 @@ class _BudgetActionState:
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Input[Optional['BudgetActionActionThresholdArgs']]:
         """
-        The trigger threshold of the action. See Action Threshold.
+        Trigger threshold of the action. See `action_threshold` Block.
         """
         return pulumi.get(self, "action_threshold")
 
@@ -283,7 +283,7 @@ class _BudgetActionState:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         """
         return pulumi.get(self, "action_type")
 
@@ -295,7 +295,7 @@ class _BudgetActionState:
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         """
         return pulumi.get(self, "approval_model")
 
@@ -307,7 +307,7 @@ class _BudgetActionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the budget action.
+        ARN of the budget action.
         """
         return pulumi.get(self, "arn")
 
@@ -319,7 +319,7 @@ class _BudgetActionState:
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of a budget.
+        Name of a budget.
         """
         return pulumi.get(self, "budget_name")
 
@@ -331,7 +331,7 @@ class _BudgetActionState:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional['BudgetActionDefinitionArgs']]:
         """
-        Specifies all of the type-specific parameters. See Definition.
+        Type-specific parameters. See `definition` Block.
         """
         return pulumi.get(self, "definition")
 
@@ -343,7 +343,7 @@ class _BudgetActionState:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        Role passed for action execution and reversion. Roles and actions must be in the same account.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -355,7 +355,7 @@ class _BudgetActionState:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -367,7 +367,7 @@ class _BudgetActionState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the budget action.
+        Status of the budget action.
         """
         return pulumi.get(self, "status")
 
@@ -379,7 +379,7 @@ class _BudgetActionState:
     @pulumi.getter
     def subscribers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]]:
         """
-        A list of subscribers. See Subscriber.
+        Set of subscribers. See `subscriber` Block.
         """
         return pulumi.get(self, "subscribers")
 
@@ -503,15 +503,15 @@ class BudgetAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[Union['BudgetActionActionThresholdArgs', 'BudgetActionActionThresholdArgsDict', 'outputs.BudgetActionActionThreshold']] action_threshold: The trigger threshold of the action. See Action Threshold.
-        :param pulumi.Input[_builtins.str] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-        :param pulumi.Input[_builtins.str] approval_model: This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-        :param pulumi.Input[_builtins.str] budget_name: The name of a budget.
-        :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict', 'outputs.BudgetActionDefinition']] definition: Specifies all of the type-specific parameters. See Definition.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
-        :param pulumi.Input[_builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict', 'outputs.BudgetActionSubscriber']]]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[_builtins.str] account_id: ID of the target account for the budget. Uses the current user's account ID by default if omitted.
+        :param pulumi.Input[Union['BudgetActionActionThresholdArgs', 'BudgetActionActionThresholdArgsDict', 'outputs.BudgetActionActionThreshold']] action_threshold: Trigger threshold of the action. See `action_threshold` Block.
+        :param pulumi.Input[_builtins.str] action_type: Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        :param pulumi.Input[_builtins.str] approval_model: Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        :param pulumi.Input[_builtins.str] budget_name: Name of a budget.
+        :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict', 'outputs.BudgetActionDefinition']] definition: Type-specific parameters. See `definition` Block.
+        :param pulumi.Input[_builtins.str] execution_role_arn: Role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input[_builtins.str] notification_type: Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict', 'outputs.BudgetActionSubscriber']]]] subscribers: Set of subscribers. See `subscriber` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -687,18 +687,18 @@ class BudgetAction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[_builtins.str] action_id: The id of the budget action.
-        :param pulumi.Input[Union['BudgetActionActionThresholdArgs', 'BudgetActionActionThresholdArgsDict', 'outputs.BudgetActionActionThreshold']] action_threshold: The trigger threshold of the action. See Action Threshold.
-        :param pulumi.Input[_builtins.str] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-        :param pulumi.Input[_builtins.str] approval_model: This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the budget action.
-        :param pulumi.Input[_builtins.str] budget_name: The name of a budget.
-        :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict', 'outputs.BudgetActionDefinition']] definition: Specifies all of the type-specific parameters. See Definition.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
-        :param pulumi.Input[_builtins.str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-        :param pulumi.Input[_builtins.str] status: The status of the budget action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict', 'outputs.BudgetActionSubscriber']]]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[_builtins.str] account_id: ID of the target account for the budget. Uses the current user's account ID by default if omitted.
+        :param pulumi.Input[_builtins.str] action_id: ID of the budget action.
+        :param pulumi.Input[Union['BudgetActionActionThresholdArgs', 'BudgetActionActionThresholdArgsDict', 'outputs.BudgetActionActionThreshold']] action_threshold: Trigger threshold of the action. See `action_threshold` Block.
+        :param pulumi.Input[_builtins.str] action_type: Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        :param pulumi.Input[_builtins.str] approval_model: Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the budget action.
+        :param pulumi.Input[_builtins.str] budget_name: Name of a budget.
+        :param pulumi.Input[Union['BudgetActionDefinitionArgs', 'BudgetActionDefinitionArgsDict', 'outputs.BudgetActionDefinition']] definition: Type-specific parameters. See `definition` Block.
+        :param pulumi.Input[_builtins.str] execution_role_arn: Role passed for action execution and reversion. Roles and actions must be in the same account.
+        :param pulumi.Input[_builtins.str] notification_type: Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        :param pulumi.Input[_builtins.str] status: Status of the budget action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionSubscriberArgs', 'BudgetActionSubscriberArgsDict', 'outputs.BudgetActionSubscriber']]]] subscribers: Set of subscribers. See `subscriber` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -726,7 +726,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        ID of the target account for the budget. Uses the current user's account ID by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -734,7 +734,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the budget action.
+        ID of the budget action.
         """
         return pulumi.get(self, "action_id")
 
@@ -742,7 +742,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Output['outputs.BudgetActionActionThreshold']:
         """
-        The trigger threshold of the action. See Action Threshold.
+        Trigger threshold of the action. See `action_threshold` Block.
         """
         return pulumi.get(self, "action_threshold")
 
@@ -750,7 +750,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         """
         return pulumi.get(self, "action_type")
 
@@ -758,7 +758,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> pulumi.Output[_builtins.str]:
         """
-        This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         """
         return pulumi.get(self, "approval_model")
 
@@ -766,7 +766,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the budget action.
+        ARN of the budget action.
         """
         return pulumi.get(self, "arn")
 
@@ -774,7 +774,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of a budget.
+        Name of a budget.
         """
         return pulumi.get(self, "budget_name")
 
@@ -782,7 +782,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.BudgetActionDefinition']:
         """
-        Specifies all of the type-specific parameters. See Definition.
+        Type-specific parameters. See `definition` Block.
         """
         return pulumi.get(self, "definition")
 
@@ -790,7 +790,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        Role passed for action execution and reversion. Roles and actions must be in the same account.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -798,7 +798,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -806,7 +806,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the budget action.
+        Status of the budget action.
         """
         return pulumi.get(self, "status")
 
@@ -814,7 +814,7 @@ class BudgetAction(pulumi.CustomResource):
     @pulumi.getter
     def subscribers(self) -> pulumi.Output[Sequence['outputs.BudgetActionSubscriber']]:
         """
-        A list of subscribers. See Subscriber.
+        Set of subscribers. See `subscriber` Block.
         """
         return pulumi.get(self, "subscribers")
 

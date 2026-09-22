@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<string> DestinationVaultArn { get; set; } = null!;
 
         /// <summary>
-        /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        /// Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
         /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.PlanRuleCopyActionLifecycleGetArgs>? Lifecycle { get; set; }

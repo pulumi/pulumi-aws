@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.efs.FileSystem("foo", {
+ * const example = new aws.efs.FileSystem("example", {
  *     creationToken: "my-product",
  *     tags: {
  *         Name: "MyProduct",
@@ -42,10 +42,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) ID of the file system.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
  * ```
  */
 export class FileSystem extends pulumi.CustomResource {

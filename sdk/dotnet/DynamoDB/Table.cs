@@ -273,7 +273,7 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
-    /// ### Global Tables with Multi-Region Strong Consistency
+    /// #### Global Tables with Multi-Region Strong Consistency
     /// 
     /// A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
     /// 
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// Consistency Mode (`ConsistencyMode`) on the embedded `Replica` allows you to configure consistency mode for Global Tables.
     /// 
-    /// ##### Consistency mode with 3 Replicas
+    /// ### Consistency mode with 3 Replicas
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
-    /// ##### Consistency Mode with 2 Replicas and Witness Region
+    /// ### Consistency Mode with 2 Replicas and Witness Region
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

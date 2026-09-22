@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
     /**
-     * @return Configuration block for intermedia S3 storage.
+     * @return Configuration block for intermediate S3 storage. See `s3Location` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location s3Location;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage() {}
     /**
-     * @return Configuration block for intermedia S3 storage.
+     * @return Configuration block for intermediate S3 storage. See `s3Location` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location> s3Location() {

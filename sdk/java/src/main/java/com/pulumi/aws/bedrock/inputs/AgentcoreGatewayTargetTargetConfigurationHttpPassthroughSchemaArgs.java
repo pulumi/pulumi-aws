@@ -15,14 +15,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchem
     public static final AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs();
 
     /**
-     * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+     * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
      * 
      */
     @Import(name="source", required=true)
     private Output<AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs> source;
 
     /**
-     * @return Configuration for API schema. See `apiSchemaConfiguration` Block below.
+     * @return Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
      * 
      */
     public Output<AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs> source() {
@@ -54,7 +54,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchem
         }
 
         /**
-         * @param source Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * @param source Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchem
         }
 
         /**
-         * @param source Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         * @param source Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
          * 
          * @return builder
          * 

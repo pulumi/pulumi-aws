@@ -14,10 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SchedulingPolicyFairSharePolicy {
     /**
-     * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     private @Nullable Integer computeReservation;
+    /**
+     * @return Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     private @Nullable Integer shareDecaySeconds;
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -27,12 +31,16 @@ public final class SchedulingPolicyFairSharePolicy {
 
     private SchedulingPolicyFairSharePolicy() {}
     /**
-     * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     public Optional<Integer> computeReservation() {
         return Optional.ofNullable(this.computeReservation);
     }
+    /**
+     * @return Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     public Optional<Integer> shareDecaySeconds() {
         return Optional.ofNullable(this.shareDecaySeconds);
     }

@@ -55,14 +55,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Content policy config for a guardrail. See Content Policy Config for more information.
+     * Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
      * 
      */
     @Import(name="contentPolicyConfig")
     private @Nullable Output<GuardrailContentPolicyConfigArgs> contentPolicyConfig;
 
     /**
-     * @return Content policy config for a guardrail. See Content Policy Config for more information.
+     * @return Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
      * 
      */
     public Optional<Output<GuardrailContentPolicyConfigArgs>> contentPolicyConfig() {
@@ -70,23 +70,31 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+     * Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
      * 
      */
     @Import(name="contextualGroundingPolicyConfig")
     private @Nullable Output<GuardrailContextualGroundingPolicyConfigArgs> contextualGroundingPolicyConfig;
 
     /**
-     * @return Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+     * @return Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
      * 
      */
     public Optional<Output<GuardrailContextualGroundingPolicyConfigArgs>> contextualGroundingPolicyConfig() {
         return Optional.ofNullable(this.contextualGroundingPolicyConfig);
     }
 
+    /**
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * 
+     */
     @Import(name="crossRegionConfig")
     private @Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig;
 
+    /**
+     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * 
+     */
     public Optional<Output<GuardrailCrossRegionConfigArgs>> crossRegionConfig() {
         return Optional.ofNullable(this.crossRegionConfig);
     }
@@ -107,14 +115,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The KMS key with which the guardrail was encrypted at rest.
+     * KMS key with which the guardrail was encrypted at rest.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The KMS key with which the guardrail was encrypted at rest.
+     * @return KMS key with which the guardrail was encrypted at rest.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -156,14 +164,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+     * Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
      * 
      */
     @Import(name="sensitiveInformationPolicyConfig")
     private @Nullable Output<GuardrailSensitiveInformationPolicyConfigArgs> sensitiveInformationPolicyConfig;
 
     /**
-     * @return Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+     * @return Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
      * 
      */
     public Optional<Output<GuardrailSensitiveInformationPolicyConfigArgs>> sensitiveInformationPolicyConfig() {
@@ -193,14 +201,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Topic policy config for a guardrail. See Topic Policy Config for more information.
+     * Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
      * 
      */
     @Import(name="topicPolicyConfig")
     private @Nullable Output<GuardrailTopicPolicyConfigArgs> topicPolicyConfig;
 
     /**
-     * @return Topic policy config for a guardrail. See Topic Policy Config for more information.
+     * @return Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
      * 
      */
     public Optional<Output<GuardrailTopicPolicyConfigArgs>> topicPolicyConfig() {
@@ -208,14 +216,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Word policy config for a guardrail. See Word Policy Config for more information.
+     * Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
      * 
      */
     @Import(name="wordPolicyConfig")
     private @Nullable Output<GuardrailWordPolicyConfigArgs> wordPolicyConfig;
 
     /**
-     * @return Word policy config for a guardrail. See Word Policy Config for more information.
+     * @return Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
      * 
      */
     public Optional<Output<GuardrailWordPolicyConfigArgs>> wordPolicyConfig() {
@@ -302,7 +310,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentPolicyConfig Content policy config for a guardrail. See Content Policy Config for more information.
+         * @param contentPolicyConfig Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -313,7 +321,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentPolicyConfig Content policy config for a guardrail. See Content Policy Config for more information.
+         * @param contentPolicyConfig Content policy config for a guardrail. See `contentPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -323,7 +331,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -334,7 +342,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
+         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See `contextualGroundingPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -343,11 +351,23 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
             return contextualGroundingPolicyConfig(Output.of(contextualGroundingPolicyConfig));
         }
 
+        /**
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossRegionConfig(@Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig) {
             $.crossRegionConfig = crossRegionConfig;
             return this;
         }
 
+        /**
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossRegionConfig(GuardrailCrossRegionConfigArgs crossRegionConfig) {
             return crossRegionConfig(Output.of(crossRegionConfig));
         }
@@ -374,7 +394,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The KMS key with which the guardrail was encrypted at rest.
+         * @param kmsKeyArn KMS key with which the guardrail was encrypted at rest.
          * 
          * @return builder
          * 
@@ -385,7 +405,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The KMS key with which the guardrail was encrypted at rest.
+         * @param kmsKeyArn KMS key with which the guardrail was encrypted at rest.
          * 
          * @return builder
          * 
@@ -441,7 +461,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -452,7 +472,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
+         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See `sensitiveInformationPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -492,7 +512,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicPolicyConfig Topic policy config for a guardrail. See Topic Policy Config for more information.
+         * @param topicPolicyConfig Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -503,7 +523,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicPolicyConfig Topic policy config for a guardrail. See Topic Policy Config for more information.
+         * @param topicPolicyConfig Topic policy config for a guardrail. See `topicPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -513,7 +533,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wordPolicyConfig Word policy config for a guardrail. See Word Policy Config for more information.
+         * @param wordPolicyConfig Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -524,7 +544,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wordPolicyConfig Word policy config for a guardrail. See Word Policy Config for more information.
+         * @param wordPolicyConfig Word policy config for a guardrail. See `wordPolicyConfig` Block for more information.
          * 
          * @return builder
          * 

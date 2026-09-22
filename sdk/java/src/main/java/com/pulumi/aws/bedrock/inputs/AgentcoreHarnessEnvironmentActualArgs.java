@@ -16,14 +16,14 @@ public final class AgentcoreHarnessEnvironmentActualArgs extends com.pulumi.reso
     public static final AgentcoreHarnessEnvironmentActualArgs Empty = new AgentcoreHarnessEnvironmentActualArgs();
 
     /**
-     * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
      * 
      */
     @Import(name="agentcoreRuntimeEnvironments", required=true)
     private Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments;
 
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments() {
@@ -55,7 +55,7 @@ public final class AgentcoreHarnessEnvironmentActualArgs extends com.pulumi.reso
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreHarnessEnvironmentActualArgs extends com.pulumi.reso
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class AgentcoreHarnessEnvironmentActualArgs extends com.pulumi.reso
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
          * 
          * @return builder
          * 

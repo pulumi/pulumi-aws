@@ -78,7 +78,7 @@ export class VaultPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class VaultPolicy extends pulumi.CustomResource {
      */
     declare public readonly backupVaultName: pulumi.Output<string>;
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -134,7 +134,7 @@ export class VaultPolicy extends pulumi.CustomResource {
  */
 export interface VaultPolicyState {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     backupVaultArn?: pulumi.Input<string | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface VaultPolicyState {
      */
     backupVaultName?: pulumi.Input<string | undefined>;
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface VaultPolicyArgs {
      */
     backupVaultName: pulumi.Input<string>;
     /**
-     * The backup vault access policy document in JSON format.
+     * Backup vault access policy document in JSON format.
      */
     policy: pulumi.Input<string>;
     /**

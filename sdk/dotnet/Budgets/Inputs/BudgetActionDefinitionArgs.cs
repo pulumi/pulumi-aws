@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        /// AWS Identity and Access Management (IAM) action definition details. See `IamActionDefinition` Block.
         /// </summary>
         [Input("iamActionDefinition")]
         public Input<Inputs.BudgetActionDefinitionIamActionDefinitionArgs>? IamActionDefinition { get; set; }
 
         /// <summary>
-        /// The service control policies (SCPs) action definition details. See SCP Action Definition.
+        /// Service control policies (SCPs) action definition details. See `ScpActionDefinition` Block.
         /// </summary>
         [Input("scpActionDefinition")]
         public Input<Inputs.BudgetActionDefinitionScpActionDefinitionArgs>? ScpActionDefinition { get; set; }
 
         /// <summary>
-        /// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        /// AWS Systems Manager (SSM) action definition details. See `SsmActionDefinition` Block.
         /// </summary>
         [Input("ssmActionDefinition")]
         public Input<Inputs.BudgetActionDefinitionSsmActionDefinitionArgs>? SsmActionDefinition { get; set; }

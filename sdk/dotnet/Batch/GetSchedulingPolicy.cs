@@ -154,6 +154,9 @@ namespace Pulumi.Aws.Batch
     public sealed class GetSchedulingPolicyResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// Fair share policy block of the scheduling policy. The `FairSharePolicy` block is documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSchedulingPolicyFairSharePolicyResult> FairSharePolicies;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

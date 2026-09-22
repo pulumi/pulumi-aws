@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _tokenEndpointAuthMethods;
 
         /// <summary>
-        /// List of authentication methods supported by the token endpoint. Must contain one or two values matching `ClientSecretPost` or `ClientSecretBasic`.
+        /// List of authentication methods supported by the token endpoint.
         /// </summary>
         public InputList<string> TokenEndpointAuthMethods
         {

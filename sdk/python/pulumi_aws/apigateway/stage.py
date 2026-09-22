@@ -41,10 +41,10 @@ class StageArgs:
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
+        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See `access_log_settings` Block below.
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
         :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
+        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See `canary_settings` Block below.
         :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[_builtins.str] description: Description of the stage.
         :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
@@ -119,7 +119,7 @@ class StageArgs:
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Input[Optional['StageAccessLogSettingsArgs']]:
         """
-        Enables access logs for the API stage. See Access Log Settings below.
+        Enables access logs for the API stage. See `access_log_settings` Block below.
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -155,7 +155,7 @@ class StageArgs:
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> pulumi.Input[Optional['StageCanarySettingsArgs']]:
         """
-        Configuration settings of a canary deployment. See Canary Settings below.
+        Configuration settings of a canary deployment. See `canary_settings` Block below.
         """
         return pulumi.get(self, "canary_settings")
 
@@ -273,11 +273,11 @@ class _StageState:
         """
         Input properties used for looking up and filtering Stage resources.
 
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
+        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See `access_log_settings` Block below.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
         :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
+        :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See `canary_settings` Block below.
         :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] description: Description of the stage.
@@ -336,7 +336,7 @@ class _StageState:
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Input[Optional['StageAccessLogSettingsArgs']]:
         """
-        Enables access logs for the API stage. See Access Log Settings below.
+        Enables access logs for the API stage. See `access_log_settings` Block below.
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -384,7 +384,7 @@ class _StageState:
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> pulumi.Input[Optional['StageCanarySettingsArgs']]:
         """
-        Configuration settings of a canary deployment. See Canary Settings below.
+        Configuration settings of a canary deployment. See `canary_settings` Block below.
         """
         return pulumi.get(self, "canary_settings")
 
@@ -616,10 +616,10 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']] access_log_settings: Enables access logs for the API stage. See `access_log_settings` Block below.
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
         :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict', 'outputs.StageCanarySettings']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
+        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict', 'outputs.StageCanarySettings']] canary_settings: Configuration settings of a canary deployment. See `canary_settings` Block below.
         :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] description: Description of the stage.
@@ -768,11 +768,11 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']] access_log_settings: Enables access logs for the API stage. See `access_log_settings` Block below.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
         :param pulumi.Input[_builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict', 'outputs.StageCanarySettings']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
+        :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict', 'outputs.StageCanarySettings']] canary_settings: Configuration settings of a canary deployment. See `canary_settings` Block below.
         :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] description: Description of the stage.
@@ -817,7 +817,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:
         """
-        Enables access logs for the API stage. See Access Log Settings below.
+        Enables access logs for the API stage. See `access_log_settings` Block below.
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -849,7 +849,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="canarySettings")
     def canary_settings(self) -> pulumi.Output[Optional['outputs.StageCanarySettings']]:
         """
-        Configuration settings of a canary deployment. See Canary Settings below.
+        Configuration settings of a canary deployment. See `canary_settings` Block below.
         """
         return pulumi.get(self, "canary_settings")
 

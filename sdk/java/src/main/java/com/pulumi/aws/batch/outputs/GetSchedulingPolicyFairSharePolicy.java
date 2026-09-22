@@ -17,6 +17,10 @@ public final class GetSchedulingPolicyFairSharePolicy {
      * 
      */
     private Integer computeReservation;
+    /**
+     * @return Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     private Integer shareDecaySeconds;
     /**
      * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -32,6 +36,10 @@ public final class GetSchedulingPolicyFairSharePolicy {
     public Integer computeReservation() {
         return this.computeReservation;
     }
+    /**
+     * @return Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * 
+     */
     public Integer shareDecaySeconds() {
         return this.shareDecaySeconds;
     }

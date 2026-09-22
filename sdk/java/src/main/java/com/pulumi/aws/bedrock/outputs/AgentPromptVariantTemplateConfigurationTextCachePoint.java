@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationTextCachePoint {
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Cache point type. Valid values: `default`.
      * 
      */
     private String type;
 
     private AgentPromptVariantTemplateConfigurationTextCachePoint() {}
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Cache point type. Valid values: `default`.
      * 
      */
     public String type() {

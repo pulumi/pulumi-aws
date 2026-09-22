@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs();
 
     /**
-     * Creates a cache checkpoint within a message. See Cache Point for more information.
+     * Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     @Import(name="cachePoint")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs> cachePoint;
 
     /**
-     * @return Creates a cache checkpoint within a message. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs>> cachePoint() {
@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * The text in the message.
+     * Message for the prompt.
      * 
      */
     @Import(name="text")
     private @Nullable Output<String> text;
 
     /**
-     * @return The text in the message.
+     * @return Message for the prompt.
      * 
      */
     public Optional<Output<String>> text() {
@@ -72,7 +72,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param cachePoint Creates a cache checkpoint within a message. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param cachePoint Creates a cache checkpoint within a message. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text The text in the message.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text The text in the message.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputMap<string>? _backupOptions;
 
         /// <summary>
-        /// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        /// Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
         /// </summary>
         public InputMap<string> BackupOptions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        /// Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

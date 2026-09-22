@@ -74,7 +74,7 @@ export class View extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      */
     declare public readonly dataFilterExpression: pulumi.Output<outputs.billing.ViewDataFilterExpression | undefined>;
     /**
@@ -108,7 +108,7 @@ export class View extends pulumi.CustomResource {
      */
     declare public readonly sourceViews: pulumi.Output<string[] | undefined>;
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Key-value map of tags associated with the billing view being created.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface ViewState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      */
     dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface ViewState {
      */
     sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Key-value map of tags associated with the billing view being created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface ViewState {
  */
 export interface ViewArgs {
     /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      */
     dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression | undefined>;
     /**
@@ -270,7 +270,7 @@ export interface ViewArgs {
      */
     sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Key-value map of tags associated with the billing view being created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.billing.ViewTimeouts | undefined>;

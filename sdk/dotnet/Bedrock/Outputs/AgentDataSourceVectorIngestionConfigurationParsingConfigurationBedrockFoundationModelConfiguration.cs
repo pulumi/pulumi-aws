@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration
     {
         /// <summary>
-        /// The ARN of the model used to parse documents
+        /// ARN of the model used to parse documents.
         /// </summary>
         public readonly string ModelArn;
         /// <summary>
-        /// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+        /// Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
         /// </summary>
         public readonly string? ParsingModality;
         /// <summary>
-        /// Instructions for interpreting the contents of the document. See `ParsingPrompt` block for details.
+        /// Instructions for interpreting the contents of the document. See `ParsingPrompt` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt;
 

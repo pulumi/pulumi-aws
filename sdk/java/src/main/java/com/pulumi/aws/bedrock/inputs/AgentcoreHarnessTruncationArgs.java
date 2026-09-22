@@ -17,14 +17,14 @@ public final class AgentcoreHarnessTruncationArgs extends com.pulumi.resources.R
     public static final AgentcoreHarnessTruncationArgs Empty = new AgentcoreHarnessTruncationArgs();
 
     /**
-     * Strategy-specific configuration. See `truncation config` below.
+     * Strategy-specific configuration. See `truncation.config` Block below.
      * 
      */
     @Import(name="configs", required=true)
     private Output<List<AgentcoreHarnessTruncationConfigArgs>> configs;
 
     /**
-     * @return Strategy-specific configuration. See `truncation config` below.
+     * @return Strategy-specific configuration. See `truncation.config` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessTruncationConfigArgs>> configs() {
@@ -72,7 +72,7 @@ public final class AgentcoreHarnessTruncationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param configs Strategy-specific configuration. See `truncation config` below.
+         * @param configs Strategy-specific configuration. See `truncation.config` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreHarnessTruncationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param configs Strategy-specific configuration. See `truncation config` below.
+         * @param configs Strategy-specific configuration. See `truncation.config` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreHarnessTruncationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param configs Strategy-specific configuration. See `truncation config` below.
+         * @param configs Strategy-specific configuration. See `truncation.config` Block below.
          * 
          * @return builder
          * 

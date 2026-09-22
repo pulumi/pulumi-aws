@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
     /**
-     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration() {}
     /**
-     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText> text() {

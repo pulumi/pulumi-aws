@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio
     {
         /// <summary>
-        /// Configuration for segmenting audio content during processing. See `SegmentationConfiguration` block for details.
+        /// Configuration for segmenting audio content during processing. See `SegmentationConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration SegmentationConfiguration;
 

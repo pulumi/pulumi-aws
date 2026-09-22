@@ -19,7 +19,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
      */
     private @Nullable String embeddingModelArn;
     /**
-     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
@@ -29,7 +29,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
      */
     private @Nullable String embeddingModelType;
     /**
-     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration serverSideEncryptionConfiguration;
@@ -43,7 +43,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         return Optional.ofNullable(this.embeddingModelArn);
     }
     /**
-     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+     * @return Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration> embeddingModelConfiguration() {
@@ -57,7 +57,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         return Optional.ofNullable(this.embeddingModelType);
     }
     /**
-     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+     * @return Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration> serverSideEncryptionConfiguration() {

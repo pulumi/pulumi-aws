@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? EmbeddingModelArn;
         /// <summary>
-        /// Configuration for the embedding model. Required when `EmbeddingModelType` is `CUSTOM`. See `EmbeddingModelConfiguration` block for details.
+        /// Configuration for the embedding model. Required when `EmbeddingModelType` is `CUSTOM`. See `EmbeddingModelConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration? EmbeddingModelConfiguration;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? EmbeddingModelType;
         /// <summary>
-        /// Server-side encryption configuration for the managed knowledge base. See `ServerSideEncryptionConfiguration` block for details.
+        /// Server-side encryption configuration for the managed knowledge base. See `ServerSideEncryptionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
 

@@ -12,19 +12,31 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationConditionCondition {
+    /**
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     private @Nullable String expression;
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationConditionCondition() {}
+    /**
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

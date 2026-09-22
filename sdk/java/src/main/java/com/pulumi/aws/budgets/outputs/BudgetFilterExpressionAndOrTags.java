@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BudgetFilterExpressionAndOrTags {
     /**
-     * @return (Optional) The cost category key to filter on.
+     * @return Tag key to filter on.
      * 
      */
     private @Nullable String key;
     /**
-     * @return (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * @return Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     private @Nullable List<String> matchOptions;
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of tag values to match. At least one value is required.
      * 
      */
     private @Nullable List<String> values;
 
     private BudgetFilterExpressionAndOrTags() {}
     /**
-     * @return (Optional) The cost category key to filter on.
+     * @return Tag key to filter on.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * @return Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     public List<String> matchOptions() {
         return this.matchOptions == null ? List.of() : this.matchOptions;
     }
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of tag values to match. At least one value is required.
      * 
      */
     public List<String> values() {

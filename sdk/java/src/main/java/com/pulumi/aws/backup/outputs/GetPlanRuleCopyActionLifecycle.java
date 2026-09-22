@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanRuleCopyActionLifecycle {
+    /**
+     * @return Number of days after creation that a recovery point is moved to cold storage.
+     * 
+     */
     private Integer coldStorageAfter;
+    /**
+     * @return Number of days after creation that a recovery point is deleted.
+     * 
+     */
     private Integer deleteAfter;
+    /**
+     * @return Whether the recovery point is transitioned to cold storage for supported resource types.
+     * 
+     */
     private Boolean optInToArchiveForSupportedResources;
 
     private GetPlanRuleCopyActionLifecycle() {}
+    /**
+     * @return Number of days after creation that a recovery point is moved to cold storage.
+     * 
+     */
     public Integer coldStorageAfter() {
         return this.coldStorageAfter;
     }
+    /**
+     * @return Number of days after creation that a recovery point is deleted.
+     * 
+     */
     public Integer deleteAfter() {
         return this.deleteAfter;
     }
+    /**
+     * @return Whether the recovery point is transitioned to cold storage for supported resource types.
+     * 
+     */
     public Boolean optInToArchiveForSupportedResources() {
         return this.optInToArchiveForSupportedResources;
     }

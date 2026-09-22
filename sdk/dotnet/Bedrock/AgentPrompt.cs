@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        /// List of objects, each containing details about a variant of the prompt. See `Variant` Block for more information.
         /// </summary>
         [Output("variants")]
         public Output<ImmutableArray<Outputs.AgentPromptVariant>> Variants { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentPromptVariantArgs>? _variants;
 
         /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        /// List of objects, each containing details about a variant of the prompt. See `Variant` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantArgs> Variants
         {
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentPromptVariantGetArgs>? _variants;
 
         /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+        /// List of objects, each containing details about a variant of the prompt. See `Variant` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantGetArgs> Variants
         {

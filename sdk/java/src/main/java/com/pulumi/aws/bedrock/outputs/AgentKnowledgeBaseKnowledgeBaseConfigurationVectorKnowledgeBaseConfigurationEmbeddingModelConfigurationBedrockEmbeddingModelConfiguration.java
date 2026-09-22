@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
     /**
-     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio audio;
@@ -25,19 +25,19 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      */
     private @Nullable Integer dimensions;
     /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
      * 
      */
     private @Nullable String embeddingDataType;
     /**
-     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo video;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration() {}
     /**
-     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio> audio() {
@@ -51,14 +51,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         return Optional.ofNullable(this.dimensions);
     }
     /**
-     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+     * @return Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
      * 
      */
     public Optional<String> embeddingDataType() {
         return Optional.ofNullable(this.embeddingDataType);
     }
     /**
-     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo> video() {

@@ -16,14 +16,14 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
     public static final ComputeEnvironmentComputeResourcesEc2ConfigurationArgs Empty = new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs();
 
     /**
-     * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+     * AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
      * 
      */
     @Import(name="imageIdOverride")
     private @Nullable Output<String> imageIdOverride;
 
     /**
-     * @return The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+     * @return AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
      * 
      */
     public Optional<Output<String>> imageIdOverride() {
@@ -31,14 +31,14 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
     }
 
     /**
-     * The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
      * 
      */
     @Import(name="imageKubernetesVersion")
     private @Nullable Output<String> imageKubernetesVersion;
 
     /**
-     * @return The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+     * @return Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
      * 
      */
     public Optional<Output<String>> imageKubernetesVersion() {
@@ -46,14 +46,14 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
     }
 
     /**
-     * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+     * Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
     @Import(name="imageType")
     private @Nullable Output<String> imageType;
 
     /**
-     * @return The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+     * @return Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
     public Optional<Output<String>> imageType() {
@@ -87,7 +87,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+         * @param imageIdOverride AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+         * @param imageIdOverride AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * @param imageKubernetesVersion Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+         * @param imageKubernetesVersion Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         * @param imageType Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
         }
 
         /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         * @param imageType Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
          * 
          * @return builder
          * 

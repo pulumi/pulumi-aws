@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessTool {
     /**
-     * @return Tool-specific configuration. See `tool config` below.
+     * @return Tool-specific configuration. See `tool.config` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfig config;
@@ -31,7 +31,7 @@ public final class AgentcoreHarnessTool {
 
     private AgentcoreHarnessTool() {}
     /**
-     * @return Tool-specific configuration. See `tool config` below.
+     * @return Tool-specific configuration. See `tool.config` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfig> config() {

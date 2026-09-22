@@ -46,14 +46,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ARN of the Harness.
+     * ARN of the managed memory resource.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Harness.
+     * @return ARN of the managed memory resource.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -76,14 +76,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Actual deployed environment configuration.
+     * Actual deployed environment configuration. See `environmentActual` Block below.
      * 
      */
     @Import(name="environmentActuals")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentActualArgs>> environmentActuals;
 
     /**
-     * @return Actual deployed environment configuration.
+     * @return Actual deployed environment configuration. See `environmentActual` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentActualArgs>>> environmentActuals() {
@@ -226,14 +226,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Actual deployed memory configuration.
+     * Actual deployed memory configuration. See `memoryActual` Block below.
      * 
      */
     @Import(name="memoryActuals")
     private @Nullable Output<List<AgentcoreHarnessMemoryActualArgs>> memoryActuals;
 
     /**
-     * @return Actual deployed memory configuration.
+     * @return Actual deployed memory configuration. See `memoryActual` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessMemoryActualArgs>>> memoryActuals() {
@@ -320,14 +320,14 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -465,7 +465,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn ARN of the Harness.
+         * @param arn ARN of the managed memory resource.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn ARN of the Harness.
+         * @param arn ARN of the managed memory resource.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environmentActuals Actual deployed environment configuration.
+         * @param environmentActuals Actual deployed environment configuration. See `environmentActual` Block below.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environmentActuals Actual deployed environment configuration.
+         * @param environmentActuals Actual deployed environment configuration. See `environmentActual` Block below.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param environmentActuals Actual deployed environment configuration.
+         * @param environmentActuals Actual deployed environment configuration. See `environmentActual` Block below.
          * 
          * @return builder
          * 
@@ -737,7 +737,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param memoryActuals Actual deployed memory configuration.
+         * @param memoryActuals Actual deployed memory configuration. See `memoryActual` Block below.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param memoryActuals Actual deployed memory configuration.
+         * @param memoryActuals Actual deployed memory configuration. See `memoryActual` Block below.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param memoryActuals Actual deployed memory configuration.
+         * @param memoryActuals Actual deployed memory configuration. See `memoryActual` Block below.
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -17,7 +17,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      */
     private String collectionArn;
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
@@ -36,7 +36,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         return this.collectionArn;
     }
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping() {

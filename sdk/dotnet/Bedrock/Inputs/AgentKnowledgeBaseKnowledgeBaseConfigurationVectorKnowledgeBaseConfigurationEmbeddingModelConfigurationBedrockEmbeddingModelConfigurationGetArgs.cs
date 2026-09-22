@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` block for details.
+        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` Block for details.
         /// </summary>
         [Input("audio")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioGetArgs>? Audio { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<int>? Dimensions { get; set; }
 
         /// <summary>
-        /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
         /// </summary>
         [Input("embeddingDataType")]
         public Input<string>? EmbeddingDataType { get; set; }
 
         /// <summary>
-        /// Configuration for processing video content in multimodal knowledge bases. See `Video` block for details.
+        /// Configuration for processing video content in multimodal knowledge bases. See `Video` Block for details.
         /// </summary>
         [Input("video")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoGetArgs>? Video { get; set; }

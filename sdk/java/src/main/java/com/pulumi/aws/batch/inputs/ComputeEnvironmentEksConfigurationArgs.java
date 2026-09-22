@@ -30,14 +30,14 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+     * Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
      * 
      */
     @Import(name="kubernetesNamespace", required=true)
     private Output<String> kubernetesNamespace;
 
     /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+     * @return Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
      * 
      */
     public Output<String> kubernetesNamespace() {
@@ -91,7 +91,7 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param kubernetesNamespace The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+         * @param kubernetesNamespace Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param kubernetesNamespace The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+         * @param kubernetesNamespace Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
          * 
          * @return builder
          * 

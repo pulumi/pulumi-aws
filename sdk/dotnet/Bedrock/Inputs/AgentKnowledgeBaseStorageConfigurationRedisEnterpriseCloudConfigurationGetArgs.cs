@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        /// Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
         /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingGetArgs> FieldMapping { get; set; } = null!;

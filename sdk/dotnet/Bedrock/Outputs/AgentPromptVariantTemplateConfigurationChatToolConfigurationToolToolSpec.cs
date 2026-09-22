@@ -14,17 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
     {
         /// <summary>
-        /// Description of the prompt.
+        /// Description of the tool.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The input schema of the tool. See Tool Input Schema for more information.
+        /// Input schema of the tool. See `InputSchema` Block for more information.
         /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema? InputSchema;
         /// <summary>
-        /// Name of the prompt.
-        /// 
-        /// The following arguments are optional:
+        /// Name of the tool.
         /// </summary>
         public readonly string Name;
 

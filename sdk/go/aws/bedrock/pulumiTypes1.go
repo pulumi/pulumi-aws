@@ -13,11 +13,154 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration.
+	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration.
+	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig struct {
-	AdditionalHeaderClaims  map[string]string                                                                                                   `pulumi:"additionalHeaderClaims"`
-	AdditionalPayloadClaims map[string]string                                                                                                   `pulumi:"additionalPayloadClaims"`
-	PrivateKeySource        *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource `pulumi:"privateKeySource"`
-	SigningAlgorithm        *string                                                                                                             `pulumi:"signingAlgorithm"`
+	// Key-value map of additional claims to include in the JWT header.
+	AdditionalHeaderClaims map[string]string `pulumi:"additionalHeaderClaims"`
+	// Key-value map of additional claims to include in the JWT payload.
+	AdditionalPayloadClaims map[string]string `pulumi:"additionalPayloadClaims"`
+	// Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+	PrivateKeySource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource `pulumi:"privateKeySource"`
+	// Algorithm used to sign the JWT.
+	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
 }
 
 // AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput values.
@@ -32,10 +175,14 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs struct {
-	AdditionalHeaderClaims  pulumi.StringMapInput                                                                                                      `pulumi:"additionalHeaderClaims"`
-	AdditionalPayloadClaims pulumi.StringMapInput                                                                                                      `pulumi:"additionalPayloadClaims"`
-	PrivateKeySource        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrInput `pulumi:"privateKeySource"`
-	SigningAlgorithm        pulumi.StringPtrInput                                                                                                      `pulumi:"signingAlgorithm"`
+	// Key-value map of additional claims to include in the JWT header.
+	AdditionalHeaderClaims pulumi.StringMapInput `pulumi:"additionalHeaderClaims"`
+	// Key-value map of additional claims to include in the JWT payload.
+	AdditionalPayloadClaims pulumi.StringMapInput `pulumi:"additionalPayloadClaims"`
+	// Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+	PrivateKeySource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrInput `pulumi:"privateKeySource"`
+	// Algorithm used to sign the JWT.
+	SigningAlgorithm pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
 }
 
 func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs) ElementType() reflect.Type {
@@ -115,24 +262,28 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput)
 }
 
+// Key-value map of additional claims to include in the JWT header.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput) AdditionalHeaderClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) map[string]string {
 		return v.AdditionalHeaderClaims
 	}).(pulumi.StringMapOutput)
 }
 
+// Key-value map of additional claims to include in the JWT payload.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput) AdditionalPayloadClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) map[string]string {
 		return v.AdditionalPayloadClaims
 	}).(pulumi.StringMapOutput)
 }
 
+// Source of the private key used to sign the JWT. See `privateKeySource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput) PrivateKeySource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
 		return v.PrivateKeySource
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput)
 }
 
+// Algorithm used to sign the JWT.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) *string {
 		return v.SigningAlgorithm
@@ -163,6 +314,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput)
 }
 
+// Key-value map of additional claims to include in the JWT header.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput) AdditionalHeaderClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) map[string]string {
 		if v == nil {
@@ -172,6 +324,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringMapOutput)
 }
 
+// Key-value map of additional claims to include in the JWT payload.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput) AdditionalPayloadClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) map[string]string {
 		if v == nil {
@@ -181,6 +334,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringMapOutput)
 }
 
+// Source of the private key used to sign the JWT. See `privateKeySource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput) PrivateKeySource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
 		if v == nil {
@@ -190,6 +344,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput)
 }
 
+// Algorithm used to sign the JWT.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig) *string {
 		if v == nil {
@@ -200,6 +355,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource struct {
+	// AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
 	KmsKeySource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource `pulumi:"kmsKeySource"`
 }
 
@@ -215,6 +371,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs struct {
+	// AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
 	KmsKeySource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourcePtrInput `pulumi:"kmsKeySource"`
 }
 
@@ -295,6 +452,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput)
 }
 
+// AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceOutput) KmsKeySource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
 		return v.KmsKeySource
@@ -325,6 +483,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceOutput)
 }
 
+// AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourcePtrOutput) KmsKeySource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
 		if v == nil {
@@ -335,6 +494,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource struct {
+	// ARN of the AWS KMS key used to sign the JWT.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -350,6 +510,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs struct {
+	// ARN of the AWS KMS key used to sign the JWT.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -430,6 +591,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourcePtrOutput)
 }
 
+// ARN of the AWS KMS key used to sign the JWT.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource) string {
 		return v.KmsKeyArn
@@ -460,6 +622,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceOutput)
 }
 
+// ARN of the AWS KMS key used to sign the JWT.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourcePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource) *string {
 		if v == nil {
@@ -470,35 +633,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -514,35 +665,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -623,20 +762,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -651,18 +784,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -684,9 +813,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -717,13 +844,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *int {
 		if v == nil {
@@ -733,7 +854,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
 		if v == nil {
@@ -754,9 +875,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
 		if v == nil {
@@ -766,9 +885,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -799,9 +916,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -972,9 +1087,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -990,9 +1105,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -1047,14 +1162,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -1090,7 +1205,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderCo
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -1114,7 +1229,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderCo
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -1197,7 +1312,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -1225,35 +1340,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -1269,35 +1372,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -1378,20 +1469,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -1406,18 +1491,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -1439,9 +1520,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -1472,13 +1551,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *int {
 		if v == nil {
@@ -1488,7 +1561,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
 		if v == nil {
@@ -1509,9 +1582,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
 		if v == nil {
@@ -1521,9 +1592,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -1554,9 +1623,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -1727,9 +1794,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -1745,9 +1812,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -1802,14 +1869,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -1845,7 +1912,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderCo
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -1869,7 +1936,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderCo
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -1952,7 +2019,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -1982,26 +2049,16 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2Provide
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig struct {
 	// OAuth2 authorization endpoint URL.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
@@ -2010,9 +2067,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
 	// OAuth2 authorization server issuer identifier.
 	Issuer *string `pulumi:"issuer"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint *string `pulumi:"tokenEndpoint"`
@@ -2032,26 +2087,16 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs struct {
 	// OAuth2 authorization endpoint URL.
 	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
@@ -2060,9 +2105,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
 	// OAuth2 authorization server issuer identifier.
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
@@ -2152,20 +2195,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -2180,18 +2217,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -2220,9 +2253,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -2270,13 +2301,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *int {
 		if v == nil {
@@ -2286,7 +2311,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *string {
 		if v == nil {
@@ -2307,9 +2332,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *string {
 		if v == nil {
@@ -2319,9 +2342,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -2362,9 +2383,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -2545,9 +2564,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -2563,9 +2582,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -2620,14 +2639,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -2663,7 +2682,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -2687,7 +2706,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provider
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -2770,7 +2789,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -2798,35 +2817,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2Provi
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -2842,35 +2849,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provider
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -2951,20 +2946,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -2979,18 +2968,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -3012,9 +2997,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -3045,13 +3028,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *int {
 		if v == nil {
@@ -3061,7 +3038,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3082,9 +3059,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3094,9 +3069,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -3127,9 +3100,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -3300,9 +3271,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -3318,9 +3289,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provider
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -3375,14 +3346,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -3418,7 +3389,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provider
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -3442,7 +3413,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provider
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -3525,7 +3496,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -3553,46 +3524,30 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2Provi
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
-	// Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-	//
-	// **Write-Only Tenant ID:**
+	// Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
 	TenantId *string `pulumi:"tenantId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+	// Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
 	TenantIdWo *string `pulumi:"tenantIdWo"`
-	// Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-	//
-	// **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+	// Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
 	TenantIdWoVersion *int `pulumi:"tenantIdWoVersion"`
 }
 
@@ -3608,46 +3563,30 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
-	// Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-	//
-	// **Write-Only Tenant ID:**
+	// Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+	// Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
 	TenantIdWo pulumi.StringPtrInput `pulumi:"tenantIdWo"`
-	// Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-	//
-	// **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+	// Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
 	TenantIdWoVersion pulumi.IntPtrInput `pulumi:"tenantIdWoVersion"`
 }
 
@@ -3728,20 +3667,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -3756,18 +3689,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -3789,18 +3718,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput)
 }
 
-// Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-//
-// **Write-Only Tenant ID:**
+// Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		return v.TenantId
@@ -3808,16 +3733,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+// Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) TenantIdWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		return v.TenantIdWo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-//
-// **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+// Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) TenantIdWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
 		return v.TenantIdWoVersion
@@ -3848,13 +3771,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
 		if v == nil {
@@ -3864,7 +3781,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3885,9 +3802,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3897,9 +3812,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -3930,9 +3843,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -3942,9 +3853,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput)
 }
 
-// Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-//
-// **Write-Only Tenant ID:**
+// Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3955,7 +3864,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+// Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) TenantIdWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
 		if v == nil {
@@ -3965,9 +3874,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-//
-// **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+// Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) TenantIdWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
 		if v == nil {
@@ -4138,9 +4045,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -4156,9 +4063,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -4213,14 +4120,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -4256,7 +4163,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provide
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -4280,7 +4187,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provide
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -4363,7 +4270,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -4391,35 +4298,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Prov
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -4435,35 +4330,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provid
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -4544,20 +4427,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -4572,18 +4449,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -4605,9 +4478,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -4638,13 +4509,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *int {
 		if v == nil {
@@ -4654,7 +4519,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
 		if v == nil {
@@ -4675,9 +4540,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
 		if v == nil {
@@ -4687,9 +4550,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -4720,9 +4581,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -4893,9 +4752,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -4911,9 +4770,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provid
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -4968,14 +4827,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -5011,7 +4870,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provid
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -5035,7 +4894,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provid
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -5118,7 +4977,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -5146,35 +5005,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Pro
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -5190,35 +5037,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCon
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -5299,20 +5134,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -5327,18 +5156,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -5360,9 +5185,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -5393,13 +5216,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *int {
 		if v == nil {
@@ -5409,7 +5226,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
 		if v == nil {
@@ -5430,9 +5247,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
 		if v == nil {
@@ -5442,9 +5257,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -5475,9 +5288,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -5648,9 +5459,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -5666,9 +5477,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCon
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -5723,14 +5534,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -5766,7 +5577,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCon
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -5790,7 +5601,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCon
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -5873,7 +5684,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -10563,7 +10374,7 @@ func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) KmsKeyArn() pulumi.Stri
 }
 
 type CustomModelOutputDataConfig struct {
-	// The S3 URI where the output data is stored.
+	// S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -10579,7 +10390,7 @@ type CustomModelOutputDataConfigInput interface {
 }
 
 type CustomModelOutputDataConfigArgs struct {
-	// The S3 URI where the output data is stored.
+	// S3 URI where the output data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -10660,7 +10471,7 @@ func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigPtrOutpu
 	}).(CustomModelOutputDataConfigPtrOutput)
 }
 
-// The S3 URI where the output data is stored.
+// S3 URI where the output data is stored.
 func (o CustomModelOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -10689,7 +10500,7 @@ func (o CustomModelOutputDataConfigPtrOutput) Elem() CustomModelOutputDataConfig
 	}).(CustomModelOutputDataConfigOutput)
 }
 
-// The S3 URI where the output data is stored.
+// S3 URI where the output data is stored.
 func (o CustomModelOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomModelOutputDataConfig) *string {
 		if v == nil {
@@ -10856,7 +10667,7 @@ func (o CustomModelTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type CustomModelTrainingDataConfig struct {
-	// The S3 URI where the training data is stored.
+	// S3 URI where the training data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -10872,7 +10683,7 @@ type CustomModelTrainingDataConfigInput interface {
 }
 
 type CustomModelTrainingDataConfigArgs struct {
-	// The S3 URI where the training data is stored.
+	// S3 URI where the training data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -10953,7 +10764,7 @@ func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigPtrO
 	}).(CustomModelTrainingDataConfigPtrOutput)
 }
 
-// The S3 URI where the training data is stored.
+// S3 URI where the training data is stored.
 func (o CustomModelTrainingDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelTrainingDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -10982,7 +10793,7 @@ func (o CustomModelTrainingDataConfigPtrOutput) Elem() CustomModelTrainingDataCo
 	}).(CustomModelTrainingDataConfigOutput)
 }
 
-// The S3 URI where the training data is stored.
+// S3 URI where the training data is stored.
 func (o CustomModelTrainingDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomModelTrainingDataConfig) *string {
 		if v == nil {
@@ -11090,7 +10901,7 @@ func (o CustomModelTrainingMetricArrayOutput) Index(i pulumi.IntInput) CustomMod
 }
 
 type CustomModelValidationDataConfig struct {
-	// Information about the validators.
+	// Information about the validators. See `validator` below.
 	Validators []CustomModelValidationDataConfigValidator `pulumi:"validators"`
 }
 
@@ -11106,7 +10917,7 @@ type CustomModelValidationDataConfigInput interface {
 }
 
 type CustomModelValidationDataConfigArgs struct {
-	// Information about the validators.
+	// Information about the validators. See `validator` below.
 	Validators CustomModelValidationDataConfigValidatorArrayInput `pulumi:"validators"`
 }
 
@@ -11187,7 +10998,7 @@ func (o CustomModelValidationDataConfigOutput) ToCustomModelValidationDataConfig
 	}).(CustomModelValidationDataConfigPtrOutput)
 }
 
-// Information about the validators.
+// Information about the validators. See `validator` below.
 func (o CustomModelValidationDataConfigOutput) Validators() CustomModelValidationDataConfigValidatorArrayOutput {
 	return o.ApplyT(func(v CustomModelValidationDataConfig) []CustomModelValidationDataConfigValidator {
 		return v.Validators
@@ -11218,7 +11029,7 @@ func (o CustomModelValidationDataConfigPtrOutput) Elem() CustomModelValidationDa
 	}).(CustomModelValidationDataConfigOutput)
 }
 
-// Information about the validators.
+// Information about the validators. See `validator` below.
 func (o CustomModelValidationDataConfigPtrOutput) Validators() CustomModelValidationDataConfigValidatorArrayOutput {
 	return o.ApplyT(func(v *CustomModelValidationDataConfig) []CustomModelValidationDataConfigValidator {
 		if v == nil {
@@ -11229,7 +11040,7 @@ func (o CustomModelValidationDataConfigPtrOutput) Validators() CustomModelValida
 }
 
 type CustomModelValidationDataConfigValidator struct {
-	// The S3 URI where the validation data is stored.
+	// S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -11245,7 +11056,7 @@ type CustomModelValidationDataConfigValidatorInput interface {
 }
 
 type CustomModelValidationDataConfigValidatorArgs struct {
-	// The S3 URI where the validation data is stored.
+	// S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -11300,7 +11111,7 @@ func (o CustomModelValidationDataConfigValidatorOutput) ToCustomModelValidationD
 	return o
 }
 
-// The S3 URI where the validation data is stored.
+// S3 URI where the validation data is stored.
 func (o CustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -11326,7 +11137,7 @@ func (o CustomModelValidationDataConfigValidatorArrayOutput) Index(i pulumi.IntI
 }
 
 type CustomModelValidationMetric struct {
-	// The validation loss associated with the validator.
+	// Validation loss associated with the validator.
 	ValidationLoss float64 `pulumi:"validationLoss"`
 }
 
@@ -11342,7 +11153,7 @@ type CustomModelValidationMetricInput interface {
 }
 
 type CustomModelValidationMetricArgs struct {
-	// The validation loss associated with the validator.
+	// Validation loss associated with the validator.
 	ValidationLoss pulumi.Float64Input `pulumi:"validationLoss"`
 }
 
@@ -11397,7 +11208,7 @@ func (o CustomModelValidationMetricOutput) ToCustomModelValidationMetricOutputWi
 	return o
 }
 
-// The validation loss associated with the validator.
+// Validation loss associated with the validator.
 func (o CustomModelValidationMetricOutput) ValidationLoss() pulumi.Float64Output {
 	return o.ApplyT(func(v CustomModelValidationMetric) float64 { return v.ValidationLoss }).(pulumi.Float64Output)
 }
@@ -16739,10 +16550,9 @@ func (o EvaluationJobTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type GuardrailContentPolicyConfig struct {
-	// Set of content filter configs in content policy.
-	// See Filters Config for more information.
+	// Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
 	FiltersConfigs []GuardrailContentPolicyConfigFiltersConfig `pulumi:"filtersConfigs"`
-	// Configuration block for the content policy tier. See Tier Config for more information.
+	// Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
 	TierConfigs []GuardrailContentPolicyConfigTierConfig `pulumi:"tierConfigs"`
 }
 
@@ -16758,10 +16568,9 @@ type GuardrailContentPolicyConfigInput interface {
 }
 
 type GuardrailContentPolicyConfigArgs struct {
-	// Set of content filter configs in content policy.
-	// See Filters Config for more information.
+	// Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
 	FiltersConfigs GuardrailContentPolicyConfigFiltersConfigArrayInput `pulumi:"filtersConfigs"`
-	// Configuration block for the content policy tier. See Tier Config for more information.
+	// Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
 	TierConfigs GuardrailContentPolicyConfigTierConfigArrayInput `pulumi:"tierConfigs"`
 }
 
@@ -16842,15 +16651,14 @@ func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOut
 	}).(GuardrailContentPolicyConfigPtrOutput)
 }
 
-// Set of content filter configs in content policy.
-// See Filters Config for more information.
+// Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
 func (o GuardrailContentPolicyConfigOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
 		return v.FiltersConfigs
 	}).(GuardrailContentPolicyConfigFiltersConfigArrayOutput)
 }
 
-// Configuration block for the content policy tier. See Tier Config for more information.
+// Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
 func (o GuardrailContentPolicyConfigOutput) TierConfigs() GuardrailContentPolicyConfigTierConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigTierConfig { return v.TierConfigs }).(GuardrailContentPolicyConfigTierConfigArrayOutput)
 }
@@ -16879,8 +16687,7 @@ func (o GuardrailContentPolicyConfigPtrOutput) Elem() GuardrailContentPolicyConf
 	}).(GuardrailContentPolicyConfigOutput)
 }
 
-// Set of content filter configs in content policy.
-// See Filters Config for more information.
+// Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
 func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
 		if v == nil {
@@ -16890,7 +16697,7 @@ func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfigs() GuardrailContent
 	}).(GuardrailContentPolicyConfigFiltersConfigArrayOutput)
 }
 
-// Configuration block for the content policy tier. See Tier Config for more information.
+// Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
 func (o GuardrailContentPolicyConfigPtrOutput) TierConfigs() GuardrailContentPolicyConfigTierConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigTierConfig {
 		if v == nil {
@@ -17070,7 +16877,7 @@ func (o GuardrailContentPolicyConfigFiltersConfigArrayOutput) Index(i pulumi.Int
 }
 
 type GuardrailContentPolicyConfigTierConfig struct {
-	// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+	// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 	TierName string `pulumi:"tierName"`
 }
 
@@ -17086,7 +16893,7 @@ type GuardrailContentPolicyConfigTierConfigInput interface {
 }
 
 type GuardrailContentPolicyConfigTierConfigArgs struct {
-	// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+	// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 	TierName pulumi.StringInput `pulumi:"tierName"`
 }
 
@@ -17141,7 +16948,7 @@ func (o GuardrailContentPolicyConfigTierConfigOutput) ToGuardrailContentPolicyCo
 	return o
 }
 
-// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 func (o GuardrailContentPolicyConfigTierConfigOutput) TierName() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfigTierConfig) string { return v.TierName }).(pulumi.StringOutput)
 }
@@ -17167,7 +16974,7 @@ func (o GuardrailContentPolicyConfigTierConfigArrayOutput) Index(i pulumi.IntInp
 }
 
 type GuardrailContextualGroundingPolicyConfig struct {
-	// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+	// One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
 	FiltersConfigs []GuardrailContextualGroundingPolicyConfigFiltersConfig `pulumi:"filtersConfigs"`
 }
 
@@ -17183,7 +16990,7 @@ type GuardrailContextualGroundingPolicyConfigInput interface {
 }
 
 type GuardrailContextualGroundingPolicyConfigArgs struct {
-	// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+	// One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
 	FiltersConfigs GuardrailContextualGroundingPolicyConfigFiltersConfigArrayInput `pulumi:"filtersConfigs"`
 }
 
@@ -17264,7 +17071,7 @@ func (o GuardrailContextualGroundingPolicyConfigOutput) ToGuardrailContextualGro
 	}).(GuardrailContextualGroundingPolicyConfigPtrOutput)
 }
 
-// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+// One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
 func (o GuardrailContextualGroundingPolicyConfigOutput) FiltersConfigs() GuardrailContextualGroundingPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingPolicyConfigFiltersConfig {
 		return v.FiltersConfigs
@@ -17295,7 +17102,7 @@ func (o GuardrailContextualGroundingPolicyConfigPtrOutput) Elem() GuardrailConte
 	}).(GuardrailContextualGroundingPolicyConfigOutput)
 }
 
-// One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+// One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
 func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfigs() GuardrailContextualGroundingPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailContextualGroundingPolicyConfig) []GuardrailContextualGroundingPolicyConfigFiltersConfig {
 		if v == nil {
@@ -17306,7 +17113,7 @@ func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfigs() Guar
 }
 
 type GuardrailContextualGroundingPolicyConfigFiltersConfig struct {
-	// The threshold for this filter.
+	// Threshold for this filter.
 	Threshold float64 `pulumi:"threshold"`
 	// Type of contextual grounding filter.
 	Type string `pulumi:"type"`
@@ -17324,7 +17131,7 @@ type GuardrailContextualGroundingPolicyConfigFiltersConfigInput interface {
 }
 
 type GuardrailContextualGroundingPolicyConfigFiltersConfigArgs struct {
-	// The threshold for this filter.
+	// Threshold for this filter.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// Type of contextual grounding filter.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -17381,7 +17188,7 @@ func (o GuardrailContextualGroundingPolicyConfigFiltersConfigOutput) ToGuardrail
 	return o
 }
 
-// The threshold for this filter.
+// Threshold for this filter.
 func (o GuardrailContextualGroundingPolicyConfigFiltersConfigOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v GuardrailContextualGroundingPolicyConfigFiltersConfig) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -17549,9 +17356,9 @@ func (o GuardrailCrossRegionConfigPtrOutput) GuardrailProfileIdentifier() pulumi
 }
 
 type GuardrailSensitiveInformationPolicyConfig struct {
-	// List of entities. See PII Entities Config for more information.
+	// List of entities. See `piiEntitiesConfig` Block for more information.
 	PiiEntitiesConfigs []GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig `pulumi:"piiEntitiesConfigs"`
-	// List of regex. See Regexes Config for more information.
+	// List of regex. See `regexesConfig` Block for more information.
 	RegexesConfigs []GuardrailSensitiveInformationPolicyConfigRegexesConfig `pulumi:"regexesConfigs"`
 }
 
@@ -17567,9 +17374,9 @@ type GuardrailSensitiveInformationPolicyConfigInput interface {
 }
 
 type GuardrailSensitiveInformationPolicyConfigArgs struct {
-	// List of entities. See PII Entities Config for more information.
+	// List of entities. See `piiEntitiesConfig` Block for more information.
 	PiiEntitiesConfigs GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayInput `pulumi:"piiEntitiesConfigs"`
-	// List of regex. See Regexes Config for more information.
+	// List of regex. See `regexesConfig` Block for more information.
 	RegexesConfigs GuardrailSensitiveInformationPolicyConfigRegexesConfigArrayInput `pulumi:"regexesConfigs"`
 }
 
@@ -17650,14 +17457,14 @@ func (o GuardrailSensitiveInformationPolicyConfigOutput) ToGuardrailSensitiveInf
 	}).(GuardrailSensitiveInformationPolicyConfigPtrOutput)
 }
 
-// List of entities. See PII Entities Config for more information.
+// List of entities. See `piiEntitiesConfig` Block for more information.
 func (o GuardrailSensitiveInformationPolicyConfigOutput) PiiEntitiesConfigs() GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfig) []GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
 		return v.PiiEntitiesConfigs
 	}).(GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput)
 }
 
-// List of regex. See Regexes Config for more information.
+// List of regex. See `regexesConfig` Block for more information.
 func (o GuardrailSensitiveInformationPolicyConfigOutput) RegexesConfigs() GuardrailSensitiveInformationPolicyConfigRegexesConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfig) []GuardrailSensitiveInformationPolicyConfigRegexesConfig {
 		return v.RegexesConfigs
@@ -17688,7 +17495,7 @@ func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) Elem() GuardrailSens
 	}).(GuardrailSensitiveInformationPolicyConfigOutput)
 }
 
-// List of entities. See PII Entities Config for more information.
+// List of entities. See `piiEntitiesConfig` Block for more information.
 func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) PiiEntitiesConfigs() GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailSensitiveInformationPolicyConfig) []GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
 		if v == nil {
@@ -17698,7 +17505,7 @@ func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) PiiEntitiesConfigs()
 	}).(GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput)
 }
 
-// List of regex. See Regexes Config for more information.
+// List of regex. See `regexesConfig` Block for more information.
 func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) RegexesConfigs() GuardrailSensitiveInformationPolicyConfigRegexesConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailSensitiveInformationPolicyConfig) []GuardrailSensitiveInformationPolicyConfigRegexesConfig {
 		if v == nil {
@@ -17719,7 +17526,7 @@ type GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig struct {
 	OutputAction *string `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled *bool `pulumi:"outputEnabled"`
-	// The currently supported PII entities.
+	// Currently supported PII entities.
 	Type string `pulumi:"type"`
 }
 
@@ -17745,7 +17552,7 @@ type GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs struct {
 	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
-	// The currently supported PII entities.
+	// Currently supported PII entities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17825,7 +17632,7 @@ func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) Output
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The currently supported PII entities.
+// Currently supported PII entities.
 func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17853,19 +17660,19 @@ func (o GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArrayOutput) I
 type GuardrailSensitiveInformationPolicyConfigRegexesConfig struct {
 	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action string `pulumi:"action"`
-	// The regex description.
+	// Regex description.
 	Description *string `pulumi:"description"`
 	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	InputAction *string `pulumi:"inputAction"`
 	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
 	InputEnabled *bool `pulumi:"inputEnabled"`
-	// The regex name.
+	// Regex name.
 	Name string `pulumi:"name"`
 	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	OutputAction *string `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled *bool `pulumi:"outputEnabled"`
-	// The regex pattern.
+	// Regex pattern.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -17883,19 +17690,19 @@ type GuardrailSensitiveInformationPolicyConfigRegexesConfigInput interface {
 type GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs struct {
 	// Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The regex description.
+	// Regex description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
 	// Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
 	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
-	// The regex name.
+	// Regex name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
 	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
-	// The regex pattern.
+	// Regex pattern.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -17955,7 +17762,7 @@ func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Action() p
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The regex description.
+// Regex description.
 func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -17970,7 +17777,7 @@ func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) InputEnabl
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The regex name.
+// Regex name.
 func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17985,7 +17792,7 @@ func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) OutputEnab
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The regex pattern.
+// Regex pattern.
 func (o GuardrailSensitiveInformationPolicyConfigRegexesConfigOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfigRegexesConfig) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -18186,9 +17993,9 @@ func (o GuardrailTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GuardrailTopicPolicyConfig struct {
-	// Configuration block for the topic policy tier. See Tier Config for more information.
+	// Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
 	TierConfigs []GuardrailTopicPolicyConfigTierConfig `pulumi:"tierConfigs"`
-	// List of topic configs in topic policy. See Topics Config for more information.
+	// List of topic configs in topic policy. See `topicsConfig` Block for more information.
 	TopicsConfigs []GuardrailTopicPolicyConfigTopicsConfig `pulumi:"topicsConfigs"`
 }
 
@@ -18204,9 +18011,9 @@ type GuardrailTopicPolicyConfigInput interface {
 }
 
 type GuardrailTopicPolicyConfigArgs struct {
-	// Configuration block for the topic policy tier. See Tier Config for more information.
+	// Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
 	TierConfigs GuardrailTopicPolicyConfigTierConfigArrayInput `pulumi:"tierConfigs"`
-	// List of topic configs in topic policy. See Topics Config for more information.
+	// List of topic configs in topic policy. See `topicsConfig` Block for more information.
 	TopicsConfigs GuardrailTopicPolicyConfigTopicsConfigArrayInput `pulumi:"topicsConfigs"`
 }
 
@@ -18287,12 +18094,12 @@ func (o GuardrailTopicPolicyConfigOutput) ToGuardrailTopicPolicyConfigPtrOutputW
 	}).(GuardrailTopicPolicyConfigPtrOutput)
 }
 
-// Configuration block for the topic policy tier. See Tier Config for more information.
+// Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
 func (o GuardrailTopicPolicyConfigOutput) TierConfigs() GuardrailTopicPolicyConfigTierConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailTopicPolicyConfig) []GuardrailTopicPolicyConfigTierConfig { return v.TierConfigs }).(GuardrailTopicPolicyConfigTierConfigArrayOutput)
 }
 
-// List of topic configs in topic policy. See Topics Config for more information.
+// List of topic configs in topic policy. See `topicsConfig` Block for more information.
 func (o GuardrailTopicPolicyConfigOutput) TopicsConfigs() GuardrailTopicPolicyConfigTopicsConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailTopicPolicyConfig) []GuardrailTopicPolicyConfigTopicsConfig { return v.TopicsConfigs }).(GuardrailTopicPolicyConfigTopicsConfigArrayOutput)
 }
@@ -18321,7 +18128,7 @@ func (o GuardrailTopicPolicyConfigPtrOutput) Elem() GuardrailTopicPolicyConfigOu
 	}).(GuardrailTopicPolicyConfigOutput)
 }
 
-// Configuration block for the topic policy tier. See Tier Config for more information.
+// Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
 func (o GuardrailTopicPolicyConfigPtrOutput) TierConfigs() GuardrailTopicPolicyConfigTierConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailTopicPolicyConfig) []GuardrailTopicPolicyConfigTierConfig {
 		if v == nil {
@@ -18331,7 +18138,7 @@ func (o GuardrailTopicPolicyConfigPtrOutput) TierConfigs() GuardrailTopicPolicyC
 	}).(GuardrailTopicPolicyConfigTierConfigArrayOutput)
 }
 
-// List of topic configs in topic policy. See Topics Config for more information.
+// List of topic configs in topic policy. See `topicsConfig` Block for more information.
 func (o GuardrailTopicPolicyConfigPtrOutput) TopicsConfigs() GuardrailTopicPolicyConfigTopicsConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailTopicPolicyConfig) []GuardrailTopicPolicyConfigTopicsConfig {
 		if v == nil {
@@ -18342,7 +18149,7 @@ func (o GuardrailTopicPolicyConfigPtrOutput) TopicsConfigs() GuardrailTopicPolic
 }
 
 type GuardrailTopicPolicyConfigTierConfig struct {
-	// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+	// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 	TierName string `pulumi:"tierName"`
 }
 
@@ -18358,7 +18165,7 @@ type GuardrailTopicPolicyConfigTierConfigInput interface {
 }
 
 type GuardrailTopicPolicyConfigTierConfigArgs struct {
-	// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+	// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 	TierName pulumi.StringInput `pulumi:"tierName"`
 }
 
@@ -18413,7 +18220,7 @@ func (o GuardrailTopicPolicyConfigTierConfigOutput) ToGuardrailTopicPolicyConfig
 	return o
 }
 
-// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
 func (o GuardrailTopicPolicyConfigTierConfigOutput) TierName() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailTopicPolicyConfigTierConfig) string { return v.TierName }).(pulumi.StringOutput)
 }
@@ -18719,9 +18526,9 @@ func (o GuardrailVersionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type GuardrailWordPolicyConfig struct {
-	// A config for the list of managed words. See Managed Word Lists Config for more information.
+	// Config for the list of managed words. See `managedWordListsConfig` Block for more information.
 	ManagedWordListsConfigs []GuardrailWordPolicyConfigManagedWordListsConfig `pulumi:"managedWordListsConfigs"`
-	// List of custom word configs. See Words Config for more information.
+	// List of custom word configs. See `wordsConfig` Block for more information.
 	WordsConfigs []GuardrailWordPolicyConfigWordsConfig `pulumi:"wordsConfigs"`
 }
 
@@ -18737,9 +18544,9 @@ type GuardrailWordPolicyConfigInput interface {
 }
 
 type GuardrailWordPolicyConfigArgs struct {
-	// A config for the list of managed words. See Managed Word Lists Config for more information.
+	// Config for the list of managed words. See `managedWordListsConfig` Block for more information.
 	ManagedWordListsConfigs GuardrailWordPolicyConfigManagedWordListsConfigArrayInput `pulumi:"managedWordListsConfigs"`
-	// List of custom word configs. See Words Config for more information.
+	// List of custom word configs. See `wordsConfig` Block for more information.
 	WordsConfigs GuardrailWordPolicyConfigWordsConfigArrayInput `pulumi:"wordsConfigs"`
 }
 
@@ -18820,14 +18627,14 @@ func (o GuardrailWordPolicyConfigOutput) ToGuardrailWordPolicyConfigPtrOutputWit
 	}).(GuardrailWordPolicyConfigPtrOutput)
 }
 
-// A config for the list of managed words. See Managed Word Lists Config for more information.
+// Config for the list of managed words. See `managedWordListsConfig` Block for more information.
 func (o GuardrailWordPolicyConfigOutput) ManagedWordListsConfigs() GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailWordPolicyConfig) []GuardrailWordPolicyConfigManagedWordListsConfig {
 		return v.ManagedWordListsConfigs
 	}).(GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput)
 }
 
-// List of custom word configs. See Words Config for more information.
+// List of custom word configs. See `wordsConfig` Block for more information.
 func (o GuardrailWordPolicyConfigOutput) WordsConfigs() GuardrailWordPolicyConfigWordsConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailWordPolicyConfig) []GuardrailWordPolicyConfigWordsConfig { return v.WordsConfigs }).(GuardrailWordPolicyConfigWordsConfigArrayOutput)
 }
@@ -18856,7 +18663,7 @@ func (o GuardrailWordPolicyConfigPtrOutput) Elem() GuardrailWordPolicyConfigOutp
 	}).(GuardrailWordPolicyConfigOutput)
 }
 
-// A config for the list of managed words. See Managed Word Lists Config for more information.
+// Config for the list of managed words. See `managedWordListsConfig` Block for more information.
 func (o GuardrailWordPolicyConfigPtrOutput) ManagedWordListsConfigs() GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailWordPolicyConfig) []GuardrailWordPolicyConfigManagedWordListsConfig {
 		if v == nil {
@@ -18866,7 +18673,7 @@ func (o GuardrailWordPolicyConfigPtrOutput) ManagedWordListsConfigs() GuardrailW
 	}).(GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput)
 }
 
-// List of custom word configs. See Words Config for more information.
+// List of custom word configs. See `wordsConfig` Block for more information.
 func (o GuardrailWordPolicyConfigPtrOutput) WordsConfigs() GuardrailWordPolicyConfigWordsConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailWordPolicyConfig) []GuardrailWordPolicyConfigWordsConfig {
 		if v == nil {
@@ -19018,7 +18825,7 @@ type GuardrailWordPolicyConfigWordsConfig struct {
 	OutputAction *string `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled *bool `pulumi:"outputEnabled"`
-	// The custom word text.
+	// Custom word text.
 	Text string `pulumi:"text"`
 }
 
@@ -19042,7 +18849,7 @@ type GuardrailWordPolicyConfigWordsConfigArgs struct {
 	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
 	// Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
 	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
-	// The custom word text.
+	// Custom word text.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -19117,7 +18924,7 @@ func (o GuardrailWordPolicyConfigWordsConfigOutput) OutputEnabled() pulumi.BoolP
 	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The custom word text.
+// Custom word text.
 func (o GuardrailWordPolicyConfigWordsConfigOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailWordPolicyConfigWordsConfig) string { return v.Text }).(pulumi.StringOutput)
 }
@@ -19143,7 +18950,7 @@ func (o GuardrailWordPolicyConfigWordsConfigArrayOutput) Index(i pulumi.IntInput
 }
 
 type InferenceProfileModel struct {
-	// The ARN of the model.
+	// ARN of the model.
 	ModelArn string `pulumi:"modelArn"`
 }
 
@@ -19159,7 +18966,7 @@ type InferenceProfileModelInput interface {
 }
 
 type InferenceProfileModelArgs struct {
-	// The ARN of the model.
+	// ARN of the model.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 }
 
@@ -19214,7 +19021,7 @@ func (o InferenceProfileModelOutput) ToInferenceProfileModelOutputWithContext(ct
 	return o
 }
 
-// The ARN of the model.
+// ARN of the model.
 func (o InferenceProfileModelOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InferenceProfileModel) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -19240,7 +19047,7 @@ func (o InferenceProfileModelArrayOutput) Index(i pulumi.IntInput) InferenceProf
 }
 
 type InferenceProfileModelSource struct {
-	// The ARN of the model.
+	// ARN of the model.
 	CopyFrom string `pulumi:"copyFrom"`
 }
 
@@ -19256,7 +19063,7 @@ type InferenceProfileModelSourceInput interface {
 }
 
 type InferenceProfileModelSourceArgs struct {
-	// The ARN of the model.
+	// ARN of the model.
 	CopyFrom pulumi.StringInput `pulumi:"copyFrom"`
 }
 
@@ -19337,7 +19144,7 @@ func (o InferenceProfileModelSourceOutput) ToInferenceProfileModelSourcePtrOutpu
 	}).(InferenceProfileModelSourcePtrOutput)
 }
 
-// The ARN of the model.
+// ARN of the model.
 func (o InferenceProfileModelSourceOutput) CopyFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v InferenceProfileModelSource) string { return v.CopyFrom }).(pulumi.StringOutput)
 }
@@ -19366,7 +19173,7 @@ func (o InferenceProfileModelSourcePtrOutput) Elem() InferenceProfileModelSource
 	}).(InferenceProfileModelSourceOutput)
 }
 
-// The ARN of the model.
+// ARN of the model.
 func (o InferenceProfileModelSourcePtrOutput) CopyFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceProfileModelSource) *string {
 		if v == nil {
@@ -19698,8 +19505,8 @@ type GetAgentAgentVersionsAgentVersionSummary struct {
 	// Time at which the version was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Description of the version of the agent.
-	// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-	Description             string                                                           `pulumi:"description"`
+	Description string `pulumi:"description"`
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
 	GuardrailConfigurations []GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Time at which the version was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -19726,8 +19533,8 @@ type GetAgentAgentVersionsAgentVersionSummaryArgs struct {
 	// Time at which the version was created.
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// Description of the version of the agent.
-	// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-	Description             pulumi.StringInput                                                       `pulumi:"description"`
+	Description pulumi.StringInput `pulumi:"description"`
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
 	GuardrailConfigurations GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArrayInput `pulumi:"guardrailConfigurations"`
 	// Time at which the version was last updated.
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
@@ -19805,11 +19612,11 @@ func (o GetAgentAgentVersionsAgentVersionSummaryOutput) CreatedAt() pulumi.Strin
 }
 
 // Description of the version of the agent.
-// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
 func (o GetAgentAgentVersionsAgentVersionSummaryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsAgentVersionSummary) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
 func (o GetAgentAgentVersionsAgentVersionSummaryOutput) GuardrailConfigurations() GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArrayOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsAgentVersionSummary) []GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration {
 		return v.GuardrailConfigurations
@@ -19952,7 +19759,7 @@ func (o GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArrayOutpu
 }
 
 type GetCustomModelOutputDataConfig struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -19968,7 +19775,7 @@ type GetCustomModelOutputDataConfigInput interface {
 }
 
 type GetCustomModelOutputDataConfigArgs struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -20023,7 +19830,7 @@ func (o GetCustomModelOutputDataConfigOutput) ToGetCustomModelOutputDataConfigOu
 	return o
 }
 
-// The S3 URI where the validation data is stored..
+// S3 URI where the validation data is stored.
 func (o GetCustomModelOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -20049,7 +19856,7 @@ func (o GetCustomModelOutputDataConfigArrayOutput) Index(i pulumi.IntInput) GetC
 }
 
 type GetCustomModelTrainingDataConfig struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -20065,7 +19872,7 @@ type GetCustomModelTrainingDataConfigInput interface {
 }
 
 type GetCustomModelTrainingDataConfigArgs struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -20120,7 +19927,7 @@ func (o GetCustomModelTrainingDataConfigOutput) ToGetCustomModelTrainingDataConf
 	return o
 }
 
-// The S3 URI where the validation data is stored..
+// S3 URI where the validation data is stored.
 func (o GetCustomModelTrainingDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelTrainingDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -20342,7 +20149,7 @@ func (o GetCustomModelValidationDataConfigArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetCustomModelValidationDataConfigValidator struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -20358,7 +20165,7 @@ type GetCustomModelValidationDataConfigValidatorInput interface {
 }
 
 type GetCustomModelValidationDataConfigValidatorArgs struct {
-	// The S3 URI where the validation data is stored..
+	// S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -20413,7 +20220,7 @@ func (o GetCustomModelValidationDataConfigValidatorOutput) ToGetCustomModelValid
 	return o
 }
 
-// The S3 URI where the validation data is stored..
+// S3 URI where the validation data is stored.
 func (o GetCustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -20439,7 +20246,7 @@ func (o GetCustomModelValidationDataConfigValidatorArrayOutput) Index(i pulumi.I
 }
 
 type GetCustomModelValidationMetric struct {
-	// The validation loss associated with the validator.
+	// Validation loss associated with the validator.
 	ValidationLoss float64 `pulumi:"validationLoss"`
 }
 
@@ -20455,7 +20262,7 @@ type GetCustomModelValidationMetricInput interface {
 }
 
 type GetCustomModelValidationMetricArgs struct {
-	// The validation loss associated with the validator.
+	// Validation loss associated with the validator.
 	ValidationLoss pulumi.Float64Input `pulumi:"validationLoss"`
 }
 
@@ -20510,7 +20317,7 @@ func (o GetCustomModelValidationMetricOutput) ToGetCustomModelValidationMetricOu
 	return o
 }
 
-// The validation loss associated with the validator.
+// Validation loss associated with the validator.
 func (o GetCustomModelValidationMetricOutput) ValidationLoss() pulumi.Float64Output {
 	return o.ApplyT(func(v GetCustomModelValidationMetric) float64 { return v.ValidationLoss }).(pulumi.Float64Output)
 }
@@ -20538,9 +20345,9 @@ func (o GetCustomModelValidationMetricArrayOutput) Index(i pulumi.IntInput) GetC
 type GetCustomModelsModelSummary struct {
 	// Creation time of the model.
 	CreationTime string `pulumi:"creationTime"`
-	// The ARN of the custom model.
+	// ARN of the custom model.
 	ModelArn string `pulumi:"modelArn"`
-	// The name of the custom model.
+	// Name of the custom model.
 	ModelName string `pulumi:"modelName"`
 }
 
@@ -20558,9 +20365,9 @@ type GetCustomModelsModelSummaryInput interface {
 type GetCustomModelsModelSummaryArgs struct {
 	// Creation time of the model.
 	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// The ARN of the custom model.
+	// ARN of the custom model.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
-	// The name of the custom model.
+	// Name of the custom model.
 	ModelName pulumi.StringInput `pulumi:"modelName"`
 }
 
@@ -20620,12 +20427,12 @@ func (o GetCustomModelsModelSummaryOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelsModelSummary) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The ARN of the custom model.
+// ARN of the custom model.
 func (o GetCustomModelsModelSummaryOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelsModelSummary) string { return v.ModelArn }).(pulumi.StringOutput)
 }
 
-// The name of the custom model.
+// Name of the custom model.
 func (o GetCustomModelsModelSummaryOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCustomModelsModelSummary) string { return v.ModelName }).(pulumi.StringOutput)
 }
@@ -20651,7 +20458,7 @@ func (o GetCustomModelsModelSummaryArrayOutput) Index(i pulumi.IntInput) GetCust
 }
 
 type GetInferenceProfileModel struct {
-	// The ARN of the model.
+	// ARN of the model.
 	ModelArn string `pulumi:"modelArn"`
 }
 
@@ -20667,7 +20474,7 @@ type GetInferenceProfileModelInput interface {
 }
 
 type GetInferenceProfileModelArgs struct {
-	// The ARN of the model.
+	// ARN of the model.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 }
 
@@ -20722,7 +20529,7 @@ func (o GetInferenceProfileModelOutput) ToGetInferenceProfileModelOutputWithCont
 	return o
 }
 
-// The ARN of the model.
+// ARN of the model.
 func (o GetInferenceProfileModelOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfileModel) string { return v.ModelArn }).(pulumi.StringOutput)
 }
@@ -21016,6 +20823,8 @@ func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) Index(i pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs{})
@@ -21294,6 +21103,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArray{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceOutput{})

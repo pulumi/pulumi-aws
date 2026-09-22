@@ -18,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs();
 
     /**
-     * Inline tool definition. See `inlinePayload` Block below.
+     * Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
      * 
      */
     @Import(name="inlinePayloads")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>> inlinePayloads;
 
     /**
-     * @return Inline tool definition. See `inlinePayload` Block below.
+     * @return Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>>> inlinePayloads() {
@@ -73,7 +73,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
+         * @param inlinePayloads Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
+         * @param inlinePayloads Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
+         * @param inlinePayloads Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
          * 
          * @return builder
          * 

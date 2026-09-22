@@ -16,6 +16,26 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ChannelEncryptionConfiguration',
+    'ChannelIcebergDestination',
+    'ChannelIcebergDestinationCatalog',
+    'ChannelIcebergDestinationDeadLetterQueueS3',
+    'ChannelIcebergDestinationDestinationTable',
+    'ChannelIcebergDestinationDestinationTablePartitionSpec',
+    'ChannelIcebergDestinationDestinationTablePartitionSpecSource',
+    'ChannelIcebergDestinationSchemaEvolution',
+    'ChannelIcebergDestinationTableCreation',
+    'ChannelLoggingInfo',
+    'ChannelLoggingInfoCloudwatchLogs',
+    'ChannelLoggingInfoFirehose',
+    'ChannelLoggingInfoS3',
+    'ChannelS3Destination',
+    'ChannelS3DestinationDeadLetterQueueS3',
+    'ChannelS3DestinationStorage',
+    'ChannelTimeouts',
+    'ChannelTopicConfiguration',
+    'ChannelTopicConfigurationRecordConverter',
+    'ChannelTopicConfigurationRecordSchema',
     'ClusterBrokerNodeGroupInfo',
     'ClusterBrokerNodeGroupInfoConnectivityInfo',
     'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess',
@@ -75,6 +95,1159 @@ __all__ = [
     'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult',
     'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult',
 ]
+
+@pulumi.output_type
+class ChannelEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        """
+        :param _builtins.str kms_key_arn: ARN of the AWS KMS key used to encrypt the data.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS KMS key used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class ChannelIcebergDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appendOnly":
+            suggest = "append_only"
+        elif key == "deadLetterQueueS3":
+            suggest = "dead_letter_queue_s3"
+        elif key == "destinationTable":
+            suggest = "destination_table"
+        elif key == "schemaEvolution":
+            suggest = "schema_evolution"
+        elif key == "serviceExecutionRoleArn":
+            suggest = "service_execution_role_arn"
+        elif key == "tableCreation":
+            suggest = "table_creation"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "dataFreshnessInSeconds":
+            suggest = "data_freshness_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 append_only: _builtins.bool,
+                 dead_letter_queue_s3: 'outputs.ChannelIcebergDestinationDeadLetterQueueS3',
+                 destination_table: 'outputs.ChannelIcebergDestinationDestinationTable',
+                 schema_evolution: 'outputs.ChannelIcebergDestinationSchemaEvolution',
+                 service_execution_role_arn: _builtins.str,
+                 table_creation: 'outputs.ChannelIcebergDestinationTableCreation',
+                 catalog: Optional['outputs.ChannelIcebergDestinationCatalog'] = None,
+                 compression_type: Optional[_builtins.str] = None,
+                 data_freshness_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool append_only: Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+        :param 'ChannelIcebergDestinationDeadLetterQueueS3Args' dead_letter_queue_s3: Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        :param 'ChannelIcebergDestinationDestinationTableArgs' destination_table: Destination Iceberg table. See `destination_table` Block below.
+        :param 'ChannelIcebergDestinationSchemaEvolutionArgs' schema_evolution: Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schema_evolution` Block below.
+        :param _builtins.str service_execution_role_arn: ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+        :param 'ChannelIcebergDestinationTableCreationArgs' table_creation: Configuration controlling whether MSK creates the destination table if it does not already exist. See `table_creation` Block below.
+               
+               The following arguments are optional:
+        :param 'ChannelIcebergDestinationCatalogArgs' catalog: AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+        :param _builtins.str compression_type: Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+        :param _builtins.int data_freshness_in_seconds: Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        pulumi.set(__self__, "append_only", append_only)
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "destination_table", destination_table)
+        pulumi.set(__self__, "schema_evolution", schema_evolution)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "table_creation", table_creation)
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> _builtins.bool:
+        """
+        Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+        """
+        return pulumi.get(self, "append_only")
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> 'outputs.ChannelIcebergDestinationDeadLetterQueueS3':
+        """
+        Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTable")
+    def destination_table(self) -> 'outputs.ChannelIcebergDestinationDestinationTable':
+        """
+        Destination Iceberg table. See `destination_table` Block below.
+        """
+        return pulumi.get(self, "destination_table")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaEvolution")
+    def schema_evolution(self) -> 'outputs.ChannelIcebergDestinationSchemaEvolution':
+        """
+        Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schema_evolution` Block below.
+        """
+        return pulumi.get(self, "schema_evolution")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tableCreation")
+    def table_creation(self) -> 'outputs.ChannelIcebergDestinationTableCreation':
+        """
+        Configuration controlling whether MSK creates the destination table if it does not already exist. See `table_creation` Block below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "table_creation")
+
+    @_builtins.property
+    @pulumi.getter
+    def catalog(self) -> Optional['outputs.ChannelIcebergDestinationCatalog']:
+        """
+        AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+        """
+        return pulumi.get(self, "catalog")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationCatalog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogArn":
+            suggest = "catalog_arn"
+        elif key == "warehouseLocation":
+            suggest = "warehouse_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationCatalog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationCatalog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationCatalog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_arn: Optional[_builtins.str] = None,
+                 warehouse_location: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str catalog_arn: ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+        :param _builtins.str warehouse_location: ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+        """
+        if catalog_arn is not None:
+            pulumi.set(__self__, "catalog_arn", catalog_arn)
+        if warehouse_location is not None:
+            pulumi.set(__self__, "warehouse_location", warehouse_location)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+        """
+        return pulumi.get(self, "catalog_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="warehouseLocation")
+    def warehouse_location(self) -> Optional[_builtins.str]:
+        """
+        ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+        """
+        return pulumi.get(self, "warehouse_location")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationDeadLetterQueueS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationDeadLetterQueueS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationDeadLetterQueueS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationDeadLetterQueueS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 error_output_prefix: Optional[_builtins.str] = None,
+                 expected_bucket_owner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_arn: ARN of the dead-letter Amazon S3 bucket.
+               
+               The following arguments are optional:
+        :param _builtins.str error_output_prefix: Prefix prepended to every dead-letter Amazon S3 object key.
+        :param _builtins.str expected_bucket_owner: 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        ARN of the dead-letter Amazon S3 bucket.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix prepended to every dead-letter Amazon S3 object key.
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationDestinationTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationDatabaseName":
+            suggest = "destination_database_name"
+        elif key == "destinationTableName":
+            suggest = "destination_table_name"
+        elif key == "partitionSpec":
+            suggest = "partition_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationDestinationTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationDestinationTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationDestinationTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_database_name: Optional[_builtins.str] = None,
+                 destination_table_name: Optional[_builtins.str] = None,
+                 partition_spec: Optional['outputs.ChannelIcebergDestinationDestinationTablePartitionSpec'] = None):
+        """
+        :param _builtins.str destination_database_name: Name of the destination namespace (database) in the AWS Glue Data Catalog.
+        :param _builtins.str destination_table_name: Name of the destination Apache Iceberg table.
+        :param 'ChannelIcebergDestinationDestinationTablePartitionSpecArgs' partition_spec: Partition specification for the destination table. See `partition_spec` Block below.
+        """
+        if destination_database_name is not None:
+            pulumi.set(__self__, "destination_database_name", destination_database_name)
+        if destination_table_name is not None:
+            pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDatabaseName")
+    def destination_database_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the destination namespace (database) in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "destination_database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableName")
+    def destination_table_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the destination Apache Iceberg table.
+        """
+        return pulumi.get(self, "destination_table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional['outputs.ChannelIcebergDestinationDestinationTablePartitionSpec']:
+        """
+        Partition specification for the destination table. See `partition_spec` Block below.
+        """
+        return pulumi.get(self, "partition_spec")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationDestinationTablePartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionStrategy":
+            suggest = "partition_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationDestinationTablePartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationDestinationTablePartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationDestinationTablePartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partition_strategy: _builtins.str,
+                 sources: Optional[Sequence['outputs.ChannelIcebergDestinationDestinationTablePartitionSpecSource']] = None):
+        """
+        :param _builtins.str partition_strategy: Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+        :param Sequence['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs'] sources: Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+        """
+        pulumi.set(__self__, "partition_strategy", partition_strategy)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionStrategy")
+    def partition_strategy(self) -> _builtins.str:
+        """
+        Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+        """
+        return pulumi.get(self, "partition_strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.ChannelIcebergDestinationDestinationTablePartitionSpecSource']]:
+        """
+        Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+        """
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationDestinationTablePartitionSpecSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationDestinationTablePartitionSpecSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationDestinationTablePartitionSpecSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationDestinationTablePartitionSpecSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str source_name: Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+        """
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+        """
+        return pulumi.get(self, "source_name")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationSchemaEvolution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableSchemaEvolution":
+            suggest = "enable_schema_evolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationSchemaEvolution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationSchemaEvolution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationSchemaEvolution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_schema_evolution: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_schema_evolution: Whether to allow MSK to evolve the destination table's schema.
+        """
+        if enable_schema_evolution is not None:
+            pulumi.set(__self__, "enable_schema_evolution", enable_schema_evolution)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSchemaEvolution")
+    def enable_schema_evolution(self) -> Optional[_builtins.bool]:
+        """
+        Whether to allow MSK to evolve the destination table's schema.
+        """
+        return pulumi.get(self, "enable_schema_evolution")
+
+
+@pulumi.output_type
+class ChannelIcebergDestinationTableCreation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableTableCreation":
+            suggest = "enable_table_creation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelIcebergDestinationTableCreation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelIcebergDestinationTableCreation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelIcebergDestinationTableCreation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_table_creation: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_table_creation: Whether MSK creates the destination table on the customer's behalf.
+        """
+        if enable_table_creation is not None:
+            pulumi.set(__self__, "enable_table_creation", enable_table_creation)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTableCreation")
+    def enable_table_creation(self) -> Optional[_builtins.bool]:
+        """
+        Whether MSK creates the destination table on the customer's behalf.
+        """
+        return pulumi.get(self, "enable_table_creation")
+
+
+@pulumi.output_type
+class ChannelLoggingInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLoggingInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLoggingInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLoggingInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional['outputs.ChannelLoggingInfoCloudwatchLogs'] = None,
+                 firehose: Optional['outputs.ChannelLoggingInfoFirehose'] = None,
+                 s3: Optional['outputs.ChannelLoggingInfoS3'] = None):
+        """
+        :param 'ChannelLoggingInfoCloudwatchLogsArgs' cloudwatch_logs: CloudWatch Logs destination for channel logs. See `cloudwatch_logs` Block below.
+        :param 'ChannelLoggingInfoFirehoseArgs' firehose: Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+        :param 'ChannelLoggingInfoS3Args' s3: Amazon S3 destination for channel logs. See `s3` Block below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.ChannelLoggingInfoCloudwatchLogs']:
+        """
+        CloudWatch Logs destination for channel logs. See `cloudwatch_logs` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> Optional['outputs.ChannelLoggingInfoFirehose']:
+        """
+        Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+        """
+        return pulumi.get(self, "firehose")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.ChannelLoggingInfoS3']:
+        """
+        Amazon S3 destination for channel logs. See `s3` Block below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class ChannelLoggingInfoCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLoggingInfoCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLoggingInfoCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLoggingInfoCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 log_group: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Whether the CloudWatch Logs destination is enabled.
+               
+               The following arguments are optional:
+        :param _builtins.str log_group: Name of the CloudWatch log group that receives the logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the CloudWatch Logs destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[_builtins.str]:
+        """
+        Name of the CloudWatch log group that receives the logs.
+        """
+        return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class ChannelLoggingInfoFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLoggingInfoFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLoggingInfoFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLoggingInfoFirehose.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 delivery_stream: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Whether the Firehose destination is enabled.
+               
+               The following arguments are optional:
+        :param _builtins.str delivery_stream: Name of the Kinesis Data Firehose delivery stream that receives the logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the Firehose destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[_builtins.str]:
+        """
+        Name of the Kinesis Data Firehose delivery stream that receives the logs.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+
+@pulumi.output_type
+class ChannelLoggingInfoS3(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 bucket: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Whether the Amazon S3 destination is enabled.
+               
+               The following arguments are optional:
+        :param _builtins.str bucket: Name of the Amazon S3 bucket that receives the logs.
+        :param _builtins.str prefix: Prefix applied to the Amazon S3 log object keys.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the Amazon S3 destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        Name of the Amazon S3 bucket that receives the logs.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix applied to the Amazon S3 log object keys.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class ChannelS3Destination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deadLetterQueueS3":
+            suggest = "dead_letter_queue_s3"
+        elif key == "serviceExecutionRoleArn":
+            suggest = "service_execution_role_arn"
+        elif key == "dataFreshnessInSeconds":
+            suggest = "data_freshness_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3Destination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3Destination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3Destination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dead_letter_queue_s3: 'outputs.ChannelS3DestinationDeadLetterQueueS3',
+                 service_execution_role_arn: _builtins.str,
+                 storage: 'outputs.ChannelS3DestinationStorage',
+                 data_freshness_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param 'ChannelS3DestinationDeadLetterQueueS3Args' dead_letter_queue_s3: Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        :param _builtins.str service_execution_role_arn: ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+        :param 'ChannelS3DestinationStorageArgs' storage: Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+               
+               The following arguments are optional:
+        :param _builtins.int data_freshness_in_seconds: Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "storage", storage)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> 'outputs.ChannelS3DestinationDeadLetterQueueS3':
+        """
+        Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> 'outputs.ChannelS3DestinationStorage':
+        """
+        Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "storage")
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+
+@pulumi.output_type
+class ChannelS3DestinationDeadLetterQueueS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3DestinationDeadLetterQueueS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3DestinationDeadLetterQueueS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3DestinationDeadLetterQueueS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 error_output_prefix: Optional[_builtins.str] = None,
+                 expected_bucket_owner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_arn: ARN of the dead-letter Amazon S3 bucket.
+               
+               The following arguments are optional:
+        :param _builtins.str error_output_prefix: Prefix prepended to every dead-letter Amazon S3 object key.
+        :param _builtins.str expected_bucket_owner: 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        ARN of the dead-letter Amazon S3 bucket.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix prepended to every dead-letter Amazon S3 object key.
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+
+@pulumi.output_type
+class ChannelS3DestinationStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "storageClass":
+            suggest = "storage_class"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
+        elif key == "outputKeyTemplate":
+            suggest = "output_key_template"
+        elif key == "outputPrefix":
+            suggest = "output_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3DestinationStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3DestinationStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3DestinationStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 compression_type: _builtins.str,
+                 storage_class: _builtins.str,
+                 expected_bucket_owner: Optional[_builtins.str] = None,
+                 output_key_template: Optional[_builtins.str] = None,
+                 output_prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_arn: ARN of the destination Amazon S3 bucket.
+        :param _builtins.str compression_type: Compression codec applied to delivered Amazon S3 objects.
+        :param _builtins.str storage_class: Amazon S3 storage class for delivered objects.
+               
+               The following arguments are optional:
+        :param _builtins.str expected_bucket_owner: 12-digit AWS account ID expected to own the Amazon S3 bucket.
+        :param _builtins.str output_key_template: Template that controls the Amazon S3 object key for each delivered record.
+        :param _builtins.str output_prefix: Prefix prepended to every Amazon S3 object key written by the channel.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "storage_class", storage_class)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if output_key_template is not None:
+            pulumi.set(__self__, "output_key_template", output_key_template)
+        if output_prefix is not None:
+            pulumi.set(__self__, "output_prefix", output_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        ARN of the destination Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> _builtins.str:
+        """
+        Compression codec applied to delivered Amazon S3 objects.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> _builtins.str:
+        """
+        Amazon S3 storage class for delivered objects.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "storage_class")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        12-digit AWS account ID expected to own the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="outputKeyTemplate")
+    def output_key_template(self) -> Optional[_builtins.str]:
+        """
+        Template that controls the Amazon S3 object key for each delivered record.
+        """
+        return pulumi.get(self, "output_key_template")
+
+    @_builtins.property
+    @pulumi.getter(name="outputPrefix")
+    def output_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix prepended to every Amazon S3 object key written by the channel.
+        """
+        return pulumi.get(self, "output_prefix")
+
+
+@pulumi.output_type
+class ChannelTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class ChannelTopicConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordConverter":
+            suggest = "record_converter"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "recordSchema":
+            suggest = "record_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelTopicConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelTopicConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelTopicConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_converter: 'outputs.ChannelTopicConfigurationRecordConverter',
+                 topic_arn: _builtins.str,
+                 record_schema: Optional['outputs.ChannelTopicConfigurationRecordSchema'] = None):
+        """
+        :param 'ChannelTopicConfigurationRecordConverterArgs' record_converter: Configuration that controls how Apache Kafka record values are deserialized for the destination. See `record_converter` Block below.
+        :param _builtins.str topic_arn: ARN that uniquely identifies the topic.
+               
+               The following arguments are optional:
+        :param 'ChannelTopicConfigurationRecordSchemaArgs' record_schema: Schema used to validate records when the value converter requires one. See `record_schema` Block below.
+        """
+        pulumi.set(__self__, "record_converter", record_converter)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        if record_schema is not None:
+            pulumi.set(__self__, "record_schema", record_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="recordConverter")
+    def record_converter(self) -> 'outputs.ChannelTopicConfigurationRecordConverter':
+        """
+        Configuration that controls how Apache Kafka record values are deserialized for the destination. See `record_converter` Block below.
+        """
+        return pulumi.get(self, "record_converter")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        """
+        ARN that uniquely identifies the topic.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="recordSchema")
+    def record_schema(self) -> Optional['outputs.ChannelTopicConfigurationRecordSchema']:
+        """
+        Schema used to validate records when the value converter requires one. See `record_schema` Block below.
+        """
+        return pulumi.get(self, "record_schema")
+
+
+@pulumi.output_type
+class ChannelTopicConfigurationRecordConverter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueConverter":
+            suggest = "value_converter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelTopicConfigurationRecordConverter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelTopicConfigurationRecordConverter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelTopicConfigurationRecordConverter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 value_converter: _builtins.str):
+        """
+        :param _builtins.str value_converter: Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `iceberg_destination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3_destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+        """
+        pulumi.set(__self__, "value_converter", value_converter)
+
+    @_builtins.property
+    @pulumi.getter(name="valueConverter")
+    def value_converter(self) -> _builtins.str:
+        """
+        Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `iceberg_destination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3_destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+        """
+        return pulumi.get(self, "value_converter")
+
+
+@pulumi.output_type
+class ChannelTopicConfigurationRecordSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gsrArn":
+            suggest = "gsr_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelTopicConfigurationRecordSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelTopicConfigurationRecordSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelTopicConfigurationRecordSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gsr_arn: _builtins.str):
+        """
+        :param _builtins.str gsr_arn: ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+        """
+        pulumi.set(__self__, "gsr_arn", gsr_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="gsrArn")
+    def gsr_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+        """
+        return pulumi.get(self, "gsr_arn")
+
 
 @pulumi.output_type
 class ClusterBrokerNodeGroupInfo(dict):

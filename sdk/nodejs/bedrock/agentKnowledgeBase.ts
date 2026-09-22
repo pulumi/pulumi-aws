@@ -309,9 +309,12 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
      * Description of the knowledge base.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * List of failure reasons reported when the knowledge base is in a failed state.
+     */
     declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      */
     declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
@@ -329,7 +332,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      */
     declare public readonly storageConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
@@ -415,9 +418,12 @@ export interface AgentKnowledgeBaseState {
      * Description of the knowledge base.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * List of failure reasons reported when the knowledge base is in a failed state.
+     */
     failureReasons?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      */
     knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
     /**
@@ -435,7 +441,7 @@ export interface AgentKnowledgeBaseState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
@@ -462,7 +468,7 @@ export interface AgentKnowledgeBaseArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      */
     knowledgeBaseConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
@@ -480,7 +486,7 @@ export interface AgentKnowledgeBaseArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**

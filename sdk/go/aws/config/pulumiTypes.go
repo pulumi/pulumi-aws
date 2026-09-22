@@ -412,6 +412,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Bedrockagentcore *string `pulumi:"bedrockagentcore"`
 	// Use this to override the default service endpoint URL
+	Bedrockruntime *string `pulumi:"bedrockruntime"`
+	// Use this to override the default service endpoint URL
 	Billing *string `pulumi:"billing"`
 	// Use this to override the default service endpoint URL
 	Budgets *string `pulumi:"budgets"`
@@ -1065,6 +1067,8 @@ type EndpointsArgs struct {
 	Bedrockagent pulumi.StringPtrInput `pulumi:"bedrockagent"`
 	// Use this to override the default service endpoint URL
 	Bedrockagentcore pulumi.StringPtrInput `pulumi:"bedrockagentcore"`
+	// Use this to override the default service endpoint URL
+	Bedrockruntime pulumi.StringPtrInput `pulumi:"bedrockruntime"`
 	// Use this to override the default service endpoint URL
 	Billing pulumi.StringPtrInput `pulumi:"billing"`
 	// Use this to override the default service endpoint URL
@@ -1870,6 +1874,11 @@ func (o EndpointsOutput) Bedrockagent() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Bedrockagentcore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Bedrockagentcore }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Bedrockruntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Bedrockruntime }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

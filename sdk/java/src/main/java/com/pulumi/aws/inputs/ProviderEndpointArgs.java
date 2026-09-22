@@ -589,6 +589,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="bedrockruntime")
+    private @Nullable Output<String> bedrockruntime;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> bedrockruntime() {
+        return Optional.ofNullable(this.bedrockruntime);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="billing")
     private @Nullable Output<String> billing;
 
@@ -4856,6 +4871,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.bedrock = $.bedrock;
         this.bedrockagent = $.bedrockagent;
         this.bedrockagentcore = $.bedrockagentcore;
+        this.bedrockruntime = $.bedrockruntime;
         this.billing = $.billing;
         this.budgets = $.budgets;
         this.ce = $.ce;
@@ -5954,6 +5970,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bedrockagentcore(String bedrockagentcore) {
             return bedrockagentcore(Output.of(bedrockagentcore));
+        }
+
+        /**
+         * @param bedrockruntime Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockruntime(@Nullable Output<String> bedrockruntime) {
+            $.bedrockruntime = bedrockruntime;
+            return this;
+        }
+
+        /**
+         * @param bedrockruntime Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockruntime(String bedrockruntime) {
+            return bedrockruntime(Output.of(bedrockruntime));
         }
 
         /**

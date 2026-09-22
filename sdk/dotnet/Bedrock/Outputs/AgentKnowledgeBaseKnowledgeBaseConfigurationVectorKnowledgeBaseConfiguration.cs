@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string EmbeddingModelArn;
         /// <summary>
-        /// The embeddings model configuration details for the vector model used in Knowledge Base.  See `EmbeddingModelConfiguration` block for details.
+        /// Embeddings model configuration details for the vector model used in the knowledge base. See `EmbeddingModelConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration? EmbeddingModelConfiguration;
         /// <summary>
-        /// supplemental_data_storage_configuration.  See `SupplementalDataStorageConfiguration` block for details.
+        /// Supplemental data storage configuration for images extracted from multimodal documents. See `SupplementalDataStorageConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration? SupplementalDataStorageConfiguration;
 

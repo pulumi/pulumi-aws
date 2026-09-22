@@ -74,7 +74,7 @@ type LookupCustomModelResult struct {
 	// ARN associated with this model.
 	ModelArn string `pulumi:"modelArn"`
 	ModelId  string `pulumi:"modelId"`
-	// The custom model is encrypted at rest using this key.
+	// Key used to encrypt the custom model at rest.
 	ModelKmsKeyArn string `pulumi:"modelKmsKeyArn"`
 	// Model name associated with this model.
 	ModelName string `pulumi:"modelName"`
@@ -89,7 +89,7 @@ type LookupCustomModelResult struct {
 	TrainingMetrics []GetCustomModelTrainingMetric `pulumi:"trainingMetrics"`
 	// Information about the validation dataset.
 	ValidationDataConfigs []GetCustomModelValidationDataConfig `pulumi:"validationDataConfigs"`
-	// The loss metric for each validator that you provided.
+	// Loss metric for each validator that you provided.
 	ValidationMetrics []GetCustomModelValidationMetric `pulumi:"validationMetrics"`
 }
 
@@ -168,7 +168,7 @@ func (o LookupCustomModelResultOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
-// The custom model is encrypted at rest using this key.
+// Key used to encrypt the custom model at rest.
 func (o LookupCustomModelResultOutput) ModelKmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) string { return v.ModelKmsKeyArn }).(pulumi.StringOutput)
 }
@@ -207,7 +207,7 @@ func (o LookupCustomModelResultOutput) ValidationDataConfigs() GetCustomModelVal
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelValidationDataConfig { return v.ValidationDataConfigs }).(GetCustomModelValidationDataConfigArrayOutput)
 }
 
-// The loss metric for each validator that you provided.
+// Loss metric for each validator that you provided.
 func (o LookupCustomModelResultOutput) ValidationMetrics() GetCustomModelValidationMetricArrayOutput {
 	return o.ApplyT(func(v LookupCustomModelResult) []GetCustomModelValidationMetric { return v.ValidationMetrics }).(GetCustomModelValidationMetricArrayOutput)
 }

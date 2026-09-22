@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AgentAgentActionGroupActionGroupExecutor struct {
-	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-	// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-	// Only one of `customControl` or `lambda` can be specified.
+	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
 	CustomControl *string `pulumi:"customControl"`
-	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-	// Only one of `lambda` or `customControl` can be specified.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
 	Lambda *string `pulumi:"lambda"`
 }
 
@@ -35,12 +32,9 @@ type AgentAgentActionGroupActionGroupExecutorInput interface {
 }
 
 type AgentAgentActionGroupActionGroupExecutorArgs struct {
-	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-	// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-	// Only one of `customControl` or `lambda` can be specified.
+	// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
 	CustomControl pulumi.StringPtrInput `pulumi:"customControl"`
-	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-	// Only one of `lambda` or `customControl` can be specified.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
 	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
 }
 
@@ -121,15 +115,12 @@ func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupA
 	}).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
 }
 
-// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-// Only one of `customControl` or `lambda` can be specified.
+// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorOutput) CustomControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.CustomControl }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-// Only one of `lambda` or `customControl` can be specified.
+// ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.Lambda }).(pulumi.StringPtrOutput)
 }
@@ -158,9 +149,7 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Elem() AgentAgentActi
 	}).(AgentAgentActionGroupActionGroupExecutorOutput)
 }
 
-// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-// Only one of `customControl` or `lambda` can be specified.
+// Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`. To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`. Only one of `customControl` or `lambda` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) CustomControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
 		if v == nil {
@@ -170,8 +159,7 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) CustomControl() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-// Only one of `lambda` or `customControl` can be specified.
+// ARN of the Lambda function containing the business logic that is carried out upon invoking the action. Only one of `lambda` or `customControl` can be specified.
 func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
 		if v == nil {
@@ -182,11 +170,9 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.Strin
 }
 
 type AgentAgentActionGroupApiSchema struct {
-	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-	// Only one of `payload` or `s3` can be specified.
+	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
 	Payload *string `pulumi:"payload"`
-	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-	// Only one of `s3` or `payload` can be specified.
+	// Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
 	S3 *AgentAgentActionGroupApiSchemaS3 `pulumi:"s3"`
 }
 
@@ -202,11 +188,9 @@ type AgentAgentActionGroupApiSchemaInput interface {
 }
 
 type AgentAgentActionGroupApiSchemaArgs struct {
-	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-	// Only one of `payload` or `s3` can be specified.
+	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
-	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-	// Only one of `s3` or `payload` can be specified.
+	// Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
 	S3 AgentAgentActionGroupApiSchemaS3PtrInput `pulumi:"s3"`
 }
 
@@ -287,14 +271,12 @@ func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaPt
 	}).(AgentAgentActionGroupApiSchemaPtrOutput)
 }
 
-// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-// Only one of `payload` or `s3` can be specified.
+// JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
 func (o AgentAgentActionGroupApiSchemaOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
 
-// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-// Only one of `s3` or `payload` can be specified.
+// Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
 func (o AgentAgentActionGroupApiSchemaOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 { return v.S3 }).(AgentAgentActionGroupApiSchemaS3PtrOutput)
 }
@@ -323,8 +305,7 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Elem() AgentAgentActionGroupApi
 	}).(AgentAgentActionGroupApiSchemaOutput)
 }
 
-// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-// Only one of `payload` or `s3` can be specified.
+// JSON or YAML-formatted payload defining the OpenAPI schema for the action group. Only one of `payload` or `s3` can be specified.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *string {
 		if v == nil {
@@ -334,8 +315,7 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-// Only one of `s3` or `payload` can be specified.
+// Details about the S3 object containing the OpenAPI schema for the action group. Only one of `s3` or `payload` can be specified. See `s3` Block for details.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 {
 		if v == nil {
@@ -502,9 +482,7 @@ func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3ObjectKey() pulumi.StringPt
 }
 
 type AgentAgentActionGroupFunctionSchema struct {
-	// Contains a list of functions.
-	// Each function describes and action in the action group.
-	// See `memberFunctions` Block for details.
+	// List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
 	MemberFunctions *AgentAgentActionGroupFunctionSchemaMemberFunctions `pulumi:"memberFunctions"`
 }
 
@@ -520,9 +498,7 @@ type AgentAgentActionGroupFunctionSchemaInput interface {
 }
 
 type AgentAgentActionGroupFunctionSchemaArgs struct {
-	// Contains a list of functions.
-	// Each function describes and action in the action group.
-	// See `memberFunctions` Block for details.
+	// List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
 	MemberFunctions AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrInput `pulumi:"memberFunctions"`
 }
 
@@ -603,9 +579,7 @@ func (o AgentAgentActionGroupFunctionSchemaOutput) ToAgentAgentActionGroupFuncti
 	}).(AgentAgentActionGroupFunctionSchemaPtrOutput)
 }
 
-// Contains a list of functions.
-// Each function describes and action in the action group.
-// See `memberFunctions` Block for details.
+// List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
 func (o AgentAgentActionGroupFunctionSchemaOutput) MemberFunctions() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupFunctionSchema) *AgentAgentActionGroupFunctionSchemaMemberFunctions {
 		return v.MemberFunctions
@@ -636,9 +610,7 @@ func (o AgentAgentActionGroupFunctionSchemaPtrOutput) Elem() AgentAgentActionGro
 	}).(AgentAgentActionGroupFunctionSchemaOutput)
 }
 
-// Contains a list of functions.
-// Each function describes and action in the action group.
-// See `memberFunctions` Block for details.
+// List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
 func (o AgentAgentActionGroupFunctionSchemaPtrOutput) MemberFunctions() AgentAgentActionGroupFunctionSchemaMemberFunctionsPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupFunctionSchema) *AgentAgentActionGroupFunctionSchemaMemberFunctions {
 		if v == nil {
@@ -2050,11 +2022,11 @@ func (o AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput) Update() pulumi.Str
 }
 
 type AgentAgentMemoryConfiguration struct {
-	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+	// Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
 	EnabledMemoryTypes []string `pulumi:"enabledMemoryTypes"`
 	// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
 	SessionSummaryConfigurations []AgentAgentMemoryConfigurationSessionSummaryConfiguration `pulumi:"sessionSummaryConfigurations"`
-	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+	// Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 	StorageDays int `pulumi:"storageDays"`
 }
 
@@ -2070,11 +2042,11 @@ type AgentAgentMemoryConfigurationInput interface {
 }
 
 type AgentAgentMemoryConfigurationArgs struct {
-	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+	// Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
 	EnabledMemoryTypes pulumi.StringArrayInput `pulumi:"enabledMemoryTypes"`
 	// Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
 	SessionSummaryConfigurations AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayInput `pulumi:"sessionSummaryConfigurations"`
-	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+	// Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 	StorageDays pulumi.IntInput `pulumi:"storageDays"`
 }
 
@@ -2129,7 +2101,7 @@ func (o AgentAgentMemoryConfigurationOutput) ToAgentAgentMemoryConfigurationOutp
 	return o
 }
 
-// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+// Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
 func (o AgentAgentMemoryConfigurationOutput) EnabledMemoryTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentAgentMemoryConfiguration) []string { return v.EnabledMemoryTypes }).(pulumi.StringArrayOutput)
 }
@@ -2141,7 +2113,7 @@ func (o AgentAgentMemoryConfigurationOutput) SessionSummaryConfigurations() Agen
 	}).(AgentAgentMemoryConfigurationSessionSummaryConfigurationArrayOutput)
 }
 
-// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+// Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
 func (o AgentAgentMemoryConfigurationOutput) StorageDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentAgentMemoryConfiguration) int { return v.StorageDays }).(pulumi.IntOutput)
 }
@@ -2834,19 +2806,19 @@ func (o AgentAgentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentDataSourceDataSourceConfiguration struct {
-	// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+	// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
 	ConfluenceConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfiguration `pulumi:"confluenceConfiguration"`
-	// Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+	// Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
 	ManagedKnowledgeBaseConnectorConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration `pulumi:"managedKnowledgeBaseConnectorConfiguration"`
-	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+	// Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
 	S3Configuration *AgentDataSourceDataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+	// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
 	SalesforceConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfiguration `pulumi:"salesforceConfiguration"`
-	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+	// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
 	SharePointConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfiguration `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
 	Type string `pulumi:"type"`
-	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+	// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
 	WebConfiguration *AgentDataSourceDataSourceConfigurationWebConfiguration `pulumi:"webConfiguration"`
 }
 
@@ -2862,19 +2834,19 @@ type AgentDataSourceDataSourceConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationArgs struct {
-	// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+	// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
 	ConfluenceConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
-	// Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+	// Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
 	ManagedKnowledgeBaseConnectorConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrInput `pulumi:"managedKnowledgeBaseConnectorConfiguration"`
-	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+	// Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
 	S3Configuration AgentDataSourceDataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
-	// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+	// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
 	SalesforceConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
-	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+	// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
 	SharePointConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+	// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
 	WebConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput `pulumi:"webConfiguration"`
 }
 
@@ -2955,35 +2927,35 @@ func (o AgentDataSourceDataSourceConfigurationOutput) ToAgentDataSourceDataSourc
 	}).(AgentDataSourceDataSourceConfigurationPtrOutput)
 }
 
-// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) ConfluenceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
 		return v.ConfluenceConfiguration
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
 }
 
-// Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+// Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) ManagedKnowledgeBaseConnectorConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration {
 		return v.ManagedKnowledgeBaseConnectorConfiguration
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput)
 }
 
-// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+// Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
-// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) SalesforceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
 		return v.SalesforceConfiguration
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
 }
 
-// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) SharePointConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfiguration {
 		return v.SharePointConfiguration
@@ -2995,7 +2967,7 @@ func (o AgentDataSourceDataSourceConfigurationOutput) Type() pulumi.StringOutput
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
 		return v.WebConfiguration
@@ -3026,7 +2998,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Elem() AgentDataSourceD
 	}).(AgentDataSourceDataSourceConfigurationOutput)
 }
 
-// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) ConfluenceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
 		if v == nil {
@@ -3036,7 +3008,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) ConfluenceConfiguration
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
 }
 
-// Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+// Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) ManagedKnowledgeBaseConnectorConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration {
 		if v == nil {
@@ -3046,7 +3018,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) ManagedKnowledgeBaseCon
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput)
 }
 
-// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+// Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
 		if v == nil {
@@ -3056,7 +3028,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() Agent
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
-// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) SalesforceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
 		if v == nil {
@@ -3066,7 +3038,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) SalesforceConfiguration
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
 }
 
-// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) SharePointConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfiguration {
 		if v == nil {
@@ -3086,7 +3058,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
 		if v == nil {
@@ -3097,8 +3069,10 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) WebConfiguration() Agen
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfiguration struct {
+	// Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+	SourceConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput values.
@@ -3113,8 +3087,10 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput interfac
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs struct {
+	// Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+	SourceConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ElementType() reflect.Type {
@@ -3194,12 +3170,14 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ToA
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
 }
 
+// Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
 		return v.SourceConfiguration
@@ -3230,6 +3208,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput)
 }
 
+// Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
 		if v == nil {
@@ -3239,6 +3218,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
 		if v == nil {
@@ -3249,7 +3229,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) 
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -3265,7 +3245,7 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -3346,7 +3326,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
 		return v.FilterConfiguration
@@ -3377,7 +3357,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
 		if v == nil {
@@ -3388,9 +3368,9 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type string `pulumi:"type"`
 }
 
@@ -3406,9 +3386,9 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3489,14 +3469,14 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		return v.PatternObjectFilters
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) string {
 		return v.Type
@@ -3527,7 +3507,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		if v == nil {
@@ -3537,7 +3517,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) *string {
 		if v == nil {
@@ -3548,9 +3528,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
 }
 
@@ -3566,9 +3544,7 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
 }
 
@@ -3623,9 +3599,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	return o
 }
 
-// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-//
-// Each filter object should contain the following configuration:
+// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
 		return v.Filters
@@ -3653,9 +3627,11 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
 }
 
@@ -3671,9 +3647,11 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
 }
 
@@ -3728,19 +3706,21 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	return o
 }
 
+// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
+// One or more inclusion regular expression patterns to include object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// The supported object type or content type of the data source.
+// Object type or content type of the data source.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
 		return v.ObjectType
@@ -3768,13 +3748,13 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType string `pulumi:"hostType"`
-	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl string `pulumi:"hostUrl"`
 }
 
@@ -3790,13 +3770,13 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigur
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType pulumi.StringInput `pulumi:"hostType"`
-	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
 }
 
@@ -3877,28 +3857,28 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
 		return v.AuthType
 	}).(pulumi.StringOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) HostType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
 		return v.HostType
 	}).(pulumi.StringOutput)
 }
 
-// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
 		return v.HostUrl
@@ -3929,7 +3909,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -3939,7 +3919,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -3949,7 +3929,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) HostType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -3959,7 +3939,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -3972,9 +3952,9 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration struct {
 	// JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
 	ConnectorParameters *string `pulumi:"connectorParameters"`
-	// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+	// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
 	DeletionProtectionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration `pulumi:"deletionProtectionConfiguration"`
-	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 	MediaExtractionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
 }
 
@@ -3992,9 +3972,9 @@ type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigur
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs struct {
 	// JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
 	ConnectorParameters pulumi.StringPtrInput `pulumi:"connectorParameters"`
-	// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+	// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
 	DeletionProtectionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrInput `pulumi:"deletionProtectionConfiguration"`
-	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+	// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 	MediaExtractionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrInput `pulumi:"mediaExtractionConfiguration"`
 }
 
@@ -4082,14 +4062,14 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationOutput) DeletionProtectionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration {
 		return v.DeletionProtectionConfiguration
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrOutput)
 }
 
-// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationOutput) MediaExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
 		return v.MediaExtractionConfiguration
@@ -4130,7 +4110,7 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+// Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput) DeletionProtectionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration {
 		if v == nil {
@@ -4140,7 +4120,7 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationPtrOutput)
 }
 
-// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+// Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationPtrOutput) MediaExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
 		if v == nil {
@@ -4311,11 +4291,11 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 }
 
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration struct {
-	// Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+	// Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
 	AudioExtractionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration `pulumi:"audioExtractionConfiguration"`
-	// Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+	// Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
 	ImageExtractionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration `pulumi:"imageExtractionConfiguration"`
-	// Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+	// Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
 	VideoExtractionConfiguration *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration `pulumi:"videoExtractionConfiguration"`
 }
 
@@ -4331,11 +4311,11 @@ type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigur
 }
 
 type AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs struct {
-	// Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+	// Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
 	AudioExtractionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationPtrInput `pulumi:"audioExtractionConfiguration"`
-	// Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+	// Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
 	ImageExtractionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrInput `pulumi:"imageExtractionConfiguration"`
-	// Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+	// Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
 	VideoExtractionConfiguration AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationPtrInput `pulumi:"videoExtractionConfiguration"`
 }
 
@@ -4416,21 +4396,21 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput)
 }
 
-// Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+// Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationOutput) AudioExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration {
 		return v.AudioExtractionConfiguration
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationPtrOutput)
 }
 
-// Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+// Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationOutput) ImageExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration {
 		return v.ImageExtractionConfiguration
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrOutput)
 }
 
-// Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+// Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationOutput) VideoExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration {
 		return v.VideoExtractionConfiguration
@@ -4461,7 +4441,7 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationOutput)
 }
 
-// Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+// Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput) AudioExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration {
 		if v == nil {
@@ -4471,7 +4451,7 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationPtrOutput)
 }
 
-// Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+// Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput) ImageExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration {
 		if v == nil {
@@ -4481,7 +4461,7 @@ func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfi
 	}).(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationPtrOutput)
 }
 
-// Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+// Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationPtrOutput) VideoExtractionConfiguration() AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration) *AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration {
 		if v == nil {
@@ -5084,8 +5064,10 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) Inclusio
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfiguration struct {
+	// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+	SourceConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput values.
@@ -5100,8 +5082,10 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput interfac
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs struct {
+	// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+	SourceConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ElementType() reflect.Type {
@@ -5181,12 +5165,14 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ToA
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
 }
 
+// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
 		return v.SourceConfiguration
@@ -5217,6 +5203,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput)
 }
 
+// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
 		if v == nil {
@@ -5226,6 +5213,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
 		if v == nil {
@@ -5236,7 +5224,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) 
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -5252,7 +5240,7 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -5333,7 +5321,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
 		return v.FilterConfiguration
@@ -5364,7 +5352,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
 		if v == nil {
@@ -5375,9 +5363,9 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type string `pulumi:"type"`
 }
 
@@ -5393,9 +5381,9 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5476,14 +5464,14 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		return v.PatternObjectFilters
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) string {
 		return v.Type
@@ -5514,7 +5502,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		if v == nil {
@@ -5524,7 +5512,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) *string {
 		if v == nil {
@@ -5535,9 +5523,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
 }
 
@@ -5553,9 +5539,7 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
 }
 
@@ -5610,9 +5594,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	return o
 }
 
-// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-//
-// Each filter object should contain the following configuration:
+// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
 		return v.Filters
@@ -5640,9 +5622,11 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
 }
 
@@ -5658,9 +5642,11 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
 }
 
@@ -5715,19 +5701,21 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	return o
 }
 
+// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
+// One or more inclusion regular expression patterns to include object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// The supported object type or content type of the data source.
+// Object type or content type of the data source.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
 		return v.ObjectType
@@ -5755,11 +5743,11 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl string `pulumi:"hostUrl"`
 }
 
@@ -5775,11 +5763,11 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigur
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
 }
 
@@ -5860,21 +5848,21 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
 		return v.AuthType
 	}).(pulumi.StringOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
 		return v.HostUrl
@@ -5905,7 +5893,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -5915,7 +5903,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -5925,7 +5913,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+// Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -5936,8 +5924,10 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfiguration struct {
+	// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+	SourceConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationSharePointConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput values.
@@ -5952,8 +5942,10 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationInput interfac
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs struct {
+	// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+	SourceConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ElementType() reflect.Type {
@@ -6033,12 +6025,14 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ToA
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
 }
 
+// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
 		return v.SourceConfiguration
@@ -6069,6 +6063,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput)
 }
 
+// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
 		if v == nil {
@@ -6078,6 +6073,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) 
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
 		if v == nil {
@@ -6088,7 +6084,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) 
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -6104,7 +6100,7 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs struct {
-	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 	FilterConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -6185,7 +6181,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
 		return v.FilterConfiguration
@@ -6216,7 +6212,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput)
 }
 
-// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+// Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
 		if v == nil {
@@ -6227,9 +6223,9 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type string `pulumi:"type"`
 }
 
@@ -6245,9 +6241,9 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
-	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 	PatternObjectFilters AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
-	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6328,14 +6324,14 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		return v.PatternObjectFilters
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) string {
 		return v.Type
@@ -6366,7 +6362,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput)
 }
 
-// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+// Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
 		if v == nil {
@@ -6376,7 +6372,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
 }
 
-// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+// Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) *string {
 		if v == nil {
@@ -6387,9 +6383,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
 }
 
@@ -6405,9 +6399,7 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
-	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-	//
-	// Each filter object should contain the following configuration:
+	// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 	Filters AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
 }
 
@@ -6462,9 +6454,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	return o
 }
 
-// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-//
-// Each filter object should contain the following configuration:
+// Filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter.filters` Block for details.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
 		return v.Filters
@@ -6492,9 +6482,11 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
 }
 
@@ -6510,9 +6502,11 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// One or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
-	// The supported object type or content type of the data source.
+	// Object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
 }
 
@@ -6567,19 +6561,21 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	return o
 }
 
+// One or more exclusion regular expression patterns to exclude object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
+// One or more inclusion regular expression patterns to include object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// The supported object type or content type of the data source.
+// Object type or content type of the data source.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
 		return v.ObjectType
@@ -6607,17 +6603,17 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The domain of your SharePoint instance or site URL/URLs.
+	// Domain of your SharePoint instance or site URL/URLs.
 	Domain string `pulumi:"domain"`
-	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType string `pulumi:"hostType"`
-	// A list of one or more SharePoint site URLs.
+	// One or more SharePoint site URLs.
 	SiteUrls []string `pulumi:"siteUrls"`
-	// The identifier of your Microsoft 365 tenant.
+	// Identifier of your Microsoft 365 tenant.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -6633,17 +6629,17 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigur
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs struct {
-	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The domain of your SharePoint instance or site URL/URLs.
+	// Domain of your SharePoint instance or site URL/URLs.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType pulumi.StringInput `pulumi:"hostType"`
-	// A list of one or more SharePoint site URLs.
+	// One or more SharePoint site URLs.
 	SiteUrls pulumi.StringArrayInput `pulumi:"siteUrls"`
-	// The identifier of your Microsoft 365 tenant.
+	// Identifier of your Microsoft 365 tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -6724,42 +6720,42 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
 		return v.AuthType
 	}).(pulumi.StringOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// The domain of your SharePoint instance or site URL/URLs.
+// Domain of your SharePoint instance or site URL/URLs.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
 		return v.Domain
 	}).(pulumi.StringOutput)
 }
 
-// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) HostType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
 		return v.HostType
 	}).(pulumi.StringOutput)
 }
 
-// A list of one or more SharePoint site URLs.
+// One or more SharePoint site URLs.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) SiteUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) []string {
 		return v.SiteUrls
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identifier of your Microsoft 365 tenant.
+// Identifier of your Microsoft 365 tenant.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		return v.TenantId
@@ -6790,7 +6786,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput)
 }
 
-// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+// Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6800,7 +6796,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6810,7 +6806,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain of your SharePoint instance or site URL/URLs.
+// Domain of your SharePoint instance or site URL/URLs.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6820,7 +6816,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+// Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) HostType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6830,7 +6826,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of one or more SharePoint site URLs.
+// One or more SharePoint site URLs.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) SiteUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) []string {
 		if v == nil {
@@ -6840,7 +6836,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identifier of your Microsoft 365 tenant.
+// Identifier of your Microsoft 365 tenant.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6851,8 +6847,10 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfiguration struct {
+	// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+	SourceConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationWebConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationOutput values.
@@ -6867,8 +6865,10 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationArgs struct {
+	// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
 	CrawlerConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
-	SourceConfiguration  AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+	// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+	SourceConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ElementType() reflect.Type {
@@ -6948,12 +6948,14 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ToAgentDat
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput)
 }
 
+// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
 		return v.CrawlerConfiguration
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
 		return v.SourceConfiguration
@@ -6984,6 +6986,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) Elem() 
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationOutput)
 }
 
+// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
 		if v == nil {
@@ -6993,6 +6996,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) Crawler
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
 		if v == nil {
@@ -7003,15 +7007,15 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) SourceC
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration struct {
-	// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+	// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 	CrawlerLimits *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits `pulumi:"crawlerLimits"`
-	// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	// List of one or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
 	// Scope of what is crawled for your URLs.
 	Scope *string `pulumi:"scope"`
-	// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 	UserAgent *string `pulumi:"userAgent"`
 }
 
@@ -7027,15 +7031,15 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationI
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs struct {
-	// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+	// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 	CrawlerLimits AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
-	// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	// List of one or more inclusion regular expression patterns to include object types that match the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
 	// Scope of what is crawled for your URLs.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 	UserAgent pulumi.StringPtrInput `pulumi:"userAgent"`
 }
 
@@ -7116,21 +7120,21 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
 		return v.CrawlerLimits
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+// List of one or more inclusion regular expression patterns to include object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.InclusionFilters
@@ -7144,7 +7148,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		return v.UserAgent
@@ -7175,7 +7179,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput)
 }
 
-// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+// Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
 		if v == nil {
@@ -7185,7 +7189,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -7195,7 +7199,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+// List of one or more inclusion regular expression patterns to include object types that match the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -7215,7 +7219,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -7386,7 +7390,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration struct {
-	// The URL configuration of your web data source. See `urlConfiguration` block for details.
+	// URL configuration of your web data source. See `urlConfiguration` Block for details.
 	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration `pulumi:"urlConfiguration"`
 }
 
@@ -7402,7 +7406,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationIn
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs struct {
-	// The URL configuration of your web data source. See `urlConfiguration` block for details.
+	// URL configuration of your web data source. See `urlConfiguration` Block for details.
 	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput `pulumi:"urlConfiguration"`
 }
 
@@ -7483,7 +7487,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
 }
 
-// The URL configuration of your web data source. See `urlConfiguration` block for details.
+// URL configuration of your web data source. See `urlConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
 		return v.UrlConfiguration
@@ -7514,7 +7518,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput)
 }
 
-// The URL configuration of your web data source. See `urlConfiguration` block for details.
+// URL configuration of your web data source. See `urlConfiguration` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
 		if v == nil {
@@ -7525,7 +7529,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration struct {
-	// List of one or more seed URLs to crawl. See `seedUrls` block for details.
+	// List of one or more seed URLs to crawl. See `seedUrls` Block for details.
 	SeedUrls []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl `pulumi:"seedUrls"`
 }
 
@@ -7541,7 +7545,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUr
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs struct {
-	// List of one or more seed URLs to crawl. See `seedUrls` block for details.
+	// List of one or more seed URLs to crawl. See `seedUrls` Block for details.
 	SeedUrls AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput `pulumi:"seedUrls"`
 }
 
@@ -7622,7 +7626,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
 }
 
-// List of one or more seed URLs to crawl. See `seedUrls` block for details.
+// List of one or more seed URLs to crawl. See `seedUrls` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
 		return v.SeedUrls
@@ -7653,7 +7657,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput)
 }
 
-// List of one or more seed URLs to crawl. See `seedUrls` block for details.
+// List of one or more seed URLs to crawl. See `seedUrls` Block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
 		if v == nil {
@@ -8075,11 +8079,11 @@ func (o AgentDataSourceTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentDataSourceVectorIngestionConfiguration struct {
-	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 	ChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration `pulumi:"chunkingConfiguration"`
-	// Configuration for custom transformation of data source documents.
+	// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 	CustomTransformationConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
-	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+	// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
 	ParsingConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfiguration `pulumi:"parsingConfiguration"`
 }
 
@@ -8095,11 +8099,11 @@ type AgentDataSourceVectorIngestionConfigurationInput interface {
 }
 
 type AgentDataSourceVectorIngestionConfigurationArgs struct {
-	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 	ChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
-	// Configuration for custom transformation of data source documents.
+	// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 	CustomTransformationConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
-	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+	// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
 	ParsingConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput `pulumi:"parsingConfiguration"`
 }
 
@@ -8180,21 +8184,21 @@ func (o AgentDataSourceVectorIngestionConfigurationOutput) ToAgentDataSourceVect
 	}).(AgentDataSourceVectorIngestionConfigurationPtrOutput)
 }
 
-// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
 		return v.ChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
-// Configuration for custom transformation of data source documents.
+// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
 		return v.CustomTransformationConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
 }
 
-// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
 		return v.ParsingConfiguration
@@ -8225,7 +8229,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) Elem() AgentDataSo
 	}).(AgentDataSourceVectorIngestionConfigurationOutput)
 }
 
-// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
 		if v == nil {
@@ -8235,7 +8239,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
-// Configuration for custom transformation of data source documents.
+// Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
 		if v == nil {
@@ -8245,7 +8249,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) CustomTransformati
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
 }
 
-// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+// Configuration for custom parsing of data source documents. See `parsingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
 		if v == nil {
@@ -8258,11 +8262,11 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ParsingConfigurati
 type AgentDataSourceVectorIngestionConfigurationChunkingConfiguration struct {
 	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy string `pulumi:"chunkingStrategy"`
-	// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+	// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 	FixedSizeChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
-	// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+	// Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
 	HierarchicalChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration `pulumi:"hierarchicalChunkingConfiguration"`
-	// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+	// Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
 	SemanticChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration `pulumi:"semanticChunkingConfiguration"`
 }
 
@@ -8280,11 +8284,11 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput inter
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs struct {
 	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy pulumi.StringInput `pulumi:"chunkingStrategy"`
-	// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+	// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 	FixedSizeChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
-	// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+	// Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
 	HierarchicalChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput `pulumi:"hierarchicalChunkingConfiguration"`
-	// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+	// Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
 	SemanticChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput `pulumi:"semanticChunkingConfiguration"`
 }
 
@@ -8372,21 +8376,21 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) 
 	}).(pulumi.StringOutput)
 }
 
-// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		return v.FixedSizeChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput)
 }
 
-// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+// Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) HierarchicalChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
 		return v.HierarchicalChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
 }
 
-// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+// Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) SemanticChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
 		return v.SemanticChunkingConfiguration
@@ -8427,7 +8431,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
+// Configurations for when you choose fixed-size chunking. Requires `chunkingStrategy` as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		if v == nil {
@@ -8437,7 +8441,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput)
 }
 
-// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+// Configurations for when you choose hierarchical chunking. Requires `chunkingStrategy` as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) HierarchicalChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
 		if v == nil {
@@ -8447,7 +8451,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
 }
 
-// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+// Configurations for when you choose semantic chunking. Requires `chunkingStrategy` as `SEMANTIC`. See `semanticChunkingConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) SemanticChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
 		if v == nil {
@@ -8618,9 +8622,9 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration struct {
-	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+	// Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
 	LevelConfigurations []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration `pulumi:"levelConfigurations"`
-	// The number of tokens to repeat across chunks in the same layer.
+	// Number of tokens to repeat across chunks in the same layer.
 	OverlapTokens int `pulumi:"overlapTokens"`
 }
 
@@ -8636,9 +8640,9 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchica
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs struct {
-	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+	// Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
 	LevelConfigurations AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
-	// The number of tokens to repeat across chunks in the same layer.
+	// Number of tokens to repeat across chunks in the same layer.
 	OverlapTokens pulumi.IntInput `pulumi:"overlapTokens"`
 }
 
@@ -8719,14 +8723,14 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
 }
 
-// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+// Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) LevelConfigurations() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
 		return v.LevelConfigurations
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput)
 }
 
-// The number of tokens to repeat across chunks in the same layer.
+// Number of tokens to repeat across chunks in the same layer.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) int {
 		return v.OverlapTokens
@@ -8757,7 +8761,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput)
 }
 
-// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+// Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) LevelConfigurations() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
 		if v == nil {
@@ -8767,7 +8771,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput)
 }
 
-// The number of tokens to repeat across chunks in the same layer.
+// Number of tokens to repeat across chunks in the same layer.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) *int {
 		if v == nil {
@@ -8778,7 +8782,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration struct {
-	// The maximum number of tokens that a chunk can contain in this layer.
+	// Maximum number of tokens that a chunk can contain in this layer.
 	MaxTokens int `pulumi:"maxTokens"`
 }
 
@@ -8794,7 +8798,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchica
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs struct {
-	// The maximum number of tokens that a chunk can contain in this layer.
+	// Maximum number of tokens that a chunk can contain in this layer.
 	MaxTokens pulumi.IntInput `pulumi:"maxTokens"`
 }
 
@@ -8849,7 +8853,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 	return o
 }
 
-// The maximum number of tokens that a chunk can contain in this layer.
+// Maximum number of tokens that a chunk can contain in this layer.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) MaxTokens() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration) int {
 		return v.MaxTokens
@@ -8877,11 +8881,11 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration struct {
-	// The dissimilarity threshold for splitting chunks.
+	// Dissimilarity threshold for splitting chunks.
 	BreakpointPercentileThreshold int `pulumi:"breakpointPercentileThreshold"`
-	// The buffer size.
+	// Buffer size.
 	BufferSize int `pulumi:"bufferSize"`
-	// The maximum number of tokens a chunk can contain.
+	// Maximum number of tokens a chunk can contain.
 	MaxToken int `pulumi:"maxToken"`
 }
 
@@ -8897,11 +8901,11 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChu
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs struct {
-	// The dissimilarity threshold for splitting chunks.
+	// Dissimilarity threshold for splitting chunks.
 	BreakpointPercentileThreshold pulumi.IntInput `pulumi:"breakpointPercentileThreshold"`
-	// The buffer size.
+	// Buffer size.
 	BufferSize pulumi.IntInput `pulumi:"bufferSize"`
-	// The maximum number of tokens a chunk can contain.
+	// Maximum number of tokens a chunk can contain.
 	MaxToken pulumi.IntInput `pulumi:"maxToken"`
 }
 
@@ -8982,21 +8986,21 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput)
 }
 
-// The dissimilarity threshold for splitting chunks.
+// Dissimilarity threshold for splitting chunks.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.BreakpointPercentileThreshold
 	}).(pulumi.IntOutput)
 }
 
-// The buffer size.
+// Buffer size.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BufferSize() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.BufferSize
 	}).(pulumi.IntOutput)
 }
 
-// The maximum number of tokens a chunk can contain.
+// Maximum number of tokens a chunk can contain.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) MaxToken() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.MaxToken
@@ -9027,7 +9031,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput)
 }
 
-// The dissimilarity threshold for splitting chunks.
+// Dissimilarity threshold for splitting chunks.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
@@ -9037,7 +9041,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(pulumi.IntPtrOutput)
 }
 
-// The buffer size.
+// Buffer size.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
@@ -9047,7 +9051,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of tokens a chunk can contain.
+// Maximum number of tokens a chunk can contain.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) MaxToken() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
@@ -9058,9 +9062,9 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration struct {
-	// The intermediate storage for custom transformation.
+	// Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
 	IntermediateStorage *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage `pulumi:"intermediateStorage"`
-	// A custom processing step for documents moving through the data source ingestion pipeline.
+	// Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
 	Transformation *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation `pulumi:"transformation"`
 }
 
@@ -9076,9 +9080,9 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs struct {
-	// The intermediate storage for custom transformation.
+	// Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
 	IntermediateStorage AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput `pulumi:"intermediateStorage"`
-	// A custom processing step for documents moving through the data source ingestion pipeline.
+	// Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
 	Transformation AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput `pulumi:"transformation"`
 }
 
@@ -9159,14 +9163,14 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
 }
 
-// The intermediate storage for custom transformation.
+// Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) IntermediateStorage() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
 		return v.IntermediateStorage
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
 }
 
-// A custom processing step for documents moving through the data source ingestion pipeline.
+// Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
 		return v.Transformation
@@ -9197,7 +9201,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput)
 }
 
-// The intermediate storage for custom transformation.
+// Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) IntermediateStorage() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
 		if v == nil {
@@ -9207,7 +9211,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
 }
 
-// A custom processing step for documents moving through the data source ingestion pipeline.
+// Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
 		if v == nil {
@@ -9218,7 +9222,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage struct {
-	// Configuration block for intermedia S3 storage.
+	// Configuration block for intermediate S3 storage. See `s3Location` Block for details.
 	S3Location *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location `pulumi:"s3Location"`
 }
 
@@ -9234,7 +9238,7 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs struct {
-	// Configuration block for intermedia S3 storage.
+	// Configuration block for intermediate S3 storage. See `s3Location` Block for details.
 	S3Location AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput `pulumi:"s3Location"`
 }
 
@@ -9315,7 +9319,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
 }
 
-// Configuration block for intermedia S3 storage.
+// Configuration block for intermediate S3 storage. See `s3Location` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) S3Location() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
 		return v.S3Location
@@ -9346,7 +9350,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput)
 }
 
-// Configuration block for intermedia S3 storage.
+// Configuration block for intermediate S3 storage. See `s3Location` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) S3Location() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
 		if v == nil {
@@ -9498,7 +9502,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation struct {
 	// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 	StepToApply string `pulumi:"stepToApply"`
-	// The lambda function that processes documents.
+	// Lambda function that processes documents. See `transformationFunction` Block for details.
 	TransformationFunction *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction `pulumi:"transformationFunction"`
 }
 
@@ -9516,7 +9520,7 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs struct {
 	// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 	StepToApply pulumi.StringInput `pulumi:"stepToApply"`
-	// The lambda function that processes documents.
+	// Lambda function that processes documents. See `transformationFunction` Block for details.
 	TransformationFunction AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput `pulumi:"transformationFunction"`
 }
 
@@ -9604,7 +9608,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(pulumi.StringOutput)
 }
 
-// The lambda function that processes documents.
+// Lambda function that processes documents. See `transformationFunction` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
 		return v.TransformationFunction
@@ -9645,7 +9649,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lambda function that processes documents.
+// Lambda function that processes documents. See `transformationFunction` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
 		if v == nil {
@@ -9656,7 +9660,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction struct {
-	// The configuration of the lambda function.
+	// Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
 	TransformationLambdaConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -9672,7 +9676,7 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs struct {
-	// The configuration of the lambda function.
+	// Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
 	TransformationLambdaConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -9753,7 +9757,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
 }
 
-// The configuration of the lambda function.
+// Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
 		return v.TransformationLambdaConfiguration
@@ -9784,7 +9788,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput)
 }
 
-// The configuration of the lambda function.
+// Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
 		if v == nil {
@@ -9795,7 +9799,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration struct {
-	// The ARN of the lambda to use for custom transformation.
+	// ARN of the Lambda to use for custom transformation.
 	LambdaArn string `pulumi:"lambdaArn"`
 }
 
@@ -9811,7 +9815,7 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs struct {
-	// The ARN of the lambda to use for custom transformation.
+	// ARN of the Lambda to use for custom transformation.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 }
 
@@ -9892,7 +9896,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput)
 }
 
-// The ARN of the lambda to use for custom transformation.
+// ARN of the Lambda to use for custom transformation.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) string {
 		return v.LambdaArn
@@ -9923,7 +9927,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput)
 }
 
-// The ARN of the lambda to use for custom transformation.
+// ARN of the Lambda to use for custom transformation.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) *string {
 		if v == nil {
@@ -9934,11 +9938,11 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfiguration struct {
-	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
 	BedrockDataAutomationConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration `pulumi:"bedrockDataAutomationConfiguration"`
-	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 	BedrockFoundationModelConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
-	// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 	ParsingStrategy string `pulumi:"parsingStrategy"`
 }
 
@@ -9954,11 +9958,11 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput interf
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs struct {
-	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
 	BedrockDataAutomationConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput `pulumi:"bedrockDataAutomationConfiguration"`
-	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 	BedrockFoundationModelConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
-	// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+	// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 	ParsingStrategy pulumi.StringInput `pulumi:"parsingStrategy"`
 }
 
@@ -10039,21 +10043,21 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) T
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
 }
 
-// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) BedrockDataAutomationConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
 		return v.BedrockDataAutomationConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
 }
 
-// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
 		return v.BedrockFoundationModelConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ParsingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) string {
 		return v.ParsingStrategy
@@ -10084,7 +10088,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput)
 }
 
-// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) BedrockDataAutomationConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
 		if v == nil {
@@ -10094,7 +10098,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
 }
 
-// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
 		if v == nil {
@@ -10104,7 +10108,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ParsingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *string {
 		if v == nil {
@@ -10115,7 +10119,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration struct {
-	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+	// Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
 	ParsingModality *string `pulumi:"parsingModality"`
 }
 
@@ -10131,7 +10135,7 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataA
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs struct {
-	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+	// Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
 	ParsingModality pulumi.StringPtrInput `pulumi:"parsingModality"`
 }
 
@@ -10212,7 +10216,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDa
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
 }
 
-// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+// Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ParsingModality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) *string {
 		return v.ParsingModality
@@ -10243,7 +10247,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDa
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput)
 }
 
-// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+// Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) ParsingModality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) *string {
 		if v == nil {
@@ -10254,11 +10258,11 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDa
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration struct {
-	// The ARN of the model used to parse documents
+	// ARN of the model used to parse documents.
 	ModelArn string `pulumi:"modelArn"`
-	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+	// Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
 	ParsingModality *string `pulumi:"parsingModality"`
-	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+	// Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
 	ParsingPrompt *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt `pulumi:"parsingPrompt"`
 }
 
@@ -10274,11 +10278,11 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFound
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs struct {
-	// The ARN of the model used to parse documents
+	// ARN of the model used to parse documents.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
-	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+	// Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
 	ParsingModality pulumi.StringPtrInput `pulumi:"parsingModality"`
-	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+	// Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
 	ParsingPrompt AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput `pulumi:"parsingPrompt"`
 }
 
@@ -10359,21 +10363,21 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// The ARN of the model used to parse documents
+// ARN of the model used to parse documents.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) string {
 		return v.ModelArn
 	}).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+// Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ParsingModality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
 		return v.ParsingModality
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+// Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ParsingPrompt() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
 		return v.ParsingPrompt
@@ -10404,7 +10408,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput)
 }
 
-// The ARN of the model used to parse documents
+// ARN of the model used to parse documents.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
 		if v == nil {
@@ -10414,7 +10418,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+// Whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ParsingModality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
 		if v == nil {
@@ -10424,7 +10428,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+// Instructions for interpreting the contents of the document. See `parsingPrompt` Block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
 		if v == nil {
@@ -10574,9 +10578,9 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 }
 
 type AgentFlowDefinition struct {
-	// A list of connection definitions in the flow. See Connection for more information.
+	// List of connection definitions in the flow. See `definition.connection` Block for details.
 	Connections []AgentFlowDefinitionConnection `pulumi:"connections"`
-	// A list of node definitions in the flow. See Node for more information.
+	// List of node definitions in the flow. See `definition.node` Block for details.
 	Nodes []AgentFlowDefinitionNode `pulumi:"nodes"`
 }
 
@@ -10592,9 +10596,9 @@ type AgentFlowDefinitionInput interface {
 }
 
 type AgentFlowDefinitionArgs struct {
-	// A list of connection definitions in the flow. See Connection for more information.
+	// List of connection definitions in the flow. See `definition.connection` Block for details.
 	Connections AgentFlowDefinitionConnectionArrayInput `pulumi:"connections"`
-	// A list of node definitions in the flow. See Node for more information.
+	// List of node definitions in the flow. See `definition.node` Block for details.
 	Nodes AgentFlowDefinitionNodeArrayInput `pulumi:"nodes"`
 }
 
@@ -10675,12 +10679,12 @@ func (o AgentFlowDefinitionOutput) ToAgentFlowDefinitionPtrOutputWithContext(ctx
 	}).(AgentFlowDefinitionPtrOutput)
 }
 
-// A list of connection definitions in the flow. See Connection for more information.
+// List of connection definitions in the flow. See `definition.connection` Block for details.
 func (o AgentFlowDefinitionOutput) Connections() AgentFlowDefinitionConnectionArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinition) []AgentFlowDefinitionConnection { return v.Connections }).(AgentFlowDefinitionConnectionArrayOutput)
 }
 
-// A list of node definitions in the flow. See Node for more information.
+// List of node definitions in the flow. See `definition.node` Block for details.
 func (o AgentFlowDefinitionOutput) Nodes() AgentFlowDefinitionNodeArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinition) []AgentFlowDefinitionNode { return v.Nodes }).(AgentFlowDefinitionNodeArrayOutput)
 }
@@ -10709,7 +10713,7 @@ func (o AgentFlowDefinitionPtrOutput) Elem() AgentFlowDefinitionOutput {
 	}).(AgentFlowDefinitionOutput)
 }
 
-// A list of connection definitions in the flow. See Connection for more information.
+// List of connection definitions in the flow. See `definition.connection` Block for details.
 func (o AgentFlowDefinitionPtrOutput) Connections() AgentFlowDefinitionConnectionArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinition) []AgentFlowDefinitionConnection {
 		if v == nil {
@@ -10719,7 +10723,7 @@ func (o AgentFlowDefinitionPtrOutput) Connections() AgentFlowDefinitionConnectio
 	}).(AgentFlowDefinitionConnectionArrayOutput)
 }
 
-// A list of node definitions in the flow. See Node for more information.
+// List of node definitions in the flow. See `definition.node` Block for details.
 func (o AgentFlowDefinitionPtrOutput) Nodes() AgentFlowDefinitionNodeArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinition) []AgentFlowDefinitionNode {
 		if v == nil {
@@ -10730,15 +10734,17 @@ func (o AgentFlowDefinitionPtrOutput) Nodes() AgentFlowDefinitionNodeArrayOutput
 }
 
 type AgentFlowDefinitionConnection struct {
-	// Configuration of the connection. See Connection Configuration for more information.
+	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration *AgentFlowDefinitionConnectionConfiguration `pulumi:"configuration"`
-	// A name for the connection that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// The node that the connection starts at.
+	// Node that the connection starts at.
 	Source string `pulumi:"source"`
-	// The node that the connection ends at.
+	// Node that the connection ends at.
 	Target string `pulumi:"target"`
-	// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -10754,15 +10760,17 @@ type AgentFlowDefinitionConnectionInput interface {
 }
 
 type AgentFlowDefinitionConnectionArgs struct {
-	// Configuration of the connection. See Connection Configuration for more information.
+	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration AgentFlowDefinitionConnectionConfigurationPtrInput `pulumi:"configuration"`
-	// A name for the connection that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// The node that the connection starts at.
+	// Node that the connection starts at.
 	Source pulumi.StringInput `pulumi:"source"`
-	// The node that the connection ends at.
+	// Node that the connection ends at.
 	Target pulumi.StringInput `pulumi:"target"`
-	// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10817,29 +10825,31 @@ func (o AgentFlowDefinitionConnectionOutput) ToAgentFlowDefinitionConnectionOutp
 	return o
 }
 
-// Configuration of the connection. See Connection Configuration for more information.
+// Configurations for the node. See `definition.node.configuration` Block for details.
 func (o AgentFlowDefinitionConnectionOutput) Configuration() AgentFlowDefinitionConnectionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnection) *AgentFlowDefinitionConnectionConfiguration {
 		return v.Configuration
 	}).(AgentFlowDefinitionConnectionConfigurationPtrOutput)
 }
 
-// A name for the connection that you can reference.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The node that the connection starts at.
+// Node that the connection starts at.
 func (o AgentFlowDefinitionConnectionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The node that the connection ends at.
+// Node that the connection ends at.
 func (o AgentFlowDefinitionConnectionOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Target }).(pulumi.StringOutput)
 }
 
-// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnection) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10865,9 +10875,9 @@ func (o AgentFlowDefinitionConnectionArrayOutput) Index(i pulumi.IntInput) Agent
 }
 
 type AgentFlowDefinitionConnectionConfiguration struct {
-	// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+	// Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
 	Conditional *AgentFlowDefinitionConnectionConfigurationConditional `pulumi:"conditional"`
-	// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+	// Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
 	Data *AgentFlowDefinitionConnectionConfigurationData `pulumi:"data"`
 }
 
@@ -10883,9 +10893,9 @@ type AgentFlowDefinitionConnectionConfigurationInput interface {
 }
 
 type AgentFlowDefinitionConnectionConfigurationArgs struct {
-	// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+	// Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
 	Conditional AgentFlowDefinitionConnectionConfigurationConditionalPtrInput `pulumi:"conditional"`
-	// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+	// Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
 	Data AgentFlowDefinitionConnectionConfigurationDataPtrInput `pulumi:"data"`
 }
 
@@ -10966,14 +10976,14 @@ func (o AgentFlowDefinitionConnectionConfigurationOutput) ToAgentFlowDefinitionC
 	}).(AgentFlowDefinitionConnectionConfigurationPtrOutput)
 }
 
-// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+// Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationOutput) Conditional() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationConditional {
 		return v.Conditional
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
 }
 
-// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+// Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationOutput) Data() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationData {
 		return v.Data
@@ -11004,7 +11014,7 @@ func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Elem() AgentFlowDef
 	}).(AgentFlowDefinitionConnectionConfigurationOutput)
 }
 
-// The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
+// Configuration of a connection originating from a Condition node. See `definition.connection.configuration.conditional` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Conditional() AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationConditional {
 		if v == nil {
@@ -11014,7 +11024,7 @@ func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Conditional() Agent
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
 }
 
-// The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
+// Configuration of a connection originating from a node that isn't a Condition node. See `definition.connection.configuration.data` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Data() AgentFlowDefinitionConnectionConfigurationDataPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfiguration) *AgentFlowDefinitionConnectionConfigurationData {
 		if v == nil {
@@ -11025,7 +11035,7 @@ func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Data() AgentFlowDef
 }
 
 type AgentFlowDefinitionConnectionConfigurationConditional struct {
-	// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Condition string `pulumi:"condition"`
 }
 
@@ -11041,7 +11051,7 @@ type AgentFlowDefinitionConnectionConfigurationConditionalInput interface {
 }
 
 type AgentFlowDefinitionConnectionConfigurationConditionalArgs struct {
-	// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Condition pulumi.StringInput `pulumi:"condition"`
 }
 
@@ -11122,7 +11132,7 @@ func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlow
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
 }
 
-// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationConditional) string { return v.Condition }).(pulumi.StringOutput)
 }
@@ -11151,7 +11161,7 @@ func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Elem() A
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalOutput)
 }
 
-// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationConditional) *string {
 		if v == nil {
@@ -11162,9 +11172,9 @@ func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Conditio
 }
 
 type AgentFlowDefinitionConnectionConfigurationData struct {
-	// The name of the output in the source node that the connection begins from.
+	// Name of the output in the source node that the connection begins from.
 	SourceOutput string `pulumi:"sourceOutput"`
-	// The name of the input in the target node that the connection ends at.
+	// Name of the input in the target node that the connection ends at.
 	TargetInput string `pulumi:"targetInput"`
 }
 
@@ -11180,9 +11190,9 @@ type AgentFlowDefinitionConnectionConfigurationDataInput interface {
 }
 
 type AgentFlowDefinitionConnectionConfigurationDataArgs struct {
-	// The name of the output in the source node that the connection begins from.
+	// Name of the output in the source node that the connection begins from.
 	SourceOutput pulumi.StringInput `pulumi:"sourceOutput"`
-	// The name of the input in the target node that the connection ends at.
+	// Name of the input in the target node that the connection ends at.
 	TargetInput pulumi.StringInput `pulumi:"targetInput"`
 }
 
@@ -11263,12 +11273,12 @@ func (o AgentFlowDefinitionConnectionConfigurationDataOutput) ToAgentFlowDefinit
 	}).(AgentFlowDefinitionConnectionConfigurationDataPtrOutput)
 }
 
-// The name of the output in the source node that the connection begins from.
+// Name of the output in the source node that the connection begins from.
 func (o AgentFlowDefinitionConnectionConfigurationDataOutput) SourceOutput() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationData) string { return v.SourceOutput }).(pulumi.StringOutput)
 }
 
-// The name of the input in the target node that the connection ends at.
+// Name of the input in the target node that the connection ends at.
 func (o AgentFlowDefinitionConnectionConfigurationDataOutput) TargetInput() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationData) string { return v.TargetInput }).(pulumi.StringOutput)
 }
@@ -11297,7 +11307,7 @@ func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) Elem() AgentFlo
 	}).(AgentFlowDefinitionConnectionConfigurationDataOutput)
 }
 
-// The name of the output in the source node that the connection begins from.
+// Name of the output in the source node that the connection begins from.
 func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) SourceOutput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationData) *string {
 		if v == nil {
@@ -11307,7 +11317,7 @@ func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) SourceOutput() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the input in the target node that the connection ends at.
+// Name of the input in the target node that the connection ends at.
 func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) TargetInput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationData) *string {
 		if v == nil {
@@ -11318,15 +11328,17 @@ func (o AgentFlowDefinitionConnectionConfigurationDataPtrOutput) TargetInput() p
 }
 
 type AgentFlowDefinitionNode struct {
-	// Contains configurations for the node. See Node Configuration for more information.
+	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration *AgentFlowDefinitionNodeConfiguration `pulumi:"configuration"`
-	// A list of objects containing information about an input into the node. See Node Input for more information.
+	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 	Inputs []AgentFlowDefinitionNodeInputType `pulumi:"inputs"`
-	// A name for the node.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// A list of objects containing information about an output from the node. See Node Output for more information.
+	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 	Outputs []AgentFlowDefinitionNodeOutputType `pulumi:"outputs"`
-	// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -11342,15 +11354,17 @@ type AgentFlowDefinitionNodeInput interface {
 }
 
 type AgentFlowDefinitionNodeArgs struct {
-	// Contains configurations for the node. See Node Configuration for more information.
+	// Configurations for the node. See `definition.node.configuration` Block for details.
 	Configuration AgentFlowDefinitionNodeConfigurationPtrInput `pulumi:"configuration"`
-	// A list of objects containing information about an input into the node. See Node Input for more information.
+	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 	Inputs AgentFlowDefinitionNodeInputTypeArrayInput `pulumi:"inputs"`
-	// A name for the node.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// A list of objects containing information about an output from the node. See Node Output for more information.
+	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 	Outputs AgentFlowDefinitionNodeOutputTypeArrayInput `pulumi:"outputs"`
-	// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11405,27 +11419,29 @@ func (o AgentFlowDefinitionNodeOutput) ToAgentFlowDefinitionNodeOutputWithContex
 	return o
 }
 
-// Contains configurations for the node. See Node Configuration for more information.
+// Configurations for the node. See `definition.node.configuration` Block for details.
 func (o AgentFlowDefinitionNodeOutput) Configuration() AgentFlowDefinitionNodeConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) *AgentFlowDefinitionNodeConfiguration { return v.Configuration }).(AgentFlowDefinitionNodeConfigurationPtrOutput)
 }
 
-// A list of objects containing information about an input into the node. See Node Input for more information.
+// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeOutput) Inputs() AgentFlowDefinitionNodeInputTypeArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeInputType { return v.Inputs }).(AgentFlowDefinitionNodeInputTypeArrayOutput)
 }
 
-// A name for the node.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of objects containing information about an output from the node. See Node Output for more information.
+// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeOutput) Outputs() AgentFlowDefinitionNodeOutputTypeArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeOutputType { return v.Outputs }).(AgentFlowDefinitionNodeOutputTypeArrayOutput)
 }
 
-// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11451,31 +11467,31 @@ func (o AgentFlowDefinitionNodeArrayOutput) Index(i pulumi.IntInput) AgentFlowDe
 }
 
 type AgentFlowDefinitionNodeConfiguration struct {
-	// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+	// Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
 	Agent *AgentFlowDefinitionNodeConfigurationAgent `pulumi:"agent"`
-	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+	// Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
 	Collector *AgentFlowDefinitionNodeConfigurationCollector `pulumi:"collector"`
-	// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Condition *AgentFlowDefinitionNodeConfigurationCondition `pulumi:"condition"`
-	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+	// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 	InlineCode *AgentFlowDefinitionNodeConfigurationInlineCode `pulumi:"inlineCode"`
-	// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 	Input *AgentFlowDefinitionNodeConfigurationInputType `pulumi:"input"`
-	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+	// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 	Iterator *AgentFlowDefinitionNodeConfigurationIterator `pulumi:"iterator"`
-	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
 	KnowledgeBase *AgentFlowDefinitionNodeConfigurationKnowledgeBase `pulumi:"knowledgeBase"`
-	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+	// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 	LambdaFunction *AgentFlowDefinitionNodeConfigurationLambdaFunction `pulumi:"lambdaFunction"`
-	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+	// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 	Lex *AgentFlowDefinitionNodeConfigurationLex `pulumi:"lex"`
-	// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 	Output *AgentFlowDefinitionNodeConfigurationOutputType `pulumi:"output"`
-	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+	// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 	Prompt *AgentFlowDefinitionNodeConfigurationPrompt `pulumi:"prompt"`
-	// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+	// Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
 	Retrieval *AgentFlowDefinitionNodeConfigurationRetrieval `pulumi:"retrieval"`
-	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+	// Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
 	Storage *AgentFlowDefinitionNodeConfigurationStorage `pulumi:"storage"`
 }
 
@@ -11491,31 +11507,31 @@ type AgentFlowDefinitionNodeConfigurationInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationArgs struct {
-	// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+	// Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
 	Agent AgentFlowDefinitionNodeConfigurationAgentPtrInput `pulumi:"agent"`
-	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+	// Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
 	Collector AgentFlowDefinitionNodeConfigurationCollectorPtrInput `pulumi:"collector"`
-	// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Condition AgentFlowDefinitionNodeConfigurationConditionPtrInput `pulumi:"condition"`
-	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+	// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 	InlineCode AgentFlowDefinitionNodeConfigurationInlineCodePtrInput `pulumi:"inlineCode"`
-	// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+	// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 	Input AgentFlowDefinitionNodeConfigurationInputTypePtrInput `pulumi:"input"`
-	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+	// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 	Iterator AgentFlowDefinitionNodeConfigurationIteratorPtrInput `pulumi:"iterator"`
-	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+	// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
 	KnowledgeBase AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput `pulumi:"knowledgeBase"`
-	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+	// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 	LambdaFunction AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput `pulumi:"lambdaFunction"`
-	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+	// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 	Lex AgentFlowDefinitionNodeConfigurationLexPtrInput `pulumi:"lex"`
-	// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+	// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 	Output AgentFlowDefinitionNodeConfigurationOutputTypePtrInput `pulumi:"output"`
-	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+	// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 	Prompt AgentFlowDefinitionNodeConfigurationPromptPtrInput `pulumi:"prompt"`
-	// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+	// Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
 	Retrieval AgentFlowDefinitionNodeConfigurationRetrievalPtrInput `pulumi:"retrieval"`
-	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+	// Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
 	Storage AgentFlowDefinitionNodeConfigurationStoragePtrInput `pulumi:"storage"`
 }
 
@@ -11596,89 +11612,89 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) ToAgentFlowDefinitionNodeCon
 	}).(AgentFlowDefinitionNodeConfigurationPtrOutput)
 }
 
-// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+// Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Agent() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationAgent {
 		return v.Agent
 	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
 }
 
-// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+// Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Collector() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCollector {
 		return v.Collector
 	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
 }
 
-// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
 		return v.Condition
 	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
 }
 
-// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) InlineCode() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInlineCode {
 		return v.InlineCode
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
-// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		return v.Input
 	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
 }
 
-// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
 		return v.Iterator
 	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
 }
 
-// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
 		return v.KnowledgeBase
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
 }
 
-// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) LambdaFunction() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLambdaFunction {
 		return v.LambdaFunction
 	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
 }
 
-// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Lex() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex { return v.Lex }).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
-// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		return v.Output
 	}).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
 }
 
-// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Prompt() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationPrompt {
 		return v.Prompt
 	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
 }
 
-// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+// Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Retrieval() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationRetrieval {
 		return v.Retrieval
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
 }
 
-// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+// Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Storage() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationStorage {
 		return v.Storage
@@ -11709,7 +11725,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Elem() AgentFlowDefinitio
 	}).(AgentFlowDefinitionNodeConfigurationOutput)
 }
 
-// Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+// Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Agent() AgentFlowDefinitionNodeConfigurationAgentPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationAgent {
 		if v == nil {
@@ -11719,7 +11735,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Agent() AgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
 }
 
-// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+// Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Collector() AgentFlowDefinitionNodeConfigurationCollectorPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCollector {
 		if v == nil {
@@ -11729,7 +11745,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Collector() AgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
 }
 
-// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
 		if v == nil {
@@ -11739,7 +11755,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Condition() AgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
 }
 
-// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+// Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) InlineCode() AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInlineCode {
 		if v == nil {
@@ -11749,7 +11765,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) InlineCode() AgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
-// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+// Configurations for an input flow node in your flow. The node `inputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		if v == nil {
@@ -11759,7 +11775,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
 }
 
-// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+// Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
 		if v == nil {
@@ -11769,7 +11785,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Iterator() AgentFlowDefin
 	}).(AgentFlowDefinitionNodeConfigurationIteratorPtrOutput)
 }
 
-// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) KnowledgeBase() AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBase {
 		if v == nil {
@@ -11779,7 +11795,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) KnowledgeBase() AgentFlow
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
 }
 
-// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+// Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) LambdaFunction() AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLambdaFunction {
 		if v == nil {
@@ -11789,7 +11805,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) LambdaFunction() AgentFlo
 	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
 }
 
-// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+// Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Lex() AgentFlowDefinitionNodeConfigurationLexPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex {
 		if v == nil {
@@ -11799,7 +11815,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Lex() AgentFlowDefinition
 	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
-// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+// Configurations for an output flow node in your flow. The node `outputs` can't be specified for this node. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		if v == nil {
@@ -11809,7 +11825,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Output() AgentFlowDefinit
 	}).(AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput)
 }
 
-// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+// Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Prompt() AgentFlowDefinitionNodeConfigurationPromptPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationPrompt {
 		if v == nil {
@@ -11819,7 +11835,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Prompt() AgentFlowDefinit
 	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
 }
 
-// Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+// Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Retrieval() AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationRetrieval {
 		if v == nil {
@@ -11829,7 +11845,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Retrieval() AgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
 }
 
-// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+// Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Storage() AgentFlowDefinitionNodeConfigurationStoragePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationStorage {
 		if v == nil {
@@ -12095,7 +12111,7 @@ func (o AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) Elem() AgentFlow
 }
 
 type AgentFlowDefinitionNodeConfigurationCondition struct {
-	// A list of conditions. See Condition Config for more information.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Conditions []AgentFlowDefinitionNodeConfigurationConditionCondition `pulumi:"conditions"`
 }
 
@@ -12111,7 +12127,7 @@ type AgentFlowDefinitionNodeConfigurationConditionInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationConditionArgs struct {
-	// A list of conditions. See Condition Config for more information.
+	// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 	Conditions AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -12192,7 +12208,7 @@ func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
 }
 
-// A list of conditions. See Condition Config for more information.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationConditionOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
 		return v.Conditions
@@ -12223,7 +12239,7 @@ func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Elem() AgentFlow
 	}).(AgentFlowDefinitionNodeConfigurationConditionOutput)
 }
 
-// A list of conditions. See Condition Config for more information.
+// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
 		if v == nil {
@@ -12234,8 +12250,11 @@ func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Conditions() Age
 }
 
 type AgentFlowDefinitionNodeConfigurationConditionCondition struct {
+	// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 	Expression *string `pulumi:"expression"`
-	// A name for the flow.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -12251,8 +12270,11 @@ type AgentFlowDefinitionNodeConfigurationConditionConditionInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationConditionConditionArgs struct {
+	// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// A name for the flow.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -12307,11 +12329,14 @@ func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) ToAgentFlo
 	return o
 }
 
+// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationConditionCondition) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// A name for the flow.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationConditionConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationConditionCondition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12337,9 +12362,9 @@ func (o AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput) Index
 }
 
 type AgentFlowDefinitionNodeConfigurationInlineCode struct {
-	// The code that's executed in your inline code node.
+	// Code that's executed in your inline code node.
 	Code string `pulumi:"code"`
-	// The programming language used by your inline code node.
+	// Programming language used by your inline code node.
 	Language string `pulumi:"language"`
 }
 
@@ -12355,9 +12380,9 @@ type AgentFlowDefinitionNodeConfigurationInlineCodeInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationInlineCodeArgs struct {
-	// The code that's executed in your inline code node.
+	// Code that's executed in your inline code node.
 	Code pulumi.StringInput `pulumi:"code"`
-	// The programming language used by your inline code node.
+	// Programming language used by your inline code node.
 	Language pulumi.StringInput `pulumi:"language"`
 }
 
@@ -12438,12 +12463,12 @@ func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) ToAgentFlowDefinit
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
-// The code that's executed in your inline code node.
+// Code that's executed in your inline code node.
 func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationInlineCode) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The programming language used by your inline code node.
+// Programming language used by your inline code node.
 func (o AgentFlowDefinitionNodeConfigurationInlineCodeOutput) Language() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationInlineCode) string { return v.Language }).(pulumi.StringOutput)
 }
@@ -12472,7 +12497,7 @@ func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Elem() AgentFlo
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodeOutput)
 }
 
-// The code that's executed in your inline code node.
+// Code that's executed in your inline code node.
 func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInlineCode) *string {
 		if v == nil {
@@ -12482,7 +12507,7 @@ func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Code() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The programming language used by your inline code node.
+// Programming language used by your inline code node.
 func (o AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationInlineCode) *string {
 		if v == nil {
@@ -12729,15 +12754,16 @@ func (o AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) Elem() AgentFlowD
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBase struct {
-	// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+	// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration `pulumi:"guardrailConfiguration"`
-	// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+	// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	// The unique identifier of the knowledge base to query.
+	// Unique identifier of the knowledge base to query.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
-	// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
-	ModelId         string `pulumi:"modelId"`
-	NumberOfResults *int   `pulumi:"numberOfResults"`
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	ModelId string `pulumi:"modelId"`
+	// Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+	NumberOfResults *int `pulumi:"numberOfResults"`
 }
 
 // AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput is an input type that accepts AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs and AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput values.
@@ -12752,14 +12778,15 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs struct {
-	// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+	// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
-	// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+	// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 	InferenceConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	// The unique identifier of the knowledge base to query.
+	// Unique identifier of the knowledge base to query.
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
-	// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
-	ModelId         pulumi.StringInput `pulumi:"modelId"`
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+	// Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
 	NumberOfResults pulumi.IntPtrInput `pulumi:"numberOfResults"`
 }
 
@@ -12840,30 +12867,31 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
 }
 
-// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
 		return v.GuardrailConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
 }
 
-// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
 		return v.InferenceConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
 }
 
-// The unique identifier of the knowledge base to query.
+// Unique identifier of the knowledge base to query.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
+// Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) NumberOfResults() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *int { return v.NumberOfResults }).(pulumi.IntPtrOutput)
 }
@@ -12892,7 +12920,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) Elem() Agent
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput)
 }
 
-// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
 		if v == nil {
@@ -12902,7 +12930,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) GuardrailCon
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
 }
 
-// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
 		if v == nil {
@@ -12912,7 +12940,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) InferenceCon
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
 }
 
-// The unique identifier of the knowledge base to query.
+// Unique identifier of the knowledge base to query.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *string {
 		if v == nil {
@@ -12922,7 +12950,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) KnowledgeBas
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *string {
 		if v == nil {
@@ -12932,6 +12960,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ModelId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) NumberOfResults() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *int {
 		if v == nil {
@@ -12942,9 +12971,9 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) NumberOfResu
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration struct {
-	// The unique identifier of the guardrail.
+	// Unique identifier of the guardrail.
 	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
-	// The version of the guardrail.
+	// Version of the guardrail.
 	GuardrailVersion string `pulumi:"guardrailVersion"`
 }
 
@@ -12960,9 +12989,9 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationInpu
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs struct {
-	// The unique identifier of the guardrail.
+	// Unique identifier of the guardrail.
 	GuardrailIdentifier pulumi.StringInput `pulumi:"guardrailIdentifier"`
-	// The version of the guardrail.
+	// Version of the guardrail.
 	GuardrailVersion pulumi.StringInput `pulumi:"guardrailVersion"`
 }
 
@@ -13043,14 +13072,14 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationO
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
 }
 
-// The unique identifier of the guardrail.
+// Unique identifier of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) string {
 		return v.GuardrailIdentifier
 	}).(pulumi.StringOutput)
 }
 
-// The version of the guardrail.
+// Version of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) string {
 		return v.GuardrailVersion
@@ -13081,7 +13110,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationP
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationOutput)
 }
 
-// The unique identifier of the guardrail.
+// Unique identifier of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) *string {
 		if v == nil {
@@ -13091,7 +13120,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the guardrail.
+// Version of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration) *string {
 		if v == nil {
@@ -13102,7 +13131,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationP
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration struct {
-	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+	// Message for the prompt.
 	Text *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText `pulumi:"text"`
 }
 
@@ -13118,7 +13147,7 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInpu
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs struct {
-	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+	// Message for the prompt.
 	Text AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -13199,7 +13228,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationO
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
 }
 
-// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
 		return v.Text
@@ -13230,7 +13259,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationP
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput)
 }
 
-// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
 		if v == nil {
@@ -13243,7 +13272,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationP
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText struct {
 	// Maximum number of tokens to return in the response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// List of strings that define sequences after which the model will stop generating.
+	// List of strings that define sequences after which the model stops generating.
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
 	Temperature *float64 `pulumi:"temperature"`
@@ -13265,7 +13294,7 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs struct {
 	// Maximum number of tokens to return in the response.
 	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
-	// List of strings that define sequences after which the model will stop generating.
+	// List of strings that define sequences after which the model stops generating.
 	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
@@ -13357,7 +13386,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationT
 	}).(pulumi.IntPtrOutput)
 }
 
-// List of strings that define sequences after which the model will stop generating.
+// List of strings that define sequences after which the model stops generating.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextOutput) StopSequences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) []string {
 		return v.StopSequences
@@ -13412,7 +13441,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationT
 	}).(pulumi.IntPtrOutput)
 }
 
-// List of strings that define sequences after which the model will stop generating.
+// List of strings that define sequences after which the model stops generating.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput) StopSequences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText) []string {
 		if v == nil {
@@ -13582,7 +13611,7 @@ func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) LambdaArn()
 type AgentFlowDefinitionNodeConfigurationLex struct {
 	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn string `pulumi:"botAliasArn"`
-	// The Region to invoke the Amazon Lex bot in
+	// Region to invoke the Amazon Lex bot in.
 	LocaleId string `pulumi:"localeId"`
 }
 
@@ -13600,7 +13629,7 @@ type AgentFlowDefinitionNodeConfigurationLexInput interface {
 type AgentFlowDefinitionNodeConfigurationLexArgs struct {
 	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn pulumi.StringInput `pulumi:"botAliasArn"`
-	// The Region to invoke the Amazon Lex bot in
+	// Region to invoke the Amazon Lex bot in.
 	LocaleId pulumi.StringInput `pulumi:"localeId"`
 }
 
@@ -13686,7 +13715,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexOutput) BotAliasArn() pulumi.Stri
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.BotAliasArn }).(pulumi.StringOutput)
 }
 
-// The Region to invoke the Amazon Lex bot in
+// Region to invoke the Amazon Lex bot in.
 func (o AgentFlowDefinitionNodeConfigurationLexOutput) LocaleId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.LocaleId }).(pulumi.StringOutput)
 }
@@ -13725,7 +13754,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) BotAliasArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Region to invoke the Amazon Lex bot in
+// Region to invoke the Amazon Lex bot in.
 func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) LocaleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) *string {
 		if v == nil {
@@ -13854,9 +13883,9 @@ func (o AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) Elem() AgentFlo
 }
 
 type AgentFlowDefinitionNodeConfigurationPrompt struct {
-	// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+	// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration `pulumi:"guardrailConfiguration"`
-	// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+	// Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
 	SourceConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
@@ -13872,9 +13901,9 @@ type AgentFlowDefinitionNodeConfigurationPromptInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptArgs struct {
-	// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+	// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
-	// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+	// Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
 	SourceConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
@@ -13955,14 +13984,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionN
 	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
 }
 
-// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
 		return v.GuardrailConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
 }
 
-// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+// Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
 		return v.SourceConfiguration
@@ -13993,7 +14022,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) Elem() AgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationPromptOutput)
 }
 
-// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
 		if v == nil {
@@ -14003,7 +14032,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) GuardrailConfigurat
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
 }
 
-// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+// Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
 		if v == nil {
@@ -14014,9 +14043,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) SourceConfiguration
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration struct {
-	// The unique identifier of the guardrail.
+	// Unique identifier of the guardrail.
 	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
-	// The version of the guardrail.
+	// Version of the guardrail.
 	GuardrailVersion string `pulumi:"guardrailVersion"`
 }
 
@@ -14032,9 +14061,9 @@ type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationInput inter
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs struct {
-	// The unique identifier of the guardrail.
+	// Unique identifier of the guardrail.
 	GuardrailIdentifier pulumi.StringInput `pulumi:"guardrailIdentifier"`
-	// The version of the guardrail.
+	// Version of the guardrail.
 	GuardrailVersion pulumi.StringInput `pulumi:"guardrailVersion"`
 }
 
@@ -14115,14 +14144,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) 
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
 }
 
-// The unique identifier of the guardrail.
+// Unique identifier of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) string {
 		return v.GuardrailIdentifier
 	}).(pulumi.StringOutput)
 }
 
-// The version of the guardrail.
+// Version of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) string {
 		return v.GuardrailVersion
@@ -14153,7 +14182,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutpu
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationOutput)
 }
 
-// The unique identifier of the guardrail.
+// Unique identifier of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) *string {
 		if v == nil {
@@ -14163,7 +14192,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the guardrail.
+// Version of the guardrail.
 func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration) *string {
 		if v == nil {
@@ -14174,9 +14203,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutpu
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration struct {
-	// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+	// Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
 	Inline *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline `pulumi:"inline"`
-	// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+	// Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
 	Resource *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource `pulumi:"resource"`
 }
 
@@ -14192,9 +14221,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInput interfac
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs struct {
-	// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+	// Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
 	Inline AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrInput `pulumi:"inline"`
-	// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+	// Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
 	Resource AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrInput `pulumi:"resource"`
 }
 
@@ -14275,14 +14304,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) ToA
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput)
 }
 
-// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+// Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) Inline() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
 		return v.Inline
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
 }
 
-// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+// Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput) Resource() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
 		return v.Resource
@@ -14313,7 +14342,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) 
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationOutput)
 }
 
-// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+// Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) Inline() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
 		if v == nil {
@@ -14323,7 +14352,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) 
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput)
 }
 
-// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+// Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) Resource() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
 		if v == nil {
@@ -14336,13 +14365,13 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline struct {
 	// Additional fields to be included in the model request for the Prompt node.
 	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
-	// Contains inference configurations for the prompt. See Inference Configuration for more information.
+	// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 	ModelId string `pulumi:"modelId"`
-	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+	// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
 	TemplateConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration `pulumi:"templateConfiguration"`
-	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+	// Type of prompt template. Valid values: `TEXT`, `CHAT`.
 	TemplateType string `pulumi:"templateType"`
 }
 
@@ -14360,13 +14389,13 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput in
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs struct {
 	// Additional fields to be included in the model request for the Prompt node.
 	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
-	// Contains inference configurations for the prompt. See Inference Configuration for more information.
+	// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 	InferenceConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 	ModelId pulumi.StringInput `pulumi:"modelId"`
-	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+	// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
 	TemplateConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
-	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+	// Type of prompt template. Valid values: `TEXT`, `CHAT`.
 	TemplateType pulumi.StringInput `pulumi:"templateType"`
 }
 
@@ -14454,26 +14483,26 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Inference Configuration for more information.
+// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
 		return v.InferenceConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
-// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
-// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) TemplateConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
 		return v.TemplateConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
 }
 
-// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+// Type of prompt template. Valid values: `TEXT`, `CHAT`.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) TemplateType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) string {
 		return v.TemplateType
@@ -14514,7 +14543,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Inference Configuration for more information.
+// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
 		if v == nil {
@@ -14524,7 +14553,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
-// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
 		if v == nil {
@@ -14534,7 +14563,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) TemplateConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
 		if v == nil {
@@ -14544,7 +14573,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
 }
 
-// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+// Type of prompt template. Valid values: `TEXT`, `CHAT`.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) TemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
 		if v == nil {
@@ -14555,7 +14584,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration struct {
-	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+	// Message for the prompt.
 	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText `pulumi:"text"`
 }
 
@@ -14571,7 +14600,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenc
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs struct {
-	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+	// Message for the prompt.
 	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -14652,7 +14681,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
-// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
 		return v.Text
@@ -14683,7 +14712,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput)
 }
 
-// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
 		if v == nil {
@@ -14696,7 +14725,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText struct {
 	// Maximum number of tokens to return in the response.
 	MaxTokens *int `pulumi:"maxTokens"`
-	// List of strings that define sequences after which the model will stop generating.
+	// List of strings that define sequences after which the model stops generating.
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
 	Temperature *float64 `pulumi:"temperature"`
@@ -14718,7 +14747,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenc
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs struct {
 	// Maximum number of tokens to return in the response.
 	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
-	// List of strings that define sequences after which the model will stop generating.
+	// List of strings that define sequences after which the model stops generating.
 	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
@@ -14810,7 +14839,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(pulumi.IntPtrOutput)
 }
 
-// List of strings that define sequences after which the model will stop generating.
+// List of strings that define sequences after which the model stops generating.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextOutput) StopSequences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) []string {
 		return v.StopSequences
@@ -14865,7 +14894,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(pulumi.IntPtrOutput)
 }
 
-// List of strings that define sequences after which the model will stop generating.
+// List of strings that define sequences after which the model stops generating.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput) StopSequences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText) []string {
 		if v == nil {
@@ -14896,9 +14925,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration struct {
-	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
 	Chat *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat `pulumi:"chat"`
-	// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+	// Message for the prompt.
 	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText `pulumi:"text"`
 }
 
@@ -14914,9 +14943,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs struct {
-	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
 	Chat AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput `pulumi:"chat"`
-	// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+	// Message for the prompt.
 	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -14997,14 +15026,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput)
 }
 
-// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) Chat() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
 		return v.Chat
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
 }
 
-// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
 		return v.Text
@@ -15035,7 +15064,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput)
 }
 
-// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Chat() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
 		if v == nil {
@@ -15045,7 +15074,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
 }
 
-// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
 		if v == nil {
@@ -15056,12 +15085,13 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat struct {
+	// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 	InputVariables []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable `pulumi:"inputVariables"`
-	// A list of messages in the chat for the prompt. See Message for more information.
+	// Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
 	Messages []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage `pulumi:"messages"`
-	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	// System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
 	Systems []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem `pulumi:"systems"`
-	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	// Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
 	ToolConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration `pulumi:"toolConfiguration"`
 }
 
@@ -15077,12 +15107,13 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs struct {
+	// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 	InputVariables AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayInput `pulumi:"inputVariables"`
-	// A list of messages in the chat for the prompt. See Message for more information.
+	// Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
 	Messages AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayInput `pulumi:"messages"`
-	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	// System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
 	Systems AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayInput `pulumi:"systems"`
-	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	// Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
 	ToolConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrInput `pulumi:"toolConfiguration"`
 }
 
@@ -15163,27 +15194,28 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
 }
 
+// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
 		return v.InputVariables
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput)
 }
 
-// A list of messages in the chat for the prompt. See Message for more information.
+// Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) Messages() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
 		return v.Messages
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput)
 }
 
-// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+// System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) Systems() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
 		return v.Systems
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput)
 }
 
-// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+// Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput) ToolConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
 		return v.ToolConfiguration
@@ -15214,6 +15246,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatOutput)
 }
 
+// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable {
 		if v == nil {
@@ -15223,7 +15256,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArrayOutput)
 }
 
-// A list of messages in the chat for the prompt. See Message for more information.
+// Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) Messages() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
 		if v == nil {
@@ -15233,7 +15266,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArrayOutput)
 }
 
-// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+// System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) Systems() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
 		if v == nil {
@@ -15243,7 +15276,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArrayOutput)
 }
 
-// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+// Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput) ToolConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
 		if v == nil {
@@ -15254,7 +15287,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable struct {
-	// The name of the variable.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -15270,7 +15305,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs struct {
-	// The name of the variable.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15325,7 +15362,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// The name of the variable.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable) string {
 		return v.Name
@@ -15353,9 +15392,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage struct {
-	// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+	// Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
 	Content *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent `pulumi:"content"`
-	// The role that the message belongs to.
+	// Role that the message belongs to.
 	Role string `pulumi:"role"`
 }
 
@@ -15371,9 +15410,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs struct {
-	// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+	// Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
 	Content AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
-	// The role that the message belongs to.
+	// Role that the message belongs to.
 	Role pulumi.StringInput `pulumi:"role"`
 }
 
@@ -15428,14 +15467,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+// Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) Content() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
 		return v.Content
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
 }
 
-// The role that the message belongs to.
+// Role that the message belongs to.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage) string {
 		return v.Role
@@ -15463,9 +15502,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent struct {
-	// Creates a cache checkpoint within a message. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint `pulumi:"cachePoint"`
-	// The text in the message.
+	// Message for the prompt.
 	Text *string `pulumi:"text"`
 }
 
@@ -15481,9 +15520,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs struct {
-	// Creates a cache checkpoint within a message. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput `pulumi:"cachePoint"`
-	// The text in the message.
+	// Message for the prompt.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
@@ -15564,14 +15603,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
 }
 
-// Creates a cache checkpoint within a message. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
-// The text in the message.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
 		return v.Text
@@ -15602,7 +15641,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput)
 }
 
-// Creates a cache checkpoint within a message. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
 		if v == nil {
@@ -15612,7 +15651,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
-// The text in the message.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
 		if v == nil {
@@ -15623,7 +15662,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -15639,7 +15678,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15720,7 +15759,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) string {
 		return v.Type
@@ -15751,7 +15790,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint) *string {
 		if v == nil {
@@ -15762,9 +15801,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint `pulumi:"cachePoint"`
-	// The text in the system prompt.
+	// Message for the prompt.
 	Text *string `pulumi:"text"`
 }
 
@@ -15780,9 +15819,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrInput `pulumi:"cachePoint"`
-	// The text in the system prompt.
+	// Message for the prompt.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
@@ -15837,14 +15876,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput)
 }
 
-// The text in the system prompt.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem) *string {
 		return v.Text
@@ -15872,7 +15911,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -15888,7 +15927,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15969,7 +16008,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) string {
 		return v.Type
@@ -16000,7 +16039,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint) *string {
 		if v == nil {
@@ -16011,9 +16050,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration struct {
-	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	// Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
 	ToolChoice *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice `pulumi:"toolChoice"`
-	// A list of tools to pass to a model. See Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 	Tools []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool `pulumi:"tools"`
 }
 
@@ -16029,9 +16068,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs struct {
-	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	// Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
 	ToolChoice AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrInput `pulumi:"toolChoice"`
-	// A list of tools to pass to a model. See Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 	Tools AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayInput `pulumi:"tools"`
 }
 
@@ -16112,14 +16151,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput)
 }
 
-// Defines which tools the model should request when invoked. See Tool Choice for more information.
+// Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) ToolChoice() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
 		return v.ToolChoice
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// A list of tools to pass to a model. See Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput) Tools() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
 		return v.Tools
@@ -16150,7 +16189,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationOutput)
 }
 
-// Defines which tools the model should request when invoked. See Tool Choice for more information.
+// Which tools the model should request when invoked. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) ToolChoice() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice {
 		if v == nil {
@@ -16160,7 +16199,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// A list of tools to pass to a model. See Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationPtrOutput) Tools() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool {
 		if v == nil {
@@ -16171,9 +16210,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint `pulumi:"cachePoint"`
-	// The specification for the tool. See Tool Specification for more information.
+	// Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
 	ToolSpec *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec `pulumi:"toolSpec"`
 }
 
@@ -16189,9 +16228,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrInput `pulumi:"cachePoint"`
-	// The specification for the tool. See Tool Specification for more information.
+	// Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
 	ToolSpec AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput `pulumi:"toolSpec"`
 }
 
@@ -16246,14 +16285,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
 }
 
-// The specification for the tool. See Tool Specification for more information.
+// Specification for the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolOutput) ToolSpec() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
 		return v.ToolSpec
@@ -16281,7 +16320,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -16297,7 +16336,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16378,7 +16417,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) string {
 		return v.Type
@@ -16409,7 +16448,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint) *string {
 		if v == nil {
@@ -16420,11 +16459,11 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+	// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
 	Any *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+	// Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
 	Auto *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto `pulumi:"auto"`
-	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 	Tool *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool `pulumi:"tool"`
 }
 
@@ -16440,11 +16479,11 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+	// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
 	Any AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+	// Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
 	Auto AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput `pulumi:"auto"`
-	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 	Tool AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput `pulumi:"tool"`
 }
 
@@ -16525,21 +16564,21 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		return v.Any
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+// Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		return v.Auto
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
 }
 
-// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Tool() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
 		return v.Tool
@@ -16570,7 +16609,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		if v == nil {
@@ -16580,7 +16619,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
+// Tools. The model automatically decides whether to call a tool or to generate text instead. This block has no arguments.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		if v == nil {
@@ -16590,7 +16629,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
 }
 
-// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool_choice.tool` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Tool() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool {
 		if v == nil {
@@ -16837,7 +16876,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool struct {
-	// The name of the tool.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -16853,7 +16894,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs struct {
-	// The name of the tool.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -16934,7 +16977,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
 }
 
-// The name of the tool.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) string {
 		return v.Name
@@ -16965,7 +17010,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
 }
 
-// The name of the tool.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) *string {
 		if v == nil {
@@ -16976,11 +17023,13 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec struct {
-	// The description of the tool.
+	// Description for the flow.
 	Description *string `pulumi:"description"`
-	// The input schema of the tool. See Tool Input Schema for more information.
+	// Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
 	InputSchema *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema `pulumi:"inputSchema"`
-	// The name of the tool.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -16996,11 +17045,13 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs struct {
-	// The description of the tool.
+	// Description for the flow.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The input schema of the tool. See Tool Input Schema for more information.
+	// Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
 	InputSchema AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput `pulumi:"inputSchema"`
-	// The name of the tool.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -17081,21 +17132,23 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
 }
 
-// The description of the tool.
+// Description for the flow.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input schema of the tool. See Tool Input Schema for more information.
+// Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) InputSchema() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
 		return v.InputSchema
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// The name of the tool.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) string {
 		return v.Name
@@ -17126,7 +17179,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
 }
 
-// The description of the tool.
+// Description for the flow.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -17136,7 +17189,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input schema of the tool. See Tool Input Schema for more information.
+// Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) InputSchema() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
 		if v == nil {
@@ -17146,7 +17199,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// The name of the tool.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -17157,7 +17212,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema struct {
-	// A JSON object defining the input schema for the tool.
+	// JSON object defining the input schema for the tool.
 	Json *string `pulumi:"json"`
 }
 
@@ -17173,7 +17228,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs struct {
-	// A JSON object defining the input schema for the tool.
+	// JSON object defining the input schema for the tool.
 	Json pulumi.StringPtrInput `pulumi:"json"`
 }
 
@@ -17254,7 +17309,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// A JSON object defining the input schema for the tool.
+// JSON object defining the input schema for the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) Json() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
 		return v.Json
@@ -17285,7 +17340,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
 }
 
-// A JSON object defining the input schema for the tool.
+// JSON object defining the input schema for the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Json() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
 		if v == nil {
@@ -17296,11 +17351,11 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText struct {
-	// A cache checkpoint within a template configuration. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint `pulumi:"cachePoint"`
-	// A list of variables in the prompt template. See Input Variable for more information.
+	// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 	InputVariables []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable `pulumi:"inputVariables"`
-	// The message for the prompt.
+	// Message for the prompt.
 	Text string `pulumi:"text"`
 }
 
@@ -17316,11 +17371,11 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs struct {
-	// A cache checkpoint within a template configuration. See Cache Point for more information.
+	// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput `pulumi:"cachePoint"`
-	// A list of variables in the prompt template. See Input Variable for more information.
+	// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 	InputVariables AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput `pulumi:"inputVariables"`
-	// The message for the prompt.
+	// Message for the prompt.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -17401,21 +17456,21 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
 }
 
-// A cache checkpoint within a template configuration. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
 }
 
-// A list of variables in the prompt template. See Input Variable for more information.
+// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
 		return v.InputVariables
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
 }
 
-// The message for the prompt.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) string {
 		return v.Text
@@ -17446,7 +17501,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput)
 }
 
-// A cache checkpoint within a template configuration. See Cache Point for more information.
+// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
 		if v == nil {
@@ -17456,7 +17511,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
 }
 
-// A list of variables in the prompt template. See Input Variable for more information.
+// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
 		if v == nil {
@@ -17466,7 +17521,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
 }
 
-// The message for the prompt.
+// Message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *string {
 		if v == nil {
@@ -17477,7 +17532,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -17493,7 +17548,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17574,7 +17629,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) string {
 		return v.Type
@@ -17605,7 +17660,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint) *string {
 		if v == nil {
@@ -17616,7 +17671,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable struct {
-	// The name of the variable.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -17632,7 +17689,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs struct {
-	// The name of the variable.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -17687,7 +17746,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// The name of the variable.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable) string {
 		return v.Name
@@ -17854,7 +17915,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrieval struct {
-	// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+	// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration `pulumi:"serviceConfiguration"`
 }
 
@@ -17870,7 +17931,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalArgs struct {
-	// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+	// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 	ServiceConfiguration AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
 }
 
@@ -17951,7 +18012,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
 }
 
-// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
 		return v.ServiceConfiguration
@@ -17982,7 +18043,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) Elem() AgentFlow
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalOutput)
 }
 
-// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
 		if v == nil {
@@ -17993,7 +18054,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ServiceConfigura
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration struct {
-	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+	// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 	S3 *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 `pulumi:"s3"`
 }
 
@@ -18009,7 +18070,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput inte
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs struct {
-	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+	// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 	S3 AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput `pulumi:"s3"`
 }
 
@@ -18090,7 +18151,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
 }
 
-// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
 		return v.S3
@@ -18121,7 +18182,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutp
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
 }
 
-// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
 		if v == nil {
@@ -18132,7 +18193,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutp
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 struct {
-	// The name of the Amazon S3 bucket in which to store the input into the node.
+	// Name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -18148,7 +18209,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input in
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args struct {
-	// The name of the Amazon S3 bucket in which to store the input into the node.
+	// Name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -18229,7 +18290,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Outpu
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
 }
 
-// The name of the Amazon S3 bucket in which to store the input into the node.
+// Name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) string {
 		return v.BucketName
@@ -18260,7 +18321,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOu
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output)
 }
 
-// The name of the Amazon S3 bucket in which to store the input into the node.
+// Name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) *string {
 		if v == nil {
@@ -18271,7 +18332,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOu
 }
 
 type AgentFlowDefinitionNodeConfigurationStorage struct {
-	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+	// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration `pulumi:"serviceConfiguration"`
 }
 
@@ -18287,7 +18348,7 @@ type AgentFlowDefinitionNodeConfigurationStorageInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageArgs struct {
-	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+	// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 	ServiceConfiguration AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
 }
 
@@ -18368,7 +18429,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinition
 	}).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
 }
 
-// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
 		return v.ServiceConfiguration
@@ -18399,7 +18460,7 @@ func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) Elem() AgentFlowDe
 	}).(AgentFlowDefinitionNodeConfigurationStorageOutput)
 }
 
-// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+// Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
 		if v == nil {
@@ -18410,7 +18471,7 @@ func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ServiceConfigurati
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration struct {
-	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+	// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 	S3 *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 `pulumi:"s3"`
 }
 
@@ -18426,7 +18487,7 @@ type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput interf
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs struct {
-	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+	// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 	S3 AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput `pulumi:"s3"`
 }
 
@@ -18507,7 +18568,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) T
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
 }
 
-// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
 		return v.S3
@@ -18538,7 +18599,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput)
 }
 
-// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+// Configurations for the Amazon S3 location in which to store the input into the node. See `definition.node.configuration.storage.service_configuration.s3` Block for details.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
 		if v == nil {
@@ -18549,7 +18610,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 struct {
-	// The name of the Amazon S3 bucket in which to store the input into the node.
+	// Name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -18565,7 +18626,7 @@ type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input inte
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args struct {
-	// The name of the Amazon S3 bucket in which to store the input into the node.
+	// Name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -18646,7 +18707,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
 }
 
-// The name of the Amazon S3 bucket in which to store the input into the node.
+// Name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -18675,7 +18736,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutp
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
 }
 
-// The name of the Amazon S3 bucket in which to store the input into the node.
+// Name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) *string {
 		if v == nil {
@@ -18688,11 +18749,13 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutp
 type AgentFlowDefinitionNodeInputType struct {
 	// How input data flows between iterations in a DoWhile loop.
 	Category *string `pulumi:"category"`
-	// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+	// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 	Expression string `pulumi:"expression"`
-	// A name for the input that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -18710,11 +18773,13 @@ type AgentFlowDefinitionNodeInputTypeInput interface {
 type AgentFlowDefinitionNodeInputTypeArgs struct {
 	// How input data flows between iterations in a DoWhile loop.
 	Category pulumi.StringPtrInput `pulumi:"category"`
-	// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+	// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 	Expression pulumi.StringInput `pulumi:"expression"`
-	// A name for the input that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18774,17 +18839,19 @@ func (o AgentFlowDefinitionNodeInputTypeOutput) Category() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 func (o AgentFlowDefinitionNodeInputTypeOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// A name for the input that you can reference.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeInputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18810,9 +18877,11 @@ func (o AgentFlowDefinitionNodeInputTypeArrayOutput) Index(i pulumi.IntInput) Ag
 }
 
 type AgentFlowDefinitionNodeOutputType struct {
-	// A name for the output that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -18828,9 +18897,11 @@ type AgentFlowDefinitionNodeOutputTypeInput interface {
 }
 
 type AgentFlowDefinitionNodeOutputTypeArgs struct {
-	// A name for the output that you can reference.
+	// Name for the flow.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+	// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18885,12 +18956,14 @@ func (o AgentFlowDefinitionNodeOutputTypeOutput) ToAgentFlowDefinitionNodeOutput
 	return o
 }
 
-// A name for the output that you can reference.
+// Name for the flow.
+//
+// The following arguments are optional:
 func (o AgentFlowDefinitionNodeOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
 func (o AgentFlowDefinitionNodeOutputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19091,15 +19164,15 @@ func (o AgentFlowTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
-	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
 	KendraKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration `pulumi:"kendraKnowledgeBaseConfiguration"`
-	// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+	// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
 	ManagedKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration `pulumi:"managedKnowledgeBaseConfiguration"`
-	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
 	SqlKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
 	Type string `pulumi:"type"`
-	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
 	VectorKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -19115,15 +19188,15 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationArgs struct {
-	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+	// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
 	KendraKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrInput `pulumi:"kendraKnowledgeBaseConfiguration"`
-	// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+	// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
 	ManagedKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrInput `pulumi:"managedKnowledgeBaseConfiguration"`
-	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+	// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
 	SqlKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrInput `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+	// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
 	VectorKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -19204,21 +19277,21 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBase
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) KendraKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
 		return v.KendraKnowledgeBaseConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ManagedKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration {
 		return v.ManagedKnowledgeBaseConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) SqlKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
 		return v.SqlKnowledgeBaseConfiguration
@@ -19230,7 +19303,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) Type() pulumi.String
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
@@ -19261,7 +19334,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowl
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
 }
 
-// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+// Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) KendraKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration {
 		if v == nil {
@@ -19271,7 +19344,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) KendraKnowledgeBa
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) ManagedKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration {
 		if v == nil {
@@ -19281,7 +19354,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) ManagedKnowledgeB
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+// Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) SqlKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
 		if v == nil {
@@ -19301,7 +19374,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+// Details about the model that's used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		if v == nil {
@@ -19453,11 +19526,11 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigura
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration struct {
 	// ARN of the embedding model. Required when `embeddingModelType` is `CUSTOM`.
 	EmbeddingModelArn *string `pulumi:"embeddingModelArn"`
-	// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+	// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
 	EmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
 	// Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embeddingModelArn` and `embeddingModelConfiguration` are required. Defaults to `MANAGED`.
 	EmbeddingModelType *string `pulumi:"embeddingModelType"`
-	// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+	// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 }
 
@@ -19475,11 +19548,11 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs struct {
 	// ARN of the embedding model. Required when `embeddingModelType` is `CUSTOM`.
 	EmbeddingModelArn pulumi.StringPtrInput `pulumi:"embeddingModelArn"`
-	// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+	// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
 	EmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
 	// Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embeddingModelArn` and `embeddingModelConfiguration` are required. Defaults to `MANAGED`.
 	EmbeddingModelType pulumi.StringPtrInput `pulumi:"embeddingModelType"`
-	// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+	// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationPtrInput `pulumi:"serverSideEncryptionConfiguration"`
 }
 
@@ -19567,7 +19640,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration {
 		return v.EmbeddingModelConfiguration
@@ -19581,7 +19654,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationOutput) ServerSideEncryptionConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration {
 		return v.ServerSideEncryptionConfiguration
@@ -19622,7 +19695,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` block for details.
+// Configuration for the embedding model. Required when `embeddingModelType` is `CUSTOM`. See `embeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration {
 		if v == nil {
@@ -19642,7 +19715,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` block for details.
+// Server-side encryption configuration for the managed knowledge base. See `serverSideEncryptionConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationPtrOutput) ServerSideEncryptionConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration {
 		if v == nil {
@@ -19653,7 +19726,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration struct {
-	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 	BedrockEmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -19669,7 +19742,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs struct {
-	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 	BedrockEmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -19750,7 +19823,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
 }
 
-// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
 		return v.BedrockEmbeddingModelConfiguration
@@ -19781,7 +19854,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput)
 }
 
-// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
 		if v == nil {
@@ -19792,13 +19865,13 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration struct {
-	// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+	// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 	Audio *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio `pulumi:"audio"`
 	// Dimension details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions *int `pulumi:"dimensions"`
-	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 	EmbeddingDataType *string `pulumi:"embeddingDataType"`
-	// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+	// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 	Video *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo `pulumi:"video"`
 }
 
@@ -19814,13 +19887,13 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs struct {
-	// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+	// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 	Audio AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrInput `pulumi:"audio"`
 	// Dimension details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
-	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 	EmbeddingDataType pulumi.StringPtrInput `pulumi:"embeddingDataType"`
-	// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+	// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 	Video AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrInput `pulumi:"video"`
 }
 
@@ -19901,7 +19974,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
 }
 
-// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) Audio() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
 		return v.Audio
@@ -19915,14 +19988,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
 		return v.EmbeddingDataType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) Video() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
 		return v.Video
@@ -19953,7 +20026,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput)
 }
 
-// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Audio() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
 		if v == nil {
@@ -19973,7 +20046,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
 		if v == nil {
@@ -19983,7 +20056,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Video() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
 		if v == nil {
@@ -19994,7 +20067,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio struct {
-	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration `pulumi:"segmentationConfiguration"`
 }
 
@@ -20010,7 +20083,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs struct {
-	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
 }
 
@@ -20091,7 +20164,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput)
 }
 
-// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio) AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration {
 		return v.SegmentationConfiguration
@@ -20122,7 +20195,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioOutput)
 }
 
-// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration {
 		if v == nil {
@@ -20272,7 +20345,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo struct {
-	// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration `pulumi:"segmentationConfiguration"`
 }
 
@@ -20288,7 +20361,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurati
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs struct {
-	// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
 }
 
@@ -20369,7 +20442,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput)
 }
 
-// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo) AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration {
 		return v.SegmentationConfiguration
@@ -20400,7 +20473,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoOutput)
 }
 
-// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo) *AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration {
 		if v == nil {
@@ -20697,7 +20770,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigur
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration struct {
-	// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+	// Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
 	RedshiftConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration `pulumi:"redshiftConfiguration"`
 	// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
 	Type string `pulumi:"type"`
@@ -20715,7 +20788,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationIn
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs struct {
-	// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+	// Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
 	RedshiftConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrInput `pulumi:"redshiftConfiguration"`
 	// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -20798,7 +20871,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput)
 }
 
-// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+// Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
 		return v.RedshiftConfiguration
@@ -20836,7 +20909,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationOutput)
 }
 
-// Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+// Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationPtrOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
 		if v == nil {
@@ -20857,11 +20930,11 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration struct {
-	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
 	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration `pulumi:"queryEngineConfiguration"`
-	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+	// Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
 	QueryGenerationConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration `pulumi:"queryGenerationConfiguration"`
-	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+	// Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
 	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration `pulumi:"storageConfiguration"`
 }
 
@@ -20877,11 +20950,11 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs struct {
-	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
 	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput `pulumi:"queryEngineConfiguration"`
-	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+	// Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
 	QueryGenerationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput `pulumi:"queryGenerationConfiguration"`
-	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+	// Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
 	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput `pulumi:"storageConfiguration"`
 }
 
@@ -20962,21 +21035,21 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput)
 }
 
-// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
 		return v.QueryEngineConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput)
 }
 
-// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+// Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryGenerationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
 		return v.QueryGenerationConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
 }
 
-// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+// Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
 		return v.StorageConfiguration
@@ -21007,7 +21080,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput)
 }
 
-// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
 		if v == nil {
@@ -21017,7 +21090,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
 }
 
-// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+// Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) QueryGenerationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
 		if v == nil {
@@ -21027,7 +21100,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput)
 }
 
-// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+// Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
 		if v == nil {
@@ -21038,9 +21111,9 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration struct {
-	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
 	ProvisionedConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration `pulumi:"provisionedConfiguration"`
-	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
 	ServerlessConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration `pulumi:"serverlessConfiguration"`
 	// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
 	Type string `pulumi:"type"`
@@ -21058,9 +21131,9 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs struct {
-	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+	// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
 	ProvisionedConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrInput `pulumi:"provisionedConfiguration"`
-	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+	// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
 	ServerlessConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrInput `pulumi:"serverlessConfiguration"`
 	// Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -21143,14 +21216,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
 }
 
-// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ProvisionedConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
 		return v.ProvisionedConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
 }
 
-// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput) ServerlessConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
 		return v.ServerlessConfiguration
@@ -21188,7 +21261,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput)
 }
 
-// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+// Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ProvisionedConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
 		if v == nil {
@@ -21198,7 +21271,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
 }
 
-// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+// Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput) ServerlessConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration {
 		if v == nil {
@@ -21219,7 +21292,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration struct {
-	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+	// Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration `pulumi:"authConfiguration"`
 	// ID of the Amazon Redshift cluster.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
@@ -21237,7 +21310,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs struct {
-	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+	// Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput `pulumi:"authConfiguration"`
 	// ID of the Amazon Redshift cluster.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
@@ -21320,7 +21393,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput)
 }
 
-// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+// Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
 		return v.AuthConfiguration
@@ -21358,7 +21431,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput)
 }
 
-// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
+// Configurations for authentication to Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.provisioned_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationPtrOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
 		if v == nil {
@@ -21560,7 +21633,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration struct {
-	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+	// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn string `pulumi:"workgroupArn"`
@@ -21578,7 +21651,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs struct {
-	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+	// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn pulumi.StringInput `pulumi:"workgroupArn"`
@@ -21661,7 +21734,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput)
 }
 
-// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
 		return v.AuthConfiguration
@@ -21699,7 +21772,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput)
 }
 
-// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
+// Configurations for authentication to a Redshift Serverless. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.query_engine_configuration.serverless_configuration.auth_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationPtrOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
 		if v == nil {
@@ -21882,7 +21955,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration struct {
 	// Time after which query generation will time out.
 	ExecutionTimeoutSeconds *int `pulumi:"executionTimeoutSeconds"`
-	// Configurations for context to use during query generation. See `generationContext` block for details.
+	// Configurations for context to use during query generation. See `generationContext` Block for details.
 	GenerationContext *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext `pulumi:"generationContext"`
 }
 
@@ -21900,7 +21973,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs struct {
 	// Time after which query generation will time out.
 	ExecutionTimeoutSeconds pulumi.IntPtrInput `pulumi:"executionTimeoutSeconds"`
-	// Configurations for context to use during query generation. See `generationContext` block for details.
+	// Configurations for context to use during query generation. See `generationContext` Block for details.
 	GenerationContext AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrInput `pulumi:"generationContext"`
 }
 
@@ -21988,7 +22061,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configurations for context to use during query generation. See `generationContext` block for details.
+// Configurations for context to use during query generation. See `generationContext` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationOutput) GenerationContext() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
 		return v.GenerationContext
@@ -22029,7 +22102,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configurations for context to use during query generation. See `generationContext` block for details.
+// Configurations for context to use during query generation. See `generationContext` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrOutput) GenerationContext() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext {
 		if v == nil {
@@ -22040,9 +22113,9 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext struct {
-	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
 	CuratedQueries []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery `pulumi:"curatedQueries"`
-	// Information about a table in the database. See `table` block for details.
+	// Information about a table in the database. See `table` Block for details.
 	Tables []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable `pulumi:"tables"`
 }
 
@@ -22058,9 +22131,9 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs struct {
-	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+	// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
 	CuratedQueries AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayInput `pulumi:"curatedQueries"`
-	// Information about a table in the database. See `table` block for details.
+	// Information about a table in the database. See `table` Block for details.
 	Tables AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayInput `pulumi:"tables"`
 }
 
@@ -22141,14 +22214,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput)
 }
 
-// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) CuratedQueries() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
 		return v.CuratedQueries
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput)
 }
 
-// Information about a table in the database. See `table` block for details.
+// Information about a table in the database. See `table` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput) Tables() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
 		return v.Tables
@@ -22179,7 +22252,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextOutput)
 }
 
-// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` block for details.
+// Information about example queries to help the query engine generate appropriate SQL queries. See `curatedQuery` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) CuratedQueries() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery {
 		if v == nil {
@@ -22189,7 +22262,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArrayOutput)
 }
 
-// Information about a table in the database. See `table` block for details.
+// Information about a table in the database. See `table` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextPtrOutput) Tables() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArrayOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
 		if v == nil {
@@ -22310,7 +22383,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable struct {
-	// Information about a column in the table. See `column` block for details.
+	// Information about a column in the table. See `column` Block for details.
 	Columns []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn `pulumi:"columns"`
 	// Description of the table that helps the query engine understand the contents of the table.
 	Description *string `pulumi:"description"`
@@ -22332,7 +22405,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs struct {
-	// Information about a column in the table. See `column` block for details.
+	// Information about a column in the table. See `column` Block for details.
 	Columns AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayInput `pulumi:"columns"`
 	// Description of the table that helps the query engine understand the contents of the table.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -22393,7 +22466,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	return o
 }
 
-// Information about a column in the table. See `column` block for details.
+// Information about a column in the table. See `column` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableOutput) Columns() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArrayOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable) []AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn {
 		return v.Columns
@@ -22563,9 +22636,9 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration struct {
-	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
 	AwsDataCatalogConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration `pulumi:"awsDataCatalogConfiguration"`
-	// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+	// Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
 	RedshiftConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration `pulumi:"redshiftConfiguration"`
 	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type string `pulumi:"type"`
@@ -22583,9 +22656,9 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs struct {
-	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+	// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
 	AwsDataCatalogConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrInput `pulumi:"awsDataCatalogConfiguration"`
-	// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+	// Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
 	RedshiftConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrInput `pulumi:"redshiftConfiguration"`
 	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -22668,14 +22741,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
 }
 
-// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) AwsDataCatalogConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
 		return v.AwsDataCatalogConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
 }
 
-// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+// Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
 		return v.RedshiftConfiguration
@@ -22713,7 +22786,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput)
 }
 
-// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
+// Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) AwsDataCatalogConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
 		if v == nil {
@@ -22723,7 +22796,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationPtrOutput)
 }
 
-// Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
+// Configurations for storage in Amazon Redshift. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration.redshift_configuration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput) RedshiftConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
 		if v == nil {
@@ -23024,9 +23097,9 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration struct {
 	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
-	// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+	// Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
 	EmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
-	// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+	// Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
 	SupplementalDataStorageConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration `pulumi:"supplementalDataStorageConfiguration"`
 }
 
@@ -23044,9 +23117,9 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs struct {
 	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
-	// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+	// Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
 	EmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
-	// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+	// Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
 	SupplementalDataStorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput `pulumi:"supplementalDataStorageConfiguration"`
 }
 
@@ -23134,14 +23207,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.StringOutput)
 }
 
-// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+// Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
 		return v.EmbeddingModelConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
 }
 
-// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+// Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) SupplementalDataStorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
 		return v.SupplementalDataStorageConfiguration
@@ -23182,7 +23255,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+// Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
 		if v == nil {
@@ -23192,7 +23265,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
 }
 
-// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+// Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) SupplementalDataStorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
 		if v == nil {
@@ -23203,7 +23276,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration struct {
-	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 	BedrockEmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -23219,7 +23292,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs struct {
-	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 	BedrockEmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput `pulumi:"bedrockEmbeddingModelConfiguration"`
 }
 
@@ -23300,7 +23373,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
 }
 
-// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
 		return v.BedrockEmbeddingModelConfiguration
@@ -23331,7 +23404,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput)
 }
 
-// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+// Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
 		if v == nil {
@@ -23342,13 +23415,13 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration struct {
-	// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+	// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 	Audio *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio `pulumi:"audio"`
 	// Dimension details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions *int `pulumi:"dimensions"`
-	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 	EmbeddingDataType *string `pulumi:"embeddingDataType"`
-	// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+	// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 	Video *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo `pulumi:"video"`
 }
 
@@ -23364,13 +23437,13 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs struct {
-	// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+	// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 	Audio AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrInput `pulumi:"audio"`
 	// Dimension details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
-	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 	EmbeddingDataType pulumi.StringPtrInput `pulumi:"embeddingDataType"`
-	// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+	// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 	Video AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrInput `pulumi:"video"`
 }
 
@@ -23451,7 +23524,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
 }
 
-// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) Audio() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
 		return v.Audio
@@ -23465,14 +23538,14 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
 		return v.EmbeddingDataType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) Video() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
 		return v.Video
@@ -23503,7 +23576,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput)
 }
 
-// Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+// Configuration for processing audio content in multimodal knowledge bases. See `audio` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Audio() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
 		if v == nil {
@@ -23523,7 +23596,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.IntPtrOutput)
 }
 
-// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
 		if v == nil {
@@ -23533,7 +23606,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+// Configuration for processing video content in multimodal knowledge bases. See `video` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Video() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo {
 		if v == nil {
@@ -23544,7 +23617,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio struct {
-	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration `pulumi:"segmentationConfiguration"`
 }
 
@@ -23560,7 +23633,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs struct {
-	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
 }
 
@@ -23641,7 +23714,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput)
 }
 
-// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration {
 		return v.SegmentationConfiguration
@@ -23672,7 +23745,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioOutput)
 }
 
-// Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioPtrOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration {
 		if v == nil {
@@ -23822,7 +23895,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo struct {
-	// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration `pulumi:"segmentationConfiguration"`
 }
 
@@ -23838,7 +23911,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs struct {
-	// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+	// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 	SegmentationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
 }
 
@@ -23919,7 +23992,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput)
 }
 
-// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration {
 		return v.SegmentationConfiguration
@@ -23950,7 +24023,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoOutput)
 }
 
-// Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+// Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoPtrOutput) SegmentationConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration {
 		if v == nil {
@@ -24100,7 +24173,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration struct {
-	// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+	// Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
 	StorageLocations []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation `pulumi:"storageLocations"`
 }
 
@@ -24116,7 +24189,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs struct {
-	// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+	// Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
 	StorageLocations AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput `pulumi:"storageLocations"`
 }
 
@@ -24197,7 +24270,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput)
 }
 
-// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+// Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) StorageLocations() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
 		return v.StorageLocations
@@ -24228,7 +24301,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput)
 }
 
-// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+// Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) StorageLocations() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
 		if v == nil {
@@ -24239,7 +24312,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation struct {
-	// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+	// Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
 	S3Location *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location `pulumi:"s3Location"`
 	// Storage service used for this location. `S3` is the only valid value.
 	Type string `pulumi:"type"`
@@ -24257,7 +24330,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs struct {
-	// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+	// Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
 	S3Location AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput `pulumi:"s3Location"`
 	// Storage service used for this location. `S3` is the only valid value.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -24314,7 +24387,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	return o
 }
 
-// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+// Information about the Amazon S3 location for the extracted images. See `s3Location` Block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) S3Location() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location {
 		return v.S3Location
@@ -24488,21 +24561,21 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseStorageConfiguration struct {
-	// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+	// Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
 	MongoDbAtlasConfiguration *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration `pulumi:"mongoDbAtlasConfiguration"`
-	// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
 	NeptuneAnalyticsConfiguration *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration `pulumi:"neptuneAnalyticsConfiguration"`
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
 	OpensearchManagedClusterConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration `pulumi:"opensearchManagedClusterConfiguration"`
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
 	OpensearchServerlessConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
-	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+	// Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
 	PineconeConfiguration *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration `pulumi:"pineconeConfiguration"`
-	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
 	RdsConfiguration *AgentKnowledgeBaseStorageConfigurationRdsConfiguration `pulumi:"rdsConfiguration"`
-	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+	// Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
 	RedisEnterpriseCloudConfiguration *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration `pulumi:"redisEnterpriseCloudConfiguration"`
-	// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
 	S3VectorsConfiguration *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration `pulumi:"s3VectorsConfiguration"`
 	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type string `pulumi:"type"`
@@ -24520,21 +24593,21 @@ type AgentKnowledgeBaseStorageConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseStorageConfigurationArgs struct {
-	// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+	// Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
 	MongoDbAtlasConfiguration AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrInput `pulumi:"mongoDbAtlasConfiguration"`
-	// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
 	NeptuneAnalyticsConfiguration AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrInput `pulumi:"neptuneAnalyticsConfiguration"`
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
 	OpensearchManagedClusterConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrInput `pulumi:"opensearchManagedClusterConfiguration"`
-	// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
 	OpensearchServerlessConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
-	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+	// Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
 	PineconeConfiguration AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
-	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
 	RdsConfiguration AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
-	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+	// Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
 	RedisEnterpriseCloudConfiguration AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput `pulumi:"redisEnterpriseCloudConfiguration"`
-	// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+	// Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
 	S3VectorsConfiguration AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrInput `pulumi:"s3VectorsConfiguration"`
 	// Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -24617,56 +24690,56 @@ func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorag
 	}).(AgentKnowledgeBaseStorageConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+// Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) MongoDbAtlasConfiguration() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
 		return v.MongoDbAtlasConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) NeptuneAnalyticsConfiguration() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
 		return v.NeptuneAnalyticsConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchManagedClusterConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
 		return v.OpensearchManagedClusterConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		return v.OpensearchServerlessConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+// Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
 		return v.PineconeConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
 }
 
-// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
 		return v.RdsConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+// Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
 		return v.RedisEnterpriseCloudConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) S3VectorsConfiguration() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
 		return v.S3VectorsConfiguration
@@ -24702,7 +24775,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Elem() AgentKnowledgeBa
 	}).(AgentKnowledgeBaseStorageConfigurationOutput)
 }
 
-// The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+// Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) MongoDbAtlasConfiguration() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
 		if v == nil {
@@ -24712,7 +24785,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) MongoDbAtlasConfigurati
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfiguration() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
 		if v == nil {
@@ -24722,7 +24795,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) NeptuneAnalyticsConfigu
 	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchManagedClusterConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
 		if v == nil {
@@ -24732,7 +24805,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchManagedCluste
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		if v == nil {
@@ -24742,7 +24815,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessCon
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+// Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
 		if v == nil {
@@ -24752,7 +24825,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration()
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
 }
 
-// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
 		if v == nil {
@@ -24762,7 +24835,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() Agen
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+// Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
 		if v == nil {
@@ -24772,7 +24845,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudCon
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+// Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) S3VectorsConfiguration() AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration {
 		if v == nil {
@@ -24793,21 +24866,21 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Type() pulumi.StringPtr
 }
 
 type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration struct {
-	// The name of the collection in the MongoDB Atlas database.
+	// Name of the collection in the MongoDB Atlas database.
 	CollectionName string `pulumi:"collectionName"`
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The name of the database in the MongoDB Atlas database.
+	// Name of the database in the MongoDB Atlas database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The endpoint URL of the MongoDB Atlas database.
+	// Endpoint URL of the MongoDB Atlas database.
 	Endpoint string `pulumi:"endpoint"`
-	// The name of the service that hosts the MongoDB Atlas database.
+	// Name of the service that hosts the MongoDB Atlas database.
 	EndpointServiceName *string `pulumi:"endpointServiceName"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// The name of the vector index.
+	// Name of the vector index.
 	TextIndexName *string `pulumi:"textIndexName"`
-	// The name of the vector index.
+	// Name of the vector index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
 
@@ -24823,21 +24896,21 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationInput interf
 }
 
 type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs struct {
-	// The name of the collection in the MongoDB Atlas database.
+	// Name of the collection in the MongoDB Atlas database.
 	CollectionName pulumi.StringInput `pulumi:"collectionName"`
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The name of the database in the MongoDB Atlas database.
+	// Name of the database in the MongoDB Atlas database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The endpoint URL of the MongoDB Atlas database.
+	// Endpoint URL of the MongoDB Atlas database.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the service that hosts the MongoDB Atlas database.
+	// Name of the service that hosts the MongoDB Atlas database.
 	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput `pulumi:"fieldMapping"`
-	// The name of the vector index.
+	// Name of the vector index.
 	TextIndexName pulumi.StringPtrInput `pulumi:"textIndexName"`
-	// The name of the vector index.
+	// Name of the vector index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
 
@@ -24918,52 +24991,52 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) T
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput)
 }
 
-// The name of the collection in the MongoDB Atlas database.
+// Name of the collection in the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) CollectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
 		return v.CollectionName
 	}).(pulumi.StringOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// The name of the database in the MongoDB Atlas database.
+// Name of the database in the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The endpoint URL of the MongoDB Atlas database.
+// Endpoint URL of the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the service that hosts the MongoDB Atlas database.
+// Name of the service that hosts the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) EndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		return v.EndpointServiceName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
 		return v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
 }
 
-// The name of the vector index.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) TextIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		return v.TextIndexName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the vector index.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) VectorIndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) string {
 		return v.VectorIndexName
@@ -24994,7 +25067,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput)
 }
 
-// The name of the collection in the MongoDB Atlas database.
+// Name of the collection in the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) CollectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25004,7 +25077,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25014,7 +25087,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the database in the MongoDB Atlas database.
+// Name of the database in the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25024,7 +25097,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL of the MongoDB Atlas database.
+// Endpoint URL of the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25034,7 +25107,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the service that hosts the MongoDB Atlas database.
+// Name of the service that hosts the MongoDB Atlas database.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) EndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25044,7 +25117,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
 		if v == nil {
@@ -25054,7 +25127,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the vector index.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) TextIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25064,7 +25137,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the vector index.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *string {
 		if v == nil {
@@ -25075,11 +25148,11 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 }
 
 type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField string `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField string `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField string `pulumi:"vectorField"`
 }
 
@@ -25095,11 +25168,11 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping
 }
 
 type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringInput `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField pulumi.StringInput `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField pulumi.StringInput `pulumi:"vectorField"`
 }
 
@@ -25180,21 +25253,21 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
 		return v.MetadataField
 	}).(pulumi.StringOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
 		return v.TextField
 	}).(pulumi.StringOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) string {
 		return v.VectorField
@@ -25225,7 +25298,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
 		if v == nil {
@@ -25235,7 +25308,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
 		if v == nil {
@@ -25245,7 +25318,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping) *string {
 		if v == nil {
@@ -25256,7 +25329,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 }
 
 type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration struct {
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// ARN of the Neptune Analytics vector store.
 	GraphArn string `pulumi:"graphArn"`
@@ -25274,7 +25347,7 @@ type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput in
 }
 
 type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs struct {
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// ARN of the Neptune Analytics vector store.
 	GraphArn pulumi.StringInput `pulumi:"graphArn"`
@@ -25357,7 +25430,7 @@ func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutpu
 	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
 		return v.FieldMapping
@@ -25393,7 +25466,7 @@ func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOu
 	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.neptune_analytics_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
 		if v == nil {
@@ -25578,7 +25651,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
 	DomainArn string `pulumi:"domainArn"`
 	// Endpoint URL of the OpenSearch domain.
 	DomainEndpoint string `pulumi:"domainEndpoint"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
@@ -25600,7 +25673,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
 	DomainArn pulumi.StringInput `pulumi:"domainArn"`
 	// Endpoint URL of the OpenSearch domain.
 	DomainEndpoint pulumi.StringInput `pulumi:"domainEndpoint"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
@@ -25697,7 +25770,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurat
 	}).(pulumi.StringOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
 		return v.FieldMapping
@@ -25755,7 +25828,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
 		if v == nil {
@@ -25959,7 +26032,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurat
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration struct {
 	// ARN of the OpenSearch Service vector store.
 	CollectionArn string `pulumi:"collectionArn"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
@@ -25979,7 +26052,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInpu
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs struct {
 	// ARN of the OpenSearch Service vector store.
 	CollectionArn pulumi.StringInput `pulumi:"collectionArn"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
@@ -26069,7 +26142,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationO
 	}).(pulumi.StringOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
 		return v.FieldMapping
@@ -26117,7 +26190,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
 		if v == nil {
@@ -26323,7 +26396,7 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfiguration struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Namespace to be used to write new data to your database.
 	Namespace *string `pulumi:"namespace"`
@@ -26345,7 +26418,7 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs struct {
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Namespace to be used to write new data to your database.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
@@ -26440,7 +26513,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) Crede
 	}).(pulumi.StringOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
 		return v.FieldMapping
@@ -26496,7 +26569,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
 		if v == nil {
@@ -26681,7 +26754,7 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfiguration struct {
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// Name of your Amazon RDS database.
 	DatabaseName string `pulumi:"databaseName"`
-	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// ARN of the vector store.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -26705,7 +26778,7 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs struct {
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// Name of your Amazon RDS database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// ARN of the vector store.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
@@ -26800,7 +26873,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) DatabaseNa
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
 		return v.FieldMapping
@@ -26861,7 +26934,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Databas
 	}).(pulumi.StringPtrOutput)
 }
 
-// Names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
 		if v == nil {
@@ -27117,7 +27190,7 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration str
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint string `pulumi:"endpoint"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
@@ -27139,7 +27212,7 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+	// Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
@@ -27236,7 +27309,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationO
 	}).(pulumi.StringOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
 		return v.FieldMapping
@@ -27294,7 +27367,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The names of the fields to which to map information about the vector store. This block supports the following arguments:
+// Names of the fields to which to map information about the vector store. See `storage_configuration.redis_enterprise_cloud_configuration.field_mapping` Block for details.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
 		if v == nil {
@@ -27846,19 +27919,19 @@ func (o AgentKnowledgeBaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentPromptVariant struct {
-	// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
-	// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+	// Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
 	GenAiResource *AgentPromptVariantGenAiResource `pulumi:"genAiResource"`
-	// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+	// Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
 	InferenceConfiguration *AgentPromptVariantInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+	// List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
 	Metadatas []AgentPromptVariantMetadata `pulumi:"metadatas"`
 	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
 	ModelId *string `pulumi:"modelId"`
-	// Name of the prompt variant.
+	// Name of the tool.
 	Name string `pulumi:"name"`
-	// Contains configurations for the prompt template. See Template Configuration for more information.
+	// Configurations for the prompt template. See `templateConfiguration` Block for more information.
 	TemplateConfiguration *AgentPromptVariantTemplateConfiguration `pulumi:"templateConfiguration"`
 	// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
 	TemplateType string `pulumi:"templateType"`
@@ -27876,19 +27949,19 @@ type AgentPromptVariantInput interface {
 }
 
 type AgentPromptVariantArgs struct {
-	// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
-	// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+	// Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
 	GenAiResource AgentPromptVariantGenAiResourcePtrInput `pulumi:"genAiResource"`
-	// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+	// Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
 	InferenceConfiguration AgentPromptVariantInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+	// List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
 	Metadatas AgentPromptVariantMetadataArrayInput `pulumi:"metadatas"`
 	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
-	// Name of the prompt variant.
+	// Name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Contains configurations for the prompt template. See Template Configuration for more information.
+	// Configurations for the prompt template. See `templateConfiguration` Block for more information.
 	TemplateConfiguration AgentPromptVariantTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
 	// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
 	TemplateType pulumi.StringInput `pulumi:"templateType"`
@@ -27945,22 +28018,22 @@ func (o AgentPromptVariantOutput) ToAgentPromptVariantOutputWithContext(ctx cont
 	return o
 }
 
-// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
 func (o AgentPromptVariantOutput) AdditionalModelRequestFields() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *string { return v.AdditionalModelRequestFields }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+// Generative AI resource with which to use the prompt. If this is not supplied, then a `modelId` must be defined. See `genAiResource` Block for more information.
 func (o AgentPromptVariantOutput) GenAiResource() AgentPromptVariantGenAiResourcePtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantGenAiResource { return v.GenAiResource }).(AgentPromptVariantGenAiResourcePtrOutput)
 }
 
-// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+// Inference configurations for the prompt variant. See `inferenceConfiguration` Block for more information.
 func (o AgentPromptVariantOutput) InferenceConfiguration() AgentPromptVariantInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantInferenceConfiguration { return v.InferenceConfiguration }).(AgentPromptVariantInferenceConfigurationPtrOutput)
 }
 
-// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+// List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `metadata` Block for more information.
 func (o AgentPromptVariantOutput) Metadatas() AgentPromptVariantMetadataArrayOutput {
 	return o.ApplyT(func(v AgentPromptVariant) []AgentPromptVariantMetadata { return v.Metadatas }).(AgentPromptVariantMetadataArrayOutput)
 }
@@ -27970,12 +28043,12 @@ func (o AgentPromptVariantOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the prompt variant.
+// Name of the tool.
 func (o AgentPromptVariantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariant) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Contains configurations for the prompt template. See Template Configuration for more information.
+// Configurations for the prompt template. See `templateConfiguration` Block for more information.
 func (o AgentPromptVariantOutput) TemplateConfiguration() AgentPromptVariantTemplateConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantTemplateConfiguration { return v.TemplateConfiguration }).(AgentPromptVariantTemplateConfigurationPtrOutput)
 }
@@ -28006,7 +28079,7 @@ func (o AgentPromptVariantArrayOutput) Index(i pulumi.IntInput) AgentPromptVaria
 }
 
 type AgentPromptVariantGenAiResource struct {
-	// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+	// Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
 	Agent *AgentPromptVariantGenAiResourceAgent `pulumi:"agent"`
 }
 
@@ -28022,7 +28095,7 @@ type AgentPromptVariantGenAiResourceInput interface {
 }
 
 type AgentPromptVariantGenAiResourceArgs struct {
-	// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+	// Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
 	Agent AgentPromptVariantGenAiResourceAgentPtrInput `pulumi:"agent"`
 }
 
@@ -28103,7 +28176,7 @@ func (o AgentPromptVariantGenAiResourceOutput) ToAgentPromptVariantGenAiResource
 	}).(AgentPromptVariantGenAiResourcePtrOutput)
 }
 
-// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+// Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
 func (o AgentPromptVariantGenAiResourceOutput) Agent() AgentPromptVariantGenAiResourceAgentPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantGenAiResource) *AgentPromptVariantGenAiResourceAgent { return v.Agent }).(AgentPromptVariantGenAiResourceAgentPtrOutput)
 }
@@ -28132,7 +28205,7 @@ func (o AgentPromptVariantGenAiResourcePtrOutput) Elem() AgentPromptVariantGenAi
 	}).(AgentPromptVariantGenAiResourceOutput)
 }
 
-// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+// Amazon Bedrock agent with which to use the prompt. See `agent` Block for more information.
 func (o AgentPromptVariantGenAiResourcePtrOutput) Agent() AgentPromptVariantGenAiResourceAgentPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantGenAiResource) *AgentPromptVariantGenAiResourceAgent {
 		if v == nil {
@@ -28280,7 +28353,7 @@ func (o AgentPromptVariantGenAiResourceAgentPtrOutput) AgentIdentifier() pulumi.
 }
 
 type AgentPromptVariantInferenceConfiguration struct {
-	// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+	// Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
 	Text *AgentPromptVariantInferenceConfigurationText `pulumi:"text"`
 }
 
@@ -28296,7 +28369,7 @@ type AgentPromptVariantInferenceConfigurationInput interface {
 }
 
 type AgentPromptVariantInferenceConfigurationArgs struct {
-	// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+	// Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
 	Text AgentPromptVariantInferenceConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -28377,7 +28450,7 @@ func (o AgentPromptVariantInferenceConfigurationOutput) ToAgentPromptVariantInfe
 	}).(AgentPromptVariantInferenceConfigurationPtrOutput)
 }
 
-// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+// Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
 func (o AgentPromptVariantInferenceConfigurationOutput) Text() AgentPromptVariantInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantInferenceConfiguration) *AgentPromptVariantInferenceConfigurationText {
 		return v.Text
@@ -28408,7 +28481,7 @@ func (o AgentPromptVariantInferenceConfigurationPtrOutput) Elem() AgentPromptVar
 	}).(AgentPromptVariantInferenceConfigurationOutput)
 }
 
-// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+// Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
 func (o AgentPromptVariantInferenceConfigurationPtrOutput) Text() AgentPromptVariantInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantInferenceConfiguration) *AgentPromptVariantInferenceConfigurationText {
 		if v == nil {
@@ -28719,9 +28792,9 @@ func (o AgentPromptVariantMetadataArrayOutput) Index(i pulumi.IntInput) AgentPro
 }
 
 type AgentPromptVariantTemplateConfiguration struct {
-	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	// Configurations to use the prompt in a conversational format. See `chat` Block for more information.
 	Chat *AgentPromptVariantTemplateConfigurationChat `pulumi:"chat"`
-	// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+	// Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
 	Text *AgentPromptVariantTemplateConfigurationText `pulumi:"text"`
 }
 
@@ -28737,9 +28810,9 @@ type AgentPromptVariantTemplateConfigurationInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationArgs struct {
-	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	// Configurations to use the prompt in a conversational format. See `chat` Block for more information.
 	Chat AgentPromptVariantTemplateConfigurationChatPtrInput `pulumi:"chat"`
-	// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+	// Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
 	Text AgentPromptVariantTemplateConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -28820,14 +28893,14 @@ func (o AgentPromptVariantTemplateConfigurationOutput) ToAgentPromptVariantTempl
 	}).(AgentPromptVariantTemplateConfigurationPtrOutput)
 }
 
-// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+// Configurations to use the prompt in a conversational format. See `chat` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationOutput) Chat() AgentPromptVariantTemplateConfigurationChatPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationChat {
 		return v.Chat
 	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
 }
 
-// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+// Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationOutput) Text() AgentPromptVariantTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationText {
 		return v.Text
@@ -28858,7 +28931,7 @@ func (o AgentPromptVariantTemplateConfigurationPtrOutput) Elem() AgentPromptVari
 	}).(AgentPromptVariantTemplateConfigurationOutput)
 }
 
-// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+// Configurations to use the prompt in a conversational format. See `chat` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationPtrOutput) Chat() AgentPromptVariantTemplateConfigurationChatPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationChat {
 		if v == nil {
@@ -28868,7 +28941,7 @@ func (o AgentPromptVariantTemplateConfigurationPtrOutput) Chat() AgentPromptVari
 	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
 }
 
-// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+// Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationPtrOutput) Text() AgentPromptVariantTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationText {
 		if v == nil {
@@ -28879,12 +28952,13 @@ func (o AgentPromptVariantTemplateConfigurationPtrOutput) Text() AgentPromptVari
 }
 
 type AgentPromptVariantTemplateConfigurationChat struct {
+	// List of variables in the prompt template. See `inputVariable` Block for more information.
 	InputVariables []AgentPromptVariantTemplateConfigurationChatInputVariable `pulumi:"inputVariables"`
-	// A list of messages in the chat for the prompt. See Message for more information.
+	// List of messages in the chat for the prompt. See `message` Block for more information.
 	Messages []AgentPromptVariantTemplateConfigurationChatMessage `pulumi:"messages"`
-	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	// List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
 	Systems []AgentPromptVariantTemplateConfigurationChatSystem `pulumi:"systems"`
-	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	// Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
 	ToolConfiguration *AgentPromptVariantTemplateConfigurationChatToolConfiguration `pulumi:"toolConfiguration"`
 }
 
@@ -28900,12 +28974,13 @@ type AgentPromptVariantTemplateConfigurationChatInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatArgs struct {
+	// List of variables in the prompt template. See `inputVariable` Block for more information.
 	InputVariables AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput `pulumi:"inputVariables"`
-	// A list of messages in the chat for the prompt. See Message for more information.
+	// List of messages in the chat for the prompt. See `message` Block for more information.
 	Messages AgentPromptVariantTemplateConfigurationChatMessageArrayInput `pulumi:"messages"`
-	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	// List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
 	Systems AgentPromptVariantTemplateConfigurationChatSystemArrayInput `pulumi:"systems"`
-	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	// Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
 	ToolConfiguration AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput `pulumi:"toolConfiguration"`
 }
 
@@ -28986,27 +29061,28 @@ func (o AgentPromptVariantTemplateConfigurationChatOutput) ToAgentPromptVariantT
 	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
 }
 
+// List of variables in the prompt template. See `inputVariable` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatOutput) InputVariables() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatInputVariable {
 		return v.InputVariables
 	}).(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput)
 }
 
-// A list of messages in the chat for the prompt. See Message for more information.
+// List of messages in the chat for the prompt. See `message` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatOutput) Messages() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatMessage {
 		return v.Messages
 	}).(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput)
 }
 
-// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+// List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatOutput) Systems() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatSystem {
 		return v.Systems
 	}).(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput)
 }
 
-// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+// Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatOutput) ToolConfiguration() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) *AgentPromptVariantTemplateConfigurationChatToolConfiguration {
 		return v.ToolConfiguration
@@ -29037,6 +29113,7 @@ func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Elem() AgentPrompt
 	}).(AgentPromptVariantTemplateConfigurationChatOutput)
 }
 
+// List of variables in the prompt template. See `inputVariable` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) InputVariables() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatInputVariable {
 		if v == nil {
@@ -29046,7 +29123,7 @@ func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) InputVariables() A
 	}).(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput)
 }
 
-// A list of messages in the chat for the prompt. See Message for more information.
+// List of messages in the chat for the prompt. See `message` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Messages() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatMessage {
 		if v == nil {
@@ -29056,7 +29133,7 @@ func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Messages() AgentPr
 	}).(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput)
 }
 
-// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+// List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Systems() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatSystem {
 		if v == nil {
@@ -29066,7 +29143,7 @@ func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Systems() AgentPro
 	}).(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput)
 }
 
-// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+// Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) ToolConfiguration() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) *AgentPromptVariantTemplateConfigurationChatToolConfiguration {
 		if v == nil {
@@ -29077,7 +29154,7 @@ func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) ToolConfiguration(
 }
 
 type AgentPromptVariantTemplateConfigurationChatInputVariable struct {
-	// The name of the variable.
+	// Name of the variable.
 	Name string `pulumi:"name"`
 }
 
@@ -29093,7 +29170,7 @@ type AgentPromptVariantTemplateConfigurationChatInputVariableInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatInputVariableArgs struct {
-	// The name of the variable.
+	// Name of the variable.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -29148,7 +29225,7 @@ func (o AgentPromptVariantTemplateConfigurationChatInputVariableOutput) ToAgentP
 	return o
 }
 
-// The name of the variable.
+// Name of the variable.
 func (o AgentPromptVariantTemplateConfigurationChatInputVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatInputVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -29174,9 +29251,9 @@ func (o AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) Ind
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessage struct {
-	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	// Content for the message you pass to, or receive from a model. See `content` Block for more information.
 	Content *AgentPromptVariantTemplateConfigurationChatMessageContent `pulumi:"content"`
-	// The role that the message belongs to.
+	// Role that the message belongs to.
 	Role string `pulumi:"role"`
 }
 
@@ -29192,9 +29269,9 @@ type AgentPromptVariantTemplateConfigurationChatMessageInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageArgs struct {
-	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	// Content for the message you pass to, or receive from a model. See `content` Block for more information.
 	Content AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
-	// The role that the message belongs to.
+	// Role that the message belongs to.
 	Role pulumi.StringInput `pulumi:"role"`
 }
 
@@ -29249,14 +29326,14 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) ToAgentPromptV
 	return o
 }
 
-// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+// Content for the message you pass to, or receive from a model. See `content` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) Content() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessage) *AgentPromptVariantTemplateConfigurationChatMessageContent {
 		return v.Content
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput)
 }
 
-// The role that the message belongs to.
+// Role that the message belongs to.
 func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessage) string { return v.Role }).(pulumi.StringOutput)
 }
@@ -29282,8 +29359,10 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageArrayOutput) Index(i p
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageContent struct {
+	// Cache checkpoint within a message. See `cachePoint` Block for more information.
 	CachePoint *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint `pulumi:"cachePoint"`
-	Text       *string                                                              `pulumi:"text"`
+	// Text in the message.
+	Text *string `pulumi:"text"`
 }
 
 // AgentPromptVariantTemplateConfigurationChatMessageContentInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageContentArgs and AgentPromptVariantTemplateConfigurationChatMessageContentOutput values.
@@ -29298,8 +29377,10 @@ type AgentPromptVariantTemplateConfigurationChatMessageContentInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageContentArgs struct {
+	// Cache checkpoint within a message. See `cachePoint` Block for more information.
 	CachePoint AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput `pulumi:"cachePoint"`
-	Text       pulumi.StringPtrInput                                                       `pulumi:"text"`
+	// Text in the message.
+	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
 func (AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ElementType() reflect.Type {
@@ -29379,12 +29460,14 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ToAgent
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput)
 }
 
+// Cache checkpoint within a message. See `cachePoint` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContent) *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
 		return v.CachePoint
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
+// Text in the message.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContent) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
@@ -29413,6 +29496,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Elem
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentOutput)
 }
 
+// Cache checkpoint within a message. See `cachePoint` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContent) *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
 		if v == nil {
@@ -29422,6 +29506,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Cach
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
+// Text in the message.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContent) *string {
 		if v == nil {
@@ -29432,7 +29517,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Text
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type string `pulumi:"type"`
 }
 
@@ -29448,7 +29533,7 @@ type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointInput in
 }
 
 type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29529,7 +29614,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutpu
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29558,7 +29643,7 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOu
 	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) *string {
 		if v == nil {
@@ -29569,9 +29654,9 @@ func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOu
 }
 
 type AgentPromptVariantTemplateConfigurationChatSystem struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
 	CachePoint *AgentPromptVariantTemplateConfigurationChatSystemCachePoint `pulumi:"cachePoint"`
-	// The text in the system prompt.
+	// Text in the system prompt.
 	Text *string `pulumi:"text"`
 }
 
@@ -29587,9 +29672,9 @@ type AgentPromptVariantTemplateConfigurationChatSystemInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationChatSystemArgs struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	// Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
 	CachePoint AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput `pulumi:"cachePoint"`
-	// The text in the system prompt.
+	// Text in the system prompt.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
@@ -29644,14 +29729,14 @@ func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) ToAgentPromptVa
 	return o
 }
 
-// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+// Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystem) *AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
 		return v.CachePoint
 	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput)
 }
 
-// The text in the system prompt.
+// Text in the system prompt.
 func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystem) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
@@ -29677,7 +29762,7 @@ func (o AgentPromptVariantTemplateConfigurationChatSystemArrayOutput) Index(i pu
 }
 
 type AgentPromptVariantTemplateConfigurationChatSystemCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type string `pulumi:"type"`
 }
 
@@ -29693,7 +29778,7 @@ type AgentPromptVariantTemplateConfigurationChatSystemCachePointInput interface 
 }
 
 type AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29774,7 +29859,7 @@ func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ToAge
 	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystemCachePoint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29803,7 +29888,7 @@ func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) El
 	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatSystemCachePoint) *string {
 		if v == nil {
@@ -29814,9 +29899,9 @@ func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) Ty
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfiguration struct {
-	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	// Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
 	ToolChoice *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice `pulumi:"toolChoice"`
-	// A list of tools to pass to a model. See Tool for more information.
+	// List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
 	Tools []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool `pulumi:"tools"`
 }
 
@@ -29832,9 +29917,9 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationInput interface
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs struct {
-	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	// Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
 	ToolChoice AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput `pulumi:"toolChoice"`
-	// A list of tools to pass to a model. See Tool for more information.
+	// List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
 	Tools AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput `pulumi:"tools"`
 }
 
@@ -29915,14 +30000,14 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToAg
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput)
 }
 
-// Defines which tools the model should request when invoked. See Tool Choice for more information.
+// Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToolChoice() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfiguration) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
 		return v.ToolChoice
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// A list of tools to pass to a model. See Tool for more information.
+// List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) Tools() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfiguration) []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
 		return v.Tools
@@ -29953,7 +30038,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) E
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput)
 }
 
-// Defines which tools the model should request when invoked. See Tool Choice for more information.
+// Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) ToolChoice() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfiguration) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
 		if v == nil {
@@ -29963,7 +30048,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) T
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// A list of tools to pass to a model. See Tool for more information.
+// List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) Tools() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfiguration) []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
 		if v == nil {
@@ -29974,9 +30059,8 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) T
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationTool struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
 	CachePoint *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint `pulumi:"cachePoint"`
-	// The specification for the tool. See Tool Specification for more information.
+	// Specification for the tool. See `toolSpec` Block for more information.
 	ToolSpec *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec `pulumi:"toolSpec"`
 }
 
@@ -29992,9 +30076,8 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput inter
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs struct {
-	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
 	CachePoint AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput `pulumi:"cachePoint"`
-	// The specification for the tool. See Tool Specification for more information.
+	// Specification for the tool. See `toolSpec` Block for more information.
 	ToolSpec AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput `pulumi:"toolSpec"`
 }
 
@@ -30049,14 +30132,13 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) 
 	return o
 }
 
-// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationTool) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
 		return v.CachePoint
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
 }
 
-// The specification for the tool. See Tool Specification for more information.
+// Specification for the tool. See `toolSpec` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) ToolSpec() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationTool) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
 		return v.ToolSpec
@@ -30084,7 +30166,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOut
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type string `pulumi:"type"`
 }
 
@@ -30100,7 +30182,7 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointI
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -30181,7 +30263,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoi
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) string {
 		return v.Type
@@ -30212,7 +30294,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoi
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) *string {
 		if v == nil {
@@ -30223,11 +30305,11 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoi
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
 	Any *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	// Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
 	Auto *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto `pulumi:"auto"`
-	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
 	Tool *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool `pulumi:"tool"`
 }
 
@@ -30243,11 +30325,11 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceInput
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
 	Any AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	// Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
 	Auto AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput `pulumi:"auto"`
-	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
 	Tool AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput `pulumi:"tool"`
 }
 
@@ -30328,21 +30410,21 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOu
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Any() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		return v.Any
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+// Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Auto() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		return v.Auto
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
 }
 
-// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Tool() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
 		return v.Tool
@@ -30373,7 +30455,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePt
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+// Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Any() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		if v == nil {
@@ -30383,7 +30465,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePt
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+// Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Auto() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		if v == nil {
@@ -30393,7 +30475,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePt
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
 }
 
-// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+// Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Tool() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
 		if v == nil {
@@ -30787,13 +30869,11 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTo
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec struct {
-	// Description of the prompt.
+	// Description of the tool.
 	Description *string `pulumi:"description"`
-	// The input schema of the tool. See Tool Input Schema for more information.
+	// Input schema of the tool. See `inputSchema` Block for more information.
 	InputSchema *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema `pulumi:"inputSchema"`
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
+	// Name of the tool.
 	Name string `pulumi:"name"`
 }
 
@@ -30809,13 +30889,11 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInp
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs struct {
-	// Description of the prompt.
+	// Description of the tool.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The input schema of the tool. See Tool Input Schema for more information.
+	// Input schema of the tool. See `inputSchema` Block for more information.
 	InputSchema AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput `pulumi:"inputSchema"`
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
+	// Name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -30896,23 +30974,21 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
 }
 
-// Description of the prompt.
+// Description of the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input schema of the tool. See Tool Input Schema for more information.
+// Input schema of the tool. See `inputSchema` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) InputSchema() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
 		return v.InputSchema
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// Name of the prompt.
-//
-// The following arguments are optional:
+// Name of the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30941,7 +31017,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
 }
 
-// Description of the prompt.
+// Description of the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -30951,7 +31027,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(pulumi.StringPtrOutput)
 }
 
-// The input schema of the tool. See Tool Input Schema for more information.
+// Input schema of the tool. See `inputSchema` Block for more information.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) InputSchema() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
 		if v == nil {
@@ -30961,9 +31037,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// Name of the prompt.
-//
-// The following arguments are optional:
+// Name of the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -30974,7 +31048,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema struct {
-	// A JSON object defining the input schema for the tool.
+	// JSON object defining the input schema for the tool.
 	Json *string `pulumi:"json"`
 }
 
@@ -30990,7 +31064,7 @@ type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInp
 }
 
 type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs struct {
-	// A JSON object defining the input schema for the tool.
+	// JSON object defining the input schema for the tool.
 	Json pulumi.StringPtrInput `pulumi:"json"`
 }
 
@@ -31071,7 +31145,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// A JSON object defining the input schema for the tool.
+// JSON object defining the input schema for the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) Json() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
 		return v.Json
@@ -31102,7 +31176,7 @@ func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
 	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
 }
 
-// A JSON object defining the input schema for the tool.
+// JSON object defining the input schema for the tool.
 func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Json() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
 		if v == nil {
@@ -31280,7 +31354,7 @@ func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) Text() pulumi.Stri
 }
 
 type AgentPromptVariantTemplateConfigurationTextCachePoint struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type string `pulumi:"type"`
 }
 
@@ -31296,7 +31370,7 @@ type AgentPromptVariantTemplateConfigurationTextCachePointInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationTextCachePointArgs struct {
-	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	// Cache point type. Valid values: `default`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31377,7 +31451,7 @@ func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) ToAgentProm
 	}).(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationTextCachePoint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31406,7 +31480,7 @@ func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) Elem() A
 	}).(AgentPromptVariantTemplateConfigurationTextCachePointOutput)
 }
 
-// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+// Cache point type. Valid values: `default`.
 func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationTextCachePoint) *string {
 		if v == nil {
@@ -31417,7 +31491,7 @@ func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) Type() p
 }
 
 type AgentPromptVariantTemplateConfigurationTextInputVariable struct {
-	// The name of the variable.
+	// Name of the variable.
 	Name string `pulumi:"name"`
 }
 
@@ -31433,7 +31507,7 @@ type AgentPromptVariantTemplateConfigurationTextInputVariableInput interface {
 }
 
 type AgentPromptVariantTemplateConfigurationTextInputVariableArgs struct {
-	// The name of the variable.
+	// Name of the variable.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -31488,7 +31562,7 @@ func (o AgentPromptVariantTemplateConfigurationTextInputVariableOutput) ToAgentP
 	return o
 }
 
-// The name of the variable.
+// Name of the variable.
 func (o AgentPromptVariantTemplateConfigurationTextInputVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationTextInputVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35345,7 +35419,7 @@ func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() 
 }
 
 type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig struct {
-	// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+	// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
 	RequireServiceS3Endpoint *bool `pulumi:"requireServiceS3Endpoint"`
 	// Security groups associated with the VPC configuration.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -35365,7 +35439,7 @@ type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigInput interface {
 }
 
 type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs struct {
-	// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+	// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
 	RequireServiceS3Endpoint pulumi.BoolPtrInput `pulumi:"requireServiceS3Endpoint"`
 	// Security groups associated with the VPC configuration.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -35450,7 +35524,7 @@ func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ToAgen
 	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput)
 }
 
-// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
 func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) *bool {
 		return v.RequireServiceS3Endpoint
@@ -35491,7 +35565,7 @@ func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) Ele
 	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput)
 }
 
-// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
 func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) RequireServiceS3Endpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) *bool {
 		if v == nil {
@@ -35659,7 +35733,7 @@ func (o AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) ServerProtocol() pu
 }
 
 type AgentcoreAgentRuntimeRequestHeaderConfiguration struct {
-	// A list of HTTP request headers that are allowed to be passed through to the runtime.
+	// List of HTTP request headers that are allowed to be passed through to the runtime.
 	RequestHeaderAllowlists []string `pulumi:"requestHeaderAllowlists"`
 }
 
@@ -35675,7 +35749,7 @@ type AgentcoreAgentRuntimeRequestHeaderConfigurationInput interface {
 }
 
 type AgentcoreAgentRuntimeRequestHeaderConfigurationArgs struct {
-	// A list of HTTP request headers that are allowed to be passed through to the runtime.
+	// List of HTTP request headers that are allowed to be passed through to the runtime.
 	RequestHeaderAllowlists pulumi.StringArrayInput `pulumi:"requestHeaderAllowlists"`
 }
 
@@ -35756,7 +35830,7 @@ func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ToAgentcoreAgentR
 	}).(AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput)
 }
 
-// A list of HTTP request headers that are allowed to be passed through to the runtime.
+// List of HTTP request headers that are allowed to be passed through to the runtime.
 func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) RequestHeaderAllowlists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeRequestHeaderConfiguration) []string { return v.RequestHeaderAllowlists }).(pulumi.StringArrayOutput)
 }
@@ -35785,7 +35859,7 @@ func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) Elem() Agentco
 	}).(AgentcoreAgentRuntimeRequestHeaderConfigurationOutput)
 }
 
-// A list of HTTP request headers that are allowed to be passed through to the runtime.
+// List of HTTP request headers that are allowed to be passed through to the runtime.
 func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) RequestHeaderAllowlists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeRequestHeaderConfiguration) []string {
 		if v == nil {
@@ -36164,6 +36238,162 @@ func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) Index(i pul
 	}).(AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput)
 }
 
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfig struct {
+	// JSON key used to extract the secret value from the AWS Secrets Manager secret.
+	JsonKey string `pulumi:"jsonKey"`
+	// ID of the AWS Secrets Manager secret that stores the secret value.
+	SecretId string `pulumi:"secretId"`
+}
+
+// AgentcoreApiKeyCredentialProviderApiKeySecretConfigInput is an input type that accepts AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs and AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput values.
+// You can construct a concrete instance of `AgentcoreApiKeyCredentialProviderApiKeySecretConfigInput` via:
+//
+//	AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs{...}
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutputWithContext(context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs struct {
+	// JSON key used to extract the secret value from the AWS Secrets Manager secret.
+	JsonKey pulumi.StringInput `pulumi:"jsonKey"`
+	// ID of the AWS Secrets Manager secret that stores the secret value.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretConfig)(nil)).Elem()
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput {
+	return i.ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput)
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return i.ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput).ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput is an input type that accepts AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs, AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtr and AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput` via:
+//
+//	        AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput
+}
+
+type agentcoreApiKeyCredentialProviderApiKeySecretConfigPtrType AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs
+
+func AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtr(v *AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput {
+	return (*agentcoreApiKeyCredentialProviderApiKeySecretConfigPtrType)(v)
+}
+
+func (*agentcoreApiKeyCredentialProviderApiKeySecretConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreApiKeyCredentialProviderApiKeySecretConfig)(nil)).Elem()
+}
+
+func (i *agentcoreApiKeyCredentialProviderApiKeySecretConfigPtrType) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return i.ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreApiKeyCredentialProviderApiKeySecretConfigPtrType) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput)
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretConfig)(nil)).Elem()
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return o.ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreApiKeyCredentialProviderApiKeySecretConfig) *AgentcoreApiKeyCredentialProviderApiKeySecretConfig {
+		return &v
+	}).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput)
+}
+
+// JSON key used to extract the secret value from the AWS Secrets Manager secret.
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) JsonKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreApiKeyCredentialProviderApiKeySecretConfig) string { return v.JsonKey }).(pulumi.StringOutput)
+}
+
+// ID of the AWS Secrets Manager secret that stores the secret value.
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreApiKeyCredentialProviderApiKeySecretConfig) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreApiKeyCredentialProviderApiKeySecretConfig)(nil)).Elem()
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) Elem() AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProviderApiKeySecretConfig) AgentcoreApiKeyCredentialProviderApiKeySecretConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreApiKeyCredentialProviderApiKeySecretConfig
+		return ret
+	}).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput)
+}
+
+// JSON key used to extract the secret value from the AWS Secrets Manager secret.
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) JsonKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProviderApiKeySecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the AWS Secrets Manager secret that stores the secret value.
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProviderApiKeySecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentcoreBrowserBrowserSigning struct {
 	// Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
 	Enabled bool `pulumi:"enabled"`
@@ -36302,7 +36532,7 @@ func (o AgentcoreBrowserBrowserSigningPtrOutput) Enabled() pulumi.BoolPtrOutput 
 }
 
 type AgentcoreBrowserCertificate struct {
-	// Location from which to retrieve the certificate. See `certificates.location` below.
+	// Location from which to retrieve the certificate. See `certificate.location` below.
 	Location AgentcoreBrowserCertificateLocation `pulumi:"location"`
 }
 
@@ -36318,7 +36548,7 @@ type AgentcoreBrowserCertificateInput interface {
 }
 
 type AgentcoreBrowserCertificateArgs struct {
-	// Location from which to retrieve the certificate. See `certificates.location` below.
+	// Location from which to retrieve the certificate. See `certificate.location` below.
 	Location AgentcoreBrowserCertificateLocationInput `pulumi:"location"`
 }
 
@@ -36373,7 +36603,7 @@ func (o AgentcoreBrowserCertificateOutput) ToAgentcoreBrowserCertificateOutputWi
 	return o
 }
 
-// Location from which to retrieve the certificate. See `certificates.location` below.
+// Location from which to retrieve the certificate. See `certificate.location` below.
 func (o AgentcoreBrowserCertificateOutput) Location() AgentcoreBrowserCertificateLocationOutput {
 	return o.ApplyT(func(v AgentcoreBrowserCertificate) AgentcoreBrowserCertificateLocation { return v.Location }).(AgentcoreBrowserCertificateLocationOutput)
 }
@@ -37863,7 +38093,7 @@ func (o AgentcoreBrowserTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type AgentcoreCodeInterpreterCertificate struct {
-	// Location from which to retrieve the certificate. See `certificates.location` below.
+	// Location from which to retrieve the certificate. See `certificate.location` below.
 	Location AgentcoreCodeInterpreterCertificateLocation `pulumi:"location"`
 }
 
@@ -37879,7 +38109,7 @@ type AgentcoreCodeInterpreterCertificateInput interface {
 }
 
 type AgentcoreCodeInterpreterCertificateArgs struct {
-	// Location from which to retrieve the certificate. See `certificates.location` below.
+	// Location from which to retrieve the certificate. See `certificate.location` below.
 	Location AgentcoreCodeInterpreterCertificateLocationInput `pulumi:"location"`
 }
 
@@ -37934,7 +38164,7 @@ func (o AgentcoreCodeInterpreterCertificateOutput) ToAgentcoreCodeInterpreterCer
 	return o
 }
 
-// Location from which to retrieve the certificate. See `certificates.location` below.
+// Location from which to retrieve the certificate. See `certificate.location` below.
 func (o AgentcoreCodeInterpreterCertificateOutput) Location() AgentcoreCodeInterpreterCertificateLocationOutput {
 	return o.ApplyT(func(v AgentcoreCodeInterpreterCertificate) AgentcoreCodeInterpreterCertificateLocation {
 		return v.Location
@@ -48244,7 +48474,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimePtrOutput) 
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema struct {
-	// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource `pulumi:"source"`
 }
 
@@ -48260,7 +48490,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaInput in
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs struct {
-	// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInput `pulumi:"source"`
 }
 
@@ -48341,7 +48571,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutpu
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOutput)
 }
 
-// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema) AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
 		return v.Source
@@ -48372,7 +48602,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOu
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutput)
 }
 
-// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema) *AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
 		if v == nil {
@@ -48838,7 +49068,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpPassthrough struct {
 	Endpoint string `pulumi:"endpoint"`
 	// Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
 	ProtocolType string `pulumi:"protocolType"`
-	// API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+	// API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
 	Schema *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema `pulumi:"schema"`
 	// Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
 	StaticQueryParameterConflictResolution *string `pulumi:"staticQueryParameterConflictResolution"`
@@ -48864,7 +49094,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs struct {
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
 	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
-	// API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+	// API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
 	Schema AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrInput `pulumi:"schema"`
 	// Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
 	StaticQueryParameterConflictResolution pulumi.StringPtrInput `pulumi:"staticQueryParameterConflictResolution"`
@@ -48961,7 +49191,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughOutput) Protocol
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpPassthrough) string { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-// API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+// API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughOutput) Schema() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpPassthrough) *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
 		return v.Schema
@@ -49033,7 +49263,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughPtrOutput) Proto
 	}).(pulumi.StringPtrOutput)
 }
 
-// API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+// API schema configuration that defines the structure of the passthrough target's API. See `schema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughPtrOutput) Schema() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationHttpPassthrough) *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
 		if v == nil {
@@ -49074,7 +49304,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughPtrOutput) Stick
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema struct {
-	// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource `pulumi:"source"`
 }
 
@@ -49090,7 +49320,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaInput interfa
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs struct {
-	// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInput `pulumi:"source"`
 }
 
@@ -49171,7 +49401,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput) To
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput)
 }
 
-// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema) AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
 		return v.Source
@@ -49202,7 +49432,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput)
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput)
 }
 
-// Configuration for API schema. See `apiSchemaConfiguration` Block below.
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema) *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
 		if v == nil {
@@ -49843,7 +50073,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfig
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInference struct {
-	// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+	// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
 	Connector *AgentcoreGatewayTargetTargetConfigurationInferenceConnector `pulumi:"connector"`
 	// Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
 	Provider *AgentcoreGatewayTargetTargetConfigurationInferenceProvider `pulumi:"provider"`
@@ -49861,7 +50091,7 @@ type AgentcoreGatewayTargetTargetConfigurationInferenceInput interface {
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInferenceArgs struct {
-	// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+	// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
 	Connector AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrInput `pulumi:"connector"`
 	// Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
 	Provider AgentcoreGatewayTargetTargetConfigurationInferenceProviderPtrInput `pulumi:"provider"`
@@ -49944,7 +50174,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceOutput) ToAgentcoreGat
 	}).(AgentcoreGatewayTargetTargetConfigurationInferencePtrOutput)
 }
 
-// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceOutput) Connector() AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationInference) *AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
 		return v.Connector
@@ -49982,7 +50212,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferencePtrOutput) Elem() Agen
 	}).(AgentcoreGatewayTargetTargetConfigurationInferenceOutput)
 }
 
-// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationInferencePtrOutput) Connector() AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationInference) *AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
 		if v == nil {
@@ -50003,7 +50233,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferencePtrOutput) Provider() 
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInferenceConnector struct {
-	// Source configuration identifying which connector to use. See `source` Block below.
+	// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 	Source AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource `pulumi:"source"`
 }
 
@@ -50019,7 +50249,7 @@ type AgentcoreGatewayTargetTargetConfigurationInferenceConnectorInput interface 
 }
 
 type AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs struct {
-	// Source configuration identifying which connector to use. See `source` Block below.
+	// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 	Source AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceInput `pulumi:"source"`
 }
 
@@ -50100,7 +50330,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceConnectorOutput) ToAge
 	}).(AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrOutput)
 }
 
-// Source configuration identifying which connector to use. See `source` Block below.
+// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceConnectorOutput) Source() AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationInferenceConnector) AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource {
 		return v.Source
@@ -50131,7 +50361,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrOutput) El
 	}).(AgentcoreGatewayTargetTargetConfigurationInferenceConnectorOutput)
 }
 
-// Source configuration identifying which connector to use. See `source` Block below.
+// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationInferenceConnectorPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationInferenceConnector) *AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource {
 		if v == nil {
@@ -50974,15 +51204,15 @@ func (o AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel
 type AgentcoreGatewayTargetTargetConfigurationMcp struct {
 	// API Gateway target configuration. See `apiGateway` Block below.
 	ApiGateway *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway `pulumi:"apiGateway"`
-	// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+	// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
 	Connector *AgentcoreGatewayTargetTargetConfigurationMcpConnector `pulumi:"connector"`
 	// Lambda function target configuration. See `lambda` Block below.
 	Lambda *AgentcoreGatewayTargetTargetConfigurationMcpLambda `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` Block below.
 	McpServer *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer `pulumi:"mcpServer"`
-	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
 	OpenApiSchema *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema `pulumi:"openApiSchema"`
-	// Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
 	SmithyModel *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel `pulumi:"smithyModel"`
 }
 
@@ -51000,15 +51230,15 @@ type AgentcoreGatewayTargetTargetConfigurationMcpInput interface {
 type AgentcoreGatewayTargetTargetConfigurationMcpArgs struct {
 	// API Gateway target configuration. See `apiGateway` Block below.
 	ApiGateway AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput `pulumi:"apiGateway"`
-	// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+	// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
 	Connector AgentcoreGatewayTargetTargetConfigurationMcpConnectorPtrInput `pulumi:"connector"`
 	// Lambda function target configuration. See `lambda` Block below.
 	Lambda AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` Block below.
 	McpServer AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput `pulumi:"mcpServer"`
-	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
 	OpenApiSchema AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput `pulumi:"openApiSchema"`
-	// Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
 	SmithyModel AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput `pulumi:"smithyModel"`
 }
 
@@ -51096,7 +51326,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ApiGateway() Agentco
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
 }
 
-// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) Connector() AgentcoreGatewayTargetTargetConfigurationMcpConnectorPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpConnector {
 		return v.Connector
@@ -51117,14 +51347,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) McpServer() Agentcor
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
 }
 
-// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
 		return v.OpenApiSchema
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
 }
 
-// Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
 		return v.SmithyModel
@@ -51165,7 +51395,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) ApiGateway() Agen
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
 }
 
-// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Connector() AgentcoreGatewayTargetTargetConfigurationMcpConnectorPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpConnector {
 		if v == nil {
@@ -51195,7 +51425,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) McpServer() Agent
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
 }
 
-// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
 		if v == nil {
@@ -51205,7 +51435,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) OpenApiSchema() A
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
 }
 
-// Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
 		if v == nil {
@@ -51799,7 +52029,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpConnector struct {
 	Configurations []AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration `pulumi:"configurations"`
 	// List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
 	Enableds []string `pulumi:"enableds"`
-	// Source configuration identifying which connector to use. See `source` Block below.
+	// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 	Source AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource `pulumi:"source"`
 }
 
@@ -51819,7 +52049,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs struct {
 	Configurations AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationArrayInput `pulumi:"configurations"`
 	// List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
 	Enableds pulumi.StringArrayInput `pulumi:"enableds"`
-	// Source configuration identifying which connector to use. See `source` Block below.
+	// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 	Source AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceInput `pulumi:"source"`
 }
 
@@ -51912,7 +52142,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorOutput) Enableds() 
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpConnector) []string { return v.Enableds }).(pulumi.StringArrayOutput)
 }
 
-// Source configuration identifying which connector to use. See `source` Block below.
+// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorOutput) Source() AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpConnector) AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource {
 		return v.Source
@@ -51963,7 +52193,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorPtrOutput) Enableds
 	}).(pulumi.StringArrayOutput)
 }
 
-// Source configuration identifying which connector to use. See `source` Block below.
+// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpConnectorPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpConnector) *AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource {
 		if v == nil {
@@ -52536,7 +52766,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToolSchema(
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema struct {
-	// Inline tool definition. See `inlinePayload` Block below.
+	// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 	InlinePayloads []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload `pulumi:"inlinePayloads"`
 	// S3-based tool definition. See `s3` Block below.
 	S3 *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 `pulumi:"s3"`
@@ -52554,7 +52784,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput interface
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs struct {
-	// Inline tool definition. See `inlinePayload` Block below.
+	// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 	InlinePayloads AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput `pulumi:"inlinePayloads"`
 	// S3-based tool definition. See `s3` Block below.
 	S3 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput `pulumi:"s3"`
@@ -52637,7 +52867,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ToAg
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
 }
 
-// Inline tool definition. See `inlinePayload` Block below.
+// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) InlinePayloads() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
 		return v.InlinePayloads
@@ -52675,7 +52905,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) E
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput)
 }
 
-// Inline tool definition. See `inlinePayload` Block below.
+// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) InlinePayloads() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
 		if v == nil {
@@ -52698,11 +52928,11 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) S
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload struct {
 	// Description of what the tool does.
 	Description string `pulumi:"description"`
-	// Schema for the tool's input. See `schemaDefinition` Block below.
+	// Schema for the tool's input. See `inputSchema` Block below.
 	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema `pulumi:"inputSchema"`
 	// Name of the tool.
 	Name string `pulumi:"name"`
-	// Schema for the tool's output. See `schemaDefinition` Block below.
+	// Schema for the tool's output. See `outputSchema` Block below.
 	OutputSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema `pulumi:"outputSchema"`
 }
 
@@ -52720,11 +52950,11 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs struct {
 	// Description of what the tool does.
 	Description pulumi.StringInput `pulumi:"description"`
-	// Schema for the tool's input. See `schemaDefinition` Block below.
+	// Schema for the tool's input. See `inputSchema` Block below.
 	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput `pulumi:"inputSchema"`
 	// Name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Schema for the tool's output. See `schemaDefinition` Block below.
+	// Schema for the tool's output. See `outputSchema` Block below.
 	OutputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput `pulumi:"outputSchema"`
 }
 
@@ -52786,7 +53016,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringOutput)
 }
 
-// Schema for the tool's input. See `schemaDefinition` Block below.
+// Schema for the tool's input. See `inputSchema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) InputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
 		return v.InputSchema
@@ -52800,7 +53030,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringOutput)
 }
 
-// Schema for the tool's output. See `schemaDefinition` Block below.
+// Schema for the tool's output. See `outputSchema` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) OutputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
 		return v.OutputSchema
@@ -52828,11 +53058,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema struct {
-	// Description of the gateway target.
-	Description *string                                                                                        `pulumi:"description"`
-	Items       *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems     `pulumi:"items"`
-	Properties  []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty `pulumi:"properties"`
-	Type        string                                                                                         `pulumi:"type"`
+	// Description of the schema element.
+	Description *string `pulumi:"description"`
+	// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems `pulumi:"items"`
+	// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty `pulumi:"properties"`
+	// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+	Type string `pulumi:"type"`
 }
 
 // AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput values.
@@ -52847,11 +53080,14 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs struct {
-	// Description of the gateway target.
-	Description pulumi.StringPtrInput                                                                                  `pulumi:"description"`
-	Items       AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput      `pulumi:"items"`
-	Properties  AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput `pulumi:"properties"`
-	Type        pulumi.StringInput                                                                                     `pulumi:"type"`
+	// Description of the schema element.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput `pulumi:"properties"`
+	// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ElementType() reflect.Type {
@@ -52880,25 +53116,28 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	return o
 }
 
-// Description of the gateway target.
+// Description of the schema element.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
+// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
 }
 
+// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty {
 		return v.Properties
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput)
 }
 
+// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) string {
 		return v.Type
@@ -52908,9 +53147,9 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems struct {
 	// Description of the array items.
 	Description *string `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty `pulumi:"properties"`
 	// Data type of the array items.
 	Type string `pulumi:"type"`
@@ -52930,9 +53169,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs struct {
 	// Description of the array items.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput `pulumi:"properties"`
 	// Data type of the array items.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -53022,14 +53261,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty {
 		return v.Properties
@@ -53077,7 +53316,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
 		if v == nil {
@@ -53087,7 +53326,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty {
 		if v == nil {
@@ -53466,11 +53705,11 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty struct {
 	// Description of the property.
 	Description *string `pulumi:"description"`
-	// Items definition for array properties. See `items` Block above.
+	// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems `pulumi:"items"`
 	// Name of the property.
 	Name string `pulumi:"name"`
-	// Set of nested property definitions for object properties.
+	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty `pulumi:"properties"`
 	// Whether this property is required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
@@ -53492,11 +53731,11 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs struct {
 	// Description of the property.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Items definition for array properties. See `items` Block above.
+	// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput `pulumi:"items"`
 	// Name of the property.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of nested property definitions for object properties.
+	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
 	// Whether this property is required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
@@ -53562,7 +53801,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Items definition for array properties. See `items` Block above.
+// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems {
 		return v.Items
@@ -53576,7 +53815,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringOutput)
 }
 
-// Set of nested property definitions for object properties.
+// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty {
 		return v.Properties
@@ -53620,9 +53859,9 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems struct {
 	// Description of the array items.
 	Description *string `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty `pulumi:"properties"`
 	// Data type of the array items.
 	Type string `pulumi:"type"`
@@ -53642,9 +53881,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadIn
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs struct {
 	// Description of the array items.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput `pulumi:"properties"`
 	// Data type of the array items.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -53734,14 +53973,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
 		return v.Properties
@@ -53789,7 +54028,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
 		if v == nil {
@@ -53799,7 +54038,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
 		if v == nil {
@@ -54330,11 +54569,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema struct {
-	// Description of the gateway target.
-	Description *string                                                                                         `pulumi:"description"`
-	Items       *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems     `pulumi:"items"`
-	Properties  []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty `pulumi:"properties"`
-	Type        string                                                                                          `pulumi:"type"`
+	// Description of the schema element.
+	Description *string `pulumi:"description"`
+	// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems `pulumi:"items"`
+	// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty `pulumi:"properties"`
+	// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+	Type string `pulumi:"type"`
 }
 
 // AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput values.
@@ -54349,11 +54591,14 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs struct {
-	// Description of the gateway target.
-	Description pulumi.StringPtrInput                                                                                   `pulumi:"description"`
-	Items       AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput      `pulumi:"items"`
-	Properties  AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput `pulumi:"properties"`
-	Type        pulumi.StringInput                                                                                      `pulumi:"type"`
+	// Description of the schema element.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput `pulumi:"properties"`
+	// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ElementType() reflect.Type {
@@ -54433,25 +54678,28 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput)
 }
 
-// Description of the gateway target.
+// Description of the schema element.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
+// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
 }
 
+// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
 		return v.Properties
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput)
 }
 
+// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) string {
 		return v.Type
@@ -54482,7 +54730,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput)
 }
 
-// Description of the gateway target.
+// Description of the schema element.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
 		if v == nil {
@@ -54492,6 +54740,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
+// Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
 		if v == nil {
@@ -54501,6 +54750,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
 }
 
+// Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
 		if v == nil {
@@ -54510,6 +54760,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput)
 }
 
+// Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
 		if v == nil {
@@ -54522,9 +54773,9 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems struct {
 	// Description of the array items.
 	Description *string `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty `pulumi:"properties"`
 	// Data type of the array items.
 	Type string `pulumi:"type"`
@@ -54544,9 +54795,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs struct {
 	// Description of the array items.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput `pulumi:"properties"`
 	// Data type of the array items.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -54636,14 +54887,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty {
 		return v.Properties
@@ -54691,7 +54942,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
 		if v == nil {
@@ -54701,7 +54952,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty {
 		if v == nil {
@@ -55080,11 +55331,11 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty struct {
 	// Description of the property.
 	Description *string `pulumi:"description"`
-	// Items definition for array properties. See `items` Block above.
+	// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems `pulumi:"items"`
 	// Name of the property.
 	Name string `pulumi:"name"`
-	// Set of nested property definitions for object properties.
+	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty `pulumi:"properties"`
 	// Whether this property is required. Defaults to `false`.
 	Required *bool `pulumi:"required"`
@@ -55106,11 +55357,11 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs struct {
 	// Description of the property.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Items definition for array properties. See `items` Block above.
+	// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput `pulumi:"items"`
 	// Name of the property.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of nested property definitions for object properties.
+	// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
 	// Whether this property is required. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
@@ -55176,7 +55427,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Items definition for array properties. See `items` Block above.
+// Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems {
 		return v.Items
@@ -55190,7 +55441,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringOutput)
 }
 
-// Set of nested property definitions for object properties.
+// Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty {
 		return v.Properties
@@ -55234,9 +55485,9 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems struct {
 	// Description of the array items.
 	Description *string `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty `pulumi:"properties"`
 	// Data type of the array items.
 	Type string `pulumi:"type"`
@@ -55256,9 +55507,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOu
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs struct {
 	// Description of the array items.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Nested items definition for arrays of arrays.
+	// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput `pulumi:"items"`
-	// Set of property definitions for arrays of objects. See `property` Block below.
+	// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput `pulumi:"properties"`
 	// Data type of the array items.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -55348,14 +55599,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
 		return v.Items
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty {
 		return v.Properties
@@ -55403,7 +55654,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested items definition for arrays of arrays.
+// Nested items definition for arrays of arrays. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.items` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
 		if v == nil {
@@ -55413,7 +55664,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
 }
 
-// Set of property definitions for arrays of objects. See `property` Block below.
+// Set of property definitions for arrays of objects. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items.property` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty {
 		if v == nil {
@@ -60126,7 +60377,7 @@ func (o AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoin
 }
 
 type AgentcoreHarnessEnvironment struct {
-	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	// AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
 	AgentcoreRuntimeEnvironments []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment `pulumi:"agentcoreRuntimeEnvironments"`
 }
 
@@ -60142,7 +60393,7 @@ type AgentcoreHarnessEnvironmentInput interface {
 }
 
 type AgentcoreHarnessEnvironmentArgs struct {
-	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	// AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
 	AgentcoreRuntimeEnvironments AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArrayInput `pulumi:"agentcoreRuntimeEnvironments"`
 }
 
@@ -60197,7 +60448,7 @@ func (o AgentcoreHarnessEnvironmentOutput) ToAgentcoreHarnessEnvironmentOutputWi
 	return o
 }
 
-// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+// AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
 func (o AgentcoreHarnessEnvironmentOutput) AgentcoreRuntimeEnvironments() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
 		return v.AgentcoreRuntimeEnvironments
@@ -60225,7 +60476,7 @@ func (o AgentcoreHarnessEnvironmentArrayOutput) Index(i pulumi.IntInput) Agentco
 }
 
 type AgentcoreHarnessEnvironmentActual struct {
-	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	// AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
 	AgentcoreRuntimeEnvironments []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment `pulumi:"agentcoreRuntimeEnvironments"`
 }
 
@@ -60241,7 +60492,7 @@ type AgentcoreHarnessEnvironmentActualInput interface {
 }
 
 type AgentcoreHarnessEnvironmentActualArgs struct {
-	// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+	// AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
 	AgentcoreRuntimeEnvironments AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayInput `pulumi:"agentcoreRuntimeEnvironments"`
 }
 
@@ -60296,7 +60547,7 @@ func (o AgentcoreHarnessEnvironmentActualOutput) ToAgentcoreHarnessEnvironmentAc
 	return o
 }
 
-// AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+// AgentCore runtime environment configuration. See `environment_actual.agentcore_runtime_environment` Block below.
 func (o AgentcoreHarnessEnvironmentActualOutput) AgentcoreRuntimeEnvironments() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActual) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment {
 		return v.AgentcoreRuntimeEnvironments
@@ -60330,13 +60581,11 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment struct {
 	AgentRuntimeId string `pulumi:"agentRuntimeId"`
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
-	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 	FilesystemConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
-	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 	LifecycleConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
-	// Network configuration. See `networkConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 	NetworkConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration `pulumi:"networkConfigurations"`
 }
 
@@ -60358,13 +60607,11 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs struct {
 	AgentRuntimeId pulumi.StringInput `pulumi:"agentRuntimeId"`
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName pulumi.StringInput `pulumi:"agentRuntimeName"`
-	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 	FilesystemConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
-	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 	LifecycleConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
-	// Network configuration. See `networkConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 	NetworkConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
 }
 
@@ -60434,23 +60681,21 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) Agen
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) string { return v.AgentRuntimeName }).(pulumi.StringOutput)
 }
 
-// Filesystem configurations. See `filesystemConfiguration` Block below.
+// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
 		return v.FilesystemConfigurations
 	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput)
 }
 
-// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) LifecycleConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration {
 		return v.LifecycleConfigurations
 	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput)
 }
 
-// Network configuration. See `networkConfiguration` Block below.
-//
-// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) NetworkConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
 		return v.NetworkConfigurations
@@ -60478,11 +60723,11 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArrayOutput)
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration struct {
-	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 	EfsAccessPoints []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint `pulumi:"efsAccessPoints"`
-	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 	S3FilesAccessPoints []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint `pulumi:"s3FilesAccessPoints"`
-	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 	SessionStorages []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage `pulumi:"sessionStorages"`
 }
 
@@ -60498,11 +60743,11 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfi
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs struct {
-	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 	EfsAccessPoints AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput `pulumi:"efsAccessPoints"`
-	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 	S3FilesAccessPoints AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput `pulumi:"s3FilesAccessPoints"`
-	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 	SessionStorages AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput `pulumi:"sessionStorages"`
 }
 
@@ -60557,21 +60802,21 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemCo
 	return o
 }
 
-// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) EfsAccessPoints() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
 		return v.EfsAccessPoints
 	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput)
 }
 
-// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) S3FilesAccessPoints() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
 		return v.S3FilesAccessPoints
 	}).(AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput)
 }
 
-// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) SessionStorages() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
 		return v.SessionStorages
@@ -61028,9 +61273,9 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleCon
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration struct {
-	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	// Network mode.
 	NetworkMode string `pulumi:"networkMode"`
-	// VPC configuration. See `networkModeConfig` Block below.
+	// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 	NetworkModeConfigs []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfigs"`
 }
 
@@ -61046,9 +61291,9 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigur
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs struct {
-	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	// Network mode.
 	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
-	// VPC configuration. See `networkModeConfig` Block below.
+	// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 	NetworkModeConfigs AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput `pulumi:"networkModeConfigs"`
 }
 
@@ -61103,14 +61348,14 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfi
 	return o
 }
 
-// Network mode. Valid values: `PUBLIC`, `VPC`.
+// Network mode.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration) string {
 		return v.NetworkMode
 	}).(pulumi.StringOutput)
 }
 
-// VPC configuration. See `networkModeConfig` Block below.
+// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkModeConfigs() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
 		return v.NetworkModeConfigs
@@ -61138,7 +61383,7 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfi
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig struct {
-	// Whether to require an S3 endpoint for the service in the VPC.
+	// Whether an S3 endpoint is required for the service in the VPC.
 	RequireServiceS3Endpoint bool `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -61158,7 +61403,7 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigur
 }
 
 type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs struct {
-	// Whether to require an S3 endpoint for the service in the VPC.
+	// Whether an S3 endpoint is required for the service in the VPC.
 	RequireServiceS3Endpoint pulumi.BoolInput `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -61217,7 +61462,7 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfi
 	return o
 }
 
-// Whether to require an S3 endpoint for the service in the VPC.
+// Whether an S3 endpoint is required for the service in the VPC.
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) bool {
 		return v.RequireServiceS3Endpoint
@@ -61265,13 +61510,11 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment struct {
 	AgentRuntimeId *string `pulumi:"agentRuntimeId"`
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName *string `pulumi:"agentRuntimeName"`
-	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 	FilesystemConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
-	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 	LifecycleConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
-	// Network configuration. See `networkConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 	NetworkConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration `pulumi:"networkConfigurations"`
 }
 
@@ -61293,13 +61536,11 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs struct {
 	AgentRuntimeId pulumi.StringPtrInput `pulumi:"agentRuntimeId"`
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName pulumi.StringPtrInput `pulumi:"agentRuntimeName"`
-	// Filesystem configurations. See `filesystemConfiguration` Block below.
+	// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 	FilesystemConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
-	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+	// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 	LifecycleConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
-	// Network configuration. See `networkConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+	// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 	NetworkConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
 }
 
@@ -61369,23 +61610,21 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRunti
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) *string { return v.AgentRuntimeName }).(pulumi.StringPtrOutput)
 }
 
-// Filesystem configurations. See `filesystemConfiguration` Block below.
+// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
 		return v.FilesystemConfigurations
 	}).(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput)
 }
 
-// Lifecycle configuration. See `lifecycleConfiguration` Block below.
+// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) LifecycleConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration {
 		return v.LifecycleConfigurations
 	}).(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayOutput)
 }
 
-// Network configuration. See `networkConfiguration` Block below.
-//
-// The following attributes are exported under `agentcoreRuntimeEnvironment`:
+// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) NetworkConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
 		return v.NetworkConfigurations
@@ -61413,11 +61652,11 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArrayOutput) Index
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration struct {
-	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 	EfsAccessPoints []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint `pulumi:"efsAccessPoints"`
-	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 	S3FilesAccessPoints []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint `pulumi:"s3FilesAccessPoints"`
-	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 	SessionStorages []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage `pulumi:"sessionStorages"`
 }
 
@@ -61433,11 +61672,11 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurati
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs struct {
-	// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+	// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 	EfsAccessPoints AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayInput `pulumi:"efsAccessPoints"`
-	// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+	// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 	S3FilesAccessPoints AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayInput `pulumi:"s3FilesAccessPoints"`
-	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+	// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 	SessionStorages AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayInput `pulumi:"sessionStorages"`
 }
 
@@ -61492,21 +61731,21 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigur
 	return o
 }
 
-// Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+// Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) EfsAccessPoints() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint {
 		return v.EfsAccessPoints
 	}).(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArrayOutput)
 }
 
-// Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+// Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) S3FilesAccessPoints() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint {
 		return v.S3FilesAccessPoints
 	}).(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArrayOutput)
 }
 
-// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+// Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationOutput) SessionStorages() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage {
 		return v.SessionStorages
@@ -61963,9 +62202,9 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigura
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration struct {
-	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	// Network mode.
 	NetworkMode string `pulumi:"networkMode"`
-	// VPC configuration. See `networkModeConfig` Block below.
+	// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 	NetworkModeConfigs []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfigs"`
 }
 
@@ -61981,9 +62220,9 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationI
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs struct {
-	// Network mode. Valid values: `PUBLIC`, `VPC`.
+	// Network mode.
 	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
-	// VPC configuration. See `networkModeConfig` Block below.
+	// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 	NetworkModeConfigs AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayInput `pulumi:"networkModeConfigs"`
 }
 
@@ -62038,14 +62277,14 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurati
 	return o
 }
 
-// Network mode. Valid values: `PUBLIC`, `VPC`.
+// Network mode.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration) string {
 		return v.NetworkMode
 	}).(pulumi.StringOutput)
 }
 
-// VPC configuration. See `networkModeConfig` Block below.
+// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationOutput) NetworkModeConfigs() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
 		return v.NetworkModeConfigs
@@ -62073,7 +62312,7 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurati
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig struct {
-	// Whether to require an S3 endpoint for the service in the VPC.
+	// Whether an S3 endpoint is required for the service in the VPC.
 	RequireServiceS3Endpoint *bool `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -62093,7 +62332,7 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationN
 }
 
 type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs struct {
-	// Whether to require an S3 endpoint for the service in the VPC.
+	// Whether an S3 endpoint is required for the service in the VPC.
 	RequireServiceS3Endpoint pulumi.BoolPtrInput `pulumi:"requireServiceS3Endpoint"`
 	// Security groups for the VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -62152,7 +62391,7 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurati
 	return o
 }
 
-// Whether to require an S3 endpoint for the service in the VPC.
+// Whether an S3 endpoint is required for the service in the VPC.
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigOutput) RequireServiceS3Endpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig) *bool {
 		return v.RequireServiceS3Endpoint
@@ -62470,11 +62709,11 @@ func (o AgentcoreHarnessEnvironmentArtifactContainerConfigurationPtrOutput) Cont
 }
 
 type AgentcoreHarnessMemory struct {
-	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
 	AgentcoreMemoryConfiguration *AgentcoreHarnessMemoryAgentcoreMemoryConfiguration `pulumi:"agentcoreMemoryConfiguration"`
-	// Explicitly disable memory for this harness. See `disabled` Block below.
+	// Explicitly disable memory for this harness. See `memory.disabled` Block below.
 	Disabled *AgentcoreHarnessMemoryDisabled `pulumi:"disabled"`
-	// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+	// Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
 	ManagedMemoryConfiguration *AgentcoreHarnessMemoryManagedMemoryConfiguration `pulumi:"managedMemoryConfiguration"`
 }
 
@@ -62490,11 +62729,11 @@ type AgentcoreHarnessMemoryInput interface {
 }
 
 type AgentcoreHarnessMemoryArgs struct {
-	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
 	AgentcoreMemoryConfiguration AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrInput `pulumi:"agentcoreMemoryConfiguration"`
-	// Explicitly disable memory for this harness. See `disabled` Block below.
+	// Explicitly disable memory for this harness. See `memory.disabled` Block below.
 	Disabled AgentcoreHarnessMemoryDisabledPtrInput `pulumi:"disabled"`
-	// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+	// Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
 	ManagedMemoryConfiguration AgentcoreHarnessMemoryManagedMemoryConfigurationPtrInput `pulumi:"managedMemoryConfiguration"`
 }
 
@@ -62575,19 +62814,19 @@ func (o AgentcoreHarnessMemoryOutput) ToAgentcoreHarnessMemoryPtrOutputWithConte
 	}).(AgentcoreHarnessMemoryPtrOutput)
 }
 
-// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryOutput) AgentcoreMemoryConfiguration() AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemory) *AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
 		return v.AgentcoreMemoryConfiguration
 	}).(AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput)
 }
 
-// Explicitly disable memory for this harness. See `disabled` Block below.
+// Explicitly disable memory for this harness. See `memory.disabled` Block below.
 func (o AgentcoreHarnessMemoryOutput) Disabled() AgentcoreHarnessMemoryDisabledPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemory) *AgentcoreHarnessMemoryDisabled { return v.Disabled }).(AgentcoreHarnessMemoryDisabledPtrOutput)
 }
 
-// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+// Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryOutput) ManagedMemoryConfiguration() AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemory) *AgentcoreHarnessMemoryManagedMemoryConfiguration {
 		return v.ManagedMemoryConfiguration
@@ -62618,7 +62857,7 @@ func (o AgentcoreHarnessMemoryPtrOutput) Elem() AgentcoreHarnessMemoryOutput {
 	}).(AgentcoreHarnessMemoryOutput)
 }
 
-// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryPtrOutput) AgentcoreMemoryConfiguration() AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemory) *AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
 		if v == nil {
@@ -62628,7 +62867,7 @@ func (o AgentcoreHarnessMemoryPtrOutput) AgentcoreMemoryConfiguration() Agentcor
 	}).(AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput)
 }
 
-// Explicitly disable memory for this harness. See `disabled` Block below.
+// Explicitly disable memory for this harness. See `memory.disabled` Block below.
 func (o AgentcoreHarnessMemoryPtrOutput) Disabled() AgentcoreHarnessMemoryDisabledPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemory) *AgentcoreHarnessMemoryDisabled {
 		if v == nil {
@@ -62638,7 +62877,7 @@ func (o AgentcoreHarnessMemoryPtrOutput) Disabled() AgentcoreHarnessMemoryDisabl
 	}).(AgentcoreHarnessMemoryDisabledPtrOutput)
 }
 
-// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+// Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryPtrOutput) ManagedMemoryConfiguration() AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemory) *AgentcoreHarnessMemoryManagedMemoryConfiguration {
 		if v == nil {
@@ -62649,11 +62888,11 @@ func (o AgentcoreHarnessMemoryPtrOutput) ManagedMemoryConfiguration() AgentcoreH
 }
 
 type AgentcoreHarnessMemoryActual struct {
-	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+	// AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
 	AgentcoreMemoryConfigurations []AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration `pulumi:"agentcoreMemoryConfigurations"`
-	// Explicitly disable memory for this harness. See `disabled` Block below.
+	// Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
 	Disableds []AgentcoreHarnessMemoryActualDisabled `pulumi:"disableds"`
-	// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+	// Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
 	ManagedMemoryConfigurations []AgentcoreHarnessMemoryActualManagedMemoryConfiguration `pulumi:"managedMemoryConfigurations"`
 }
 
@@ -62669,11 +62908,11 @@ type AgentcoreHarnessMemoryActualInput interface {
 }
 
 type AgentcoreHarnessMemoryActualArgs struct {
-	// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+	// AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
 	AgentcoreMemoryConfigurations AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArrayInput `pulumi:"agentcoreMemoryConfigurations"`
-	// Explicitly disable memory for this harness. See `disabled` Block below.
+	// Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
 	Disableds AgentcoreHarnessMemoryActualDisabledArrayInput `pulumi:"disableds"`
-	// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+	// Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
 	ManagedMemoryConfigurations AgentcoreHarnessMemoryActualManagedMemoryConfigurationArrayInput `pulumi:"managedMemoryConfigurations"`
 }
 
@@ -62728,19 +62967,19 @@ func (o AgentcoreHarnessMemoryActualOutput) ToAgentcoreHarnessMemoryActualOutput
 	return o
 }
 
-// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+// AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryActualOutput) AgentcoreMemoryConfigurations() AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActual) []AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration {
 		return v.AgentcoreMemoryConfigurations
 	}).(AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArrayOutput)
 }
 
-// Explicitly disable memory for this harness. See `disabled` Block below.
+// Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
 func (o AgentcoreHarnessMemoryActualOutput) Disableds() AgentcoreHarnessMemoryActualDisabledArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActual) []AgentcoreHarnessMemoryActualDisabled { return v.Disableds }).(AgentcoreHarnessMemoryActualDisabledArrayOutput)
 }
 
-// Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+// Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
 func (o AgentcoreHarnessMemoryActualOutput) ManagedMemoryConfigurations() AgentcoreHarnessMemoryActualManagedMemoryConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActual) []AgentcoreHarnessMemoryActualManagedMemoryConfiguration {
 		return v.ManagedMemoryConfigurations
@@ -62770,11 +63009,11 @@ func (o AgentcoreHarnessMemoryActualArrayOutput) Index(i pulumi.IntInput) Agentc
 type AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration struct {
 	// Actor ID for memory sessions.
 	ActorId string `pulumi:"actorId"`
-	// ARN of the AgentCore memory resource.
+	// ARN of the managed memory resource.
 	Arn string `pulumi:"arn"`
 	// Number of messages to retrieve from memory.
 	MessagesCount int `pulumi:"messagesCount"`
-	// Retrieval configuration parameters. See `retrievalConfig` Block below.
+	// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 	RetrievalConfigs []AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig `pulumi:"retrievalConfigs"`
 }
 
@@ -62792,11 +63031,11 @@ type AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationInput interface {
 type AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs struct {
 	// Actor ID for memory sessions.
 	ActorId pulumi.StringInput `pulumi:"actorId"`
-	// ARN of the AgentCore memory resource.
+	// ARN of the managed memory resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Number of messages to retrieve from memory.
 	MessagesCount pulumi.IntInput `pulumi:"messagesCount"`
-	// Retrieval configuration parameters. See `retrievalConfig` Block below.
+	// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 	RetrievalConfigs AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArrayInput `pulumi:"retrievalConfigs"`
 }
 
@@ -62856,7 +63095,7 @@ func (o AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationOutput) ActorId(
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration) string { return v.ActorId }).(pulumi.StringOutput)
 }
 
-// ARN of the AgentCore memory resource.
+// ARN of the managed memory resource.
 func (o AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -62866,7 +63105,7 @@ func (o AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationOutput) Messages
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration) int { return v.MessagesCount }).(pulumi.IntOutput)
 }
 
-// Retrieval configuration parameters. See `retrievalConfig` Block below.
+// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 func (o AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationOutput) RetrievalConfigs() AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration) []AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig {
 		return v.RetrievalConfigs
@@ -63114,13 +63353,11 @@ func (o AgentcoreHarnessMemoryActualDisabledArrayOutput) Index(i pulumi.IntInput
 type AgentcoreHarnessMemoryActualManagedMemoryConfiguration struct {
 	// ARN of the managed memory resource.
 	Arn string `pulumi:"arn"`
-	// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+	// ARN of the customer-managed KMS key used to encrypt the memory.
 	EncryptionKeyArn string `pulumi:"encryptionKeyArn"`
-	// Event retention in days. Defaults to `30`.
+	// Event retention in days.
 	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
-	// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-	//
-	// In addition, the following attribute is exported:
+	// Set of strategy types enabled.
 	Strategies []string `pulumi:"strategies"`
 }
 
@@ -63138,13 +63375,11 @@ type AgentcoreHarnessMemoryActualManagedMemoryConfigurationInput interface {
 type AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs struct {
 	// ARN of the managed memory resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+	// ARN of the customer-managed KMS key used to encrypt the memory.
 	EncryptionKeyArn pulumi.StringInput `pulumi:"encryptionKeyArn"`
-	// Event retention in days. Defaults to `30`.
+	// Event retention in days.
 	EventExpiryDuration pulumi.IntInput `pulumi:"eventExpiryDuration"`
-	// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-	//
-	// In addition, the following attribute is exported:
+	// Set of strategy types enabled.
 	Strategies pulumi.StringArrayInput `pulumi:"strategies"`
 }
 
@@ -63204,19 +63439,17 @@ func (o AgentcoreHarnessMemoryActualManagedMemoryConfigurationOutput) Arn() pulu
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualManagedMemoryConfiguration) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+// ARN of the customer-managed KMS key used to encrypt the memory.
 func (o AgentcoreHarnessMemoryActualManagedMemoryConfigurationOutput) EncryptionKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualManagedMemoryConfiguration) string { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
 
-// Event retention in days. Defaults to `30`.
+// Event retention in days.
 func (o AgentcoreHarnessMemoryActualManagedMemoryConfigurationOutput) EventExpiryDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualManagedMemoryConfiguration) int { return v.EventExpiryDuration }).(pulumi.IntOutput)
 }
 
-// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-//
-// In addition, the following attribute is exported:
+// Set of strategy types enabled.
 func (o AgentcoreHarnessMemoryActualManagedMemoryConfigurationOutput) Strategies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryActualManagedMemoryConfiguration) []string { return v.Strategies }).(pulumi.StringArrayOutput)
 }
@@ -63244,11 +63477,11 @@ func (o AgentcoreHarnessMemoryActualManagedMemoryConfigurationArrayOutput) Index
 type AgentcoreHarnessMemoryAgentcoreMemoryConfiguration struct {
 	// Actor ID for memory sessions.
 	ActorId *string `pulumi:"actorId"`
-	// ARN of the AgentCore memory resource.
+	// ARN of the managed memory resource.
 	Arn string `pulumi:"arn"`
 	// Number of messages to retrieve from memory.
 	MessagesCount *int `pulumi:"messagesCount"`
-	// Retrieval configuration parameters. See `retrievalConfig` Block below.
+	// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 	RetrievalConfig *AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig `pulumi:"retrievalConfig"`
 }
 
@@ -63266,11 +63499,11 @@ type AgentcoreHarnessMemoryAgentcoreMemoryConfigurationInput interface {
 type AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs struct {
 	// Actor ID for memory sessions.
 	ActorId pulumi.StringPtrInput `pulumi:"actorId"`
-	// ARN of the AgentCore memory resource.
+	// ARN of the managed memory resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Number of messages to retrieve from memory.
 	MessagesCount pulumi.IntPtrInput `pulumi:"messagesCount"`
-	// Retrieval configuration parameters. See `retrievalConfig` Block below.
+	// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 	RetrievalConfig AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigPtrInput `pulumi:"retrievalConfig"`
 }
 
@@ -63356,7 +63589,7 @@ func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationOutput) ActorId() pulu
 	return o.ApplyT(func(v AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) *string { return v.ActorId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the AgentCore memory resource.
+// ARN of the managed memory resource.
 func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -63366,7 +63599,7 @@ func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationOutput) MessagesCount(
 	return o.ApplyT(func(v AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) *int { return v.MessagesCount }).(pulumi.IntPtrOutput)
 }
 
-// Retrieval configuration parameters. See `retrievalConfig` Block below.
+// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationOutput) RetrievalConfig() AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) *AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig {
 		return v.RetrievalConfig
@@ -63407,7 +63640,7 @@ func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput) ActorId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the AgentCore memory resource.
+// ARN of the managed memory resource.
 func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) *string {
 		if v == nil {
@@ -63427,7 +63660,7 @@ func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput) MessagesCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// Retrieval configuration parameters. See `retrievalConfig` Block below.
+// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
 func (o AgentcoreHarnessMemoryAgentcoreMemoryConfigurationPtrOutput) RetrievalConfig() AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemoryAgentcoreMemoryConfiguration) *AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig {
 		if v == nil {
@@ -63754,13 +63987,11 @@ func (o AgentcoreHarnessMemoryDisabledPtrOutput) Elem() AgentcoreHarnessMemoryDi
 type AgentcoreHarnessMemoryManagedMemoryConfiguration struct {
 	// ARN of the managed memory resource.
 	Arn *string `pulumi:"arn"`
-	// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+	// ARN of the customer-managed KMS key used to encrypt the memory.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Event retention in days. Defaults to `30`.
+	// Event retention in days.
 	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
-	// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-	//
-	// In addition, the following attribute is exported:
+	// Set of strategy types enabled.
 	Strategies []string `pulumi:"strategies"`
 }
 
@@ -63778,13 +64009,11 @@ type AgentcoreHarnessMemoryManagedMemoryConfigurationInput interface {
 type AgentcoreHarnessMemoryManagedMemoryConfigurationArgs struct {
 	// ARN of the managed memory resource.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+	// ARN of the customer-managed KMS key used to encrypt the memory.
 	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
-	// Event retention in days. Defaults to `30`.
+	// Event retention in days.
 	EventExpiryDuration pulumi.IntPtrInput `pulumi:"eventExpiryDuration"`
-	// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-	//
-	// In addition, the following attribute is exported:
+	// Set of strategy types enabled.
 	Strategies pulumi.StringArrayInput `pulumi:"strategies"`
 }
 
@@ -63870,19 +64099,17 @@ func (o AgentcoreHarnessMemoryManagedMemoryConfigurationOutput) Arn() pulumi.Str
 	return o.ApplyT(func(v AgentcoreHarnessMemoryManagedMemoryConfiguration) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+// ARN of the customer-managed KMS key used to encrypt the memory.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryManagedMemoryConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Event retention in days. Defaults to `30`.
+// Event retention in days.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationOutput) EventExpiryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryManagedMemoryConfiguration) *int { return v.EventExpiryDuration }).(pulumi.IntPtrOutput)
 }
 
-// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-//
-// In addition, the following attribute is exported:
+// Set of strategy types enabled.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationOutput) Strategies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessMemoryManagedMemoryConfiguration) []string { return v.Strategies }).(pulumi.StringArrayOutput)
 }
@@ -63921,7 +64148,7 @@ func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) Arn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+// ARN of the customer-managed KMS key used to encrypt the memory.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemoryManagedMemoryConfiguration) *string {
 		if v == nil {
@@ -63931,7 +64158,7 @@ func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) EncryptionKey
 	}).(pulumi.StringPtrOutput)
 }
 
-// Event retention in days. Defaults to `30`.
+// Event retention in days.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) EventExpiryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemoryManagedMemoryConfiguration) *int {
 		if v == nil {
@@ -63941,9 +64168,7 @@ func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) EventExpiryDu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
-//
-// In addition, the following attribute is exported:
+// Set of strategy types enabled.
 func (o AgentcoreHarnessMemoryManagedMemoryConfigurationPtrOutput) Strategies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessMemoryManagedMemoryConfiguration) []string {
 		if v == nil {
@@ -66134,7 +66359,7 @@ func (o AgentcoreHarnessTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentcoreHarnessTool struct {
-	// Tool-specific configuration. See `tool config` below.
+	// Tool-specific configuration. See `tool.config` Block below.
 	Config *AgentcoreHarnessToolConfig `pulumi:"config"`
 	// Name of the tool.
 	Name *string `pulumi:"name"`
@@ -66154,7 +66379,7 @@ type AgentcoreHarnessToolInput interface {
 }
 
 type AgentcoreHarnessToolArgs struct {
-	// Tool-specific configuration. See `tool config` below.
+	// Tool-specific configuration. See `tool.config` Block below.
 	Config AgentcoreHarnessToolConfigPtrInput `pulumi:"config"`
 	// Name of the tool.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -66213,7 +66438,7 @@ func (o AgentcoreHarnessToolOutput) ToAgentcoreHarnessToolOutputWithContext(ctx 
 	return o
 }
 
-// Tool-specific configuration. See `tool config` below.
+// Tool-specific configuration. See `tool.config` Block below.
 func (o AgentcoreHarnessToolOutput) Config() AgentcoreHarnessToolConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessTool) *AgentcoreHarnessToolConfig { return v.Config }).(AgentcoreHarnessToolConfigPtrOutput)
 }
@@ -67604,7 +67829,7 @@ func (o AgentcoreHarnessToolConfigRemoteMcpPtrOutput) Url() pulumi.StringPtrOutp
 }
 
 type AgentcoreHarnessTruncation struct {
-	// Strategy-specific configuration. See `truncation config` below.
+	// Strategy-specific configuration. See `truncation.config` Block below.
 	Configs []AgentcoreHarnessTruncationConfig `pulumi:"configs"`
 	// Truncation strategy. Valid values: `slidingWindow`, `summarization`, `none`.
 	Strategy string `pulumi:"strategy"`
@@ -67622,7 +67847,7 @@ type AgentcoreHarnessTruncationInput interface {
 }
 
 type AgentcoreHarnessTruncationArgs struct {
-	// Strategy-specific configuration. See `truncation config` below.
+	// Strategy-specific configuration. See `truncation.config` Block below.
 	Configs AgentcoreHarnessTruncationConfigArrayInput `pulumi:"configs"`
 	// Truncation strategy. Valid values: `slidingWindow`, `summarization`, `none`.
 	Strategy pulumi.StringInput `pulumi:"strategy"`
@@ -67679,7 +67904,7 @@ func (o AgentcoreHarnessTruncationOutput) ToAgentcoreHarnessTruncationOutputWith
 	return o
 }
 
-// Strategy-specific configuration. See `truncation config` below.
+// Strategy-specific configuration. See `truncation.config` Block below.
 func (o AgentcoreHarnessTruncationOutput) Configs() AgentcoreHarnessTruncationConfigArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessTruncation) []AgentcoreHarnessTruncationConfig { return v.Configs }).(AgentcoreHarnessTruncationConfigArrayOutput)
 }
@@ -72629,25 +72854,23 @@ func (o AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput) Index(i pul
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfig struct {
-	// Atlassian OAuth provider configuration. See `predefined providers` below.
+	// Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
 	AtlassianOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig `pulumi:"atlassianOauth2ProviderConfig"`
-	// Custom OAuth2 provider configuration. See `custom` below.
+	// Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
 	CustomOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig `pulumi:"customOauth2ProviderConfig"`
-	// GitHub OAuth provider configuration. See `predefined providers` below.
+	// GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
 	GithubOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig `pulumi:"githubOauth2ProviderConfig"`
-	// Google OAuth provider configuration. See `predefined providers` below.
+	// Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
 	GoogleOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig `pulumi:"googleOauth2ProviderConfig"`
-	// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-	//
-	// > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+	// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
 	IncludedOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig `pulumi:"includedOauth2ProviderConfig"`
-	// LinkedIn OAuth provider configuration. See `predefined providers` below.
+	// LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
 	LinkedinOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig `pulumi:"linkedinOauth2ProviderConfig"`
-	// Microsoft OAuth provider configuration. See `predefined providers` below.
+	// Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
 	MicrosoftOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig `pulumi:"microsoftOauth2ProviderConfig"`
-	// Salesforce OAuth provider configuration. See `predefined providers` below.
+	// Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
 	SalesforceOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig `pulumi:"salesforceOauth2ProviderConfig"`
-	// Slack OAuth provider configuration. See `predefined providers` below.
+	// Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
 	SlackOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig `pulumi:"slackOauth2ProviderConfig"`
 }
 
@@ -72663,25 +72886,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput interface {
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs struct {
-	// Atlassian OAuth provider configuration. See `predefined providers` below.
+	// Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
 	AtlassianOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrInput `pulumi:"atlassianOauth2ProviderConfig"`
-	// Custom OAuth2 provider configuration. See `custom` below.
+	// Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
 	CustomOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput `pulumi:"customOauth2ProviderConfig"`
-	// GitHub OAuth provider configuration. See `predefined providers` below.
+	// GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
 	GithubOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput `pulumi:"githubOauth2ProviderConfig"`
-	// Google OAuth provider configuration. See `predefined providers` below.
+	// Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
 	GoogleOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput `pulumi:"googleOauth2ProviderConfig"`
-	// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-	//
-	// > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+	// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
 	IncludedOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrInput `pulumi:"includedOauth2ProviderConfig"`
-	// LinkedIn OAuth provider configuration. See `predefined providers` below.
+	// LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
 	LinkedinOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrInput `pulumi:"linkedinOauth2ProviderConfig"`
-	// Microsoft OAuth provider configuration. See `predefined providers` below.
+	// Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
 	MicrosoftOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput `pulumi:"microsoftOauth2ProviderConfig"`
-	// Salesforce OAuth provider configuration. See `predefined providers` below.
+	// Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
 	SalesforceOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput `pulumi:"salesforceOauth2ProviderConfig"`
-	// Slack OAuth provider configuration. See `predefined providers` below.
+	// Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
 	SlackOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput `pulumi:"slackOauth2ProviderConfig"`
 }
 
@@ -72762,65 +72983,63 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ToAgentcore
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput)
 }
 
-// Atlassian OAuth provider configuration. See `predefined providers` below.
+// Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) AtlassianOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
 		return v.AtlassianOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput)
 }
 
-// Custom OAuth2 provider configuration. See `custom` below.
+// Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) CustomOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
 		return v.CustomOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
 }
 
-// GitHub OAuth provider configuration. See `predefined providers` below.
+// GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) GithubOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
 		return v.GithubOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
 }
 
-// Google OAuth provider configuration. See `predefined providers` below.
+// Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) GoogleOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
 		return v.GoogleOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
 }
 
-// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-//
-// > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) IncludedOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig {
 		return v.IncludedOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput)
 }
 
-// LinkedIn OAuth provider configuration. See `predefined providers` below.
+// LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) LinkedinOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
 		return v.LinkedinOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput)
 }
 
-// Microsoft OAuth provider configuration. See `predefined providers` below.
+// Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) MicrosoftOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
 		return v.MicrosoftOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
 }
 
-// Salesforce OAuth provider configuration. See `predefined providers` below.
+// Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) SalesforceOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
 		return v.SalesforceOauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
 }
 
-// Slack OAuth provider configuration. See `predefined providers` below.
+// Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) SlackOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
 		return v.SlackOauth2ProviderConfig
@@ -72851,7 +73070,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Elem() A
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput)
 }
 
-// Atlassian OAuth provider configuration. See `predefined providers` below.
+// Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) AtlassianOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
 		if v == nil {
@@ -72861,7 +73080,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Atlassia
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput)
 }
 
-// Custom OAuth2 provider configuration. See `custom` below.
+// Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) CustomOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
 		if v == nil {
@@ -72871,7 +73090,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) CustomOa
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
 }
 
-// GitHub OAuth provider configuration. See `predefined providers` below.
+// GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GithubOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
 		if v == nil {
@@ -72881,7 +73100,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GithubOa
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
 }
 
-// Google OAuth provider configuration. See `predefined providers` below.
+// Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GoogleOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
 		if v == nil {
@@ -72891,9 +73110,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GoogleOa
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
 }
 
-// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-//
-// > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) IncludedOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig {
 		if v == nil {
@@ -72903,7 +73120,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Included
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigPtrOutput)
 }
 
-// LinkedIn OAuth provider configuration. See `predefined providers` below.
+// LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) LinkedinOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
 		if v == nil {
@@ -72913,7 +73130,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Linkedin
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigPtrOutput)
 }
 
-// Microsoft OAuth provider configuration. See `predefined providers` below.
+// Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) MicrosoftOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
 		if v == nil {
@@ -72923,7 +73140,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Microsof
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
 }
 
-// Salesforce OAuth provider configuration. See `predefined providers` below.
+// Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SalesforceOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
 		if v == nil {
@@ -72933,7 +73150,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Salesfor
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
 }
 
-// Slack OAuth provider configuration. See `predefined providers` below.
+// Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SlackOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
 		if v == nil {
@@ -72944,35 +73161,23 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SlackOau
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
 }
 
@@ -72988,35 +73193,23 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs struct {
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **Microsoft-Specific Configuration:**
-	//
-	// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-	//
-	// **Standard Tenant ID:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
-	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
-	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
+	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
 }
 
@@ -73097,20 +73290,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		return v.ClientId
@@ -73125,18 +73312,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -73158,9 +73341,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscoveries
@@ -73191,13 +73372,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **Microsoft-Specific Configuration:**
-//
-// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-//
-// **Standard Tenant ID:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *int {
 		if v == nil {
@@ -73207,7 +73382,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.IntPtrOutput)
 }
 
-// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		if v == nil {
@@ -73228,9 +73403,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
+// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *string {
 		if v == nil {
@@ -73240,9 +73413,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -73273,9 +73444,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -73446,9 +73615,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
@@ -73464,9 +73633,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
@@ -73521,14 +73690,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	return o
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadatas
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery) string {
 		return v.DiscoveryUrl
@@ -73564,7 +73733,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provide
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -73588,7 +73757,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Provide
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -73671,7 +73840,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -73701,9 +73870,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2Prov
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig struct {
 	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
 	ClientAuthenticationMethod *string `pulumi:"clientAuthenticationMethod"`
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **OAuth Discovery Configuration:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
 	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId *string `pulumi:"clientId"`
@@ -73711,29 +73878,24 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo *string `pulumi:"clientIdWo"`
 	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource *string `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo *string `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscovery AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscovery"`
-	// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+	// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
 	OnBehalfOfTokenExchangeConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig `pulumi:"onBehalfOfTokenExchangeConfig"`
-	// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+	// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
 	PrivateEndpoint *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint `pulumi:"privateEndpoint"`
-	// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+	// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
 	PrivateEndpointOverrides []AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
-	PrivateKeyJwtConfig      *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig      `pulumi:"privateKeyJwtConfig"`
+	// Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+	PrivateKeyJwtConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig `pulumi:"privateKeyJwtConfig"`
 }
 
 // AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput values.
@@ -73750,9 +73912,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs struct {
 	// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
 	ClientAuthenticationMethod pulumi.StringPtrInput `pulumi:"clientAuthenticationMethod"`
-	// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-	//
-	// **OAuth Discovery Configuration:**
+	// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
 	// OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
@@ -73760,29 +73920,24 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 	// Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
 	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
 	// OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-	//
-	// **Write-Only Credentials (choose one pair):**
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-	//
-	// **Advanced Configuration:**
+	// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 	ClientSecretConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigPtrInput `pulumi:"clientSecretConfig"`
 	// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
 	ClientSecretSource pulumi.StringPtrInput `pulumi:"clientSecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
 	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
-	// OAuth discovery configuration. See `oauthDiscovery` below.
-	//
-	// **Externally-Managed Client Secret:**
+	// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
 	OauthDiscovery AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput `pulumi:"oauthDiscovery"`
-	// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+	// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
 	OnBehalfOfTokenExchangeConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrInput `pulumi:"onBehalfOfTokenExchangeConfig"`
-	// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+	// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+	// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
 	PrivateEndpointOverrides AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
-	PrivateKeyJwtConfig      AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrInput       `pulumi:"privateKeyJwtConfig"`
+	// Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+	PrivateKeyJwtConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrInput `pulumi:"privateKeyJwtConfig"`
 }
 
 func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ElementType() reflect.Type {
@@ -73869,9 +74024,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **OAuth Discovery Configuration:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *int {
 		return v.ClientCredentialsWoVersion
@@ -73894,17 +74047,13 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 // OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		return v.ClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig {
 		return v.ClientSecretConfig
@@ -73926,36 +74075,35 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) OauthDiscovery() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
 		return v.OauthDiscovery
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput)
 }
 
-// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) OnBehalfOfTokenExchangeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
 		return v.OnBehalfOfTokenExchangeConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
-// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) PrivateEndpoint() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
 		return v.PrivateEndpoint
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput)
 }
 
-// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) PrivateEndpointOverrides() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
 		return v.PrivateEndpointOverrides
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput)
 }
 
+// Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) PrivateKeyJwtConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
 		return v.PrivateKeyJwtConfig
@@ -73996,9 +74144,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-//
-// **OAuth Discovery Configuration:**
+// Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *int {
 		if v == nil {
@@ -74030,8 +74176,6 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 // OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
-//
-// **Write-Only Credentials (choose one pair):**
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
 		if v == nil {
@@ -74041,9 +74185,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-//
-// **Advanced Configuration:**
+// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientSecretConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig {
 		if v == nil {
@@ -74074,9 +74216,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth discovery configuration. See `oauthDiscovery` below.
-//
-// **Externally-Managed Client Secret:**
+// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) OauthDiscovery() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
 		if v == nil {
@@ -74086,7 +74226,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
 }
 
-// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) OnBehalfOfTokenExchangeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
 		if v == nil {
@@ -74096,7 +74236,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
-// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) PrivateEndpoint() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
 		if v == nil {
@@ -74106,7 +74246,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput)
 }
 
-// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+// Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) PrivateEndpointOverrides() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
 		if v == nil {
@@ -74116,6 +74256,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArrayOutput)
 }
 
+// Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) PrivateKeyJwtConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
 		if v == nil {
@@ -74286,9 +74427,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadata *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadata"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl *string `pulumi:"discoveryUrl"`
 }
 
@@ -74304,9 +74445,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs struct {
-	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 	AuthorizationServerMetadata AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput `pulumi:"authorizationServerMetadata"`
-	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	// OpenID Connect discovery URL resolved by the service.
 	DiscoveryUrl pulumi.StringPtrInput `pulumi:"discoveryUrl"`
 }
 
@@ -74387,14 +74528,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadata() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		return v.AuthorizationServerMetadata
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *string {
 		return v.DiscoveryUrl
@@ -74425,7 +74566,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput)
 }
 
-// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+// OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) AuthorizationServerMetadata() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
 		if v == nil {
@@ -74435,7 +74576,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
 }
 
-// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+// OpenID Connect discovery URL resolved by the service.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *string {
 		if v == nil {
@@ -74454,7 +74595,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods []string `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -74478,7 +74619,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
 	// OAuth2 token endpoint URL.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-	// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+	// List of authentication methods supported by the token endpoint.
 	TokenEndpointAuthMethods pulumi.StringArrayInput `pulumi:"tokenEndpointAuthMethods"`
 }
 
@@ -74587,7 +74728,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		return v.TokenEndpointAuthMethods
@@ -74658,7 +74799,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+// List of authentication methods supported by the token endpoint.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) TokenEndpointAuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
 		if v == nil {
@@ -74671,7 +74812,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig struct {
 	// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
 	GrantType string `pulumi:"grantType"`
-	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
 	TokenExchangeGrantTypeConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig `pulumi:"tokenExchangeGrantTypeConfig"`
 }
 
@@ -74689,7 +74830,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs struct {
 	// Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
 	GrantType pulumi.StringInput `pulumi:"grantType"`
-	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+	// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
 	TokenExchangeGrantTypeConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrInput `pulumi:"tokenExchangeGrantTypeConfig"`
 }
 
@@ -74777,7 +74918,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringOutput)
 }
 
-// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigOutput) TokenExchangeGrantTypeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
 		return v.TokenExchangeGrantTypeConfig
@@ -74818,7 +74959,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigPtrOutput) TokenExchangeGrantTypeConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
 		if v == nil {
@@ -74989,9 +75130,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` below.
+	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 	ManagedVpcResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 	SelfManagedLatticeResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -75007,9 +75148,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` below.
+	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 	ManagedVpcResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 	SelfManagedLatticeResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -75090,14 +75231,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput)
 }
 
-// Service-managed VPC resource configuration. See `managedVpcResource` below.
+// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
 		return v.ManagedVpcResource
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
 }
 
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
 		return v.SelfManagedLatticeResource
@@ -75128,7 +75269,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOutput)
 }
 
-// Service-managed VPC resource configuration. See `managedVpcResource` below.
+// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
 		if v == nil {
@@ -75138,7 +75279,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourcePtrOutput)
 }
 
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointPtrOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
 		if v == nil {
@@ -75395,7 +75536,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride struct {
 	// Domain the private endpoint override applies to.
 	Domain string `pulumi:"domain"`
-	// Private endpoint configuration for the domain. See `privateEndpoint` above.
+	// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
 	PrivateEndpoint AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoint"`
 }
 
@@ -75413,7 +75554,7 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs struct {
 	// Domain the private endpoint override applies to.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// Private endpoint configuration for the domain. See `privateEndpoint` above.
+	// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
 	PrivateEndpoint AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointInput `pulumi:"privateEndpoint"`
 }
 
@@ -75475,7 +75616,7 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	}).(pulumi.StringOutput)
 }
 
-// Private endpoint configuration for the domain. See `privateEndpoint` above.
+// Private endpoint configuration for the domain. See `privateEndpoint` Block above.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideOutput) PrivateEndpoint() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
 		return v.PrivateEndpoint
@@ -75503,9 +75644,9 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` below.
+	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 	ManagedVpcResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 	SelfManagedLatticeResource *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -75521,9 +75662,9 @@ type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderCo
 }
 
 type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs struct {
-	// Service-managed VPC resource configuration. See `managedVpcResource` below.
+	// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 	ManagedVpcResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
-	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 	SelfManagedLatticeResource AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -75553,14 +75694,14 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 	return o
 }
 
-// Service-managed VPC resource configuration. See `managedVpcResource` below.
+// Service-managed VPC resource configuration. See `managedVpcResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
 		return v.ManagedVpcResource
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
 }
 
-// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
 		return v.SelfManagedLatticeResource
@@ -75943,145 +76084,6 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2Provide
 // Identifier of the VPC Lattice resource configuration.
 func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource struct {
-	// Identifier of the VPC Lattice resource configuration.
-	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs struct {
-	// Identifier of the VPC Lattice resource configuration.
-	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput` via:
-//
-//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput
-}
-
-type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs
-
-func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput {
-	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType)(v)
-}
-
-func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
-		return &v
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-// Identifier of the VPC Lattice resource configuration.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *string {
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource
-		return ret
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-// Identifier of the VPC Lattice resource configuration.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -76561,6 +76563,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeWorkloadIdentityDetailArrayInput)(nil)).Elem(), AgentcoreAgentRuntimeWorkloadIdentityDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArnInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretConfigInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserBrowserSigningInput)(nil)).Elem(), AgentcoreBrowserBrowserSigningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserBrowserSigningPtrInput)(nil)).Elem(), AgentcoreBrowserBrowserSigningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserCertificateInput)(nil)).Elem(), AgentcoreBrowserCertificateArgs{})
@@ -77073,8 +77077,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -77546,6 +77548,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput{})
 	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserBrowserSigningOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserBrowserSigningPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreBrowserCertificateOutput{})
@@ -78058,6 +78062,4 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourcePtrOutput{})
 }

@@ -15,6 +15,46 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ChannelEncryptionConfigurationArgs',
+    'ChannelEncryptionConfigurationArgsDict',
+    'ChannelIcebergDestinationArgs',
+    'ChannelIcebergDestinationArgsDict',
+    'ChannelIcebergDestinationCatalogArgs',
+    'ChannelIcebergDestinationCatalogArgsDict',
+    'ChannelIcebergDestinationDeadLetterQueueS3Args',
+    'ChannelIcebergDestinationDeadLetterQueueS3ArgsDict',
+    'ChannelIcebergDestinationDestinationTableArgs',
+    'ChannelIcebergDestinationDestinationTableArgsDict',
+    'ChannelIcebergDestinationDestinationTablePartitionSpecArgs',
+    'ChannelIcebergDestinationDestinationTablePartitionSpecArgsDict',
+    'ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs',
+    'ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgsDict',
+    'ChannelIcebergDestinationSchemaEvolutionArgs',
+    'ChannelIcebergDestinationSchemaEvolutionArgsDict',
+    'ChannelIcebergDestinationTableCreationArgs',
+    'ChannelIcebergDestinationTableCreationArgsDict',
+    'ChannelLoggingInfoArgs',
+    'ChannelLoggingInfoArgsDict',
+    'ChannelLoggingInfoCloudwatchLogsArgs',
+    'ChannelLoggingInfoCloudwatchLogsArgsDict',
+    'ChannelLoggingInfoFirehoseArgs',
+    'ChannelLoggingInfoFirehoseArgsDict',
+    'ChannelLoggingInfoS3Args',
+    'ChannelLoggingInfoS3ArgsDict',
+    'ChannelS3DestinationArgs',
+    'ChannelS3DestinationArgsDict',
+    'ChannelS3DestinationDeadLetterQueueS3Args',
+    'ChannelS3DestinationDeadLetterQueueS3ArgsDict',
+    'ChannelS3DestinationStorageArgs',
+    'ChannelS3DestinationStorageArgsDict',
+    'ChannelTimeoutsArgs',
+    'ChannelTimeoutsArgsDict',
+    'ChannelTopicConfigurationArgs',
+    'ChannelTopicConfigurationArgsDict',
+    'ChannelTopicConfigurationRecordConverterArgs',
+    'ChannelTopicConfigurationRecordConverterArgsDict',
+    'ChannelTopicConfigurationRecordSchemaArgs',
+    'ChannelTopicConfigurationRecordSchemaArgsDict',
     'ClusterBrokerNodeGroupInfoArgs',
     'ClusterBrokerNodeGroupInfoArgsDict',
     'ClusterBrokerNodeGroupInfoConnectivityInfoArgs',
@@ -112,6 +152,1297 @@ __all__ = [
     'TopicTimeoutsArgs',
     'TopicTimeoutsArgsDict',
 ]
+
+class ChannelEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS KMS key used to encrypt the data.
+    """
+
+@pulumi.input_type
+class ChannelEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS KMS key used to encrypt the data.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS KMS key used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class ChannelIcebergDestinationArgsDict(TypedDict):
+    append_only: pulumi.Input[_builtins.bool]
+    """
+    Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+    """
+    dead_letter_queue_s3: pulumi.Input['ChannelIcebergDestinationDeadLetterQueueS3ArgsDict']
+    """
+    Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+    """
+    destination_table: pulumi.Input['ChannelIcebergDestinationDestinationTableArgsDict']
+    """
+    Destination Iceberg table. See `destination_table` Block below.
+    """
+    schema_evolution: pulumi.Input['ChannelIcebergDestinationSchemaEvolutionArgsDict']
+    """
+    Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schema_evolution` Block below.
+    """
+    service_execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+    """
+    table_creation: pulumi.Input['ChannelIcebergDestinationTableCreationArgsDict']
+    """
+    Configuration controlling whether MSK creates the destination table if it does not already exist. See `table_creation` Block below.
+
+    The following arguments are optional:
+    """
+    catalog: NotRequired[pulumi.Input[Optional['ChannelIcebergDestinationCatalogArgsDict']]]
+    """
+    AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+    """
+    compression_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+    """
+    data_freshness_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationArgs:
+    def __init__(__self__, *,
+                 append_only: pulumi.Input[_builtins.bool],
+                 dead_letter_queue_s3: pulumi.Input['ChannelIcebergDestinationDeadLetterQueueS3Args'],
+                 destination_table: pulumi.Input['ChannelIcebergDestinationDestinationTableArgs'],
+                 schema_evolution: pulumi.Input['ChannelIcebergDestinationSchemaEvolutionArgs'],
+                 service_execution_role_arn: pulumi.Input[_builtins.str],
+                 table_creation: pulumi.Input['ChannelIcebergDestinationTableCreationArgs'],
+                 catalog: pulumi.Input[Optional['ChannelIcebergDestinationCatalogArgs']] = None,
+                 compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_freshness_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] append_only: Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+        :param pulumi.Input['ChannelIcebergDestinationDeadLetterQueueS3Args'] dead_letter_queue_s3: Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        :param pulumi.Input['ChannelIcebergDestinationDestinationTableArgs'] destination_table: Destination Iceberg table. See `destination_table` Block below.
+        :param pulumi.Input['ChannelIcebergDestinationSchemaEvolutionArgs'] schema_evolution: Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schema_evolution` Block below.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+        :param pulumi.Input['ChannelIcebergDestinationTableCreationArgs'] table_creation: Configuration controlling whether MSK creates the destination table if it does not already exist. See `table_creation` Block below.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ChannelIcebergDestinationCatalogArgs'] catalog: AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+        :param pulumi.Input[_builtins.str] compression_type: Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+        :param pulumi.Input[_builtins.int] data_freshness_in_seconds: Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        pulumi.set(__self__, "append_only", append_only)
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "destination_table", destination_table)
+        pulumi.set(__self__, "schema_evolution", schema_evolution)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "table_creation", table_creation)
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the destination is append-only. Must be `true`; updates and deletes are not supported.
+        """
+        return pulumi.get(self, "append_only")
+
+    @append_only.setter
+    def append_only(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "append_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> pulumi.Input['ChannelIcebergDestinationDeadLetterQueueS3Args']:
+        """
+        Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @dead_letter_queue_s3.setter
+    def dead_letter_queue_s3(self, value: pulumi.Input['ChannelIcebergDestinationDeadLetterQueueS3Args']):
+        pulumi.set(self, "dead_letter_queue_s3", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTable")
+    def destination_table(self) -> pulumi.Input['ChannelIcebergDestinationDestinationTableArgs']:
+        """
+        Destination Iceberg table. See `destination_table` Block below.
+        """
+        return pulumi.get(self, "destination_table")
+
+    @destination_table.setter
+    def destination_table(self, value: pulumi.Input['ChannelIcebergDestinationDestinationTableArgs']):
+        pulumi.set(self, "destination_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaEvolution")
+    def schema_evolution(self) -> pulumi.Input['ChannelIcebergDestinationSchemaEvolutionArgs']:
+        """
+        Configuration controlling whether the destination table's schema is evolved to match incoming records. See `schema_evolution` Block below.
+        """
+        return pulumi.get(self, "schema_evolution")
+
+    @schema_evolution.setter
+    def schema_evolution(self, value: pulumi.Input['ChannelIcebergDestinationSchemaEvolutionArgs']):
+        pulumi.set(self, "schema_evolution", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @service_execution_role_arn.setter
+    def service_execution_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_execution_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableCreation")
+    def table_creation(self) -> pulumi.Input['ChannelIcebergDestinationTableCreationArgs']:
+        """
+        Configuration controlling whether MSK creates the destination table if it does not already exist. See `table_creation` Block below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "table_creation")
+
+    @table_creation.setter
+    def table_creation(self, value: pulumi.Input['ChannelIcebergDestinationTableCreationArgs']):
+        pulumi.set(self, "table_creation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalog(self) -> pulumi.Input[Optional['ChannelIcebergDestinationCatalogArgs']]:
+        """
+        AWS Glue Data Catalog and S3 Tables warehouse used by the destination. See `catalog` Block below.
+        """
+        return pulumi.get(self, "catalog")
+
+    @catalog.setter
+    def catalog(self, value: pulumi.Input[Optional['ChannelIcebergDestinationCatalogArgs']]):
+        pulumi.set(self, "catalog", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Compression codec for Iceberg table data files. Defaults to `ZSTD`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+    @data_freshness_in_seconds.setter
+    def data_freshness_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "data_freshness_in_seconds", value)
+
+
+class ChannelIcebergDestinationCatalogArgsDict(TypedDict):
+    catalog_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+    """
+    warehouse_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationCatalogArgs:
+    def __init__(__self__, *,
+                 catalog_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse_location: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] catalog_arn: ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+        :param pulumi.Input[_builtins.str] warehouse_location: ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+        """
+        if catalog_arn is not None:
+            pulumi.set(__self__, "catalog_arn", catalog_arn)
+        if warehouse_location is not None:
+            pulumi.set(__self__, "warehouse_location", warehouse_location)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the federated AWS Glue Data Catalog that projects the S3 Tables bucket.
+        """
+        return pulumi.get(self, "catalog_arn")
+
+    @catalog_arn.setter
+    def catalog_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warehouseLocation")
+    def warehouse_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the S3 Tables bucket that backs the Apache Iceberg warehouse.
+        """
+        return pulumi.get(self, "warehouse_location")
+
+    @warehouse_location.setter
+    def warehouse_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse_location", value)
+
+
+class ChannelIcebergDestinationDeadLetterQueueS3ArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the dead-letter Amazon S3 bucket.
+
+    The following arguments are optional:
+    """
+    error_output_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prefix prepended to every dead-letter Amazon S3 object key.
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationDeadLetterQueueS3Args:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 error_output_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_arn: ARN of the dead-letter Amazon S3 bucket.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] error_output_prefix: Prefix prepended to every dead-letter Amazon S3 object key.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the dead-letter Amazon S3 bucket.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prefix prepended to every dead-letter Amazon S3 object key.
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @error_output_prefix.setter
+    def error_output_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_output_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+
+class ChannelIcebergDestinationDestinationTableArgsDict(TypedDict):
+    destination_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the destination namespace (database) in the AWS Glue Data Catalog.
+    """
+    destination_table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the destination Apache Iceberg table.
+    """
+    partition_spec: NotRequired[pulumi.Input[Optional['ChannelIcebergDestinationDestinationTablePartitionSpecArgsDict']]]
+    """
+    Partition specification for the destination table. See `partition_spec` Block below.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationDestinationTableArgs:
+    def __init__(__self__, *,
+                 destination_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_spec: pulumi.Input[Optional['ChannelIcebergDestinationDestinationTablePartitionSpecArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination_database_name: Name of the destination namespace (database) in the AWS Glue Data Catalog.
+        :param pulumi.Input[_builtins.str] destination_table_name: Name of the destination Apache Iceberg table.
+        :param pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecArgs'] partition_spec: Partition specification for the destination table. See `partition_spec` Block below.
+        """
+        if destination_database_name is not None:
+            pulumi.set(__self__, "destination_database_name", destination_database_name)
+        if destination_table_name is not None:
+            pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDatabaseName")
+    def destination_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the destination namespace (database) in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "destination_database_name")
+
+    @destination_database_name.setter
+    def destination_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableName")
+    def destination_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the destination Apache Iceberg table.
+        """
+        return pulumi.get(self, "destination_table_name")
+
+    @destination_table_name.setter
+    def destination_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> pulumi.Input[Optional['ChannelIcebergDestinationDestinationTablePartitionSpecArgs']]:
+        """
+        Partition specification for the destination table. See `partition_spec` Block below.
+        """
+        return pulumi.get(self, "partition_spec")
+
+    @partition_spec.setter
+    def partition_spec(self, value: pulumi.Input[Optional['ChannelIcebergDestinationDestinationTablePartitionSpecArgs']]):
+        pulumi.set(self, "partition_spec", value)
+
+
+class ChannelIcebergDestinationDestinationTablePartitionSpecArgsDict(TypedDict):
+    partition_strategy: pulumi.Input[_builtins.str]
+    """
+    Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+    """
+    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgsDict']]]]]
+    """
+    Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationDestinationTablePartitionSpecArgs:
+    def __init__(__self__, *,
+                 partition_strategy: pulumi.Input[_builtins.str],
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] partition_strategy: Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs']]] sources: Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+        """
+        pulumi.set(__self__, "partition_strategy", partition_strategy)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionStrategy")
+    def partition_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        Partitioning strategy applied to records written to the table. `TIME_HOUR` partitions by hour using a timestamp source column.
+        """
+        return pulumi.get(self, "partition_strategy")
+
+    @partition_strategy.setter
+    def partition_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "partition_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs']]]]:
+        """
+        Source column used by the partitioning strategy. For `TIME_HOUR`, exactly one source must be specified and its column must be a timestamp. See `source` Block below.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
+
+
+class ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgsDict(TypedDict):
+    source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationDestinationTablePartitionSpecSourceArgs:
+    def __init__(__self__, *,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] source_name: Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+        """
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the source column. For `TIME_HOUR` partitioning this must be a timestamp column defined in the Glue Schema Registry schema.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_name", value)
+
+
+class ChannelIcebergDestinationSchemaEvolutionArgsDict(TypedDict):
+    enable_schema_evolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to allow MSK to evolve the destination table's schema.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationSchemaEvolutionArgs:
+    def __init__(__self__, *,
+                 enable_schema_evolution: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_schema_evolution: Whether to allow MSK to evolve the destination table's schema.
+        """
+        if enable_schema_evolution is not None:
+            pulumi.set(__self__, "enable_schema_evolution", enable_schema_evolution)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSchemaEvolution")
+    def enable_schema_evolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to allow MSK to evolve the destination table's schema.
+        """
+        return pulumi.get(self, "enable_schema_evolution")
+
+    @enable_schema_evolution.setter
+    def enable_schema_evolution(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_schema_evolution", value)
+
+
+class ChannelIcebergDestinationTableCreationArgsDict(TypedDict):
+    enable_table_creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether MSK creates the destination table on the customer's behalf.
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationTableCreationArgs:
+    def __init__(__self__, *,
+                 enable_table_creation: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_table_creation: Whether MSK creates the destination table on the customer's behalf.
+        """
+        if enable_table_creation is not None:
+            pulumi.set(__self__, "enable_table_creation", enable_table_creation)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTableCreation")
+    def enable_table_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether MSK creates the destination table on the customer's behalf.
+        """
+        return pulumi.get(self, "enable_table_creation")
+
+    @enable_table_creation.setter
+    def enable_table_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_table_creation", value)
+
+
+class ChannelLoggingInfoArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ChannelLoggingInfoCloudwatchLogsArgsDict']]]
+    """
+    CloudWatch Logs destination for channel logs. See `cloudwatch_logs` Block below.
+    """
+    firehose: NotRequired[pulumi.Input[Optional['ChannelLoggingInfoFirehoseArgsDict']]]
+    """
+    Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+    """
+    s3: NotRequired[pulumi.Input[Optional['ChannelLoggingInfoS3ArgsDict']]]
+    """
+    Amazon S3 destination for channel logs. See `s3` Block below.
+    """
+
+@pulumi.input_type
+class ChannelLoggingInfoArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: pulumi.Input[Optional['ChannelLoggingInfoCloudwatchLogsArgs']] = None,
+                 firehose: pulumi.Input[Optional['ChannelLoggingInfoFirehoseArgs']] = None,
+                 s3: pulumi.Input[Optional['ChannelLoggingInfoS3Args']] = None):
+        """
+        :param pulumi.Input['ChannelLoggingInfoCloudwatchLogsArgs'] cloudwatch_logs: CloudWatch Logs destination for channel logs. See `cloudwatch_logs` Block below.
+        :param pulumi.Input['ChannelLoggingInfoFirehoseArgs'] firehose: Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+        :param pulumi.Input['ChannelLoggingInfoS3Args'] s3: Amazon S3 destination for channel logs. See `s3` Block below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['ChannelLoggingInfoCloudwatchLogsArgs']]:
+        """
+        CloudWatch Logs destination for channel logs. See `cloudwatch_logs` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['ChannelLoggingInfoCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> pulumi.Input[Optional['ChannelLoggingInfoFirehoseArgs']]:
+        """
+        Kinesis Data Firehose delivery stream destination for channel logs. See `firehose` Block below.
+        """
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: pulumi.Input[Optional['ChannelLoggingInfoFirehoseArgs']]):
+        pulumi.set(self, "firehose", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['ChannelLoggingInfoS3Args']]:
+        """
+        Amazon S3 destination for channel logs. See `s3` Block below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['ChannelLoggingInfoS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+class ChannelLoggingInfoCloudwatchLogsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the CloudWatch Logs destination is enabled.
+
+    The following arguments are optional:
+    """
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the CloudWatch log group that receives the logs.
+    """
+
+@pulumi.input_type
+class ChannelLoggingInfoCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the CloudWatch Logs destination is enabled.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] log_group: Name of the CloudWatch log group that receives the logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the CloudWatch Logs destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the CloudWatch log group that receives the logs.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+
+class ChannelLoggingInfoFirehoseArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the Firehose destination is enabled.
+
+    The following arguments are optional:
+    """
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the Kinesis Data Firehose delivery stream that receives the logs.
+    """
+
+@pulumi.input_type
+class ChannelLoggingInfoFirehoseArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the Firehose destination is enabled.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] delivery_stream: Name of the Kinesis Data Firehose delivery stream that receives the logs.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the Firehose destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Kinesis Data Firehose delivery stream that receives the logs.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class ChannelLoggingInfoS3ArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the Amazon S3 destination is enabled.
+
+    The following arguments are optional:
+    """
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the Amazon S3 bucket that receives the logs.
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prefix applied to the Amazon S3 log object keys.
+    """
+
+@pulumi.input_type
+class ChannelLoggingInfoS3Args:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the Amazon S3 destination is enabled.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket that receives the logs.
+        :param pulumi.Input[_builtins.str] prefix: Prefix applied to the Amazon S3 log object keys.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the Amazon S3 destination is enabled.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Amazon S3 bucket that receives the logs.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prefix applied to the Amazon S3 log object keys.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class ChannelS3DestinationArgsDict(TypedDict):
+    dead_letter_queue_s3: pulumi.Input['ChannelS3DestinationDeadLetterQueueS3ArgsDict']
+    """
+    Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+    """
+    service_execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+    """
+    storage: pulumi.Input['ChannelS3DestinationStorageArgsDict']
+    """
+    Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+
+    The following arguments are optional:
+    """
+    data_freshness_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+    """
+
+@pulumi.input_type
+class ChannelS3DestinationArgs:
+    def __init__(__self__, *,
+                 dead_letter_queue_s3: pulumi.Input['ChannelS3DestinationDeadLetterQueueS3Args'],
+                 service_execution_role_arn: pulumi.Input[_builtins.str],
+                 storage: pulumi.Input['ChannelS3DestinationStorageArgs'],
+                 data_freshness_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input['ChannelS3DestinationDeadLetterQueueS3Args'] dead_letter_queue_s3: Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+        :param pulumi.Input['ChannelS3DestinationStorageArgs'] storage: Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.int] data_freshness_in_seconds: Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "storage", storage)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> pulumi.Input['ChannelS3DestinationDeadLetterQueueS3Args']:
+        """
+        Amazon S3 bucket and prefix where MSK writes records that fail to deliver. See `dead_letter_queue_s3` Block below.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @dead_letter_queue_s3.setter
+    def dead_letter_queue_s3(self, value: pulumi.Input['ChannelS3DestinationDeadLetterQueueS3Args']):
+        pulumi.set(self, "dead_letter_queue_s3", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @service_execution_role_arn.setter
+    def service_execution_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_execution_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> pulumi.Input['ChannelS3DestinationStorageArgs']:
+        """
+        Amazon S3 bucket, prefix, and storage class for delivered records. See `storage` Block below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: pulumi.Input['ChannelS3DestinationStorageArgs']):
+        pulumi.set(self, "storage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Valid values are between `300` and `900`. Defaults to `600`. Can be updated in place without recreating the channel.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+    @data_freshness_in_seconds.setter
+    def data_freshness_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "data_freshness_in_seconds", value)
+
+
+class ChannelS3DestinationDeadLetterQueueS3ArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the dead-letter Amazon S3 bucket.
+
+    The following arguments are optional:
+    """
+    error_output_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prefix prepended to every dead-letter Amazon S3 object key.
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+    """
+
+@pulumi.input_type
+class ChannelS3DestinationDeadLetterQueueS3Args:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 error_output_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_arn: ARN of the dead-letter Amazon S3 bucket.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] error_output_prefix: Prefix prepended to every dead-letter Amazon S3 object key.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the dead-letter Amazon S3 bucket.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prefix prepended to every dead-letter Amazon S3 object key.
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @error_output_prefix.setter
+    def error_output_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_output_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+
+class ChannelS3DestinationStorageArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the destination Amazon S3 bucket.
+    """
+    compression_type: pulumi.Input[_builtins.str]
+    """
+    Compression codec applied to delivered Amazon S3 objects.
+    """
+    storage_class: pulumi.Input[_builtins.str]
+    """
+    Amazon S3 storage class for delivered objects.
+
+    The following arguments are optional:
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    12-digit AWS account ID expected to own the Amazon S3 bucket.
+    """
+    output_key_template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Template that controls the Amazon S3 object key for each delivered record.
+    """
+    output_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prefix prepended to every Amazon S3 object key written by the channel.
+    """
+
+@pulumi.input_type
+class ChannelS3DestinationStorageArgs:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 compression_type: pulumi.Input[_builtins.str],
+                 storage_class: pulumi.Input[_builtins.str],
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_arn: ARN of the destination Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] compression_type: Compression codec applied to delivered Amazon S3 objects.
+        :param pulumi.Input[_builtins.str] storage_class: Amazon S3 storage class for delivered objects.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: 12-digit AWS account ID expected to own the Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] output_key_template: Template that controls the Amazon S3 object key for each delivered record.
+        :param pulumi.Input[_builtins.str] output_prefix: Prefix prepended to every Amazon S3 object key written by the channel.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "storage_class", storage_class)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if output_key_template is not None:
+            pulumi.set(__self__, "output_key_template", output_key_template)
+        if output_prefix is not None:
+            pulumi.set(__self__, "output_prefix", output_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the destination Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Compression codec applied to delivered Amazon S3 objects.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> pulumi.Input[_builtins.str]:
+        """
+        Amazon S3 storage class for delivered objects.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_class", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        12-digit AWS account ID expected to own the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputKeyTemplate")
+    def output_key_template(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Template that controls the Amazon S3 object key for each delivered record.
+        """
+        return pulumi.get(self, "output_key_template")
+
+    @output_key_template.setter
+    def output_key_template(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_key_template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputPrefix")
+    def output_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prefix prepended to every Amazon S3 object key written by the channel.
+        """
+        return pulumi.get(self, "output_prefix")
+
+    @output_prefix.setter
+    def output_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_prefix", value)
+
+
+class ChannelTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class ChannelTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class ChannelTopicConfigurationArgsDict(TypedDict):
+    record_converter: pulumi.Input['ChannelTopicConfigurationRecordConverterArgsDict']
+    """
+    Configuration that controls how Apache Kafka record values are deserialized for the destination. See `record_converter` Block below.
+    """
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    ARN that uniquely identifies the topic.
+
+    The following arguments are optional:
+    """
+    record_schema: NotRequired[pulumi.Input[Optional['ChannelTopicConfigurationRecordSchemaArgsDict']]]
+    """
+    Schema used to validate records when the value converter requires one. See `record_schema` Block below.
+    """
+
+@pulumi.input_type
+class ChannelTopicConfigurationArgs:
+    def __init__(__self__, *,
+                 record_converter: pulumi.Input['ChannelTopicConfigurationRecordConverterArgs'],
+                 topic_arn: pulumi.Input[_builtins.str],
+                 record_schema: pulumi.Input[Optional['ChannelTopicConfigurationRecordSchemaArgs']] = None):
+        """
+        :param pulumi.Input['ChannelTopicConfigurationRecordConverterArgs'] record_converter: Configuration that controls how Apache Kafka record values are deserialized for the destination. See `record_converter` Block below.
+        :param pulumi.Input[_builtins.str] topic_arn: ARN that uniquely identifies the topic.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ChannelTopicConfigurationRecordSchemaArgs'] record_schema: Schema used to validate records when the value converter requires one. See `record_schema` Block below.
+        """
+        pulumi.set(__self__, "record_converter", record_converter)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        if record_schema is not None:
+            pulumi.set(__self__, "record_schema", record_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="recordConverter")
+    def record_converter(self) -> pulumi.Input['ChannelTopicConfigurationRecordConverterArgs']:
+        """
+        Configuration that controls how Apache Kafka record values are deserialized for the destination. See `record_converter` Block below.
+        """
+        return pulumi.get(self, "record_converter")
+
+    @record_converter.setter
+    def record_converter(self, value: pulumi.Input['ChannelTopicConfigurationRecordConverterArgs']):
+        pulumi.set(self, "record_converter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN that uniquely identifies the topic.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordSchema")
+    def record_schema(self) -> pulumi.Input[Optional['ChannelTopicConfigurationRecordSchemaArgs']]:
+        """
+        Schema used to validate records when the value converter requires one. See `record_schema` Block below.
+        """
+        return pulumi.get(self, "record_schema")
+
+    @record_schema.setter
+    def record_schema(self, value: pulumi.Input[Optional['ChannelTopicConfigurationRecordSchemaArgs']]):
+        pulumi.set(self, "record_schema", value)
+
+
+class ChannelTopicConfigurationRecordConverterArgsDict(TypedDict):
+    value_converter: pulumi.Input[_builtins.str]
+    """
+    Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `iceberg_destination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3_destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+    """
+
+@pulumi.input_type
+class ChannelTopicConfigurationRecordConverterArgs:
+    def __init__(__self__, *,
+                 value_converter: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] value_converter: Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `iceberg_destination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3_destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+        """
+        pulumi.set(__self__, "value_converter", value_converter)
+
+    @_builtins.property
+    @pulumi.getter(name="valueConverter")
+    def value_converter(self) -> pulumi.Input[_builtins.str]:
+        """
+        Deserialization format applied to Apache Kafka record values. Valid values are `BYTE_ARRAY`, `STRING`, `JSON`, and `JSON_SCHEMA_GSR`. The `iceberg_destination` accepts only `JSON` or `JSON_SCHEMA_GSR`; the `s3_destination` accepts `BYTE_ARRAY`, `STRING`, or `JSON`.
+        """
+        return pulumi.get(self, "value_converter")
+
+    @value_converter.setter
+    def value_converter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value_converter", value)
+
+
+class ChannelTopicConfigurationRecordSchemaArgsDict(TypedDict):
+    gsr_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+    """
+
+@pulumi.input_type
+class ChannelTopicConfigurationRecordSchemaArgs:
+    def __init__(__self__, *,
+                 gsr_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] gsr_arn: ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+        """
+        pulumi.set(__self__, "gsr_arn", gsr_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="gsrArn")
+    def gsr_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Glue Schema Registry schema used to validate records for the destination Apache Iceberg table.
+        """
+        return pulumi.get(self, "gsr_arn")
+
+    @gsr_arn.setter
+    def gsr_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gsr_arn", value)
+
 
 class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
     client_subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]

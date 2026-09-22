@@ -18,14 +18,14 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
     public static final AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs Empty = new AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs();
 
     /**
-     * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+     * Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
      * 
      */
     @Import(name="efsAccessPoints", required=true)
     private Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs>> efsAccessPoints;
 
     /**
-     * @return Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+     * @return Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs>> efsAccessPoints() {
@@ -33,14 +33,14 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
     }
 
     /**
-     * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+     * Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
      * 
      */
     @Import(name="s3FilesAccessPoints", required=true)
     private Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs>> s3FilesAccessPoints;
 
     /**
-     * @return Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+     * @return Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs>> s3FilesAccessPoints() {
@@ -48,14 +48,14 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
     }
 
     /**
-     * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+     * Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
      * 
      */
     @Import(name="sessionStorages", required=true)
     private Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs>> sessionStorages;
 
     /**
-     * @return Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+     * @return Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs>> sessionStorages() {
@@ -89,7 +89,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param efsAccessPoints Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * @param efsAccessPoints Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param efsAccessPoints Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * @param efsAccessPoints Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param efsAccessPoints Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
+         * @param efsAccessPoints Amazon EFS access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.efs_access_point` Block below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param s3FilesAccessPoints Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * @param s3FilesAccessPoints Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param s3FilesAccessPoints Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * @param s3FilesAccessPoints Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param s3FilesAccessPoints Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
+         * @param s3FilesAccessPoints Amazon S3 Files access point mounted as shared file storage. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.s3_files_access_point` Block below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param sessionStorages Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * @param sessionStorages Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param sessionStorages Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * @param sessionStorages Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentF
         }
 
         /**
-         * @param sessionStorages Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
+         * @param sessionStorages Session storage filesystem. See `environment_actual.agentcore_runtime_environment.filesystem_configuration.session_storage` Block below.
          * 
          * @return builder
          * 

@@ -14,9 +14,17 @@ public final class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs ex
 
     public static final WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs Empty = new WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs();
 
+    /**
+     * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+     * 
+     */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
+    /**
+     * @return Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+     * 
+     */
     public Output<String> fallbackBehavior() {
         return this.fallbackBehavior;
     }
@@ -61,11 +69,23 @@ public final class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs ex
             $ = new WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fallbackBehavior Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fallbackBehavior(Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
+        /**
+         * @param fallbackBehavior Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }

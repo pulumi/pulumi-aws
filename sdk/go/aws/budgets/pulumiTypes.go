@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BudgetActionActionThreshold struct {
-	// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+	// Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 	ActionThresholdType string `pulumi:"actionThresholdType"`
-	// The threshold of a notification.
+	// Threshold of a notification.
 	ActionThresholdValue float64 `pulumi:"actionThresholdValue"`
 }
 
@@ -32,9 +32,9 @@ type BudgetActionActionThresholdInput interface {
 }
 
 type BudgetActionActionThresholdArgs struct {
-	// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+	// Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 	ActionThresholdType pulumi.StringInput `pulumi:"actionThresholdType"`
-	// The threshold of a notification.
+	// Threshold of a notification.
 	ActionThresholdValue pulumi.Float64Input `pulumi:"actionThresholdValue"`
 }
 
@@ -115,12 +115,12 @@ func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutpu
 	}).(BudgetActionActionThresholdPtrOutput)
 }
 
-// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+// Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 func (o BudgetActionActionThresholdOutput) ActionThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionActionThreshold) string { return v.ActionThresholdType }).(pulumi.StringOutput)
 }
 
-// The threshold of a notification.
+// Threshold of a notification.
 func (o BudgetActionActionThresholdOutput) ActionThresholdValue() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetActionActionThreshold) float64 { return v.ActionThresholdValue }).(pulumi.Float64Output)
 }
@@ -149,7 +149,7 @@ func (o BudgetActionActionThresholdPtrOutput) Elem() BudgetActionActionThreshold
 	}).(BudgetActionActionThresholdOutput)
 }
 
-// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+// Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 func (o BudgetActionActionThresholdPtrOutput) ActionThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionActionThreshold) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o BudgetActionActionThresholdPtrOutput) ActionThresholdType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold of a notification.
+// Threshold of a notification.
 func (o BudgetActionActionThresholdPtrOutput) ActionThresholdValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BudgetActionActionThreshold) *float64 {
 		if v == nil {
@@ -170,11 +170,11 @@ func (o BudgetActionActionThresholdPtrOutput) ActionThresholdValue() pulumi.Floa
 }
 
 type BudgetActionDefinition struct {
-	// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+	// AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
 	IamActionDefinition *BudgetActionDefinitionIamActionDefinition `pulumi:"iamActionDefinition"`
-	// The service control policies (SCPs) action definition details. See SCP Action Definition.
+	// Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
 	ScpActionDefinition *BudgetActionDefinitionScpActionDefinition `pulumi:"scpActionDefinition"`
-	// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+	// AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
 	SsmActionDefinition *BudgetActionDefinitionSsmActionDefinition `pulumi:"ssmActionDefinition"`
 }
 
@@ -190,11 +190,11 @@ type BudgetActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionArgs struct {
-	// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+	// AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
 	IamActionDefinition BudgetActionDefinitionIamActionDefinitionPtrInput `pulumi:"iamActionDefinition"`
-	// The service control policies (SCPs) action definition details. See SCP Action Definition.
+	// Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
 	ScpActionDefinition BudgetActionDefinitionScpActionDefinitionPtrInput `pulumi:"scpActionDefinition"`
-	// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+	// AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
 	SsmActionDefinition BudgetActionDefinitionSsmActionDefinitionPtrInput `pulumi:"ssmActionDefinition"`
 }
 
@@ -275,21 +275,21 @@ func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutputWithConte
 	}).(BudgetActionDefinitionPtrOutput)
 }
 
-// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+// AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
 func (o BudgetActionDefinitionOutput) IamActionDefinition() BudgetActionDefinitionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionIamActionDefinition {
 		return v.IamActionDefinition
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
-// The service control policies (SCPs) action definition details. See SCP Action Definition.
+// Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
 func (o BudgetActionDefinitionOutput) ScpActionDefinition() BudgetActionDefinitionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionScpActionDefinition {
 		return v.ScpActionDefinition
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
-// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+// AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
 func (o BudgetActionDefinitionOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
 		return v.SsmActionDefinition
@@ -320,7 +320,7 @@ func (o BudgetActionDefinitionPtrOutput) Elem() BudgetActionDefinitionOutput {
 	}).(BudgetActionDefinitionOutput)
 }
 
-// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+// AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
 func (o BudgetActionDefinitionPtrOutput) IamActionDefinition() BudgetActionDefinitionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionIamActionDefinition {
 		if v == nil {
@@ -330,7 +330,7 @@ func (o BudgetActionDefinitionPtrOutput) IamActionDefinition() BudgetActionDefin
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
-// The service control policies (SCPs) action definition details. See SCP Action Definition.
+// Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
 func (o BudgetActionDefinitionPtrOutput) ScpActionDefinition() BudgetActionDefinitionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionScpActionDefinition {
 		if v == nil {
@@ -340,7 +340,7 @@ func (o BudgetActionDefinitionPtrOutput) ScpActionDefinition() BudgetActionDefin
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
-// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+// AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
 func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
 		if v == nil {
@@ -351,13 +351,13 @@ func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefin
 }
 
 type BudgetActionDefinitionIamActionDefinition struct {
-	// A list of groups to be attached. There must be at least one group.
+	// List of groups to be attached. There must be at least one group.
 	Groups []string `pulumi:"groups"`
 	// ARN of the policy to be attached.
 	PolicyArn string `pulumi:"policyArn"`
-	// A list of roles to be attached. There must be at least one role.
+	// List of roles to be attached. There must be at least one role.
 	Roles []string `pulumi:"roles"`
-	// A list of users to be attached. There must be at least one user.
+	// List of users to be attached. There must be at least one user.
 	Users []string `pulumi:"users"`
 }
 
@@ -373,13 +373,13 @@ type BudgetActionDefinitionIamActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionIamActionDefinitionArgs struct {
-	// A list of groups to be attached. There must be at least one group.
+	// List of groups to be attached. There must be at least one group.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// ARN of the policy to be attached.
 	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
-	// A list of roles to be attached. There must be at least one role.
+	// List of roles to be attached. There must be at least one role.
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// A list of users to be attached. There must be at least one user.
+	// List of users to be attached. There must be at least one user.
 	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
@@ -460,7 +460,7 @@ func (o BudgetActionDefinitionIamActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
 
-// A list of groups to be attached. There must be at least one group.
+// List of groups to be attached. There must be at least one group.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
@@ -470,12 +470,12 @@ func (o BudgetActionDefinitionIamActionDefinitionOutput) PolicyArn() pulumi.Stri
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) string { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
-// A list of roles to be attached. There must be at least one role.
+// List of roles to be attached. There must be at least one role.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// A list of users to be attached. There must be at least one user.
+// List of users to be attached. There must be at least one user.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -504,7 +504,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionIamActionDefinitionOutput)
 }
 
-// A list of groups to be attached. There must be at least one group.
+// List of groups to be attached. There must be at least one group.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -524,7 +524,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) PolicyArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of roles to be attached. There must be at least one role.
+// List of roles to be attached. There must be at least one role.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -534,7 +534,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Roles() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of users to be attached. There must be at least one user.
+// List of users to be attached. There must be at least one user.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) []string {
 		if v == nil {
@@ -545,9 +545,9 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Users() pulumi.Strin
 }
 
 type BudgetActionDefinitionScpActionDefinition struct {
-	// The policy ID attached.
+	// Policy ID attached.
 	PolicyId string `pulumi:"policyId"`
-	// A list of target IDs.
+	// List of target IDs.
 	TargetIds []string `pulumi:"targetIds"`
 }
 
@@ -563,9 +563,9 @@ type BudgetActionDefinitionScpActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionScpActionDefinitionArgs struct {
-	// The policy ID attached.
+	// Policy ID attached.
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// A list of target IDs.
+	// List of target IDs.
 	TargetIds pulumi.StringArrayInput `pulumi:"targetIds"`
 }
 
@@ -646,12 +646,12 @@ func (o BudgetActionDefinitionScpActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
 
-// The policy ID attached.
+// Policy ID attached.
 func (o BudgetActionDefinitionScpActionDefinitionOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionScpActionDefinition) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// A list of target IDs.
+// List of target IDs.
 func (o BudgetActionDefinitionScpActionDefinitionOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionScpActionDefinition) []string { return v.TargetIds }).(pulumi.StringArrayOutput)
 }
@@ -680,7 +680,7 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionScpActionDefinitionOutput)
 }
 
-// The policy ID attached.
+// Policy ID attached.
 func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionScpActionDefinition) *string {
 		if v == nil {
@@ -690,7 +690,7 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) PolicyId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of target IDs.
+// List of target IDs.
 func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionScpActionDefinition) []string {
 		if v == nil {
@@ -701,11 +701,11 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) TargetIds() pulumi.S
 }
 
 type BudgetActionDefinitionSsmActionDefinition struct {
-	// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+	// Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 	ActionSubType string `pulumi:"actionSubType"`
-	// The EC2 and RDS instance IDs.
+	// EC2 and RDS instance IDs.
 	InstanceIds []string `pulumi:"instanceIds"`
-	// The Region to run the SSM document.
+	// Region to run the SSM document.
 	Region string `pulumi:"region"`
 }
 
@@ -721,11 +721,11 @@ type BudgetActionDefinitionSsmActionDefinitionInput interface {
 }
 
 type BudgetActionDefinitionSsmActionDefinitionArgs struct {
-	// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+	// Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 	ActionSubType pulumi.StringInput `pulumi:"actionSubType"`
-	// The EC2 and RDS instance IDs.
+	// EC2 and RDS instance IDs.
 	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
-	// The Region to run the SSM document.
+	// Region to run the SSM document.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -806,17 +806,17 @@ func (o BudgetActionDefinitionSsmActionDefinitionOutput) ToBudgetActionDefinitio
 	}).(BudgetActionDefinitionSsmActionDefinitionPtrOutput)
 }
 
-// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+// Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) ActionSubType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) string { return v.ActionSubType }).(pulumi.StringOutput)
 }
 
-// The EC2 and RDS instance IDs.
+// EC2 and RDS instance IDs.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
 }
 
-// The Region to run the SSM document.
+// Region to run the SSM document.
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -845,7 +845,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Elem() BudgetActionD
 	}).(BudgetActionDefinitionSsmActionDefinitionOutput)
 }
 
-// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+// Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) ActionSubType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) *string {
 		if v == nil {
@@ -855,7 +855,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) ActionSubType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The EC2 and RDS instance IDs.
+// EC2 and RDS instance IDs.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) []string {
 		if v == nil {
@@ -865,7 +865,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) InstanceIds() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Region to run the SSM document.
+// Region to run the SSM document.
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) *string {
 		if v == nil {
@@ -876,9 +876,9 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Region() pulumi.Stri
 }
 
 type BudgetActionSubscriber struct {
-	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	// Address that AWS sends budget notifications to, either an SNS topic or an email.
 	Address string `pulumi:"address"`
-	// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+	// Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 	SubscriptionType string `pulumi:"subscriptionType"`
 }
 
@@ -894,9 +894,9 @@ type BudgetActionSubscriberInput interface {
 }
 
 type BudgetActionSubscriberArgs struct {
-	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	// Address that AWS sends budget notifications to, either an SNS topic or an email.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+	// Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 	SubscriptionType pulumi.StringInput `pulumi:"subscriptionType"`
 }
 
@@ -951,12 +951,12 @@ func (o BudgetActionSubscriberOutput) ToBudgetActionSubscriberOutputWithContext(
 	return o
 }
 
-// The address that AWS sends budget notifications to, either an SNS topic or an email.
+// Address that AWS sends budget notifications to, either an SNS topic or an email.
 func (o BudgetActionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+// Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
 func (o BudgetActionSubscriberOutput) SubscriptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionSubscriber) string { return v.SubscriptionType }).(pulumi.StringOutput)
 }
@@ -982,11 +982,11 @@ func (o BudgetActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetAction
 }
 
 type BudgetAutoAdjustData struct {
-	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+	// Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 	AutoAdjustType string `pulumi:"autoAdjustType"`
-	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	// Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
 	HistoricalOptions *BudgetAutoAdjustDataHistoricalOptions `pulumi:"historicalOptions"`
-	// (Optional) - The last time that your budget was auto-adjusted.
+	// Last time that your budget was auto-adjusted.
 	LastAutoAdjustTime *string `pulumi:"lastAutoAdjustTime"`
 }
 
@@ -1002,11 +1002,11 @@ type BudgetAutoAdjustDataInput interface {
 }
 
 type BudgetAutoAdjustDataArgs struct {
-	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+	// Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 	AutoAdjustType pulumi.StringInput `pulumi:"autoAdjustType"`
-	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	// Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
 	HistoricalOptions BudgetAutoAdjustDataHistoricalOptionsPtrInput `pulumi:"historicalOptions"`
-	// (Optional) - The last time that your budget was auto-adjusted.
+	// Last time that your budget was auto-adjusted.
 	LastAutoAdjustTime pulumi.StringPtrInput `pulumi:"lastAutoAdjustTime"`
 }
 
@@ -1087,17 +1087,17 @@ func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(c
 	}).(BudgetAutoAdjustDataPtrOutput)
 }
 
-// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+// Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 func (o BudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
 }
 
-// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+// Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
 func (o BudgetAutoAdjustDataOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions { return v.HistoricalOptions }).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
-// (Optional) - The last time that your budget was auto-adjusted.
+// Last time that your budget was auto-adjusted.
 func (o BudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) *string { return v.LastAutoAdjustTime }).(pulumi.StringPtrOutput)
 }
@@ -1126,7 +1126,7 @@ func (o BudgetAutoAdjustDataPtrOutput) Elem() BudgetAutoAdjustDataOutput {
 	}).(BudgetAutoAdjustDataOutput)
 }
 
-// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+// Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
 		if v == nil {
@@ -1136,7 +1136,7 @@ func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+// Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
 func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions {
 		if v == nil {
@@ -1146,7 +1146,7 @@ func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetAutoAdjustDataH
 	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
-// (Optional) - The last time that your budget was auto-adjusted.
+// Last time that your budget was auto-adjusted.
 func (o BudgetAutoAdjustDataPtrOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
 		if v == nil {
@@ -1157,9 +1157,9 @@ func (o BudgetAutoAdjustDataPtrOutput) LastAutoAdjustTime() pulumi.StringPtrOutp
 }
 
 type BudgetAutoAdjustDataHistoricalOptions struct {
-	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	// Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 	BudgetAdjustmentPeriod int `pulumi:"budgetAdjustmentPeriod"`
-	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+	// Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 	LookbackAvailablePeriods *int `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -1175,9 +1175,9 @@ type BudgetAutoAdjustDataHistoricalOptionsInput interface {
 }
 
 type BudgetAutoAdjustDataHistoricalOptionsArgs struct {
-	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	// Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 	BudgetAdjustmentPeriod pulumi.IntInput `pulumi:"budgetAdjustmentPeriod"`
-	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+	// Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 	LookbackAvailablePeriods pulumi.IntPtrInput `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -1258,12 +1258,12 @@ func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHisto
 	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
-// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+// Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 func (o BudgetAutoAdjustDataHistoricalOptionsOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
 }
 
-// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+// Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 func (o BudgetAutoAdjustDataHistoricalOptionsOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) *int { return v.LookbackAvailablePeriods }).(pulumi.IntPtrOutput)
 }
@@ -1292,7 +1292,7 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) Elem() BudgetAutoAdjustD
 	}).(BudgetAutoAdjustDataHistoricalOptionsOutput)
 }
 
-// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+// Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
 		if v == nil {
@@ -1302,7 +1302,7 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod()
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+// Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
 		if v == nil {
@@ -1313,9 +1313,9 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods
 }
 
 type BudgetCostFilter struct {
-	// The name of a budget. Unique within accounts.
+	// Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
 	Name string `pulumi:"name"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values used for filtering.
 	Values []string `pulumi:"values"`
 }
 
@@ -1331,9 +1331,9 @@ type BudgetCostFilterInput interface {
 }
 
 type BudgetCostFilterArgs struct {
-	// The name of a budget. Unique within accounts.
+	// Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values used for filtering.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1388,12 +1388,12 @@ func (o BudgetCostFilterOutput) ToBudgetCostFilterOutputWithContext(ctx context.
 	return o
 }
 
-// The name of a budget. Unique within accounts.
+// Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
 func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values used for filtering.
 func (o BudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1419,27 +1419,27 @@ func (o BudgetCostFilterArrayOutput) Index(i pulumi.IntInput) BudgetCostFilterOu
 }
 
 type BudgetCostTypes struct {
-	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	// Whether to include credits in the cost budget. Defaults to `true`.
 	IncludeCredit *bool `pulumi:"includeCredit"`
-	// Whether a budget includes discounts. Defaults to `true`
+	// Whether a budget includes discounts. Defaults to `true`.
 	IncludeDiscount *bool `pulumi:"includeDiscount"`
-	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+	// Whether to include other subscription costs in the cost budget. Defaults to `true`.
 	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
-	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	// Whether to include recurring costs in the cost budget. Defaults to `true`.
 	IncludeRecurring *bool `pulumi:"includeRecurring"`
-	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	// Whether to include refunds in the cost budget. Defaults to `true`.
 	IncludeRefund *bool `pulumi:"includeRefund"`
-	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	// Whether to include subscriptions in the cost budget. Defaults to `true`.
 	IncludeSubscription *bool `pulumi:"includeSubscription"`
-	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	// Whether to include support costs in the cost budget. Defaults to `true`.
 	IncludeSupport *bool `pulumi:"includeSupport"`
-	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	// Whether to include tax in the cost budget. Defaults to `true`.
 	IncludeTax *bool `pulumi:"includeTax"`
-	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	// Whether to include upfront costs in the cost budget. Defaults to `true`.
 	IncludeUpfront *bool `pulumi:"includeUpfront"`
-	// Whether a budget uses the amortized rate. Defaults to `false`
+	// Whether a budget uses the amortized rate. Defaults to `false`.
 	UseAmortized *bool `pulumi:"useAmortized"`
-	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	// Whether to use blended costs in the cost budget. Defaults to `false`.
 	UseBlended *bool `pulumi:"useBlended"`
 }
 
@@ -1455,27 +1455,27 @@ type BudgetCostTypesInput interface {
 }
 
 type BudgetCostTypesArgs struct {
-	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	// Whether to include credits in the cost budget. Defaults to `true`.
 	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
-	// Whether a budget includes discounts. Defaults to `true`
+	// Whether a budget includes discounts. Defaults to `true`.
 	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
-	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+	// Whether to include other subscription costs in the cost budget. Defaults to `true`.
 	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
-	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	// Whether to include recurring costs in the cost budget. Defaults to `true`.
 	IncludeRecurring pulumi.BoolPtrInput `pulumi:"includeRecurring"`
-	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	// Whether to include refunds in the cost budget. Defaults to `true`.
 	IncludeRefund pulumi.BoolPtrInput `pulumi:"includeRefund"`
-	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	// Whether to include subscriptions in the cost budget. Defaults to `true`.
 	IncludeSubscription pulumi.BoolPtrInput `pulumi:"includeSubscription"`
-	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	// Whether to include support costs in the cost budget. Defaults to `true`.
 	IncludeSupport pulumi.BoolPtrInput `pulumi:"includeSupport"`
-	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	// Whether to include tax in the cost budget. Defaults to `true`.
 	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
-	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	// Whether to include upfront costs in the cost budget. Defaults to `true`.
 	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
-	// Whether a budget uses the amortized rate. Defaults to `false`
+	// Whether a budget uses the amortized rate. Defaults to `false`.
 	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
-	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	// Whether to use blended costs in the cost budget. Defaults to `false`.
 	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
 }
 
@@ -1556,57 +1556,57 @@ func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context
 	}).(BudgetCostTypesPtrOutput)
 }
 
-// A boolean value whether to include credits in the cost budget. Defaults to `true`
+// Whether to include credits in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
 }
 
-// Whether a budget includes discounts. Defaults to `true`
+// Whether a budget includes discounts. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+// Whether to include other subscription costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+// Whether to include recurring costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+// Whether to include refunds in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+// Whether to include subscriptions in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+// Whether to include support costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include tax in the cost budget. Defaults to `true`
+// Whether to include tax in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeTax() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+// Whether to include upfront costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
 }
 
-// Whether a budget uses the amortized rate. Defaults to `false`
+// Whether a budget uses the amortized rate. Defaults to `false`.
 func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+// Whether to use blended costs in the cost budget. Defaults to `false`.
 func (o BudgetCostTypesOutput) UseBlended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
 }
@@ -1635,7 +1635,7 @@ func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
 	}).(BudgetCostTypesOutput)
 }
 
-// A boolean value whether to include credits in the cost budget. Defaults to `true`
+// Whether to include credits in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1645,7 +1645,7 @@ func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether a budget includes discounts. Defaults to `true`
+// Whether a budget includes discounts. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1655,7 +1655,7 @@ func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+// Whether to include other subscription costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1665,7 +1665,7 @@ func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+// Whether to include recurring costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1675,7 +1675,7 @@ func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+// Whether to include refunds in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1685,7 +1685,7 @@ func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+// Whether to include subscriptions in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1695,7 +1695,7 @@ func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+// Whether to include support costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1705,7 +1705,7 @@ func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include tax in the cost budget. Defaults to `true`
+// Whether to include tax in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1715,7 +1715,7 @@ func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+// Whether to include upfront costs in the cost budget. Defaults to `true`.
 func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1725,7 +1725,7 @@ func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether a budget uses the amortized rate. Defaults to `false`
+// Whether a budget uses the amortized rate. Defaults to `false`.
 func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1735,7 +1735,7 @@ func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+// Whether to use blended costs in the cost budget. Defaults to `false`.
 func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BudgetCostTypes) *bool {
 		if v == nil {
@@ -1746,17 +1746,17 @@ func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
 }
 
 type BudgetFilterExpression struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands []BudgetFilterExpressionAnd `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionDimensions `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not *BudgetFilterExpressionNot `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors []BudgetFilterExpressionOr `pulumi:"ors"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags block.
 	Tags *BudgetFilterExpressionTags `pulumi:"tags"`
 }
 
@@ -1772,17 +1772,17 @@ type BudgetFilterExpressionInput interface {
 }
 
 type BudgetFilterExpressionArgs struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands BudgetFilterExpressionAndArrayInput `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionDimensionsPtrInput `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not BudgetFilterExpressionNotPtrInput `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors BudgetFilterExpressionOrArrayInput `pulumi:"ors"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags block.
 	Tags BudgetFilterExpressionTagsPtrInput `pulumi:"tags"`
 }
 
@@ -1863,32 +1863,32 @@ func (o BudgetFilterExpressionOutput) ToBudgetFilterExpressionPtrOutputWithConte
 	}).(BudgetFilterExpressionPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionOutput) Ands() BudgetFilterExpressionAndArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) []BudgetFilterExpressionAnd { return v.Ands }).(BudgetFilterExpressionAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOutput) CostCategories() BudgetFilterExpressionCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionCostCategories { return v.CostCategories }).(BudgetFilterExpressionCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOutput) Dimensions() BudgetFilterExpressionDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionDimensions { return v.Dimensions }).(BudgetFilterExpressionDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionOutput) Not() BudgetFilterExpressionNotPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionNot { return v.Not }).(BudgetFilterExpressionNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionOutput) Ors() BudgetFilterExpressionOrArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) []BudgetFilterExpressionOr { return v.Ors }).(BudgetFilterExpressionOrArrayOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags block.
 func (o BudgetFilterExpressionOutput) Tags() BudgetFilterExpressionTagsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionTags { return v.Tags }).(BudgetFilterExpressionTagsPtrOutput)
 }
@@ -1917,7 +1917,7 @@ func (o BudgetFilterExpressionPtrOutput) Elem() BudgetFilterExpressionOutput {
 	}).(BudgetFilterExpressionOutput)
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionPtrOutput) Ands() BudgetFilterExpressionAndArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) []BudgetFilterExpressionAnd {
 		if v == nil {
@@ -1927,7 +1927,7 @@ func (o BudgetFilterExpressionPtrOutput) Ands() BudgetFilterExpressionAndArrayOu
 	}).(BudgetFilterExpressionAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionPtrOutput) CostCategories() BudgetFilterExpressionCostCategoriesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionCostCategories {
 		if v == nil {
@@ -1937,7 +1937,7 @@ func (o BudgetFilterExpressionPtrOutput) CostCategories() BudgetFilterExpression
 	}).(BudgetFilterExpressionCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionPtrOutput) Dimensions() BudgetFilterExpressionDimensionsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionDimensions {
 		if v == nil {
@@ -1947,7 +1947,7 @@ func (o BudgetFilterExpressionPtrOutput) Dimensions() BudgetFilterExpressionDime
 	}).(BudgetFilterExpressionDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionPtrOutput) Not() BudgetFilterExpressionNotPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionNot {
 		if v == nil {
@@ -1957,7 +1957,7 @@ func (o BudgetFilterExpressionPtrOutput) Not() BudgetFilterExpressionNotPtrOutpu
 	}).(BudgetFilterExpressionNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionPtrOutput) Ors() BudgetFilterExpressionOrArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) []BudgetFilterExpressionOr {
 		if v == nil {
@@ -1967,7 +1967,7 @@ func (o BudgetFilterExpressionPtrOutput) Ors() BudgetFilterExpressionOrArrayOutp
 	}).(BudgetFilterExpressionOrArrayOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags block.
 func (o BudgetFilterExpressionPtrOutput) Tags() BudgetFilterExpressionTagsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionTags {
 		if v == nil {
@@ -1978,15 +1978,15 @@ func (o BudgetFilterExpressionPtrOutput) Tags() BudgetFilterExpressionTagsPtrOut
 }
 
 type BudgetFilterExpressionAnd struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands []BudgetFilterExpressionAndAnd `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionAndCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionAndDimensions `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not *BudgetFilterExpressionAndNot `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors []BudgetFilterExpressionAndOr `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionAndTags `pulumi:"tags"`
@@ -2004,15 +2004,15 @@ type BudgetFilterExpressionAndInput interface {
 }
 
 type BudgetFilterExpressionAndArgs struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands BudgetFilterExpressionAndAndArrayInput `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionAndCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionAndDimensionsPtrInput `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not BudgetFilterExpressionAndNotPtrInput `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors BudgetFilterExpressionAndOrArrayInput `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionAndTagsPtrInput `pulumi:"tags"`
@@ -2069,27 +2069,27 @@ func (o BudgetFilterExpressionAndOutput) ToBudgetFilterExpressionAndOutputWithCo
 	return o
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionAndOutput) Ands() BudgetFilterExpressionAndAndArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAnd) []BudgetFilterExpressionAndAnd { return v.Ands }).(BudgetFilterExpressionAndAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionAndOutput) CostCategories() BudgetFilterExpressionAndCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndCostCategories { return v.CostCategories }).(BudgetFilterExpressionAndCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionAndOutput) Dimensions() BudgetFilterExpressionAndDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndDimensions { return v.Dimensions }).(BudgetFilterExpressionAndDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionAndOutput) Not() BudgetFilterExpressionAndNotPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndNot { return v.Not }).(BudgetFilterExpressionAndNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionAndOutput) Ors() BudgetFilterExpressionAndOrArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAnd) []BudgetFilterExpressionAndOr { return v.Ors }).(BudgetFilterExpressionAndOrArrayOutput)
 }
@@ -2120,9 +2120,9 @@ func (o BudgetFilterExpressionAndArrayOutput) Index(i pulumi.IntInput) BudgetFil
 }
 
 type BudgetFilterExpressionAndAnd struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionAndAndCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionAndAndDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionAndAndTags `pulumi:"tags"`
@@ -2140,9 +2140,9 @@ type BudgetFilterExpressionAndAndInput interface {
 }
 
 type BudgetFilterExpressionAndAndArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionAndAndCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionAndAndDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionAndAndTagsPtrInput `pulumi:"tags"`
@@ -2199,14 +2199,14 @@ func (o BudgetFilterExpressionAndAndOutput) ToBudgetFilterExpressionAndAndOutput
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionAndAndOutput) CostCategories() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAnd) *BudgetFilterExpressionAndAndCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionAndAndCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionAndAndOutput) Dimensions() BudgetFilterExpressionAndAndDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAnd) *BudgetFilterExpressionAndAndDimensions { return v.Dimensions }).(BudgetFilterExpressionAndAndDimensionsPtrOutput)
 }
@@ -2237,11 +2237,11 @@ func (o BudgetFilterExpressionAndAndArrayOutput) Index(i pulumi.IntInput) Budget
 }
 
 type BudgetFilterExpressionAndAndCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -2257,11 +2257,11 @@ type BudgetFilterExpressionAndAndCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionAndAndCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2342,17 +2342,17 @@ func (o BudgetFilterExpressionAndAndCostCategoriesOutput) ToBudgetFilterExpressi
 	}).(BudgetFilterExpressionAndAndCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2381,7 +2381,7 @@ func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Elem() BudgetFilter
 	}).(BudgetFilterExpressionAndAndCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) *string {
 		if v == nil {
@@ -2391,7 +2391,7 @@ func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Key() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) []string {
 		if v == nil {
@@ -2401,7 +2401,7 @@ func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) MatchOptions() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) []string {
 		if v == nil {
@@ -2412,11 +2412,11 @@ func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Values() pulumi.Str
 }
 
 type BudgetFilterExpressionAndAndDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -2432,11 +2432,11 @@ type BudgetFilterExpressionAndAndDimensionsInput interface {
 }
 
 type BudgetFilterExpressionAndAndDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2517,17 +2517,17 @@ func (o BudgetFilterExpressionAndAndDimensionsOutput) ToBudgetFilterExpressionAn
 	}).(BudgetFilterExpressionAndAndDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndAndDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndAndDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2556,7 +2556,7 @@ func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Elem() BudgetFilterExpr
 	}).(BudgetFilterExpressionAndAndDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) *string {
 		if v == nil {
@@ -2566,7 +2566,7 @@ func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) []string {
 		if v == nil {
@@ -2576,7 +2576,7 @@ func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) MatchOptions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) []string {
 		if v == nil {
@@ -2587,11 +2587,11 @@ func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Values() pulumi.StringA
 }
 
 type BudgetFilterExpressionAndAndTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -2607,11 +2607,11 @@ type BudgetFilterExpressionAndAndTagsInput interface {
 }
 
 type BudgetFilterExpressionAndAndTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2692,17 +2692,17 @@ func (o BudgetFilterExpressionAndAndTagsOutput) ToBudgetFilterExpressionAndAndTa
 	}).(BudgetFilterExpressionAndAndTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndAndTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndAndTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2731,7 +2731,7 @@ func (o BudgetFilterExpressionAndAndTagsPtrOutput) Elem() BudgetFilterExpression
 	}).(BudgetFilterExpressionAndAndTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) *string {
 		if v == nil {
@@ -2741,7 +2741,7 @@ func (o BudgetFilterExpressionAndAndTagsPtrOutput) Key() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) []string {
 		if v == nil {
@@ -2751,7 +2751,7 @@ func (o BudgetFilterExpressionAndAndTagsPtrOutput) MatchOptions() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) []string {
 		if v == nil {
@@ -2762,11 +2762,11 @@ func (o BudgetFilterExpressionAndAndTagsPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type BudgetFilterExpressionAndCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -2782,11 +2782,11 @@ type BudgetFilterExpressionAndCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionAndCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2867,17 +2867,17 @@ func (o BudgetFilterExpressionAndCostCategoriesOutput) ToBudgetFilterExpressionA
 	}).(BudgetFilterExpressionAndCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2906,7 +2906,7 @@ func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Elem() BudgetFilterExp
 	}).(BudgetFilterExpressionAndCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) *string {
 		if v == nil {
@@ -2916,7 +2916,7 @@ func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) []string {
 		if v == nil {
@@ -2926,7 +2926,7 @@ func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) MatchOptions() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) []string {
 		if v == nil {
@@ -2937,11 +2937,11 @@ func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Values() pulumi.String
 }
 
 type BudgetFilterExpressionAndDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -2957,11 +2957,11 @@ type BudgetFilterExpressionAndDimensionsInput interface {
 }
 
 type BudgetFilterExpressionAndDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3042,17 +3042,17 @@ func (o BudgetFilterExpressionAndDimensionsOutput) ToBudgetFilterExpressionAndDi
 	}).(BudgetFilterExpressionAndDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3081,7 +3081,7 @@ func (o BudgetFilterExpressionAndDimensionsPtrOutput) Elem() BudgetFilterExpress
 	}).(BudgetFilterExpressionAndDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) *string {
 		if v == nil {
@@ -3091,7 +3091,7 @@ func (o BudgetFilterExpressionAndDimensionsPtrOutput) Key() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) []string {
 		if v == nil {
@@ -3101,7 +3101,7 @@ func (o BudgetFilterExpressionAndDimensionsPtrOutput) MatchOptions() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) []string {
 		if v == nil {
@@ -3112,9 +3112,9 @@ func (o BudgetFilterExpressionAndDimensionsPtrOutput) Values() pulumi.StringArra
 }
 
 type BudgetFilterExpressionAndNot struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionAndNotCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionAndNotDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionAndNotTags `pulumi:"tags"`
@@ -3132,9 +3132,9 @@ type BudgetFilterExpressionAndNotInput interface {
 }
 
 type BudgetFilterExpressionAndNotArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionAndNotCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionAndNotDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionAndNotTagsPtrInput `pulumi:"tags"`
@@ -3217,14 +3217,14 @@ func (o BudgetFilterExpressionAndNotOutput) ToBudgetFilterExpressionAndNotPtrOut
 	}).(BudgetFilterExpressionAndNotPtrOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionAndNotOutput) CostCategories() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionAndNotOutput) Dimensions() BudgetFilterExpressionAndNotDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotDimensions { return v.Dimensions }).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
 }
@@ -3258,7 +3258,7 @@ func (o BudgetFilterExpressionAndNotPtrOutput) Elem() BudgetFilterExpressionAndN
 	}).(BudgetFilterExpressionAndNotOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionAndNotPtrOutput) CostCategories() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotCostCategories {
 		if v == nil {
@@ -3268,7 +3268,7 @@ func (o BudgetFilterExpressionAndNotPtrOutput) CostCategories() BudgetFilterExpr
 	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionAndNotPtrOutput) Dimensions() BudgetFilterExpressionAndNotDimensionsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotDimensions {
 		if v == nil {
@@ -3289,11 +3289,11 @@ func (o BudgetFilterExpressionAndNotPtrOutput) Tags() BudgetFilterExpressionAndN
 }
 
 type BudgetFilterExpressionAndNotCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -3309,11 +3309,11 @@ type BudgetFilterExpressionAndNotCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionAndNotCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3394,17 +3394,17 @@ func (o BudgetFilterExpressionAndNotCostCategoriesOutput) ToBudgetFilterExpressi
 	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3433,7 +3433,7 @@ func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Elem() BudgetFilter
 	}).(BudgetFilterExpressionAndNotCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) *string {
 		if v == nil {
@@ -3443,7 +3443,7 @@ func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Key() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) []string {
 		if v == nil {
@@ -3453,7 +3453,7 @@ func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) MatchOptions() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) []string {
 		if v == nil {
@@ -3464,11 +3464,11 @@ func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Values() pulumi.Str
 }
 
 type BudgetFilterExpressionAndNotDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -3484,11 +3484,11 @@ type BudgetFilterExpressionAndNotDimensionsInput interface {
 }
 
 type BudgetFilterExpressionAndNotDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3569,17 +3569,17 @@ func (o BudgetFilterExpressionAndNotDimensionsOutput) ToBudgetFilterExpressionAn
 	}).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndNotDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndNotDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3608,7 +3608,7 @@ func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Elem() BudgetFilterExpr
 	}).(BudgetFilterExpressionAndNotDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) *string {
 		if v == nil {
@@ -3618,7 +3618,7 @@ func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) []string {
 		if v == nil {
@@ -3628,7 +3628,7 @@ func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) MatchOptions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) []string {
 		if v == nil {
@@ -3639,11 +3639,11 @@ func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Values() pulumi.StringA
 }
 
 type BudgetFilterExpressionAndNotTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -3659,11 +3659,11 @@ type BudgetFilterExpressionAndNotTagsInput interface {
 }
 
 type BudgetFilterExpressionAndNotTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3744,17 +3744,17 @@ func (o BudgetFilterExpressionAndNotTagsOutput) ToBudgetFilterExpressionAndNotTa
 	}).(BudgetFilterExpressionAndNotTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndNotTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndNotTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3783,7 +3783,7 @@ func (o BudgetFilterExpressionAndNotTagsPtrOutput) Elem() BudgetFilterExpression
 	}).(BudgetFilterExpressionAndNotTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) *string {
 		if v == nil {
@@ -3793,7 +3793,7 @@ func (o BudgetFilterExpressionAndNotTagsPtrOutput) Key() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) []string {
 		if v == nil {
@@ -3803,7 +3803,7 @@ func (o BudgetFilterExpressionAndNotTagsPtrOutput) MatchOptions() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) []string {
 		if v == nil {
@@ -3814,9 +3814,9 @@ func (o BudgetFilterExpressionAndNotTagsPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type BudgetFilterExpressionAndOr struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionAndOrCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionAndOrDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionAndOrTags `pulumi:"tags"`
@@ -3834,9 +3834,9 @@ type BudgetFilterExpressionAndOrInput interface {
 }
 
 type BudgetFilterExpressionAndOrArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionAndOrCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionAndOrDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionAndOrTagsPtrInput `pulumi:"tags"`
@@ -3893,14 +3893,14 @@ func (o BudgetFilterExpressionAndOrOutput) ToBudgetFilterExpressionAndOrOutputWi
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionAndOrOutput) CostCategories() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOr) *BudgetFilterExpressionAndOrCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionAndOrCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionAndOrOutput) Dimensions() BudgetFilterExpressionAndOrDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOr) *BudgetFilterExpressionAndOrDimensions { return v.Dimensions }).(BudgetFilterExpressionAndOrDimensionsPtrOutput)
 }
@@ -3931,11 +3931,11 @@ func (o BudgetFilterExpressionAndOrArrayOutput) Index(i pulumi.IntInput) BudgetF
 }
 
 type BudgetFilterExpressionAndOrCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -3951,11 +3951,11 @@ type BudgetFilterExpressionAndOrCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionAndOrCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4036,17 +4036,17 @@ func (o BudgetFilterExpressionAndOrCostCategoriesOutput) ToBudgetFilterExpressio
 	}).(BudgetFilterExpressionAndOrCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4075,7 +4075,7 @@ func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Elem() BudgetFilterE
 	}).(BudgetFilterExpressionAndOrCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) *string {
 		if v == nil {
@@ -4085,7 +4085,7 @@ func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) []string {
 		if v == nil {
@@ -4095,7 +4095,7 @@ func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) MatchOptions() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) []string {
 		if v == nil {
@@ -4106,11 +4106,11 @@ func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Values() pulumi.Stri
 }
 
 type BudgetFilterExpressionAndOrDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -4126,11 +4126,11 @@ type BudgetFilterExpressionAndOrDimensionsInput interface {
 }
 
 type BudgetFilterExpressionAndOrDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4211,17 +4211,17 @@ func (o BudgetFilterExpressionAndOrDimensionsOutput) ToBudgetFilterExpressionAnd
 	}).(BudgetFilterExpressionAndOrDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndOrDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndOrDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4250,7 +4250,7 @@ func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Elem() BudgetFilterExpre
 	}).(BudgetFilterExpressionAndOrDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) *string {
 		if v == nil {
@@ -4260,7 +4260,7 @@ func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Key() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) []string {
 		if v == nil {
@@ -4270,7 +4270,7 @@ func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) MatchOptions() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) []string {
 		if v == nil {
@@ -4281,11 +4281,11 @@ func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Values() pulumi.StringAr
 }
 
 type BudgetFilterExpressionAndOrTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -4301,11 +4301,11 @@ type BudgetFilterExpressionAndOrTagsInput interface {
 }
 
 type BudgetFilterExpressionAndOrTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4386,17 +4386,17 @@ func (o BudgetFilterExpressionAndOrTagsOutput) ToBudgetFilterExpressionAndOrTags
 	}).(BudgetFilterExpressionAndOrTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndOrTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndOrTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4425,7 +4425,7 @@ func (o BudgetFilterExpressionAndOrTagsPtrOutput) Elem() BudgetFilterExpressionA
 	}).(BudgetFilterExpressionAndOrTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) *string {
 		if v == nil {
@@ -4435,7 +4435,7 @@ func (o BudgetFilterExpressionAndOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) []string {
 		if v == nil {
@@ -4445,7 +4445,7 @@ func (o BudgetFilterExpressionAndOrTagsPtrOutput) MatchOptions() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) []string {
 		if v == nil {
@@ -4456,11 +4456,11 @@ func (o BudgetFilterExpressionAndOrTagsPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type BudgetFilterExpressionAndTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -4476,11 +4476,11 @@ type BudgetFilterExpressionAndTagsInput interface {
 }
 
 type BudgetFilterExpressionAndTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4561,17 +4561,17 @@ func (o BudgetFilterExpressionAndTagsOutput) ToBudgetFilterExpressionAndTagsPtrO
 	}).(BudgetFilterExpressionAndTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4600,7 +4600,7 @@ func (o BudgetFilterExpressionAndTagsPtrOutput) Elem() BudgetFilterExpressionAnd
 	}).(BudgetFilterExpressionAndTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) *string {
 		if v == nil {
@@ -4610,7 +4610,7 @@ func (o BudgetFilterExpressionAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) []string {
 		if v == nil {
@@ -4620,7 +4620,7 @@ func (o BudgetFilterExpressionAndTagsPtrOutput) MatchOptions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) []string {
 		if v == nil {
@@ -4631,11 +4631,11 @@ func (o BudgetFilterExpressionAndTagsPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type BudgetFilterExpressionCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -4651,11 +4651,11 @@ type BudgetFilterExpressionCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4736,17 +4736,17 @@ func (o BudgetFilterExpressionCostCategoriesOutput) ToBudgetFilterExpressionCost
 	}).(BudgetFilterExpressionCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4775,7 +4775,7 @@ func (o BudgetFilterExpressionCostCategoriesPtrOutput) Elem() BudgetFilterExpres
 	}).(BudgetFilterExpressionCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) *string {
 		if v == nil {
@@ -4785,7 +4785,7 @@ func (o BudgetFilterExpressionCostCategoriesPtrOutput) Key() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) []string {
 		if v == nil {
@@ -4795,7 +4795,7 @@ func (o BudgetFilterExpressionCostCategoriesPtrOutput) MatchOptions() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) []string {
 		if v == nil {
@@ -4806,11 +4806,11 @@ func (o BudgetFilterExpressionCostCategoriesPtrOutput) Values() pulumi.StringArr
 }
 
 type BudgetFilterExpressionDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -4826,11 +4826,11 @@ type BudgetFilterExpressionDimensionsInput interface {
 }
 
 type BudgetFilterExpressionDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4911,17 +4911,17 @@ func (o BudgetFilterExpressionDimensionsOutput) ToBudgetFilterExpressionDimensio
 	}).(BudgetFilterExpressionDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4950,7 +4950,7 @@ func (o BudgetFilterExpressionDimensionsPtrOutput) Elem() BudgetFilterExpression
 	}).(BudgetFilterExpressionDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) *string {
 		if v == nil {
@@ -4960,7 +4960,7 @@ func (o BudgetFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) []string {
 		if v == nil {
@@ -4970,7 +4970,7 @@ func (o BudgetFilterExpressionDimensionsPtrOutput) MatchOptions() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) []string {
 		if v == nil {
@@ -4981,15 +4981,15 @@ func (o BudgetFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type BudgetFilterExpressionNot struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands []BudgetFilterExpressionNotAnd `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionNotCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionNotDimensions `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not *BudgetFilterExpressionNotNot `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors []BudgetFilterExpressionNotOr `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionNotTags `pulumi:"tags"`
@@ -5007,15 +5007,15 @@ type BudgetFilterExpressionNotInput interface {
 }
 
 type BudgetFilterExpressionNotArgs struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands BudgetFilterExpressionNotAndArrayInput `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionNotCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionNotDimensionsPtrInput `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not BudgetFilterExpressionNotNotPtrInput `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors BudgetFilterExpressionNotOrArrayInput `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionNotTagsPtrInput `pulumi:"tags"`
@@ -5098,27 +5098,27 @@ func (o BudgetFilterExpressionNotOutput) ToBudgetFilterExpressionNotPtrOutputWit
 	}).(BudgetFilterExpressionNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionNotOutput) Ands() BudgetFilterExpressionNotAndArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNot) []BudgetFilterExpressionNotAnd { return v.Ands }).(BudgetFilterExpressionNotAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotOutput) CostCategories() BudgetFilterExpressionNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotCostCategories { return v.CostCategories }).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotOutput) Dimensions() BudgetFilterExpressionNotDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotDimensions { return v.Dimensions }).(BudgetFilterExpressionNotDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionNotOutput) Not() BudgetFilterExpressionNotNotPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotNot { return v.Not }).(BudgetFilterExpressionNotNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionNotOutput) Ors() BudgetFilterExpressionNotOrArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNot) []BudgetFilterExpressionNotOr { return v.Ors }).(BudgetFilterExpressionNotOrArrayOutput)
 }
@@ -5152,7 +5152,7 @@ func (o BudgetFilterExpressionNotPtrOutput) Elem() BudgetFilterExpressionNotOutp
 	}).(BudgetFilterExpressionNotOutput)
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionNotPtrOutput) Ands() BudgetFilterExpressionNotAndArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNot) []BudgetFilterExpressionNotAnd {
 		if v == nil {
@@ -5162,7 +5162,7 @@ func (o BudgetFilterExpressionNotPtrOutput) Ands() BudgetFilterExpressionNotAndA
 	}).(BudgetFilterExpressionNotAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotPtrOutput) CostCategories() BudgetFilterExpressionNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotCostCategories {
 		if v == nil {
@@ -5172,7 +5172,7 @@ func (o BudgetFilterExpressionNotPtrOutput) CostCategories() BudgetFilterExpress
 	}).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotPtrOutput) Dimensions() BudgetFilterExpressionNotDimensionsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotDimensions {
 		if v == nil {
@@ -5182,7 +5182,7 @@ func (o BudgetFilterExpressionNotPtrOutput) Dimensions() BudgetFilterExpressionN
 	}).(BudgetFilterExpressionNotDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionNotPtrOutput) Not() BudgetFilterExpressionNotNotPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotNot {
 		if v == nil {
@@ -5192,7 +5192,7 @@ func (o BudgetFilterExpressionNotPtrOutput) Not() BudgetFilterExpressionNotNotPt
 	}).(BudgetFilterExpressionNotNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionNotPtrOutput) Ors() BudgetFilterExpressionNotOrArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNot) []BudgetFilterExpressionNotOr {
 		if v == nil {
@@ -5213,9 +5213,9 @@ func (o BudgetFilterExpressionNotPtrOutput) Tags() BudgetFilterExpressionNotTags
 }
 
 type BudgetFilterExpressionNotAnd struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionNotAndCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionNotAndDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionNotAndTags `pulumi:"tags"`
@@ -5233,9 +5233,9 @@ type BudgetFilterExpressionNotAndInput interface {
 }
 
 type BudgetFilterExpressionNotAndArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionNotAndCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionNotAndDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionNotAndTagsPtrInput `pulumi:"tags"`
@@ -5292,14 +5292,14 @@ func (o BudgetFilterExpressionNotAndOutput) ToBudgetFilterExpressionNotAndOutput
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotAndOutput) CostCategories() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAnd) *BudgetFilterExpressionNotAndCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionNotAndCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotAndOutput) Dimensions() BudgetFilterExpressionNotAndDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAnd) *BudgetFilterExpressionNotAndDimensions { return v.Dimensions }).(BudgetFilterExpressionNotAndDimensionsPtrOutput)
 }
@@ -5330,11 +5330,11 @@ func (o BudgetFilterExpressionNotAndArrayOutput) Index(i pulumi.IntInput) Budget
 }
 
 type BudgetFilterExpressionNotAndCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -5350,11 +5350,11 @@ type BudgetFilterExpressionNotAndCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionNotAndCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5435,17 +5435,17 @@ func (o BudgetFilterExpressionNotAndCostCategoriesOutput) ToBudgetFilterExpressi
 	}).(BudgetFilterExpressionNotAndCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5474,7 +5474,7 @@ func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Elem() BudgetFilter
 	}).(BudgetFilterExpressionNotAndCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) *string {
 		if v == nil {
@@ -5484,7 +5484,7 @@ func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Key() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) []string {
 		if v == nil {
@@ -5494,7 +5494,7 @@ func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) MatchOptions() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) []string {
 		if v == nil {
@@ -5505,11 +5505,11 @@ func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Values() pulumi.Str
 }
 
 type BudgetFilterExpressionNotAndDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -5525,11 +5525,11 @@ type BudgetFilterExpressionNotAndDimensionsInput interface {
 }
 
 type BudgetFilterExpressionNotAndDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5610,17 +5610,17 @@ func (o BudgetFilterExpressionNotAndDimensionsOutput) ToBudgetFilterExpressionNo
 	}).(BudgetFilterExpressionNotAndDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotAndDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotAndDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5649,7 +5649,7 @@ func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Elem() BudgetFilterExpr
 	}).(BudgetFilterExpressionNotAndDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) *string {
 		if v == nil {
@@ -5659,7 +5659,7 @@ func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) []string {
 		if v == nil {
@@ -5669,7 +5669,7 @@ func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) MatchOptions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) []string {
 		if v == nil {
@@ -5680,11 +5680,11 @@ func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Values() pulumi.StringA
 }
 
 type BudgetFilterExpressionNotAndTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -5700,11 +5700,11 @@ type BudgetFilterExpressionNotAndTagsInput interface {
 }
 
 type BudgetFilterExpressionNotAndTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5785,17 +5785,17 @@ func (o BudgetFilterExpressionNotAndTagsOutput) ToBudgetFilterExpressionNotAndTa
 	}).(BudgetFilterExpressionNotAndTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotAndTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotAndTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5824,7 +5824,7 @@ func (o BudgetFilterExpressionNotAndTagsPtrOutput) Elem() BudgetFilterExpression
 	}).(BudgetFilterExpressionNotAndTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) *string {
 		if v == nil {
@@ -5834,7 +5834,7 @@ func (o BudgetFilterExpressionNotAndTagsPtrOutput) Key() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) []string {
 		if v == nil {
@@ -5844,7 +5844,7 @@ func (o BudgetFilterExpressionNotAndTagsPtrOutput) MatchOptions() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) []string {
 		if v == nil {
@@ -5855,11 +5855,11 @@ func (o BudgetFilterExpressionNotAndTagsPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type BudgetFilterExpressionNotCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -5875,11 +5875,11 @@ type BudgetFilterExpressionNotCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionNotCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -5960,17 +5960,17 @@ func (o BudgetFilterExpressionNotCostCategoriesOutput) ToBudgetFilterExpressionN
 	}).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -5999,7 +5999,7 @@ func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Elem() BudgetFilterExp
 	}).(BudgetFilterExpressionNotCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) *string {
 		if v == nil {
@@ -6009,7 +6009,7 @@ func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) []string {
 		if v == nil {
@@ -6019,7 +6019,7 @@ func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) MatchOptions() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) []string {
 		if v == nil {
@@ -6030,11 +6030,11 @@ func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Values() pulumi.String
 }
 
 type BudgetFilterExpressionNotDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -6050,11 +6050,11 @@ type BudgetFilterExpressionNotDimensionsInput interface {
 }
 
 type BudgetFilterExpressionNotDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6135,17 +6135,17 @@ func (o BudgetFilterExpressionNotDimensionsOutput) ToBudgetFilterExpressionNotDi
 	}).(BudgetFilterExpressionNotDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6174,7 +6174,7 @@ func (o BudgetFilterExpressionNotDimensionsPtrOutput) Elem() BudgetFilterExpress
 	}).(BudgetFilterExpressionNotDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) *string {
 		if v == nil {
@@ -6184,7 +6184,7 @@ func (o BudgetFilterExpressionNotDimensionsPtrOutput) Key() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) []string {
 		if v == nil {
@@ -6194,7 +6194,7 @@ func (o BudgetFilterExpressionNotDimensionsPtrOutput) MatchOptions() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) []string {
 		if v == nil {
@@ -6205,9 +6205,9 @@ func (o BudgetFilterExpressionNotDimensionsPtrOutput) Values() pulumi.StringArra
 }
 
 type BudgetFilterExpressionNotNot struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionNotNotCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionNotNotDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionNotNotTags `pulumi:"tags"`
@@ -6225,9 +6225,9 @@ type BudgetFilterExpressionNotNotInput interface {
 }
 
 type BudgetFilterExpressionNotNotArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionNotNotCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionNotNotDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionNotNotTagsPtrInput `pulumi:"tags"`
@@ -6310,14 +6310,14 @@ func (o BudgetFilterExpressionNotNotOutput) ToBudgetFilterExpressionNotNotPtrOut
 	}).(BudgetFilterExpressionNotNotPtrOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotNotOutput) CostCategories() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotNotOutput) Dimensions() BudgetFilterExpressionNotNotDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotDimensions { return v.Dimensions }).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
 }
@@ -6351,7 +6351,7 @@ func (o BudgetFilterExpressionNotNotPtrOutput) Elem() BudgetFilterExpressionNotN
 	}).(BudgetFilterExpressionNotNotOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotNotPtrOutput) CostCategories() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotCostCategories {
 		if v == nil {
@@ -6361,7 +6361,7 @@ func (o BudgetFilterExpressionNotNotPtrOutput) CostCategories() BudgetFilterExpr
 	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotNotPtrOutput) Dimensions() BudgetFilterExpressionNotNotDimensionsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotDimensions {
 		if v == nil {
@@ -6382,11 +6382,11 @@ func (o BudgetFilterExpressionNotNotPtrOutput) Tags() BudgetFilterExpressionNotN
 }
 
 type BudgetFilterExpressionNotNotCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -6402,11 +6402,11 @@ type BudgetFilterExpressionNotNotCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionNotNotCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6487,17 +6487,17 @@ func (o BudgetFilterExpressionNotNotCostCategoriesOutput) ToBudgetFilterExpressi
 	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6526,7 +6526,7 @@ func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Elem() BudgetFilter
 	}).(BudgetFilterExpressionNotNotCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) *string {
 		if v == nil {
@@ -6536,7 +6536,7 @@ func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Key() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) []string {
 		if v == nil {
@@ -6546,7 +6546,7 @@ func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) MatchOptions() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) []string {
 		if v == nil {
@@ -6557,11 +6557,11 @@ func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Values() pulumi.Str
 }
 
 type BudgetFilterExpressionNotNotDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -6577,11 +6577,11 @@ type BudgetFilterExpressionNotNotDimensionsInput interface {
 }
 
 type BudgetFilterExpressionNotNotDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6662,17 +6662,17 @@ func (o BudgetFilterExpressionNotNotDimensionsOutput) ToBudgetFilterExpressionNo
 	}).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotNotDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotNotDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6701,7 +6701,7 @@ func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Elem() BudgetFilterExpr
 	}).(BudgetFilterExpressionNotNotDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) *string {
 		if v == nil {
@@ -6711,7 +6711,7 @@ func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) []string {
 		if v == nil {
@@ -6721,7 +6721,7 @@ func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) MatchOptions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) []string {
 		if v == nil {
@@ -6732,11 +6732,11 @@ func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Values() pulumi.StringA
 }
 
 type BudgetFilterExpressionNotNotTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -6752,11 +6752,11 @@ type BudgetFilterExpressionNotNotTagsInput interface {
 }
 
 type BudgetFilterExpressionNotNotTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -6837,17 +6837,17 @@ func (o BudgetFilterExpressionNotNotTagsOutput) ToBudgetFilterExpressionNotNotTa
 	}).(BudgetFilterExpressionNotNotTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotNotTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotNotTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6876,7 +6876,7 @@ func (o BudgetFilterExpressionNotNotTagsPtrOutput) Elem() BudgetFilterExpression
 	}).(BudgetFilterExpressionNotNotTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) *string {
 		if v == nil {
@@ -6886,7 +6886,7 @@ func (o BudgetFilterExpressionNotNotTagsPtrOutput) Key() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) []string {
 		if v == nil {
@@ -6896,7 +6896,7 @@ func (o BudgetFilterExpressionNotNotTagsPtrOutput) MatchOptions() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) []string {
 		if v == nil {
@@ -6907,9 +6907,9 @@ func (o BudgetFilterExpressionNotNotTagsPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type BudgetFilterExpressionNotOr struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionNotOrCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionNotOrDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionNotOrTags `pulumi:"tags"`
@@ -6927,9 +6927,9 @@ type BudgetFilterExpressionNotOrInput interface {
 }
 
 type BudgetFilterExpressionNotOrArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionNotOrCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionNotOrDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionNotOrTagsPtrInput `pulumi:"tags"`
@@ -6986,14 +6986,14 @@ func (o BudgetFilterExpressionNotOrOutput) ToBudgetFilterExpressionNotOrOutputWi
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionNotOrOutput) CostCategories() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOr) *BudgetFilterExpressionNotOrCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionNotOrCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionNotOrOutput) Dimensions() BudgetFilterExpressionNotOrDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOr) *BudgetFilterExpressionNotOrDimensions { return v.Dimensions }).(BudgetFilterExpressionNotOrDimensionsPtrOutput)
 }
@@ -7024,11 +7024,11 @@ func (o BudgetFilterExpressionNotOrArrayOutput) Index(i pulumi.IntInput) BudgetF
 }
 
 type BudgetFilterExpressionNotOrCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -7044,11 +7044,11 @@ type BudgetFilterExpressionNotOrCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionNotOrCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7129,17 +7129,17 @@ func (o BudgetFilterExpressionNotOrCostCategoriesOutput) ToBudgetFilterExpressio
 	}).(BudgetFilterExpressionNotOrCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7168,7 +7168,7 @@ func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Elem() BudgetFilterE
 	}).(BudgetFilterExpressionNotOrCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) *string {
 		if v == nil {
@@ -7178,7 +7178,7 @@ func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) []string {
 		if v == nil {
@@ -7188,7 +7188,7 @@ func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) MatchOptions() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) []string {
 		if v == nil {
@@ -7199,11 +7199,11 @@ func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Values() pulumi.Stri
 }
 
 type BudgetFilterExpressionNotOrDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -7219,11 +7219,11 @@ type BudgetFilterExpressionNotOrDimensionsInput interface {
 }
 
 type BudgetFilterExpressionNotOrDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7304,17 +7304,17 @@ func (o BudgetFilterExpressionNotOrDimensionsOutput) ToBudgetFilterExpressionNot
 	}).(BudgetFilterExpressionNotOrDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotOrDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotOrDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7343,7 +7343,7 @@ func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Elem() BudgetFilterExpre
 	}).(BudgetFilterExpressionNotOrDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) *string {
 		if v == nil {
@@ -7353,7 +7353,7 @@ func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Key() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) []string {
 		if v == nil {
@@ -7363,7 +7363,7 @@ func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) MatchOptions() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) []string {
 		if v == nil {
@@ -7374,11 +7374,11 @@ func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Values() pulumi.StringAr
 }
 
 type BudgetFilterExpressionNotOrTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -7394,11 +7394,11 @@ type BudgetFilterExpressionNotOrTagsInput interface {
 }
 
 type BudgetFilterExpressionNotOrTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7479,17 +7479,17 @@ func (o BudgetFilterExpressionNotOrTagsOutput) ToBudgetFilterExpressionNotOrTags
 	}).(BudgetFilterExpressionNotOrTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotOrTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotOrTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7518,7 +7518,7 @@ func (o BudgetFilterExpressionNotOrTagsPtrOutput) Elem() BudgetFilterExpressionN
 	}).(BudgetFilterExpressionNotOrTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) *string {
 		if v == nil {
@@ -7528,7 +7528,7 @@ func (o BudgetFilterExpressionNotOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) []string {
 		if v == nil {
@@ -7538,7 +7538,7 @@ func (o BudgetFilterExpressionNotOrTagsPtrOutput) MatchOptions() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) []string {
 		if v == nil {
@@ -7549,11 +7549,11 @@ func (o BudgetFilterExpressionNotOrTagsPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type BudgetFilterExpressionNotTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -7569,11 +7569,11 @@ type BudgetFilterExpressionNotTagsInput interface {
 }
 
 type BudgetFilterExpressionNotTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -7654,17 +7654,17 @@ func (o BudgetFilterExpressionNotTagsOutput) ToBudgetFilterExpressionNotTagsPtrO
 	}).(BudgetFilterExpressionNotTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -7693,7 +7693,7 @@ func (o BudgetFilterExpressionNotTagsPtrOutput) Elem() BudgetFilterExpressionNot
 	}).(BudgetFilterExpressionNotTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) *string {
 		if v == nil {
@@ -7703,7 +7703,7 @@ func (o BudgetFilterExpressionNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) []string {
 		if v == nil {
@@ -7713,7 +7713,7 @@ func (o BudgetFilterExpressionNotTagsPtrOutput) MatchOptions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) []string {
 		if v == nil {
@@ -7724,15 +7724,15 @@ func (o BudgetFilterExpressionNotTagsPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type BudgetFilterExpressionOr struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands []BudgetFilterExpressionOrAnd `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionOrCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionOrDimensions `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not *BudgetFilterExpressionOrNot `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors []BudgetFilterExpressionOrOr `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionOrTags `pulumi:"tags"`
@@ -7750,15 +7750,15 @@ type BudgetFilterExpressionOrInput interface {
 }
 
 type BudgetFilterExpressionOrArgs struct {
-	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 	Ands BudgetFilterExpressionOrAndArrayInput `pulumi:"ands"`
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionOrCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionOrDimensionsPtrInput `pulumi:"dimensions"`
-	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	// Single filter expression to negate. Must contain exactly one root.
 	Not BudgetFilterExpressionOrNotPtrInput `pulumi:"not"`
-	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 	Ors BudgetFilterExpressionOrOrArrayInput `pulumi:"ors"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionOrTagsPtrInput `pulumi:"tags"`
@@ -7815,27 +7815,27 @@ func (o BudgetFilterExpressionOrOutput) ToBudgetFilterExpressionOrOutputWithCont
 	return o
 }
 
-// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionOrOutput) Ands() BudgetFilterExpressionOrAndArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOr) []BudgetFilterExpressionOrAnd { return v.Ands }).(BudgetFilterExpressionOrAndArrayOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOrOutput) CostCategories() BudgetFilterExpressionOrCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrCostCategories { return v.CostCategories }).(BudgetFilterExpressionOrCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOrOutput) Dimensions() BudgetFilterExpressionOrDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrDimensions { return v.Dimensions }).(BudgetFilterExpressionOrDimensionsPtrOutput)
 }
 
-// (Optional) A single filter expression to negate. Must contain exactly one root.
+// Single filter expression to negate. Must contain exactly one root.
 func (o BudgetFilterExpressionOrOutput) Not() BudgetFilterExpressionOrNotPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrNot { return v.Not }).(BudgetFilterExpressionOrNotPtrOutput)
 }
 
-// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+// List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
 func (o BudgetFilterExpressionOrOutput) Ors() BudgetFilterExpressionOrOrArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOr) []BudgetFilterExpressionOrOr { return v.Ors }).(BudgetFilterExpressionOrOrArrayOutput)
 }
@@ -7866,9 +7866,9 @@ func (o BudgetFilterExpressionOrArrayOutput) Index(i pulumi.IntInput) BudgetFilt
 }
 
 type BudgetFilterExpressionOrAnd struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionOrAndCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionOrAndDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionOrAndTags `pulumi:"tags"`
@@ -7886,9 +7886,9 @@ type BudgetFilterExpressionOrAndInput interface {
 }
 
 type BudgetFilterExpressionOrAndArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionOrAndCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionOrAndDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionOrAndTagsPtrInput `pulumi:"tags"`
@@ -7945,14 +7945,14 @@ func (o BudgetFilterExpressionOrAndOutput) ToBudgetFilterExpressionOrAndOutputWi
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOrAndOutput) CostCategories() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAnd) *BudgetFilterExpressionOrAndCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionOrAndCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOrAndOutput) Dimensions() BudgetFilterExpressionOrAndDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAnd) *BudgetFilterExpressionOrAndDimensions { return v.Dimensions }).(BudgetFilterExpressionOrAndDimensionsPtrOutput)
 }
@@ -7983,11 +7983,11 @@ func (o BudgetFilterExpressionOrAndArrayOutput) Index(i pulumi.IntInput) BudgetF
 }
 
 type BudgetFilterExpressionOrAndCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -8003,11 +8003,11 @@ type BudgetFilterExpressionOrAndCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionOrAndCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -8088,17 +8088,17 @@ func (o BudgetFilterExpressionOrAndCostCategoriesOutput) ToBudgetFilterExpressio
 	}).(BudgetFilterExpressionOrAndCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -8127,7 +8127,7 @@ func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Elem() BudgetFilterE
 	}).(BudgetFilterExpressionOrAndCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) *string {
 		if v == nil {
@@ -8137,7 +8137,7 @@ func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) []string {
 		if v == nil {
@@ -8147,7 +8147,7 @@ func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) MatchOptions() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) []string {
 		if v == nil {
@@ -8158,11 +8158,11 @@ func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Values() pulumi.Stri
 }
 
 type BudgetFilterExpressionOrAndDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -8178,11 +8178,11 @@ type BudgetFilterExpressionOrAndDimensionsInput interface {
 }
 
 type BudgetFilterExpressionOrAndDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -8263,17 +8263,17 @@ func (o BudgetFilterExpressionOrAndDimensionsOutput) ToBudgetFilterExpressionOrA
 	}).(BudgetFilterExpressionOrAndDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrAndDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrAndDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -8302,7 +8302,7 @@ func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Elem() BudgetFilterExpre
 	}).(BudgetFilterExpressionOrAndDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) *string {
 		if v == nil {
@@ -8312,7 +8312,7 @@ func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Key() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) []string {
 		if v == nil {
@@ -8322,7 +8322,7 @@ func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) MatchOptions() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) []string {
 		if v == nil {
@@ -8333,11 +8333,11 @@ func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Values() pulumi.StringAr
 }
 
 type BudgetFilterExpressionOrAndTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -8353,11 +8353,11 @@ type BudgetFilterExpressionOrAndTagsInput interface {
 }
 
 type BudgetFilterExpressionOrAndTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -8438,17 +8438,17 @@ func (o BudgetFilterExpressionOrAndTagsOutput) ToBudgetFilterExpressionOrAndTags
 	}).(BudgetFilterExpressionOrAndTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrAndTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrAndTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -8477,7 +8477,7 @@ func (o BudgetFilterExpressionOrAndTagsPtrOutput) Elem() BudgetFilterExpressionO
 	}).(BudgetFilterExpressionOrAndTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) *string {
 		if v == nil {
@@ -8487,7 +8487,7 @@ func (o BudgetFilterExpressionOrAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) []string {
 		if v == nil {
@@ -8497,7 +8497,7 @@ func (o BudgetFilterExpressionOrAndTagsPtrOutput) MatchOptions() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) []string {
 		if v == nil {
@@ -8508,11 +8508,11 @@ func (o BudgetFilterExpressionOrAndTagsPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type BudgetFilterExpressionOrCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -8528,11 +8528,11 @@ type BudgetFilterExpressionOrCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionOrCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -8613,17 +8613,17 @@ func (o BudgetFilterExpressionOrCostCategoriesOutput) ToBudgetFilterExpressionOr
 	}).(BudgetFilterExpressionOrCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -8652,7 +8652,7 @@ func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Elem() BudgetFilterExpr
 	}).(BudgetFilterExpressionOrCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) *string {
 		if v == nil {
@@ -8662,7 +8662,7 @@ func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) []string {
 		if v == nil {
@@ -8672,7 +8672,7 @@ func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) MatchOptions() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) []string {
 		if v == nil {
@@ -8683,11 +8683,11 @@ func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Values() pulumi.StringA
 }
 
 type BudgetFilterExpressionOrDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -8703,11 +8703,11 @@ type BudgetFilterExpressionOrDimensionsInput interface {
 }
 
 type BudgetFilterExpressionOrDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -8788,17 +8788,17 @@ func (o BudgetFilterExpressionOrDimensionsOutput) ToBudgetFilterExpressionOrDime
 	}).(BudgetFilterExpressionOrDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -8827,7 +8827,7 @@ func (o BudgetFilterExpressionOrDimensionsPtrOutput) Elem() BudgetFilterExpressi
 	}).(BudgetFilterExpressionOrDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) *string {
 		if v == nil {
@@ -8837,7 +8837,7 @@ func (o BudgetFilterExpressionOrDimensionsPtrOutput) Key() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) []string {
 		if v == nil {
@@ -8847,7 +8847,7 @@ func (o BudgetFilterExpressionOrDimensionsPtrOutput) MatchOptions() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) []string {
 		if v == nil {
@@ -8858,9 +8858,9 @@ func (o BudgetFilterExpressionOrDimensionsPtrOutput) Values() pulumi.StringArray
 }
 
 type BudgetFilterExpressionOrNot struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionOrNotCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionOrNotDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionOrNotTags `pulumi:"tags"`
@@ -8878,9 +8878,9 @@ type BudgetFilterExpressionOrNotInput interface {
 }
 
 type BudgetFilterExpressionOrNotArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionOrNotCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionOrNotDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionOrNotTagsPtrInput `pulumi:"tags"`
@@ -8963,14 +8963,14 @@ func (o BudgetFilterExpressionOrNotOutput) ToBudgetFilterExpressionOrNotPtrOutpu
 	}).(BudgetFilterExpressionOrNotPtrOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOrNotOutput) CostCategories() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotCostCategories {
 		return v.CostCategories
 	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOrNotOutput) Dimensions() BudgetFilterExpressionOrNotDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotDimensions { return v.Dimensions }).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
 }
@@ -9004,7 +9004,7 @@ func (o BudgetFilterExpressionOrNotPtrOutput) Elem() BudgetFilterExpressionOrNot
 	}).(BudgetFilterExpressionOrNotOutput)
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOrNotPtrOutput) CostCategories() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotCostCategories {
 		if v == nil {
@@ -9014,7 +9014,7 @@ func (o BudgetFilterExpressionOrNotPtrOutput) CostCategories() BudgetFilterExpre
 	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOrNotPtrOutput) Dimensions() BudgetFilterExpressionOrNotDimensionsPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotDimensions {
 		if v == nil {
@@ -9035,11 +9035,11 @@ func (o BudgetFilterExpressionOrNotPtrOutput) Tags() BudgetFilterExpressionOrNot
 }
 
 type BudgetFilterExpressionOrNotCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -9055,11 +9055,11 @@ type BudgetFilterExpressionOrNotCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionOrNotCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9140,17 +9140,17 @@ func (o BudgetFilterExpressionOrNotCostCategoriesOutput) ToBudgetFilterExpressio
 	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9179,7 +9179,7 @@ func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Elem() BudgetFilterE
 	}).(BudgetFilterExpressionOrNotCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) *string {
 		if v == nil {
@@ -9189,7 +9189,7 @@ func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Key() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) []string {
 		if v == nil {
@@ -9199,7 +9199,7 @@ func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) MatchOptions() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) []string {
 		if v == nil {
@@ -9210,11 +9210,11 @@ func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Values() pulumi.Stri
 }
 
 type BudgetFilterExpressionOrNotDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -9230,11 +9230,11 @@ type BudgetFilterExpressionOrNotDimensionsInput interface {
 }
 
 type BudgetFilterExpressionOrNotDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9315,17 +9315,17 @@ func (o BudgetFilterExpressionOrNotDimensionsOutput) ToBudgetFilterExpressionOrN
 	}).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrNotDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrNotDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9354,7 +9354,7 @@ func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Elem() BudgetFilterExpre
 	}).(BudgetFilterExpressionOrNotDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) *string {
 		if v == nil {
@@ -9364,7 +9364,7 @@ func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Key() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) []string {
 		if v == nil {
@@ -9374,7 +9374,7 @@ func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) MatchOptions() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) []string {
 		if v == nil {
@@ -9385,11 +9385,11 @@ func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Values() pulumi.StringAr
 }
 
 type BudgetFilterExpressionOrNotTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -9405,11 +9405,11 @@ type BudgetFilterExpressionOrNotTagsInput interface {
 }
 
 type BudgetFilterExpressionOrNotTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9490,17 +9490,17 @@ func (o BudgetFilterExpressionOrNotTagsOutput) ToBudgetFilterExpressionOrNotTags
 	}).(BudgetFilterExpressionOrNotTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrNotTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrNotTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9529,7 +9529,7 @@ func (o BudgetFilterExpressionOrNotTagsPtrOutput) Elem() BudgetFilterExpressionO
 	}).(BudgetFilterExpressionOrNotTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) *string {
 		if v == nil {
@@ -9539,7 +9539,7 @@ func (o BudgetFilterExpressionOrNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) []string {
 		if v == nil {
@@ -9549,7 +9549,7 @@ func (o BudgetFilterExpressionOrNotTagsPtrOutput) MatchOptions() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) []string {
 		if v == nil {
@@ -9560,9 +9560,9 @@ func (o BudgetFilterExpressionOrNotTagsPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type BudgetFilterExpressionOrOr struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories *BudgetFilterExpressionOrOrCostCategories `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions *BudgetFilterExpressionOrOrDimensions `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *BudgetFilterExpressionOrOrTags `pulumi:"tags"`
@@ -9580,9 +9580,9 @@ type BudgetFilterExpressionOrOrInput interface {
 }
 
 type BudgetFilterExpressionOrOrArgs struct {
-	// (Optional) A Cost Category Filter block.
+	// Cost Categories block.
 	CostCategories BudgetFilterExpressionOrOrCostCategoriesPtrInput `pulumi:"costCategories"`
-	// (Optional) A Dimension Filter block.
+	// Dimensions block.
 	Dimensions BudgetFilterExpressionOrOrDimensionsPtrInput `pulumi:"dimensions"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags BudgetFilterExpressionOrOrTagsPtrInput `pulumi:"tags"`
@@ -9639,12 +9639,12 @@ func (o BudgetFilterExpressionOrOrOutput) ToBudgetFilterExpressionOrOrOutputWith
 	return o
 }
 
-// (Optional) A Cost Category Filter block.
+// Cost Categories block.
 func (o BudgetFilterExpressionOrOrOutput) CostCategories() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOr) *BudgetFilterExpressionOrOrCostCategories { return v.CostCategories }).(BudgetFilterExpressionOrOrCostCategoriesPtrOutput)
 }
 
-// (Optional) A Dimension Filter block.
+// Dimensions block.
 func (o BudgetFilterExpressionOrOrOutput) Dimensions() BudgetFilterExpressionOrOrDimensionsPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOr) *BudgetFilterExpressionOrOrDimensions { return v.Dimensions }).(BudgetFilterExpressionOrOrDimensionsPtrOutput)
 }
@@ -9675,11 +9675,11 @@ func (o BudgetFilterExpressionOrOrArrayOutput) Index(i pulumi.IntInput) BudgetFi
 }
 
 type BudgetFilterExpressionOrOrCostCategories struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -9695,11 +9695,11 @@ type BudgetFilterExpressionOrOrCostCategoriesInput interface {
 }
 
 type BudgetFilterExpressionOrOrCostCategoriesArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Cost category key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9780,17 +9780,17 @@ func (o BudgetFilterExpressionOrOrCostCategoriesOutput) ToBudgetFilterExpression
 	}).(BudgetFilterExpressionOrOrCostCategoriesPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9819,7 +9819,7 @@ func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Elem() BudgetFilterEx
 	}).(BudgetFilterExpressionOrOrCostCategoriesOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Cost category key to filter on.
 func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) *string {
 		if v == nil {
@@ -9829,7 +9829,7 @@ func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) []string {
 		if v == nil {
@@ -9839,7 +9839,7 @@ func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) MatchOptions() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of cost category values to match. At least one value is required.
 func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) []string {
 		if v == nil {
@@ -9850,11 +9850,11 @@ func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Values() pulumi.Strin
 }
 
 type BudgetFilterExpressionOrOrDimensions struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -9870,11 +9870,11 @@ type BudgetFilterExpressionOrOrDimensionsInput interface {
 }
 
 type BudgetFilterExpressionOrOrDimensionsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of values to match against the dimension. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9955,17 +9955,17 @@ func (o BudgetFilterExpressionOrOrDimensionsOutput) ToBudgetFilterExpressionOrOr
 	}).(BudgetFilterExpressionOrOrDimensionsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrOrDimensionsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrOrDimensionsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9994,7 +9994,7 @@ func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Elem() BudgetFilterExpres
 	}).(BudgetFilterExpressionOrOrDimensionsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
 func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) *string {
 		if v == nil {
@@ -10004,7 +10004,7 @@ func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Key() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) []string {
 		if v == nil {
@@ -10014,7 +10014,7 @@ func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) MatchOptions() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of values to match against the dimension. At least one value is required.
 func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) []string {
 		if v == nil {
@@ -10025,11 +10025,11 @@ func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Values() pulumi.StringArr
 }
 
 type BudgetFilterExpressionOrOrTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -10045,11 +10045,11 @@ type BudgetFilterExpressionOrOrTagsInput interface {
 }
 
 type BudgetFilterExpressionOrOrTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10130,17 +10130,17 @@ func (o BudgetFilterExpressionOrOrTagsOutput) ToBudgetFilterExpressionOrOrTagsPt
 	}).(BudgetFilterExpressionOrOrTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrOrTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrOrTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10169,7 +10169,7 @@ func (o BudgetFilterExpressionOrOrTagsPtrOutput) Elem() BudgetFilterExpressionOr
 	}).(BudgetFilterExpressionOrOrTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) *string {
 		if v == nil {
@@ -10179,7 +10179,7 @@ func (o BudgetFilterExpressionOrOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) []string {
 		if v == nil {
@@ -10189,7 +10189,7 @@ func (o BudgetFilterExpressionOrOrTagsPtrOutput) MatchOptions() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) []string {
 		if v == nil {
@@ -10200,11 +10200,11 @@ func (o BudgetFilterExpressionOrOrTagsPtrOutput) Values() pulumi.StringArrayOutp
 }
 
 type BudgetFilterExpressionOrTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -10220,11 +10220,11 @@ type BudgetFilterExpressionOrTagsInput interface {
 }
 
 type BudgetFilterExpressionOrTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10305,17 +10305,17 @@ func (o BudgetFilterExpressionOrTagsOutput) ToBudgetFilterExpressionOrTagsPtrOut
 	}).(BudgetFilterExpressionOrTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10344,7 +10344,7 @@ func (o BudgetFilterExpressionOrTagsPtrOutput) Elem() BudgetFilterExpressionOrTa
 	}).(BudgetFilterExpressionOrTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) *string {
 		if v == nil {
@@ -10354,7 +10354,7 @@ func (o BudgetFilterExpressionOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) []string {
 		if v == nil {
@@ -10364,7 +10364,7 @@ func (o BudgetFilterExpressionOrTagsPtrOutput) MatchOptions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) []string {
 		if v == nil {
@@ -10375,11 +10375,11 @@ func (o BudgetFilterExpressionOrTagsPtrOutput) Values() pulumi.StringArrayOutput
 }
 
 type BudgetFilterExpressionTags struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key *string `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions []string `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -10395,11 +10395,11 @@ type BudgetFilterExpressionTagsInput interface {
 }
 
 type BudgetFilterExpressionTagsArgs struct {
-	// (Optional) The cost category key to filter on.
+	// Tag key to filter on.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
-	// (Optional) A list of cost category values to match. At least one value is required.
+	// List of tag values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -10480,17 +10480,17 @@ func (o BudgetFilterExpressionTagsOutput) ToBudgetFilterExpressionTagsPtrOutputW
 	}).(BudgetFilterExpressionTagsPtrOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionTagsOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionTagsOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetFilterExpressionTags) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -10519,7 +10519,7 @@ func (o BudgetFilterExpressionTagsPtrOutput) Elem() BudgetFilterExpressionTagsOu
 	}).(BudgetFilterExpressionTagsOutput)
 }
 
-// (Optional) The cost category key to filter on.
+// Tag key to filter on.
 func (o BudgetFilterExpressionTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionTags) *string {
 		if v == nil {
@@ -10529,7 +10529,7 @@ func (o BudgetFilterExpressionTagsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+// Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
 func (o BudgetFilterExpressionTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionTags) []string {
 		if v == nil {
@@ -10539,7 +10539,7 @@ func (o BudgetFilterExpressionTagsPtrOutput) MatchOptions() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of cost category values to match. At least one value is required.
+// List of tag values to match. At least one value is required.
 func (o BudgetFilterExpressionTagsPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetFilterExpressionTags) []string {
 		if v == nil {
@@ -10550,17 +10550,17 @@ func (o BudgetFilterExpressionTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type BudgetNotification struct {
-	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	// Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	// What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
 	NotificationType string `pulumi:"notificationType"`
-	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	// E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses []string `pulumi:"subscriberEmailAddresses"`
-	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	// SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 	SubscriberSnsTopicArns []string `pulumi:"subscriberSnsTopicArns"`
-	// (Required) Threshold when the notification should be sent.
+	// Threshold when the notification should be sent.
 	Threshold float64 `pulumi:"threshold"`
-	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	// What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
 	ThresholdType string `pulumi:"thresholdType"`
 }
 
@@ -10576,17 +10576,17 @@ type BudgetNotificationInput interface {
 }
 
 type BudgetNotificationArgs struct {
-	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	// Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	// What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringInput `pulumi:"notificationType"`
-	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	// E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 	SubscriberEmailAddresses pulumi.StringArrayInput `pulumi:"subscriberEmailAddresses"`
-	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	// SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 	SubscriberSnsTopicArns pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
-	// (Required) Threshold when the notification should be sent.
+	// Threshold when the notification should be sent.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	// What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
 	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
 }
 
@@ -10641,32 +10641,32 @@ func (o BudgetNotificationOutput) ToBudgetNotificationOutputWithContext(ctx cont
 	return o
 }
 
-// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+// Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
 func (o BudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+// What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
 func (o BudgetNotificationOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+// E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
 func (o BudgetNotificationOutput) SubscriberEmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetNotification) []string { return v.SubscriberEmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+// SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
 func (o BudgetNotificationOutput) SubscriberSnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetNotification) []string { return v.SubscriberSnsTopicArns }).(pulumi.StringArrayOutput)
 }
 
-// (Required) Threshold when the notification should be sent.
+// Threshold when the notification should be sent.
 func (o BudgetNotificationOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+// What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
 func (o BudgetNotificationOutput) ThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
 }
@@ -10692,11 +10692,11 @@ func (o BudgetNotificationArrayOutput) Index(i pulumi.IntInput) BudgetNotificati
 }
 
 type BudgetPlannedLimit struct {
-	// (Required) The amount of cost or usage being measured for a budget.
+	// Amount of cost or usage being measured for a budget.
 	Amount string `pulumi:"amount"`
-	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	// Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	StartTime string `pulumi:"startTime"`
-	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	// Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	Unit string `pulumi:"unit"`
 }
 
@@ -10712,11 +10712,11 @@ type BudgetPlannedLimitInput interface {
 }
 
 type BudgetPlannedLimitArgs struct {
-	// (Required) The amount of cost or usage being measured for a budget.
+	// Amount of cost or usage being measured for a budget.
 	Amount pulumi.StringInput `pulumi:"amount"`
-	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	// Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	// Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
@@ -10771,17 +10771,17 @@ func (o BudgetPlannedLimitOutput) ToBudgetPlannedLimitOutputWithContext(ctx cont
 	return o
 }
 
-// (Required) The amount of cost or usage being measured for a budget.
+// Amount of cost or usage being measured for a budget.
 func (o BudgetPlannedLimitOutput) Amount() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Amount }).(pulumi.StringOutput)
 }
 
-// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+// Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 func (o BudgetPlannedLimitOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+// Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 func (o BudgetPlannedLimitOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetPlannedLimit) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -10807,11 +10807,11 @@ func (o BudgetPlannedLimitArrayOutput) Index(i pulumi.IntInput) BudgetPlannedLim
 }
 
 type GetBudgetAutoAdjustData struct {
-	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+	// String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 	AutoAdjustType string `pulumi:"autoAdjustType"`
-	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	// Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
 	HistoricalOptions []GetBudgetAutoAdjustDataHistoricalOption `pulumi:"historicalOptions"`
-	// (Optional) - The last time that your budget was auto-adjusted.
+	// Last time that the budget was auto-adjusted.
 	LastAutoAdjustTime string `pulumi:"lastAutoAdjustTime"`
 }
 
@@ -10827,11 +10827,11 @@ type GetBudgetAutoAdjustDataInput interface {
 }
 
 type GetBudgetAutoAdjustDataArgs struct {
-	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+	// String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 	AutoAdjustType pulumi.StringInput `pulumi:"autoAdjustType"`
-	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	// Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
 	HistoricalOptions GetBudgetAutoAdjustDataHistoricalOptionArrayInput `pulumi:"historicalOptions"`
-	// (Optional) - The last time that your budget was auto-adjusted.
+	// Last time that the budget was auto-adjusted.
 	LastAutoAdjustTime pulumi.StringInput `pulumi:"lastAutoAdjustTime"`
 }
 
@@ -10886,17 +10886,17 @@ func (o GetBudgetAutoAdjustDataOutput) ToGetBudgetAutoAdjustDataOutputWithContex
 	return o
 }
 
-// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+// String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
 func (o GetBudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
 }
 
-// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+// Historical data that the auto-adjusting budget is based on. See `historicalOptions` Block for details.
 func (o GetBudgetAutoAdjustDataOutput) HistoricalOptions() GetBudgetAutoAdjustDataHistoricalOptionArrayOutput {
 	return o.ApplyT(func(v GetBudgetAutoAdjustData) []GetBudgetAutoAdjustDataHistoricalOption { return v.HistoricalOptions }).(GetBudgetAutoAdjustDataHistoricalOptionArrayOutput)
 }
 
-// (Optional) - The last time that your budget was auto-adjusted.
+// Last time that the budget was auto-adjusted.
 func (o GetBudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetAutoAdjustData) string { return v.LastAutoAdjustTime }).(pulumi.StringOutput)
 }
@@ -10922,9 +10922,9 @@ func (o GetBudgetAutoAdjustDataArrayOutput) Index(i pulumi.IntInput) GetBudgetAu
 }
 
 type GetBudgetAutoAdjustDataHistoricalOption struct {
-	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	// Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
 	BudgetAdjustmentPeriod int `pulumi:"budgetAdjustmentPeriod"`
-	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+	// Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
 	LookbackAvailablePeriods int `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -10940,9 +10940,9 @@ type GetBudgetAutoAdjustDataHistoricalOptionInput interface {
 }
 
 type GetBudgetAutoAdjustDataHistoricalOptionArgs struct {
-	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	// Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
 	BudgetAdjustmentPeriod pulumi.IntInput `pulumi:"budgetAdjustmentPeriod"`
-	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+	// Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
 	LookbackAvailablePeriods pulumi.IntInput `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -10997,12 +10997,12 @@ func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) ToGetBudgetAutoAdjustData
 	return o
 }
 
-// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+// Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
 func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
 }
 
-// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+// Number of budget periods in the `budgetAdjustmentPeriod` included in the calculation of the current budget limit.
 func (o GetBudgetAutoAdjustDataHistoricalOptionOutput) LookbackAvailablePeriods() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBudgetAutoAdjustDataHistoricalOption) int { return v.LookbackAvailablePeriods }).(pulumi.IntOutput)
 }
@@ -11028,9 +11028,9 @@ func (o GetBudgetAutoAdjustDataHistoricalOptionArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetBudgetBudgetLimit struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount string `pulumi:"amount"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit string `pulumi:"unit"`
 }
 
@@ -11046,9 +11046,9 @@ type GetBudgetBudgetLimitInput interface {
 }
 
 type GetBudgetBudgetLimitArgs struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount pulumi.StringInput `pulumi:"amount"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
@@ -11103,12 +11103,12 @@ func (o GetBudgetBudgetLimitOutput) ToGetBudgetBudgetLimitOutputWithContext(ctx 
 	return o
 }
 
-// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Amount of cost or usage measured for the budget.
 func (o GetBudgetBudgetLimitOutput) Amount() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetBudgetLimit) string { return v.Amount }).(pulumi.StringOutput)
 }
 
-// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Unit of measurement used for the budget, such as dollars or GB.
 func (o GetBudgetBudgetLimitOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetBudgetLimit) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -11134,6 +11134,7 @@ func (o GetBudgetBudgetLimitArrayOutput) Index(i pulumi.IntInput) GetBudgetBudge
 }
 
 type GetBudgetCalculatedSpend struct {
+	// Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
 	ActualSpends []GetBudgetCalculatedSpendActualSpend `pulumi:"actualSpends"`
 }
 
@@ -11149,6 +11150,7 @@ type GetBudgetCalculatedSpendInput interface {
 }
 
 type GetBudgetCalculatedSpendArgs struct {
+	// Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
 	ActualSpends GetBudgetCalculatedSpendActualSpendArrayInput `pulumi:"actualSpends"`
 }
 
@@ -11203,6 +11205,7 @@ func (o GetBudgetCalculatedSpendOutput) ToGetBudgetCalculatedSpendOutputWithCont
 	return o
 }
 
+// Amount of cost, usage, RI units, or Savings Plans units used. See `actualSpend` Block for details.
 func (o GetBudgetCalculatedSpendOutput) ActualSpends() GetBudgetCalculatedSpendActualSpendArrayOutput {
 	return o.ApplyT(func(v GetBudgetCalculatedSpend) []GetBudgetCalculatedSpendActualSpend { return v.ActualSpends }).(GetBudgetCalculatedSpendActualSpendArrayOutput)
 }
@@ -11228,9 +11231,9 @@ func (o GetBudgetCalculatedSpendArrayOutput) Index(i pulumi.IntInput) GetBudgetC
 }
 
 type GetBudgetCalculatedSpendActualSpend struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount string `pulumi:"amount"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit string `pulumi:"unit"`
 }
 
@@ -11246,9 +11249,9 @@ type GetBudgetCalculatedSpendActualSpendInput interface {
 }
 
 type GetBudgetCalculatedSpendActualSpendArgs struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount pulumi.StringInput `pulumi:"amount"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
@@ -11303,12 +11306,12 @@ func (o GetBudgetCalculatedSpendActualSpendOutput) ToGetBudgetCalculatedSpendAct
 	return o
 }
 
-// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Amount of cost or usage measured for the budget.
 func (o GetBudgetCalculatedSpendActualSpendOutput) Amount() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) string { return v.Amount }).(pulumi.StringOutput)
 }
 
-// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Unit of measurement used for the budget, such as dollars or GB.
 func (o GetBudgetCalculatedSpendActualSpendOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetCalculatedSpendActualSpend) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -11334,10 +11337,11 @@ func (o GetBudgetCalculatedSpendActualSpendArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetBudgetCostFilter struct {
-	// The name of a budget. Unique within accounts.
+	// Name of the budget. Unique within an account.
 	//
 	// The following arguments are optional:
-	Name   string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Values of the cost filter.
 	Values []string `pulumi:"values"`
 }
 
@@ -11353,10 +11357,11 @@ type GetBudgetCostFilterInput interface {
 }
 
 type GetBudgetCostFilterArgs struct {
-	// The name of a budget. Unique within accounts.
+	// Name of the budget. Unique within an account.
 	//
 	// The following arguments are optional:
-	Name   pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Values of the cost filter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -11411,13 +11416,14 @@ func (o GetBudgetCostFilterOutput) ToGetBudgetCostFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of a budget. Unique within accounts.
+// Name of the budget. Unique within an account.
 //
 // The following arguments are optional:
 func (o GetBudgetCostFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Values of the cost filter.
 func (o GetBudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -11443,27 +11449,27 @@ func (o GetBudgetCostFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetCostFi
 }
 
 type GetBudgetCostType struct {
-	// A boolean value whether to include credits in the cost budget. Defaults to `true`.
+	// Whether to include credits in the cost budget.
 	IncludeCredit bool `pulumi:"includeCredit"`
-	// Whether a budget includes discounts. Defaults to `true`.
+	// Whether to include discounts in the cost budget.
 	IncludeDiscount bool `pulumi:"includeDiscount"`
-	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+	// Whether to include other subscription costs in the cost budget.
 	IncludeOtherSubscription bool `pulumi:"includeOtherSubscription"`
-	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+	// Whether to include recurring costs in the cost budget.
 	IncludeRecurring bool `pulumi:"includeRecurring"`
-	// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+	// Whether to include refunds in the cost budget.
 	IncludeRefund bool `pulumi:"includeRefund"`
-	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+	// Whether to include subscriptions in the cost budget.
 	IncludeSubscription bool `pulumi:"includeSubscription"`
-	// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+	// Whether to include support costs in the cost budget.
 	IncludeSupport bool `pulumi:"includeSupport"`
-	// A boolean value whether to include tax in the cost budget. Defaults to `true`.
+	// Whether to include tax in the cost budget.
 	IncludeTax bool `pulumi:"includeTax"`
-	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+	// Whether to include upfront costs in the cost budget.
 	IncludeUpfront bool `pulumi:"includeUpfront"`
-	// Whether a budget uses the amortized rate. Defaults to `false`.
+	// Whether the budget uses the amortized rate.
 	UseAmortized bool `pulumi:"useAmortized"`
-	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+	// Whether to use blended costs in the cost budget.
 	UseBlended bool `pulumi:"useBlended"`
 }
 
@@ -11479,27 +11485,27 @@ type GetBudgetCostTypeInput interface {
 }
 
 type GetBudgetCostTypeArgs struct {
-	// A boolean value whether to include credits in the cost budget. Defaults to `true`.
+	// Whether to include credits in the cost budget.
 	IncludeCredit pulumi.BoolInput `pulumi:"includeCredit"`
-	// Whether a budget includes discounts. Defaults to `true`.
+	// Whether to include discounts in the cost budget.
 	IncludeDiscount pulumi.BoolInput `pulumi:"includeDiscount"`
-	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+	// Whether to include other subscription costs in the cost budget.
 	IncludeOtherSubscription pulumi.BoolInput `pulumi:"includeOtherSubscription"`
-	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+	// Whether to include recurring costs in the cost budget.
 	IncludeRecurring pulumi.BoolInput `pulumi:"includeRecurring"`
-	// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+	// Whether to include refunds in the cost budget.
 	IncludeRefund pulumi.BoolInput `pulumi:"includeRefund"`
-	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+	// Whether to include subscriptions in the cost budget.
 	IncludeSubscription pulumi.BoolInput `pulumi:"includeSubscription"`
-	// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+	// Whether to include support costs in the cost budget.
 	IncludeSupport pulumi.BoolInput `pulumi:"includeSupport"`
-	// A boolean value whether to include tax in the cost budget. Defaults to `true`.
+	// Whether to include tax in the cost budget.
 	IncludeTax pulumi.BoolInput `pulumi:"includeTax"`
-	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+	// Whether to include upfront costs in the cost budget.
 	IncludeUpfront pulumi.BoolInput `pulumi:"includeUpfront"`
-	// Whether a budget uses the amortized rate. Defaults to `false`.
+	// Whether the budget uses the amortized rate.
 	UseAmortized pulumi.BoolInput `pulumi:"useAmortized"`
-	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+	// Whether to use blended costs in the cost budget.
 	UseBlended pulumi.BoolInput `pulumi:"useBlended"`
 }
 
@@ -11554,57 +11560,57 @@ func (o GetBudgetCostTypeOutput) ToGetBudgetCostTypeOutputWithContext(ctx contex
 	return o
 }
 
-// A boolean value whether to include credits in the cost budget. Defaults to `true`.
+// Whether to include credits in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeCredit() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeCredit }).(pulumi.BoolOutput)
 }
 
-// Whether a budget includes discounts. Defaults to `true`.
+// Whether to include discounts in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeDiscount() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeDiscount }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+// Whether to include other subscription costs in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeOtherSubscription() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeOtherSubscription }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+// Whether to include recurring costs in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeRecurring() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeRecurring }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+// Whether to include refunds in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeRefund() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeRefund }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+// Whether to include subscriptions in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeSubscription() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeSubscription }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+// Whether to include support costs in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeSupport }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include tax in the cost budget. Defaults to `true`.
+// Whether to include tax in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeTax() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeTax }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+// Whether to include upfront costs in the cost budget.
 func (o GetBudgetCostTypeOutput) IncludeUpfront() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.IncludeUpfront }).(pulumi.BoolOutput)
 }
 
-// Whether a budget uses the amortized rate. Defaults to `false`.
+// Whether the budget uses the amortized rate.
 func (o GetBudgetCostTypeOutput) UseAmortized() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.UseAmortized }).(pulumi.BoolOutput)
 }
 
-// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+// Whether to use blended costs in the cost budget.
 func (o GetBudgetCostTypeOutput) UseBlended() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBudgetCostType) bool { return v.UseBlended }).(pulumi.BoolOutput)
 }
@@ -11630,17 +11636,17 @@ func (o GetBudgetCostTypeArrayOutput) Index(i pulumi.IntInput) GetBudgetCostType
 }
 
 type GetBudgetNotification struct {
-	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	// Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+	// Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
 	NotificationType string `pulumi:"notificationType"`
-	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	// Email addresses to notify.
 	SubscriberEmailAddresses []string `pulumi:"subscriberEmailAddresses"`
-	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	// SNS topics to notify.
 	SubscriberSnsTopicArns []string `pulumi:"subscriberSnsTopicArns"`
-	// (Required) Threshold when the notification should be sent.
+	// Threshold at which the notification is sent.
 	Threshold float64 `pulumi:"threshold"`
-	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	// Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
 	ThresholdType string `pulumi:"thresholdType"`
 }
 
@@ -11656,17 +11662,17 @@ type GetBudgetNotificationInput interface {
 }
 
 type GetBudgetNotificationArgs struct {
-	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	// Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+	// Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
 	NotificationType pulumi.StringInput `pulumi:"notificationType"`
-	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	// Email addresses to notify.
 	SubscriberEmailAddresses pulumi.StringArrayInput `pulumi:"subscriberEmailAddresses"`
-	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	// SNS topics to notify.
 	SubscriberSnsTopicArns pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
-	// (Required) Threshold when the notification should be sent.
+	// Threshold at which the notification is sent.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	// Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
 	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
 }
 
@@ -11721,32 +11727,32 @@ func (o GetBudgetNotificationOutput) ToGetBudgetNotificationOutputWithContext(ct
 	return o
 }
 
-// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+// Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
 func (o GetBudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+// Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
 func (o GetBudgetNotificationOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+// Email addresses to notify.
 func (o GetBudgetNotificationOutput) SubscriberEmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBudgetNotification) []string { return v.SubscriberEmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+// SNS topics to notify.
 func (o GetBudgetNotificationOutput) SubscriberSnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBudgetNotification) []string { return v.SubscriberSnsTopicArns }).(pulumi.StringArrayOutput)
 }
 
-// (Required) Threshold when the notification should be sent.
+// Threshold at which the notification is sent.
 func (o GetBudgetNotificationOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v GetBudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+// Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
 func (o GetBudgetNotificationOutput) ThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
 }
@@ -11772,11 +11778,11 @@ func (o GetBudgetNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetNoti
 }
 
 type GetBudgetPlannedLimit struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount string `pulumi:"amount"`
-	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	// Start time of the budget limit. Format: `2017-01-01_12:00`.
 	StartTime string `pulumi:"startTime"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit string `pulumi:"unit"`
 }
 
@@ -11792,11 +11798,11 @@ type GetBudgetPlannedLimitInput interface {
 }
 
 type GetBudgetPlannedLimitArgs struct {
-	// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Amount of cost or usage measured for the budget.
 	Amount pulumi.StringInput `pulumi:"amount"`
-	// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+	// Start time of the budget limit. Format: `2017-01-01_12:00`.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+	// Unit of measurement used for the budget, such as dollars or GB.
 	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
@@ -11851,17 +11857,17 @@ func (o GetBudgetPlannedLimitOutput) ToGetBudgetPlannedLimitOutputWithContext(ct
 	return o
 }
 
-// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Amount of cost or usage measured for the budget.
 func (o GetBudgetPlannedLimitOutput) Amount() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.Amount }).(pulumi.StringOutput)
 }
 
-// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+// Start time of the budget limit. Format: `2017-01-01_12:00`.
 func (o GetBudgetPlannedLimitOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+// Unit of measurement used for the budget, such as dollars or GB.
 func (o GetBudgetPlannedLimitOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBudgetPlannedLimit) string { return v.Unit }).(pulumi.StringOutput)
 }

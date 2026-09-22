@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration
     {
         /// <summary>
-        /// The intermediate storage for custom transformation.
+        /// Intermediate storage for custom transformation. See `IntermediateStorage` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage? IntermediateStorage;
         /// <summary>
-        /// A custom processing step for documents moving through the data source ingestion pipeline.
+        /// Custom processing step for documents moving through the data source ingestion pipeline. See `Transformation` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation? Transformation;
 

@@ -226,14 +226,14 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The time at which the flow was created.
+     * Time at which the flow was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The time at which the flow was created.
+     * @return Time at which the flow was created.
      * 
      */
     public Output<String> createdAt() {
@@ -254,28 +254,28 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerEncryptionKeyArn);
     }
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     @Export(name="definition", refs={AgentFlowDefinition.class}, tree="[0]")
     private Output</* @Nullable */ AgentFlowDefinition> definition;
 
     /**
-     * @return A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * @return Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     public Output<Optional<AgentFlowDefinition>> definition() {
         return Codegen.optional(this.definition);
     }
     /**
-     * A description for the flow.
+     * Description for the flow.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the flow.
+     * @return Description for the flow.
      * 
      */
     public Output<Optional<String>> description() {
@@ -284,8 +284,6 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
@@ -293,21 +291,23 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
     /**
      * @return ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
     /**
-     * A name for the flow.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -328,14 +328,14 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The status of the flow.
+     * Status of the flow.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the flow.
+     * @return Status of the flow.
      * 
      */
     public Output<String> status() {
@@ -356,14 +356,14 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -376,28 +376,28 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The time at which the flow was last updated.
+     * Time at which the flow was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The time at which the flow was last updated.
+     * @return Time at which the flow was last updated.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * The version of the flow.
+     * Version of the flow.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The version of the flow.
+     * @return Version of the flow.
      * 
      */
     public Output<String> version() {

@@ -181,6 +181,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
 
@@ -280,6 +283,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
@@ -335,6 +341,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
+        /// <summary>
+        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 

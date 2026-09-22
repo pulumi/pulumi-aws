@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class RestoreTestingPlanRecoveryPointSelectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        /// Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
         /// </summary>
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _excludeVaults;
 
         /// <summary>
-        /// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        /// Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
         /// </summary>
         public InputList<string> ExcludeVaults
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _includeVaults;
 
         /// <summary>
-        /// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        /// Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
         /// </summary>
         public InputList<string> IncludeVaults
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _recoveryPointTypes;
 
         /// <summary>
-        /// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        /// Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
         /// </summary>
         public InputList<string> RecoveryPointTypes
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        /// Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
         /// </summary>
         [Input("selectionWindowDays")]
         public Input<int>? SelectionWindowDays { get; set; }

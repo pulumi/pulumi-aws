@@ -20,114 +20,110 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
     /**
-     * @return Atlassian OAuth provider configuration. See `predefined providers` below.
+     * @return Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig atlassianOauth2ProviderConfig;
     /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
+     * @return Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig customOauth2ProviderConfig;
     /**
-     * @return GitHub OAuth provider configuration. See `predefined providers` below.
+     * @return GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig githubOauth2ProviderConfig;
     /**
-     * @return Google OAuth provider configuration. See `predefined providers` below.
+     * @return Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig googleOauth2ProviderConfig;
     /**
-     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-     * 
-     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig includedOauth2ProviderConfig;
     /**
-     * @return LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * @return LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig linkedinOauth2ProviderConfig;
     /**
-     * @return Microsoft OAuth provider configuration. See `predefined providers` below.
+     * @return Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig microsoftOauth2ProviderConfig;
     /**
-     * @return Salesforce OAuth provider configuration. See `predefined providers` below.
+     * @return Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig salesforceOauth2ProviderConfig;
     /**
-     * @return Slack OAuth provider configuration. See `predefined providers` below.
+     * @return Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig slackOauth2ProviderConfig;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfig() {}
     /**
-     * @return Atlassian OAuth provider configuration. See `predefined providers` below.
+     * @return Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig> atlassianOauth2ProviderConfig() {
         return Optional.ofNullable(this.atlassianOauth2ProviderConfig);
     }
     /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
+     * @return Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig> customOauth2ProviderConfig() {
         return Optional.ofNullable(this.customOauth2ProviderConfig);
     }
     /**
-     * @return GitHub OAuth provider configuration. See `predefined providers` below.
+     * @return GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig> githubOauth2ProviderConfig() {
         return Optional.ofNullable(this.githubOauth2ProviderConfig);
     }
     /**
-     * @return Google OAuth provider configuration. See `predefined providers` below.
+     * @return Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig> googleOauth2ProviderConfig() {
         return Optional.ofNullable(this.googleOauth2ProviderConfig);
     }
     /**
-     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-     * 
-     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig> includedOauth2ProviderConfig() {
         return Optional.ofNullable(this.includedOauth2ProviderConfig);
     }
     /**
-     * @return LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * @return LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig> linkedinOauth2ProviderConfig() {
         return Optional.ofNullable(this.linkedinOauth2ProviderConfig);
     }
     /**
-     * @return Microsoft OAuth provider configuration. See `predefined providers` below.
+     * @return Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig> microsoftOauth2ProviderConfig() {
         return Optional.ofNullable(this.microsoftOauth2ProviderConfig);
     }
     /**
-     * @return Salesforce OAuth provider configuration. See `predefined providers` below.
+     * @return Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig> salesforceOauth2ProviderConfig() {
         return Optional.ofNullable(this.salesforceOauth2ProviderConfig);
     }
     /**
-     * @return Slack OAuth provider configuration. See `predefined providers` below.
+     * @return Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig> slackOauth2ProviderConfig() {

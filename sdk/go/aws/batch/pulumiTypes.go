@@ -14,39 +14,39 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ComputeEnvironmentComputeResources struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 	// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	BidPercentage *int `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus *int `pulumi:"desiredVcpus"`
 	// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 	Ec2Configurations []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configurations"`
-	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
 	// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId *string `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole *string `pulumi:"instanceRole"`
-	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceTypes []string `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate *ComputeEnvironmentComputeResourcesLaunchTemplate `pulumi:"launchTemplate"`
-	// The maximum number of EC2 vCPUs that an environment can reach.
+	// Maximum number of EC2 vCPUs that an environment can reach.
 	MaxVcpus int `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus *int `pulumi:"minVcpus"`
-	// The Amazon EC2 placement group to associate with your compute resources.
+	// Amazon EC2 placement group to associate with your compute resources.
 	PlacementGroup *string `pulumi:"placementGroup"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+	// List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
-	// A list of VPC subnets into which the compute resources are launched.
+	// List of VPC subnets into which the compute resources are launched.
 	Subnets []string `pulumi:"subnets"`
 	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+	// Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type string `pulumi:"type"`
 }
 
@@ -62,39 +62,39 @@ type ComputeEnvironmentComputeResourcesInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesArgs struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
 	// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	BidPercentage pulumi.IntPtrInput `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
 	// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 	Ec2Configurations ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configurations"`
-	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
 	// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
-	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceTypes pulumi.StringArrayInput `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	LaunchTemplate ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput `pulumi:"launchTemplate"`
-	// The maximum number of EC2 vCPUs that an environment can reach.
+	// Maximum number of EC2 vCPUs that an environment can reach.
 	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus pulumi.IntPtrInput `pulumi:"minVcpus"`
-	// The Amazon EC2 placement group to associate with your compute resources.
+	// Amazon EC2 placement group to associate with your compute resources.
 	PlacementGroup pulumi.StringPtrInput `pulumi:"placementGroup"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+	// List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole pulumi.StringPtrInput `pulumi:"spotIamFleetRole"`
-	// A list of VPC subnets into which the compute resources are launched.
+	// List of VPC subnets into which the compute resources are launched.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+	// Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -175,7 +175,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -185,7 +185,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) BidPercentage() pulumi.IntPtrO
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.BidPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
 }
@@ -197,7 +197,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configurations() ComputeEnv
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
@@ -207,39 +207,39 @@ func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.InstanceRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		return v.LaunchTemplate
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-// The maximum number of EC2 vCPUs that an environment can reach.
+// Maximum number of EC2 vCPUs that an environment can reach.
 func (o ComputeEnvironmentComputeResourcesOutput) MaxVcpus() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MaxVcpus }).(pulumi.IntOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinVcpus }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 placement group to associate with your compute resources.
+// Amazon EC2 placement group to associate with your compute resources.
 func (o ComputeEnvironmentComputeResourcesOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+// List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -249,7 +249,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) SpotIamFleetRole() pulumi.Stri
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.SpotIamFleetRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of VPC subnets into which the compute resources are launched.
+// List of VPC subnets into which the compute resources are launched.
 func (o ComputeEnvironmentComputeResourcesOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -259,7 +259,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+// Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -288,7 +288,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentCo
 	}).(ComputeEnvironmentComputeResourcesOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -308,7 +308,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -328,7 +328,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configurations() Compute
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -348,7 +348,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -358,7 +358,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -368,7 +368,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		if v == nil {
@@ -378,7 +378,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnv
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-// The maximum number of EC2 vCPUs that an environment can reach.
+// Maximum number of EC2 vCPUs that an environment can reach.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -388,7 +388,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -398,7 +398,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 placement group to associate with your compute resources.
+// Amazon EC2 placement group to associate with your compute resources.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -408,7 +408,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+// List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -428,7 +428,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of VPC subnets into which the compute resources are launched.
+// List of VPC subnets into which the compute resources are launched.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -448,7 +448,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+// Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -459,11 +459,11 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutp
 }
 
 type ComputeEnvironmentComputeResourcesEc2Configuration struct {
-	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+	// AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
 	ImageIdOverride *string `pulumi:"imageIdOverride"`
-	// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+	// Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
 	ImageKubernetesVersion *string `pulumi:"imageKubernetesVersion"`
-	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+	// Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
 	ImageType *string `pulumi:"imageType"`
 }
 
@@ -479,11 +479,11 @@ type ComputeEnvironmentComputeResourcesEc2ConfigurationInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesEc2ConfigurationArgs struct {
-	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+	// AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
 	ImageIdOverride pulumi.StringPtrInput `pulumi:"imageIdOverride"`
-	// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+	// Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
 	ImageKubernetesVersion pulumi.StringPtrInput `pulumi:"imageKubernetesVersion"`
-	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+	// Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
 	ImageType pulumi.StringPtrInput `pulumi:"imageType"`
 }
 
@@ -538,17 +538,17 @@ func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvir
 	return o
 }
 
-// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
+// AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageIdOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageIdOverride }).(pulumi.StringPtrOutput)
 }
 
-// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+// Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageKubernetesVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageKubernetesVersion }).(pulumi.StringPtrOutput)
 }
 
-// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+// Image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageType }).(pulumi.StringPtrOutput)
 }
@@ -578,7 +578,7 @@ type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// Name of the launch template.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	// The version number of the launch template. Default: The default version of the launch template.
+	// Version number of the launch template. Default: The default version of the launch template.
 	Version *string `pulumi:"version"`
 }
 
@@ -598,7 +598,7 @@ type ComputeEnvironmentComputeResourcesLaunchTemplateArgs struct {
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// Name of the launch template.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	// The version number of the launch template. Default: The default version of the launch template.
+	// Version number of the launch template. Default: The default version of the launch template.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -689,7 +689,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) LaunchTemplateNa
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template. Default: The default version of the launch template.
+// Version number of the launch template. Default: The default version of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -738,7 +738,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template. Default: The default version of the launch template.
+// Version number of the launch template. Default: The default version of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
 		if v == nil {
@@ -751,7 +751,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pul
 type ComputeEnvironmentEksConfiguration struct {
 	// ARN of the Amazon EKS cluster.
 	EksClusterArn string `pulumi:"eksClusterArn"`
-	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 	KubernetesNamespace string `pulumi:"kubernetesNamespace"`
 }
 
@@ -769,7 +769,7 @@ type ComputeEnvironmentEksConfigurationInput interface {
 type ComputeEnvironmentEksConfigurationArgs struct {
 	// ARN of the Amazon EKS cluster.
 	EksClusterArn pulumi.StringInput `pulumi:"eksClusterArn"`
-	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 	KubernetesNamespace pulumi.StringInput `pulumi:"kubernetesNamespace"`
 }
 
@@ -855,7 +855,7 @@ func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringO
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
 }
 
-// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 func (o ComputeEnvironmentEksConfigurationOutput) KubernetesNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.KubernetesNamespace }).(pulumi.StringOutput)
 }
@@ -894,7 +894,7 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) EksClusterArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+// Namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
 		if v == nil {
@@ -905,9 +905,9 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulum
 }
 
 type ComputeEnvironmentUpdatePolicy struct {
-	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+	// Job timeout (in minutes) when the compute environment infrastructure is updated.
 	JobExecutionTimeoutMinutes *int `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+	// Whether jobs are automatically terminated when the compute environment infrastructure is updated.
 	TerminateJobsOnUpdate *bool `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -923,9 +923,9 @@ type ComputeEnvironmentUpdatePolicyInput interface {
 }
 
 type ComputeEnvironmentUpdatePolicyArgs struct {
-	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+	// Job timeout (in minutes) when the compute environment infrastructure is updated.
 	JobExecutionTimeoutMinutes pulumi.IntPtrInput `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+	// Whether jobs are automatically terminated when the compute environment infrastructure is updated.
 	TerminateJobsOnUpdate pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -1006,12 +1006,12 @@ func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPt
 	}).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
-// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+// Job timeout (in minutes) when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+// Whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -1040,7 +1040,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) Elem() ComputeEnvironmentUpdate
 	}).(ComputeEnvironmentUpdatePolicyOutput)
 }
 
-// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+// Job timeout (in minutes) when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *int {
 		if v == nil {
@@ -1050,7 +1050,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
+// Whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *bool {
 		if v == nil {
@@ -4317,7 +4317,7 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 type JobQueueComputeEnvironmentOrder struct {
 	// ARN of the compute environment.
 	ComputeEnvironment string `pulumi:"computeEnvironment"`
-	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+	// Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 	Order int `pulumi:"order"`
 }
 
@@ -4335,7 +4335,7 @@ type JobQueueComputeEnvironmentOrderInput interface {
 type JobQueueComputeEnvironmentOrderArgs struct {
 	// ARN of the compute environment.
 	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
-	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+	// Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 	Order pulumi.IntInput `pulumi:"order"`
 }
 
@@ -4395,7 +4395,7 @@ func (o JobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.Strin
 	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
 }
 
-// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+// Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 func (o JobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
 }
@@ -4421,13 +4421,13 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 }
 
 type JobQueueJobStateTimeLimitAction struct {
-	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+	// Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
 	Action string `pulumi:"action"`
-	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+	// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 	MaxTimeSeconds int `pulumi:"maxTimeSeconds"`
-	// The reason to log for the action being taken.
+	// Reason to log for the action being taken.
 	Reason string `pulumi:"reason"`
-	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+	// State of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
 	State string `pulumi:"state"`
 }
 
@@ -4443,13 +4443,13 @@ type JobQueueJobStateTimeLimitActionInput interface {
 }
 
 type JobQueueJobStateTimeLimitActionArgs struct {
-	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+	// Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
 	Action pulumi.StringInput `pulumi:"action"`
-	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+	// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 	MaxTimeSeconds pulumi.IntInput `pulumi:"maxTimeSeconds"`
-	// The reason to log for the action being taken.
+	// Reason to log for the action being taken.
 	Reason pulumi.StringInput `pulumi:"reason"`
-	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+	// State of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4504,22 +4504,22 @@ func (o JobQueueJobStateTimeLimitActionOutput) ToJobQueueJobStateTimeLimitAction
 	return o
 }
 
-// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+// Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
 func (o JobQueueJobStateTimeLimitActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 func (o JobQueueJobStateTimeLimitActionOutput) MaxTimeSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) int { return v.MaxTimeSeconds }).(pulumi.IntOutput)
 }
 
-// The reason to log for the action being taken.
+// Reason to log for the action being taken.
 func (o JobQueueJobStateTimeLimitActionOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+// State of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
 func (o JobQueueJobStateTimeLimitActionOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4720,9 +4720,10 @@ func (o JobQueueTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SchedulingPolicyFairSharePolicy struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation *int `pulumi:"computeReservation"`
-	ShareDecaySeconds  *int `pulumi:"shareDecaySeconds"`
+	// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	ShareDecaySeconds *int `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions []SchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
@@ -4739,9 +4740,10 @@ type SchedulingPolicyFairSharePolicyInput interface {
 }
 
 type SchedulingPolicyFairSharePolicyArgs struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation pulumi.IntPtrInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntPtrInput `pulumi:"shareDecaySeconds"`
+	// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	ShareDecaySeconds pulumi.IntPtrInput `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions SchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
@@ -4823,11 +4825,12 @@ func (o SchedulingPolicyFairSharePolicyOutput) ToSchedulingPolicyFairSharePolicy
 	}).(SchedulingPolicyFairSharePolicyPtrOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ComputeReservation }).(pulumi.IntPtrOutput)
 }
 
+// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ShareDecaySeconds }).(pulumi.IntPtrOutput)
 }
@@ -4863,7 +4866,7 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) Elem() SchedulingPolicyFairSha
 	}).(SchedulingPolicyFairSharePolicyOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) *int {
 		if v == nil {
@@ -4873,6 +4876,7 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ComputeReservation() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDecaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) *int {
 		if v == nil {
@@ -4893,9 +4897,9 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDistributions() Schedulin
 }
 
 type SchedulingPolicyFairSharePolicyShareDistribution struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	ShareIdentifier string `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	WeightFactor *float64 `pulumi:"weightFactor"`
 }
 
@@ -4911,9 +4915,9 @@ type SchedulingPolicyFairSharePolicyShareDistributionInput interface {
 }
 
 type SchedulingPolicyFairSharePolicyShareDistributionArgs struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	ShareIdentifier pulumi.StringInput `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	WeightFactor pulumi.Float64PtrInput `pulumi:"weightFactor"`
 }
 
@@ -4968,12 +4972,12 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ToSchedulingPoli
 	return o
 }
 
-// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicyShareDistribution) string { return v.ShareIdentifier }).(pulumi.StringOutput)
 }
 
-// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicyShareDistribution) *float64 { return v.WeightFactor }).(pulumi.Float64PtrOutput)
 }
@@ -4999,8 +5003,10 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) Index(i pul
 }
 
 type GetComputeEnvironmentUpdatePolicy struct {
-	JobExecutionTimeoutMinutes int  `pulumi:"jobExecutionTimeoutMinutes"`
-	TerminateJobsOnUpdate      bool `pulumi:"terminateJobsOnUpdate"`
+	// Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+	JobExecutionTimeoutMinutes int `pulumi:"jobExecutionTimeoutMinutes"`
+	// Whether running jobs are terminated when the compute environment infrastructure is updated.
+	TerminateJobsOnUpdate bool `pulumi:"terminateJobsOnUpdate"`
 }
 
 // GetComputeEnvironmentUpdatePolicyInput is an input type that accepts GetComputeEnvironmentUpdatePolicyArgs and GetComputeEnvironmentUpdatePolicyOutput values.
@@ -5015,8 +5021,10 @@ type GetComputeEnvironmentUpdatePolicyInput interface {
 }
 
 type GetComputeEnvironmentUpdatePolicyArgs struct {
-	JobExecutionTimeoutMinutes pulumi.IntInput  `pulumi:"jobExecutionTimeoutMinutes"`
-	TerminateJobsOnUpdate      pulumi.BoolInput `pulumi:"terminateJobsOnUpdate"`
+	// Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+	JobExecutionTimeoutMinutes pulumi.IntInput `pulumi:"jobExecutionTimeoutMinutes"`
+	// Whether running jobs are terminated when the compute environment infrastructure is updated.
+	TerminateJobsOnUpdate pulumi.BoolInput `pulumi:"terminateJobsOnUpdate"`
 }
 
 func (GetComputeEnvironmentUpdatePolicyArgs) ElementType() reflect.Type {
@@ -5070,10 +5078,12 @@ func (o GetComputeEnvironmentUpdatePolicyOutput) ToGetComputeEnvironmentUpdatePo
 	return o
 }
 
+// Time, in minutes, that a job can run before the compute environment infrastructure is updated.
 func (o GetComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetComputeEnvironmentUpdatePolicy) int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntOutput)
 }
 
+// Whether running jobs are terminated when the compute environment infrastructure is updated.
 func (o GetComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetComputeEnvironmentUpdatePolicy) bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolOutput)
 }
@@ -10205,8 +10215,10 @@ func (o GetJobDefinitionTimeoutArrayOutput) Index(i pulumi.IntInput) GetJobDefin
 }
 
 type GetJobQueueComputeEnvironmentOrder struct {
+	// ARN of the compute environment.
 	ComputeEnvironment string `pulumi:"computeEnvironment"`
-	Order              int    `pulumi:"order"`
+	// Order of the compute environment.
+	Order int `pulumi:"order"`
 }
 
 // GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
@@ -10221,8 +10233,10 @@ type GetJobQueueComputeEnvironmentOrderInput interface {
 }
 
 type GetJobQueueComputeEnvironmentOrderArgs struct {
+	// ARN of the compute environment.
 	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
-	Order              pulumi.IntInput    `pulumi:"order"`
+	// Order of the compute environment.
+	Order pulumi.IntInput `pulumi:"order"`
 }
 
 func (GetJobQueueComputeEnvironmentOrderArgs) ElementType() reflect.Type {
@@ -10276,10 +10290,12 @@ func (o GetJobQueueComputeEnvironmentOrderOutput) ToGetJobQueueComputeEnvironmen
 	return o
 }
 
+// ARN of the compute environment.
 func (o GetJobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
 }
 
+// Order of the compute environment.
 func (o GetJobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobQueueComputeEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
 }
@@ -10305,10 +10321,13 @@ func (o GetJobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetJobQueueJobStateTimeLimitAction struct {
-	Action         string `pulumi:"action"`
-	MaxTimeSeconds int    `pulumi:"maxTimeSeconds"`
-	Reason         string `pulumi:"reason"`
-	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+	// Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+	Action string `pulumi:"action"`
+	// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+	MaxTimeSeconds int `pulumi:"maxTimeSeconds"`
+	// Reason to log for the action being taken.
+	Reason string `pulumi:"reason"`
+	// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 	State string `pulumi:"state"`
 }
 
@@ -10324,10 +10343,13 @@ type GetJobQueueJobStateTimeLimitActionInput interface {
 }
 
 type GetJobQueueJobStateTimeLimitActionArgs struct {
-	Action         pulumi.StringInput `pulumi:"action"`
-	MaxTimeSeconds pulumi.IntInput    `pulumi:"maxTimeSeconds"`
-	Reason         pulumi.StringInput `pulumi:"reason"`
-	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+	// Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+	MaxTimeSeconds pulumi.IntInput `pulumi:"maxTimeSeconds"`
+	// Reason to log for the action being taken.
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -10382,19 +10404,22 @@ func (o GetJobQueueJobStateTimeLimitActionOutput) ToGetJobQueueJobStateTimeLimit
 	return o
 }
 
+// Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
 func (o GetJobQueueJobStateTimeLimitActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
 func (o GetJobQueueJobStateTimeLimitActionOutput) MaxTimeSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) int { return v.MaxTimeSeconds }).(pulumi.IntOutput)
 }
 
+// Reason to log for the action being taken.
 func (o GetJobQueueJobStateTimeLimitActionOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 func (o GetJobQueueJobStateTimeLimitActionOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) string { return v.State }).(pulumi.StringOutput)
 }
@@ -10422,7 +10447,8 @@ func (o GetJobQueueJobStateTimeLimitActionArrayOutput) Index(i pulumi.IntInput) 
 type GetSchedulingPolicyFairSharePolicy struct {
 	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation int `pulumi:"computeReservation"`
-	ShareDecaySeconds  int `pulumi:"shareDecaySeconds"`
+	// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	ShareDecaySeconds int `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions []GetSchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
@@ -10441,7 +10467,8 @@ type GetSchedulingPolicyFairSharePolicyInput interface {
 type GetSchedulingPolicyFairSharePolicyArgs struct {
 	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation pulumi.IntInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntInput `pulumi:"shareDecaySeconds"`
+	// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	ShareDecaySeconds pulumi.IntInput `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 	ShareDistributions GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
@@ -10502,6 +10529,7 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.In
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ComputeReservation }).(pulumi.IntOutput)
 }
 
+// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o GetSchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ShareDecaySeconds }).(pulumi.IntOutput)
 }

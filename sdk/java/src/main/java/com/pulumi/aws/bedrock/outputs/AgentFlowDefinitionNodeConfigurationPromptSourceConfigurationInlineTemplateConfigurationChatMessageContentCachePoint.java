@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     private String type;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint() {}
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public String type() {

@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration {
     /**
-     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
      * 
      */
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration queryEngineConfiguration;
     /**
-     * @return Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+     * @return Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration queryGenerationConfiguration;
     /**
-     * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+     * @return Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
      * 
      */
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration storageConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration() {}
     /**
-     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
+     * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` Block for details.
      * 
      */
     public AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration queryEngineConfiguration() {
         return this.queryEngineConfiguration;
     }
     /**
-     * @return Configurations for generating queries. See `queryGenerationConfiguration` block for details.
+     * @return Configurations for generating queries. See `queryGenerationConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration> queryGenerationConfiguration() {
         return Optional.ofNullable(this.queryGenerationConfiguration);
     }
     /**
-     * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
+     * @return Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
      * 
      */
     public AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration storageConfiguration() {

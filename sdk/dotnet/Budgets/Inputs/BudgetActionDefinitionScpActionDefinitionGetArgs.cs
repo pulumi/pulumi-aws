@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetActionDefinitionScpActionDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy ID attached.
+        /// Policy ID attached.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _targetIds;
 
         /// <summary>
-        /// A list of target IDs.
+        /// List of target IDs.
         /// </summary>
         public InputList<string> TargetIds
         {

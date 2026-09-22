@@ -34,14 +34,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time at which the flow was created.
+     * Time at which the flow was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The time at which the flow was created.
+     * @return Time at which the flow was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -64,14 +64,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     @Import(name="definition")
     private @Nullable Output<AgentFlowDefinitionArgs> definition;
 
     /**
-     * @return A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+     * @return Nodes and connections between nodes in the flow. See `definition` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionArgs>> definition() {
@@ -79,14 +79,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the flow.
+     * Description for the flow.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the flow.
+     * @return Description for the flow.
      * 
      */
     public Optional<Output<String>> description() {
@@ -96,8 +96,6 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
@@ -105,22 +103,24 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<String>> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
 
     /**
-     * A name for the flow.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -143,14 +143,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the flow.
+     * Status of the flow.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the flow.
+     * @return Status of the flow.
      * 
      */
     public Optional<Output<String>> status() {
@@ -173,14 +173,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -195,14 +195,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time at which the flow was last updated.
+     * Time at which the flow was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The time at which the flow was last updated.
+     * @return Time at which the flow was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -210,14 +210,14 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the flow.
+     * Version of the flow.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the flow.
+     * @return Version of the flow.
      * 
      */
     public Optional<Output<String>> version() {
@@ -283,7 +283,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The time at which the flow was created.
+         * @param createdAt Time at which the flow was created.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The time at which the flow was created.
+         * @param createdAt Time at which the flow was created.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+         * @param definition Nodes and connections between nodes in the flow. See `definition` Block for details.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+         * @param definition Nodes and connections between nodes in the flow. See `definition` Block for details.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the flow.
+         * @param description Description for the flow.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the flow.
+         * @param description Description for the flow.
          * 
          * @return builder
          * 
@@ -368,8 +368,6 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -382,8 +380,6 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -392,7 +388,9 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -403,7 +401,9 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the flow.
+         * @param status Status of the flow.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the flow.
+         * @param status Status of the flow.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The time at which the flow was last updated.
+         * @param updatedAt Time at which the flow was last updated.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The time at which the flow was last updated.
+         * @param updatedAt Time at which the flow was last updated.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the flow.
+         * @param version Version of the flow.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class AgentFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the flow.
+         * @param version Version of the flow.
          * 
          * @return builder
          * 

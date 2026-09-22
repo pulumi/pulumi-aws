@@ -22,6 +22,8 @@ __all__ = ['AgentcoreApiKeyCredentialProviderArgs', 'AgentcoreApiKeyCredentialPr
 class AgentcoreApiKeyCredentialProviderArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']] = None,
+                 api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,22 +32,24 @@ class AgentcoreApiKeyCredentialProviderArgs:
         """
         The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs'] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+               Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **Standard API Key (choose one approach):**
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_secret_config is not None:
+            pulumi.set(__self__, "api_key_secret_config", api_key_secret_config)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if api_key_wo is not None:
             pulumi.set(__self__, "api_key_wo", api_key_wo)
         if api_key_wo_version is not None:
@@ -61,9 +65,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
+        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
         """
         return pulumi.get(self, "api_key")
 
@@ -72,11 +74,35 @@ class AgentcoreApiKeyCredentialProviderArgs:
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']]:
+        """
+        Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        """
+        return pulumi.get(self, "api_key_secret_config")
+
+    @api_key_secret_config.setter
+    def api_key_secret_config(self, value: pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']]):
+        pulumi.set(self, "api_key_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        """
+        return pulumi.get(self, "api_key_secret_source")
+
+    @api_key_secret_source.setter
+    def api_key_secret_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_secret_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="apiKeyWo")
     def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -127,8 +153,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **Standard API Key (choose one approach):**
         """
         return pulumi.get(self, "tags")
 
@@ -142,6 +166,8 @@ class _AgentcoreApiKeyCredentialProviderState:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]]] = None,
+                 api_key_secret_config: pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']] = None,
+                 api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -152,12 +178,12 @@ class _AgentcoreApiKeyCredentialProviderState:
         """
         Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
+        :param pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs'] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+               Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
@@ -165,14 +191,16 @@ class _AgentcoreApiKeyCredentialProviderState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **Standard API Key (choose one approach):**
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if api_key_secret_arns is not None:
             pulumi.set(__self__, "api_key_secret_arns", api_key_secret_arns)
+        if api_key_secret_config is not None:
+            pulumi.set(__self__, "api_key_secret_config", api_key_secret_config)
+        if api_key_secret_source is not None:
+            pulumi.set(__self__, "api_key_secret_source", api_key_secret_source)
         if api_key_wo is not None:
             pulumi.set(__self__, "api_key_wo", api_key_wo)
         if api_key_wo_version is not None:
@@ -192,9 +220,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
+        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
         """
         return pulumi.get(self, "api_key")
 
@@ -215,11 +241,35 @@ class _AgentcoreApiKeyCredentialProviderState:
         pulumi.set(self, "api_key_secret_arns", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']]:
+        """
+        Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        """
+        return pulumi.get(self, "api_key_secret_config")
+
+    @api_key_secret_config.setter
+    def api_key_secret_config(self, value: pulumi.Input[Optional['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs']]):
+        pulumi.set(self, "api_key_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        """
+        return pulumi.get(self, "api_key_secret_source")
+
+    @api_key_secret_source.setter
+    def api_key_secret_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_secret_source", value)
+
+    @_builtins.property
     @pulumi.getter(name="apiKeyWo")
     def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -282,8 +332,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **Standard API Key (choose one approach):**
         """
         return pulumi.get(self, "tags")
 
@@ -295,7 +343,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -311,6 +359,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']]] = None,
+                 api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -347,7 +397,35 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             api_key_wo_version=1)
         ```
 
+        ### Customer-Managed Secret
+
+        Reference an API key already stored in a customer-managed AWS Secrets Manager secret instead of having AgentCore create and manage one.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
+            api_key_secret_config={
+                "secret_id": example_aws_secretsmanager_secret["id"],
+                "json_key": "apiKey",
+            },
+            name="example-api-key-provider",
+            api_key_secret_source="EXTERNAL")
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) API key credential provider name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
 
@@ -358,19 +436,17 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+               Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **Standard API Key (choose one approach):**
         """
         ...
     @overload
@@ -408,7 +484,35 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             api_key_wo_version=1)
         ```
 
+        ### Customer-Managed Secret
+
+        Reference an API key already stored in a customer-managed AWS Secrets Manager secret instead of having AgentCore create and manage one.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
+            api_key_secret_config={
+                "secret_id": example_aws_secretsmanager_secret["id"],
+                "json_key": "apiKey",
+            },
+            name="example-api-key-provider",
+            api_key_secret_source="EXTERNAL")
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) API key credential provider name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
 
@@ -433,6 +537,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']]] = None,
+                 api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -448,6 +554,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             __props__ = AgentcoreApiKeyCredentialProviderArgs.__new__(AgentcoreApiKeyCredentialProviderArgs)
 
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
+            __props__.__dict__["api_key_secret_config"] = api_key_secret_config
+            __props__.__dict__["api_key_secret_source"] = api_key_secret_source
             __props__.__dict__["api_key_wo"] = None if api_key_wo is None else pulumi.Output.secret(api_key_wo)
             __props__.__dict__["api_key_wo_version"] = api_key_wo_version
             __props__.__dict__["name"] = name
@@ -470,6 +578,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
             api_key_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]]] = None,
+            api_key_secret_config: pulumi.Input[Optional[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']]] = None,
+            api_key_secret_source: pulumi.Input[Optional[_builtins.str]] = None,
             api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
             api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -484,12 +594,12 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
+        :param pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+               Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
@@ -497,9 +607,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **Standard API Key (choose one approach):**
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,6 +615,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["api_key_secret_arns"] = api_key_secret_arns
+        __props__.__dict__["api_key_secret_config"] = api_key_secret_config
+        __props__.__dict__["api_key_secret_source"] = api_key_secret_source
         __props__.__dict__["api_key_wo"] = api_key_wo
         __props__.__dict__["api_key_wo_version"] = api_key_wo_version
         __props__.__dict__["credential_provider_arn"] = credential_provider_arn
@@ -520,9 +630,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
+        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
         """
         return pulumi.get(self, "api_key")
 
@@ -535,11 +643,27 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         return pulumi.get(self, "api_key_secret_arns")
 
     @_builtins.property
+    @pulumi.getter(name="apiKeySecretConfig")
+    def api_key_secret_config(self) -> pulumi.Output[Optional['outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']]:
+        """
+        Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
+        """
+        return pulumi.get(self, "api_key_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeySecretSource")
+    def api_key_secret_source(self) -> pulumi.Output[_builtins.str]:
+        """
+        Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        """
+        return pulumi.get(self, "api_key_secret_source")
+
+    @_builtins.property
     @pulumi.getter(name="apiKeyWo")
     def api_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -582,8 +706,6 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **Standard API Key (choose one approach):**
         """
         return pulumi.get(self, "tags")
 
@@ -591,7 +713,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

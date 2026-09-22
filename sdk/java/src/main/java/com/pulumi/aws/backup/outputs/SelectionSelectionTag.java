@@ -16,7 +16,7 @@ public final class SelectionSelectionTag {
      */
     private String key;
     /**
-     * @return An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+     * @return Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
      * 
      */
     private String type;
@@ -35,7 +35,7 @@ public final class SelectionSelectionTag {
         return this.key;
     }
     /**
-     * @return An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+     * @return Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
      * 
      */
     public String type() {

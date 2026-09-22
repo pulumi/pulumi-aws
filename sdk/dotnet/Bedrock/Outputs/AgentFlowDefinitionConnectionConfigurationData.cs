@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionConnectionConfigurationData
     {
         /// <summary>
-        /// The name of the output in the source node that the connection begins from.
+        /// Name of the output in the source node that the connection begins from.
         /// </summary>
         public readonly string SourceOutput;
         /// <summary>
-        /// The name of the input in the target node that the connection ends at.
+        /// Name of the input in the target node that the connection ends at.
         /// </summary>
         public readonly string TargetInput;
 

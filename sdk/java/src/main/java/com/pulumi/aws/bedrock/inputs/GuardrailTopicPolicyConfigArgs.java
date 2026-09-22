@@ -18,14 +18,14 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
     public static final GuardrailTopicPolicyConfigArgs Empty = new GuardrailTopicPolicyConfigArgs();
 
     /**
-     * Configuration block for the topic policy tier. See Tier Config for more information.
+     * Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
      * 
      */
     @Import(name="tierConfigs")
     private @Nullable Output<List<GuardrailTopicPolicyConfigTierConfigArgs>> tierConfigs;
 
     /**
-     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * @return Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailTopicPolicyConfigTierConfigArgs>>> tierConfigs() {
@@ -33,14 +33,14 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * List of topic configs in topic policy. See Topics Config for more information.
+     * List of topic configs in topic policy. See `topicsConfig` Block for more information.
      * 
      */
     @Import(name="topicsConfigs")
     private @Nullable Output<List<GuardrailTopicPolicyConfigTopicsConfigArgs>> topicsConfigs;
 
     /**
-     * @return List of topic configs in topic policy. See Topics Config for more information.
+     * @return List of topic configs in topic policy. See `topicsConfig` Block for more information.
      * 
      */
     public Optional<Output<List<GuardrailTopicPolicyConfigTopicsConfigArgs>>> topicsConfigs() {
@@ -73,7 +73,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tierConfigs Configuration block for the topic policy tier. See Tier Config for more information.
+         * @param tierConfigs Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
+         * @param topicsConfigs List of topic configs in topic policy. See `topicsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
+         * @param topicsConfigs List of topic configs in topic policy. See `topicsConfig` Block for more information.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GuardrailTopicPolicyConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param topicsConfigs List of topic configs in topic policy. See Topics Config for more information.
+         * @param topicsConfigs List of topic configs in topic policy. See `topicsConfig` Block for more information.
          * 
          * @return builder
          * 

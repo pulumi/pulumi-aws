@@ -35,10 +35,13 @@ public final class GetAgentAgentVersionsAgentVersionSummary {
     private String createdAt;
     /**
      * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     private String description;
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations;
     /**
      * @return Time at which the version was last updated.
@@ -77,12 +80,15 @@ public final class GetAgentAgentVersionsAgentVersionSummary {
     }
     /**
      * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     public List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations() {
         return this.guardrailConfigurations == null ? List.of() : this.guardrailConfigurations;
     }

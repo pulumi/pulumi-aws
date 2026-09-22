@@ -13,17 +13,20 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChat
     {
+        /// <summary>
+        /// List of variables in the prompt template. See `InputVariable` Block for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AgentPromptVariantTemplateConfigurationChatInputVariable> InputVariables;
         /// <summary>
-        /// A list of messages in the chat for the prompt. See Message for more information.
+        /// List of messages in the chat for the prompt. See `Message` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentPromptVariantTemplateConfigurationChatMessage> Messages;
         /// <summary>
-        /// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        /// List of system prompts to provide context to the model or to describe how it should behave. See `System` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentPromptVariantTemplateConfigurationChatSystem> Systems;
         /// <summary>
-        /// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        /// Configuration information for the tools that the model can use when generating a response. See `ToolConfiguration` Block for more information.
         /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration? ToolConfiguration;
 

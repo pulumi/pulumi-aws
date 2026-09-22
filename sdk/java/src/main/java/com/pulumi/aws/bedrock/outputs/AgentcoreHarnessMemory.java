@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessMemory {
     /**
-     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryAgentcoreMemoryConfiguration agentcoreMemoryConfiguration;
     /**
-     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * @return Explicitly disable memory for this harness. See `memory.disabled` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryDisabled disabled;
     /**
-     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryManagedMemoryConfiguration managedMemoryConfiguration;
 
     private AgentcoreHarnessMemory() {}
     /**
-     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryAgentcoreMemoryConfiguration> agentcoreMemoryConfiguration() {
         return Optional.ofNullable(this.agentcoreMemoryConfiguration);
     }
     /**
-     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * @return Explicitly disable memory for this harness. See `memory.disabled` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryDisabled> disabled() {
         return Optional.ofNullable(this.disabled);
     }
     /**
-     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryManagedMemoryConfiguration> managedMemoryConfiguration() {

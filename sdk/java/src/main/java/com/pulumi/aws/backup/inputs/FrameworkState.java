@@ -19,14 +19,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     public static final FrameworkState Empty = new FrameworkState();
 
     /**
-     * The ARN of the backup framework.
+     * ARN of the backup framework.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the backup framework.
+     * @return ARN of the backup framework.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
     /**
-     * @return The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -64,14 +64,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+     * Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
     @Import(name="deploymentStatus")
     private @Nullable Output<String> deploymentStatus;
 
     /**
-     * @return The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
     public Optional<Output<String>> deploymentStatus() {
@@ -79,14 +79,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the framework with a maximum of 1,024 characters
+     * Description of the framework with a maximum of 1,024 characters
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the framework with a maximum of 1,024 characters
+     * @return Description of the framework with a maximum of 1,024 characters
      * 
      */
     public Optional<Output<String>> description() {
@@ -94,14 +94,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
     public Optional<Output<String>> status() {
@@ -154,14 +154,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the backup framework.
+         * @param arn ARN of the backup framework.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the backup framework.
+         * @param arn ARN of the backup framework.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+         * @param creationTime Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+         * @param creationTime Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStatus The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+         * @param deploymentStatus Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentStatus The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+         * @param deploymentStatus Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the framework with a maximum of 1,024 characters
+         * @param description Description of the framework with a maximum of 1,024 characters
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the framework with a maximum of 1,024 characters
+         * @param description Description of the framework with a maximum of 1,024 characters
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+         * @param status Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+         * @param status Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

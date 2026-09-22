@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The intermediate storage for custom transformation.
+        /// Intermediate storage for custom transformation. See `IntermediateStorage` Block for details.
         /// </summary>
         [Input("intermediateStorage")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs>? IntermediateStorage { get; set; }
 
         /// <summary>
-        /// A custom processing step for documents moving through the data source ingestion pipeline.
+        /// Custom processing step for documents moving through the data source ingestion pipeline. See `Transformation` Block for details.
         /// </summary>
         [Input("transformation")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs>? Transformation { get; set; }

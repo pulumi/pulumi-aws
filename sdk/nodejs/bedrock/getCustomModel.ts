@@ -78,7 +78,7 @@ export interface GetCustomModelResult {
     readonly modelArn: string;
     readonly modelId: string;
     /**
-     * The custom model is encrypted at rest using this key.
+     * Key used to encrypt the custom model at rest.
      */
     readonly modelKmsKeyArn: string;
     /**
@@ -107,7 +107,7 @@ export interface GetCustomModelResult {
      */
     readonly validationDataConfigs: outputs.bedrock.GetCustomModelValidationDataConfig[];
     /**
-     * The loss metric for each validator that you provided.
+     * Loss metric for each validator that you provided.
      */
     readonly validationMetrics: outputs.bedrock.GetCustomModelValidationMetric[];
 }

@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> BaseModelIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the output model.
+        /// ARN of the output model.
         /// </summary>
         [Output("customModelArn")]
         public Output<string> CustomModelArn { get; private set; } = null!;
 
         /// <summary>
-        /// The custom model is encrypted at rest using this key. Specify the key ARN.
+        /// Key ARN used to encrypt the custom model at rest.
         /// </summary>
         [Output("customModelKmsKeyId")]
         public Output<string?> CustomModelKmsKeyId { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CustomModelName { get; private set; } = null!;
 
         /// <summary>
-        /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        /// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
         [Output("customizationType")]
         public Output<string> CustomizationType { get; private set; } = null!;
@@ -120,25 +120,25 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>> Hyperparameters { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the customization job.
+        /// ARN of the customization job.
         /// </summary>
         [Output("jobArn")]
         public Output<string> JobArn { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the customization job.
+        /// Name for the customization job.
         /// </summary>
         [Output("jobName")]
         public Output<string> JobName { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        /// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         /// </summary>
         [Output("jobStatus")]
         public Output<string> JobStatus { get; private set; } = null!;
 
         /// <summary>
-        /// S3 location for the output data.
+        /// S3 location for the output data. See `OutputDataConfig` below.
         /// </summary>
         [Output("outputDataConfig")]
         public Output<Outputs.CustomModelOutputDataConfig> OutputDataConfig { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.CustomModelTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the training dataset.
+        /// Information about the training dataset. See `TrainingDataConfig` below.
         /// </summary>
         [Output("trainingDataConfig")]
         public Output<Outputs.CustomModelTrainingDataConfig> TrainingDataConfig { get; private set; } = null!;
@@ -183,19 +183,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<Outputs.CustomModelTrainingMetric>> TrainingMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the validation dataset.
+        /// Information about the validation dataset. See `ValidationDataConfig` below.
         /// </summary>
         [Output("validationDataConfig")]
         public Output<Outputs.CustomModelValidationDataConfig?> ValidationDataConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The loss metric for each validator that you provided.
+        /// Loss metric for each validator that you provided.
         /// </summary>
         [Output("validationMetrics")]
         public Output<ImmutableArray<Outputs.CustomModelValidationMetric>> ValidationMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job. See `VpcConfig` below.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.CustomModelVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> BaseModelIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The custom model is encrypted at rest using this key. Specify the key ARN.
+        /// Key ARN used to encrypt the custom model at rest.
         /// </summary>
         [Input("customModelKmsKeyId")]
         public Input<string>? CustomModelKmsKeyId { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> CustomModelName { get; set; } = null!;
 
         /// <summary>
-        /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        /// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
         [Input("customizationType")]
         public Input<string>? CustomizationType { get; set; }
@@ -283,13 +283,13 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// A name for the customization job.
+        /// Name for the customization job.
         /// </summary>
         [Input("jobName", required: true)]
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// S3 location for the output data.
+        /// S3 location for the output data. See `OutputDataConfig` below.
         /// </summary>
         [Input("outputDataConfig", required: true)]
         public Input<Inputs.CustomModelOutputDataConfigArgs> OutputDataConfig { get; set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -322,19 +322,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.CustomModelTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Information about the training dataset.
+        /// Information about the training dataset. See `TrainingDataConfig` below.
         /// </summary>
         [Input("trainingDataConfig", required: true)]
         public Input<Inputs.CustomModelTrainingDataConfigArgs> TrainingDataConfig { get; set; } = null!;
 
         /// <summary>
-        /// Information about the validation dataset.
+        /// Information about the validation dataset. See `ValidationDataConfig` below.
         /// </summary>
         [Input("validationDataConfig")]
         public Input<Inputs.CustomModelValidationDataConfigArgs>? ValidationDataConfig { get; set; }
 
         /// <summary>
-        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job. See `VpcConfig` below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CustomModelVpcConfigArgs>? VpcConfig { get; set; }
@@ -354,13 +354,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? BaseModelIdentifier { get; set; }
 
         /// <summary>
-        /// The ARN of the output model.
+        /// ARN of the output model.
         /// </summary>
         [Input("customModelArn")]
         public Input<string>? CustomModelArn { get; set; }
 
         /// <summary>
-        /// The custom model is encrypted at rest using this key. Specify the key ARN.
+        /// Key ARN used to encrypt the custom model at rest.
         /// </summary>
         [Input("customModelKmsKeyId")]
         public Input<string>? CustomModelKmsKeyId { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CustomModelName { get; set; }
 
         /// <summary>
-        /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        /// Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
         [Input("customizationType")]
         public Input<string>? CustomizationType { get; set; }
@@ -390,25 +390,25 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// The ARN of the customization job.
+        /// ARN of the customization job.
         /// </summary>
         [Input("jobArn")]
         public Input<string>? JobArn { get; set; }
 
         /// <summary>
-        /// A name for the customization job.
+        /// Name for the customization job.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
 
         /// <summary>
-        /// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        /// Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         /// </summary>
         [Input("jobStatus")]
         public Input<string>? JobStatus { get; set; }
 
         /// <summary>
-        /// S3 location for the output data.
+        /// S3 location for the output data. See `OutputDataConfig` below.
         /// </summary>
         [Input("outputDataConfig")]
         public Input<Inputs.CustomModelOutputDataConfigGetArgs>? OutputDataConfig { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the customization job and custom model. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.CustomModelTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Information about the training dataset.
+        /// Information about the training dataset. See `TrainingDataConfig` below.
         /// </summary>
         [Input("trainingDataConfig")]
         public Input<Inputs.CustomModelTrainingDataConfigGetArgs>? TrainingDataConfig { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Information about the validation dataset.
+        /// Information about the validation dataset. See `ValidationDataConfig` below.
         /// </summary>
         [Input("validationDataConfig")]
         public Input<Inputs.CustomModelValidationDataConfigGetArgs>? ValidationDataConfig { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.CustomModelValidationMetricGetArgs>? _validationMetrics;
 
         /// <summary>
-        /// The loss metric for each validator that you provided.
+        /// Loss metric for each validator that you provided.
         /// </summary>
         public InputList<Inputs.CustomModelValidationMetricGetArgs> ValidationMetrics
         {
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job. See `VpcConfig` below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CustomModelVpcConfigGetArgs>? VpcConfig { get; set; }

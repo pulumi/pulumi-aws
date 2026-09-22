@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs>? SourceConfiguration { get; set; }
 

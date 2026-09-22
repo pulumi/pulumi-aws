@@ -18,14 +18,14 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     public static final VaultArgs Empty = new VaultArgs();
 
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * @return Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -33,14 +33,14 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The server-side encryption key that is used to protect your backups.
+     * @return Server-side encryption key that is used to protect your backups.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -121,7 +121,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * @param forceDestroy Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * @param forceDestroy Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The server-side encryption key that is used to protect your backups.
+         * @param kmsKeyArn Server-side encryption key that is used to protect your backups.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The server-side encryption key that is used to protect your backups.
+         * @param kmsKeyArn Server-side encryption key that is used to protect your backups.
          * 
          * @return builder
          * 

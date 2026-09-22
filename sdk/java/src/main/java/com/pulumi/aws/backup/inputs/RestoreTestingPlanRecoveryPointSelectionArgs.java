@@ -19,14 +19,14 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
     public static final RestoreTestingPlanRecoveryPointSelectionArgs Empty = new RestoreTestingPlanRecoveryPointSelectionArgs();
 
     /**
-     * Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
+     * Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
      * 
      */
     @Import(name="algorithm", required=true)
     private Output<String> algorithm;
 
     /**
-     * @return Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
+     * @return Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
      * 
      */
     public Output<String> algorithm() {
@@ -34,14 +34,14 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
     }
 
     /**
-     * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
+     * Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
      * 
      */
     @Import(name="excludeVaults")
     private @Nullable Output<List<String>> excludeVaults;
 
     /**
-     * @return Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
+     * @return Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
      * 
      */
     public Optional<Output<List<String>>> excludeVaults() {
@@ -49,14 +49,14 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
     }
 
     /**
-     * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
+     * Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
      * 
      */
     @Import(name="includeVaults", required=true)
     private Output<List<String>> includeVaults;
 
     /**
-     * @return Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
+     * @return Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
      * 
      */
     public Output<List<String>> includeVaults() {
@@ -64,14 +64,14 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
     }
 
     /**
-     * Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
+     * Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
      * 
      */
     @Import(name="recoveryPointTypes", required=true)
     private Output<List<String>> recoveryPointTypes;
 
     /**
-     * @return Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
+     * @return Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
      * 
      */
     public Output<List<String>> recoveryPointTypes() {
@@ -79,14 +79,14 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
     }
 
     /**
-     * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+     * Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
      * 
      */
     @Import(name="selectionWindowDays")
     private @Nullable Output<Integer> selectionWindowDays;
 
     /**
-     * @return Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+     * @return Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
      * 
      */
     public Optional<Output<Integer>> selectionWindowDays() {
@@ -122,7 +122,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param algorithm Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
+         * @param algorithm Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param algorithm Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
+         * @param algorithm Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
+         * @param excludeVaults Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
+         * @param excludeVaults Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
+         * @param excludeVaults Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
+         * @param includeVaults Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
+         * @param includeVaults Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
+         * @param includeVaults Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
+         * @param recoveryPointTypes Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
+         * @param recoveryPointTypes Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
+         * @param recoveryPointTypes Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param selectionWindowDays Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         * @param selectionWindowDays Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
         }
 
         /**
-         * @param selectionWindowDays Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         * @param selectionWindowDays Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
          * 
          * @return builder
          * 

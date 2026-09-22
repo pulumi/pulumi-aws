@@ -234,7 +234,7 @@ type AgentDataSource struct {
 
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy pulumi.StringOutput `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+	// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 	DataSourceConfiguration AgentDataSourceDataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Unique identifier of the data source.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
@@ -248,10 +248,10 @@ type AgentDataSource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          AgentDataSourceTimeoutsPtrOutput                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+	// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -293,7 +293,7 @@ func GetAgentDataSource(ctx *pulumi.Context,
 type agentDataSourceState struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+	// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 	DataSourceConfiguration *AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Unique identifier of the data source.
 	DataSourceId *string `pulumi:"dataSourceId"`
@@ -307,17 +307,17 @@ type agentDataSourceState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+	// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 	VectorIngestionConfiguration *AgentDataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
 type AgentDataSourceState struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy pulumi.StringPtrInput
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+	// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrInput
 	// Unique identifier of the data source.
 	DataSourceId pulumi.StringPtrInput
@@ -331,10 +331,10 @@ type AgentDataSourceState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+	// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrInput
 }
 
@@ -345,7 +345,7 @@ func (AgentDataSourceState) ElementType() reflect.Type {
 type agentDataSourceArgs struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+	// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 	DataSourceConfiguration AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Description of the data source.
 	Description *string `pulumi:"description"`
@@ -357,10 +357,10 @@ type agentDataSourceArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Timeouts                          *AgentDataSourceTimeouts                          `pulumi:"timeouts"`
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+	// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 	VectorIngestionConfiguration *AgentDataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -368,7 +368,7 @@ type agentDataSourceArgs struct {
 type AgentDataSourceArgs struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy pulumi.StringPtrInput
-	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+	// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 	DataSourceConfiguration AgentDataSourceDataSourceConfigurationInput
 	// Description of the data source.
 	Description pulumi.StringPtrInput
@@ -380,10 +380,10 @@ type AgentDataSourceArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
 	Timeouts                          AgentDataSourceTimeoutsPtrInput
-	// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+	// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 	VectorIngestionConfiguration AgentDataSourceVectorIngestionConfigurationPtrInput
 }
 
@@ -479,7 +479,7 @@ func (o AgentDataSourceOutput) DataDeletionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.DataDeletionPolicy }).(pulumi.StringOutput)
 }
 
-// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+// Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
 func (o AgentDataSourceOutput) DataSourceConfiguration() AgentDataSourceDataSourceConfigurationOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceDataSourceConfigurationOutput {
 		return v.DataSourceConfiguration
@@ -513,7 +513,7 @@ func (o AgentDataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
 func (o AgentDataSourceOutput) ServerSideEncryptionConfiguration() AgentDataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
@@ -524,7 +524,7 @@ func (o AgentDataSourceOutput) Timeouts() AgentDataSourceTimeoutsPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceTimeoutsPtrOutput { return v.Timeouts }).(AgentDataSourceTimeoutsPtrOutput)
 }
 
-// Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+// Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
 func (o AgentDataSourceOutput) VectorIngestionConfiguration() AgentDataSourceVectorIngestionConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceVectorIngestionConfigurationPtrOutput {
 		return v.VectorIngestionConfiguration

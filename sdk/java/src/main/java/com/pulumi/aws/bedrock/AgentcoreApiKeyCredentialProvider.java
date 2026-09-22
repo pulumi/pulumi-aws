@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProviderArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreApiKeyCredentialProviderState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn;
+import com.pulumi.aws.bedrock.outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -94,7 +95,59 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Customer-Managed Secret
+ * 
+ * Reference an API key already stored in a customer-managed AWS Secrets Manager secret instead of having AgentCore create and manage one.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProvider;
+ * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProviderArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreApiKeyCredentialProvider("example", AgentcoreApiKeyCredentialProviderArgs.builder()
+ *             .apiKeySecretConfig(AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs.builder()
+ *                 .secretId(exampleAwsSecretsmanagerSecret.id())
+ *                 .jsonKey("apiKey")
+ *                 .build())
+ *             .name("example-api-key-provider")
+ *             .apiKeySecretSource("EXTERNAL")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) API key credential provider name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
  * 
@@ -106,18 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider")
 public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.CustomResource {
     /**
-     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
+     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
+     * @return API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -138,8 +187,36 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
         return this.apiKeySecretArns;
     }
     /**
+     * Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+     * 
+     */
+    @Export(name="apiKeySecretConfig", refs={AgentcoreApiKeyCredentialProviderApiKeySecretConfig.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreApiKeyCredentialProviderApiKeySecretConfig> apiKeySecretConfig;
+
+    /**
+     * @return Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+     * 
+     */
+    public Output<Optional<AgentcoreApiKeyCredentialProviderApiKeySecretConfig>> apiKeySecretConfig() {
+        return Codegen.optional(this.apiKeySecretConfig);
+    }
+    /**
+     * Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+     * 
+     */
+    @Export(name="apiKeySecretSource", refs={String.class}, tree="[0]")
+    private Output<String> apiKeySecretSource;
+
+    /**
+     * @return Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+     * 
+     */
+    public Output<String> apiKeySecretSource() {
+        return this.apiKeySecretSource;
+    }
+    /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+     * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     @Export(name="apiKeyWo", refs={String.class}, tree="[0]")
@@ -147,7 +224,7 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+     * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> apiKeyWo() {
@@ -216,8 +293,6 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * **Standard API Key (choose one approach):**
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
@@ -225,21 +300,19 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * **Standard API Key (choose one approach):**
-     * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
