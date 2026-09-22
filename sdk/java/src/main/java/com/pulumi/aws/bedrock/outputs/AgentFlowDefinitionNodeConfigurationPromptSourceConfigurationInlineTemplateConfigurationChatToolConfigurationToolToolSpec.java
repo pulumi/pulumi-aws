@@ -14,38 +14,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
     /**
-     * @return The description of the tool.
+     * @return Description for the flow.
      * 
      */
     private @Nullable String description;
     /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
+     * @return Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema inputSchema;
     /**
-     * @return The name of the tool.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec() {}
     /**
-     * @return The description of the tool.
+     * @return Description for the flow.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
+     * @return Input schema of the tool. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration.tool.tool_spec.input_schema` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
     /**
-     * @return The name of the tool.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

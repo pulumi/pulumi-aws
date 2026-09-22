@@ -78,11 +78,11 @@ export class VaultNotifications extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      */
     declare public readonly backupVaultEvents: pulumi.Output<string[]>;
     /**
@@ -143,11 +143,11 @@ export class VaultNotifications extends pulumi.CustomResource {
  */
 export interface VaultNotificationsState {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     backupVaultArn?: pulumi.Input<string | undefined>;
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      */
     backupVaultEvents?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface VaultNotificationsState {
  */
 export interface VaultNotificationsArgs {
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      */
     backupVaultEvents: pulumi.Input<pulumi.Input<string>[]>;
     /**

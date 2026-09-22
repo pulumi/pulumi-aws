@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> GrantType { get; set; } = null!;
 
         /// <summary>
-        /// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `TokenExchangeGrantTypeConfig` below.
+        /// Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `TokenExchangeGrantTypeConfig` Block below.
         /// </summary>
         [Input("tokenExchangeGrantTypeConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs>? TokenExchangeGrantTypeConfig { get; set; }

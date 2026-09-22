@@ -32,7 +32,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
      */
     private String tokenEndpoint;
     /**
-     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * @return List of authentication methods supported by the token endpoint.
      * 
      */
     private List<String> tokenEndpointAuthMethods;
@@ -67,7 +67,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         return this.tokenEndpoint;
     }
     /**
-     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * @return List of authentication methods supported by the token endpoint.
      * 
      */
     public List<String> tokenEndpointAuthMethods() {

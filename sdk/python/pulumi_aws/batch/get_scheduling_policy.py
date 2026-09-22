@@ -55,6 +55,9 @@ class GetSchedulingPolicyResult:
     @_builtins.property
     @pulumi.getter(name="fairSharePolicies")
     def fair_share_policies(self) -> Sequence['outputs.GetSchedulingPolicyFairSharePolicyResult']:
+        """
+        Fair share policy block of the scheduling policy. The `fair_share_policy` block is documented below.
+        """
         return pulumi.get(self, "fair_share_policies")
 
     @_builtins.property

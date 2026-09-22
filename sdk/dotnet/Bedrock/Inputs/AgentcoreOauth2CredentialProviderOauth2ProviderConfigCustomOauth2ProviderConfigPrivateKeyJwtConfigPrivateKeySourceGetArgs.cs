@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS KMS key source configuration for the signing key. See `KmsKeySource` Block below.
+        /// </summary>
         [Input("kmsKeySource")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceGetArgs>? KmsKeySource { get; set; }
 

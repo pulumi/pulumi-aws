@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
     /**
-     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration audioExtractionConfiguration;
     /**
-     * @return Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+     * @return Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration imageExtractionConfiguration;
     /**
-     * @return Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+     * @return Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration videoExtractionConfiguration;
 
     private AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration() {}
     /**
-     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration> audioExtractionConfiguration() {
         return Optional.ofNullable(this.audioExtractionConfiguration);
     }
     /**
-     * @return Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+     * @return Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration> imageExtractionConfiguration() {
         return Optional.ofNullable(this.imageExtractionConfiguration);
     }
     /**
-     * @return Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+     * @return Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration> videoExtractionConfiguration() {

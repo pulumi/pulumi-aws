@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration
     {
         /// <summary>
-        /// Configurations for a provisioned Amazon Redshift query engine. See `ProvisionedConfiguration` block for details.
+        /// Configurations for a provisioned Amazon Redshift query engine. See `ProvisionedConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration? ProvisionedConfiguration;
         /// <summary>
-        /// Configurations for a serverless Amazon Redshift query engine. See `ServerlessConfiguration` block for details.
+        /// Configurations for a serverless Amazon Redshift query engine. See `ServerlessConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration? ServerlessConfiguration;
         /// <summary>

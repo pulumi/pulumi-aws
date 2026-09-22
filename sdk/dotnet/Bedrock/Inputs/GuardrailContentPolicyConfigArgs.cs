@@ -16,8 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs>? _filtersConfigs;
 
         /// <summary>
-        /// Set of content filter configs in content policy.
-        /// See Filters Config for more information.
+        /// Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
         /// </summary>
         public InputList<Inputs.GuardrailContentPolicyConfigFiltersConfigArgs> FiltersConfigs
         {
@@ -29,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.GuardrailContentPolicyConfigTierConfigArgs>? _tierConfigs;
 
         /// <summary>
-        /// Configuration block for the content policy tier. See Tier Config for more information.
+        /// Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
         /// </summary>
         public InputList<Inputs.GuardrailContentPolicyConfigTierConfigArgs> TierConfigs
         {

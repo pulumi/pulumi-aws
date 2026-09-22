@@ -23,14 +23,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     public static final AgentDataSourceDataSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationArgs();
 
     /**
-     * Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+     * Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
      * 
      */
     @Import(name="confluenceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs> confluenceConfiguration;
 
     /**
-     * @return Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs>> confluenceConfiguration() {
@@ -38,14 +38,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
      * 
      */
     @Import(name="managedKnowledgeBaseConnectorConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs> managedKnowledgeBaseConnectorConfiguration;
 
     /**
-     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * @return Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs>> managedKnowledgeBaseConnectorConfiguration() {
@@ -53,14 +53,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+     * Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
      * 
      */
     @Import(name="s3Configuration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+     * @return Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationS3ConfigurationArgs>> s3Configuration() {
@@ -68,14 +68,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+     * Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
      * 
      */
     @Import(name="salesforceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs> salesforceConfiguration;
 
     /**
-     * @return Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs>> salesforceConfiguration() {
@@ -83,14 +83,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+     * Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
      * 
      */
     @Import(name="sharePointConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs> sharePointConfiguration;
 
     /**
-     * @return Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+     * @return Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs>> sharePointConfiguration() {
@@ -113,14 +113,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+     * Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
      * 
      */
     @Import(name="webConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs> webConfiguration;
 
     /**
-     * @return Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+     * @return Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs>> webConfiguration() {
@@ -158,7 +158,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param confluenceConfiguration Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+         * @param confluenceConfiguration Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param confluenceConfiguration Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+         * @param confluenceConfiguration Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param managedKnowledgeBaseConnectorConfiguration Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * @param managedKnowledgeBaseConnectorConfiguration Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param managedKnowledgeBaseConnectorConfiguration Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * @param managedKnowledgeBaseConnectorConfiguration Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param s3Configuration Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+         * @param s3Configuration Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param s3Configuration Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+         * @param s3Configuration Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param salesforceConfiguration Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+         * @param salesforceConfiguration Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param salesforceConfiguration Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+         * @param salesforceConfiguration Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param sharePointConfiguration Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+         * @param sharePointConfiguration Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param sharePointConfiguration Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+         * @param sharePointConfiguration Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param webConfiguration Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+         * @param webConfiguration Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param webConfiguration Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+         * @param webConfiguration Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
          * 
          * @return builder
          * 

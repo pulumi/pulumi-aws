@@ -83,31 +83,31 @@ namespace Pulumi.Aws.Backup
     public partial class RestoreTestingSelection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the backup restore testing selection.
+        /// Name of the backup restore testing selection.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ARNs for the protected resources.
+        /// ARNs for the protected resources.
         /// </summary>
         [Output("protectedResourceArns")]
         public Output<ImmutableArray<string>> ProtectedResourceArns { get; private set; } = null!;
 
         /// <summary>
-        /// The conditions for the protected resource.
+        /// Conditions for the protected resource. See `ProtectedResourceConditions` below.
         /// </summary>
         [Output("protectedResourceConditions")]
         public Output<Outputs.RestoreTestingSelectionProtectedResourceConditions?> ProtectedResourceConditions { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the protected resource.
+        /// Type of the protected resource.
         /// </summary>
         [Output("protectedResourceType")]
         public Output<string> ProtectedResourceType { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>> RestoreMetadataOverrides { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the restore testing plan.
+        /// Name of the restore testing plan.
         /// </summary>
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
         [Output("validationWindowHours")]
         public Output<int> ValidationWindowHours { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Aws.Backup
     public sealed class RestoreTestingSelectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the backup restore testing selection.
+        /// Name of the backup restore testing selection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _protectedResourceArns;
 
         /// <summary>
-        /// The ARNs for the protected resources.
+        /// ARNs for the protected resources.
         /// </summary>
         public InputList<string> ProtectedResourceArns
         {
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The conditions for the protected resource.
+        /// Conditions for the protected resource. See `ProtectedResourceConditions` below.
         /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs>? ProtectedResourceConditions { get; set; }
 
         /// <summary>
-        /// The type of the protected resource.
+        /// Type of the protected resource.
         /// </summary>
         [Input("protectedResourceType", required: true)]
         public Input<string> ProtectedResourceType { get; set; } = null!;
@@ -237,13 +237,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The name of the restore testing plan.
+        /// Name of the restore testing plan.
         /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
         /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
@@ -257,13 +257,13 @@ namespace Pulumi.Aws.Backup
     public sealed class RestoreTestingSelectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// The name of the backup restore testing selection.
+        /// Name of the backup restore testing selection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _protectedResourceArns;
 
         /// <summary>
-        /// The ARNs for the protected resources.
+        /// ARNs for the protected resources.
         /// </summary>
         public InputList<string> ProtectedResourceArns
         {
@@ -281,13 +281,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The conditions for the protected resource.
+        /// Conditions for the protected resource. See `ProtectedResourceConditions` below.
         /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsGetArgs>? ProtectedResourceConditions { get; set; }
 
         /// <summary>
-        /// The type of the protected resource.
+        /// Type of the protected resource.
         /// </summary>
         [Input("protectedResourceType")]
         public Input<string>? ProtectedResourceType { get; set; }
@@ -311,13 +311,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The name of the restore testing plan.
+        /// Name of the restore testing plan.
         /// </summary>
         [Input("restoreTestingPlanName")]
         public Input<string>? RestoreTestingPlanName { get; set; }
 
         /// <summary>
-        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// Amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }

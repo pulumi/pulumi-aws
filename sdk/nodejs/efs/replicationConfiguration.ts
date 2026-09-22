@@ -63,10 +63,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) ID of the file system.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availabilityZoneName` and `kmsKeyId` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
  *
  * ```sh
- * $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+ * $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-6fa144c6
  * ```
  */
 export class ReplicationConfiguration extends pulumi.CustomResource {

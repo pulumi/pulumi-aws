@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationInlineCode
     {
         /// <summary>
-        /// The code that's executed in your inline code node.
+        /// Code that's executed in your inline code node.
         /// </summary>
         public readonly string Code;
         /// <summary>
-        /// The programming language used by your inline code node.
+        /// Programming language used by your inline code node.
         /// </summary>
         public readonly string Language;
 

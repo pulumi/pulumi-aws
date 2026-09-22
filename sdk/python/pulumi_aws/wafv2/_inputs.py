@@ -3041,7 +3041,7 @@ class RuleGroupRuleStatementArgsDict(TypedDict):
     """
     asn_match_statement: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementAsnMatchStatementArgsDict']]]
     """
-    Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+    Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
     """
     byte_match_statement: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementByteMatchStatementArgsDict']]]
     """
@@ -3111,7 +3111,7 @@ class RuleGroupRuleStatementArgs:
                  xss_match_statement: pulumi.Input[Optional['RuleGroupRuleStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        :param pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementArgs'] byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementGeoMatchStatementArgs'] geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -3170,7 +3170,7 @@ class RuleGroupRuleStatementArgs:
     @pulumi.getter(name="asnMatchStatement")
     def asn_match_statement(self) -> pulumi.Input[Optional['RuleGroupRuleStatementAsnMatchStatementArgs']]:
         """
-        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
         """
         return pulumi.get(self, "asn_match_statement")
 
@@ -5872,7 +5872,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgsDict(TypedDi
     """
     asn_match_statement: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict']]]
     """
-    Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+    Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
     """
     byte_match_statement: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict']]]
     """
@@ -5937,7 +5937,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
                  xss_match_statement: pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -5993,7 +5993,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @pulumi.getter(name="asnMatchStatement")
     def asn_match_statement(self) -> pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']]:
         """
-        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
         """
         return pulumi.get(self, "asn_match_statement")
 
@@ -24992,6 +24992,9 @@ class WebAclRuleStatementAsnMatchStatementArgs:
 
 class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -25003,6 +25006,7 @@ class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs:
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -25011,6 +25015,9 @@ class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs:
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -26152,6 +26159,9 @@ class WebAclRuleStatementGeoMatchStatementArgs:
 
 class WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -26163,6 +26173,7 @@ class WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs:
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -26171,6 +26182,9 @@ class WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs:
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -28712,6 +28726,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStat
 
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -28723,6 +28740,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStat
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -28731,6 +28749,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStat
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -29872,6 +29893,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
 
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -29883,6 +29907,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -29891,6 +29916,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -36312,6 +36340,9 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArg
 
 class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -36323,6 +36354,7 @@ class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs:
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -36331,6 +36363,9 @@ class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs:
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -36704,6 +36739,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementAr
 
 class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -36715,6 +36753,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementFo
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -36723,6 +36762,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementFo
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter
@@ -37864,6 +37906,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementAr
 
 class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgsDict(TypedDict):
     fallback_behavior: pulumi.Input[_builtins.str]
+    """
+    Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+    """
     header_name: pulumi.Input[_builtins.str]
     """
     Name of the header containing the forwarded IP address.
@@ -37875,6 +37920,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementFo
                  fallback_behavior: pulumi.Input[_builtins.str],
                  header_name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] fallback_behavior: Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         :param pulumi.Input[_builtins.str] header_name: Name of the header containing the forwarded IP address.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
@@ -37883,6 +37929,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementFo
     @_builtins.property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> pulumi.Input[_builtins.str]:
+        """
+        Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
     @fallback_behavior.setter

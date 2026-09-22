@@ -71,8 +71,6 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
     declare public /*out*/ readonly agentRuntimeEndpointArn: pulumi.Output<string>;
     /**
      * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
      */
     declare public readonly agentRuntimeId: pulumi.Output<string>;
     /**
@@ -85,6 +83,8 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the agent runtime endpoint.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeEndpointTimeouts | undefined>;
@@ -159,8 +159,6 @@ export interface AgentcoreAgentRuntimeEndpointState {
     agentRuntimeEndpointArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
      */
     agentRuntimeId?: pulumi.Input<string | undefined>;
     /**
@@ -173,6 +171,8 @@ export interface AgentcoreAgentRuntimeEndpointState {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent runtime endpoint.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface AgentcoreAgentRuntimeEndpointState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeEndpointTimeouts | undefined>;
@@ -196,8 +196,6 @@ export interface AgentcoreAgentRuntimeEndpointState {
 export interface AgentcoreAgentRuntimeEndpointArgs {
     /**
      * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
      */
     agentRuntimeId: pulumi.Input<string>;
     /**
@@ -210,6 +208,8 @@ export interface AgentcoreAgentRuntimeEndpointArgs {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent runtime endpoint.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable {
     /**
-     * @return Information about a column in the table. See `column` block for details.
+     * @return Information about a column in the table. See `column` Block for details.
      * 
      */
     private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> columns;
@@ -37,7 +37,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable() {}
     /**
-     * @return Information about a column in the table. See `column` block for details.
+     * @return Information about a column in the table. See `column` Block for details.
      * 
      */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> columns() {

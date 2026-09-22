@@ -266,11 +266,11 @@ type AgentcoreHarness struct {
 
 	// List of tool names allowed for the harness. Use `["*"]` to allow all tools.
 	AllowedTools pulumi.StringArrayOutput `pulumi:"allowedTools"`
-	// ARN of the Harness.
+	// ARN of the managed memory resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
-	// Actual deployed environment configuration.
+	// Actual deployed environment configuration. See `environmentActual` Block below.
 	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayOutput `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrOutput `pulumi:"environmentArtifact"`
@@ -290,7 +290,7 @@ type AgentcoreHarness struct {
 	MaxTokens pulumi.IntOutput `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrOutput `pulumi:"memory"`
-	// Actual deployed memory configuration.
+	// Actual deployed memory configuration. See `memoryActual` Block below.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayOutput `pulumi:"memoryActuals"`
 	// Model configuration for the harness. See `model` Block below.
 	Model AgentcoreHarnessModelOutput `pulumi:"model"`
@@ -304,7 +304,7 @@ type AgentcoreHarness struct {
 	SystemPrompts AgentcoreHarnessSystemPromptArrayOutput `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds pulumi.IntOutput                  `pulumi:"timeoutSeconds"`
@@ -366,11 +366,11 @@ func GetAgentcoreHarness(ctx *pulumi.Context,
 type agentcoreHarnessState struct {
 	// List of tool names allowed for the harness. Use `["*"]` to allow all tools.
 	AllowedTools []string `pulumi:"allowedTools"`
-	// ARN of the Harness.
+	// ARN of the managed memory resource.
 	Arn *string `pulumi:"arn"`
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration *AgentcoreHarnessAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Actual deployed environment configuration.
+	// Actual deployed environment configuration. See `environmentActual` Block below.
 	EnvironmentActuals []AgentcoreHarnessEnvironmentActual `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
@@ -390,7 +390,7 @@ type agentcoreHarnessState struct {
 	MaxTokens *int `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
-	// Actual deployed memory configuration.
+	// Actual deployed memory configuration. See `memoryActual` Block below.
 	MemoryActuals []AgentcoreHarnessMemoryActual `pulumi:"memoryActuals"`
 	// Model configuration for the harness. See `model` Block below.
 	Model *AgentcoreHarnessModel `pulumi:"model"`
@@ -404,7 +404,7 @@ type agentcoreHarnessState struct {
 	SystemPrompts []AgentcoreHarnessSystemPrompt `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds *int                      `pulumi:"timeoutSeconds"`
@@ -418,11 +418,11 @@ type agentcoreHarnessState struct {
 type AgentcoreHarnessState struct {
 	// List of tool names allowed for the harness. Use `["*"]` to allow all tools.
 	AllowedTools pulumi.StringArrayInput
-	// ARN of the Harness.
+	// ARN of the managed memory resource.
 	Arn pulumi.StringPtrInput
 	// Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrInput
-	// Actual deployed environment configuration.
+	// Actual deployed environment configuration. See `environmentActual` Block below.
 	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayInput
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
@@ -442,7 +442,7 @@ type AgentcoreHarnessState struct {
 	MaxTokens pulumi.IntPtrInput
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
-	// Actual deployed memory configuration.
+	// Actual deployed memory configuration. See `memoryActual` Block below.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayInput
 	// Model configuration for the harness. See `model` Block below.
 	Model AgentcoreHarnessModelPtrInput
@@ -456,7 +456,7 @@ type AgentcoreHarnessState struct {
 	SystemPrompts AgentcoreHarnessSystemPromptArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Timeout in seconds for the harness execution.
 	TimeoutSeconds pulumi.IntPtrInput
@@ -648,7 +648,7 @@ func (o AgentcoreHarnessOutput) AllowedTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringArrayOutput { return v.AllowedTools }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the Harness.
+// ARN of the managed memory resource.
 func (o AgentcoreHarnessOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -660,7 +660,7 @@ func (o AgentcoreHarnessOutput) AuthorizerConfiguration() AgentcoreHarnessAuthor
 	}).(AgentcoreHarnessAuthorizerConfigurationPtrOutput)
 }
 
-// Actual deployed environment configuration.
+// Actual deployed environment configuration. See `environmentActual` Block below.
 func (o AgentcoreHarnessOutput) EnvironmentActuals() AgentcoreHarnessEnvironmentActualArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentActualArrayOutput { return v.EnvironmentActuals }).(AgentcoreHarnessEnvironmentActualArrayOutput)
 }
@@ -710,7 +710,7 @@ func (o AgentcoreHarnessOutput) Memory() AgentcoreHarnessMemoryPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessMemoryPtrOutput { return v.Memory }).(AgentcoreHarnessMemoryPtrOutput)
 }
 
-// Actual deployed memory configuration.
+// Actual deployed memory configuration. See `memoryActual` Block below.
 func (o AgentcoreHarnessOutput) MemoryActuals() AgentcoreHarnessMemoryActualArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessMemoryActualArrayOutput { return v.MemoryActuals }).(AgentcoreHarnessMemoryActualArrayOutput)
 }
@@ -742,7 +742,7 @@ func (o AgentcoreHarnessOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreHarnessOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

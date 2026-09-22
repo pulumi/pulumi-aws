@@ -26,7 +26,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthrough {
      */
     private String protocolType;
     /**
-     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema schema;
@@ -62,7 +62,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthrough {
         return this.protocolType;
     }
     /**
-     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+     * @return API schema configuration that defines the structure of the passthrough target&#39;s API. See `schema` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema> schema() {

@@ -294,7 +294,7 @@ type ComputeEnvironment struct {
 	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrOutput `pulumi:"eksConfiguration"`
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+	// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -302,19 +302,19 @@ type ComputeEnvironment struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
-	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The current status of the compute environment (for example, CREATING or VALID).
+	// Current status of the compute environment (for example, CREATING or VALID).
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A short, human-readable string to provide additional details about the current status of the compute environment.
+	// Short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+	// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the infrastructure update policy for the compute environment. See details below.
+	// Infrastructure update policy for the compute environment. See details below.
 	UpdatePolicy ComputeEnvironmentUpdatePolicyOutput `pulumi:"updatePolicy"`
 }
 
@@ -359,7 +359,7 @@ type computeEnvironmentState struct {
 	EcsClusterArn *string `pulumi:"ecsClusterArn"`
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+	// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -367,19 +367,19 @@ type computeEnvironmentState struct {
 	Region *string `pulumi:"region"`
 	// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
-	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// The current status of the compute environment (for example, CREATING or VALID).
+	// Current status of the compute environment (for example, CREATING or VALID).
 	Status *string `pulumi:"status"`
-	// A short, human-readable string to provide additional details about the current status of the compute environment.
+	// Short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason *string `pulumi:"statusReason"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+	// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type *string `pulumi:"type"`
-	// Specifies the infrastructure update policy for the compute environment. See details below.
+	// Infrastructure update policy for the compute environment. See details below.
 	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
@@ -392,7 +392,7 @@ type ComputeEnvironmentState struct {
 	EcsClusterArn pulumi.StringPtrInput
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrInput
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+	// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -400,19 +400,19 @@ type ComputeEnvironmentState struct {
 	Region pulumi.StringPtrInput
 	// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
-	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// The current status of the compute environment (for example, CREATING or VALID).
+	// Current status of the compute environment (for example, CREATING or VALID).
 	Status pulumi.StringPtrInput
-	// A short, human-readable string to provide additional details about the current status of the compute environment.
+	// Short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+	// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringPtrInput
-	// Specifies the infrastructure update policy for the compute environment. See details below.
+	// Infrastructure update policy for the compute environment. See details below.
 	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
@@ -425,7 +425,7 @@ type computeEnvironmentArgs struct {
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+	// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -433,13 +433,13 @@ type computeEnvironmentArgs struct {
 	Region *string `pulumi:"region"`
 	// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole *string `pulumi:"serviceRole"`
-	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+	// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type string `pulumi:"type"`
-	// Specifies the infrastructure update policy for the compute environment. See details below.
+	// Infrastructure update policy for the compute environment. See details below.
 	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
@@ -449,7 +449,7 @@ type ComputeEnvironmentArgs struct {
 	ComputeResources ComputeEnvironmentComputeResourcesPtrInput
 	// Details for the Amazon EKS cluster that supports the compute environment. See details below.
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrInput
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+	// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -457,13 +457,13 @@ type ComputeEnvironmentArgs struct {
 	Region pulumi.StringPtrInput
 	// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole pulumi.StringPtrInput
-	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+	// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringInput
-	// Specifies the infrastructure update policy for the compute environment. See details below.
+	// Infrastructure update policy for the compute environment. See details below.
 	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
@@ -574,7 +574,7 @@ func (o ComputeEnvironmentOutput) EksConfiguration() ComputeEnvironmentEksConfig
 	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentEksConfigurationPtrOutput { return v.EksConfiguration }).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
 func (o ComputeEnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -594,17 +594,17 @@ func (o ComputeEnvironmentOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
-// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 func (o ComputeEnvironmentOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The current status of the compute environment (for example, CREATING or VALID).
+// Current status of the compute environment (for example, CREATING or VALID).
 func (o ComputeEnvironmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A short, human-readable string to provide additional details about the current status of the compute environment.
+// Short, human-readable string to provide additional details about the current status of the compute environment.
 func (o ComputeEnvironmentOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
@@ -614,17 +614,17 @@ func (o ComputeEnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ComputeEnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the infrastructure update policy for the compute environment. See details below.
+// Infrastructure update policy for the compute environment. See details below.
 func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyOutput)
 }

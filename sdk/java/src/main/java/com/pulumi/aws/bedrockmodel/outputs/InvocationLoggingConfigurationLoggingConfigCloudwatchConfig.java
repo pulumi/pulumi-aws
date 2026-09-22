@@ -24,7 +24,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
      */
     private String logGroupName;
     /**
-     * @return The role ARN.
+     * @return Role ARN.
      * 
      */
     private String roleArn;
@@ -45,7 +45,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
         return this.logGroupName;
     }
     /**
-     * @return The role ARN.
+     * @return Role ARN.
      * 
      */
     public String roleArn() {

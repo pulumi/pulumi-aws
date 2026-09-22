@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessTool
     {
         /// <summary>
-        /// Tool-specific configuration. See `tool config` below.
+        /// Tool-specific configuration. See `tool.config` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfig? Config;
         /// <summary>

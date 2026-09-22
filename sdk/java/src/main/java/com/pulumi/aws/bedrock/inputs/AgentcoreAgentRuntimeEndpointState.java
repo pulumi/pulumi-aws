@@ -50,16 +50,12 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
     /**
      * ID of the agent runtime this endpoint belongs to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="agentRuntimeId")
     private @Nullable Output<String> agentRuntimeId;
 
     /**
      * @return ID of the agent runtime this endpoint belongs to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> agentRuntimeId() {
@@ -99,12 +95,16 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
     /**
      * Name of the agent runtime endpoint.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the agent runtime endpoint.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -142,14 +142,14 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -241,8 +241,6 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
         /**
          * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -253,8 +251,6 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
 
         /**
          * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -308,6 +304,8 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
         /**
          * @param name Name of the agent runtime endpoint.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -318,6 +316,8 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
 
         /**
          * @param name Name of the agent runtime endpoint.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

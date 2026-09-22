@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionConnectionConfigurationConditional
     {
         /// <summary>
-        /// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        /// List of conditions. See `definition.node.configuration.condition.condition` Block for details.
         /// </summary>
         public readonly string Condition;
 

@@ -143,14 +143,14 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -173,14 +173,14 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     @Import(name="variants")
     private @Nullable Output<List<AgentPromptVariantArgs>> variants;
 
     /**
-     * @return A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * @return List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     public Optional<Output<List<AgentPromptVariantArgs>>> variants() {
@@ -410,7 +410,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 

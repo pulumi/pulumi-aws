@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessToolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Tool-specific configuration. See `tool config` below.
+        /// Tool-specific configuration. See `tool.config` Block below.
         /// </summary>
         [Input("config")]
         public Input<Inputs.AgentcoreHarnessToolConfigArgs>? Config { get; set; }

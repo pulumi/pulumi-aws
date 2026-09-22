@@ -949,7 +949,7 @@ type GetModelsModelSummary struct {
 	OutputModalities []string `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName string `pulumi:"providerName"`
-	// Indicates whether the model supports streaming.
+	// Whether the model supports streaming.
 	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
 }
 
@@ -981,7 +981,7 @@ type GetModelsModelSummaryArgs struct {
 	OutputModalities pulumi.StringArrayInput `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName pulumi.StringInput `pulumi:"providerName"`
-	// Indicates whether the model supports streaming.
+	// Whether the model supports streaming.
 	ResponseStreamingSupported pulumi.BoolInput `pulumi:"responseStreamingSupported"`
 }
 
@@ -1076,7 +1076,7 @@ func (o GetModelsModelSummaryOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the model supports streaming.
+// Whether the model supports streaming.
 func (o GetModelsModelSummaryOutput) ResponseStreamingSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) bool { return v.ResponseStreamingSupported }).(pulumi.BoolOutput)
 }

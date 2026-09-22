@@ -59,7 +59,7 @@ export class GlobalSettings extends pulumi.CustomResource {
     }
 
     /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+     * Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      */
     declare public readonly globalSettings: pulumi.Output<{[key: string]: string}>;
 
@@ -94,7 +94,7 @@ export class GlobalSettings extends pulumi.CustomResource {
  */
 export interface GlobalSettingsState {
     /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+     * Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      */
     globalSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -104,7 +104,7 @@ export interface GlobalSettingsState {
  */
 export interface GlobalSettingsArgs {
     /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+     * Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
      */
     globalSettings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

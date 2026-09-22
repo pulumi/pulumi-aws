@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration
     {
         /// <summary>
-        /// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        /// Message for the prompt.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText? Text;
 

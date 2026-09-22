@@ -67,11 +67,11 @@ export interface GetPlanResult {
     readonly planId: string;
     readonly region: string;
     /**
-     * Rules of a backup plan.
+     * Rules of a backup plan. See below.
      */
     readonly rules: outputs.backup.GetPlanRule[];
     /**
-     * Scanning configuration for the backup rule.
+     * Scanning configuration for the backup rule. See below.
      */
     readonly scanSettings: outputs.backup.GetPlanScanSetting[];
     /**

@@ -16,22 +16,34 @@ public final class AgentFlowDefinitionNodeConfigurationConditionConditionArgs ex
 
     public static final AgentFlowDefinitionNodeConfigurationConditionConditionArgs Empty = new AgentFlowDefinitionNodeConfigurationConditionConditionArgs();
 
+    /**
+     * Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
+    /**
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
     /**
-     * A name for the flow.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -63,17 +75,31 @@ public final class AgentFlowDefinitionNodeConfigurationConditionConditionArgs ex
             $ = new AgentFlowDefinitionNodeConfigurationConditionConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param expression Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -84,7 +110,9 @@ public final class AgentFlowDefinitionNodeConfigurationConditionConditionArgs ex
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

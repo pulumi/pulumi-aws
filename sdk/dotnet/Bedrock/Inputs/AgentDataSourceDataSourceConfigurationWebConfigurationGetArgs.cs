@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationGetArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationGetArgs>? SourceConfiguration { get; set; }
 

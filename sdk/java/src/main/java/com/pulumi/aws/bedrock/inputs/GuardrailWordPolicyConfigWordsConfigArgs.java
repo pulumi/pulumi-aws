@@ -78,14 +78,14 @@ public final class GuardrailWordPolicyConfigWordsConfigArgs extends com.pulumi.r
     }
 
     /**
-     * The custom word text.
+     * Custom word text.
      * 
      */
     @Import(name="text", required=true)
     private Output<String> text;
 
     /**
-     * @return The custom word text.
+     * @return Custom word text.
      * 
      */
     public Output<String> text() {
@@ -205,7 +205,7 @@ public final class GuardrailWordPolicyConfigWordsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param text The custom word text.
+         * @param text Custom word text.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class GuardrailWordPolicyConfigWordsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param text The custom word text.
+         * @param text Custom word text.
          * 
          * @return builder
          * 

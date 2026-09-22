@@ -21,14 +21,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     public static final StageArgs Empty = new StageArgs();
 
     /**
-     * Enables access logs for the API stage. See Access Log Settings below.
+     * Enables access logs for the API stage. See `accessLogSettings` Block below.
      * 
      */
     @Import(name="accessLogSettings")
     private @Nullable Output<StageAccessLogSettingsArgs> accessLogSettings;
 
     /**
-     * @return Enables access logs for the API stage. See Access Log Settings below.
+     * @return Enables access logs for the API stage. See `accessLogSettings` Block below.
      * 
      */
     public Optional<Output<StageAccessLogSettingsArgs>> accessLogSettings() {
@@ -66,14 +66,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
+     * Configuration settings of a canary deployment. See `canarySettings` Block below.
      * 
      */
     @Import(name="canarySettings")
     private @Nullable Output<StageCanarySettingsArgs> canarySettings;
 
     /**
-     * @return Configuration settings of a canary deployment. See Canary Settings below.
+     * @return Configuration settings of a canary deployment. See `canarySettings` Block below.
      * 
      */
     public Optional<Output<StageCanarySettingsArgs>> canarySettings() {
@@ -268,7 +268,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogSettings Enables access logs for the API stage. See Access Log Settings below.
+         * @param accessLogSettings Enables access logs for the API stage. See `accessLogSettings` Block below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogSettings Enables access logs for the API stage. See Access Log Settings below.
+         * @param accessLogSettings Enables access logs for the API stage. See `accessLogSettings` Block below.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param canarySettings Configuration settings of a canary deployment. See Canary Settings below.
+         * @param canarySettings Configuration settings of a canary deployment. See `canarySettings` Block below.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param canarySettings Configuration settings of a canary deployment. See Canary Settings below.
+         * @param canarySettings Configuration settings of a canary deployment. See `canarySettings` Block below.
          * 
          * @return builder
          * 

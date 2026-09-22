@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetComputeEnvironmentUpdatePolicy {
+    /**
+     * @return Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+     * 
+     */
     private Integer jobExecutionTimeoutMinutes;
+    /**
+     * @return Whether running jobs are terminated when the compute environment infrastructure is updated.
+     * 
+     */
     private Boolean terminateJobsOnUpdate;
 
     private GetComputeEnvironmentUpdatePolicy() {}
+    /**
+     * @return Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+     * 
+     */
     public Integer jobExecutionTimeoutMinutes() {
         return this.jobExecutionTimeoutMinutes;
     }
+    /**
+     * @return Whether running jobs are terminated when the compute environment infrastructure is updated.
+     * 
+     */
     public Boolean terminateJobsOnUpdate() {
         return this.terminateJobsOnUpdate;
     }

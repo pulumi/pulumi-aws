@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailContextualGroundingPolicyConfig {
     /**
-     * @return One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+     * @return One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
      * 
      */
     private @Nullable List<GuardrailContextualGroundingPolicyConfigFiltersConfig> filtersConfigs;
 
     private GuardrailContextualGroundingPolicyConfig() {}
     /**
-     * @return One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+     * @return One or more blocks defining contextual grounding filter configs. See `contextual_grounding_policy_config.filters_config` Block for more information.
      * 
      */
     public List<GuardrailContextualGroundingPolicyConfigFiltersConfig> filtersConfigs() {

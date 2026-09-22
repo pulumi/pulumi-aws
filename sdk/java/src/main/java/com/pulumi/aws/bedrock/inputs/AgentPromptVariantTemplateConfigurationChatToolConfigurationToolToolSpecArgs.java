@@ -18,14 +18,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs();
 
     /**
-     * Description of the prompt.
+     * Description of the tool.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the prompt.
+     * @return Description of the tool.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     }
 
     /**
-     * The input schema of the tool. See Tool Input Schema for more information.
+     * Input schema of the tool. See `inputSchema` Block for more information.
      * 
      */
     @Import(name="inputSchema")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs> inputSchema;
 
     /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
+     * @return Input schema of the tool. See `inputSchema` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs>> inputSchema() {
@@ -48,18 +48,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     }
 
     /**
-     * Name of the prompt.
-     * 
-     * The following arguments are optional:
+     * Name of the tool.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
+     * @return Name of the tool.
      * 
      */
     public Output<String> name() {
@@ -93,7 +89,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param description Description of the prompt.
+         * @param description Description of the tool.
          * 
          * @return builder
          * 
@@ -104,7 +100,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param description Description of the prompt.
+         * @param description Description of the tool.
          * 
          * @return builder
          * 
@@ -114,7 +110,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
+         * @param inputSchema Input schema of the tool. See `inputSchema` Block for more information.
          * 
          * @return builder
          * 
@@ -125,7 +121,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
+         * @param inputSchema Input schema of the tool. See `inputSchema` Block for more information.
          * 
          * @return builder
          * 
@@ -135,9 +131,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the tool.
          * 
          * @return builder
          * 
@@ -148,9 +142,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the tool.
          * 
          * @return builder
          * 

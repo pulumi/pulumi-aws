@@ -293,7 +293,7 @@ class GetModelsModelSummaryResult(dict):
         :param _builtins.str model_name: Model name.
         :param Sequence[_builtins.str] output_modalities: Output modalities that the model supports.
         :param _builtins.str provider_name: Model provider name.
-        :param _builtins.bool response_streaming_supported: Indicates whether the model supports streaming.
+        :param _builtins.bool response_streaming_supported: Whether the model supports streaming.
         """
         pulumi.set(__self__, "customizations_supporteds", customizations_supporteds)
         pulumi.set(__self__, "inference_types_supporteds", inference_types_supporteds)
@@ -373,7 +373,7 @@ class GetModelsModelSummaryResult(dict):
     @pulumi.getter(name="responseStreamingSupported")
     def response_streaming_supported(self) -> _builtins.bool:
         """
-        Indicates whether the model supports streaming.
+        Whether the model supports streaming.
         """
         return pulumi.get(self, "response_streaming_supported")
 

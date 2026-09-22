@@ -14,11 +14,14 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class GetBudgetCostFilterResult
     {
         /// <summary>
-        /// The name of a budget. Unique within accounts.
+        /// Name of the budget. Unique within an account.
         /// 
         /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Values of the cost filter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

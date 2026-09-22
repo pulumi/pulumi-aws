@@ -123,11 +123,11 @@ type AgentPrompt struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time at which the prompt was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+	// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 	Variants AgentPromptVariantArrayOutput `pulumi:"variants"`
 	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -181,11 +181,11 @@ type agentPromptState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time at which the prompt was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+	// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 	Variants []AgentPromptVariant `pulumi:"variants"`
 	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
 	Version *string `pulumi:"version"`
@@ -210,11 +210,11 @@ type AgentPromptState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time at which the prompt was last updated.
 	UpdatedAt pulumi.StringPtrInput
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+	// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 	Variants AgentPromptVariantArrayInput
 	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
 	Version pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type agentPromptArgs struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+	// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 	Variants []AgentPromptVariant `pulumi:"variants"`
 }
 
@@ -259,7 +259,7 @@ type AgentPromptArgs struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+	// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 	Variants AgentPromptVariantArrayInput
 }
 
@@ -392,7 +392,7 @@ func (o AgentPromptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentPromptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -402,7 +402,7 @@ func (o AgentPromptOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+// List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
 func (o AgentPromptOutput) Variants() AgentPromptVariantArrayOutput {
 	return o.ApplyT(func(v *AgentPrompt) AgentPromptVariantArrayOutput { return v.Variants }).(AgentPromptVariantArrayOutput)
 }

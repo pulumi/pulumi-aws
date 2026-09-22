@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentPromptVariantTemplateConfigurationChatSystem
     {
         /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        /// Cache checkpoint within the system prompt. See `CachePoint` Block for more information.
         /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint? CachePoint;
         /// <summary>
-        /// The text in the system prompt.
+        /// Text in the system prompt.
         /// </summary>
         public readonly string? Text;
 

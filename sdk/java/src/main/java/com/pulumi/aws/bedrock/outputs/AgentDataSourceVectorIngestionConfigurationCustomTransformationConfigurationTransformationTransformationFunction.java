@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
     /**
-     * @return The configuration of the lambda function.
+     * @return Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration transformationLambdaConfiguration;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction() {}
     /**
-     * @return The configuration of the lambda function.
+     * @return Configuration of the Lambda function. See `transformationLambdaConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration> transformationLambdaConfiguration() {

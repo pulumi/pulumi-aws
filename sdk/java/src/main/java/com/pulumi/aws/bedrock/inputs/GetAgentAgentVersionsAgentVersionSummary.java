@@ -79,7 +79,6 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
 
     /**
      * Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     @Import(name="description", required=true)
@@ -87,16 +86,23 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
 
     /**
      * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     public String description() {
         return this.description;
     }
 
+    /**
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     @Import(name="guardrailConfigurations")
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations;
 
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     public Optional<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration>> guardrailConfigurations() {
         return Optional.ofNullable(this.guardrailConfigurations);
     }
@@ -192,7 +198,6 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
 
         /**
          * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          * 
          * @return builder
          * 
@@ -202,11 +207,23 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
             return this;
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(@Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations) {
             $.guardrailConfigurations = guardrailConfigurations;
             return this;
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration... guardrailConfigurations) {
             return guardrailConfigurations(List.of(guardrailConfigurations));
         }

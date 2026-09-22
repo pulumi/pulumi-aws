@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration {
     /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration redshiftConfiguration;
@@ -26,7 +26,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration() {}
     /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration> redshiftConfiguration() {

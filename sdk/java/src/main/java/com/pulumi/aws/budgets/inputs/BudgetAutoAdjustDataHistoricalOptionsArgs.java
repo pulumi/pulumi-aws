@@ -17,14 +17,14 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
     public static final BudgetAutoAdjustDataHistoricalOptionsArgs Empty = new BudgetAutoAdjustDataHistoricalOptionsArgs();
 
     /**
-     * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+     * Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
      * 
      */
     @Import(name="budgetAdjustmentPeriod", required=true)
     private Output<Integer> budgetAdjustmentPeriod;
 
     /**
-     * @return (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+     * @return Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
      * 
      */
     public Output<Integer> budgetAdjustmentPeriod() {
@@ -32,14 +32,14 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
     }
 
     /**
-     * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+     * Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
      * 
      */
     @Import(name="lookbackAvailablePeriods")
     private @Nullable Output<Integer> lookbackAvailablePeriods;
 
     /**
-     * @return (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+     * @return Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
      * 
      */
     public Optional<Output<Integer>> lookbackAvailablePeriods() {
@@ -72,7 +72,7 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
         }
 
         /**
-         * @param budgetAdjustmentPeriod (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         * @param budgetAdjustmentPeriod Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
         }
 
         /**
-         * @param budgetAdjustmentPeriod (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         * @param budgetAdjustmentPeriod Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
         }
 
         /**
-         * @param lookbackAvailablePeriods (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         * @param lookbackAvailablePeriods Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
         }
 
         /**
-         * @param lookbackAvailablePeriods (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         * @param lookbackAvailablePeriods Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
          * 
          * @return builder
          * 

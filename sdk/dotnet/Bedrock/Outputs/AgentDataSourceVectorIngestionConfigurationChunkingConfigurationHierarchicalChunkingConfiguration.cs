@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration
     {
         /// <summary>
-        /// Maximum number of tokens to include in a chunk. Must contain two `LevelConfigurations`. See `LevelConfigurations` for details.
+        /// Token settings for each layer. Must contain two `LevelConfiguration` blocks. See `LevelConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> LevelConfigurations;
         /// <summary>
-        /// The number of tokens to repeat across chunks in the same layer.
+        /// Number of tokens to repeat across chunks in the same layer.
         /// </summary>
         public readonly int OverlapTokens;
 

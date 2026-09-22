@@ -32,11 +32,11 @@ class AgentcoreAgentRuntimeEndpointArgs:
         The set of arguments for constructing a AgentcoreAgentRuntimeEndpoint resource.
 
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the agent runtime to use for this endpoint.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the agent runtime endpoint.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -59,8 +59,6 @@ class AgentcoreAgentRuntimeEndpointArgs:
     def agent_runtime_id(self) -> pulumi.Input[_builtins.str]:
         """
         ID of the agent runtime this endpoint belongs to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "agent_runtime_id")
 
@@ -97,6 +95,8 @@ class AgentcoreAgentRuntimeEndpointArgs:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the agent runtime endpoint.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -157,14 +157,14 @@ class _AgentcoreAgentRuntimeEndpointState:
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the associated Agent Runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_endpoint_arn: ARN of the Agent Runtime Endpoint.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the agent runtime to use for this endpoint.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the agent runtime endpoint.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if agent_runtime_arn is not None:
             pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -216,8 +216,6 @@ class _AgentcoreAgentRuntimeEndpointState:
     def agent_runtime_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the agent runtime this endpoint belongs to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "agent_runtime_id")
 
@@ -254,6 +252,8 @@ class _AgentcoreAgentRuntimeEndpointState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the agent runtime endpoint.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -289,7 +289,7 @@ class _AgentcoreAgentRuntimeEndpointState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -350,11 +350,11 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the agent runtime to use for this endpoint.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the agent runtime endpoint.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -463,14 +463,14 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the associated Agent Runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_endpoint_arn: ARN of the Agent Runtime Endpoint.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the agent runtime to use for this endpoint.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the agent runtime endpoint.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -509,8 +509,6 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     def agent_runtime_id(self) -> pulumi.Output[_builtins.str]:
         """
         ID of the agent runtime this endpoint belongs to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "agent_runtime_id")
 
@@ -535,6 +533,8 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the agent runtime endpoint.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -558,7 +558,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -18,14 +18,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     public static final AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs();
 
     /**
-     * Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+     * Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
      * 
      */
     @Import(name="audioExtractionConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs> audioExtractionConfiguration;
 
     /**
-     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+     * @return Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs>> audioExtractionConfiguration() {
@@ -33,14 +33,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     }
 
     /**
-     * Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+     * Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
      * 
      */
     @Import(name="imageExtractionConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs> imageExtractionConfiguration;
 
     /**
-     * @return Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+     * @return Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs>> imageExtractionConfiguration() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     }
 
     /**
-     * Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+     * Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
      * 
      */
     @Import(name="videoExtractionConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs> videoExtractionConfiguration;
 
     /**
-     * @return Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+     * @return Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs>> videoExtractionConfiguration() {
@@ -89,7 +89,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param audioExtractionConfiguration Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+         * @param audioExtractionConfiguration Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param audioExtractionConfiguration Configuration for extracting audio content. See `audioExtractionConfiguration` block for details.
+         * @param audioExtractionConfiguration Configuration for extracting audio content. See `audioExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param imageExtractionConfiguration Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+         * @param imageExtractionConfiguration Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param imageExtractionConfiguration Configuration for extracting image content. See `imageExtractionConfiguration` block for details.
+         * @param imageExtractionConfiguration Configuration for extracting image content. See `imageExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param videoExtractionConfiguration Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+         * @param videoExtractionConfiguration Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param videoExtractionConfiguration Configuration for extracting video content. See `videoExtractionConfiguration` block for details.
+         * @param videoExtractionConfiguration Configuration for extracting video content. See `videoExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 

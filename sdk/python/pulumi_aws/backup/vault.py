@@ -27,8 +27,8 @@ class VaultArgs:
         """
         The set of arguments for constructing a Vault resource.
 
-        :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Server-side encryption key that is used to protect your backups.
         :param pulumi.Input[_builtins.str] name: Name of the backup vault to create.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -48,7 +48,7 @@ class VaultArgs:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -60,7 +60,7 @@ class VaultArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The server-side encryption key that is used to protect your backups.
+        Server-side encryption key that is used to protect your backups.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -119,14 +119,14 @@ class _VaultState:
         """
         Input properties used for looking up and filtering Vault resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
+        :param pulumi.Input[_builtins.str] arn: ARN of the vault.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Server-side encryption key that is used to protect your backups.
         :param pulumi.Input[_builtins.str] name: Name of the backup vault to create.
-        :param pulumi.Input[_builtins.int] recovery_points: The number of recovery points that are stored in a backup vault.
+        :param pulumi.Input[_builtins.int] recovery_points: Number of recovery points that are stored in a backup vault.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -149,7 +149,7 @@ class _VaultState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "arn")
 
@@ -161,7 +161,7 @@ class _VaultState:
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -173,7 +173,7 @@ class _VaultState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The server-side encryption key that is used to protect your backups.
+        Server-side encryption key that is used to protect your backups.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -197,7 +197,7 @@ class _VaultState:
     @pulumi.getter(name="recoveryPoints")
     def recovery_points(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of recovery points that are stored in a backup vault.
+        Number of recovery points that are stored in a backup vault.
         """
         return pulumi.get(self, "recovery_points")
 
@@ -233,7 +233,7 @@ class _VaultState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -290,8 +290,8 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Server-side encryption key that is used to protect your backups.
         :param pulumi.Input[_builtins.str] name: Name of the backup vault to create.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -398,14 +398,14 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
+        :param pulumi.Input[_builtins.str] arn: ARN of the vault.
+        :param pulumi.Input[_builtins.bool] force_destroy: Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
+        :param pulumi.Input[_builtins.str] kms_key_arn: Server-side encryption key that is used to protect your backups.
         :param pulumi.Input[_builtins.str] name: Name of the backup vault to create.
-        :param pulumi.Input[_builtins.int] recovery_points: The number of recovery points that are stored in a backup vault.
+        :param pulumi.Input[_builtins.int] recovery_points: Number of recovery points that are stored in a backup vault.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -425,7 +425,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "arn")
 
@@ -433,7 +433,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
         """
         return pulumi.get(self, "force_destroy")
 
@@ -441,7 +441,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The server-side encryption key that is used to protect your backups.
+        Server-side encryption key that is used to protect your backups.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -457,7 +457,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="recoveryPoints")
     def recovery_points(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of recovery points that are stored in a backup vault.
+        Number of recovery points that are stored in a backup vault.
         """
         return pulumi.get(self, "recovery_points")
 
@@ -481,7 +481,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -79,7 +79,7 @@ export interface GetModelResult {
     readonly providerName: string;
     readonly region: string;
     /**
-     * Indicates whether the model supports streaming.
+     * Whether the model supports streaming.
      */
     readonly responseStreamingSupported: boolean;
 }

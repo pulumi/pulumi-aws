@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetComputeEnvironmentUpdatePolicyResult
     {
+        /// <summary>
+        /// Time, in minutes, that a job can run before the compute environment infrastructure is updated.
+        /// </summary>
         public readonly int JobExecutionTimeoutMinutes;
+        /// <summary>
+        /// Whether running jobs are terminated when the compute environment infrastructure is updated.
+        /// </summary>
         public readonly bool TerminateJobsOnUpdate;
 
         [OutputConstructor]

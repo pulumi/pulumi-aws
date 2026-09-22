@@ -113,14 +113,14 @@ public final class AgentPromptArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     @Import(name="variants")
     private @Nullable Output<List<AgentPromptVariantArgs>> variants;
 
     /**
-     * @return A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+     * @return List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
      * 
      */
     public Optional<Output<List<AgentPromptVariantArgs>>> variants() {
@@ -288,7 +288,7 @@ public final class AgentPromptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class AgentPromptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class AgentPromptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variants A list of objects, each containing details about a variant of the prompt. See Variant for more information.
+         * @param variants List of objects, each containing details about a variant of the prompt. See `variant` Block for more information.
          * 
          * @return builder
          * 

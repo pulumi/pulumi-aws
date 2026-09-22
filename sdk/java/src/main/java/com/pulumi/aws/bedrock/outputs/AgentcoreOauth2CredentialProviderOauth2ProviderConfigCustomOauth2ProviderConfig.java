@@ -26,9 +26,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      */
     private @Nullable String clientAuthenticationMethod;
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **OAuth Discovery Configuration:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     private @Nullable Integer clientCredentialsWoVersion;
@@ -46,14 +44,10 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     /**
      * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
-     * **Write-Only Credentials (choose one pair):**
-     * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig clientSecretConfig;
@@ -69,27 +63,29 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      */
     private @Nullable String clientSecretWo;
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery oauthDiscovery;
     /**
-     * @return On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+     * @return On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig onBehalfOfTokenExchangeConfig;
     /**
-     * @return Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+     * @return Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint privateEndpoint;
     /**
-     * @return Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+     * @return Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
      * 
      */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride> privateEndpointOverrides;
+    /**
+     * @return Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+     * 
+     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig privateKeyJwtConfig;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig() {}
@@ -101,9 +97,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return Optional.ofNullable(this.clientAuthenticationMethod);
     }
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **OAuth Discovery Configuration:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     public Optional<Integer> clientCredentialsWoVersion() {
@@ -127,16 +121,12 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     /**
      * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
-     * **Write-Only Credentials (choose one pair):**
-     * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig> clientSecretConfig() {
@@ -158,35 +148,37 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return Optional.ofNullable(this.clientSecretWo);
     }
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     public AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery oauthDiscovery() {
         return this.oauthDiscovery;
     }
     /**
-     * @return On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+     * @return On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig> onBehalfOfTokenExchangeConfig() {
         return Optional.ofNullable(this.onBehalfOfTokenExchangeConfig);
     }
     /**
-     * @return Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+     * @return Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint> privateEndpoint() {
         return Optional.ofNullable(this.privateEndpoint);
     }
     /**
-     * @return Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+     * @return Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` Block below.
      * 
      */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride> privateEndpointOverrides() {
         return this.privateEndpointOverrides == null ? List.of() : this.privateEndpointOverrides;
     }
+    /**
+     * @return Private key JWT client authentication configuration used when signing client assertions. See `privateKeyJwtConfig` Block below.
+     * 
+     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig> privateKeyJwtConfig() {
         return Optional.ofNullable(this.privateKeyJwtConfig);
     }

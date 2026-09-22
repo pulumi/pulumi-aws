@@ -28,14 +28,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     public static final AgentFlowDefinitionNodeConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationArgs();
 
     /**
-     * Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+     * Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
      * 
      */
     @Import(name="agent")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationAgentArgs> agent;
 
     /**
-     * @return Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+     * @return Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationAgentArgs>> agent() {
@@ -43,14 +43,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+     * Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
      * 
      */
     @Import(name="collector")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationCollectorArgs> collector;
 
     /**
-     * @return Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+     * @return Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationCollectorArgs>> collector() {
@@ -58,14 +58,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationConditionArgs> condition;
 
     /**
-     * @return Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationConditionArgs>> condition() {
@@ -73,14 +73,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+     * Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
      * 
      */
     @Import(name="inlineCode")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationInlineCodeArgs> inlineCode;
 
     /**
-     * @return Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+     * @return Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationInlineCodeArgs>> inlineCode() {
@@ -88,14 +88,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="input")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationInputArgs> input;
 
     /**
-     * @return Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationInputArgs>> input() {
@@ -103,14 +103,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+     * Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
      * 
      */
     @Import(name="iterator")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationIteratorArgs> iterator;
 
     /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+     * @return Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationIteratorArgs>> iterator() {
@@ -118,14 +118,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+     * Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     @Import(name="knowledgeBase")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs> knowledgeBase;
 
     /**
-     * @return Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs>> knowledgeBase() {
@@ -133,14 +133,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+     * Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
      * 
      */
     @Import(name="lambdaFunction")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs> lambdaFunction;
 
     /**
-     * @return Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+     * @return Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs>> lambdaFunction() {
@@ -148,14 +148,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+     * Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
      * 
      */
     @Import(name="lex")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationLexArgs> lex;
 
     /**
-     * @return Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+     * @return Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationLexArgs>> lex() {
@@ -163,14 +163,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="output")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationOutputArgs> output;
 
     /**
-     * @return Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationOutputArgs>> output() {
@@ -178,14 +178,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+     * Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
      * 
      */
     @Import(name="prompt")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptArgs> prompt;
 
     /**
-     * @return Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+     * @return Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptArgs>> prompt() {
@@ -193,14 +193,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+     * Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
      * 
      */
     @Import(name="retrieval")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalArgs> retrieval;
 
     /**
-     * @return Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+     * @return Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalArgs>> retrieval() {
@@ -208,14 +208,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+     * Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
      * 
      */
     @Import(name="storage")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationStorageArgs> storage;
 
     /**
-     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+     * @return Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationStorageArgs>> storage() {
@@ -259,7 +259,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param agent Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+         * @param agent Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param agent Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
+         * @param agent Configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See `definition.node.configuration.agent` Block for details.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param collector Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+         * @param collector Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param collector Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+         * @param collector Configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This block has no arguments.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param condition Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * @param condition List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param condition Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * @param condition List of conditions. See `definition.node.configuration.condition.condition` Block for details.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param inlineCode Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+         * @param inlineCode Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param inlineCode Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
+         * @param inlineCode Configurations for an inline code node in your flow. See `definition.node.configuration.inline_code` Block for details.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param input Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * @param input Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param input Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * @param input Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+         * @param iterator Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
+         * @param iterator Configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration returns a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param knowledgeBase Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param knowledgeBase Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
+         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param lambdaFunction Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+         * @param lambdaFunction Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param lambdaFunction Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
+         * @param lambdaFunction Configurations for a Lambda function node in your flow. Invokes a Lambda function. See `definition.node.configuration.lambda_function` Block for details.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param lex Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+         * @param lex Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param lex Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+         * @param lex Configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See `definition.node.configuration.lex` Block for details.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param output Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * @param output Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param output Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * @param output Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param prompt Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+         * @param prompt Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param prompt Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
+         * @param prompt Configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See `definition.node.configuration.prompt` Block for details.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param retrieval Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+         * @param retrieval Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param retrieval Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
+         * @param retrieval Configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See `definition.node.configuration.retrieval` Block for details.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param storage Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+         * @param storage Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param storage Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
+         * @param storage Configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See `definition.node.configuration.storage` Block for details.
          * 
          * @return builder
          * 

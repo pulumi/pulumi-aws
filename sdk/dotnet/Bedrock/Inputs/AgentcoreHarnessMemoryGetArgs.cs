@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessMemoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `AgentcoreMemoryConfiguration` Block below.
+        /// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `memory.agentcore_memory_configuration` Block below.
         /// </summary>
         [Input("agentcoreMemoryConfiguration")]
         public Input<Inputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationGetArgs>? AgentcoreMemoryConfiguration { get; set; }
 
         /// <summary>
-        /// Explicitly disable memory for this harness. See `Disabled` Block below.
+        /// Explicitly disable memory for this harness. See `memory.disabled` Block below.
         /// </summary>
         [Input("disabled")]
         public Input<Inputs.AgentcoreHarnessMemoryDisabledGetArgs>? Disabled { get; set; }
 
         /// <summary>
-        /// Managed memory configuration. Creates and manages a memory resource automatically. See `ManagedMemoryConfiguration` Block below.
+        /// Managed memory configuration. Creates and manages a memory resource automatically. See `memory.managed_memory_configuration` Block below.
         /// </summary>
         [Input("managedMemoryConfiguration")]
         public Input<Inputs.AgentcoreHarnessMemoryManagedMemoryConfigurationGetArgs>? ManagedMemoryConfiguration { get; set; }

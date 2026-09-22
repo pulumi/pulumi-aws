@@ -16,14 +16,14 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalArgs extends com
     public static final AgentFlowDefinitionNodeConfigurationRetrievalArgs Empty = new AgentFlowDefinitionNodeConfigurationRetrievalArgs();
 
     /**
-     * Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     @Import(name="serviceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs> serviceConfiguration;
 
     /**
-     * @return Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * @return Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs>> serviceConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalArgs extends com
         }
 
         /**
-         * @param serviceConfiguration Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * @param serviceConfiguration Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalArgs extends com
         }
 
         /**
-         * @param serviceConfiguration Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * @param serviceConfiguration Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          * 
          * @return builder
          * 

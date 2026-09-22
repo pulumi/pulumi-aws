@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class GuardrailTopicPolicyConfigTierConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
+        /// Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
         /// </summary>
         [Input("tierName", required: true)]
         public Input<string> TierName { get; set; } = null!;

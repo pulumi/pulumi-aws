@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enables access logs for the API stage. See Access Log Settings below.
+        /// Enables access logs for the API stage. See `AccessLogSettings` Block below.
         /// </summary>
         [Output("accessLogSettings")]
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> CacheClusterSize { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// Configuration settings of a canary deployment. See `CanarySettings` Block below.
         /// </summary>
         [Output("canarySettings")]
         public Output<Outputs.StageCanarySettings?> CanarySettings { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables access logs for the API stage. See Access Log Settings below.
+        /// Enables access logs for the API stage. See `AccessLogSettings` Block below.
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsArgs>? AccessLogSettings { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
-        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// Configuration settings of a canary deployment. See `CanarySettings` Block below.
         /// </summary>
         [Input("canarySettings")]
         public Input<Inputs.StageCanarySettingsArgs>? CanarySettings { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables access logs for the API stage. See Access Log Settings below.
+        /// Enables access logs for the API stage. See `AccessLogSettings` Block below.
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsGetArgs>? AccessLogSettings { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
-        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// Configuration settings of a canary deployment. See `CanarySettings` Block below.
         /// </summary>
         [Input("canarySettings")]
         public Input<Inputs.StageCanarySettingsGetArgs>? CanarySettings { get; set; }

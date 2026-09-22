@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class CustomModelValidationMetric {
     /**
-     * @return The validation loss associated with the validator.
+     * @return Validation loss associated with the validator.
      * 
      */
     private Double validationLoss;
 
     private CustomModelValidationMetric() {}
     /**
-     * @return The validation loss associated with the validator.
+     * @return Validation loss associated with the validator.
      * 
      */
     public Double validationLoss() {

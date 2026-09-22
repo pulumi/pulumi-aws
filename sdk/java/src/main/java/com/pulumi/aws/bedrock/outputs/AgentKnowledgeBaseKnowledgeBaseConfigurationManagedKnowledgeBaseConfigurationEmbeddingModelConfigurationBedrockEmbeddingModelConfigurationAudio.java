@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio {
     /**
-     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     private AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration segmentationConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio() {}
     /**
-     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     public AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration segmentationConfiguration() {

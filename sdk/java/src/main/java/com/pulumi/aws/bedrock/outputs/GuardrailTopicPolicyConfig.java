@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailTopicPolicyConfig {
     /**
-     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * @return Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
      * 
      */
     private @Nullable List<GuardrailTopicPolicyConfigTierConfig> tierConfigs;
     /**
-     * @return List of topic configs in topic policy. See Topics Config for more information.
+     * @return List of topic configs in topic policy. See `topicsConfig` Block for more information.
      * 
      */
     private @Nullable List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs;
 
     private GuardrailTopicPolicyConfig() {}
     /**
-     * @return Configuration block for the topic policy tier. See Tier Config for more information.
+     * @return Configuration block for the topic policy tier. See `topic_policy_config.tier_config` Block for more information.
      * 
      */
     public List<GuardrailTopicPolicyConfigTierConfig> tierConfigs() {
         return this.tierConfigs == null ? List.of() : this.tierConfigs;
     }
     /**
-     * @return List of topic configs in topic policy. See Topics Config for more information.
+     * @return List of topic configs in topic policy. See `topicsConfig` Block for more information.
      * 
      */
     public List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs() {

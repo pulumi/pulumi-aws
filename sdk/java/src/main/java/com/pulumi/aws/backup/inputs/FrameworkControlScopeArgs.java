@@ -18,14 +18,14 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
     public static final FrameworkControlScopeArgs Empty = new FrameworkControlScopeArgs();
 
     /**
-     * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+     * ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
      * 
      */
     @Import(name="complianceResourceIds")
     private @Nullable Output<List<String>> complianceResourceIds;
 
     /**
-     * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+     * @return ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
      * 
      */
     public Optional<Output<List<String>>> complianceResourceIds() {
@@ -33,14 +33,14 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+     * Whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
     @Import(name="complianceResourceTypes")
     private @Nullable Output<List<String>> complianceResourceTypes;
 
     /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+     * @return Whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
     public Optional<Output<List<String>>> complianceResourceTypes() {
@@ -48,14 +48,14 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -89,7 +89,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         * @param complianceResourceIds ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         * @param complianceResourceIds ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+         * @param complianceResourceIds ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * @param complianceResourceTypes Whether the control scope includes one or more types of resources, such as EFS or RDS.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * @param complianceResourceTypes Whether the control scope includes one or more types of resources, such as EFS or RDS.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+         * @param complianceResourceTypes Whether the control scope includes one or more types of resources, such as EFS or RDS.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          * 
          * @return builder
          * 

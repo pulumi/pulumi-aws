@@ -15,14 +15,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs();
 
     /**
-     * The URL configuration of your web data source. See `urlConfiguration` block for details.
+     * URL configuration of your web data source. See `urlConfiguration` Block for details.
      * 
      */
     @Import(name="urlConfiguration", required=true)
     private Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration;
 
     /**
-     * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
+     * @return URL configuration of your web data source. See `urlConfiguration` Block for details.
      * 
      */
     public Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration() {
@@ -54,7 +54,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         /**
-         * @param urlConfiguration The URL configuration of your web data source. See `urlConfiguration` block for details.
+         * @param urlConfiguration URL configuration of your web data source. See `urlConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         /**
-         * @param urlConfiguration The URL configuration of your web data source. See `urlConfiguration` block for details.
+         * @param urlConfiguration URL configuration of your web data source. See `urlConfiguration` Block for details.
          * 
          * @return builder
          * 

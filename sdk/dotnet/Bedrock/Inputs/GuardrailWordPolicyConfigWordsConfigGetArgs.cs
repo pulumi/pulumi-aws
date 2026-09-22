@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<bool>? OutputEnabled { get; set; }
 
         /// <summary>
-        /// The custom word text.
+        /// Custom word text.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;

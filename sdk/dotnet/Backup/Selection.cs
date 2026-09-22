@@ -247,13 +247,13 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableArray<Outputs.SelectionCondition>> Conditions { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+        /// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of a resource selection document.
+        /// Display name of a resource selection document.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableArray<string>> NotResources { get; private set; } = null!;
 
         /// <summary>
-        /// The backup plan ID to be associated with the selection of resources.
+        /// Backup plan ID to be associated with the selection of resources.
         /// </summary>
         [Output("planId")]
         public Output<string> PlanId { get; private set; } = null!;
@@ -347,13 +347,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+        /// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The display name of a resource selection document.
+        /// Display name of a resource selection document.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The backup plan ID to be associated with the selection of resources.
+        /// Backup plan ID to be associated with the selection of resources.
         /// </summary>
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
@@ -427,13 +427,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+        /// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// The display name of a resource selection document.
+        /// Display name of a resource selection document.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The backup plan ID to be associated with the selection of resources.
+        /// Backup plan ID to be associated with the selection of resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }

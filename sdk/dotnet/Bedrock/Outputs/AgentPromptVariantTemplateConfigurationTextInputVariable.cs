@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentPromptVariantTemplateConfigurationTextInputVariable
     {
         /// <summary>
-        /// The name of the variable.
+        /// Name of the variable.
         /// </summary>
         public readonly string Name;
 

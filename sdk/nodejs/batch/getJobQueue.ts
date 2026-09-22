@@ -44,7 +44,7 @@ export interface GetJobQueueArgs {
      */
     region?: string;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     tags?: {[key: string]: string};
 }
@@ -58,10 +58,7 @@ export interface GetJobQueueResult {
      */
     readonly arn: string;
     /**
-     * The compute environments that are attached to the job queue and the order in
-     * which job placement is preferred. Compute environments are selected for job placement in ascending order.
-     * * `compute_environment_order.#.order` - The order of the compute environment.
-     * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+     * Compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
      */
     readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
     /**
@@ -69,26 +66,21 @@ export interface GetJobQueueResult {
      */
     readonly id: string;
     /**
-     * Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+     * Action that AWS Batch takes after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     readonly jobStateTimeLimitActions: outputs.batch.GetJobQueueJobStateTimeLimitAction[];
     readonly name: string;
     /**
-     * Priority of the job queue. Job queues with a higher priority are evaluated first when
-     * associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      */
     readonly priority: number;
     readonly region: string;
     /**
-     * The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+     * ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
      */
     readonly schedulingPolicyArn: string;
     /**
-     * Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+     * Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      */
     readonly state: string;
     /**
@@ -96,12 +88,11 @@ export interface GetJobQueueResult {
      */
     readonly status: string;
     /**
-     * Short, human-readable string to provide additional details about the current status
-     * of the job queue.
+     * Short, human-readable string to provide additional details about the current status of the job queue.
      */
     readonly statusReason: string;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: string};
 }
@@ -142,7 +133,7 @@ export interface GetJobQueueOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

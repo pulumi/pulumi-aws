@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -20,18 +21,14 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
     public static final AgentcoreApiKeyCredentialProviderState Empty = new AgentcoreApiKeyCredentialProviderState();
 
     /**
-     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
+     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
+     * @return API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -54,8 +51,38 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
     }
 
     /**
+     * Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+     * 
+     */
+    @Import(name="apiKeySecretConfig")
+    private @Nullable Output<AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs> apiKeySecretConfig;
+
+    /**
+     * @return Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+     * 
+     */
+    public Optional<Output<AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs>> apiKeySecretConfig() {
+        return Optional.ofNullable(this.apiKeySecretConfig);
+    }
+
+    /**
+     * Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+     * 
+     */
+    @Import(name="apiKeySecretSource")
+    private @Nullable Output<String> apiKeySecretSource;
+
+    /**
+     * @return Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+     * 
+     */
+    public Optional<Output<String>> apiKeySecretSource() {
+        return Optional.ofNullable(this.apiKeySecretSource);
+    }
+
+    /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+     * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     @Import(name="apiKeyWo")
@@ -63,7 +90,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+     * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> apiKeyWo() {
@@ -137,8 +164,6 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * **Standard API Key (choose one approach):**
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -146,22 +171,20 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * **Standard API Key (choose one approach):**
-     * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -173,6 +196,8 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
     private AgentcoreApiKeyCredentialProviderState(AgentcoreApiKeyCredentialProviderState $) {
         this.apiKey = $.apiKey;
         this.apiKeySecretArns = $.apiKeySecretArns;
+        this.apiKeySecretConfig = $.apiKeySecretConfig;
+        this.apiKeySecretSource = $.apiKeySecretSource;
         this.apiKeyWo = $.apiKeyWo;
         this.apiKeyWoVersion = $.apiKeyWoVersion;
         this.credentialProviderArn = $.credentialProviderArn;
@@ -201,9 +226,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param apiKey API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-         * 
-         * **Write-Only API Key (choose one approach):**
+         * @param apiKey API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
          * 
          * @return builder
          * 
@@ -214,9 +237,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param apiKey API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-         * 
-         * **Write-Only API Key (choose one approach):**
+         * @param apiKey API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
          * 
          * @return builder
          * 
@@ -257,8 +278,50 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         }
 
         /**
+         * @param apiKeySecretConfig Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeySecretConfig(@Nullable Output<AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs> apiKeySecretConfig) {
+            $.apiKeySecretConfig = apiKeySecretConfig;
+            return this;
+        }
+
+        /**
+         * @param apiKeySecretConfig Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = &#34;EXTERNAL&#34;`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeySecretConfig(AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs apiKeySecretConfig) {
+            return apiKeySecretConfig(Output.of(apiKeySecretConfig));
+        }
+
+        /**
+         * @param apiKeySecretSource Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeySecretSource(@Nullable Output<String> apiKeySecretSource) {
+            $.apiKeySecretSource = apiKeySecretSource;
+            return this;
+        }
+
+        /**
+         * @param apiKeySecretSource Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeySecretSource(String apiKeySecretSource) {
+            return apiKeySecretSource(Output.of(apiKeySecretSource));
+        }
+
+        /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+         * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -270,7 +333,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
 
         /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+         * Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -370,8 +433,6 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * **Standard API Key (choose one approach):**
-         * 
          * @return builder
          * 
          */
@@ -383,8 +444,6 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * **Standard API Key (choose one approach):**
-         * 
          * @return builder
          * 
          */
@@ -393,7 +452,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -404,7 +463,7 @@ public final class AgentcoreApiKeyCredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationSharePointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationGetArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationGetArgs>? SourceConfiguration { get; set; }
 

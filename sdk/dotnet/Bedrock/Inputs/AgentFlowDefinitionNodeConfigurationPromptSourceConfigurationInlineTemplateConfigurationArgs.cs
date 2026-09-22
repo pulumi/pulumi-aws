@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        /// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
         /// </summary>
         [Input("chat")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs>? Chat { get; set; }
 
         /// <summary>
-        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        /// Message for the prompt.
         /// </summary>
         [Input("text")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs>? Text { get; set; }

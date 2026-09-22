@@ -33,14 +33,14 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     }
 
     /**
-     * The regex description.
+     * Regex description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The regex description.
+     * @return Regex description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -78,14 +78,14 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     }
 
     /**
-     * The regex name.
+     * Regex name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The regex name.
+     * @return Regex name.
      * 
      */
     public Output<String> name() {
@@ -123,14 +123,14 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
     }
 
     /**
-     * The regex pattern.
+     * Regex pattern.
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return The regex pattern.
+     * @return Regex pattern.
      * 
      */
     public Output<String> pattern() {
@@ -190,7 +190,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param description The regex description.
+         * @param description Regex description.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param description The regex description.
+         * @param description Regex description.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param name The regex name.
+         * @param name Regex name.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param name The regex name.
+         * @param name Regex name.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param pattern The regex pattern.
+         * @param pattern Regex pattern.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
         }
 
         /**
-         * @param pattern The regex pattern.
+         * @param pattern Regex pattern.
          * 
          * @return builder
          * 

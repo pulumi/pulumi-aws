@@ -32,12 +32,12 @@ public final class GetPlanResult {
     private String planId;
     private String region;
     /**
-     * @return Rules of a backup plan.
+     * @return Rules of a backup plan. See below.
      * 
      */
     private List<GetPlanRule> rules;
     /**
-     * @return Scanning configuration for the backup rule.
+     * @return Scanning configuration for the backup rule. See below.
      * 
      */
     private List<GetPlanScanSetting> scanSettings;
@@ -81,14 +81,14 @@ public final class GetPlanResult {
         return this.region;
     }
     /**
-     * @return Rules of a backup plan.
+     * @return Rules of a backup plan. See below.
      * 
      */
     public List<GetPlanRule> rules() {
         return this.rules;
     }
     /**
-     * @return Scanning configuration for the backup rule.
+     * @return Scanning configuration for the backup rule. See below.
      * 
      */
     public List<GetPlanScanSetting> scanSettings() {

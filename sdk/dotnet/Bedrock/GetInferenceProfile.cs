@@ -142,37 +142,37 @@ namespace Pulumi.Aws.Bedrock
     public sealed class GetInferenceProfileResult
     {
         /// <summary>
-        /// The time at which the inference profile was created.
+        /// Time at which the inference profile was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the inference profile.
+        /// Description of the inference profile.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The ARN of the inference profile.
+        /// ARN of the inference profile.
         /// </summary>
         public readonly string InferenceProfileArn;
         public readonly string InferenceProfileId;
         /// <summary>
-        /// The unique identifier of the inference profile.
+        /// Unique identifier of the inference profile.
         /// </summary>
         public readonly string InferenceProfileName;
         /// <summary>
-        /// A list of information about each model in the inference profile. See `Models`.
+        /// List of information about each model in the inference profile. See `Models`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfileModelResult> Models;
         public readonly string Region;
         /// <summary>
-        /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        /// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+        /// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The time at which the inference profile was last updated.
+        /// Time at which the inference profile was last updated.
         /// </summary>
         public readonly string UpdatedAt;
 

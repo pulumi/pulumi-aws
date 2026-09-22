@@ -205,6 +205,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String bedrockruntime;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String billing;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1878,6 +1883,13 @@ public final class Endpoints {
      */
     public Optional<String> bedrockagentcore() {
         return Optional.ofNullable(this.bedrockagentcore);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> bedrockruntime() {
+        return Optional.ofNullable(this.bedrockruntime);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3901,6 +3913,7 @@ public final class Endpoints {
         private @Nullable String bedrock;
         private @Nullable String bedrockagent;
         private @Nullable String bedrockagentcore;
+        private @Nullable String bedrockruntime;
         private @Nullable String billing;
         private @Nullable String budgets;
         private @Nullable String ce;
@@ -4224,6 +4237,7 @@ public final class Endpoints {
     	      this.bedrock = defaults.bedrock;
     	      this.bedrockagent = defaults.bedrockagent;
     	      this.bedrockagentcore = defaults.bedrockagentcore;
+    	      this.bedrockruntime = defaults.bedrockruntime;
     	      this.billing = defaults.billing;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
@@ -4734,6 +4748,12 @@ public final class Endpoints {
         public Builder bedrockagentcore(@Nullable String bedrockagentcore) {
 
             this.bedrockagentcore = bedrockagentcore;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bedrockruntime(@Nullable String bedrockruntime) {
+
+            this.bedrockruntime = bedrockruntime;
             return this;
         }
         @CustomType.Setter
@@ -6468,6 +6488,7 @@ public final class Endpoints {
             _resultValue.bedrock = bedrock;
             _resultValue.bedrockagent = bedrockagent;
             _resultValue.bedrockagentcore = bedrockagentcore;
+            _resultValue.bedrockruntime = bedrockruntime;
             _resultValue.billing = billing;
             _resultValue.budgets = budgets;
             _resultValue.ce = ce;

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// The regex description.
+        /// Regex description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? InputEnabled;
         /// <summary>
-        /// The regex name.
+        /// Regex name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
-        /// The regex pattern.
+        /// Regex pattern.
         /// </summary>
         public readonly string Pattern;
 

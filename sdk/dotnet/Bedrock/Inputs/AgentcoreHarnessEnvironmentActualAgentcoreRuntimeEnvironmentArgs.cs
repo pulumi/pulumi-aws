@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>? _filesystemConfigurations;
 
         /// <summary>
-        /// Filesystem configurations. See `FilesystemConfiguration` Block below.
+        /// Filesystem configurations. See `environment_actual.agentcore_runtime_environment.filesystem_configuration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs> FilesystemConfigurations
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs>? _lifecycleConfigurations;
 
         /// <summary>
-        /// Lifecycle configuration. See `LifecycleConfiguration` Block below.
+        /// Lifecycle configuration. See `environment_actual.agentcore_runtime_environment.lifecycle_configuration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs> LifecycleConfigurations
         {
@@ -58,9 +58,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>? _networkConfigurations;
 
         /// <summary>
-        /// Network configuration. See `NetworkConfiguration` Block below.
-        /// 
-        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
+        /// Network configuration. See `environment_actual.agentcore_runtime_environment.network_configuration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs> NetworkConfigurations
         {

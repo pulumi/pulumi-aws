@@ -94,13 +94,13 @@ namespace Pulumi.Aws.Budgets
     public sealed class GetBudgetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's AccountId by default if omitted.
+        /// ID of the target account for the budget. Defaults to the current account ID.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
         /// <summary>
-        /// The name of a budget. Unique within accounts.
+        /// Name of the budget. Unique within an account.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Budgets
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The prefix of the name of a budget. Unique within accounts.
+        /// Prefix of the budget name. Unique within an account.
         /// </summary>
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
@@ -134,13 +134,13 @@ namespace Pulumi.Aws.Budgets
     public sealed class GetBudgetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's AccountId by default if omitted.
+        /// ID of the target account for the budget. Defaults to the current account ID.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of a budget. Unique within accounts.
+        /// Name of the budget. Unique within an account.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The prefix of the name of a budget. Unique within accounts.
+        /// Prefix of the budget name. Unique within an account.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -176,9 +176,12 @@ namespace Pulumi.Aws.Budgets
     public sealed class GetBudgetResult
     {
         public readonly string AccountId;
+        /// <summary>
+        /// ARN of the budget.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// Object that determines the budget amount for an auto-adjusting budget. See `AutoAdjustData` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetAutoAdjustDataResult> AutoAdjustDatas;
         /// <summary>
@@ -186,41 +189,44 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         public readonly string BillingViewArn;
         /// <summary>
-        /// Boolean indicating whether this budget has been exceeded.
+        /// Whether the budget has been exceeded.
         /// </summary>
         public readonly bool BudgetExceeded;
         /// <summary>
-        /// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
+        /// Amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage tracked by the budget. See `BudgetLimit` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetBudgetLimitResult> BudgetLimits;
         /// <summary>
-        /// Whether this budget tracks monetary cost or usage.
+        /// Whether the budget tracks monetary cost or usage.
         /// </summary>
         public readonly string BudgetType;
         /// <summary>
-        /// The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
+        /// Spend objects associated with the budget. See `CalculatedSpend` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetCalculatedSpendResult> CalculatedSpends;
         /// <summary>
-        /// A list of CostFilter name/values pair to apply to budget.
+        /// Cost filters applied to the budget. See `CostFilter` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetCostFilterResult> CostFilters;
         /// <summary>
-        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+        /// Types of cost included in the budget. See `CostTypes` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetCostTypeResult> CostTypes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the cost filter.
+        /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
         /// <summary>
-        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+        /// Notifications associated with the budget. See `Notification` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetNotificationResult> Notifications;
         /// <summary>
-        /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        /// Budget limits planned for future periods. See `PlannedLimit` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetPlannedLimitResult> PlannedLimits;
         /// <summary>
@@ -228,15 +234,15 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+        /// End of the time period covered by the budget. Format: `2017-01-01_12:00`.
         /// </summary>
         public readonly string TimePeriodEnd;
         /// <summary>
-        /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// Start of the time period covered by the budget. Format: `2017-01-01_12:00`.
         /// </summary>
         public readonly string TimePeriodStart;
         /// <summary>
-        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        /// Length of time until the budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         /// </summary>
         public readonly string TimeUnit;
 

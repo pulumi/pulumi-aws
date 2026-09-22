@@ -15,14 +15,14 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageContentCach
     public static final AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs Empty = new AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs();
 
     /**
-     * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * Cache point type. Valid values: `default`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Cache point type. Valid values: `default`.
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageContentCach
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Cache point type. Valid values: `default`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageContentCach
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Cache point type. Valid values: `default`.
          * 
          * @return builder
          * 

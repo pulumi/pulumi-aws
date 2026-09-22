@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> StepToApply { get; set; } = null!;
 
         /// <summary>
-        /// The lambda function that processes documents.
+        /// Lambda function that processes documents. See `TransformationFunction` Block for details.
         /// </summary>
         [Input("transformationFunction")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionGetArgs>? TransformationFunction { get; set; }

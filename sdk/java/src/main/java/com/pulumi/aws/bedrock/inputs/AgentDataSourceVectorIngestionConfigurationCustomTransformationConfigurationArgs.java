@@ -17,14 +17,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs();
 
     /**
-     * The intermediate storage for custom transformation.
+     * Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
      * 
      */
     @Import(name="intermediateStorage")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs> intermediateStorage;
 
     /**
-     * @return The intermediate storage for custom transformation.
+     * @return Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs>> intermediateStorage() {
@@ -32,14 +32,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     }
 
     /**
-     * A custom processing step for documents moving through the data source ingestion pipeline.
+     * Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
      * 
      */
     @Import(name="transformation")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs> transformation;
 
     /**
-     * @return A custom processing step for documents moving through the data source ingestion pipeline.
+     * @return Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs>> transformation() {
@@ -72,7 +72,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param intermediateStorage The intermediate storage for custom transformation.
+         * @param intermediateStorage Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param intermediateStorage The intermediate storage for custom transformation.
+         * @param intermediateStorage Intermediate storage for custom transformation. See `intermediateStorage` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformation A custom processing step for documents moving through the data source ingestion pipeline.
+         * @param transformation Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformation A custom processing step for documents moving through the data source ingestion pipeline.
+         * @param transformation Custom processing step for documents moving through the data source ingestion pipeline. See `transformation` Block for details.
          * 
          * @return builder
          * 

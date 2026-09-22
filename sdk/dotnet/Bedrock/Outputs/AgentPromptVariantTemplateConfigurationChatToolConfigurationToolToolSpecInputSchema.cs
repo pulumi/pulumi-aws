@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema
     {
         /// <summary>
-        /// A JSON object defining the input schema for the tool.
+        /// JSON object defining the input schema for the tool.
         /// </summary>
         public readonly string? Json;
 

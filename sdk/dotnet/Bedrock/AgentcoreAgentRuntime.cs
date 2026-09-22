@@ -326,8 +326,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Network configuration for the agent runtime. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.AgentcoreAgentRuntimeNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
@@ -352,6 +350,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// ARN of the IAM role that the agent runtime assumes to access AWS services.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -485,8 +485,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Network configuration for the agent runtime. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("networkConfiguration", required: true)]
         public Input<Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
@@ -511,6 +509,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// ARN of the IAM role that the agent runtime assumes to access AWS services.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -618,8 +618,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Network configuration for the agent runtime. See `NetworkConfiguration` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.AgentcoreAgentRuntimeNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
@@ -644,6 +642,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// ARN of the IAM role that the agent runtime assumes to access AWS services.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -664,7 +664,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

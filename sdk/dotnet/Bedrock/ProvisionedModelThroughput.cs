@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> ModelUnits { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Provisioned Throughput.
+        /// ARN of the Provisioned Throughput.
         /// </summary>
         [Output("provisionedModelArn")]
         public Output<string> ProvisionedModelArn { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? ModelUnits { get; set; }
 
         /// <summary>
-        /// The ARN of the Provisioned Throughput.
+        /// ARN of the Provisioned Throughput.
         /// </summary>
         [Input("provisionedModelArn")]
         public Input<string>? ProvisionedModelArn { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -18,9 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ClientAuthenticationMethod;
         /// <summary>
-        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
-        /// 
-        /// **OAuth Discovery Configuration:**
+        /// Version used together with the write-only credentials. Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// </summary>
         public readonly int? ClientCredentialsWoVersion;
         /// <summary>
@@ -34,14 +32,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         public readonly string? ClientIdWo;
         /// <summary>
         /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
-        /// 
-        /// **Advanced Configuration:**
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig? ClientSecretConfig;
         /// <summary>
@@ -54,23 +48,24 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? ClientSecretWo;
         /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// 
-        /// **Externally-Managed Client Secret:**
+        /// OAuth discovery configuration. See `oauth2_provider_config.custom_oauth2_provider_config.oauth_discovery` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery OauthDiscovery;
         /// <summary>
-        /// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `OnBehalfOfTokenExchangeConfig` below.
+        /// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `OnBehalfOfTokenExchangeConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig? OnBehalfOfTokenExchangeConfig;
         /// <summary>
-        /// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `PrivateEndpoint` below.
+        /// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `PrivateEndpoint` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint? PrivateEndpoint;
         /// <summary>
-        /// Private endpoint overrides for the custom OAuth2 provider configuration. See `PrivateEndpointOverride` below.
+        /// Private endpoint overrides for the custom OAuth2 provider configuration. See `PrivateEndpointOverride` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride> PrivateEndpointOverrides;
+        /// <summary>
+        /// Private key JWT client authentication configuration used when signing client assertions. See `PrivateKeyJwtConfig` Block below.
+        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig? PrivateKeyJwtConfig;
 
         [OutputConstructor]

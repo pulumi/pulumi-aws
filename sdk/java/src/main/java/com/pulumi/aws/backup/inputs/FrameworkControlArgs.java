@@ -35,14 +35,14 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of a control. This name is between 1 and 256 characters.
+     * Name of a control. This name is between 1 and 256 characters.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of a control. This name is between 1 and 256 characters.
+     * @return Name of a control. This name is between 1 and 256 characters.
      * 
      */
     public Output<String> name() {
@@ -50,14 +50,14 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<FrameworkControlScopeArgs> scope;
 
     /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     public Optional<Output<FrameworkControlScopeArgs>> scope() {
@@ -122,7 +122,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of a control. This name is between 1 and 256 characters.
+         * @param name Name of a control. This name is between 1 and 256 characters.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of a control. This name is between 1 and 256 characters.
+         * @param name Name of a control. This name is between 1 and 256 characters.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scope The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         * @param scope Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scope The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+         * @param scope Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
          * 
          * @return builder
          * 

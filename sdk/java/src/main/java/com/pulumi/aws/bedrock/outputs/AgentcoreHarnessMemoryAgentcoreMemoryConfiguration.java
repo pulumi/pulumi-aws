@@ -20,7 +20,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
      */
     private @Nullable String actorId;
     /**
-     * @return ARN of the AgentCore memory resource.
+     * @return ARN of the managed memory resource.
      * 
      */
     private String arn;
@@ -30,7 +30,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
      */
     private @Nullable Integer messagesCount;
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
+     * @return Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig retrievalConfig;
@@ -44,7 +44,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
         return Optional.ofNullable(this.actorId);
     }
     /**
-     * @return ARN of the AgentCore memory resource.
+     * @return ARN of the managed memory resource.
      * 
      */
     public String arn() {
@@ -58,7 +58,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
         return Optional.ofNullable(this.messagesCount);
     }
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
+     * @return Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig> retrievalConfig() {

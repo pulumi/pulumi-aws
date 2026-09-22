@@ -17,14 +17,14 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
     public static final VaultNotificationsState Empty = new VaultNotificationsState();
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Import(name="backupVaultArn")
     private @Nullable Output<String> backupVaultArn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Optional<Output<String>> backupVaultArn() {
@@ -32,14 +32,14 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     @Import(name="backupVaultEvents")
     private @Nullable Output<List<String>> backupVaultEvents;
 
     /**
-     * @return An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * @return Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     public Optional<Output<List<String>>> backupVaultEvents() {
@@ -120,7 +120,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupVaultArn The ARN of the vault.
+         * @param backupVaultArn ARN of the vault.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupVaultArn The ARN of the vault.
+         * @param backupVaultArn ARN of the vault.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
+         * @param backupVaultEvents Array of events that indicate the status of jobs to back up resources to the backup vault.
          * 
          * @return builder
          * 

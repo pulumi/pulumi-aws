@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class GetBudgetNotificationResult
     {
         /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+        /// Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
         /// </summary>
         public readonly string ComparisonOperator;
         /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+        /// Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
         /// </summary>
         public readonly string NotificationType;
         /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `SubscriberSnsTopicArns` is required.
+        /// Email addresses to notify.
         /// </summary>
         public readonly ImmutableArray<string> SubscriberEmailAddresses;
         /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `SubscriberEmailAddresses` is required.
+        /// SNS topics to notify.
         /// </summary>
         public readonly ImmutableArray<string> SubscriberSnsTopicArns;
         /// <summary>
-        /// (Required) Threshold when the notification should be sent.
+        /// Threshold at which the notification is sent.
         /// </summary>
         public readonly double Threshold;
         /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        /// Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
         /// </summary>
         public readonly string ThresholdType;
 

@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Billing
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+        /// Filter Cost Explorer APIs using the expression. See `DataFilterExpression` below for details.
         /// </summary>
         [Output("dataFilterExpression")]
         public Output<Outputs.ViewDataFilterExpression?> DataFilterExpression { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Billing
         public Output<ImmutableArray<string>> SourceViews { get; private set; } = null!;
 
         /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
+        /// Key-value map of tags associated with the billing view being created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Billing
     public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+        /// Filter Cost Explorer APIs using the expression. See `DataFilterExpression` below for details.
         /// </summary>
         [Input("dataFilterExpression")]
         public Input<Inputs.ViewDataFilterExpressionArgs>? DataFilterExpression { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Billing
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
+        /// Key-value map of tags associated with the billing view being created.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Billing
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+        /// Filter Cost Explorer APIs using the expression. See `DataFilterExpression` below for details.
         /// </summary>
         [Input("dataFilterExpression")]
         public Input<Inputs.ViewDataFilterExpressionGetArgs>? DataFilterExpression { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Billing
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// List of key value map specifying tags associated to the billing view being created.
+        /// Key-value map of tags associated with the billing view being created.
         /// </summary>
         public InputMap<string> Tags
         {

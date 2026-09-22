@@ -41,9 +41,17 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         return this.agentId;
     }
 
+    /**
+     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * 
+     */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
+    /**
+     * @return Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * 
+     */
     public Optional<Output<String>> agentVersion() {
         return Optional.ofNullable(this.agentVersion);
     }
@@ -196,11 +204,23 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             return agentId(Output.of(agentId));
         }
 
+        /**
+         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentVersion(@Nullable Output<String> agentVersion) {
             $.agentVersion = agentVersion;
             return this;
         }
 
+        /**
+         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentVersion(String agentVersion) {
             return agentVersion(Output.of(agentVersion));
         }

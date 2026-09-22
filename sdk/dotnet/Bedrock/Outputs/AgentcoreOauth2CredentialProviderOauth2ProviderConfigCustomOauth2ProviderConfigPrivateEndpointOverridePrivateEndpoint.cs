@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint
     {
         /// <summary>
-        /// Service-managed VPC resource configuration. See `ManagedVpcResource` below.
+        /// Service-managed VPC resource configuration. See `ManagedVpcResource` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource? ManagedVpcResource;
         /// <summary>
-        /// Self-managed VPC Lattice resource configuration. See `SelfManagedLatticeResource` below.
+        /// Self-managed VPC Lattice resource configuration. See `SelfManagedLatticeResource` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource? SelfManagedLatticeResource;
 

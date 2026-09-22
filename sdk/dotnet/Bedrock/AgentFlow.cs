@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the flow was created.
+        /// Time at which the flow was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -219,27 +219,27 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> CustomerEncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        /// Nodes and connections between nodes in the flow. See `Definition` Block for details.
         /// </summary>
         [Output("definition")]
         public Output<Outputs.AgentFlowDefinition?> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the flow.
+        /// Description for the flow.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the flow.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the flow.
+        /// Status of the flow.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentFlowTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which the flow was last updated.
+        /// Time at which the flow was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the flow.
+        /// Version of the flow.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -336,27 +336,27 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        /// Nodes and connections between nodes in the flow. See `Definition` Block for details.
         /// </summary>
         [Input("definition")]
         public Input<Inputs.AgentFlowDefinitionArgs>? Definition { get; set; }
 
         /// <summary>
-        /// A description for the flow.
+        /// Description for the flow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// A name for the flow.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The time at which the flow was created.
+        /// Time at which the flow was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -409,27 +409,27 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// A definition of the nodes and connections between nodes in the flow. See Definition for more information.
+        /// Nodes and connections between nodes in the flow. See `Definition` Block for details.
         /// </summary>
         [Input("definition")]
         public Input<Inputs.AgentFlowDefinitionGetArgs>? Definition { get; set; }
 
         /// <summary>
-        /// A description for the flow.
+        /// Description for the flow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
         /// ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// A name for the flow.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -441,7 +441,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of the flow.
+        /// Status of the flow.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -474,13 +474,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentFlowTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The time at which the flow was last updated.
+        /// Time at which the flow was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// The version of the flow.
+        /// Version of the flow.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

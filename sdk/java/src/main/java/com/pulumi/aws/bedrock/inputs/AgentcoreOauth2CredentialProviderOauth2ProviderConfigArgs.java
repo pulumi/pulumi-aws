@@ -24,14 +24,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs();
 
     /**
-     * Atlassian OAuth provider configuration. See `predefined providers` below.
+     * Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="atlassianOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs> atlassianOauth2ProviderConfig;
 
     /**
-     * @return Atlassian OAuth provider configuration. See `predefined providers` below.
+     * @return Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs>> atlassianOauth2ProviderConfig() {
@@ -39,14 +39,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Custom OAuth2 provider configuration. See `custom` below.
+     * Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="customOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs> customOauth2ProviderConfig;
 
     /**
-     * @return Custom OAuth2 provider configuration. See `custom` below.
+     * @return Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs>> customOauth2ProviderConfig() {
@@ -54,14 +54,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * GitHub OAuth provider configuration. See `predefined providers` below.
+     * GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="githubOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs> githubOauth2ProviderConfig;
 
     /**
-     * @return GitHub OAuth provider configuration. See `predefined providers` below.
+     * @return GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs>> githubOauth2ProviderConfig() {
@@ -69,14 +69,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Google OAuth provider configuration. See `predefined providers` below.
+     * Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="googleOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs> googleOauth2ProviderConfig;
 
     /**
-     * @return Google OAuth provider configuration. See `predefined providers` below.
+     * @return Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs>> googleOauth2ProviderConfig() {
@@ -84,18 +84,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-     * 
-     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="includedOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs> includedOauth2ProviderConfig;
 
     /**
-     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-     * 
-     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs>> includedOauth2ProviderConfig() {
@@ -103,14 +99,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="linkedinOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs> linkedinOauth2ProviderConfig;
 
     /**
-     * @return LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * @return LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs>> linkedinOauth2ProviderConfig() {
@@ -118,14 +114,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Microsoft OAuth provider configuration. See `predefined providers` below.
+     * Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="microsoftOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs> microsoftOauth2ProviderConfig;
 
     /**
-     * @return Microsoft OAuth provider configuration. See `predefined providers` below.
+     * @return Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs>> microsoftOauth2ProviderConfig() {
@@ -133,14 +129,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Salesforce OAuth provider configuration. See `predefined providers` below.
+     * Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="salesforceOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs> salesforceOauth2ProviderConfig;
 
     /**
-     * @return Salesforce OAuth provider configuration. See `predefined providers` below.
+     * @return Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs>> salesforceOauth2ProviderConfig() {
@@ -148,14 +144,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
     }
 
     /**
-     * Slack OAuth provider configuration. See `predefined providers` below.
+     * Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
      * 
      */
     @Import(name="slackOauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs> slackOauth2ProviderConfig;
 
     /**
-     * @return Slack OAuth provider configuration. See `predefined providers` below.
+     * @return Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs>> slackOauth2ProviderConfig() {
@@ -195,7 +191,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param atlassianOauth2ProviderConfig Atlassian OAuth provider configuration. See `predefined providers` below.
+         * @param atlassianOauth2ProviderConfig Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -206,7 +202,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param atlassianOauth2ProviderConfig Atlassian OAuth provider configuration. See `predefined providers` below.
+         * @param atlassianOauth2ProviderConfig Atlassian OAuth provider configuration. See `atlassianOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -216,7 +212,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `custom` below.
+         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -227,7 +223,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `custom` below.
+         * @param customOauth2ProviderConfig Custom OAuth2 provider configuration. See `customOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -237,7 +233,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `predefined providers` below.
+         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -248,7 +244,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `predefined providers` below.
+         * @param githubOauth2ProviderConfig GitHub OAuth provider configuration. See `githubOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -258,7 +254,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `predefined providers` below.
+         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -269,7 +265,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `predefined providers` below.
+         * @param googleOauth2ProviderConfig Google OAuth provider configuration. See `googleOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -279,9 +275,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param includedOauth2ProviderConfig Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-         * 
-         * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         * @param includedOauth2ProviderConfig Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -292,9 +286,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param includedOauth2ProviderConfig Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-         * 
-         * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         * @param includedOauth2ProviderConfig Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `includedOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -304,7 +296,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param linkedinOauth2ProviderConfig LinkedIn OAuth provider configuration. See `predefined providers` below.
+         * @param linkedinOauth2ProviderConfig LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -315,7 +307,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param linkedinOauth2ProviderConfig LinkedIn OAuth provider configuration. See `predefined providers` below.
+         * @param linkedinOauth2ProviderConfig LinkedIn OAuth provider configuration. See `linkedinOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -325,7 +317,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `predefined providers` below.
+         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -336,7 +328,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `predefined providers` below.
+         * @param microsoftOauth2ProviderConfig Microsoft OAuth provider configuration. See `microsoftOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -346,7 +338,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `predefined providers` below.
+         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -357,7 +349,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `predefined providers` below.
+         * @param salesforceOauth2ProviderConfig Salesforce OAuth provider configuration. See `salesforceOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -367,7 +359,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `predefined providers` below.
+         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 
@@ -378,7 +370,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs ext
         }
 
         /**
-         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `predefined providers` below.
+         * @param slackOauth2ProviderConfig Slack OAuth provider configuration. See `slackOauth2ProviderConfig` Block below.
          * 
          * @return builder
          * 

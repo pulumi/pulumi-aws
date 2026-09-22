@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
     public static final AgentFlowDefinitionNodeConfigurationPromptArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptArgs();
 
     /**
-     * Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+     * Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs> guardrailConfiguration;
 
     /**
-     * @return Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+     * @return Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs>> guardrailConfiguration() {
@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
     }
 
     /**
-     * Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
      * 
      */
     @Import(name="sourceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs> sourceConfiguration;
 
     /**
-     * @return Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * @return Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs>> sourceConfiguration() {
@@ -72,7 +72,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param guardrailConfiguration Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param guardrailConfiguration Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param sourceConfiguration Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * @param sourceConfiguration Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param sourceConfiguration Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * @param sourceConfiguration Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
          * 
          * @return builder
          * 

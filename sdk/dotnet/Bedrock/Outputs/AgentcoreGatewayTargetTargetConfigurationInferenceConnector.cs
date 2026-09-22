@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationInferenceConnector
     {
         /// <summary>
-        /// Source configuration identifying which connector to use. See `Source` Block below.
+        /// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource Source;
 

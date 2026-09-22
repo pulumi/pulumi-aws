@@ -13,7 +13,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the variable.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

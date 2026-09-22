@@ -72,7 +72,51 @@ import (
 //
 // ```
 //
+// ### Customer-Managed Secret
+//
+// Reference an API key already stored in a customer-managed AWS Secrets Manager secret instead of having AgentCore create and manage one.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreApiKeyCredentialProvider(ctx, "example", &bedrock.AgentcoreApiKeyCredentialProviderArgs{
+//				ApiKeySecretConfig: &bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs{
+//					SecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
+//					JsonKey:  pulumi.String("apiKey"),
+//				},
+//				Name:               pulumi.String("example-api-key-provider"),
+//				ApiKeySecretSource: pulumi.String("EXTERNAL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) API key credential provider name.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
 //
@@ -82,14 +126,16 @@ import (
 type AgentcoreApiKeyCredentialProvider struct {
 	pulumi.CustomResourceState
 
-	// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
+	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput `pulumi:"apiKeySecretArns"`
+	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+	ApiKeySecretConfig AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput `pulumi:"apiKeySecretConfig"`
+	// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+	ApiKeySecretSource pulumi.StringOutput `pulumi:"apiKeySecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
 	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrOutput `pulumi:"apiKeyWoVersion"`
@@ -102,10 +148,8 @@ type AgentcoreApiKeyCredentialProvider struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **Standard API Key (choose one approach):**
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -150,14 +194,16 @@ func GetAgentcoreApiKeyCredentialProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 type agentcoreApiKeyCredentialProviderState struct {
-	// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
+	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 	ApiKey *string `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns []AgentcoreApiKeyCredentialProviderApiKeySecretArn `pulumi:"apiKeySecretArns"`
+	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+	ApiKeySecretConfig *AgentcoreApiKeyCredentialProviderApiKeySecretConfig `pulumi:"apiKeySecretConfig"`
+	// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+	ApiKeySecretSource *string `pulumi:"apiKeySecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo *string `pulumi:"apiKeyWo"`
 	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
@@ -170,22 +216,22 @@ type agentcoreApiKeyCredentialProviderState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **Standard API Key (choose one approach):**
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AgentcoreApiKeyCredentialProviderState struct {
-	// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
+	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 	ApiKey pulumi.StringPtrInput
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput
+	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+	ApiKeySecretConfig AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput
+	// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+	ApiKeySecretSource pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrInput
 	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrInput
@@ -198,10 +244,8 @@ type AgentcoreApiKeyCredentialProviderState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **Standard API Key (choose one approach):**
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -210,12 +254,14 @@ func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
+	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 	ApiKey *string `pulumi:"apiKey"`
+	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+	ApiKeySecretConfig *AgentcoreApiKeyCredentialProviderApiKeySecretConfig `pulumi:"apiKeySecretConfig"`
+	// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+	ApiKeySecretSource *string `pulumi:"apiKeySecretSource"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo *string `pulumi:"apiKeyWo"`
 	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
@@ -226,19 +272,19 @@ type agentcoreApiKeyCredentialProviderArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **Standard API Key (choose one approach):**
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 type AgentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
+	// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 	ApiKey pulumi.StringPtrInput
+	// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+	ApiKeySecretConfig AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrInput
+	// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+	ApiKeySecretSource pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+	// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 	ApiKeyWo pulumi.StringPtrInput
 	// Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
 	ApiKeyWoVersion pulumi.IntPtrInput
@@ -249,8 +295,6 @@ type AgentcoreApiKeyCredentialProviderArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **Standard API Key (choose one approach):**
 	Tags pulumi.StringMapInput
 }
 
@@ -341,9 +385,7 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ToAgentcoreApiKeyCredentialProv
 	return o
 }
 
-// API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-//
-// **Write-Only API Key (choose one approach):**
+// API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
@@ -355,8 +397,20 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretArns() AgentcoreApi
 	}).(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput)
 }
 
+// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `apiKeySecretSource = "EXTERNAL"`. See below.
+func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretConfig() AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput {
+		return v.ApiKeySecretConfig
+	}).(AgentcoreApiKeyCredentialProviderApiKeySecretConfigPtrOutput)
+}
+
+// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `apiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `apiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringOutput { return v.ApiKeySecretSource }).(pulumi.StringOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
+// Write-only API key value. Conflicts with `apiKey` and `apiKeySecretConfig`. If set, requires `apiKeyWoVersion` to be set.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKeyWo }).(pulumi.StringPtrOutput)
 }
@@ -384,13 +438,11 @@ func (o AgentcoreApiKeyCredentialProviderOutput) Region() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// **Standard API Key (choose one approach):**
 func (o AgentcoreApiKeyCredentialProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreApiKeyCredentialProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

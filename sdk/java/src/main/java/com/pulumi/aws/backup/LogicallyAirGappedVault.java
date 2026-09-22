@@ -69,28 +69,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")
 public class LogicallyAirGappedVault extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Logically Air Gapped Backup Vault.
+     * ARN of the Logically Air Gapped Backup Vault.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Logically Air Gapped Backup Vault.
+     * @return ARN of the Logically Air Gapped Backup Vault.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     @Export(name="encryptionKeyArn", refs={String.class}, tree="[0]")
     private Output<String> encryptionKeyArn;
 
     /**
-     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * @return AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     public Output<String> encryptionKeyArn() {
@@ -167,14 +167,14 @@ public class LogicallyAirGappedVault extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

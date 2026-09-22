@@ -33,14 +33,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     }
 
     /**
-     * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+     * Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
      * 
      */
     @Import(name="deletionProtectionConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs> deletionProtectionConfiguration;
 
     /**
-     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+     * @return Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs>> deletionProtectionConfiguration() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     }
 
     /**
-     * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+     * Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
      * 
      */
     @Import(name="mediaExtractionConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs> mediaExtractionConfiguration;
 
     /**
-     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+     * @return Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs>> mediaExtractionConfiguration() {
@@ -110,7 +110,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param deletionProtectionConfiguration Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+         * @param deletionProtectionConfiguration Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param deletionProtectionConfiguration Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` block for details.
+         * @param deletionProtectionConfiguration Configuration for deletion protection on the data source. See `deletionProtectionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param mediaExtractionConfiguration Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+         * @param mediaExtractionConfiguration Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         }
 
         /**
-         * @param mediaExtractionConfiguration Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` block for details.
+         * @param mediaExtractionConfiguration Configuration for extracting media content (images, audio, video) from documents. See `mediaExtractionConfiguration` Block for details.
          * 
          * @return builder
          * 

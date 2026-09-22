@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -33,18 +34,18 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
     }
 
     /**
-     * ARN of the Lambda function to invoke for the lifecycle hook.
+     * ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    @Import(name="hookTargetArn", required=true)
-    private Output<String> hookTargetArn;
+    @Import(name="hookTargetArn")
+    private @Nullable Output<String> hookTargetArn;
 
     /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
+     * @return ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    public Output<String> hookTargetArn() {
-        return this.hookTargetArn;
+    public Optional<Output<String>> hookTargetArn() {
+        return Optional.ofNullable(this.hookTargetArn);
     }
 
     /**
@@ -63,18 +64,48 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
     }
 
     /**
-     * ARN of the IAM role that grants the service permission to invoke the Lambda function.
+     * ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    @Import(name="roleArn", required=true)
-    private Output<String> roleArn;
+    @Import(name="roleArn")
+    private @Nullable Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
+     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    public Output<String> roleArn() {
-        return this.roleArn;
+    public Optional<Output<String>> roleArn() {
+        return Optional.ofNullable(this.roleArn);
+    }
+
+    /**
+     * Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+     * 
+     */
+    @Import(name="targetType")
+    private @Nullable Output<String> targetType;
+
+    /**
+     * @return Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+     * 
+     */
+    public Optional<Output<String>> targetType() {
+        return Optional.ofNullable(this.targetType);
+    }
+
+    /**
+     * Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+     * 
+     */
+    @Import(name="timeoutConfiguration")
+    private @Nullable Output<ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs> timeoutConfiguration;
+
+    /**
+     * @return Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+     * 
+     */
+    public Optional<Output<ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs>> timeoutConfiguration() {
+        return Optional.ofNullable(this.timeoutConfiguration);
     }
 
     private ServiceDeploymentConfigurationLifecycleHookArgs() {}
@@ -84,6 +115,8 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
         this.hookTargetArn = $.hookTargetArn;
         this.lifecycleStages = $.lifecycleStages;
         this.roleArn = $.roleArn;
+        this.targetType = $.targetType;
+        this.timeoutConfiguration = $.timeoutConfiguration;
     }
 
     public static Builder builder() {
@@ -126,18 +159,18 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
         }
 
         /**
-         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook.
+         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          * 
          * @return builder
          * 
          */
-        public Builder hookTargetArn(Output<String> hookTargetArn) {
+        public Builder hookTargetArn(@Nullable Output<String> hookTargetArn) {
             $.hookTargetArn = hookTargetArn;
             return this;
         }
 
         /**
-         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook.
+         * @param hookTargetArn ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          * 
          * @return builder
          * 
@@ -178,18 +211,18 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
         }
 
         /**
-         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function.
+         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          * 
          * @return builder
          * 
          */
-        public Builder roleArn(Output<String> roleArn) {
+        public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
         /**
-         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function.
+         * @param roleArn ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
          * 
          * @return builder
          * 
@@ -198,15 +231,51 @@ public final class ServiceDeploymentConfigurationLifecycleHookArgs extends com.p
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param targetType Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetType(@Nullable Output<String> targetType) {
+            $.targetType = targetType;
+            return this;
+        }
+
+        /**
+         * @param targetType Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetType(String targetType) {
+            return targetType(Output.of(targetType));
+        }
+
+        /**
+         * @param timeoutConfiguration Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeoutConfiguration(@Nullable Output<ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs> timeoutConfiguration) {
+            $.timeoutConfiguration = timeoutConfiguration;
+            return this;
+        }
+
+        /**
+         * @param timeoutConfiguration Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeoutConfiguration(ServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationArgs timeoutConfiguration) {
+            return timeoutConfiguration(Output.of(timeoutConfiguration));
+        }
+
         public ServiceDeploymentConfigurationLifecycleHookArgs build() {
-            if ($.hookTargetArn == null) {
-                throw new MissingRequiredPropertyException("ServiceDeploymentConfigurationLifecycleHookArgs", "hookTargetArn");
-            }
             if ($.lifecycleStages == null) {
                 throw new MissingRequiredPropertyException("ServiceDeploymentConfigurationLifecycleHookArgs", "lifecycleStages");
-            }
-            if ($.roleArn == null) {
-                throw new MissingRequiredPropertyException("ServiceDeploymentConfigurationLifecycleHookArgs", "roleArn");
             }
             return $;
         }

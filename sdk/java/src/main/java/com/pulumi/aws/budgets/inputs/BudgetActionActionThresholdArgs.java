@@ -16,14 +16,14 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
     public static final BudgetActionActionThresholdArgs Empty = new BudgetActionActionThresholdArgs();
 
     /**
-     * The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+     * Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
      * 
      */
     @Import(name="actionThresholdType", required=true)
     private Output<String> actionThresholdType;
 
     /**
-     * @return The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+     * @return Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
      * 
      */
     public Output<String> actionThresholdType() {
@@ -31,14 +31,14 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
     }
 
     /**
-     * The threshold of a notification.
+     * Threshold of a notification.
      * 
      */
     @Import(name="actionThresholdValue", required=true)
     private Output<Double> actionThresholdValue;
 
     /**
-     * @return The threshold of a notification.
+     * @return Threshold of a notification.
      * 
      */
     public Output<Double> actionThresholdValue() {
@@ -71,7 +71,7 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param actionThresholdType The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+         * @param actionThresholdType Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param actionThresholdType The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+         * @param actionThresholdType Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param actionThresholdValue The threshold of a notification.
+         * @param actionThresholdValue Threshold of a notification.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param actionThresholdValue The threshold of a notification.
+         * @param actionThresholdValue Threshold of a notification.
          * 
          * @return builder
          * 

@@ -58,7 +58,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
     /**
@@ -66,15 +66,15 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
      */
     declare public readonly backupVaultName: pulumi.Output<string>;
     /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     declare public readonly changeableForDays: pulumi.Output<number | undefined>;
     /**
-     * The maximum retention period that the vault retains its recovery points.
+     * Maximum retention period that the vault retains its recovery points.
      */
     declare public readonly maxRetentionDays: pulumi.Output<number | undefined>;
     /**
-     * The minimum retention period that the vault retains its recovery points.
+     * Minimum retention period that the vault retains its recovery points.
      */
     declare public readonly minRetentionDays: pulumi.Output<number | undefined>;
     /**
@@ -123,7 +123,7 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
  */
 export interface VaultLockConfigurationState {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     backupVaultArn?: pulumi.Input<string | undefined>;
     /**
@@ -131,15 +131,15 @@ export interface VaultLockConfigurationState {
      */
     backupVaultName?: pulumi.Input<string | undefined>;
     /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     changeableForDays?: pulumi.Input<number | undefined>;
     /**
-     * The maximum retention period that the vault retains its recovery points.
+     * Maximum retention period that the vault retains its recovery points.
      */
     maxRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The minimum retention period that the vault retains its recovery points.
+     * Minimum retention period that the vault retains its recovery points.
      */
     minRetentionDays?: pulumi.Input<number | undefined>;
     /**
@@ -157,15 +157,15 @@ export interface VaultLockConfigurationArgs {
      */
     backupVaultName: pulumi.Input<string>;
     /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
     changeableForDays?: pulumi.Input<number | undefined>;
     /**
-     * The maximum retention period that the vault retains its recovery points.
+     * Maximum retention period that the vault retains its recovery points.
      */
     maxRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The minimum retention period that the vault retains its recovery points.
+     * Minimum retention period that the vault retains its recovery points.
      */
     minRetentionDays?: pulumi.Input<number | undefined>;
     /**

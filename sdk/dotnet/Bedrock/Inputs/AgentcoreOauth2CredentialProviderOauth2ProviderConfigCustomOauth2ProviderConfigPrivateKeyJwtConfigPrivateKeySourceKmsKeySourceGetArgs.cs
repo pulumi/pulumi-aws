@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the AWS KMS key used to sign the JWT.
+        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 

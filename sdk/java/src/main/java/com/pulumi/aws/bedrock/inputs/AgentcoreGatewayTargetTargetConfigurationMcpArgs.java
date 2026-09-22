@@ -36,14 +36,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
      * 
      */
     @Import(name="connector")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs> connector;
 
     /**
-     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs>> connector() {
@@ -81,14 +81,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+     * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     @Import(name="openApiSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs> openApiSchema;
 
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs>> openApiSchema() {
@@ -96,14 +96,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+     * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     @Import(name="smithyModel")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs> smithyModel;
 
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs>> smithyModel() {
@@ -161,7 +161,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
          * 
          * @return builder
          * 

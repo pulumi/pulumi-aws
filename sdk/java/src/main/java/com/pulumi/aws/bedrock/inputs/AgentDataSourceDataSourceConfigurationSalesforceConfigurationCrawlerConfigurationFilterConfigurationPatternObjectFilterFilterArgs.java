@@ -17,29 +17,45 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs Empty = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs();
 
+    /**
+     * One or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * 
+     */
     @Import(name="exclusionFilters")
     private @Nullable Output<List<String>> exclusionFilters;
 
+    /**
+     * @return One or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * 
+     */
     public Optional<Output<List<String>>> exclusionFilters() {
         return Optional.ofNullable(this.exclusionFilters);
     }
 
+    /**
+     * One or more inclusion regular expression patterns to include object types that match the pattern.
+     * 
+     */
     @Import(name="inclusionFilters")
     private @Nullable Output<List<String>> inclusionFilters;
 
+    /**
+     * @return One or more inclusion regular expression patterns to include object types that match the pattern.
+     * 
+     */
     public Optional<Output<List<String>>> inclusionFilters() {
         return Optional.ofNullable(this.inclusionFilters);
     }
 
     /**
-     * The supported object type or content type of the data source.
+     * Object type or content type of the data source.
      * 
      */
     @Import(name="objectType", required=true)
     private Output<String> objectType;
 
     /**
-     * @return The supported object type or content type of the data source.
+     * @return Object type or content type of the data source.
      * 
      */
     public Output<String> objectType() {
@@ -72,34 +88,70 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param exclusionFilters One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusionFilters(@Nullable Output<List<String>> exclusionFilters) {
             $.exclusionFilters = exclusionFilters;
             return this;
         }
 
+        /**
+         * @param exclusionFilters One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusionFilters(List<String> exclusionFilters) {
             return exclusionFilters(Output.of(exclusionFilters));
         }
 
+        /**
+         * @param exclusionFilters One or more exclusion regular expression patterns to exclude object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusionFilters(String... exclusionFilters) {
             return exclusionFilters(List.of(exclusionFilters));
         }
 
+        /**
+         * @param inclusionFilters One or more inclusion regular expression patterns to include object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inclusionFilters(@Nullable Output<List<String>> inclusionFilters) {
             $.inclusionFilters = inclusionFilters;
             return this;
         }
 
+        /**
+         * @param inclusionFilters One or more inclusion regular expression patterns to include object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inclusionFilters(List<String> inclusionFilters) {
             return inclusionFilters(Output.of(inclusionFilters));
         }
 
+        /**
+         * @param inclusionFilters One or more inclusion regular expression patterns to include object types that match the pattern.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inclusionFilters(String... inclusionFilters) {
             return inclusionFilters(List.of(inclusionFilters));
         }
 
         /**
-         * @param objectType The supported object type or content type of the data source.
+         * @param objectType Object type or content type of the data source.
          * 
          * @return builder
          * 
@@ -110,7 +162,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         }
 
         /**
-         * @param objectType The supported object type or content type of the data source.
+         * @param objectType Object type or content type of the data source.
          * 
          * @return builder
          * 

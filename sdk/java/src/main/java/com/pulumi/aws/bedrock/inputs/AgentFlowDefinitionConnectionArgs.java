@@ -18,14 +18,14 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
     public static final AgentFlowDefinitionConnectionArgs Empty = new AgentFlowDefinitionConnectionArgs();
 
     /**
-     * Configuration of the connection. See Connection Configuration for more information.
+     * Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationArgs> configuration;
 
     /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationArgs>> configuration() {
@@ -33,14 +33,18 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
     }
 
     /**
-     * A name for the connection that you can reference.
+     * Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the connection that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -48,14 +52,14 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
     }
 
     /**
-     * The node that the connection starts at.
+     * Node that the connection starts at.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The node that the connection starts at.
+     * @return Node that the connection starts at.
      * 
      */
     public Output<String> source() {
@@ -63,14 +67,14 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
     }
 
     /**
-     * The node that the connection ends at.
+     * Node that the connection ends at.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return The node that the connection ends at.
+     * @return Node that the connection ends at.
      * 
      */
     public Output<String> target() {
@@ -78,14 +82,14 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
     }
 
     /**
-     * Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+     * Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public Output<String> type() {
@@ -121,7 +125,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param configuration Configuration of the connection. See Connection Configuration for more information.
+         * @param configuration Configurations for the node. See `definition.node.configuration` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +136,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param configuration Configuration of the connection. See Connection Configuration for more information.
+         * @param configuration Configurations for the node. See `definition.node.configuration` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +146,9 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the connection that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -153,7 +159,9 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the connection that you can reference.
+         * @param name Name for the flow.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -163,7 +171,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param source The node that the connection starts at.
+         * @param source Node that the connection starts at.
          * 
          * @return builder
          * 
@@ -174,7 +182,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param source The node that the connection starts at.
+         * @param source Node that the connection starts at.
          * 
          * @return builder
          * 
@@ -184,7 +192,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param target The node that the connection ends at.
+         * @param target Node that the connection ends at.
          * 
          * @return builder
          * 
@@ -195,7 +203,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param target The node that the connection ends at.
+         * @param target Node that the connection ends at.
          * 
          * @return builder
          * 
@@ -205,7 +213,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 
@@ -216,7 +224,7 @@ public final class AgentFlowDefinitionConnectionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+         * @param type Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
          * 
          * @return builder
          * 

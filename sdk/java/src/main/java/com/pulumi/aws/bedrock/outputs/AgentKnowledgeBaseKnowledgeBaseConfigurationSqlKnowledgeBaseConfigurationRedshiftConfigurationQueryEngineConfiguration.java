@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
     /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration provisionedConfiguration;
     /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration serverlessConfiguration;
@@ -32,14 +32,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration() {}
     /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration> provisionedConfiguration() {
         return Optional.ofNullable(this.provisionedConfiguration);
     }
     /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration> serverlessConfiguration() {

@@ -16,28 +16,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
     /**
-     * @return Description of the gateway target.
+     * @return Description of the schema element.
      * 
      */
     private @Nullable String description;
+    /**
+     * @return Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+     * 
+     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems items;
+    /**
+     * @return Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+     * 
+     */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty> properties;
+    /**
+     * @return Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+     * 
+     */
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema() {}
     /**
-     * @return Description of the gateway target.
+     * @return Description of the schema element.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return Schema definition for array items. Can only be used when `type` is `array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.items` Block below.
+     * 
+     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems> items() {
         return Optional.ofNullable(this.items);
     }
+    /**
+     * @return Set of property definitions for object types. Can only be used when `type` is `object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property` Block below.
+     * 
+     */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty> properties() {
         return this.properties == null ? List.of() : this.properties;
     }
+    /**
+     * @return Data type of the schema. Valid values: `string`, `number`, `integer`, `boolean`, `array`, `object`.
+     * 
+     */
     public String type() {
         return this.type;
     }

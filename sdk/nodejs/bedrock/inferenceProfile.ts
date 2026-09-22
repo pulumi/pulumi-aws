@@ -68,29 +68,29 @@ export class InferenceProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the inference profile.
+     * ARN of the inference profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The time at which the inference profile was created.
+     * Time at which the inference profile was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     *
-     * The following arguments are optional:
+     * Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      */
     declare public readonly modelSource: pulumi.Output<outputs.bedrock.InferenceProfileModelSource | undefined>;
     /**
-     * A list of information about each model in the inference profile. See `models`.
+     * List of information about each model in the inference profile. See `models`.
      */
     declare public /*out*/ readonly models: pulumi.Output<outputs.bedrock.InferenceProfileModel[]>;
     /**
-     * The name of the inference profile.
+     * Name of the inference profile.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class InferenceProfile extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -108,11 +108,11 @@ export class InferenceProfile extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * The time at which the inference profile was last updated.
+     * Time at which the inference profile was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -168,29 +168,29 @@ export class InferenceProfile extends pulumi.CustomResource {
  */
 export interface InferenceProfileState {
     /**
-     * The ARN of the inference profile.
+     * ARN of the inference profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The time at which the inference profile was created.
+     * Time at which the inference profile was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     *
-     * The following arguments are optional:
+     * Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      */
     modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource | undefined>;
     /**
-     * A list of information about each model in the inference profile. See `models`.
+     * List of information about each model in the inference profile. See `models`.
      */
     models?: pulumi.Input<pulumi.Input<inputs.bedrock.InferenceProfileModel>[] | undefined>;
     /**
-     * The name of the inference profile.
+     * Name of the inference profile.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface InferenceProfileState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -208,11 +208,11 @@ export interface InferenceProfileState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * The time at which the inference profile was last updated.
+     * Time at which the inference profile was last updated.
      */
     updatedAt?: pulumi.Input<string | undefined>;
 }
@@ -222,17 +222,17 @@ export interface InferenceProfileState {
  */
 export interface InferenceProfileArgs {
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     *
-     * The following arguments are optional:
+     * Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      */
     modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource | undefined>;
     /**
-     * The name of the inference profile.
+     * Name of the inference profile.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

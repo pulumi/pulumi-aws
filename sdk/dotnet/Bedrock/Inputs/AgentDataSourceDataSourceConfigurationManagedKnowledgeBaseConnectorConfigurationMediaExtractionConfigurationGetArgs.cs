@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for extracting audio content. See `AudioExtractionConfiguration` block for details.
+        /// Configuration for extracting audio content. See `AudioExtractionConfiguration` Block for details.
         /// </summary>
         [Input("audioExtractionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationGetArgs>? AudioExtractionConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for extracting image content. See `ImageExtractionConfiguration` block for details.
+        /// Configuration for extracting image content. See `ImageExtractionConfiguration` Block for details.
         /// </summary>
         [Input("imageExtractionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationGetArgs>? ImageExtractionConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for extracting video content. See `VideoExtractionConfiguration` block for details.
+        /// Configuration for extracting video content. See `VideoExtractionConfiguration` Block for details.
         /// </summary>
         [Input("videoExtractionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationGetArgs>? VideoExtractionConfiguration { get; set; }

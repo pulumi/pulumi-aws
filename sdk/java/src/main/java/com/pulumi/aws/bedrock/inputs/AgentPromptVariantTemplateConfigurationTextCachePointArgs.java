@@ -15,14 +15,14 @@ public final class AgentPromptVariantTemplateConfigurationTextCachePointArgs ext
     public static final AgentPromptVariantTemplateConfigurationTextCachePointArgs Empty = new AgentPromptVariantTemplateConfigurationTextCachePointArgs();
 
     /**
-     * Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * Cache point type. Valid values: `default`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+     * @return Cache point type. Valid values: `default`.
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class AgentPromptVariantTemplateConfigurationTextCachePointArgs ext
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Cache point type. Valid values: `default`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentPromptVariantTemplateConfigurationTextCachePointArgs ext
         }
 
         /**
-         * @param type Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+         * @param type Cache point type. Valid values: `default`.
          * 
          * @return builder
          * 

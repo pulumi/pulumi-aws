@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantTemplateConfigurationChatSystemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        /// Cache checkpoint within the system prompt. See `CachePoint` Block for more information.
         /// </summary>
         [Input("cachePoint")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationChatSystemCachePointGetArgs>? CachePoint { get; set; }
 
         /// <summary>
-        /// The text in the system prompt.
+        /// Text in the system prompt.
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }

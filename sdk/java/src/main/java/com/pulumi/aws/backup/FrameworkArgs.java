@@ -35,14 +35,14 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the framework with a maximum of 1,024 characters
+     * Description of the framework with a maximum of 1,024 characters
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the framework with a maximum of 1,024 characters
+     * @return Description of the framework with a maximum of 1,024 characters
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,7 +154,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the framework with a maximum of 1,024 characters
+         * @param description Description of the framework with a maximum of 1,024 characters
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the framework with a maximum of 1,024 characters
+         * @param description Description of the framework with a maximum of 1,024 characters
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 

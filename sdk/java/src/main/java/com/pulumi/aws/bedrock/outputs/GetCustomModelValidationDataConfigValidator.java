@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetCustomModelValidationDataConfigValidator {
     /**
-     * @return The S3 URI where the validation data is stored..
+     * @return S3 URI where the validation data is stored.
      * 
      */
     private String s3Uri;
 
     private GetCustomModelValidationDataConfigValidator() {}
     /**
-     * @return The S3 URI where the validation data is stored..
+     * @return S3 URI where the validation data is stored.
      * 
      */
     public String s3Uri() {

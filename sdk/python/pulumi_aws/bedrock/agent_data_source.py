@@ -33,7 +33,7 @@ class AgentDataSourceArgs:
         """
         The set of arguments for constructing a AgentDataSource resource.
 
-        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` Block for details.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
@@ -41,8 +41,8 @@ class AgentDataSourceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
@@ -65,7 +65,7 @@ class AgentDataSourceArgs:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']:
         """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
+        Details about how the data source is stored. See `data_source_configuration` Block for details.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -139,7 +139,7 @@ class AgentDataSourceArgs:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -160,7 +160,7 @@ class AgentDataSourceArgs:
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]:
         """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
@@ -186,7 +186,7 @@ class _AgentDataSourceState:
         Input properties used for looking up and filtering AgentDataSource resources.
 
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` Block for details.
         :param pulumi.Input[_builtins.str] data_source_id: Unique identifier of the data source.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
@@ -194,8 +194,8 @@ class _AgentDataSourceState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         if data_deletion_policy is not None:
             pulumi.set(__self__, "data_deletion_policy", data_deletion_policy)
@@ -234,7 +234,7 @@ class _AgentDataSourceState:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationArgs']]:
         """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
+        Details about how the data source is stored. See `data_source_configuration` Block for details.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -308,7 +308,7 @@ class _AgentDataSourceState:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -329,7 +329,7 @@ class _AgentDataSourceState:
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]:
         """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
@@ -499,15 +499,15 @@ class AgentDataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[_builtins.str] name: Name of the data source.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         ...
     @overload
@@ -732,7 +732,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict', 'outputs.AgentDataSourceDataSourceConfiguration']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` Block for details.
         :param pulumi.Input[_builtins.str] data_source_id: Unique identifier of the data source.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
@@ -740,8 +740,8 @@ class AgentDataSource(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict', 'outputs.AgentDataSourceServerSideEncryptionConfiguration']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']] vector_ingestion_configuration: Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -771,7 +771,7 @@ class AgentDataSource(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Output['outputs.AgentDataSourceDataSourceConfiguration']:
         """
-        Details about how the data source is stored. See `data_source_configuration` block for details.
+        Details about how the data source is stored. See `data_source_configuration` Block for details.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -821,7 +821,7 @@ class AgentDataSource(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceServerSideEncryptionConfiguration']]:
         """
-        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` Block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -834,7 +834,7 @@ class AgentDataSource(pulumi.CustomResource):
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Output[Optional['outputs.AgentDataSourceVectorIngestionConfiguration']]:
         """
-        Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        Details about how to ingest the documents in the data source. See `vector_ingestion_configuration` Block for details.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 

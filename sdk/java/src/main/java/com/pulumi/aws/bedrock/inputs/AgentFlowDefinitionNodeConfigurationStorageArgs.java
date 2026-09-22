@@ -16,14 +16,14 @@ public final class AgentFlowDefinitionNodeConfigurationStorageArgs extends com.p
     public static final AgentFlowDefinitionNodeConfigurationStorageArgs Empty = new AgentFlowDefinitionNodeConfigurationStorageArgs();
 
     /**
-     * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+     * Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     @Import(name="serviceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs> serviceConfiguration;
 
     /**
-     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+     * @return Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs>> serviceConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentFlowDefinitionNodeConfigurationStorageArgs extends com.p
         }
 
         /**
-         * @param serviceConfiguration Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * @param serviceConfiguration Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentFlowDefinitionNodeConfigurationStorageArgs extends com.p
         }
 
         /**
-         * @param serviceConfiguration Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * @param serviceConfiguration Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
          * 
          * @return builder
          * 

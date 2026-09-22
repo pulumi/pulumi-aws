@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -19,20 +20,30 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
      */
     private @Nullable String hookDetails;
     /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
+     * @return ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    private String hookTargetArn;
+    private @Nullable String hookTargetArn;
     /**
      * @return Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
      * 
      */
     private List<String> lifecycleStages;
     /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
+     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
+    /**
+     * @return Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+     * 
+     */
+    private @Nullable String targetType;
+    /**
+     * @return Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+     * 
+     */
+    private @Nullable ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration timeoutConfiguration;
 
     private ServiceDeploymentConfigurationLifecycleHook() {}
     /**
@@ -43,11 +54,11 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
         return Optional.ofNullable(this.hookDetails);
     }
     /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
+     * @return ARN of the Lambda function to invoke for the lifecycle hook. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    public String hookTargetArn() {
-        return this.hookTargetArn;
+    public Optional<String> hookTargetArn() {
+        return Optional.ofNullable(this.hookTargetArn);
     }
     /**
      * @return Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
@@ -57,11 +68,25 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
         return this.lifecycleStages;
     }
     /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
+     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function. Required when `targetType` is `AWS_LAMBDA`. Not used when `targetType` is `PAUSE`.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
+    }
+    /**
+     * @return Type of hook target. Valid values: `AWS_LAMBDA`, `PAUSE`. Default: `AWS_LAMBDA`. `PAUSE` hooks cannot use the `TEST_TRAFFIC_SHIFT` or `PRODUCTION_TRAFFIC_SHIFT` lifecycle stages.
+     * 
+     */
+    public Optional<String> targetType() {
+        return Optional.ofNullable(this.targetType);
+    }
+    /**
+     * @return Configuration block defining the timeout behavior for a `PAUSE` hook. Only valid when `targetType` is `PAUSE`. See below.
+     * 
+     */
+    public Optional<ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration> timeoutConfiguration() {
+        return Optional.ofNullable(this.timeoutConfiguration);
     }
 
     public static Builder builder() {
@@ -74,9 +99,11 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String hookDetails;
-        private String hookTargetArn;
+        private @Nullable String hookTargetArn;
         private List<String> lifecycleStages;
-        private String roleArn;
+        private @Nullable String roleArn;
+        private @Nullable String targetType;
+        private @Nullable ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration timeoutConfiguration;
         public Builder() {}
         public Builder(ServiceDeploymentConfigurationLifecycleHook defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +111,8 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
     	      this.hookTargetArn = defaults.hookTargetArn;
     	      this.lifecycleStages = defaults.lifecycleStages;
     	      this.roleArn = defaults.roleArn;
+    	      this.targetType = defaults.targetType;
+    	      this.timeoutConfiguration = defaults.timeoutConfiguration;
         }
 
         @CustomType.Setter
@@ -93,10 +122,8 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
             return this;
         }
         @CustomType.Setter
-        public Builder hookTargetArn(String hookTargetArn) {
-            if (hookTargetArn == null) {
-              throw new MissingRequiredPropertyException("ServiceDeploymentConfigurationLifecycleHook", "hookTargetArn");
-            }
+        public Builder hookTargetArn(@Nullable String hookTargetArn) {
+
             this.hookTargetArn = hookTargetArn;
             return this;
         }
@@ -112,11 +139,21 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
             return lifecycleStages(List.of(lifecycleStages));
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            if (roleArn == null) {
-              throw new MissingRequiredPropertyException("ServiceDeploymentConfigurationLifecycleHook", "roleArn");
-            }
+        public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetType(@Nullable String targetType) {
+
+            this.targetType = targetType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeoutConfiguration(@Nullable ServiceDeploymentConfigurationLifecycleHookTimeoutConfiguration timeoutConfiguration) {
+
+            this.timeoutConfiguration = timeoutConfiguration;
             return this;
         }
         public ServiceDeploymentConfigurationLifecycleHook build() {
@@ -125,6 +162,8 @@ public final class ServiceDeploymentConfigurationLifecycleHook {
             _resultValue.hookTargetArn = hookTargetArn;
             _resultValue.lifecycleStages = lifecycleStages;
             _resultValue.roleArn = roleArn;
+            _resultValue.targetType = targetType;
+            _resultValue.timeoutConfiguration = timeoutConfiguration;
             return _resultValue;
         }
     }

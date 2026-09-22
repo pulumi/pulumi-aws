@@ -14,6 +14,10 @@ import java.util.Objects;
 @CustomType
 public final class GetSchedulingPolicyResult {
     private String arn;
+    /**
+     * @return Fair share policy block of the scheduling policy. The `fairSharePolicy` block is documented below.
+     * 
+     */
     private List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -36,6 +40,10 @@ public final class GetSchedulingPolicyResult {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Fair share policy block of the scheduling policy. The `fairSharePolicy` block is documented below.
+     * 
+     */
     public List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies() {
         return this.fairSharePolicies;
     }

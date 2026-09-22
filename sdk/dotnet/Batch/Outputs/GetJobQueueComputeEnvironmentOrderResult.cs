@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobQueueComputeEnvironmentOrderResult
     {
+        /// <summary>
+        /// ARN of the compute environment.
+        /// </summary>
         public readonly string ComputeEnvironment;
+        /// <summary>
+        /// Order of the compute environment.
+        /// </summary>
         public readonly int Order;
 
         [OutputConstructor]

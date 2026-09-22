@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetActionDefinitionScpActionDefinition
     {
         /// <summary>
-        /// The policy ID attached.
+        /// Policy ID attached.
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
-        /// A list of target IDs.
+        /// List of target IDs.
         /// </summary>
         public readonly ImmutableArray<string> TargetIds;
 

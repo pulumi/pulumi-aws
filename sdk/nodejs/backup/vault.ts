@@ -67,15 +67,15 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      */
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class Vault extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The number of recovery points that are stored in a backup vault.
+     * Number of recovery points that are stored in a backup vault.
      */
     declare public /*out*/ readonly recoveryPoints: pulumi.Output<number>;
     /**
@@ -95,7 +95,7 @@ export class Vault extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -141,15 +141,15 @@ export class Vault extends pulumi.CustomResource {
  */
 export interface VaultState {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface VaultState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The number of recovery points that are stored in a backup vault.
+     * Number of recovery points that are stored in a backup vault.
      */
     recoveryPoints?: pulumi.Input<number | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface VaultState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -179,11 +179,11 @@ export interface VaultState {
  */
 export interface VaultArgs {
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

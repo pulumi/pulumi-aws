@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class SchedulingPolicyFairSharePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        /// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         /// </summary>
         [Input("computeReservation")]
         public Input<int>? ComputeReservation { get; set; }
 
+        /// <summary>
+        /// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        /// </summary>
         [Input("shareDecaySeconds")]
         public Input<int>? ShareDecaySeconds { get; set; }
 

@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ViewDataFilterExpression {
     /**
-     * @return Dimension to use for `expression`. Refer to #dimensions for more details.
+     * @return Dimension to use for the expression. See `dimensions` below for details.
      * 
      */
     private @Nullable ViewDataFilterExpressionDimensions dimensions;
     /**
-     * @return List of key value map specifying tags associated to the billing view being created.
+     * @return Tags to use for the expression. See `tags` below for details.
      * 
      */
     private @Nullable List<ViewDataFilterExpressionTag> tags;
     /**
-     * @return Time range to use for `expression`. Refer to #time-range for more details.
+     * @return Time range to use for the expression. See `timeRange` below for details.
      * 
      */
     private @Nullable ViewDataFilterExpressionTimeRange timeRange;
 
     private ViewDataFilterExpression() {}
     /**
-     * @return Dimension to use for `expression`. Refer to #dimensions for more details.
+     * @return Dimension to use for the expression. See `dimensions` below for details.
      * 
      */
     public Optional<ViewDataFilterExpressionDimensions> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
     /**
-     * @return List of key value map specifying tags associated to the billing view being created.
+     * @return Tags to use for the expression. See `tags` below for details.
      * 
      */
     public List<ViewDataFilterExpressionTag> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
     /**
-     * @return Time range to use for `expression`. Refer to #time-range for more details.
+     * @return Time range to use for the expression. See `timeRange` below for details.
      * 
      */
     public Optional<ViewDataFilterExpressionTimeRange> timeRange() {

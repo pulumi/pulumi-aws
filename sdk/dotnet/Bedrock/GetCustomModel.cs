@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Bedrock
         public readonly string ModelArn;
         public readonly string ModelId;
         /// <summary>
-        /// The custom model is encrypted at rest using this key.
+        /// Key used to encrypt the custom model at rest.
         /// </summary>
         public readonly string ModelKmsKeyArn;
         /// <summary>
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelValidationDataConfigResult> ValidationDataConfigs;
         /// <summary>
-        /// The loss metric for each validator that you provided.
+        /// Loss metric for each validator that you provided.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelValidationMetricResult> ValidationMetrics;
 

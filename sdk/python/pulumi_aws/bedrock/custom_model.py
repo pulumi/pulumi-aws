@@ -41,16 +41,16 @@ class CustomModelArgs:
         :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-        :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
-        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
+        :param pulumi.Input[_builtins.str] job_name: Name for the customization job.
+        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data. See `output_data_config` below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
-        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
-        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
-        :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset. See `training_data_config` below.
+        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: Key ARN used to encrypt the custom model at rest.
+        :param pulumi.Input[_builtins.str] customization_type: Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset. See `validation_data_config` below.
+        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         pulumi.set(__self__, "base_model_identifier", base_model_identifier)
         pulumi.set(__self__, "custom_model_name", custom_model_name)
@@ -114,7 +114,7 @@ class CustomModelArgs:
     @pulumi.getter(name="jobName")
     def job_name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the customization job.
+        Name for the customization job.
         """
         return pulumi.get(self, "job_name")
 
@@ -126,7 +126,7 @@ class CustomModelArgs:
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> pulumi.Input['CustomModelOutputDataConfigArgs']:
         """
-        S3 location for the output data.
+        S3 location for the output data. See `output_data_config` below.
         """
         return pulumi.get(self, "output_data_config")
 
@@ -150,7 +150,7 @@ class CustomModelArgs:
     @pulumi.getter(name="trainingDataConfig")
     def training_data_config(self) -> pulumi.Input['CustomModelTrainingDataConfigArgs']:
         """
-        Information about the training dataset.
+        Information about the training dataset. See `training_data_config` below.
         """
         return pulumi.get(self, "training_data_config")
 
@@ -162,7 +162,7 @@ class CustomModelArgs:
     @pulumi.getter(name="customModelKmsKeyId")
     def custom_model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom model is encrypted at rest using this key. Specify the key ARN.
+        Key ARN used to encrypt the custom model at rest.
         """
         return pulumi.get(self, "custom_model_kms_key_id")
 
@@ -174,7 +174,7 @@ class CustomModelArgs:
     @pulumi.getter(name="customizationType")
     def customization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         """
         return pulumi.get(self, "customization_type")
 
@@ -198,7 +198,7 @@ class CustomModelArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -219,7 +219,7 @@ class CustomModelArgs:
     @pulumi.getter(name="validationDataConfig")
     def validation_data_config(self) -> pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]:
         """
-        Information about the validation dataset.
+        Information about the validation dataset. See `validation_data_config` below.
         """
         return pulumi.get(self, "validation_data_config")
 
@@ -231,7 +231,7 @@ class CustomModelArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
-        Configuration parameters for the private VPC that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -267,24 +267,24 @@ class _CustomModelState:
         Input properties used for looking up and filtering CustomModel resources.
 
         :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
-        :param pulumi.Input[_builtins.str] custom_model_arn: The ARN of the output model.
-        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
+        :param pulumi.Input[_builtins.str] custom_model_arn: ARN of the output model.
+        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: Key ARN used to encrypt the custom model at rest.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
-        :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        :param pulumi.Input[_builtins.str] customization_type: Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-        :param pulumi.Input[_builtins.str] job_arn: The ARN of the customization job.
-        :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
-        :param pulumi.Input[_builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
+        :param pulumi.Input[_builtins.str] job_arn: ARN of the customization job.
+        :param pulumi.Input[_builtins.str] job_name: Name for the customization job.
+        :param pulumi.Input[_builtins.str] job_status: Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data. See `output_data_config` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
+        :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset. See `training_data_config` below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]] training_metrics: Metrics associated with the customization job.
-        :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]] validation_metrics: The loss metric for each validator that you provided.
-        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset. See `validation_data_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]] validation_metrics: Loss metric for each validator that you provided.
+        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         if base_model_identifier is not None:
             pulumi.set(__self__, "base_model_identifier", base_model_identifier)
@@ -343,7 +343,7 @@ class _CustomModelState:
     @pulumi.getter(name="customModelArn")
     def custom_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the output model.
+        ARN of the output model.
         """
         return pulumi.get(self, "custom_model_arn")
 
@@ -355,7 +355,7 @@ class _CustomModelState:
     @pulumi.getter(name="customModelKmsKeyId")
     def custom_model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom model is encrypted at rest using this key. Specify the key ARN.
+        Key ARN used to encrypt the custom model at rest.
         """
         return pulumi.get(self, "custom_model_kms_key_id")
 
@@ -379,7 +379,7 @@ class _CustomModelState:
     @pulumi.getter(name="customizationType")
     def customization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         """
         return pulumi.get(self, "customization_type")
 
@@ -403,7 +403,7 @@ class _CustomModelState:
     @pulumi.getter(name="jobArn")
     def job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the customization job.
+        ARN of the customization job.
         """
         return pulumi.get(self, "job_arn")
 
@@ -415,7 +415,7 @@ class _CustomModelState:
     @pulumi.getter(name="jobName")
     def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the customization job.
+        Name for the customization job.
         """
         return pulumi.get(self, "job_name")
 
@@ -427,7 +427,7 @@ class _CustomModelState:
     @pulumi.getter(name="jobStatus")
     def job_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         """
         return pulumi.get(self, "job_status")
 
@@ -439,7 +439,7 @@ class _CustomModelState:
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> pulumi.Input[Optional['CustomModelOutputDataConfigArgs']]:
         """
-        S3 location for the output data.
+        S3 location for the output data. See `output_data_config` below.
         """
         return pulumi.get(self, "output_data_config")
 
@@ -475,7 +475,7 @@ class _CustomModelState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -508,7 +508,7 @@ class _CustomModelState:
     @pulumi.getter(name="trainingDataConfig")
     def training_data_config(self) -> pulumi.Input[Optional['CustomModelTrainingDataConfigArgs']]:
         """
-        Information about the training dataset.
+        Information about the training dataset. See `training_data_config` below.
         """
         return pulumi.get(self, "training_data_config")
 
@@ -532,7 +532,7 @@ class _CustomModelState:
     @pulumi.getter(name="validationDataConfig")
     def validation_data_config(self) -> pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]:
         """
-        Information about the validation dataset.
+        Information about the validation dataset. See `validation_data_config` below.
         """
         return pulumi.get(self, "validation_data_config")
 
@@ -544,7 +544,7 @@ class _CustomModelState:
     @pulumi.getter(name="validationMetrics")
     def validation_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]]:
         """
-        The loss metric for each validator that you provided.
+        Loss metric for each validator that you provided.
         """
         return pulumi.get(self, "validation_metrics")
 
@@ -556,7 +556,7 @@ class _CustomModelState:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
-        Configuration parameters for the private VPC that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -646,18 +646,18 @@ class CustomModel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
-        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
+        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: Key ARN used to encrypt the custom model at rest.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
-        :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        :param pulumi.Input[_builtins.str] customization_type: Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-        :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
-        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data.
+        :param pulumi.Input[_builtins.str] job_name: Name for the customization job.
+        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data. See `output_data_config` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset.
-        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset. See `training_data_config` below.
+        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset. See `validation_data_config` below.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         ...
     @overload
@@ -832,24 +832,24 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
-        :param pulumi.Input[_builtins.str] custom_model_arn: The ARN of the output model.
-        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
+        :param pulumi.Input[_builtins.str] custom_model_arn: ARN of the output model.
+        :param pulumi.Input[_builtins.str] custom_model_kms_key_id: Key ARN used to encrypt the custom model at rest.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
-        :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        :param pulumi.Input[_builtins.str] customization_type: Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-        :param pulumi.Input[_builtins.str] job_arn: The ARN of the customization job.
-        :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
-        :param pulumi.Input[_builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data.
+        :param pulumi.Input[_builtins.str] job_arn: ARN of the customization job.
+        :param pulumi.Input[_builtins.str] job_name: Name for the customization job.
+        :param pulumi.Input[_builtins.str] job_status: Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict', 'outputs.CustomModelOutputDataConfig']] output_data_config: S3 location for the output data. See `output_data_config` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset.
+        :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict', 'outputs.CustomModelTrainingDataConfig']] training_data_config: Information about the training dataset. See `training_data_config` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict', 'outputs.CustomModelTrainingMetric']]]] training_metrics: Metrics associated with the customization job.
-        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict', 'outputs.CustomModelValidationMetric']]]] validation_metrics: The loss metric for each validator that you provided.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
+        :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict', 'outputs.CustomModelValidationDataConfig']] validation_data_config: Information about the validation dataset. See `validation_data_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict', 'outputs.CustomModelValidationMetric']]]] validation_metrics: Loss metric for each validator that you provided.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict', 'outputs.CustomModelVpcConfig']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -889,7 +889,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="customModelArn")
     def custom_model_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the output model.
+        ARN of the output model.
         """
         return pulumi.get(self, "custom_model_arn")
 
@@ -897,7 +897,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="customModelKmsKeyId")
     def custom_model_kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The custom model is encrypted at rest using this key. Specify the key ARN.
+        Key ARN used to encrypt the custom model at rest.
         """
         return pulumi.get(self, "custom_model_kms_key_id")
 
@@ -913,7 +913,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="customizationType")
     def customization_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         """
         return pulumi.get(self, "customization_type")
 
@@ -929,7 +929,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="jobArn")
     def job_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the customization job.
+        ARN of the customization job.
         """
         return pulumi.get(self, "job_arn")
 
@@ -937,7 +937,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="jobName")
     def job_name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name for the customization job.
+        Name for the customization job.
         """
         return pulumi.get(self, "job_name")
 
@@ -945,7 +945,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="jobStatus")
     def job_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+        Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         """
         return pulumi.get(self, "job_status")
 
@@ -953,7 +953,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="outputDataConfig")
     def output_data_config(self) -> pulumi.Output['outputs.CustomModelOutputDataConfig']:
         """
-        S3 location for the output data.
+        S3 location for the output data. See `output_data_config` below.
         """
         return pulumi.get(self, "output_data_config")
 
@@ -977,7 +977,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -998,7 +998,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="trainingDataConfig")
     def training_data_config(self) -> pulumi.Output['outputs.CustomModelTrainingDataConfig']:
         """
-        Information about the training dataset.
+        Information about the training dataset. See `training_data_config` below.
         """
         return pulumi.get(self, "training_data_config")
 
@@ -1014,7 +1014,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="validationDataConfig")
     def validation_data_config(self) -> pulumi.Output[Optional['outputs.CustomModelValidationDataConfig']]:
         """
-        Information about the validation dataset.
+        Information about the validation dataset. See `validation_data_config` below.
         """
         return pulumi.get(self, "validation_data_config")
 
@@ -1022,7 +1022,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="validationMetrics")
     def validation_metrics(self) -> pulumi.Output[Sequence['outputs.CustomModelValidationMetric']]:
         """
-        The loss metric for each validator that you provided.
+        Loss metric for each validator that you provided.
         """
         return pulumi.get(self, "validation_metrics")
 
@@ -1030,7 +1030,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.CustomModelVpcConfig']]:
         """
-        Configuration parameters for the private VPC that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 

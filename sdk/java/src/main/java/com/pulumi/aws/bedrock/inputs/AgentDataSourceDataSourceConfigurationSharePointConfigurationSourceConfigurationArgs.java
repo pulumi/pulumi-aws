@@ -18,14 +18,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs();
 
     /**
-     * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+     * Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
      * 
      */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
     /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+     * @return Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
      * 
      */
     public Output<String> authType() {
@@ -33,14 +33,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
+     * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$`.
      * 
      */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
     /**
-     * @return ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
+     * @return ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$`.
      * 
      */
     public Output<String> credentialsSecretArn() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * The domain of your SharePoint instance or site URL/URLs.
+     * Domain of your SharePoint instance or site URL/URLs.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return The domain of your SharePoint instance or site URL/URLs.
+     * @return Domain of your SharePoint instance or site URL/URLs.
      * 
      */
     public Output<String> domain() {
@@ -63,14 +63,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+     * Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
      * 
      */
     @Import(name="hostType", required=true)
     private Output<String> hostType;
 
     /**
-     * @return The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+     * @return Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
      * 
      */
     public Output<String> hostType() {
@@ -78,14 +78,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * A list of one or more SharePoint site URLs.
+     * One or more SharePoint site URLs.
      * 
      */
     @Import(name="siteUrls", required=true)
     private Output<List<String>> siteUrls;
 
     /**
-     * @return A list of one or more SharePoint site URLs.
+     * @return One or more SharePoint site URLs.
      * 
      */
     public Output<List<String>> siteUrls() {
@@ -93,14 +93,14 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     }
 
     /**
-     * The identifier of your Microsoft 365 tenant.
+     * Identifier of your Microsoft 365 tenant.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The identifier of your Microsoft 365 tenant.
+     * @return Identifier of your Microsoft 365 tenant.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -137,7 +137,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * @param authType Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+         * @param authType Supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param credentialsSecretArn ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
+         * @param credentialsSecretArn ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param credentialsSecretArn ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
+         * @param credentialsSecretArn ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param domain The domain of your SharePoint instance or site URL/URLs.
+         * @param domain Domain of your SharePoint instance or site URL/URLs.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param domain The domain of your SharePoint instance or site URL/URLs.
+         * @param domain Domain of your SharePoint instance or site URL/URLs.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param hostType The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * @param hostType Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param hostType The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+         * @param hostType Supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
+         * @param siteUrls One or more SharePoint site URLs.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
+         * @param siteUrls One or more SharePoint site URLs.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
+         * @param siteUrls One or more SharePoint site URLs.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param tenantId The identifier of your Microsoft 365 tenant.
+         * @param tenantId Identifier of your Microsoft 365 tenant.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
         }
 
         /**
-         * @param tenantId The identifier of your Microsoft 365 tenant.
+         * @param tenantId Identifier of your Microsoft 365 tenant.
          * 
          * @return builder
          * 

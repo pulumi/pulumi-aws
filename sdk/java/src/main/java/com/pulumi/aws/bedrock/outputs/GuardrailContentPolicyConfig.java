@@ -13,28 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailContentPolicyConfig {
     /**
-     * @return Set of content filter configs in content policy.
-     * See Filters Config for more information.
+     * @return Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
      * 
      */
     private @Nullable List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs;
     /**
-     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * @return Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
      * 
      */
     private @Nullable List<GuardrailContentPolicyConfigTierConfig> tierConfigs;
 
     private GuardrailContentPolicyConfig() {}
     /**
-     * @return Set of content filter configs in content policy.
-     * See Filters Config for more information.
+     * @return Set of content filter configs in content policy. See `content_policy_config.filters_config` Block for more information.
      * 
      */
     public List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs() {
         return this.filtersConfigs == null ? List.of() : this.filtersConfigs;
     }
     /**
-     * @return Configuration block for the content policy tier. See Tier Config for more information.
+     * @return Configuration block for the content policy tier. See `content_policy_config.tier_config` Block for more information.
      * 
      */
     public List<GuardrailContentPolicyConfigTierConfig> tierConfigs() {

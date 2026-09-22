@@ -19,14 +19,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs();
 
     /**
-     * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+     * Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
      * 
      */
     @Import(name="levelConfigurations")
     private @Nullable Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>> levelConfigurations;
 
     /**
-     * @return Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+     * @return Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>>> levelConfigurations() {
@@ -34,14 +34,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
 
     /**
-     * The number of tokens to repeat across chunks in the same layer.
+     * Number of tokens to repeat across chunks in the same layer.
      * 
      */
     @Import(name="overlapTokens", required=true)
     private Output<Integer> overlapTokens;
 
     /**
-     * @return The number of tokens to repeat across chunks in the same layer.
+     * @return Number of tokens to repeat across chunks in the same layer.
      * 
      */
     public Output<Integer> overlapTokens() {
@@ -74,7 +74,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         * @param levelConfigurations Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         * @param levelConfigurations Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param levelConfigurations Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         * @param levelConfigurations Token settings for each layer. Must contain two `levelConfiguration` blocks. See `levelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param overlapTokens The number of tokens to repeat across chunks in the same layer.
+         * @param overlapTokens Number of tokens to repeat across chunks in the same layer.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param overlapTokens The number of tokens to repeat across chunks in the same layer.
+         * @param overlapTokens Number of tokens to repeat across chunks in the same layer.
          * 
          * @return builder
          * 

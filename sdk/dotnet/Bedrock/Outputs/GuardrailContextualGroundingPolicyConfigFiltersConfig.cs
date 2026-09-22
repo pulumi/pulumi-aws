@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailContextualGroundingPolicyConfigFiltersConfig
     {
         /// <summary>
-        /// The threshold for this filter.
+        /// Threshold for this filter.
         /// </summary>
         public readonly double Threshold;
         /// <summary>

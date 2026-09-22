@@ -17,14 +17,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs();
 
     /**
-     * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     @Import(name="authorizationServerMetadatas", required=true)
     private Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadatas;
 
     /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+     * @return OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
      * 
      */
     public Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadatas() {
@@ -32,14 +32,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
     }
 
     /**
-     * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * OpenID Connect discovery URL resolved by the service.
      * 
      */
     @Import(name="discoveryUrl", required=true)
     private Output<String> discoveryUrl;
 
     /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+     * @return OpenID Connect discovery URL resolved by the service.
      * 
      */
     public Output<String> discoveryUrl() {
@@ -72,7 +72,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         }
 
         /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * @param authorizationServerMetadatas OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         }
 
         /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * @param authorizationServerMetadatas OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         }
 
         /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         * @param authorizationServerMetadatas OAuth2 authorization server metadata resolved by the service. See `authorizationServerMetadata` Block below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         }
 
         /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * @param discoveryUrl OpenID Connect discovery URL resolved by the service.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         }
 
         /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         * @param discoveryUrl OpenID Connect discovery URL resolved by the service.
          * 
          * @return builder
          * 

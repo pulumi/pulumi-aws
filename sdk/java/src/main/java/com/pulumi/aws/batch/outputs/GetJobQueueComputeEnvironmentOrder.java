@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobQueueComputeEnvironmentOrder {
+    /**
+     * @return ARN of the compute environment.
+     * 
+     */
     private String computeEnvironment;
+    /**
+     * @return Order of the compute environment.
+     * 
+     */
     private Integer order;
 
     private GetJobQueueComputeEnvironmentOrder() {}
+    /**
+     * @return ARN of the compute environment.
+     * 
+     */
     public String computeEnvironment() {
         return this.computeEnvironment;
     }
+    /**
+     * @return Order of the compute environment.
+     * 
+     */
     public Integer order() {
         return this.order;
     }

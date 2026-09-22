@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string StepToApply;
         /// <summary>
-        /// The lambda function that processes documents.
+        /// Lambda function that processes documents. See `TransformationFunction` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction? TransformationFunction;
 

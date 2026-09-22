@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Bedrock
         private List<Inputs.GetAgentAgentVersionsAgentVersionSummaryArgs>? _agentVersionSummaries;
 
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
         /// </summary>
         public List<Inputs.GetAgentAgentVersionsAgentVersionSummaryArgs> AgentVersionSummaries
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.GetAgentAgentVersionsAgentVersionSummaryInputArgs>? _agentVersionSummaries;
 
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
         /// </summary>
         public InputList<Inputs.GetAgentAgentVersionsAgentVersionSummaryInputArgs> AgentVersionSummaries
         {
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Bedrock
     {
         public readonly string AgentId;
         /// <summary>
-        /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+        /// List of objects, each of which contains information about a version of the agent. See `AgentVersionSummaries` Block
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryResult> AgentVersionSummaries;
         public readonly string Region;

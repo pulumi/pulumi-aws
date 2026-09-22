@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A cache checkpoint within a template configuration. See Cache Point for more information.
+        /// Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
         /// </summary>
         [Input("cachePoint")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointGetArgs>? CachePoint { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableGetArgs>? _inputVariables;
 
         /// <summary>
-        /// A list of variables in the prompt template. See Input Variable for more information.
+        /// Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableGetArgs> InputVariables
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// The message for the prompt.
+        /// Message for the prompt.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;

@@ -20,14 +20,14 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
     public static final RestoreTestingPlanArgs Empty = new RestoreTestingPlanArgs();
 
     /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+     * @return Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -35,14 +35,14 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * Recovery point selection configuration. See `recoveryPointSelection` below.
      * 
      */
     @Import(name="recoveryPointSelection", required=true)
     private Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
 
     /**
-     * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+     * @return Recovery point selection configuration. See `recoveryPointSelection` below.
      * 
      */
     public Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection() {
@@ -65,14 +65,14 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The schedule expression for the restore testing plan.
+     * Schedule expression for the restore testing plan.
      * 
      */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
     /**
-     * @return The schedule expression for the restore testing plan.
+     * @return Schedule expression for the restore testing plan.
      * 
      */
     public Output<String> scheduleExpression() {
@@ -80,14 +80,14 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
+     * Timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
     @Import(name="scheduleExpressionTimezone")
     private @Nullable Output<String> scheduleExpressionTimezone;
 
     /**
-     * @return The timezone for the schedule expression. If not provided, the state value will be used.
+     * @return Timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
     public Optional<Output<String>> scheduleExpressionTimezone() {
@@ -95,23 +95,31 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
     @Import(name="startWindowHours")
     private @Nullable Output<Integer> startWindowHours;
 
     /**
-     * @return The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+     * @return Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
     public Optional<Output<Integer>> startWindowHours() {
         return Optional.ofNullable(this.startWindowHours);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -147,7 +155,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+         * @param name Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
          * 
          * @return builder
          * 
@@ -158,7 +166,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+         * @param name Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
          * 
          * @return builder
          * 
@@ -168,7 +176,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+         * @param recoveryPointSelection Recovery point selection configuration. See `recoveryPointSelection` below.
          * 
          * @return builder
          * 
@@ -179,7 +187,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+         * @param recoveryPointSelection Recovery point selection configuration. See `recoveryPointSelection` below.
          * 
          * @return builder
          * 
@@ -210,7 +218,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
+         * @param scheduleExpression Schedule expression for the restore testing plan.
          * 
          * @return builder
          * 
@@ -221,7 +229,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
+         * @param scheduleExpression Schedule expression for the restore testing plan.
          * 
          * @return builder
          * 
@@ -231,7 +239,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
+         * @param scheduleExpressionTimezone Timezone for the schedule expression. If not provided, the state value will be used.
          * 
          * @return builder
          * 
@@ -242,7 +250,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
+         * @param scheduleExpressionTimezone Timezone for the schedule expression. If not provided, the state value will be used.
          * 
          * @return builder
          * 
@@ -252,7 +260,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+         * @param startWindowHours Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
          * 
          * @return builder
          * 
@@ -263,7 +271,7 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+         * @param startWindowHours Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
          * 
          * @return builder
          * 
@@ -272,11 +280,23 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
             return startWindowHours(Output.of(startWindowHours));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

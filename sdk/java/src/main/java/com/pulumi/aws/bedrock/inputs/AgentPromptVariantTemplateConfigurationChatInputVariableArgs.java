@@ -15,14 +15,14 @@ public final class AgentPromptVariantTemplateConfigurationChatInputVariableArgs 
     public static final AgentPromptVariantTemplateConfigurationChatInputVariableArgs Empty = new AgentPromptVariantTemplateConfigurationChatInputVariableArgs();
 
     /**
-     * The name of the variable.
+     * Name of the variable.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return Name of the variable.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class AgentPromptVariantTemplateConfigurationChatInputVariableArgs 
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name of the variable.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentPromptVariantTemplateConfigurationChatInputVariableArgs 
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name of the variable.
          * 
          * @return builder
          * 

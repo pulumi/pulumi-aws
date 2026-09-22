@@ -167,15 +167,15 @@ type AgentcoreOauth2CredentialProvider struct {
 
 	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
 	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
-	// ARN of the AWS Secrets Manager secret containing the client secret.
+	// ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
 	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput `pulumi:"clientSecretArns"`
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn pulumi.StringOutput `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor pulumi.StringOutput `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 	//
 	// The following arguments are optional:
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput `pulumi:"oauth2ProviderConfig"`
@@ -183,7 +183,7 @@ type AgentcoreOauth2CredentialProvider struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
 	Timeouts AgentcoreOauth2CredentialProviderTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -226,15 +226,15 @@ func GetAgentcoreOauth2CredentialProvider(ctx *pulumi.Context,
 type agentcoreOauth2CredentialProviderState struct {
 	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
 	CallbackUrl *string `pulumi:"callbackUrl"`
-	// ARN of the AWS Secrets Manager secret containing the client secret.
+	// ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
 	ClientSecretArns []AgentcoreOauth2CredentialProviderClientSecretArn `pulumi:"clientSecretArns"`
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor *string `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name *string `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 	//
 	// The following arguments are optional:
 	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
@@ -242,7 +242,7 @@ type agentcoreOauth2CredentialProviderState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string                          `pulumi:"tagsAll"`
 	Timeouts *AgentcoreOauth2CredentialProviderTimeouts `pulumi:"timeouts"`
 }
@@ -250,15 +250,15 @@ type agentcoreOauth2CredentialProviderState struct {
 type AgentcoreOauth2CredentialProviderState struct {
 	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
 	CallbackUrl pulumi.StringPtrInput
-	// ARN of the AWS Secrets Manager secret containing the client secret.
+	// ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
 	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayInput
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn pulumi.StringPtrInput
-	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor pulumi.StringPtrInput
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringPtrInput
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 	//
 	// The following arguments are optional:
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
@@ -266,7 +266,7 @@ type AgentcoreOauth2CredentialProviderState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentcoreOauth2CredentialProviderTimeoutsPtrInput
 }
@@ -276,11 +276,11 @@ func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor string `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name *string `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 	//
 	// The following arguments are optional:
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
@@ -293,11 +293,11 @@ type agentcoreOauth2CredentialProviderArgs struct {
 
 // The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 type AgentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 	CredentialProviderVendor pulumi.StringInput
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringPtrInput
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 	//
 	// The following arguments are optional:
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput
@@ -400,7 +400,7 @@ func (o AgentcoreOauth2CredentialProviderOutput) CallbackUrl() pulumi.StringOutp
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// ARN of the AWS Secrets Manager secret containing the client secret.
+// ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
 func (o AgentcoreOauth2CredentialProviderOutput) ClientSecretArns() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
 		return v.ClientSecretArns
@@ -412,7 +412,7 @@ func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderArn() pulumi.
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderArn }).(pulumi.StringOutput)
 }
 
-// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
 func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderVendor() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderVendor }).(pulumi.StringOutput)
 }
@@ -422,7 +422,7 @@ func (o AgentcoreOauth2CredentialProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
 //
 // The following arguments are optional:
 func (o AgentcoreOauth2CredentialProviderOutput) Oauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
@@ -441,7 +441,7 @@ func (o AgentcoreOauth2CredentialProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreOauth2CredentialProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

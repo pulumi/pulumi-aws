@@ -22,7 +22,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// </summary>
         public readonly string LogGroupName;
         /// <summary>
-        /// The role ARN.
+        /// Role ARN.
         /// </summary>
         public readonly string RoleArn;
 

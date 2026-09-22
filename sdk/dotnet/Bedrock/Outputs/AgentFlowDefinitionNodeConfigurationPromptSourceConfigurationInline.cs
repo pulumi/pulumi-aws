@@ -18,19 +18,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? AdditionalModelRequestFields;
         /// <summary>
-        /// Contains inference configurations for the prompt. See Inference Configuration for more information.
+        /// Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration? InferenceConfiguration;
         /// <summary>
-        /// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         /// </summary>
         public readonly string ModelId;
         /// <summary>
-        /// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
+        /// Prompt and variables in the prompt that can be replaced with values at runtime. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration? TemplateConfiguration;
         /// <summary>
-        /// The type of prompt template. Valid values: `TEXT`, `CHAT`.
+        /// Type of prompt template. Valid values: `TEXT`, `CHAT`.
         /// </summary>
         public readonly string TemplateType;
 

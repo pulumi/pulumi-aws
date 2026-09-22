@@ -20,7 +20,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceCon
      */
     private @Nullable Integer maxTokens;
     /**
-     * @return List of strings that define sequences after which the model will stop generating.
+     * @return List of strings that define sequences after which the model stops generating.
      * 
      */
     private @Nullable List<String> stopSequences;
@@ -44,7 +44,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceCon
         return Optional.ofNullable(this.maxTokens);
     }
     /**
-     * @return List of strings that define sequences after which the model will stop generating.
+     * @return List of strings that define sequences after which the model stops generating.
      * 
      */
     public List<String> stopSequences() {

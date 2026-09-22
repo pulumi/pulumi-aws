@@ -17,14 +17,14 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
     public static final AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs Empty = new AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs();
 
     /**
-     * Network mode. Valid values: `PUBLIC`, `VPC`.
+     * Network mode.
      * 
      */
     @Import(name="networkMode", required=true)
     private Output<String> networkMode;
 
     /**
-     * @return Network mode. Valid values: `PUBLIC`, `VPC`.
+     * @return Network mode.
      * 
      */
     public Output<String> networkMode() {
@@ -32,14 +32,14 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
     }
 
     /**
-     * VPC configuration. See `networkModeConfig` Block below.
+     * VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
      * 
      */
     @Import(name="networkModeConfigs", required=true)
     private Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs;
 
     /**
-     * @return VPC configuration. See `networkModeConfig` Block below.
+     * @return VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs>> networkModeConfigs() {
@@ -72,7 +72,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
         }
 
         /**
-         * @param networkMode Network mode. Valid values: `PUBLIC`, `VPC`.
+         * @param networkMode Network mode.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
         }
 
         /**
-         * @param networkMode Network mode. Valid values: `PUBLIC`, `VPC`.
+         * @param networkMode Network mode.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
+         * @param networkModeConfigs VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
+         * @param networkModeConfigs VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
         }
 
         /**
-         * @param networkModeConfigs VPC configuration. See `networkModeConfig` Block below.
+         * @param networkModeConfigs VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
          * 
          * @return builder
          * 

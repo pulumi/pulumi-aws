@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationInference {
     /**
-     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationInferenceConnector connector;
@@ -25,7 +25,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInference {
 
     private AgentcoreGatewayTargetTargetConfigurationInference() {}
     /**
-     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+     * @return Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationInferenceConnector> connector() {

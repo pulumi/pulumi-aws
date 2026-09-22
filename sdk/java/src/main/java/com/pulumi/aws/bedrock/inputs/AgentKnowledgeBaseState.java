@@ -65,22 +65,30 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of failure reasons reported when the knowledge base is in a failed state.
+     * 
+     */
     @Import(name="failureReasons")
     private @Nullable Output<List<String>> failureReasons;
 
+    /**
+     * @return List of failure reasons reported when the knowledge base is in a failed state.
+     * 
+     */
     public Optional<Output<List<String>>> failureReasons() {
         return Optional.ofNullable(this.failureReasons);
     }
 
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="knowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
@@ -137,14 +145,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
@@ -302,21 +310,39 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             return description(Output.of(description));
         }
 
+        /**
+         * @param failureReasons List of failure reasons reported when the knowledge base is in a failed state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failureReasons(@Nullable Output<List<String>> failureReasons) {
             $.failureReasons = failureReasons;
             return this;
         }
 
+        /**
+         * @param failureReasons List of failure reasons reported when the knowledge base is in a failed state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failureReasons(List<String> failureReasons) {
             return failureReasons(Output.of(failureReasons));
         }
 
+        /**
+         * @param failureReasons List of failure reasons reported when the knowledge base is in a failed state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failureReasons(String... failureReasons) {
             return failureReasons(List.of(failureReasons));
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -327,7 +353,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -404,7 +430,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -415,7 +441,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
          * 
          * @return builder
          * 

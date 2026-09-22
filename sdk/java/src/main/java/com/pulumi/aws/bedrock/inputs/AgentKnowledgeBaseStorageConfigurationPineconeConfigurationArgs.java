@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
     }
 
     /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
      * 
      */
     @Import(name="fieldMapping", required=true)
     private Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping() {
@@ -147,7 +147,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.pinecone_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 

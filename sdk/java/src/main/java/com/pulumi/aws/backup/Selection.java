@@ -304,28 +304,28 @@ public class Selection extends com.pulumi.resources.CustomResource {
         return this.conditions;
     }
     /**
-     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
     /**
-     * The display name of a resource selection document.
+     * Display name of a resource selection document.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The display name of a resource selection document.
+     * @return Display name of a resource selection document.
      * 
      */
     public Output<String> name() {
@@ -346,14 +346,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
         return this.notResources;
     }
     /**
-     * The backup plan ID to be associated with the selection of resources.
+     * Backup plan ID to be associated with the selection of resources.
      * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
     private Output<String> planId;
 
     /**
-     * @return The backup plan ID to be associated with the selection of resources.
+     * @return Backup plan ID to be associated with the selection of resources.
      * 
      */
     public Output<String> planId() {

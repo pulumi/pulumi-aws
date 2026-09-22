@@ -68,9 +68,9 @@ type LookupPlanResult struct {
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
 	Region string `pulumi:"region"`
-	// Rules of a backup plan.
+	// Rules of a backup plan. See below.
 	Rules []GetPlanRule `pulumi:"rules"`
-	// Scanning configuration for the backup rule.
+	// Scanning configuration for the backup rule. See below.
 	ScanSettings []GetPlanScanSetting `pulumi:"scanSettings"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -135,12 +135,12 @@ func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Rules of a backup plan.
+// Rules of a backup plan. See below.
 func (o LookupPlanResultOutput) Rules() GetPlanRuleArrayOutput {
 	return o.ApplyT(func(v LookupPlanResult) []GetPlanRule { return v.Rules }).(GetPlanRuleArrayOutput)
 }
 
-// Scanning configuration for the backup rule.
+// Scanning configuration for the backup rule. See below.
 func (o LookupPlanResultOutput) ScanSettings() GetPlanScanSettingArrayOutput {
 	return o.ApplyT(func(v LookupPlanResult) []GetPlanScanSetting { return v.ScanSettings }).(GetPlanScanSettingArrayOutput)
 }

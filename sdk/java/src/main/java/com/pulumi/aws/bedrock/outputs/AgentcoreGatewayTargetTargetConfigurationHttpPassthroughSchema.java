@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
     /**
-     * @return Configuration for API schema. See `apiSchemaConfiguration` Block below.
+     * @return Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
      * 
      */
     private AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource source;
 
     private AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema() {}
     /**
-     * @return Configuration for API schema. See `apiSchemaConfiguration` Block below.
+     * @return Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
      * 
      */
     public AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource source() {

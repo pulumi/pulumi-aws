@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
     /**
-     * @return Network mode. Valid values: `PUBLIC`, `VPC`.
+     * @return Network mode.
      * 
      */
     private String networkMode;
     /**
-     * @return VPC configuration. See `networkModeConfig` Block below.
+     * @return VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
      * 
      */
     private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration() {}
     /**
-     * @return Network mode. Valid values: `PUBLIC`, `VPC`.
+     * @return Network mode.
      * 
      */
     public String networkMode() {
         return this.networkMode;
     }
     /**
-     * @return VPC configuration. See `networkModeConfig` Block below.
+     * @return VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs() {

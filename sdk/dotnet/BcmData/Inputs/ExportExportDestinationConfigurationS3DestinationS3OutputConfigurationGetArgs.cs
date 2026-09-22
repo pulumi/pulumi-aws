@@ -31,7 +31,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         public Input<string> OutputType { get; set; } = null!;
 
         /// <summary>
-        /// The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
+        /// Rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
         /// </summary>
         [Input("overwrite", required: true)]
         public Input<string> Overwrite { get; set; } = null!;

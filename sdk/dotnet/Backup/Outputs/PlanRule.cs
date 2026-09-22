@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class PlanRule
     {
         /// <summary>
-        /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        /// Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         /// </summary>
         public readonly int? CompletionWindow;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly bool? EnableContinuousBackup;
         /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         /// </summary>
         public readonly Outputs.PlanRuleLifecycle? Lifecycle;
         /// <summary>
@@ -34,31 +34,31 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         /// <summary>
-        /// An display name for a backup rule.
+        /// Display name for a backup rule.
         /// </summary>
         public readonly string RuleName;
         /// <summary>
-        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanRuleScanAction> ScanActions;
         /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
+        /// CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
         public readonly string? Schedule;
         /// <summary>
-        /// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        /// Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         /// </summary>
         public readonly string? ScheduleExpressionTimezone;
         /// <summary>
-        /// The amount of time in minutes before beginning a backup.
+        /// Amount of time in minutes before beginning a backup.
         /// </summary>
         public readonly int? StartWindow;
         /// <summary>
-        /// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        /// ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         /// </summary>
         public readonly string? TargetLogicallyAirGappedBackupVaultArn;
         /// <summary>
-        /// The name of a logical container where backups are stored.
+        /// Name of a logical container where backups are stored.
         /// </summary>
         public readonly string TargetVaultName;
 

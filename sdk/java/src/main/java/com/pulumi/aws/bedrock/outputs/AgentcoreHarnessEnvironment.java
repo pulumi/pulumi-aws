@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessEnvironment {
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
      * 
      */
     private @Nullable List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments;
 
     private AgentcoreHarnessEnvironment() {}
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
+     * @return AgentCore runtime environment configuration. See `environment.agentcore_runtime_environment` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment> agentcoreRuntimeEnvironments() {

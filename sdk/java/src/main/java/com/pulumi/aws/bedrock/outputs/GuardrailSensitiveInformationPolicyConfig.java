@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailSensitiveInformationPolicyConfig {
     /**
-     * @return List of entities. See PII Entities Config for more information.
+     * @return List of entities. See `piiEntitiesConfig` Block for more information.
      * 
      */
     private @Nullable List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig> piiEntitiesConfigs;
     /**
-     * @return List of regex. See Regexes Config for more information.
+     * @return List of regex. See `regexesConfig` Block for more information.
      * 
      */
     private @Nullable List<GuardrailSensitiveInformationPolicyConfigRegexesConfig> regexesConfigs;
 
     private GuardrailSensitiveInformationPolicyConfig() {}
     /**
-     * @return List of entities. See PII Entities Config for more information.
+     * @return List of entities. See `piiEntitiesConfig` Block for more information.
      * 
      */
     public List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig> piiEntitiesConfigs() {
         return this.piiEntitiesConfigs == null ? List.of() : this.piiEntitiesConfigs;
     }
     /**
-     * @return List of regex. See Regexes Config for more information.
+     * @return List of regex. See `regexesConfig` Block for more information.
      * 
      */
     public List<GuardrailSensitiveInformationPolicyConfigRegexesConfig> regexesConfigs() {

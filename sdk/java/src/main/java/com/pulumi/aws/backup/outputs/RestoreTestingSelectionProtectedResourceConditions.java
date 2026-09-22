@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RestoreTestingSelectionProtectedResourceConditions {
     /**
-     * @return The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+     * @return List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
      * 
      */
     private @Nullable List<RestoreTestingSelectionProtectedResourceConditionsStringEqual> stringEquals;
     /**
-     * @return The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+     * @return List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
      * 
      */
     private @Nullable List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqual> stringNotEquals;
 
     private RestoreTestingSelectionProtectedResourceConditions() {}
     /**
-     * @return The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+     * @return List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
      * 
      */
     public List<RestoreTestingSelectionProtectedResourceConditionsStringEqual> stringEquals() {
         return this.stringEquals == null ? List.of() : this.stringEquals;
     }
     /**
-     * @return The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+     * @return List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
      * 
      */
     public List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqual> stringNotEquals() {

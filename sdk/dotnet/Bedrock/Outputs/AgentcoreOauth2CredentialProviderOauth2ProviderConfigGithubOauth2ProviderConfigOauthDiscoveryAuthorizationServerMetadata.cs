@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string TokenEndpoint;
         /// <summary>
-        /// List of authentication methods supported by the token endpoint. Must contain one or two values matching `ClientSecretPost` or `ClientSecretBasic`.
+        /// List of authentication methods supported by the token endpoint.
         /// </summary>
         public readonly ImmutableArray<string> TokenEndpointAuthMethods;
 

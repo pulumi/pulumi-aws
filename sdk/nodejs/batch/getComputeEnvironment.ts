@@ -92,7 +92,7 @@ export interface GetComputeEnvironmentResult {
      */
     readonly type: string;
     /**
-     * Specifies the infrastructure update policy for the compute environment.
+     * Infrastructure update policy for the compute environment.
      */
     readonly updatePolicies: outputs.batch.GetComputeEnvironmentUpdatePolicy[];
 }

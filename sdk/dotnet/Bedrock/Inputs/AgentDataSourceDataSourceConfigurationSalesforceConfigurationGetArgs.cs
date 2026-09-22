@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationSalesforceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for Salesforce content. See `data_source_configuration.salesforce_configuration.crawler_configuration` Block for details.
+        /// </summary>
         [Input("crawlerConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationGetArgs>? CrawlerConfiguration { get; set; }
 
+        /// <summary>
+        /// Endpoint information to connect to your Salesforce data source. See `data_source_configuration.salesforce_configuration.source_configuration` Block for details.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationGetArgs>? SourceConfiguration { get; set; }
 

@@ -76,9 +76,9 @@ class FrameworkControl(dict):
                  input_parameters: Optional[Sequence['outputs.FrameworkControlInputParameter']] = None,
                  scope: Optional['outputs.FrameworkControlScope'] = None):
         """
-        :param _builtins.str name: The name of a control. This name is between 1 and 256 characters.
+        :param _builtins.str name: Name of a control. This name is between 1 and 256 characters.
         :param Sequence['FrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
-        :param 'FrameworkControlScopeArgs' scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        :param 'FrameworkControlScopeArgs' scope: Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         pulumi.set(__self__, "name", name)
         if input_parameters is not None:
@@ -90,7 +90,7 @@ class FrameworkControl(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of a control. This name is between 1 and 256 characters.
+        Name of a control. This name is between 1 and 256 characters.
         """
         return pulumi.get(self, "name")
 
@@ -106,7 +106,7 @@ class FrameworkControl(dict):
     @pulumi.getter
     def scope(self) -> Optional['outputs.FrameworkControlScope']:
         """
-        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         return pulumi.get(self, "scope")
 
@@ -117,8 +117,8 @@ class FrameworkControlInputParameter(dict):
                  name: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The name of a parameter, for example, BackupPlanFrequency.
-        :param _builtins.str value: The value of parameter, for example, hourly.
+        :param _builtins.str name: Name of a parameter, for example, BackupPlanFrequency.
+        :param _builtins.str value: Value of parameter, for example, hourly.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -129,7 +129,7 @@ class FrameworkControlInputParameter(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of a parameter, for example, BackupPlanFrequency.
+        Name of a parameter, for example, BackupPlanFrequency.
         """
         return pulumi.get(self, "name")
 
@@ -137,7 +137,7 @@ class FrameworkControlInputParameter(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         """
-        The value of parameter, for example, hourly.
+        Value of parameter, for example, hourly.
         """
         return pulumi.get(self, "value")
 
@@ -168,9 +168,9 @@ class FrameworkControlScope(dict):
                  compliance_resource_types: Optional[Sequence[_builtins.str]] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-        :param Sequence[_builtins.str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-        :param Mapping[str, _builtins.str] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        :param Sequence[_builtins.str] compliance_resource_ids: ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        :param Sequence[_builtins.str] compliance_resource_types: Whether the control scope includes one or more types of resources, such as EFS or RDS.
+        :param Mapping[str, _builtins.str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         if compliance_resource_ids is not None:
             pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
@@ -183,7 +183,7 @@ class FrameworkControlScope(dict):
     @pulumi.getter(name="complianceResourceIds")
     def compliance_resource_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
+        ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "compliance_resource_ids")
 
@@ -191,7 +191,7 @@ class FrameworkControlScope(dict):
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        Whether the control scope includes one or more types of resources, such as EFS or RDS.
         """
         return pulumi.get(self, "compliance_resource_types")
 
@@ -199,7 +199,7 @@ class FrameworkControlScope(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         return pulumi.get(self, "tags")
 
@@ -248,8 +248,8 @@ class PlanAdvancedBackupSetting(dict):
                  backup_options: Mapping[str, _builtins.str],
                  resource_type: _builtins.str):
         """
-        :param Mapping[str, _builtins.str] backup_options: Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
-        :param _builtins.str resource_type: The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        :param Mapping[str, _builtins.str] backup_options: Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        :param _builtins.str resource_type: Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         """
         pulumi.set(__self__, "backup_options", backup_options)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -258,7 +258,7 @@ class PlanAdvancedBackupSetting(dict):
     @pulumi.getter(name="backupOptions")
     def backup_options(self) -> Mapping[str, _builtins.str]:
         """
-        Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        Backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
         """
         return pulumi.get(self, "backup_options")
 
@@ -266,7 +266,7 @@ class PlanAdvancedBackupSetting(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> _builtins.str:
         """
-        The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        Type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -322,18 +322,18 @@ class PlanRule(dict):
                  start_window: Optional[_builtins.int] = None,
                  target_logically_air_gapped_backup_vault_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str rule_name: An display name for a backup rule.
-        :param _builtins.str target_vault_name: The name of a logical container where backups are stored.
-        :param _builtins.int completion_window: The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        :param _builtins.str rule_name: Display name for a backup rule.
+        :param _builtins.str target_vault_name: Name of a logical container where backups are stored.
+        :param _builtins.int completion_window: Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         :param Sequence['PlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
         :param _builtins.bool enable_continuous_backup: Enable continuous backups for supported resources.
-        :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        :param 'PlanRuleLifecycleArgs' lifecycle: Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         :param Mapping[str, _builtins.str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
-        :param Sequence['PlanRuleScanActionArgs'] scan_actions: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
-        :param _builtins.str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
-        :param _builtins.str schedule_expression_timezone: The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
-        :param _builtins.int start_window: The amount of time in minutes before beginning a backup.
-        :param _builtins.str target_logically_air_gapped_backup_vault_arn: The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        :param Sequence['PlanRuleScanActionArgs'] scan_actions: Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
+        :param _builtins.str schedule: CRON expression specifying when AWS Backup initiates a backup job.
+        :param _builtins.str schedule_expression_timezone: Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        :param _builtins.int start_window: Amount of time in minutes before beginning a backup.
+        :param _builtins.str target_logically_air_gapped_backup_vault_arn: ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
@@ -362,7 +362,7 @@ class PlanRule(dict):
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
         """
-        An display name for a backup rule.
+        Display name for a backup rule.
         """
         return pulumi.get(self, "rule_name")
 
@@ -370,7 +370,7 @@ class PlanRule(dict):
     @pulumi.getter(name="targetVaultName")
     def target_vault_name(self) -> _builtins.str:
         """
-        The name of a logical container where backups are stored.
+        Name of a logical container where backups are stored.
         """
         return pulumi.get(self, "target_vault_name")
 
@@ -378,7 +378,7 @@ class PlanRule(dict):
     @pulumi.getter(name="completionWindow")
     def completion_window(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         """
         return pulumi.get(self, "completion_window")
 
@@ -402,7 +402,7 @@ class PlanRule(dict):
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleLifecycle']:
         """
-        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         """
         return pulumi.get(self, "lifecycle")
 
@@ -418,7 +418,7 @@ class PlanRule(dict):
     @pulumi.getter(name="scanActions")
     def scan_actions(self) -> Optional[Sequence['outputs.PlanRuleScanAction']]:
         """
-        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         """
         return pulumi.get(self, "scan_actions")
 
@@ -426,7 +426,7 @@ class PlanRule(dict):
     @pulumi.getter
     def schedule(self) -> Optional[_builtins.str]:
         """
-        A CRON expression specifying when AWS Backup initiates a backup job.
+        CRON expression specifying when AWS Backup initiates a backup job.
         """
         return pulumi.get(self, "schedule")
 
@@ -434,7 +434,7 @@ class PlanRule(dict):
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[_builtins.str]:
         """
-        The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         """
         return pulumi.get(self, "schedule_expression_timezone")
 
@@ -442,7 +442,7 @@ class PlanRule(dict):
     @pulumi.getter(name="startWindow")
     def start_window(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes before beginning a backup.
+        Amount of time in minutes before beginning a backup.
         """
         return pulumi.get(self, "start_window")
 
@@ -450,7 +450,7 @@ class PlanRule(dict):
     @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
     def target_logically_air_gapped_backup_vault_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         """
         return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
@@ -479,7 +479,7 @@ class PlanRuleCopyAction(dict):
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
         """
         :param _builtins.str destination_vault_arn: ARN that uniquely identifies the destination backup vault for the copied backup.
-        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
@@ -497,7 +497,7 @@ class PlanRuleCopyAction(dict):
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleCopyActionLifecycle']:
         """
-        The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
         """
         return pulumi.get(self, "lifecycle")
 
@@ -530,9 +530,9 @@ class PlanRuleCopyActionLifecycle(dict):
                  delete_after: Optional[_builtins.int] = None,
                  opt_in_to_archive_for_supported_resources: Optional[_builtins.bool] = None):
         """
-        :param _builtins.int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
-        :param _builtins.int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        :param _builtins.bool opt_in_to_archive_for_supported_resources: This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        :param _builtins.int cold_storage_after: Number of days after creation that a recovery point is moved to cold storage.
+        :param _builtins.int delete_after: Number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param _builtins.bool opt_in_to_archive_for_supported_resources: Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
@@ -545,7 +545,7 @@ class PlanRuleCopyActionLifecycle(dict):
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        Number of days after creation that a recovery point is moved to cold storage.
         """
         return pulumi.get(self, "cold_storage_after")
 
@@ -553,7 +553,7 @@ class PlanRuleCopyActionLifecycle(dict):
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        Number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
 
@@ -561,7 +561,7 @@ class PlanRuleCopyActionLifecycle(dict):
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> Optional[_builtins.bool]:
         """
-        This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
@@ -594,9 +594,9 @@ class PlanRuleLifecycle(dict):
                  delete_after: Optional[_builtins.int] = None,
                  opt_in_to_archive_for_supported_resources: Optional[_builtins.bool] = None):
         """
-        :param _builtins.int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
-        :param _builtins.int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        :param _builtins.bool opt_in_to_archive_for_supported_resources: This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        :param _builtins.int cold_storage_after: Number of days after creation that a recovery point is moved to cold storage.
+        :param _builtins.int delete_after: Number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param _builtins.bool opt_in_to_archive_for_supported_resources: Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
@@ -609,7 +609,7 @@ class PlanRuleLifecycle(dict):
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        Number of days after creation that a recovery point is moved to cold storage.
         """
         return pulumi.get(self, "cold_storage_after")
 
@@ -617,7 +617,7 @@ class PlanRuleLifecycle(dict):
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        Number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
 
@@ -625,7 +625,7 @@ class PlanRuleLifecycle(dict):
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> Optional[_builtins.bool]:
         """
-        This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
@@ -933,11 +933,11 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
                  exclude_vaults: Optional[Sequence[_builtins.str]] = None,
                  selection_window_days: Optional[_builtins.int] = None):
         """
-        :param _builtins.str algorithm: Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
-        :param Sequence[_builtins.str] include_vaults: Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
-        :param Sequence[_builtins.str] recovery_point_types: Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
-        :param Sequence[_builtins.str] exclude_vaults: Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
-        :param _builtins.int selection_window_days: Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        :param _builtins.str algorithm: Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
+        :param Sequence[_builtins.str] include_vaults: Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
+        :param Sequence[_builtins.str] recovery_point_types: Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
+        :param Sequence[_builtins.str] exclude_vaults: Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
+        :param _builtins.int selection_window_days: Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "include_vaults", include_vaults)
@@ -951,7 +951,7 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
     @pulumi.getter
     def algorithm(self) -> _builtins.str:
         """
-        Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        Algorithm used for selecting recovery points. Valid values are `RANDOM_WITHIN_WINDOW` and `LATEST_WITHIN_WINDOW`.
         """
         return pulumi.get(self, "algorithm")
 
@@ -959,7 +959,7 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
     @pulumi.getter(name="includeVaults")
     def include_vaults(self) -> Sequence[_builtins.str]:
         """
-        Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        Backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to include all backup vaults.
         """
         return pulumi.get(self, "include_vaults")
 
@@ -967,7 +967,7 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
     @pulumi.getter(name="recoveryPointTypes")
     def recovery_point_types(self) -> Sequence[_builtins.str]:
         """
-        Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        Types of recovery points to include in the selection. Valid values are `CONTINUOUS` and `SNAPSHOT`.
         """
         return pulumi.get(self, "recovery_point_types")
 
@@ -975,7 +975,7 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
     @pulumi.getter(name="excludeVaults")
     def exclude_vaults(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        Backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or `*` to exclude all backup vaults.
         """
         return pulumi.get(self, "exclude_vaults")
 
@@ -983,7 +983,7 @@ class RestoreTestingPlanRecoveryPointSelection(dict):
     @pulumi.getter(name="selectionWindowDays")
     def selection_window_days(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        Number of days within which the recovery points should be selected. Must be a value between 1 and 365.
         """
         return pulumi.get(self, "selection_window_days")
 
@@ -1013,8 +1013,8 @@ class RestoreTestingSelectionProtectedResourceConditions(dict):
                  string_equals: Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringEqual']] = None,
                  string_not_equals: Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual']] = None):
         """
-        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs'] string_equals: The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
-        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs'] string_not_equals: The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs'] string_equals: List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `string_equals` below.
+        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs'] string_not_equals: List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `string_not_equals` below.
         """
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
@@ -1025,7 +1025,7 @@ class RestoreTestingSelectionProtectedResourceConditions(dict):
     @pulumi.getter(name="stringEquals")
     def string_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringEqual']]:
         """
-        The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `string_equals` below.
         """
         return pulumi.get(self, "string_equals")
 
@@ -1033,7 +1033,7 @@ class RestoreTestingSelectionProtectedResourceConditions(dict):
     @pulumi.getter(name="stringNotEquals")
     def string_not_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual']]:
         """
-        The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `string_not_equals` below.
         """
         return pulumi.get(self, "string_not_equals")
 
@@ -1044,8 +1044,8 @@ class RestoreTestingSelectionProtectedResourceConditionsStringEqual(dict):
                  key: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-        :param _builtins.str value: The value of the Tag. Maximum length of 256.
+        :param _builtins.str key: Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param _builtins.str value: Value of the Tag. Maximum length of 256.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1054,7 +1054,7 @@ class RestoreTestingSelectionProtectedResourceConditionsStringEqual(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
         """
         return pulumi.get(self, "key")
 
@@ -1062,7 +1062,7 @@ class RestoreTestingSelectionProtectedResourceConditionsStringEqual(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the Tag. Maximum length of 256.
+        Value of the Tag. Maximum length of 256.
         """
         return pulumi.get(self, "value")
 
@@ -1073,8 +1073,8 @@ class RestoreTestingSelectionProtectedResourceConditionsStringNotEqual(dict):
                  key: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-        :param _builtins.str value: The value of the Tag. Maximum length of 256.
+        :param _builtins.str key: Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param _builtins.str value: Value of the Tag. Maximum length of 256.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1083,7 +1083,7 @@ class RestoreTestingSelectionProtectedResourceConditionsStringNotEqual(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
         """
         return pulumi.get(self, "key")
 
@@ -1091,7 +1091,7 @@ class RestoreTestingSelectionProtectedResourceConditionsStringNotEqual(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the Tag. Maximum length of 256.
+        Value of the Tag. Maximum length of 256.
         """
         return pulumi.get(self, "value")
 
@@ -1298,7 +1298,7 @@ class SelectionSelectionTag(dict):
                  value: _builtins.str):
         """
         :param _builtins.str key: Key for the filter.
-        :param _builtins.str type: An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+        :param _builtins.str type: Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         :param _builtins.str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
@@ -1317,7 +1317,7 @@ class SelectionSelectionTag(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+        Operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         """
         return pulumi.get(self, "type")
 
@@ -1406,8 +1406,8 @@ class GetFrameworkControlScopeResult(dict):
                  compliance_resource_types: Sequence[_builtins.str],
                  tags: Mapping[str, _builtins.str]):
         """
-        :param Sequence[_builtins.str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain.
-        :param Sequence[_builtins.str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        :param Sequence[_builtins.str] compliance_resource_ids: ID of the only AWS resource that you want your control scope to contain.
+        :param Sequence[_builtins.str] compliance_resource_types: Whether the control scope includes one or more types of resources, such as EFS or RDS.
         :param Mapping[str, _builtins.str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
@@ -1418,7 +1418,7 @@ class GetFrameworkControlScopeResult(dict):
     @pulumi.getter(name="complianceResourceIds")
     def compliance_resource_ids(self) -> Sequence[_builtins.str]:
         """
-        The ID of the only AWS resource that you want your control scope to contain.
+        ID of the only AWS resource that you want your control scope to contain.
         """
         return pulumi.get(self, "compliance_resource_ids")
 
@@ -1426,7 +1426,7 @@ class GetFrameworkControlScopeResult(dict):
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Sequence[_builtins.str]:
         """
-        Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        Whether the control scope includes one or more types of resources, such as EFS or RDS.
         """
         return pulumi.get(self, "compliance_resource_types")
 
@@ -1454,6 +1454,20 @@ class GetPlanRuleResult(dict):
                  target_logically_air_gapped_backup_vault_arn: _builtins.str,
                  target_vault_name: _builtins.str,
                  recovery_point_tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.int completion_window: Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        :param Sequence['GetPlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. See below.
+        :param _builtins.bool enable_continuous_backup: Whether AWS Backup creates continuous backups.
+        :param Sequence['GetPlanRuleLifecycleArgs'] lifecycles: Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        :param _builtins.str rule_name: Display name of a backup rule.
+        :param Sequence['GetPlanRuleScanActionArgs'] scan_actions: Configuration block(s) with malware scanning settings. See below.
+        :param _builtins.str schedule: CRON expression specifying when AWS Backup initiates a backup job.
+        :param _builtins.str schedule_expression_timezone: Timezone in which the schedule expression is set.
+        :param _builtins.int start_window: Amount of time in minutes before beginning a backup.
+        :param _builtins.str target_logically_air_gapped_backup_vault_arn: ARN of the logically air-gapped backup vault where the recovery point is copied.
+        :param _builtins.str target_vault_name: Name of a logical container where backups are stored.
+        :param Mapping[str, _builtins.str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
+        """
         pulumi.set(__self__, "completion_window", completion_window)
         pulumi.set(__self__, "copy_actions", copy_actions)
         pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
@@ -1471,61 +1485,97 @@ class GetPlanRuleResult(dict):
     @_builtins.property
     @pulumi.getter(name="completionWindow")
     def completion_window(self) -> _builtins.int:
+        """
+        Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        """
         return pulumi.get(self, "completion_window")
 
     @_builtins.property
     @pulumi.getter(name="copyActions")
     def copy_actions(self) -> Sequence['outputs.GetPlanRuleCopyActionResult']:
+        """
+        Configuration block(s) with copy operation settings. See below.
+        """
         return pulumi.get(self, "copy_actions")
 
     @_builtins.property
     @pulumi.getter(name="enableContinuousBackup")
     def enable_continuous_backup(self) -> _builtins.bool:
+        """
+        Whether AWS Backup creates continuous backups.
+        """
         return pulumi.get(self, "enable_continuous_backup")
 
     @_builtins.property
     @pulumi.getter
     def lifecycles(self) -> Sequence['outputs.GetPlanRuleLifecycleResult']:
+        """
+        Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        """
         return pulumi.get(self, "lifecycles")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
+        """
+        Display name of a backup rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="scanActions")
     def scan_actions(self) -> Sequence['outputs.GetPlanRuleScanActionResult']:
+        """
+        Configuration block(s) with malware scanning settings. See below.
+        """
         return pulumi.get(self, "scan_actions")
 
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> _builtins.str:
+        """
+        CRON expression specifying when AWS Backup initiates a backup job.
+        """
         return pulumi.get(self, "schedule")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> _builtins.str:
+        """
+        Timezone in which the schedule expression is set.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @_builtins.property
     @pulumi.getter(name="startWindow")
     def start_window(self) -> _builtins.int:
+        """
+        Amount of time in minutes before beginning a backup.
+        """
         return pulumi.get(self, "start_window")
 
     @_builtins.property
     @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
     def target_logically_air_gapped_backup_vault_arn(self) -> _builtins.str:
+        """
+        ARN of the logically air-gapped backup vault where the recovery point is copied.
+        """
         return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetVaultName")
     def target_vault_name(self) -> _builtins.str:
+        """
+        Name of a logical container where backups are stored.
+        """
         return pulumi.get(self, "target_vault_name")
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointTags")
     def recovery_point_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Metadata that you can assign to help organize the resources that you create.
+        """
         return pulumi.get(self, "recovery_point_tags")
 
 
@@ -1534,17 +1584,27 @@ class GetPlanRuleCopyActionResult(dict):
     def __init__(__self__, *,
                  destination_vault_arn: _builtins.str,
                  lifecycles: Sequence['outputs.GetPlanRuleCopyActionLifecycleResult']):
+        """
+        :param _builtins.str destination_vault_arn: ARN of the destination backup vault for the copied backup.
+        :param Sequence['GetPlanRuleCopyActionLifecycleArgs'] lifecycles: Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         pulumi.set(__self__, "lifecycles", lifecycles)
 
     @_builtins.property
     @pulumi.getter(name="destinationVaultArn")
     def destination_vault_arn(self) -> _builtins.str:
+        """
+        ARN of the destination backup vault for the copied backup.
+        """
         return pulumi.get(self, "destination_vault_arn")
 
     @_builtins.property
     @pulumi.getter
     def lifecycles(self) -> Sequence['outputs.GetPlanRuleCopyActionLifecycleResult']:
+        """
+        Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        """
         return pulumi.get(self, "lifecycles")
 
 
@@ -1554,6 +1614,11 @@ class GetPlanRuleCopyActionLifecycleResult(dict):
                  cold_storage_after: _builtins.int,
                  delete_after: _builtins.int,
                  opt_in_to_archive_for_supported_resources: _builtins.bool):
+        """
+        :param _builtins.int cold_storage_after: Number of days after creation that a recovery point is moved to cold storage.
+        :param _builtins.int delete_after: Number of days after creation that a recovery point is deleted.
+        :param _builtins.bool opt_in_to_archive_for_supported_resources: Whether the recovery point is transitioned to cold storage for supported resource types.
+        """
         pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         pulumi.set(__self__, "delete_after", delete_after)
         pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
@@ -1561,16 +1626,25 @@ class GetPlanRuleCopyActionLifecycleResult(dict):
     @_builtins.property
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> _builtins.int:
+        """
+        Number of days after creation that a recovery point is moved to cold storage.
+        """
         return pulumi.get(self, "cold_storage_after")
 
     @_builtins.property
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> _builtins.int:
+        """
+        Number of days after creation that a recovery point is deleted.
+        """
         return pulumi.get(self, "delete_after")
 
     @_builtins.property
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> _builtins.bool:
+        """
+        Whether the recovery point is transitioned to cold storage for supported resource types.
+        """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
 
@@ -1580,6 +1654,11 @@ class GetPlanRuleLifecycleResult(dict):
                  cold_storage_after: _builtins.int,
                  delete_after: _builtins.int,
                  opt_in_to_archive_for_supported_resources: _builtins.bool):
+        """
+        :param _builtins.int cold_storage_after: Number of days after creation that a recovery point is moved to cold storage.
+        :param _builtins.int delete_after: Number of days after creation that a recovery point is deleted.
+        :param _builtins.bool opt_in_to_archive_for_supported_resources: Whether the recovery point is transitioned to cold storage for supported resource types.
+        """
         pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         pulumi.set(__self__, "delete_after", delete_after)
         pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
@@ -1587,16 +1666,25 @@ class GetPlanRuleLifecycleResult(dict):
     @_builtins.property
     @pulumi.getter(name="coldStorageAfter")
     def cold_storage_after(self) -> _builtins.int:
+        """
+        Number of days after creation that a recovery point is moved to cold storage.
+        """
         return pulumi.get(self, "cold_storage_after")
 
     @_builtins.property
     @pulumi.getter(name="deleteAfter")
     def delete_after(self) -> _builtins.int:
+        """
+        Number of days after creation that a recovery point is deleted.
+        """
         return pulumi.get(self, "delete_after")
 
     @_builtins.property
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> _builtins.bool:
+        """
+        Whether the recovery point is transitioned to cold storage for supported resource types.
+        """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
 
@@ -1605,17 +1693,27 @@ class GetPlanRuleScanActionResult(dict):
     def __init__(__self__, *,
                  malware_scanner: _builtins.str,
                  scan_mode: _builtins.str):
+        """
+        :param _builtins.str malware_scanner: Malware scanner used for the scan setting.
+        :param _builtins.str scan_mode: Mode of the malware scan.
+        """
         pulumi.set(__self__, "malware_scanner", malware_scanner)
         pulumi.set(__self__, "scan_mode", scan_mode)
 
     @_builtins.property
     @pulumi.getter(name="malwareScanner")
     def malware_scanner(self) -> _builtins.str:
+        """
+        Malware scanner used for the scan setting.
+        """
         return pulumi.get(self, "malware_scanner")
 
     @_builtins.property
     @pulumi.getter(name="scanMode")
     def scan_mode(self) -> _builtins.str:
+        """
+        Mode of the malware scan.
+        """
         return pulumi.get(self, "scan_mode")
 
 
@@ -1625,6 +1723,11 @@ class GetPlanScanSettingResult(dict):
                  malware_scanner: _builtins.str,
                  resource_types: Sequence[_builtins.str],
                  scanner_role_arn: _builtins.str):
+        """
+        :param _builtins.str malware_scanner: Malware scanner used for the scan setting.
+        :param Sequence[_builtins.str] resource_types: Resource types to scan.
+        :param _builtins.str scanner_role_arn: ARN of the IAM role used by the scanner.
+        """
         pulumi.set(__self__, "malware_scanner", malware_scanner)
         pulumi.set(__self__, "resource_types", resource_types)
         pulumi.set(__self__, "scanner_role_arn", scanner_role_arn)
@@ -1632,16 +1735,25 @@ class GetPlanScanSettingResult(dict):
     @_builtins.property
     @pulumi.getter(name="malwareScanner")
     def malware_scanner(self) -> _builtins.str:
+        """
+        Malware scanner used for the scan setting.
+        """
         return pulumi.get(self, "malware_scanner")
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Sequence[_builtins.str]:
+        """
+        Resource types to scan.
+        """
         return pulumi.get(self, "resource_types")
 
     @_builtins.property
     @pulumi.getter(name="scannerRoleArn")
     def scanner_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used by the scanner.
+        """
         return pulumi.get(self, "scanner_role_arn")
 
 

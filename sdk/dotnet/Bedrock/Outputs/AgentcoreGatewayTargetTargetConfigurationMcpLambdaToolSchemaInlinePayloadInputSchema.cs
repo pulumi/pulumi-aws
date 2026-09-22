@@ -14,11 +14,20 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema
     {
         /// <summary>
-        /// Description of the gateway target.
+        /// Description of the schema element.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Schema definition for array items. Can only be used when `Type` is `Array`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.items` Block below.
+        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems? Items;
+        /// <summary>
+        /// Set of property definitions for object types. Can only be used when `Type` is `Object`. See `target_configuration.mcp.lambda.tool_schema.inline_payload.input_schema.property` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty> Properties;
+        /// <summary>
+        /// Data type of the schema. Valid values: `String`, `Number`, `Integer`, `Boolean`, `Array`, `Object`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

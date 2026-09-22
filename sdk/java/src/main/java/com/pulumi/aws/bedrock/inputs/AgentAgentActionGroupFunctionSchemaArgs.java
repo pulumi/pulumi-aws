@@ -16,18 +16,14 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
     public static final AgentAgentActionGroupFunctionSchemaArgs Empty = new AgentAgentActionGroupFunctionSchemaArgs();
 
     /**
-     * Contains a list of functions.
-     * Each function describes and action in the action group.
-     * See `memberFunctions` Block for details.
+     * List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
      * 
      */
     @Import(name="memberFunctions")
     private @Nullable Output<AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs> memberFunctions;
 
     /**
-     * @return Contains a list of functions.
-     * Each function describes and action in the action group.
-     * See `memberFunctions` Block for details.
+     * @return List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs>> memberFunctions() {
@@ -59,9 +55,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
         }
 
         /**
-         * @param memberFunctions Contains a list of functions.
-         * Each function describes and action in the action group.
-         * See `memberFunctions` Block for details.
+         * @param memberFunctions List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
          * 
          * @return builder
          * 
@@ -72,9 +66,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
         }
 
         /**
-         * @param memberFunctions Contains a list of functions.
-         * Each function describes and action in the action group.
-         * See `memberFunctions` Block for details.
+         * @param memberFunctions List of functions. Each function describes an action in the action group. See `memberFunctions` Block for details.
          * 
          * @return builder
          * 

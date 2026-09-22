@@ -98,16 +98,12 @@ public class AgentcoreAgentRuntimeEndpoint extends com.pulumi.resources.CustomRe
     /**
      * ID of the agent runtime this endpoint belongs to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="agentRuntimeId", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeId;
 
     /**
      * @return ID of the agent runtime this endpoint belongs to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> agentRuntimeId() {
@@ -144,12 +140,16 @@ public class AgentcoreAgentRuntimeEndpoint extends com.pulumi.resources.CustomRe
     /**
      * Name of the agent runtime endpoint.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the agent runtime endpoint.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -184,14 +184,14 @@ public class AgentcoreAgentRuntimeEndpoint extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

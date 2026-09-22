@@ -9104,6 +9104,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "msk/channel",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/channel:Channel": "Channel"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "msk/cluster",
   "fqn": "pulumi_aws.msk",
   "classes": {

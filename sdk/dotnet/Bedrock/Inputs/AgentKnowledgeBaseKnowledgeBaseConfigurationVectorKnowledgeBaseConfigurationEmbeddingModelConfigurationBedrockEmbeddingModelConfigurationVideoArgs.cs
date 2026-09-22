@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for segmenting video content during processing. See `SegmentationConfiguration` block for details.
+        /// Configuration for segmenting video content during processing. See `SegmentationConfiguration` Block for details.
         /// </summary>
         [Input("segmentationConfiguration", required: true)]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs> SegmentationConfiguration { get; set; } = null!;

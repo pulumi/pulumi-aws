@@ -61,7 +61,7 @@ type View struct {
 	BillingViewType pulumi.StringOutput `pulumi:"billingViewType"`
 	// Timestamp when the billing view was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression ViewDataFilterExpressionPtrOutput `pulumi:"dataFilterExpression"`
 	// Number of billing views that use this billing view as a source.
 	DerivedViewCount pulumi.IntOutput `pulumi:"derivedViewCount"`
@@ -79,7 +79,7 @@ type View struct {
 	//
 	// The following arguments are optional:
 	SourceViews pulumi.StringArrayOutput `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
+	// Key-value map of tags associated with the billing view being created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of key value map specifying tags associated to the billing view.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -126,7 +126,7 @@ type viewState struct {
 	BillingViewType *string `pulumi:"billingViewType"`
 	// Timestamp when the billing view was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression *ViewDataFilterExpression `pulumi:"dataFilterExpression"`
 	// Number of billing views that use this billing view as a source.
 	DerivedViewCount *int `pulumi:"derivedViewCount"`
@@ -144,7 +144,7 @@ type viewState struct {
 	//
 	// The following arguments are optional:
 	SourceViews []string `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
+	// Key-value map of tags associated with the billing view being created.
 	Tags map[string]string `pulumi:"tags"`
 	// List of key value map specifying tags associated to the billing view.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -162,7 +162,7 @@ type ViewState struct {
 	BillingViewType pulumi.StringPtrInput
 	// Timestamp when the billing view was created.
 	CreatedAt pulumi.StringPtrInput
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression ViewDataFilterExpressionPtrInput
 	// Number of billing views that use this billing view as a source.
 	DerivedViewCount pulumi.IntPtrInput
@@ -180,7 +180,7 @@ type ViewState struct {
 	//
 	// The following arguments are optional:
 	SourceViews pulumi.StringArrayInput
-	// List of key value map specifying tags associated to the billing view being created.
+	// Key-value map of tags associated with the billing view being created.
 	Tags pulumi.StringMapInput
 	// List of key value map specifying tags associated to the billing view.
 	TagsAll  pulumi.StringMapInput
@@ -196,7 +196,7 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression *ViewDataFilterExpression `pulumi:"dataFilterExpression"`
 	// Description of the custom billing view.
 	Description *string `pulumi:"description"`
@@ -206,14 +206,14 @@ type viewArgs struct {
 	//
 	// The following arguments are optional:
 	SourceViews []string `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
+	// Key-value map of tags associated with the billing view being created.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ViewTimeouts     `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+	// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 	DataFilterExpression ViewDataFilterExpressionPtrInput
 	// Description of the custom billing view.
 	Description pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type ViewArgs struct {
 	//
 	// The following arguments are optional:
 	SourceViews pulumi.StringArrayInput
-	// List of key value map specifying tags associated to the billing view being created.
+	// Key-value map of tags associated with the billing view being created.
 	Tags     pulumi.StringMapInput
 	Timeouts ViewTimeoutsPtrInput
 }
@@ -330,7 +330,7 @@ func (o ViewOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+// Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
 func (o ViewOutput) DataFilterExpression() ViewDataFilterExpressionPtrOutput {
 	return o.ApplyT(func(v *View) ViewDataFilterExpressionPtrOutput { return v.DataFilterExpression }).(ViewDataFilterExpressionPtrOutput)
 }
@@ -372,7 +372,7 @@ func (o ViewOutput) SourceViews() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *View) pulumi.StringArrayOutput { return v.SourceViews }).(pulumi.StringArrayOutput)
 }
 
-// List of key value map specifying tags associated to the billing view being created.
+// Key-value map of tags associated with the billing view being created.
 func (o ViewOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

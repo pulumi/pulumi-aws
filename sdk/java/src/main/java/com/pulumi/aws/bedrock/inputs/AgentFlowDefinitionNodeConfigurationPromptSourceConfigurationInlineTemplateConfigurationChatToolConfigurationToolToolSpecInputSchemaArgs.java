@@ -16,14 +16,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs();
 
     /**
-     * A JSON object defining the input schema for the tool.
+     * JSON object defining the input schema for the tool.
      * 
      */
     @Import(name="json")
     private @Nullable Output<String> json;
 
     /**
-     * @return A JSON object defining the input schema for the tool.
+     * @return JSON object defining the input schema for the tool.
      * 
      */
     public Optional<Output<String>> json() {
@@ -55,7 +55,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param json A JSON object defining the input schema for the tool.
+         * @param json JSON object defining the input schema for the tool.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param json A JSON object defining the input schema for the tool.
+         * @param json JSON object defining the input schema for the tool.
          * 
          * @return builder
          * 

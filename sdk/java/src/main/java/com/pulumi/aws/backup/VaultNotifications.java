@@ -97,28 +97,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/vaultNotifications:VaultNotifications")
 public class VaultNotifications extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Output<String> backupVaultArn() {
         return this.backupVaultArn;
     }
     /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     @Export(name="backupVaultEvents", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> backupVaultEvents;
 
     /**
-     * @return An array of events that indicate the status of jobs to back up resources to the backup vault.
+     * @return Array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
     public Output<List<String>> backupVaultEvents() {

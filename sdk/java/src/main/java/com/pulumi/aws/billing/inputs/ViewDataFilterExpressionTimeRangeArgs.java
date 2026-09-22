@@ -15,23 +15,31 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
     public static final ViewDataFilterExpressionTimeRangeArgs Empty = new ViewDataFilterExpressionTimeRangeArgs();
 
     /**
-     * Inclusive end date of the time range.
+     * Inclusive start date of the time range.
      * 
      */
     @Import(name="beginDateInclusive", required=true)
     private Output<String> beginDateInclusive;
 
     /**
-     * @return Inclusive end date of the time range.
+     * @return Inclusive start date of the time range.
      * 
      */
     public Output<String> beginDateInclusive() {
         return this.beginDateInclusive;
     }
 
+    /**
+     * Inclusive end date of the time range.
+     * 
+     */
     @Import(name="endDateInclusive", required=true)
     private Output<String> endDateInclusive;
 
+    /**
+     * @return Inclusive end date of the time range.
+     * 
+     */
     public Output<String> endDateInclusive() {
         return this.endDateInclusive;
     }
@@ -62,7 +70,7 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param beginDateInclusive Inclusive end date of the time range.
+         * @param beginDateInclusive Inclusive start date of the time range.
          * 
          * @return builder
          * 
@@ -73,7 +81,7 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param beginDateInclusive Inclusive end date of the time range.
+         * @param beginDateInclusive Inclusive start date of the time range.
          * 
          * @return builder
          * 
@@ -82,11 +90,23 @@ public final class ViewDataFilterExpressionTimeRangeArgs extends com.pulumi.reso
             return beginDateInclusive(Output.of(beginDateInclusive));
         }
 
+        /**
+         * @param endDateInclusive Inclusive end date of the time range.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endDateInclusive(Output<String> endDateInclusive) {
             $.endDateInclusive = endDateInclusive;
             return this;
         }
 
+        /**
+         * @param endDateInclusive Inclusive end date of the time range.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endDateInclusive(String endDateInclusive) {
             return endDateInclusive(Output.of(endDateInclusive));
         }

@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Billing.Outputs
         /// ARN of the billing view.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Type of the billing view.
+        /// </summary>
         public readonly string BillingViewType;
         /// <summary>
         /// Description of the billing view.

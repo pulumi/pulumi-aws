@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationRetrieval {
     /**
-     * @return Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * @return Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration serviceConfiguration;
 
     private AgentFlowDefinitionNodeConfigurationRetrieval() {}
     /**
-     * @return Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * @return Configurations for the service to use for storing the input into the node. See `definition.node.configuration.storage.service_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration> serviceConfiguration() {

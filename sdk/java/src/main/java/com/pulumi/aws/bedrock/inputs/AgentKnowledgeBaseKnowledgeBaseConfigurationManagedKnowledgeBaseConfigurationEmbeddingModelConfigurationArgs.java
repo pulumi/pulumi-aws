@@ -16,14 +16,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs();
 
     /**
-     * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+     * Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
      * 
      */
     @Import(name="bedrockEmbeddingModelConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs> bedrockEmbeddingModelConfiguration;
 
     /**
-     * @return The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+     * @return Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs>> bedrockEmbeddingModelConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param bedrockEmbeddingModelConfiguration The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * @param bedrockEmbeddingModelConfiguration Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param bedrockEmbeddingModelConfiguration The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+         * @param bedrockEmbeddingModelConfiguration Vector configuration details for the Bedrock embeddings model. See `bedrockEmbeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 

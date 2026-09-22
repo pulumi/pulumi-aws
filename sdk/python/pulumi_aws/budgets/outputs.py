@@ -116,8 +116,8 @@ class BudgetActionActionThreshold(dict):
                  action_threshold_type: _builtins.str,
                  action_threshold_value: _builtins.float):
         """
-        :param _builtins.str action_threshold_type: The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-        :param _builtins.float action_threshold_value: The threshold of a notification.
+        :param _builtins.str action_threshold_type: Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+        :param _builtins.float action_threshold_value: Threshold of a notification.
         """
         pulumi.set(__self__, "action_threshold_type", action_threshold_type)
         pulumi.set(__self__, "action_threshold_value", action_threshold_value)
@@ -126,7 +126,7 @@ class BudgetActionActionThreshold(dict):
     @pulumi.getter(name="actionThresholdType")
     def action_threshold_type(self) -> _builtins.str:
         """
-        The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+        Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
         """
         return pulumi.get(self, "action_threshold_type")
 
@@ -134,7 +134,7 @@ class BudgetActionActionThreshold(dict):
     @pulumi.getter(name="actionThresholdValue")
     def action_threshold_value(self) -> _builtins.float:
         """
-        The threshold of a notification.
+        Threshold of a notification.
         """
         return pulumi.get(self, "action_threshold_value")
 
@@ -167,9 +167,9 @@ class BudgetActionDefinition(dict):
                  scp_action_definition: Optional['outputs.BudgetActionDefinitionScpActionDefinition'] = None,
                  ssm_action_definition: Optional['outputs.BudgetActionDefinitionSsmActionDefinition'] = None):
         """
-        :param 'BudgetActionDefinitionIamActionDefinitionArgs' iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
-        :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        :param 'BudgetActionDefinitionIamActionDefinitionArgs' iam_action_definition: AWS Identity and Access Management (IAM) action definition details. See `iam_action_definition` Block.
+        :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: Service control policies (SCPs) action definition details. See `scp_action_definition` Block.
+        :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: AWS Systems Manager (SSM) action definition details. See `ssm_action_definition` Block.
         """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
@@ -182,7 +182,7 @@ class BudgetActionDefinition(dict):
     @pulumi.getter(name="iamActionDefinition")
     def iam_action_definition(self) -> Optional['outputs.BudgetActionDefinitionIamActionDefinition']:
         """
-        The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        AWS Identity and Access Management (IAM) action definition details. See `iam_action_definition` Block.
         """
         return pulumi.get(self, "iam_action_definition")
 
@@ -190,7 +190,7 @@ class BudgetActionDefinition(dict):
     @pulumi.getter(name="scpActionDefinition")
     def scp_action_definition(self) -> Optional['outputs.BudgetActionDefinitionScpActionDefinition']:
         """
-        The service control policies (SCPs) action definition details. See SCP Action Definition.
+        Service control policies (SCPs) action definition details. See `scp_action_definition` Block.
         """
         return pulumi.get(self, "scp_action_definition")
 
@@ -198,7 +198,7 @@ class BudgetActionDefinition(dict):
     @pulumi.getter(name="ssmActionDefinition")
     def ssm_action_definition(self) -> Optional['outputs.BudgetActionDefinitionSsmActionDefinition']:
         """
-        The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        AWS Systems Manager (SSM) action definition details. See `ssm_action_definition` Block.
         """
         return pulumi.get(self, "ssm_action_definition")
 
@@ -229,9 +229,9 @@ class BudgetActionDefinitionIamActionDefinition(dict):
                  users: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str policy_arn: ARN of the policy to be attached.
-        :param Sequence[_builtins.str] groups: A list of groups to be attached. There must be at least one group.
-        :param Sequence[_builtins.str] roles: A list of roles to be attached. There must be at least one role.
-        :param Sequence[_builtins.str] users: A list of users to be attached. There must be at least one user.
+        :param Sequence[_builtins.str] groups: List of groups to be attached. There must be at least one group.
+        :param Sequence[_builtins.str] roles: List of roles to be attached. There must be at least one role.
+        :param Sequence[_builtins.str] users: List of users to be attached. There must be at least one user.
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         if groups is not None:
@@ -253,7 +253,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
     @pulumi.getter
     def groups(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of groups to be attached. There must be at least one group.
+        List of groups to be attached. There must be at least one group.
         """
         return pulumi.get(self, "groups")
 
@@ -261,7 +261,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
     @pulumi.getter
     def roles(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of roles to be attached. There must be at least one role.
+        List of roles to be attached. There must be at least one role.
         """
         return pulumi.get(self, "roles")
 
@@ -269,7 +269,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
     @pulumi.getter
     def users(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of users to be attached. There must be at least one user.
+        List of users to be attached. There must be at least one user.
         """
         return pulumi.get(self, "users")
 
@@ -299,8 +299,8 @@ class BudgetActionDefinitionScpActionDefinition(dict):
                  policy_id: _builtins.str,
                  target_ids: Sequence[_builtins.str]):
         """
-        :param _builtins.str policy_id: The policy ID attached.
-        :param Sequence[_builtins.str] target_ids: A list of target IDs.
+        :param _builtins.str policy_id: Policy ID attached.
+        :param Sequence[_builtins.str] target_ids: List of target IDs.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "target_ids", target_ids)
@@ -309,7 +309,7 @@ class BudgetActionDefinitionScpActionDefinition(dict):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> _builtins.str:
         """
-        The policy ID attached.
+        Policy ID attached.
         """
         return pulumi.get(self, "policy_id")
 
@@ -317,7 +317,7 @@ class BudgetActionDefinitionScpActionDefinition(dict):
     @pulumi.getter(name="targetIds")
     def target_ids(self) -> Sequence[_builtins.str]:
         """
-        A list of target IDs.
+        List of target IDs.
         """
         return pulumi.get(self, "target_ids")
 
@@ -348,9 +348,9 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
                  instance_ids: Sequence[_builtins.str],
                  region: _builtins.str):
         """
-        :param _builtins.str action_sub_type: The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
-        :param Sequence[_builtins.str] instance_ids: The EC2 and RDS instance IDs.
-        :param _builtins.str region: The Region to run the SSM document.
+        :param _builtins.str action_sub_type: Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+        :param Sequence[_builtins.str] instance_ids: EC2 and RDS instance IDs.
+        :param _builtins.str region: Region to run the SSM document.
         """
         pulumi.set(__self__, "action_sub_type", action_sub_type)
         pulumi.set(__self__, "instance_ids", instance_ids)
@@ -360,7 +360,7 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
     @pulumi.getter(name="actionSubType")
     def action_sub_type(self) -> _builtins.str:
         """
-        The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+        Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
         """
         return pulumi.get(self, "action_sub_type")
 
@@ -368,7 +368,7 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
     @pulumi.getter(name="instanceIds")
     def instance_ids(self) -> Sequence[_builtins.str]:
         """
-        The EC2 and RDS instance IDs.
+        EC2 and RDS instance IDs.
         """
         return pulumi.get(self, "instance_ids")
 
@@ -376,7 +376,7 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
     @pulumi.getter
     def region(self) -> _builtins.str:
         """
-        The Region to run the SSM document.
+        Region to run the SSM document.
         """
         return pulumi.get(self, "region")
 
@@ -404,8 +404,8 @@ class BudgetActionSubscriber(dict):
                  address: _builtins.str,
                  subscription_type: _builtins.str):
         """
-        :param _builtins.str address: The address that AWS sends budget notifications to, either an SNS topic or an email.
-        :param _builtins.str subscription_type: The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        :param _builtins.str address: Address that AWS sends budget notifications to, either an SNS topic or an email.
+        :param _builtins.str subscription_type: Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "subscription_type", subscription_type)
@@ -414,7 +414,7 @@ class BudgetActionSubscriber(dict):
     @pulumi.getter
     def address(self) -> _builtins.str:
         """
-        The address that AWS sends budget notifications to, either an SNS topic or an email.
+        Address that AWS sends budget notifications to, either an SNS topic or an email.
         """
         return pulumi.get(self, "address")
 
@@ -422,7 +422,7 @@ class BudgetActionSubscriber(dict):
     @pulumi.getter(name="subscriptionType")
     def subscription_type(self) -> _builtins.str:
         """
-        The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         """
         return pulumi.get(self, "subscription_type")
 
@@ -455,9 +455,9 @@ class BudgetAutoAdjustData(dict):
                  historical_options: Optional['outputs.BudgetAutoAdjustDataHistoricalOptions'] = None,
                  last_auto_adjust_time: Optional[_builtins.str] = None):
         """
-        :param _builtins.str auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
-        :param 'BudgetAutoAdjustDataHistoricalOptionsArgs' historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
-        :param _builtins.str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
+        :param _builtins.str auto_adjust_type: Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
+        :param 'BudgetAutoAdjustDataHistoricalOptionsArgs' historical_options: Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
+        :param _builtins.str last_auto_adjust_time: Last time that your budget was auto-adjusted.
         """
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
@@ -469,7 +469,7 @@ class BudgetAutoAdjustData(dict):
     @pulumi.getter(name="autoAdjustType")
     def auto_adjust_type(self) -> _builtins.str:
         """
-        (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+        Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
         """
         return pulumi.get(self, "auto_adjust_type")
 
@@ -477,7 +477,7 @@ class BudgetAutoAdjustData(dict):
     @pulumi.getter(name="historicalOptions")
     def historical_options(self) -> Optional['outputs.BudgetAutoAdjustDataHistoricalOptions']:
         """
-        (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
         """
         return pulumi.get(self, "historical_options")
 
@@ -485,7 +485,7 @@ class BudgetAutoAdjustData(dict):
     @pulumi.getter(name="lastAutoAdjustTime")
     def last_auto_adjust_time(self) -> Optional[_builtins.str]:
         """
-        (Optional) - The last time that your budget was auto-adjusted.
+        Last time that your budget was auto-adjusted.
         """
         return pulumi.get(self, "last_auto_adjust_time")
 
@@ -515,8 +515,8 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
                  budget_adjustment_period: _builtins.int,
                  lookback_available_periods: Optional[_builtins.int] = None):
         """
-        :param _builtins.int budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-        :param _builtins.int lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        :param _builtins.int budget_adjustment_period: Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        :param _builtins.int lookback_available_periods: Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
         """
         pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
         if lookback_available_periods is not None:
@@ -526,7 +526,7 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
     @pulumi.getter(name="budgetAdjustmentPeriod")
     def budget_adjustment_period(self) -> _builtins.int:
         """
-        (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        Number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
         """
         return pulumi.get(self, "budget_adjustment_period")
 
@@ -534,7 +534,7 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
     @pulumi.getter(name="lookbackAvailablePeriods")
     def lookback_available_periods(self) -> Optional[_builtins.int]:
         """
-        (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        Integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
         """
         return pulumi.get(self, "lookback_available_periods")
 
@@ -545,8 +545,8 @@ class BudgetCostFilter(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: The name of a budget. Unique within accounts.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str name: Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
+        :param Sequence[_builtins.str] values: List of values used for filtering.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -555,7 +555,7 @@ class BudgetCostFilter(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of a budget. Unique within accounts.
+        Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
         """
         return pulumi.get(self, "name")
 
@@ -563,7 +563,7 @@ class BudgetCostFilter(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values used for filtering.
         """
         return pulumi.get(self, "values")
 
@@ -620,17 +620,17 @@ class BudgetCostTypes(dict):
                  use_amortized: Optional[_builtins.bool] = None,
                  use_blended: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`
-        :param _builtins.bool include_discount: Whether a budget includes discounts. Defaults to `true`
-        :param _builtins.bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        :param _builtins.bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        :param _builtins.bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        :param _builtins.bool include_subscription: A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        :param _builtins.bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        :param _builtins.bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`
-        :param _builtins.bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        :param _builtins.bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
-        :param _builtins.bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+        :param _builtins.bool include_credit: Whether to include credits in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_discount: Whether a budget includes discounts. Defaults to `true`.
+        :param _builtins.bool include_other_subscription: Whether to include other subscription costs in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_recurring: Whether to include recurring costs in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_refund: Whether to include refunds in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_subscription: Whether to include subscriptions in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_support: Whether to include support costs in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_tax: Whether to include tax in the cost budget. Defaults to `true`.
+        :param _builtins.bool include_upfront: Whether to include upfront costs in the cost budget. Defaults to `true`.
+        :param _builtins.bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`.
+        :param _builtins.bool use_blended: Whether to use blended costs in the cost budget. Defaults to `false`.
         """
         if include_credit is not None:
             pulumi.set(__self__, "include_credit", include_credit)
@@ -659,7 +659,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeCredit")
     def include_credit(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include credits in the cost budget. Defaults to `true`
+        Whether to include credits in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_credit")
 
@@ -667,7 +667,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeDiscount")
     def include_discount(self) -> Optional[_builtins.bool]:
         """
-        Whether a budget includes discounts. Defaults to `true`
+        Whether a budget includes discounts. Defaults to `true`.
         """
         return pulumi.get(self, "include_discount")
 
@@ -675,7 +675,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeOtherSubscription")
     def include_other_subscription(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+        Whether to include other subscription costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_other_subscription")
 
@@ -683,7 +683,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeRecurring")
     def include_recurring(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+        Whether to include recurring costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_recurring")
 
@@ -691,7 +691,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeRefund")
     def include_refund(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include refunds in the cost budget. Defaults to `true`
+        Whether to include refunds in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_refund")
 
@@ -699,7 +699,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeSubscription")
     def include_subscription(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+        Whether to include subscriptions in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_subscription")
 
@@ -707,7 +707,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeSupport")
     def include_support(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include support costs in the cost budget. Defaults to `true`
+        Whether to include support costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_support")
 
@@ -715,7 +715,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeTax")
     def include_tax(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include tax in the cost budget. Defaults to `true`
+        Whether to include tax in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_tax")
 
@@ -723,7 +723,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeUpfront")
     def include_upfront(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+        Whether to include upfront costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_upfront")
 
@@ -731,7 +731,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="useAmortized")
     def use_amortized(self) -> Optional[_builtins.bool]:
         """
-        Whether a budget uses the amortized rate. Defaults to `false`
+        Whether a budget uses the amortized rate. Defaults to `false`.
         """
         return pulumi.get(self, "use_amortized")
 
@@ -739,7 +739,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="useBlended")
     def use_blended(self) -> Optional[_builtins.bool]:
         """
-        A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+        Whether to use blended costs in the cost budget. Defaults to `false`.
         """
         return pulumi.get(self, "use_blended")
 
@@ -773,12 +773,12 @@ class BudgetFilterExpression(dict):
                  ors: Optional[Sequence['outputs.BudgetFilterExpressionOr']] = None,
                  tags: Optional['outputs.BudgetFilterExpressionTags'] = None):
         """
-        :param Sequence['BudgetFilterExpressionAndArgs'] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
-        :param 'BudgetFilterExpressionCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
-        :param 'BudgetFilterExpressionNotArgs' not_: (Optional) A single filter expression to negate. Must contain exactly one root.
-        :param Sequence['BudgetFilterExpressionOrArgs'] ors: (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
-        :param 'BudgetFilterExpressionTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param Sequence['BudgetFilterExpressionAndArgs'] ands: List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        :param 'BudgetFilterExpressionCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionDimensionsArgs' dimensions: Dimensions block.
+        :param 'BudgetFilterExpressionNotArgs' not_: Single filter expression to negate. Must contain exactly one root.
+        :param Sequence['BudgetFilterExpressionOrArgs'] ors: List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        :param 'BudgetFilterExpressionTagsArgs' tags: Tags block.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -797,7 +797,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.BudgetFilterExpressionAnd']]:
         """
-        (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
@@ -805,7 +805,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -813,7 +813,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -821,7 +821,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter(name="not")
     def not_(self) -> Optional['outputs.BudgetFilterExpressionNot']:
         """
-        (Optional) A single filter expression to negate. Must contain exactly one root.
+        Single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
@@ -829,7 +829,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter
     def ors(self) -> Optional[Sequence['outputs.BudgetFilterExpressionOr']]:
         """
-        (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
@@ -837,7 +837,7 @@ class BudgetFilterExpression(dict):
     @pulumi.getter
     def tags(self) -> Optional['outputs.BudgetFilterExpressionTags']:
         """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags block.
         """
         return pulumi.get(self, "tags")
 
@@ -871,11 +871,11 @@ class BudgetFilterExpressionAnd(dict):
                  ors: Optional[Sequence['outputs.BudgetFilterExpressionAndOr']] = None,
                  tags: Optional['outputs.BudgetFilterExpressionAndTags'] = None):
         """
-        :param Sequence['BudgetFilterExpressionAndAndArgs'] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
-        :param 'BudgetFilterExpressionAndCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionAndDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
-        :param 'BudgetFilterExpressionAndNotArgs' not_: (Optional) A single filter expression to negate. Must contain exactly one root.
-        :param Sequence['BudgetFilterExpressionAndOrArgs'] ors: (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        :param Sequence['BudgetFilterExpressionAndAndArgs'] ands: List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        :param 'BudgetFilterExpressionAndCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionAndDimensionsArgs' dimensions: Dimensions block.
+        :param 'BudgetFilterExpressionAndNotArgs' not_: Single filter expression to negate. Must contain exactly one root.
+        :param Sequence['BudgetFilterExpressionAndOrArgs'] ors: List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         :param 'BudgetFilterExpressionAndTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if ands is not None:
@@ -895,7 +895,7 @@ class BudgetFilterExpressionAnd(dict):
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.BudgetFilterExpressionAndAnd']]:
         """
-        (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
@@ -903,7 +903,7 @@ class BudgetFilterExpressionAnd(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionAndCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -911,7 +911,7 @@ class BudgetFilterExpressionAnd(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionAndDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -919,7 +919,7 @@ class BudgetFilterExpressionAnd(dict):
     @pulumi.getter(name="not")
     def not_(self) -> Optional['outputs.BudgetFilterExpressionAndNot']:
         """
-        (Optional) A single filter expression to negate. Must contain exactly one root.
+        Single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
@@ -927,7 +927,7 @@ class BudgetFilterExpressionAnd(dict):
     @pulumi.getter
     def ors(self) -> Optional[Sequence['outputs.BudgetFilterExpressionAndOr']]:
         """
-        (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
@@ -964,8 +964,8 @@ class BudgetFilterExpressionAndAnd(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionAndAndDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionAndAndTags'] = None):
         """
-        :param 'BudgetFilterExpressionAndAndCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionAndAndDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionAndAndCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionAndAndDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionAndAndTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -979,7 +979,7 @@ class BudgetFilterExpressionAndAnd(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionAndAndCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -987,7 +987,7 @@ class BudgetFilterExpressionAndAnd(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionAndAndDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -1024,9 +1024,9 @@ class BudgetFilterExpressionAndAndCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1039,7 +1039,7 @@ class BudgetFilterExpressionAndAndCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1047,7 +1047,7 @@ class BudgetFilterExpressionAndAndCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1055,7 +1055,7 @@ class BudgetFilterExpressionAndAndCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1084,9 +1084,9 @@ class BudgetFilterExpressionAndAndDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1097,7 +1097,7 @@ class BudgetFilterExpressionAndAndDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -1105,7 +1105,7 @@ class BudgetFilterExpressionAndAndDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1113,7 +1113,7 @@ class BudgetFilterExpressionAndAndDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1142,9 +1142,9 @@ class BudgetFilterExpressionAndAndTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1157,7 +1157,7 @@ class BudgetFilterExpressionAndAndTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1165,7 +1165,7 @@ class BudgetFilterExpressionAndAndTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1173,7 +1173,7 @@ class BudgetFilterExpressionAndAndTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1202,9 +1202,9 @@ class BudgetFilterExpressionAndCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1217,7 +1217,7 @@ class BudgetFilterExpressionAndCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1225,7 +1225,7 @@ class BudgetFilterExpressionAndCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1233,7 +1233,7 @@ class BudgetFilterExpressionAndCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1262,9 +1262,9 @@ class BudgetFilterExpressionAndDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1275,7 +1275,7 @@ class BudgetFilterExpressionAndDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -1283,7 +1283,7 @@ class BudgetFilterExpressionAndDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1291,7 +1291,7 @@ class BudgetFilterExpressionAndDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1320,8 +1320,8 @@ class BudgetFilterExpressionAndNot(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionAndNotDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionAndNotTags'] = None):
         """
-        :param 'BudgetFilterExpressionAndNotCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionAndNotDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionAndNotCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionAndNotDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionAndNotTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -1335,7 +1335,7 @@ class BudgetFilterExpressionAndNot(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionAndNotCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -1343,7 +1343,7 @@ class BudgetFilterExpressionAndNot(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionAndNotDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -1380,9 +1380,9 @@ class BudgetFilterExpressionAndNotCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1395,7 +1395,7 @@ class BudgetFilterExpressionAndNotCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1403,7 +1403,7 @@ class BudgetFilterExpressionAndNotCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1411,7 +1411,7 @@ class BudgetFilterExpressionAndNotCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1440,9 +1440,9 @@ class BudgetFilterExpressionAndNotDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1453,7 +1453,7 @@ class BudgetFilterExpressionAndNotDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -1461,7 +1461,7 @@ class BudgetFilterExpressionAndNotDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1469,7 +1469,7 @@ class BudgetFilterExpressionAndNotDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1498,9 +1498,9 @@ class BudgetFilterExpressionAndNotTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1513,7 +1513,7 @@ class BudgetFilterExpressionAndNotTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1521,7 +1521,7 @@ class BudgetFilterExpressionAndNotTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1529,7 +1529,7 @@ class BudgetFilterExpressionAndNotTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1558,8 +1558,8 @@ class BudgetFilterExpressionAndOr(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionAndOrDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionAndOrTags'] = None):
         """
-        :param 'BudgetFilterExpressionAndOrCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionAndOrDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionAndOrCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionAndOrDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionAndOrTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -1573,7 +1573,7 @@ class BudgetFilterExpressionAndOr(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionAndOrCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -1581,7 +1581,7 @@ class BudgetFilterExpressionAndOr(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionAndOrDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -1618,9 +1618,9 @@ class BudgetFilterExpressionAndOrCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1633,7 +1633,7 @@ class BudgetFilterExpressionAndOrCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1641,7 +1641,7 @@ class BudgetFilterExpressionAndOrCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1649,7 +1649,7 @@ class BudgetFilterExpressionAndOrCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1678,9 +1678,9 @@ class BudgetFilterExpressionAndOrDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1691,7 +1691,7 @@ class BudgetFilterExpressionAndOrDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -1699,7 +1699,7 @@ class BudgetFilterExpressionAndOrDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1707,7 +1707,7 @@ class BudgetFilterExpressionAndOrDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1736,9 +1736,9 @@ class BudgetFilterExpressionAndOrTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1751,7 +1751,7 @@ class BudgetFilterExpressionAndOrTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1759,7 +1759,7 @@ class BudgetFilterExpressionAndOrTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1767,7 +1767,7 @@ class BudgetFilterExpressionAndOrTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1796,9 +1796,9 @@ class BudgetFilterExpressionAndTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1811,7 +1811,7 @@ class BudgetFilterExpressionAndTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1819,7 +1819,7 @@ class BudgetFilterExpressionAndTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1827,7 +1827,7 @@ class BudgetFilterExpressionAndTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1856,9 +1856,9 @@ class BudgetFilterExpressionCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1871,7 +1871,7 @@ class BudgetFilterExpressionCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -1879,7 +1879,7 @@ class BudgetFilterExpressionCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1887,7 +1887,7 @@ class BudgetFilterExpressionCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1916,9 +1916,9 @@ class BudgetFilterExpressionDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1929,7 +1929,7 @@ class BudgetFilterExpressionDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -1937,7 +1937,7 @@ class BudgetFilterExpressionDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -1945,7 +1945,7 @@ class BudgetFilterExpressionDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -1979,11 +1979,11 @@ class BudgetFilterExpressionNot(dict):
                  ors: Optional[Sequence['outputs.BudgetFilterExpressionNotOr']] = None,
                  tags: Optional['outputs.BudgetFilterExpressionNotTags'] = None):
         """
-        :param Sequence['BudgetFilterExpressionNotAndArgs'] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
-        :param 'BudgetFilterExpressionNotCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionNotDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
-        :param 'BudgetFilterExpressionNotNotArgs' not_: (Optional) A single filter expression to negate. Must contain exactly one root.
-        :param Sequence['BudgetFilterExpressionNotOrArgs'] ors: (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        :param Sequence['BudgetFilterExpressionNotAndArgs'] ands: List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        :param 'BudgetFilterExpressionNotCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionNotDimensionsArgs' dimensions: Dimensions block.
+        :param 'BudgetFilterExpressionNotNotArgs' not_: Single filter expression to negate. Must contain exactly one root.
+        :param Sequence['BudgetFilterExpressionNotOrArgs'] ors: List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         :param 'BudgetFilterExpressionNotTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if ands is not None:
@@ -2003,7 +2003,7 @@ class BudgetFilterExpressionNot(dict):
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.BudgetFilterExpressionNotAnd']]:
         """
-        (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
@@ -2011,7 +2011,7 @@ class BudgetFilterExpressionNot(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionNotCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -2019,7 +2019,7 @@ class BudgetFilterExpressionNot(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionNotDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -2027,7 +2027,7 @@ class BudgetFilterExpressionNot(dict):
     @pulumi.getter(name="not")
     def not_(self) -> Optional['outputs.BudgetFilterExpressionNotNot']:
         """
-        (Optional) A single filter expression to negate. Must contain exactly one root.
+        Single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
@@ -2035,7 +2035,7 @@ class BudgetFilterExpressionNot(dict):
     @pulumi.getter
     def ors(self) -> Optional[Sequence['outputs.BudgetFilterExpressionNotOr']]:
         """
-        (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
@@ -2072,8 +2072,8 @@ class BudgetFilterExpressionNotAnd(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionNotAndDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionNotAndTags'] = None):
         """
-        :param 'BudgetFilterExpressionNotAndCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionNotAndDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionNotAndCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionNotAndDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionNotAndTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -2087,7 +2087,7 @@ class BudgetFilterExpressionNotAnd(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionNotAndCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -2095,7 +2095,7 @@ class BudgetFilterExpressionNotAnd(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionNotAndDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -2132,9 +2132,9 @@ class BudgetFilterExpressionNotAndCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2147,7 +2147,7 @@ class BudgetFilterExpressionNotAndCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2155,7 +2155,7 @@ class BudgetFilterExpressionNotAndCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2163,7 +2163,7 @@ class BudgetFilterExpressionNotAndCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2192,9 +2192,9 @@ class BudgetFilterExpressionNotAndDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2205,7 +2205,7 @@ class BudgetFilterExpressionNotAndDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -2213,7 +2213,7 @@ class BudgetFilterExpressionNotAndDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2221,7 +2221,7 @@ class BudgetFilterExpressionNotAndDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2250,9 +2250,9 @@ class BudgetFilterExpressionNotAndTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2265,7 +2265,7 @@ class BudgetFilterExpressionNotAndTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2273,7 +2273,7 @@ class BudgetFilterExpressionNotAndTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2281,7 +2281,7 @@ class BudgetFilterExpressionNotAndTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2310,9 +2310,9 @@ class BudgetFilterExpressionNotCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2325,7 +2325,7 @@ class BudgetFilterExpressionNotCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2333,7 +2333,7 @@ class BudgetFilterExpressionNotCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2341,7 +2341,7 @@ class BudgetFilterExpressionNotCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2370,9 +2370,9 @@ class BudgetFilterExpressionNotDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2383,7 +2383,7 @@ class BudgetFilterExpressionNotDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -2391,7 +2391,7 @@ class BudgetFilterExpressionNotDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2399,7 +2399,7 @@ class BudgetFilterExpressionNotDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2428,8 +2428,8 @@ class BudgetFilterExpressionNotNot(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionNotNotDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionNotNotTags'] = None):
         """
-        :param 'BudgetFilterExpressionNotNotCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionNotNotDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionNotNotCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionNotNotDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionNotNotTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -2443,7 +2443,7 @@ class BudgetFilterExpressionNotNot(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionNotNotCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -2451,7 +2451,7 @@ class BudgetFilterExpressionNotNot(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionNotNotDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -2488,9 +2488,9 @@ class BudgetFilterExpressionNotNotCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2503,7 +2503,7 @@ class BudgetFilterExpressionNotNotCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2511,7 +2511,7 @@ class BudgetFilterExpressionNotNotCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2519,7 +2519,7 @@ class BudgetFilterExpressionNotNotCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2548,9 +2548,9 @@ class BudgetFilterExpressionNotNotDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2561,7 +2561,7 @@ class BudgetFilterExpressionNotNotDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -2569,7 +2569,7 @@ class BudgetFilterExpressionNotNotDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2577,7 +2577,7 @@ class BudgetFilterExpressionNotNotDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2606,9 +2606,9 @@ class BudgetFilterExpressionNotNotTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2621,7 +2621,7 @@ class BudgetFilterExpressionNotNotTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2629,7 +2629,7 @@ class BudgetFilterExpressionNotNotTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2637,7 +2637,7 @@ class BudgetFilterExpressionNotNotTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2666,8 +2666,8 @@ class BudgetFilterExpressionNotOr(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionNotOrDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionNotOrTags'] = None):
         """
-        :param 'BudgetFilterExpressionNotOrCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionNotOrDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionNotOrCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionNotOrDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionNotOrTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -2681,7 +2681,7 @@ class BudgetFilterExpressionNotOr(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionNotOrCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -2689,7 +2689,7 @@ class BudgetFilterExpressionNotOr(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionNotOrDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -2726,9 +2726,9 @@ class BudgetFilterExpressionNotOrCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2741,7 +2741,7 @@ class BudgetFilterExpressionNotOrCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2749,7 +2749,7 @@ class BudgetFilterExpressionNotOrCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2757,7 +2757,7 @@ class BudgetFilterExpressionNotOrCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2786,9 +2786,9 @@ class BudgetFilterExpressionNotOrDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2799,7 +2799,7 @@ class BudgetFilterExpressionNotOrDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -2807,7 +2807,7 @@ class BudgetFilterExpressionNotOrDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2815,7 +2815,7 @@ class BudgetFilterExpressionNotOrDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2844,9 +2844,9 @@ class BudgetFilterExpressionNotOrTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2859,7 +2859,7 @@ class BudgetFilterExpressionNotOrTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2867,7 +2867,7 @@ class BudgetFilterExpressionNotOrTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2875,7 +2875,7 @@ class BudgetFilterExpressionNotOrTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2904,9 +2904,9 @@ class BudgetFilterExpressionNotTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2919,7 +2919,7 @@ class BudgetFilterExpressionNotTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -2927,7 +2927,7 @@ class BudgetFilterExpressionNotTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -2935,7 +2935,7 @@ class BudgetFilterExpressionNotTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -2969,11 +2969,11 @@ class BudgetFilterExpressionOr(dict):
                  ors: Optional[Sequence['outputs.BudgetFilterExpressionOrOr']] = None,
                  tags: Optional['outputs.BudgetFilterExpressionOrTags'] = None):
         """
-        :param Sequence['BudgetFilterExpressionOrAndArgs'] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
-        :param 'BudgetFilterExpressionOrCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionOrDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
-        :param 'BudgetFilterExpressionOrNotArgs' not_: (Optional) A single filter expression to negate. Must contain exactly one root.
-        :param Sequence['BudgetFilterExpressionOrOrArgs'] ors: (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        :param Sequence['BudgetFilterExpressionOrAndArgs'] ands: List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        :param 'BudgetFilterExpressionOrCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionOrDimensionsArgs' dimensions: Dimensions block.
+        :param 'BudgetFilterExpressionOrNotArgs' not_: Single filter expression to negate. Must contain exactly one root.
+        :param Sequence['BudgetFilterExpressionOrOrArgs'] ors: List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         :param 'BudgetFilterExpressionOrTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if ands is not None:
@@ -2993,7 +2993,7 @@ class BudgetFilterExpressionOr(dict):
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.BudgetFilterExpressionOrAnd']]:
         """
-        (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
@@ -3001,7 +3001,7 @@ class BudgetFilterExpressionOr(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionOrCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -3009,7 +3009,7 @@ class BudgetFilterExpressionOr(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionOrDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -3017,7 +3017,7 @@ class BudgetFilterExpressionOr(dict):
     @pulumi.getter(name="not")
     def not_(self) -> Optional['outputs.BudgetFilterExpressionOrNot']:
         """
-        (Optional) A single filter expression to negate. Must contain exactly one root.
+        Single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
@@ -3025,7 +3025,7 @@ class BudgetFilterExpressionOr(dict):
     @pulumi.getter
     def ors(self) -> Optional[Sequence['outputs.BudgetFilterExpressionOrOr']]:
         """
-        (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+        List of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
@@ -3062,8 +3062,8 @@ class BudgetFilterExpressionOrAnd(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionOrAndDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionOrAndTags'] = None):
         """
-        :param 'BudgetFilterExpressionOrAndCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionOrAndDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionOrAndCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionOrAndDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionOrAndTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -3077,7 +3077,7 @@ class BudgetFilterExpressionOrAnd(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionOrAndCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -3085,7 +3085,7 @@ class BudgetFilterExpressionOrAnd(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionOrAndDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -3122,9 +3122,9 @@ class BudgetFilterExpressionOrAndCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3137,7 +3137,7 @@ class BudgetFilterExpressionOrAndCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3145,7 +3145,7 @@ class BudgetFilterExpressionOrAndCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3153,7 +3153,7 @@ class BudgetFilterExpressionOrAndCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3182,9 +3182,9 @@ class BudgetFilterExpressionOrAndDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3195,7 +3195,7 @@ class BudgetFilterExpressionOrAndDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -3203,7 +3203,7 @@ class BudgetFilterExpressionOrAndDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3211,7 +3211,7 @@ class BudgetFilterExpressionOrAndDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3240,9 +3240,9 @@ class BudgetFilterExpressionOrAndTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3255,7 +3255,7 @@ class BudgetFilterExpressionOrAndTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3263,7 +3263,7 @@ class BudgetFilterExpressionOrAndTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3271,7 +3271,7 @@ class BudgetFilterExpressionOrAndTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3300,9 +3300,9 @@ class BudgetFilterExpressionOrCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3315,7 +3315,7 @@ class BudgetFilterExpressionOrCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3323,7 +3323,7 @@ class BudgetFilterExpressionOrCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3331,7 +3331,7 @@ class BudgetFilterExpressionOrCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3360,9 +3360,9 @@ class BudgetFilterExpressionOrDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3373,7 +3373,7 @@ class BudgetFilterExpressionOrDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -3381,7 +3381,7 @@ class BudgetFilterExpressionOrDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3389,7 +3389,7 @@ class BudgetFilterExpressionOrDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3418,8 +3418,8 @@ class BudgetFilterExpressionOrNot(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionOrNotDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionOrNotTags'] = None):
         """
-        :param 'BudgetFilterExpressionOrNotCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionOrNotDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionOrNotCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionOrNotDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionOrNotTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -3433,7 +3433,7 @@ class BudgetFilterExpressionOrNot(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionOrNotCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -3441,7 +3441,7 @@ class BudgetFilterExpressionOrNot(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionOrNotDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -3478,9 +3478,9 @@ class BudgetFilterExpressionOrNotCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3493,7 +3493,7 @@ class BudgetFilterExpressionOrNotCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3501,7 +3501,7 @@ class BudgetFilterExpressionOrNotCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3509,7 +3509,7 @@ class BudgetFilterExpressionOrNotCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3538,9 +3538,9 @@ class BudgetFilterExpressionOrNotDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3551,7 +3551,7 @@ class BudgetFilterExpressionOrNotDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -3559,7 +3559,7 @@ class BudgetFilterExpressionOrNotDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3567,7 +3567,7 @@ class BudgetFilterExpressionOrNotDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3596,9 +3596,9 @@ class BudgetFilterExpressionOrNotTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3611,7 +3611,7 @@ class BudgetFilterExpressionOrNotTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3619,7 +3619,7 @@ class BudgetFilterExpressionOrNotTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3627,7 +3627,7 @@ class BudgetFilterExpressionOrNotTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3656,8 +3656,8 @@ class BudgetFilterExpressionOrOr(dict):
                  dimensions: Optional['outputs.BudgetFilterExpressionOrOrDimensions'] = None,
                  tags: Optional['outputs.BudgetFilterExpressionOrOrTags'] = None):
         """
-        :param 'BudgetFilterExpressionOrOrCostCategoriesArgs' cost_categories: (Optional) A Cost Category Filter block.
-        :param 'BudgetFilterExpressionOrOrDimensionsArgs' dimensions: (Optional) A Dimension Filter block.
+        :param 'BudgetFilterExpressionOrOrCostCategoriesArgs' cost_categories: Cost Categories block.
+        :param 'BudgetFilterExpressionOrOrDimensionsArgs' dimensions: Dimensions block.
         :param 'BudgetFilterExpressionOrOrTagsArgs' tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_categories is not None:
@@ -3671,7 +3671,7 @@ class BudgetFilterExpressionOrOr(dict):
     @pulumi.getter(name="costCategories")
     def cost_categories(self) -> Optional['outputs.BudgetFilterExpressionOrOrCostCategories']:
         """
-        (Optional) A Cost Category Filter block.
+        Cost Categories block.
         """
         return pulumi.get(self, "cost_categories")
 
@@ -3679,7 +3679,7 @@ class BudgetFilterExpressionOrOr(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.BudgetFilterExpressionOrOrDimensions']:
         """
-        (Optional) A Dimension Filter block.
+        Dimensions block.
         """
         return pulumi.get(self, "dimensions")
 
@@ -3716,9 +3716,9 @@ class BudgetFilterExpressionOrOrCostCategories(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Cost category key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of cost category values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3731,7 +3731,7 @@ class BudgetFilterExpressionOrOrCostCategories(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3739,7 +3739,7 @@ class BudgetFilterExpressionOrOrCostCategories(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3747,7 +3747,7 @@ class BudgetFilterExpressionOrOrCostCategories(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3776,9 +3776,9 @@ class BudgetFilterExpressionOrOrDimensions(dict):
                  values: Sequence[_builtins.str],
                  match_options: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param _builtins.str key: Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
+        :param Sequence[_builtins.str] values: List of values to match against the dimension. At least one value is required.
+        :param Sequence[_builtins.str] match_options: Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -3789,7 +3789,7 @@ class BudgetFilterExpressionOrOrDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        (Optional) The cost category key to filter on.
+        Dimension to filter on. Valid values include `AZ`, `INSTANCE_TYPE`, `LINKED_ACCOUNT`, `OPERATION`, `PURCHASE_TYPE`, `REGION`, `SERVICE`, `USAGE_TYPE`, `USAGE_TYPE_GROUP`, `RECORD_TYPE`, `OPERATING_SYSTEM`, `TENANCY`, `SCOPE`, `PLATFORM`, `SUBSCRIPTION_ID`, `LEGAL_ENTITY_NAME`, `DEPLOYMENT_OPTION`, `DATABASE_ENGINE`, `CACHE_ENGINE`, `INSTANCE_TYPE_FAMILY`, `BILLING_ENTITY`, `RESERVATION_ID`, `RESOURCE_ID`, `RIGHTSIZING_TYPE`, `SAVINGS_PLANS_TYPE`, `SAVINGS_PLAN_ARN`, `PAYMENT_OPTION`, and `AGREEMENT_END_DATE_TIME_AFTER`, `AGREEMENT_END_DATE_TIME_BEFORE`.
         """
         return pulumi.get(self, "key")
 
@@ -3797,7 +3797,7 @@ class BudgetFilterExpressionOrOrDimensions(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of values to match against the dimension. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3805,7 +3805,7 @@ class BudgetFilterExpressionOrOrDimensions(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the dimension filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3834,9 +3834,9 @@ class BudgetFilterExpressionOrOrTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3849,7 +3849,7 @@ class BudgetFilterExpressionOrOrTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3857,7 +3857,7 @@ class BudgetFilterExpressionOrOrTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3865,7 +3865,7 @@ class BudgetFilterExpressionOrOrTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3894,9 +3894,9 @@ class BudgetFilterExpressionOrTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3909,7 +3909,7 @@ class BudgetFilterExpressionOrTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3917,7 +3917,7 @@ class BudgetFilterExpressionOrTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3925,7 +3925,7 @@ class BudgetFilterExpressionOrTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -3954,9 +3954,9 @@ class BudgetFilterExpressionTags(dict):
                  match_options: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str key: (Optional) The cost category key to filter on.
-        :param Sequence[_builtins.str] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
-        :param Sequence[_builtins.str] values: (Optional) A list of cost category values to match. At least one value is required.
+        :param _builtins.str key: Tag key to filter on.
+        :param Sequence[_builtins.str] match_options: Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        :param Sequence[_builtins.str] values: List of tag values to match. At least one value is required.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -3969,7 +3969,7 @@ class BudgetFilterExpressionTags(dict):
     @pulumi.getter
     def key(self) -> Optional[_builtins.str]:
         """
-        (Optional) The cost category key to filter on.
+        Tag key to filter on.
         """
         return pulumi.get(self, "key")
 
@@ -3977,7 +3977,7 @@ class BudgetFilterExpressionTags(dict):
     @pulumi.getter(name="matchOptions")
     def match_options(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+        Match options for the tag filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
@@ -3985,7 +3985,7 @@ class BudgetFilterExpressionTags(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) A list of cost category values to match. At least one value is required.
+        List of tag values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
@@ -4025,12 +4025,12 @@ class BudgetNotification(dict):
                  subscriber_email_addresses: Optional[Sequence[_builtins.str]] = None,
                  subscriber_sns_topic_arns: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        :param _builtins.str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        :param _builtins.float threshold: (Required) Threshold when the notification should be sent.
-        :param _builtins.str threshold_type: (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        :param Sequence[_builtins.str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        :param Sequence[_builtins.str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        :param _builtins.str comparison_operator: Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+        :param _builtins.str notification_type: What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+        :param _builtins.float threshold: Threshold when the notification should be sent.
+        :param _builtins.str threshold_type: What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        :param Sequence[_builtins.str] subscriber_email_addresses: E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        :param Sequence[_builtins.str] subscriber_sns_topic_arns: SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "notification_type", notification_type)
@@ -4045,7 +4045,7 @@ class BudgetNotification(dict):
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> _builtins.str:
         """
-        (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+        Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
         """
         return pulumi.get(self, "comparison_operator")
 
@@ -4053,7 +4053,7 @@ class BudgetNotification(dict):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> _builtins.str:
         """
-        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+        What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -4061,7 +4061,7 @@ class BudgetNotification(dict):
     @pulumi.getter
     def threshold(self) -> _builtins.float:
         """
-        (Required) Threshold when the notification should be sent.
+        Threshold when the notification should be sent.
         """
         return pulumi.get(self, "threshold")
 
@@ -4069,7 +4069,7 @@ class BudgetNotification(dict):
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> _builtins.str:
         """
-        (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         """
         return pulumi.get(self, "threshold_type")
 
@@ -4077,7 +4077,7 @@ class BudgetNotification(dict):
     @pulumi.getter(name="subscriberEmailAddresses")
     def subscriber_email_addresses(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         """
         return pulumi.get(self, "subscriber_email_addresses")
 
@@ -4085,7 +4085,7 @@ class BudgetNotification(dict):
     @pulumi.getter(name="subscriberSnsTopicArns")
     def subscriber_sns_topic_arns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         return pulumi.get(self, "subscriber_sns_topic_arns")
 
@@ -4114,9 +4114,9 @@ class BudgetPlannedLimit(dict):
                  start_time: _builtins.str,
                  unit: _builtins.str):
         """
-        :param _builtins.str amount: (Required) The amount of cost or usage being measured for a budget.
-        :param _builtins.str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param _builtins.str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        :param _builtins.str amount: Amount of cost or usage being measured for a budget.
+        :param _builtins.str start_time: Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        :param _builtins.str unit: Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "start_time", start_time)
@@ -4126,7 +4126,7 @@ class BudgetPlannedLimit(dict):
     @pulumi.getter
     def amount(self) -> _builtins.str:
         """
-        (Required) The amount of cost or usage being measured for a budget.
+        Amount of cost or usage being measured for a budget.
         """
         return pulumi.get(self, "amount")
 
@@ -4134,7 +4134,7 @@ class BudgetPlannedLimit(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> _builtins.str:
         """
-        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        Start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         """
         return pulumi.get(self, "start_time")
 
@@ -4142,7 +4142,7 @@ class BudgetPlannedLimit(dict):
     @pulumi.getter
     def unit(self) -> _builtins.str:
         """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
         return pulumi.get(self, "unit")
 
@@ -4154,9 +4154,9 @@ class GetBudgetAutoAdjustDataResult(dict):
                  historical_options: Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult'],
                  last_auto_adjust_time: _builtins.str):
         """
-        :param _builtins.str auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
-        :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
-        :param _builtins.str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
+        :param _builtins.str auto_adjust_type: String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
+        :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArgs'] historical_options: Historical data that the auto-adjusting budget is based on. See `historical_options` Block for details.
+        :param _builtins.str last_auto_adjust_time: Last time that the budget was auto-adjusted.
         """
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         pulumi.set(__self__, "historical_options", historical_options)
@@ -4166,7 +4166,7 @@ class GetBudgetAutoAdjustDataResult(dict):
     @pulumi.getter(name="autoAdjustType")
     def auto_adjust_type(self) -> _builtins.str:
         """
-        (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+        String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
         """
         return pulumi.get(self, "auto_adjust_type")
 
@@ -4174,7 +4174,7 @@ class GetBudgetAutoAdjustDataResult(dict):
     @pulumi.getter(name="historicalOptions")
     def historical_options(self) -> Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult']:
         """
-        (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        Historical data that the auto-adjusting budget is based on. See `historical_options` Block for details.
         """
         return pulumi.get(self, "historical_options")
 
@@ -4182,7 +4182,7 @@ class GetBudgetAutoAdjustDataResult(dict):
     @pulumi.getter(name="lastAutoAdjustTime")
     def last_auto_adjust_time(self) -> _builtins.str:
         """
-        (Optional) - The last time that your budget was auto-adjusted.
+        Last time that the budget was auto-adjusted.
         """
         return pulumi.get(self, "last_auto_adjust_time")
 
@@ -4193,8 +4193,8 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
                  budget_adjustment_period: _builtins.int,
                  lookback_available_periods: _builtins.int):
         """
-        :param _builtins.int budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-        :param _builtins.int lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        :param _builtins.int budget_adjustment_period: Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
+        :param _builtins.int lookback_available_periods: Number of budget periods in the `budget_adjustment_period` included in the calculation of the current budget limit.
         """
         pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
         pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
@@ -4203,7 +4203,7 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
     @pulumi.getter(name="budgetAdjustmentPeriod")
     def budget_adjustment_period(self) -> _builtins.int:
         """
-        (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        Number of budget periods included in the moving-average calculation that determines the auto-adjusted budget amount.
         """
         return pulumi.get(self, "budget_adjustment_period")
 
@@ -4211,7 +4211,7 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
     @pulumi.getter(name="lookbackAvailablePeriods")
     def lookback_available_periods(self) -> _builtins.int:
         """
-        (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        Number of budget periods in the `budget_adjustment_period` included in the calculation of the current budget limit.
         """
         return pulumi.get(self, "lookback_available_periods")
 
@@ -4222,8 +4222,8 @@ class GetBudgetBudgetLimitResult(dict):
                  amount: _builtins.str,
                  unit: _builtins.str):
         """
-        :param _builtins.str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-        :param _builtins.str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        :param _builtins.str amount: Amount of cost or usage measured for the budget.
+        :param _builtins.str unit: Unit of measurement used for the budget, such as dollars or GB.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "unit", unit)
@@ -4232,7 +4232,7 @@ class GetBudgetBudgetLimitResult(dict):
     @pulumi.getter
     def amount(self) -> _builtins.str:
         """
-        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Amount of cost or usage measured for the budget.
         """
         return pulumi.get(self, "amount")
 
@@ -4240,7 +4240,7 @@ class GetBudgetBudgetLimitResult(dict):
     @pulumi.getter
     def unit(self) -> _builtins.str:
         """
-        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Unit of measurement used for the budget, such as dollars or GB.
         """
         return pulumi.get(self, "unit")
 
@@ -4249,11 +4249,17 @@ class GetBudgetBudgetLimitResult(dict):
 class GetBudgetCalculatedSpendResult(dict):
     def __init__(__self__, *,
                  actual_spends: Sequence['outputs.GetBudgetCalculatedSpendActualSpendResult']):
+        """
+        :param Sequence['GetBudgetCalculatedSpendActualSpendArgs'] actual_spends: Amount of cost, usage, RI units, or Savings Plans units used. See `actual_spend` Block for details.
+        """
         pulumi.set(__self__, "actual_spends", actual_spends)
 
     @_builtins.property
     @pulumi.getter(name="actualSpends")
     def actual_spends(self) -> Sequence['outputs.GetBudgetCalculatedSpendActualSpendResult']:
+        """
+        Amount of cost, usage, RI units, or Savings Plans units used. See `actual_spend` Block for details.
+        """
         return pulumi.get(self, "actual_spends")
 
 
@@ -4263,8 +4269,8 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
                  amount: _builtins.str,
                  unit: _builtins.str):
         """
-        :param _builtins.str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-        :param _builtins.str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        :param _builtins.str amount: Amount of cost or usage measured for the budget.
+        :param _builtins.str unit: Unit of measurement used for the budget, such as dollars or GB.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "unit", unit)
@@ -4273,7 +4279,7 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
     @pulumi.getter
     def amount(self) -> _builtins.str:
         """
-        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Amount of cost or usage measured for the budget.
         """
         return pulumi.get(self, "amount")
 
@@ -4281,7 +4287,7 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
     @pulumi.getter
     def unit(self) -> _builtins.str:
         """
-        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Unit of measurement used for the budget, such as dollars or GB.
         """
         return pulumi.get(self, "unit")
 
@@ -4292,9 +4298,10 @@ class GetBudgetCostFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: The name of a budget. Unique within accounts.
+        :param _builtins.str name: Name of the budget. Unique within an account.
                
                The following arguments are optional:
+        :param Sequence[_builtins.str] values: Values of the cost filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -4303,7 +4310,7 @@ class GetBudgetCostFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of a budget. Unique within accounts.
+        Name of the budget. Unique within an account.
 
         The following arguments are optional:
         """
@@ -4312,6 +4319,9 @@ class GetBudgetCostFilterResult(dict):
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        Values of the cost filter.
+        """
         return pulumi.get(self, "values")
 
 
@@ -4330,17 +4340,17 @@ class GetBudgetCostTypeResult(dict):
                  use_amortized: _builtins.bool,
                  use_blended: _builtins.bool):
         """
-        :param _builtins.bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_discount: Whether a budget includes discounts. Defaults to `true`.
-        :param _builtins.bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_subscription: A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`.
-        :param _builtins.bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-        :param _builtins.bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`.
-        :param _builtins.bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+        :param _builtins.bool include_credit: Whether to include credits in the cost budget.
+        :param _builtins.bool include_discount: Whether to include discounts in the cost budget.
+        :param _builtins.bool include_other_subscription: Whether to include other subscription costs in the cost budget.
+        :param _builtins.bool include_recurring: Whether to include recurring costs in the cost budget.
+        :param _builtins.bool include_refund: Whether to include refunds in the cost budget.
+        :param _builtins.bool include_subscription: Whether to include subscriptions in the cost budget.
+        :param _builtins.bool include_support: Whether to include support costs in the cost budget.
+        :param _builtins.bool include_tax: Whether to include tax in the cost budget.
+        :param _builtins.bool include_upfront: Whether to include upfront costs in the cost budget.
+        :param _builtins.bool use_amortized: Whether the budget uses the amortized rate.
+        :param _builtins.bool use_blended: Whether to use blended costs in the cost budget.
         """
         pulumi.set(__self__, "include_credit", include_credit)
         pulumi.set(__self__, "include_discount", include_discount)
@@ -4358,7 +4368,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeCredit")
     def include_credit(self) -> _builtins.bool:
         """
-        A boolean value whether to include credits in the cost budget. Defaults to `true`.
+        Whether to include credits in the cost budget.
         """
         return pulumi.get(self, "include_credit")
 
@@ -4366,7 +4376,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeDiscount")
     def include_discount(self) -> _builtins.bool:
         """
-        Whether a budget includes discounts. Defaults to `true`.
+        Whether to include discounts in the cost budget.
         """
         return pulumi.get(self, "include_discount")
 
@@ -4374,7 +4384,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeOtherSubscription")
     def include_other_subscription(self) -> _builtins.bool:
         """
-        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+        Whether to include other subscription costs in the cost budget.
         """
         return pulumi.get(self, "include_other_subscription")
 
@@ -4382,7 +4392,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeRecurring")
     def include_recurring(self) -> _builtins.bool:
         """
-        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+        Whether to include recurring costs in the cost budget.
         """
         return pulumi.get(self, "include_recurring")
 
@@ -4390,7 +4400,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeRefund")
     def include_refund(self) -> _builtins.bool:
         """
-        A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+        Whether to include refunds in the cost budget.
         """
         return pulumi.get(self, "include_refund")
 
@@ -4398,7 +4408,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeSubscription")
     def include_subscription(self) -> _builtins.bool:
         """
-        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+        Whether to include subscriptions in the cost budget.
         """
         return pulumi.get(self, "include_subscription")
 
@@ -4406,7 +4416,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeSupport")
     def include_support(self) -> _builtins.bool:
         """
-        A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+        Whether to include support costs in the cost budget.
         """
         return pulumi.get(self, "include_support")
 
@@ -4414,7 +4424,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeTax")
     def include_tax(self) -> _builtins.bool:
         """
-        A boolean value whether to include tax in the cost budget. Defaults to `true`.
+        Whether to include tax in the cost budget.
         """
         return pulumi.get(self, "include_tax")
 
@@ -4422,7 +4432,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeUpfront")
     def include_upfront(self) -> _builtins.bool:
         """
-        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+        Whether to include upfront costs in the cost budget.
         """
         return pulumi.get(self, "include_upfront")
 
@@ -4430,7 +4440,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="useAmortized")
     def use_amortized(self) -> _builtins.bool:
         """
-        Whether a budget uses the amortized rate. Defaults to `false`.
+        Whether the budget uses the amortized rate.
         """
         return pulumi.get(self, "use_amortized")
 
@@ -4438,7 +4448,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="useBlended")
     def use_blended(self) -> _builtins.bool:
         """
-        A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+        Whether to use blended costs in the cost budget.
         """
         return pulumi.get(self, "use_blended")
 
@@ -4453,12 +4463,12 @@ class GetBudgetNotificationResult(dict):
                  threshold: _builtins.float,
                  threshold_type: _builtins.str):
         """
-        :param _builtins.str comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        :param _builtins.str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-        :param Sequence[_builtins.str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        :param Sequence[_builtins.str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        :param _builtins.float threshold: (Required) Threshold when the notification should be sent.
-        :param _builtins.str threshold_type: (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        :param _builtins.str comparison_operator: Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
+        :param _builtins.str notification_type: Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
+        :param Sequence[_builtins.str] subscriber_email_addresses: Email addresses to notify.
+        :param Sequence[_builtins.str] subscriber_sns_topic_arns: SNS topics to notify.
+        :param _builtins.float threshold: Threshold at which the notification is sent.
+        :param _builtins.str threshold_type: Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "notification_type", notification_type)
@@ -4471,7 +4481,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> _builtins.str:
         """
-        (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+        Comparison operator used to evaluate the condition. Valid values: `LESS_THAN`, `EQUAL_TO`, `GREATER_THAN`.
         """
         return pulumi.get(self, "comparison_operator")
 
@@ -4479,7 +4489,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> _builtins.str:
         """
-        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
+        Type of budget value to notify on. Valid values: `ACTUAL`, `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -4487,7 +4497,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="subscriberEmailAddresses")
     def subscriber_email_addresses(self) -> Sequence[_builtins.str]:
         """
-        (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        Email addresses to notify.
         """
         return pulumi.get(self, "subscriber_email_addresses")
 
@@ -4495,7 +4505,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="subscriberSnsTopicArns")
     def subscriber_sns_topic_arns(self) -> Sequence[_builtins.str]:
         """
-        (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        SNS topics to notify.
         """
         return pulumi.get(self, "subscriber_sns_topic_arns")
 
@@ -4503,7 +4513,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter
     def threshold(self) -> _builtins.float:
         """
-        (Required) Threshold when the notification should be sent.
+        Threshold at which the notification is sent.
         """
         return pulumi.get(self, "threshold")
 
@@ -4511,7 +4521,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> _builtins.str:
         """
-        (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+        Type of threshold. Valid values: `PERCENTAGE`, `ABSOLUTE_VALUE`.
         """
         return pulumi.get(self, "threshold_type")
 
@@ -4523,9 +4533,9 @@ class GetBudgetPlannedLimitResult(dict):
                  start_time: _builtins.str,
                  unit: _builtins.str):
         """
-        :param _builtins.str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
-        :param _builtins.str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param _builtins.str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        :param _builtins.str amount: Amount of cost or usage measured for the budget.
+        :param _builtins.str start_time: Start time of the budget limit. Format: `2017-01-01_12:00`.
+        :param _builtins.str unit: Unit of measurement used for the budget, such as dollars or GB.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "start_time", start_time)
@@ -4535,7 +4545,7 @@ class GetBudgetPlannedLimitResult(dict):
     @pulumi.getter
     def amount(self) -> _builtins.str:
         """
-        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Amount of cost or usage measured for the budget.
         """
         return pulumi.get(self, "amount")
 
@@ -4543,7 +4553,7 @@ class GetBudgetPlannedLimitResult(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> _builtins.str:
         """
-        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        Start time of the budget limit. Format: `2017-01-01_12:00`.
         """
         return pulumi.get(self, "start_time")
 
@@ -4551,7 +4561,7 @@ class GetBudgetPlannedLimitResult(dict):
     @pulumi.getter
     def unit(self) -> _builtins.str:
         """
-        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        Unit of measurement used for the budget, such as dollars or GB.
         """
         return pulumi.get(self, "unit")
 

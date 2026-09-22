@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetActionActionThreshold
     {
         /// <summary>
-        /// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+        /// Type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
         /// </summary>
         public readonly string ActionThresholdType;
         /// <summary>
-        /// The threshold of a notification.
+        /// Threshold of a notification.
         /// </summary>
         public readonly double ActionThresholdValue;
 

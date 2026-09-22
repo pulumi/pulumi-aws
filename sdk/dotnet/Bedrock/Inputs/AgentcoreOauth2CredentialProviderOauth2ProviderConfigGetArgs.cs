@@ -13,57 +13,55 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Atlassian OAuth provider configuration. See `predefined providers` below.
+        /// Atlassian OAuth provider configuration. See `AtlassianOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("atlassianOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigGetArgs>? AtlassianOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Custom OAuth2 provider configuration. See `Custom` below.
+        /// Custom OAuth2 provider configuration. See `CustomOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("customOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigGetArgs>? CustomOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// GitHub OAuth provider configuration. See `predefined providers` below.
+        /// GitHub OAuth provider configuration. See `GithubOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("githubOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigGetArgs>? GithubOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Google OAuth provider configuration. See `predefined providers` below.
+        /// Google OAuth provider configuration. See `GoogleOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("googleOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigGetArgs>? GoogleOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
-        /// 
-        /// &gt; **Note:** `IncludedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `ClientId` and `ClientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`Issuer`, `AuthorizationEndpoint`, `TokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+        /// Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `IncludedOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("includedOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigGetArgs>? IncludedOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// LinkedIn OAuth provider configuration. See `predefined providers` below.
+        /// LinkedIn OAuth provider configuration. See `LinkedinOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("linkedinOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigGetArgs>? LinkedinOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Microsoft OAuth provider configuration. See `predefined providers` below.
+        /// Microsoft OAuth provider configuration. See `MicrosoftOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("microsoftOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigGetArgs>? MicrosoftOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Salesforce OAuth provider configuration. See `predefined providers` below.
+        /// Salesforce OAuth provider configuration. See `SalesforceOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("salesforceOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigGetArgs>? SalesforceOauth2ProviderConfig { get; set; }
 
         /// <summary>
-        /// Slack OAuth provider configuration. See `predefined providers` below.
+        /// Slack OAuth provider configuration. See `SlackOauth2ProviderConfig` Block below.
         /// </summary>
         [Input("slackOauth2ProviderConfig")]
         public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigGetArgs>? SlackOauth2ProviderConfig { get; set; }

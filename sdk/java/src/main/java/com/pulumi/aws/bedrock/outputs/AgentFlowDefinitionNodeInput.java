@@ -18,17 +18,19 @@ public final class AgentFlowDefinitionNodeInput {
      */
     private @Nullable String category;
     /**
-     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
      * 
      */
     private String expression;
     /**
-     * @return A name for the input that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
     /**
-     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     private String type;
@@ -42,21 +44,23 @@ public final class AgentFlowDefinitionNodeInput {
         return Optional.ofNullable(this.category);
     }
     /**
-     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * @return Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
      * 
      */
     public String expression() {
         return this.expression;
     }
     /**
-     * @return A name for the input that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public String type() {

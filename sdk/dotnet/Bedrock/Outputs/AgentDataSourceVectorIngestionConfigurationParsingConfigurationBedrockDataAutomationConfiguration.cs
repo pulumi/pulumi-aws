@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration
     {
         /// <summary>
-        /// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        /// Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
         /// </summary>
         public readonly string? ParsingModality;
 

@@ -23,7 +23,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+ * Manages a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage. For more detailed documentation about each argument, refer to the [AWS official documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
  * 
  * ## Example Usage
  * 
@@ -678,28 +678,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:budgets/budget:Budget")
 public class Budget extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * @return ID of the target account for budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The ARN of the budget.
+     * ARN of the budget.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the budget.
+     * @return ARN of the budget.
      * 
      */
     public Output<String> arn() {
@@ -748,28 +748,28 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.budgetType;
     }
     /**
-     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     @Export(name="costFilters", refs={List.class,BudgetCostFilter.class}, tree="[0,1]")
     private Output<List<BudgetCostFilter>> costFilters;
 
     /**
-     * @return A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * @return List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     public Output<List<BudgetCostFilter>> costFilters() {
         return this.costFilters;
     }
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     @Export(name="costTypes", refs={BudgetCostTypes.class}, tree="[0]")
     private Output<BudgetCostTypes> costTypes;
 
     /**
-     * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * @return Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      * 
      */
     public Output<BudgetCostTypes> costTypes() {
@@ -790,70 +790,70 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filterExpression);
     }
     /**
-     * The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      * 
      */
     @Export(name="limitAmount", refs={String.class}, tree="[0]")
     private Output<String> limitAmount;
 
     /**
-     * @return The amount of cost or usage being measured for a budget.
+     * @return Amount of cost or usage being measured for a budget.
      * 
      */
     public Output<String> limitAmount() {
         return this.limitAmount;
     }
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     @Export(name="limitUnit", refs={String.class}, tree="[0]")
     private Output<String> limitUnit;
 
     /**
-     * @return The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * @return Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
     public Output<String> limitUnit() {
         return this.limitUnit;
     }
     /**
-     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      * 
      */
     @Export(name="metrics", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metrics;
 
     /**
-     * @return List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * @return List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      * 
      */
     public Output<Optional<String>> metrics() {
         return Codegen.optional(this.metrics);
     }
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of a budget. Unique within accounts.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of a budget. Unique within accounts.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the name of a budget. Unique within accounts.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return The prefix of the name of a budget. Unique within accounts.
+     * @return Prefix of the name of a budget. Unique within accounts.
      * 
      */
     public Output<String> namePrefix() {
@@ -916,41 +916,35 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
     @Export(name="timePeriodEnd", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timePeriodEnd;
 
     /**
-     * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * @return End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
     public Output<Optional<String>> timePeriodEnd() {
         return Codegen.optional(this.timePeriodEnd);
     }
     /**
-     * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
     @Export(name="timePeriodStart", refs={String.class}, tree="[0]")
     private Output<String> timePeriodStart;
 
     /**
-     * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * @return Start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
     public Output<String> timePeriodStart() {
         return this.timePeriodStart;
     }
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      * The following arguments are optional:
      * 
@@ -959,7 +953,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
     private Output<String> timeUnit;
 
     /**
-     * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * @return Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      * The following arguments are optional:
      * 

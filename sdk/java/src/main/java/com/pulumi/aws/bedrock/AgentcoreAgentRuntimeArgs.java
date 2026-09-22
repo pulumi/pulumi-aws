@@ -134,16 +134,12 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="networkConfiguration", required=true)
     private Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration;
 
     /**
      * @return Network configuration for the agent runtime. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<AgentcoreAgentRuntimeNetworkConfigurationArgs> networkConfiguration() {
@@ -198,12 +194,16 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role that the agent runtime assumes to access AWS services.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> roleArn() {
@@ -439,8 +439,6 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
         /**
          * @param networkConfiguration Network configuration for the agent runtime. See `networkConfiguration` below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -451,8 +449,6 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
 
         /**
          * @param networkConfiguration Network configuration for the agent runtime. See `networkConfiguration` below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -527,6 +523,8 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
         /**
          * @param roleArn ARN of the IAM role that the agent runtime assumes to access AWS services.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -537,6 +535,8 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
 
         /**
          * @param roleArn ARN of the IAM role that the agent runtime assumes to access AWS services.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

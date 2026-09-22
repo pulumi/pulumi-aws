@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// The ARN of the custom model.
+        /// ARN of the custom model.
         /// </summary>
         public readonly string ModelArn;
         /// <summary>
-        /// The name of the custom model.
+        /// Name of the custom model.
         /// </summary>
         public readonly string ModelName;
 

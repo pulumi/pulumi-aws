@@ -127,28 +127,28 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.baseModelIdentifier;
     }
     /**
-     * The ARN of the output model.
+     * ARN of the output model.
      * 
      */
     @Export(name="customModelArn", refs={String.class}, tree="[0]")
     private Output<String> customModelArn;
 
     /**
-     * @return The ARN of the output model.
+     * @return ARN of the output model.
      * 
      */
     public Output<String> customModelArn() {
         return this.customModelArn;
     }
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      * 
      */
     @Export(name="customModelKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customModelKmsKeyId;
 
     /**
-     * @return The custom model is encrypted at rest using this key. Specify the key ARN.
+     * @return Key ARN used to encrypt the custom model at rest.
      * 
      */
     public Output<Optional<String>> customModelKmsKeyId() {
@@ -169,14 +169,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.customModelName;
     }
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     @Export(name="customizationType", refs={String.class}, tree="[0]")
     private Output<String> customizationType;
 
     /**
-     * @return The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * @return Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     public Output<String> customizationType() {
@@ -197,56 +197,56 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.hyperparameters;
     }
     /**
-     * The ARN of the customization job.
+     * ARN of the customization job.
      * 
      */
     @Export(name="jobArn", refs={String.class}, tree="[0]")
     private Output<String> jobArn;
 
     /**
-     * @return The ARN of the customization job.
+     * @return ARN of the customization job.
      * 
      */
     public Output<String> jobArn() {
         return this.jobArn;
     }
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      * 
      */
     @Export(name="jobName", refs={String.class}, tree="[0]")
     private Output<String> jobName;
 
     /**
-     * @return A name for the customization job.
+     * @return Name for the customization job.
      * 
      */
     public Output<String> jobName() {
         return this.jobName;
     }
     /**
-     * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      * 
      */
     @Export(name="jobStatus", refs={String.class}, tree="[0]")
     private Output<String> jobStatus;
 
     /**
-     * @return The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * @return Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      * 
      */
     public Output<String> jobStatus() {
         return this.jobStatus;
     }
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     @Export(name="outputDataConfig", refs={CustomModelOutputDataConfig.class}, tree="[0]")
     private Output<CustomModelOutputDataConfig> outputDataConfig;
 
     /**
-     * @return S3 location for the output data.
+     * @return S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     public Output<CustomModelOutputDataConfig> outputDataConfig() {
@@ -281,14 +281,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -315,14 +315,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     @Export(name="trainingDataConfig", refs={CustomModelTrainingDataConfig.class}, tree="[0]")
     private Output<CustomModelTrainingDataConfig> trainingDataConfig;
 
     /**
-     * @return Information about the training dataset.
+     * @return Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     public Output<CustomModelTrainingDataConfig> trainingDataConfig() {
@@ -343,42 +343,42 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.trainingMetrics;
     }
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     @Export(name="validationDataConfig", refs={CustomModelValidationDataConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelValidationDataConfig> validationDataConfig;
 
     /**
-     * @return Information about the validation dataset.
+     * @return Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     public Output<Optional<CustomModelValidationDataConfig>> validationDataConfig() {
         return Codegen.optional(this.validationDataConfig);
     }
     /**
-     * The loss metric for each validator that you provided.
+     * Loss metric for each validator that you provided.
      * 
      */
     @Export(name="validationMetrics", refs={List.class,CustomModelValidationMetric.class}, tree="[0,1]")
     private Output<List<CustomModelValidationMetric>> validationMetrics;
 
     /**
-     * @return The loss metric for each validator that you provided.
+     * @return Loss metric for each validator that you provided.
      * 
      */
     public Output<List<CustomModelValidationMetric>> validationMetrics() {
         return this.validationMetrics;
     }
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     @Export(name="vpcConfig", refs={CustomModelVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelVpcConfig> vpcConfig;
 
     /**
-     * @return Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * @return Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     public Output<Optional<CustomModelVpcConfig>> vpcConfig() {

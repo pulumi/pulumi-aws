@@ -399,22 +399,33 @@ class MountTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-        alpha_subnet = aws.ec2.Subnet("alpha",
-            vpc_id=foo.id,
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=foo_aws_efs_file_system["id"],
-            subnet_id=alpha_subnet.id)
+        example = aws.efs.MountTarget("example",
+            file_system_id=example_aws_efs_file_system["id"],
+            subnet_id=example_subnet.id)
         ```
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the mount target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget example fsmt-52a643fb
         ```
 
 
@@ -445,22 +456,33 @@ class MountTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-        alpha_subnet = aws.ec2.Subnet("alpha",
-            vpc_id=foo.id,
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        alpha = aws.efs.MountTarget("alpha",
-            file_system_id=foo_aws_efs_file_system["id"],
-            subnet_id=alpha_subnet.id)
+        example = aws.efs.MountTarget("example",
+            file_system_id=example_aws_efs_file_system["id"],
+            subnet_id=example_subnet.id)
         ```
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the mount target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget example fsmt-52a643fb
         ```
 
 

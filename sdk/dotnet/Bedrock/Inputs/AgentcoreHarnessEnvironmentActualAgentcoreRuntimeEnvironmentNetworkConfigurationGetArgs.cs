@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Network mode. Valid values: `PUBLIC`, `VPC`.
+        /// Network mode.
         /// </summary>
         [Input("networkMode", required: true)]
         public Input<string> NetworkMode { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigGetArgs>? _networkModeConfigs;
 
         /// <summary>
-        /// VPC configuration. See `NetworkModeConfig` Block below.
+        /// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigGetArgs> NetworkModeConfigs
         {

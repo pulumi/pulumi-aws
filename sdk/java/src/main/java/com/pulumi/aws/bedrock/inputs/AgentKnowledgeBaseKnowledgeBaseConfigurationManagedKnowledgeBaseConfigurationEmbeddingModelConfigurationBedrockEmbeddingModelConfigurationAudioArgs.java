@@ -15,14 +15,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs();
 
     /**
-     * Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+     * Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     @Import(name="segmentationConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs> segmentationConfiguration;
 
     /**
-     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs> segmentationConfiguration() {
@@ -54,7 +54,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param segmentationConfiguration Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * @param segmentationConfiguration Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param segmentationConfiguration Configuration for segmenting audio content during processing. See `segmentationConfiguration` block for details.
+         * @param segmentationConfiguration Configuration for segmenting audio content during processing. See `segmentationConfiguration` Block for details.
          * 
          * @return builder
          * 

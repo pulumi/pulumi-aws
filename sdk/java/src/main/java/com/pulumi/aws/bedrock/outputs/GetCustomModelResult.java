@@ -55,7 +55,7 @@ public final class GetCustomModelResult {
     private String modelArn;
     private String modelId;
     /**
-     * @return The custom model is encrypted at rest using this key.
+     * @return Key used to encrypt the custom model at rest.
      * 
      */
     private String modelKmsKeyArn;
@@ -91,7 +91,7 @@ public final class GetCustomModelResult {
      */
     private List<GetCustomModelValidationDataConfig> validationDataConfigs;
     /**
-     * @return The loss metric for each validator that you provided.
+     * @return Loss metric for each validator that you provided.
      * 
      */
     private List<GetCustomModelValidationMetric> validationMetrics;
@@ -153,7 +153,7 @@ public final class GetCustomModelResult {
         return this.modelId;
     }
     /**
-     * @return The custom model is encrypted at rest using this key.
+     * @return Key used to encrypt the custom model at rest.
      * 
      */
     public String modelKmsKeyArn() {
@@ -205,7 +205,7 @@ public final class GetCustomModelResult {
         return this.validationDataConfigs;
     }
     /**
-     * @return The loss metric for each validator that you provided.
+     * @return Loss metric for each validator that you provided.
      * 
      */
     public List<GetCustomModelValidationMetric> validationMetrics() {

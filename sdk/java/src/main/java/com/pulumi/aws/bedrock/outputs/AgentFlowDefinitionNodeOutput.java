@@ -11,26 +11,30 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeOutput {
     /**
-     * @return A name for the output that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
     /**
-     * @return The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     private String type;
 
     private AgentFlowDefinitionNodeOutput() {}
     /**
-     * @return A name for the output that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public String type() {

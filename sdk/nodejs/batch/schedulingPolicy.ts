@@ -78,9 +78,12 @@ export class SchedulingPolicy extends pulumi.CustomResource {
      * ARN of the scheduling policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     */
     declare public readonly fairSharePolicy: pulumi.Output<outputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -92,7 +95,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -137,9 +140,12 @@ export interface SchedulingPolicyState {
      * ARN of the scheduling policy.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     */
     fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -151,7 +157,7 @@ export interface SchedulingPolicyState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -160,9 +166,12 @@ export interface SchedulingPolicyState {
  * The set of arguments for constructing a SchedulingPolicy resource.
  */
 export interface SchedulingPolicyArgs {
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     */
     fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      */
     name?: pulumi.Input<string | undefined>;
     /**

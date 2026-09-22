@@ -31,14 +31,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     }
 
     /**
-     * Private endpoint configuration for the domain. See `privateEndpoint` above.
+     * Private endpoint configuration for the domain. See `privateEndpoint` Block above.
      * 
      */
     @Import(name="privateEndpoint", required=true)
     private Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint;
 
     /**
-     * @return Private endpoint configuration for the domain. See `privateEndpoint` above.
+     * @return Private endpoint configuration for the domain. See `privateEndpoint` Block above.
      * 
      */
     public Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint() {
@@ -92,7 +92,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param privateEndpoint Private endpoint configuration for the domain. See `privateEndpoint` above.
+         * @param privateEndpoint Private endpoint configuration for the domain. See `privateEndpoint` Block above.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         }
 
         /**
-         * @param privateEndpoint Private endpoint configuration for the domain. See `privateEndpoint` above.
+         * @param privateEndpoint Private endpoint configuration for the domain. See `privateEndpoint` Block above.
          * 
          * @return builder
          * 

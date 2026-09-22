@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new FileSystem("foo", FileSystemArgs.builder()
+ *         var example = new FileSystem("example", FileSystemArgs.builder()
  *             .creationToken("my-product")
  *             .tags(Map.of("Name", "MyProduct"))
  *             .build());
@@ -100,10 +100,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the file system.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
  * ```
  * 
  */

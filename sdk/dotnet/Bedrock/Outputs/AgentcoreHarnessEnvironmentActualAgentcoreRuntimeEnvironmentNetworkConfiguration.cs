@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration
     {
         /// <summary>
-        /// Network mode. Valid values: `PUBLIC`, `VPC`.
+        /// Network mode.
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// VPC configuration. See `NetworkModeConfig` Block below.
+        /// VPC configuration. See `environment_actual.agentcore_runtime_environment.network_configuration.network_mode_config` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> NetworkModeConfigs;
 

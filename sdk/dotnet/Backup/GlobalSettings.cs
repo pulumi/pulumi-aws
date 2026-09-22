@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Backup
     public partial class GlobalSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+        /// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         [Output("globalSettings")]
         public Output<ImmutableDictionary<string, string>> GlobalSettingsList { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _globalSettings;
 
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+        /// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         public InputMap<string> GlobalSettingsList
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _globalSettings;
 
         /// <summary>
-        /// A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
+        /// Resources and their opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         /// </summary>
         public InputMap<string> GlobalSettingsList
         {

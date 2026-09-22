@@ -540,6 +540,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    bedrockruntime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     billing: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1710,6 +1714,7 @@ class ProviderEndpointArgs:
                  bedrock: pulumi.Input[Optional[_builtins.str]] = None,
                  bedrockagent: pulumi.Input[Optional[_builtins.str]] = None,
                  bedrockagentcore: pulumi.Input[Optional[_builtins.str]] = None,
+                 bedrockruntime: pulumi.Input[Optional[_builtins.str]] = None,
                  billing: pulumi.Input[Optional[_builtins.str]] = None,
                  budgets: pulumi.Input[Optional[_builtins.str]] = None,
                  ce: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2031,6 +2036,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] bedrock: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] bedrockagent: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] bedrockagentcore: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] bedrockruntime: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] billing: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] budgets: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] ce: Use this to override the default service endpoint URL
@@ -2390,6 +2396,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "bedrockagent", bedrockagent)
         if bedrockagentcore is not None:
             pulumi.set(__self__, "bedrockagentcore", bedrockagentcore)
+        if bedrockruntime is not None:
+            pulumi.set(__self__, "bedrockruntime", bedrockruntime)
         if billing is not None:
             pulumi.set(__self__, "billing", billing)
         if budgets is not None:
@@ -3410,6 +3418,18 @@ class ProviderEndpointArgs:
     @bedrockagentcore.setter
     def bedrockagentcore(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bedrockagentcore", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bedrockruntime(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockruntime")
+
+    @bedrockruntime.setter
+    def bedrockruntime(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bedrockruntime", value)
 
     @_builtins.property
     @pulumi.getter

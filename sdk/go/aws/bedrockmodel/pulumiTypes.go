@@ -1194,7 +1194,7 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfig struct {
 	LargeDataDeliveryS3Config *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
 	LogGroupName string `pulumi:"logGroupName"`
-	// The role ARN.
+	// Role ARN.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -1214,7 +1214,7 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs struct {
 	LargeDataDeliveryS3Config InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrInput `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// The role ARN.
+	// Role ARN.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -1307,7 +1307,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LogGr
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// The role ARN.
+// Role ARN.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1356,7 +1356,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) Lo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role ARN.
+// Role ARN.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string {
 		if v == nil {

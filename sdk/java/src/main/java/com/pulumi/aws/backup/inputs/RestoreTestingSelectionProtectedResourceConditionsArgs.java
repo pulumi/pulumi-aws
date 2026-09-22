@@ -18,14 +18,14 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
     public static final RestoreTestingSelectionProtectedResourceConditionsArgs Empty = new RestoreTestingSelectionProtectedResourceConditionsArgs();
 
     /**
-     * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+     * List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
      * 
      */
     @Import(name="stringEquals")
     private @Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>> stringEquals;
 
     /**
-     * @return The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+     * @return List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
      * 
      */
     public Optional<Output<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>>> stringEquals() {
@@ -33,14 +33,14 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
     }
 
     /**
-     * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+     * List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
      * 
      */
     @Import(name="stringNotEquals")
     private @Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>> stringNotEquals;
 
     /**
-     * @return The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+     * @return List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
      * 
      */
     public Optional<Output<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>>> stringNotEquals() {
@@ -73,7 +73,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+         * @param stringEquals List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+         * @param stringEquals List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
+         * @param stringEquals List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See `stringEquals` below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+         * @param stringNotEquals List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+         * @param stringNotEquals List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
         }
 
         /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
+         * @param stringNotEquals List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See `stringNotEquals` below.
          * 
          * @return builder
          * 

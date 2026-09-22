@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailWordPolicyConfig
     {
         /// <summary>
-        /// A config for the list of managed words. See Managed Word Lists Config for more information.
+        /// Config for the list of managed words. See `ManagedWordListsConfig` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailWordPolicyConfigManagedWordListsConfig> ManagedWordListsConfigs;
         /// <summary>
-        /// List of custom word configs. See Words Config for more information.
+        /// List of custom word configs. See `WordsConfig` Block for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailWordPolicyConfigWordsConfig> WordsConfigs;
 

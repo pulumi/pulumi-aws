@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     private AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource source;
 
     private AgentcoreGatewayTargetTargetConfigurationInferenceConnector() {}
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     public AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource source() {

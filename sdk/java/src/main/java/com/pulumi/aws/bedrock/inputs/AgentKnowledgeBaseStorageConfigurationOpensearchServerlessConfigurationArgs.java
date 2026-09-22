@@ -31,14 +31,14 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
     }
 
     /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
      * 
      */
     @Import(name="fieldMapping", required=true)
     private Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping() {
@@ -108,7 +108,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_serverless_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 

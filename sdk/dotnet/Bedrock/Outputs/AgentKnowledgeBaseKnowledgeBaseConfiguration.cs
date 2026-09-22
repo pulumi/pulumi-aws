@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfiguration
     {
         /// <summary>
-        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` block for details.
+        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
         /// <summary>
-        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` block for details.
+        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration? ManagedKnowledgeBaseConfiguration;
         /// <summary>
-        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
+        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration? SqlKnowledgeBaseConfiguration;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` block for details.
+        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration;
 

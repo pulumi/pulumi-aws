@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Backup
     public partial class Framework : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the backup framework.
+        /// ARN of the backup framework.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -165,25 +165,25 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableArray<Outputs.FrameworkControl>> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+        /// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+        /// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         /// </summary>
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
+        /// Description of the framework with a maximum of 1,024 characters
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+        /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -271,13 +271,13 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
+        /// Description of the framework with a maximum of 1,024 characters
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Backup
     public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the backup framework.
+        /// ARN of the backup framework.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -327,25 +327,25 @@ namespace Pulumi.Aws.Backup
         }
 
         /// <summary>
-        /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+        /// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
         /// <summary>
-        /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
+        /// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         /// </summary>
         [Input("deploymentStatus")]
         public Input<string>? DeploymentStatus { get; set; }
 
         /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
+        /// Description of the framework with a maximum of 1,024 characters
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// Unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+        /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

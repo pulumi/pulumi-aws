@@ -168,11 +168,11 @@ namespace Pulumi.Aws.Backup
         public readonly string PlanId;
         public readonly string Region;
         /// <summary>
-        /// Rules of a backup plan.
+        /// Rules of a backup plan. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleResult> Rules;
         /// <summary>
-        /// Scanning configuration for the backup rule.
+        /// Scanning configuration for the backup rule. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanScanSettingResult> ScanSettings;
         /// <summary>

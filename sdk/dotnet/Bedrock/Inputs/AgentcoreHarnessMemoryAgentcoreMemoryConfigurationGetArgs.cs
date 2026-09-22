@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? ActorId { get; set; }
 
         /// <summary>
-        /// ARN of the AgentCore memory resource.
+        /// ARN of the managed memory resource.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<int>? MessagesCount { get; set; }
 
         /// <summary>
-        /// Retrieval configuration parameters. See `RetrievalConfig` Block below.
+        /// Retrieval configuration parameters. See `memory_actual.agentcore_memory_configuration.retrieval_config` Block below.
         /// </summary>
         [Input("retrievalConfig")]
         public Input<Inputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigGetArgs>? RetrievalConfig { get; set; }

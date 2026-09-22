@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Billing.Inputs
     public sealed class ViewDataFilterExpressionTimeRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Inclusive end date of the time range.
+        /// Inclusive start date of the time range.
         /// </summary>
         [Input("beginDateInclusive", required: true)]
         public Input<string> BeginDateInclusive { get; set; } = null!;
 
+        /// <summary>
+        /// Inclusive end date of the time range.
+        /// </summary>
         [Input("endDateInclusive", required: true)]
         public Input<string> EndDateInclusive { get; set; } = null!;
 

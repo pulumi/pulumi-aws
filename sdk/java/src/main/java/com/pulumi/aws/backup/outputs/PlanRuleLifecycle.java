@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanRuleLifecycle {
     /**
-     * @return Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * @return Number of days after creation that a recovery point is moved to cold storage.
      * 
      */
     private @Nullable Integer coldStorageAfter;
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+     * @return Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     private @Nullable Integer deleteAfter;
     /**
-     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * @return Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
      * 
      */
     private @Nullable Boolean optInToArchiveForSupportedResources;
 
     private PlanRuleLifecycle() {}
     /**
-     * @return Specifies the number of days after creation that a recovery point is moved to cold storage.
+     * @return Number of days after creation that a recovery point is moved to cold storage.
      * 
      */
     public Optional<Integer> coldStorageAfter() {
         return Optional.ofNullable(this.coldStorageAfter);
     }
     /**
-     * @return Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+     * @return Number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
      * 
      */
     public Optional<Integer> deleteAfter() {
         return Optional.ofNullable(this.deleteAfter);
     }
     /**
-     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * @return Whether to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
      * 
      */
     public Optional<Boolean> optInToArchiveForSupportedResources() {

@@ -16,56 +16,64 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationKnowledgeBase {
     /**
-     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+     * @return Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration guardrailConfiguration;
     /**
-     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration inferenceConfiguration;
     /**
-     * @return The unique identifier of the knowledge base to query.
+     * @return Unique identifier of the knowledge base to query.
      * 
      */
     private String knowledgeBaseId;
     /**
-     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     private String modelId;
+    /**
+     * @return Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+     * 
+     */
     private @Nullable Integer numberOfResults;
 
     private AgentFlowDefinitionNodeConfigurationKnowledgeBase() {}
     /**
-     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+     * @return Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
     /**
-     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
+     * @return Inference configurations for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.inference_configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
     /**
-     * @return The unique identifier of the knowledge base to query.
+     * @return Unique identifier of the knowledge base to query.
      * 
      */
     public String knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
     /**
-     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
      * 
      */
     public String modelId() {
         return this.modelId;
     }
+    /**
+     * @return Maximum number of results to retrieve from the knowledge base. Valid values are between 1 and 100.
+     * 
+     */
     public Optional<Integer> numberOfResults() {
         return Optional.ofNullable(this.numberOfResults);
     }

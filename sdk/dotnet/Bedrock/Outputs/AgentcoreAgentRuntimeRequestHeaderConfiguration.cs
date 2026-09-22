@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreAgentRuntimeRequestHeaderConfiguration
     {
         /// <summary>
-        /// A list of HTTP request headers that are allowed to be passed through to the runtime.
+        /// List of HTTP request headers that are allowed to be passed through to the runtime.
         /// </summary>
         public readonly ImmutableArray<string> RequestHeaderAllowlists;
 

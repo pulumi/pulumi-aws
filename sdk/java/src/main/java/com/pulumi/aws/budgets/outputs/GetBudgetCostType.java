@@ -11,134 +11,134 @@ import java.util.Objects;
 @CustomType
 public final class GetBudgetCostType {
     /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
+     * @return Whether to include credits in the cost budget.
      * 
      */
     private Boolean includeCredit;
     /**
-     * @return Whether a budget includes discounts. Defaults to `true`.
+     * @return Whether to include discounts in the cost budget.
      * 
      */
     private Boolean includeDiscount;
     /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+     * @return Whether to include other subscription costs in the cost budget.
      * 
      */
     private Boolean includeOtherSubscription;
     /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+     * @return Whether to include recurring costs in the cost budget.
      * 
      */
     private Boolean includeRecurring;
     /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+     * @return Whether to include refunds in the cost budget.
      * 
      */
     private Boolean includeRefund;
     /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+     * @return Whether to include subscriptions in the cost budget.
      * 
      */
     private Boolean includeSubscription;
     /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+     * @return Whether to include support costs in the cost budget.
      * 
      */
     private Boolean includeSupport;
     /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
+     * @return Whether to include tax in the cost budget.
      * 
      */
     private Boolean includeTax;
     /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+     * @return Whether to include upfront costs in the cost budget.
      * 
      */
     private Boolean includeUpfront;
     /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`.
+     * @return Whether the budget uses the amortized rate.
      * 
      */
     private Boolean useAmortized;
     /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+     * @return Whether to use blended costs in the cost budget.
      * 
      */
     private Boolean useBlended;
 
     private GetBudgetCostType() {}
     /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
+     * @return Whether to include credits in the cost budget.
      * 
      */
     public Boolean includeCredit() {
         return this.includeCredit;
     }
     /**
-     * @return Whether a budget includes discounts. Defaults to `true`.
+     * @return Whether to include discounts in the cost budget.
      * 
      */
     public Boolean includeDiscount() {
         return this.includeDiscount;
     }
     /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+     * @return Whether to include other subscription costs in the cost budget.
      * 
      */
     public Boolean includeOtherSubscription() {
         return this.includeOtherSubscription;
     }
     /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+     * @return Whether to include recurring costs in the cost budget.
      * 
      */
     public Boolean includeRecurring() {
         return this.includeRecurring;
     }
     /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+     * @return Whether to include refunds in the cost budget.
      * 
      */
     public Boolean includeRefund() {
         return this.includeRefund;
     }
     /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+     * @return Whether to include subscriptions in the cost budget.
      * 
      */
     public Boolean includeSubscription() {
         return this.includeSubscription;
     }
     /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+     * @return Whether to include support costs in the cost budget.
      * 
      */
     public Boolean includeSupport() {
         return this.includeSupport;
     }
     /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
+     * @return Whether to include tax in the cost budget.
      * 
      */
     public Boolean includeTax() {
         return this.includeTax;
     }
     /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+     * @return Whether to include upfront costs in the cost budget.
      * 
      */
     public Boolean includeUpfront() {
         return this.includeUpfront;
     }
     /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`.
+     * @return Whether the budget uses the amortized rate.
      * 
      */
     public Boolean useAmortized() {
         return this.useAmortized;
     }
     /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+     * @return Whether to use blended costs in the cost budget.
      * 
      */
     public Boolean useBlended() {

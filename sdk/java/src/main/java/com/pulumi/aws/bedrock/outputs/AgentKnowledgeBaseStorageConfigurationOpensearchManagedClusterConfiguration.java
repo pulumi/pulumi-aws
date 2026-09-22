@@ -22,7 +22,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
      */
     private String domainEndpoint;
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
      * 
      */
     private AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
@@ -48,7 +48,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedCluste
         return this.domainEndpoint;
     }
     /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.opensearch_managed_cluster_configuration.field_mapping` Block for details.
      * 
      */
     public AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping() {

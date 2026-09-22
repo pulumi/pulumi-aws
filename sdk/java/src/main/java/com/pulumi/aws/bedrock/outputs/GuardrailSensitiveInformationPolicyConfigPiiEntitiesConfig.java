@@ -39,7 +39,7 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
      */
     private @Nullable Boolean outputEnabled;
     /**
-     * @return The currently supported PII entities.
+     * @return Currently supported PII entities.
      * 
      */
     private String type;
@@ -81,7 +81,7 @@ public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
         return Optional.ofNullable(this.outputEnabled);
     }
     /**
-     * @return The currently supported PII entities.
+     * @return Currently supported PII entities.
      * 
      */
     public String type() {

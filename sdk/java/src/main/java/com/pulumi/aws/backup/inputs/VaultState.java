@@ -19,14 +19,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     public static final VaultState Empty = new VaultState();
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * @return Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -49,14 +49,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The server-side encryption key that is used to protect your backups.
+     * @return Server-side encryption key that is used to protect your backups.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -79,14 +79,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of recovery points that are stored in a backup vault.
+     * Number of recovery points that are stored in a backup vault.
      * 
      */
     @Import(name="recoveryPoints")
     private @Nullable Output<Integer> recoveryPoints;
 
     /**
-     * @return The number of recovery points that are stored in a backup vault.
+     * @return Number of recovery points that are stored in a backup vault.
      * 
      */
     public Optional<Output<Integer>> recoveryPoints() {
@@ -124,14 +124,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -170,7 +170,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the vault.
+         * @param arn ARN of the vault.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the vault.
+         * @param arn ARN of the vault.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * @param forceDestroy Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+         * @param forceDestroy Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The server-side encryption key that is used to protect your backups.
+         * @param kmsKeyArn Server-side encryption key that is used to protect your backups.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The server-side encryption key that is used to protect your backups.
+         * @param kmsKeyArn Server-side encryption key that is used to protect your backups.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryPoints The number of recovery points that are stored in a backup vault.
+         * @param recoveryPoints Number of recovery points that are stored in a backup vault.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryPoints The number of recovery points that are stored in a backup vault.
+         * @param recoveryPoints Number of recovery points that are stored in a backup vault.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

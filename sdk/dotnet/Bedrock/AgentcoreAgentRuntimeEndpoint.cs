@@ -59,8 +59,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("agentRuntimeId")]
         public Output<string> AgentRuntimeId { get; private set; } = null!;
@@ -79,6 +77,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the agent runtime endpoint.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -152,8 +152,6 @@ namespace Pulumi.Aws.Bedrock
     {
         /// <summary>
         /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("agentRuntimeId", required: true)]
         public Input<string> AgentRuntimeId { get; set; } = null!;
@@ -172,6 +170,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the agent runtime endpoint.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -219,8 +219,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("agentRuntimeId")]
         public Input<string>? AgentRuntimeId { get; set; }
@@ -239,6 +237,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the agent runtime endpoint.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

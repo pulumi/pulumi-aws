@@ -33,14 +33,14 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
      * 
      */
     @Import(name="lifecycle")
     private @Nullable Output<PlanRuleCopyActionLifecycleArgs> lifecycle;
 
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
      * 
      */
     public Optional<Output<PlanRuleCopyActionLifecycleArgs>> lifecycle() {
@@ -94,7 +94,7 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * @param lifecycle Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * @param lifecycle Lifecycle that defines when a protected resource is copied over to a backup vault and when it expires. Detailed below.
          * 
          * @return builder
          * 

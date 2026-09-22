@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class InferenceProfileModel {
     /**
-     * @return The ARN of the model.
+     * @return ARN of the model.
      * 
      */
     private String modelArn;
 
     private InferenceProfileModel() {}
     /**
-     * @return The ARN of the model.
+     * @return ARN of the model.
      * 
      */
     public String modelArn() {

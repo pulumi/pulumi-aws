@@ -77,42 +77,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/vault:Vault")
 public class Vault extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+     * @return Whether to delete all recovery points stored in the vault so that the vault can be destroyed without error. Default value: `false`.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * The server-side encryption key that is used to protect your backups.
+     * Server-side encryption key that is used to protect your backups.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The server-side encryption key that is used to protect your backups.
+     * @return Server-side encryption key that is used to protect your backups.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -133,14 +133,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The number of recovery points that are stored in a backup vault.
+     * Number of recovery points that are stored in a backup vault.
      * 
      */
     @Export(name="recoveryPoints", refs={Integer.class}, tree="[0]")
     private Output<Integer> recoveryPoints;
 
     /**
-     * @return The number of recovery points that are stored in a backup vault.
+     * @return Number of recovery points that are stored in a backup vault.
      * 
      */
     public Output<Integer> recoveryPoints() {
@@ -175,14 +175,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// The regex description.
+        /// Regex description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<bool>? InputEnabled { get; set; }
 
         /// <summary>
-        /// The regex name.
+        /// Regex name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<bool>? OutputEnabled { get; set; }
 
         /// <summary>
-        /// The regex pattern.
+        /// Regex pattern.
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;

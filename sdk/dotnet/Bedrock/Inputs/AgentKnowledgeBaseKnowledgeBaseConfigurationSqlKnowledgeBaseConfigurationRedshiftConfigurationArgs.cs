@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configurations for an Amazon Redshift query engine. See `QueryEngineConfiguration` block for details.
+        /// Configurations for an Amazon Redshift query engine. See `QueryEngineConfiguration` Block for details.
         /// </summary>
         [Input("queryEngineConfiguration", required: true)]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> QueryEngineConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Configurations for generating queries. See `QueryGenerationConfiguration` block for details.
+        /// Configurations for generating queries. See `QueryGenerationConfiguration` Block for details.
         /// </summary>
         [Input("queryGenerationConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs>? QueryGenerationConfiguration { get; set; }
 
         /// <summary>
-        /// Configurations for Amazon Redshift database storage. See `StorageConfiguration` block for details.
+        /// Configurations for Amazon Redshift database storage. See `knowledge_base_configuration.sql_knowledge_base_configuration.redshift_configuration.storage_configuration` Block for details.
         /// </summary>
         [Input("storageConfiguration", required: true)]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> StorageConfiguration { get; set; } = null!;

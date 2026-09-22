@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationInferenceConnectorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Source configuration identifying which connector to use. See `Source` Block below.
+        /// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceGetArgs> Source { get; set; } = null!;

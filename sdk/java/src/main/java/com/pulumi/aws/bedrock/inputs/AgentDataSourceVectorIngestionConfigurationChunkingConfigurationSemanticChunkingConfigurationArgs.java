@@ -15,14 +15,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs();
 
     /**
-     * The dissimilarity threshold for splitting chunks.
+     * Dissimilarity threshold for splitting chunks.
      * 
      */
     @Import(name="breakpointPercentileThreshold", required=true)
     private Output<Integer> breakpointPercentileThreshold;
 
     /**
-     * @return The dissimilarity threshold for splitting chunks.
+     * @return Dissimilarity threshold for splitting chunks.
      * 
      */
     public Output<Integer> breakpointPercentileThreshold() {
@@ -30,14 +30,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
 
     /**
-     * The buffer size.
+     * Buffer size.
      * 
      */
     @Import(name="bufferSize", required=true)
     private Output<Integer> bufferSize;
 
     /**
-     * @return The buffer size.
+     * @return Buffer size.
      * 
      */
     public Output<Integer> bufferSize() {
@@ -45,14 +45,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
 
     /**
-     * The maximum number of tokens a chunk can contain.
+     * Maximum number of tokens a chunk can contain.
      * 
      */
     @Import(name="maxToken", required=true)
     private Output<Integer> maxToken;
 
     /**
-     * @return The maximum number of tokens a chunk can contain.
+     * @return Maximum number of tokens a chunk can contain.
      * 
      */
     public Output<Integer> maxToken() {
@@ -86,7 +86,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param breakpointPercentileThreshold The dissimilarity threshold for splitting chunks.
+         * @param breakpointPercentileThreshold Dissimilarity threshold for splitting chunks.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param breakpointPercentileThreshold The dissimilarity threshold for splitting chunks.
+         * @param breakpointPercentileThreshold Dissimilarity threshold for splitting chunks.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param bufferSize The buffer size.
+         * @param bufferSize Buffer size.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param bufferSize The buffer size.
+         * @param bufferSize Buffer size.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param maxToken The maximum number of tokens a chunk can contain.
+         * @param maxToken Maximum number of tokens a chunk can contain.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         /**
-         * @param maxToken The maximum number of tokens a chunk can contain.
+         * @param maxToken Maximum number of tokens a chunk can contain.
          * 
          * @return builder
          * 

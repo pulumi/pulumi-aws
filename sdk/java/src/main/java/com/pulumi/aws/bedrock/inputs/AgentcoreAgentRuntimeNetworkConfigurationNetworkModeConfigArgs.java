@@ -19,14 +19,14 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArg
     public static final AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs Empty = new AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs();
 
     /**
-     * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
      * 
      */
     @Import(name="requireServiceS3Endpoint")
     private @Nullable Output<Boolean> requireServiceS3Endpoint;
 
     /**
-     * @return Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * @return Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
      * 
      */
     public Optional<Output<Boolean>> requireServiceS3Endpoint() {
@@ -90,7 +90,7 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArg
         }
 
         /**
-         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArg
         }
 
         /**
-         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
          * 
          * @return builder
          * 

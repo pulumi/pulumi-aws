@@ -15,14 +15,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs();
 
     /**
-     * Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+     * Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     @Import(name="segmentationConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs> segmentationConfiguration;
 
     /**
-     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+     * @return Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs> segmentationConfiguration() {
@@ -54,7 +54,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param segmentationConfiguration Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * @param segmentationConfiguration Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         }
 
         /**
-         * @param segmentationConfiguration Configuration for segmenting video content during processing. See `segmentationConfiguration` block for details.
+         * @param segmentationConfiguration Configuration for segmenting video content during processing. See `segmentationConfiguration` Block for details.
          * 
          * @return builder
          * 

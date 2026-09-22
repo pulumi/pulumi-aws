@@ -249,6 +249,18 @@
     {
       "old": "~> **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so Terraform does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.",
       "new": "~> **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service."
+    },
+    {
+      "old": "A newly-created Auto Scaling Group takes time to initialize the instances that make up the group. If Terraform is behind a load balancer, it also takes time for instances to register and pass health checks. The following arguments control how long Terraform waits for instances to become healthy before considering the create or update operation complete:\n",
+      "new": "A newly-created Auto Scaling Group takes time to initialize the instances that make up the group. If the provider is behind a load balancer, it also takes time for instances to register and pass health checks. The following arguments control how long the provider waits for instances to become healthy before considering the create or update operation complete:\n"
+    },
+    {
+      "old": "* `min_size` and `desired_capacity` set the target number of instances Terraform waits for.\n",
+      "new": "* `min_size` and `desired_capacity` set the target number of instances the provider waits for.\n"
+    },
+    {
+      "old": "* `wait_for_capacity_timeout` sets the maximum duration Terraform waits for the target number of instances to become healthy. Setting this to `\"0\"` skips all capacity waiting behavior.\n",
+      "new": "* `wait_for_capacity_timeout` sets the maximum duration the provider waits for the target number of instances to become healthy. Setting this to `\"0\"` skips all capacity waiting behavior.\n"
     }
   ],
   "autoscaling_group_tag.html.markdown": [

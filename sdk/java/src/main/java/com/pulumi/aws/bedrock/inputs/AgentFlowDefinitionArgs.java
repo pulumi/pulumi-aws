@@ -18,14 +18,14 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
     public static final AgentFlowDefinitionArgs Empty = new AgentFlowDefinitionArgs();
 
     /**
-     * A list of connection definitions in the flow. See Connection for more information.
+     * List of connection definitions in the flow. See `definition.connection` Block for details.
      * 
      */
     @Import(name="connections")
     private @Nullable Output<List<AgentFlowDefinitionConnectionArgs>> connections;
 
     /**
-     * @return A list of connection definitions in the flow. See Connection for more information.
+     * @return List of connection definitions in the flow. See `definition.connection` Block for details.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionConnectionArgs>>> connections() {
@@ -33,14 +33,14 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of node definitions in the flow. See Node for more information.
+     * List of node definitions in the flow. See `definition.node` Block for details.
      * 
      */
     @Import(name="nodes")
     private @Nullable Output<List<AgentFlowDefinitionNodeArgs>> nodes;
 
     /**
-     * @return A list of node definitions in the flow. See Node for more information.
+     * @return List of node definitions in the flow. See `definition.node` Block for details.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeArgs>>> nodes() {
@@ -73,7 +73,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
+         * @param connections List of connection definitions in the flow. See `definition.connection` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
+         * @param connections List of connection definitions in the flow. See `definition.connection` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param connections A list of connection definitions in the flow. See Connection for more information.
+         * @param connections List of connection definitions in the flow. See `definition.connection` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
+         * @param nodes List of node definitions in the flow. See `definition.node` Block for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
+         * @param nodes List of node definitions in the flow. See `definition.node` Block for details.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AgentFlowDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nodes A list of node definitions in the flow. See Node for more information.
+         * @param nodes List of node definitions in the flow. See `definition.node` Block for details.
          * 
          * @return builder
          * 

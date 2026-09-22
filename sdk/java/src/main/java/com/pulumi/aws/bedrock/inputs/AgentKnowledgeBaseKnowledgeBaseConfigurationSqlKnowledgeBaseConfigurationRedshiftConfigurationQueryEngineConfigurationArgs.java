@@ -19,14 +19,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs();
 
     /**
-     * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+     * Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
      * 
      */
     @Import(name="provisionedConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs> provisionedConfiguration;
 
     /**
-     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+     * @return Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs>> provisionedConfiguration() {
@@ -34,14 +34,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
     }
 
     /**
-     * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+     * Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
      * 
      */
     @Import(name="serverlessConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs> serverlessConfiguration;
 
     /**
-     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+     * @return Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs>> serverlessConfiguration() {
@@ -90,7 +90,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` block for details.
+         * @param provisionedConfiguration Configurations for a provisioned Amazon Redshift query engine. See `provisionedConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         /**
-         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` block for details.
+         * @param serverlessConfiguration Configurations for a serverless Amazon Redshift query engine. See `serverlessConfiguration` Block for details.
          * 
          * @return builder
          * 

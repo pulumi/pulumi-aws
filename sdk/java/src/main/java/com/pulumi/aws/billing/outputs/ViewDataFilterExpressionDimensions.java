@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ViewDataFilterExpressionDimensions {
     /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+     * @return Key of the dimension. Valid values are `LINKED_ACCOUNT`.
      * 
      */
     private String key;
@@ -24,7 +24,7 @@ public final class ViewDataFilterExpressionDimensions {
 
     private ViewDataFilterExpressionDimensions() {}
     /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+     * @return Key of the dimension. Valid values are `LINKED_ACCOUNT`.
      * 
      */
     public String key() {

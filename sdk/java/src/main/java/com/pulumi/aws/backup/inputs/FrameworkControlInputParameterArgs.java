@@ -16,14 +16,14 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
     public static final FrameworkControlInputParameterArgs Empty = new FrameworkControlInputParameterArgs();
 
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * Name of a parameter, for example, BackupPlanFrequency.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return Name of a parameter, for example, BackupPlanFrequency.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
     }
 
     /**
-     * The value of parameter, for example, hourly.
+     * Value of parameter, for example, hourly.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of parameter, for example, hourly.
+     * @return Value of parameter, for example, hourly.
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name Name of a parameter, for example, BackupPlanFrequency.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name Name of a parameter, for example, BackupPlanFrequency.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The value of parameter, for example, hourly.
+         * @param value Value of parameter, for example, hourly.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The value of parameter, for example, hourly.
+         * @param value Value of parameter, for example, hourly.
          * 
          * @return builder
          * 

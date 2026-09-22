@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationSharePointConfiguration
     {
+        /// <summary>
+        /// Configuration for SharePoint content. See `data_source_configuration.share_point_configuration.crawler_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration? CrawlerConfiguration;
+        /// <summary>
+        /// Endpoint information to connect to your SharePoint data source. See `data_source_configuration.share_point_configuration.source_configuration` Block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration? SourceConfiguration;
 
         [OutputConstructor]

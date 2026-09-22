@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _stopSequences;
 
         /// <summary>
-        /// List of strings that define sequences after which the model will stop generating.
+        /// List of strings that define sequences after which the model stops generating.
         /// </summary>
         public InputList<string> StopSequences
         {

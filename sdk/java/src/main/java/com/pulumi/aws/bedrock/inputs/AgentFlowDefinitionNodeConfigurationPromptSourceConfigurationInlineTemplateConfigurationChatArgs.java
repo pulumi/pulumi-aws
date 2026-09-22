@@ -20,22 +20,30 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs();
 
+    /**
+     * Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+     * 
+     */
     @Import(name="inputVariables")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs>> inputVariables;
 
+    /**
+     * @return Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+     * 
+     */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs>>> inputVariables() {
         return Optional.ofNullable(this.inputVariables);
     }
 
     /**
-     * A list of messages in the chat for the prompt. See Message for more information.
+     * Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
      * 
      */
     @Import(name="messages", required=true)
     private Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages;
 
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
      * 
      */
     public Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs>> messages() {
@@ -43,14 +51,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
      * 
      */
     @Import(name="systems")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>> systems;
 
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs>>> systems() {
@@ -58,14 +66,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
      * 
      */
     @Import(name="toolConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs> toolConfiguration;
 
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs>> toolConfiguration() {
@@ -99,21 +107,39 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs>> inputVariables) {
             $.inputVariables = inputVariables;
             return this;
         }
 
+        /**
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs> inputVariables) {
             return inputVariables(Output.of(inputVariables));
         }
 
+        /**
+         * @param inputVariables Variables in the prompt template. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.input_variable` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs... inputVariables) {
             return inputVariables(List.of(inputVariables));
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
          * 
          * @return builder
          * 
@@ -124,7 +150,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
          * 
          * @return builder
          * 
@@ -134,7 +160,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages Messages in the chat for the prompt. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message` Block for details.
          * 
          * @return builder
          * 
@@ -144,7 +170,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
          * 
          * @return builder
          * 
@@ -155,7 +181,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
          * 
          * @return builder
          * 
@@ -165,7 +191,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems System prompts that provide context to the model or describe how it should behave. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.system` Block for details.
          * 
          * @return builder
          * 
@@ -175,7 +201,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +212,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.tool_configuration` Block for details.
          * 
          * @return builder
          * 

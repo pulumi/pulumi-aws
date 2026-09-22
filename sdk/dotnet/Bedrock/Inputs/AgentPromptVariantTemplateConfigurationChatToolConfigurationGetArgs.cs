@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines which tools the model should request when invoked. See Tool Choice for more information.
+        /// Configuration for which tools the model should request when invoked. See `ToolChoice` Block for more information.
         /// </summary>
         [Input("toolChoice")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceGetArgs>? ToolChoice { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolGetArgs>? _tools;
 
         /// <summary>
-        /// A list of tools to pass to a model. See Tool for more information.
+        /// List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolGetArgs> Tools
         {

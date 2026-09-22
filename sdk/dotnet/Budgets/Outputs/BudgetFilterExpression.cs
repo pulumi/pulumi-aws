@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetFilterExpression
     {
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetFilterExpressionAnd> Ands;
         /// <summary>
-        /// (Optional) A Cost Category Filter block.
+        /// Cost Categories block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionCostCategories? CostCategories;
         /// <summary>
-        /// (Optional) A Dimension Filter block.
+        /// Dimensions block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionDimensions? Dimensions;
         /// <summary>
-        /// (Optional) A single filter expression to negate. Must contain exactly one root.
+        /// Single filter expression to negate. Must contain exactly one root.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionNot? Not;
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetFilterExpressionOr> Ors;
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags block.
         /// </summary>
         public readonly Outputs.BudgetFilterExpressionTags? Tags;
 

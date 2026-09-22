@@ -77,10 +77,7 @@ class GetJobQueueResult:
     @pulumi.getter(name="computeEnvironmentOrders")
     def compute_environment_orders(self) -> Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']:
         """
-        The compute environments that are attached to the job queue and the order in
-        which job placement is preferred. Compute environments are selected for job placement in ascending order.
-        * `compute_environment_order.#.order` - The order of the compute environment.
-        * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+        Compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
         """
         return pulumi.get(self, "compute_environment_orders")
 
@@ -96,11 +93,7 @@ class GetJobQueueResult:
     @pulumi.getter(name="jobStateTimeLimitActions")
     def job_state_time_limit_actions(self) -> Sequence['outputs.GetJobQueueJobStateTimeLimitActionResult']:
         """
-        Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-        * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-        * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-        * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+        Action that AWS Batch takes after the job has remained at the head of the queue in the specified state for longer than the specified time.
         """
         return pulumi.get(self, "job_state_time_limit_actions")
 
@@ -113,8 +106,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        Priority of the job queue. Job queues with a higher priority are evaluated first when
-        associated with the same compute environment.
+        Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
         """
         return pulumi.get(self, "priority")
 
@@ -127,7 +119,7 @@ class GetJobQueueResult:
     @pulumi.getter(name="schedulingPolicyArn")
     def scheduling_policy_arn(self) -> _builtins.str:
         """
-        The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+        ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
         """
         return pulumi.get(self, "scheduling_policy_arn")
 
@@ -135,7 +127,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+        Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
         """
         return pulumi.get(self, "state")
 
@@ -151,8 +143,7 @@ class GetJobQueueResult:
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
         """
-        Short, human-readable string to provide additional details about the current status
-        of the job queue.
+        Short, human-readable string to provide additional details about the current status of the job queue.
         """
         return pulumi.get(self, "status_reason")
 
@@ -160,7 +151,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        Key-value map of resource tags
+        Key-value map of resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -205,7 +196,7 @@ def get_job_queue(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Name of the job queue.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -247,7 +238,7 @@ def get_job_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str name: Name of the job queue.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name

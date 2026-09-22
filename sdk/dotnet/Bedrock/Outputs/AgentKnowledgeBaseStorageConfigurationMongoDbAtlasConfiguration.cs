@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration
     {
         /// <summary>
-        /// The name of the collection in the MongoDB Atlas database.
+        /// Name of the collection in the MongoDB Atlas database.
         /// </summary>
         public readonly string CollectionName;
         /// <summary>
-        /// The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
+        /// ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
         /// </summary>
         public readonly string CredentialsSecretArn;
         /// <summary>
-        /// The name of the database in the MongoDB Atlas database.
+        /// Name of the database in the MongoDB Atlas database.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// The endpoint URL of the MongoDB Atlas database.
+        /// Endpoint URL of the MongoDB Atlas database.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The name of the service that hosts the MongoDB Atlas database.
+        /// Name of the service that hosts the MongoDB Atlas database.
         /// </summary>
         public readonly string? EndpointServiceName;
         /// <summary>
-        /// Contains the names of the fields to which to map information about the vector store.
+        /// Names of the fields to which to map information about the vector store. See `storage_configuration.mongo_db_atlas_configuration.field_mapping` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping FieldMapping;
         /// <summary>
-        /// The name of the vector index.
+        /// Name of the vector index.
         /// </summary>
         public readonly string? TextIndexName;
         /// <summary>
-        /// The name of the vector index.
+        /// Name of the vector index.
         /// </summary>
         public readonly string VectorIndexName;
 

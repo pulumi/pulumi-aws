@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Billing.Inputs
     public sealed class ViewDataFilterExpressionDimensionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+        /// Key of the dimension. Valid values are `LINKED_ACCOUNT`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

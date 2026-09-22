@@ -207,7 +207,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly eksConfiguration: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -223,15 +223,15 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly serviceRole: pulumi.Output<string>;
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     declare public readonly state: pulumi.Output<string | undefined>;
     /**
-     * The current status of the compute environment (for example, CREATING or VALID).
+     * Current status of the compute environment (for example, CREATING or VALID).
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     * Short, human-readable string to provide additional details about the current status of the compute environment.
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
@@ -239,15 +239,15 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      */
     declare public readonly updatePolicy: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy>;
 
@@ -326,7 +326,7 @@ export interface ComputeEnvironmentState {
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -342,15 +342,15 @@ export interface ComputeEnvironmentState {
      */
     serviceRole?: pulumi.Input<string | undefined>;
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the compute environment (for example, CREATING or VALID).
+     * Current status of the compute environment (for example, CREATING or VALID).
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     * Short, human-readable string to provide additional details about the current status of the compute environment.
      */
     statusReason?: pulumi.Input<string | undefined>;
     /**
@@ -358,15 +358,15 @@ export interface ComputeEnvironmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      */
     updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 }
@@ -384,7 +384,7 @@ export interface ComputeEnvironmentArgs {
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -400,7 +400,7 @@ export interface ComputeEnvironmentArgs {
      */
     serviceRole?: pulumi.Input<string | undefined>;
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     state?: pulumi.Input<string | undefined>;
     /**
@@ -408,11 +408,11 @@ export interface ComputeEnvironmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type: pulumi.Input<string>;
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      */
     updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 }

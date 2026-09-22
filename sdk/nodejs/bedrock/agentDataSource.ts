@@ -183,7 +183,7 @@ export class AgentDataSource extends pulumi.CustomResource {
      */
     declare public readonly dataDeletionPolicy: pulumi.Output<string>;
     /**
-     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     * Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
      */
     declare public readonly dataSourceConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration>;
     /**
@@ -209,12 +209,12 @@ export class AgentDataSource extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
      */
     declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentDataSourceTimeouts | undefined>;
     /**
-     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     * Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
      */
     declare public readonly vectorIngestionConfiguration: pulumi.Output<outputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
 
@@ -274,7 +274,7 @@ export interface AgentDataSourceState {
      */
     dataDeletionPolicy?: pulumi.Input<string | undefined>;
     /**
-     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     * Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
      */
     dataSourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration | undefined>;
     /**
@@ -300,12 +300,12 @@ export interface AgentDataSourceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentDataSourceTimeouts | undefined>;
     /**
-     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     * Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
      */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
 }
@@ -319,7 +319,7 @@ export interface AgentDataSourceArgs {
      */
     dataDeletionPolicy?: pulumi.Input<string | undefined>;
     /**
-     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     * Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
      */
     dataSourceConfiguration: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration>;
     /**
@@ -341,12 +341,12 @@ export interface AgentDataSourceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentDataSourceTimeouts | undefined>;
     /**
-     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     * Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
      */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
 }

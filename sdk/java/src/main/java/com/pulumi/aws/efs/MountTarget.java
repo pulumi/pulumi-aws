@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var alphaSubnet = new Subnet("alphaSubnet", SubnetArgs.builder()
- *             .vpcId(foo.id())
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .vpcId(exampleVpc.id())
  *             .availabilityZone("us-west-2a")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()
- *             .fileSystemId(fooAwsEfsFileSystem.id())
- *             .subnetId(alphaSubnet.id())
+ *         var example = new MountTarget("example", MountTargetArgs.builder()
+ *             .fileSystemId(exampleAwsEfsFileSystem.id())
+ *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *     }
@@ -67,10 +67,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the mount target.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * $ pulumi import aws:efs/mountTarget:MountTarget example fsmt-52a643fb
  * ```
  * 
  */

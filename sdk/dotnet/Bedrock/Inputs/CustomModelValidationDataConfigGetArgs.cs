@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.CustomModelValidationDataConfigValidatorGetArgs>? _validators;
 
         /// <summary>
-        /// Information about the validators.
+        /// Information about the validators. See `Validator` below.
         /// </summary>
         public InputList<Inputs.CustomModelValidationDataConfigValidatorGetArgs> Validators
         {

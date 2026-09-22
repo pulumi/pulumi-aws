@@ -247,16 +247,12 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="actionGroupExecutor", refs={AgentAgentActionGroupActionGroupExecutor.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupActionGroupExecutor> actionGroupExecutor;
 
     /**
      * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<AgentAgentActionGroupActionGroupExecutor>> actionGroupExecutor() {
@@ -305,14 +301,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return this.actionGroupState;
     }
     /**
-     * The unique identifier of the agent for which to create the action group.
+     * Unique identifier of the agent for which to create the action group.
      * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
 
     /**
-     * @return The unique identifier of the agent for which to create the action group.
+     * @return Unique identifier of the agent for which to create the action group.
      * 
      */
     public Output<String> agentId() {
@@ -321,12 +317,16 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
      * @return Version of the agent for which to create the action group. Valid values: `DRAFT`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> agentVersion() {
@@ -361,18 +361,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      * 
      */
     @Export(name="functionSchema", refs={AgentAgentActionGroupFunctionSchema.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupFunctionSchema> functionSchema;
 
     /**
-     * @return Describes the function schema for the action group.
-     * Each function represents an action in an action group.
-     * See `functionSchema` Block for details.
+     * @return Function schema for the action group. Each function represents an action in an action group. See `functionSchema` Block for details.
      * 
      */
     public Output<Optional<AgentAgentActionGroupFunctionSchema>> functionSchema() {

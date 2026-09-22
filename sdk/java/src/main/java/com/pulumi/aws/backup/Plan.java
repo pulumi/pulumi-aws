@@ -93,42 +93,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/plan:Plan")
 public class Plan extends com.pulumi.resources.CustomResource {
     /**
-     * An object that specifies backup options for each resource type.
+     * Object that specifies backup options for each resource type. Detailed below.
      * 
      */
     @Export(name="advancedBackupSettings", refs={List.class,PlanAdvancedBackupSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanAdvancedBackupSetting>> advancedBackupSettings;
 
     /**
-     * @return An object that specifies backup options for each resource type.
+     * @return Object that specifies backup options for each resource type. Detailed below.
      * 
      */
     public Output<Optional<List<PlanAdvancedBackupSetting>>> advancedBackupSettings() {
         return Codegen.optional(this.advancedBackupSettings);
     }
     /**
-     * The ARN of the backup plan.
+     * ARN of the backup plan.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the backup plan.
+     * @return ARN of the backup plan.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The display name of a backup plan.
+     * @return Display name of a backup plan.
      * 
      */
     public Output<String> name() {
@@ -149,14 +149,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      * 
      */
     @Export(name="rules", refs={List.class,PlanRule.class}, tree="[0,1]")
     private Output<List<PlanRule>> rules;
 
     /**
-     * @return A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * @return Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      * 
      */
     public Output<List<PlanRule>> rules() {
@@ -191,14 +191,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

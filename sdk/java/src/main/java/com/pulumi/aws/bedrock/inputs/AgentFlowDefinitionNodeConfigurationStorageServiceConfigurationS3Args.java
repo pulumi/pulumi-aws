@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurati
     public static final AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args Empty = new AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args();
 
     /**
-     * The name of the Amazon S3 bucket in which to store the input into the node.
+     * Name of the Amazon S3 bucket in which to store the input into the node.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * @return Name of the Amazon S3 bucket in which to store the input into the node.
      * 
      */
     public Output<String> bucketName() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurati
         }
 
         /**
-         * @param bucketName The name of the Amazon S3 bucket in which to store the input into the node.
+         * @param bucketName Name of the Amazon S3 bucket in which to store the input into the node.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurati
         }
 
         /**
-         * @param bucketName The name of the Amazon S3 bucket in which to store the input into the node.
+         * @param bucketName Name of the Amazon S3 bucket in which to store the input into the node.
          * 
          * @return builder
          * 

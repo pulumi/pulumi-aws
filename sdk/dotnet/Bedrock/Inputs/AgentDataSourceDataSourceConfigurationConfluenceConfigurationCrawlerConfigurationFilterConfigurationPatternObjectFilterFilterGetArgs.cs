@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("exclusionFilters")]
         private InputList<string>? _exclusionFilters;
+
+        /// <summary>
+        /// One or more exclusion regular expression patterns to exclude object types that match the pattern.
+        /// </summary>
         public InputList<string> ExclusionFilters
         {
             get => _exclusionFilters ?? (_exclusionFilters = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("inclusionFilters")]
         private InputList<string>? _inclusionFilters;
+
+        /// <summary>
+        /// One or more inclusion regular expression patterns to include object types that match the pattern.
+        /// </summary>
         public InputList<string> InclusionFilters
         {
             get => _inclusionFilters ?? (_inclusionFilters = new InputList<string>());
@@ -29,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// The supported object type or content type of the data source.
+        /// Object type or content type of the data source.
         /// </summary>
         [Input("objectType", required: true)]
         public Input<string> ObjectType { get; set; } = null!;

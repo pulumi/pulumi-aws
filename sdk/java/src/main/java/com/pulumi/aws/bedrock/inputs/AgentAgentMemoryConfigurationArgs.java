@@ -18,14 +18,14 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
     public static final AgentAgentMemoryConfigurationArgs Empty = new AgentAgentMemoryConfigurationArgs();
 
     /**
-     * The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+     * Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
      * 
      */
     @Import(name="enabledMemoryTypes", required=true)
     private Output<List<String>> enabledMemoryTypes;
 
     /**
-     * @return The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+     * @return Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
      * 
      */
     public Output<List<String>> enabledMemoryTypes() {
@@ -48,14 +48,14 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+     * Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
      * 
      */
     @Import(name="storageDays", required=true)
     private Output<Integer> storageDays;
 
     /**
-     * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+     * @return Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
      * 
      */
     public Output<Integer> storageDays() {
@@ -89,7 +89,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+         * @param enabledMemoryTypes Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+         * @param enabledMemoryTypes Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+         * @param enabledMemoryTypes Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageDays The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+         * @param storageDays Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageDays The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+         * @param storageDays Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class CustomModelValidationDataConfigValidatorArgs extends com.pulu
     public static final CustomModelValidationDataConfigValidatorArgs Empty = new CustomModelValidationDataConfigValidatorArgs();
 
     /**
-     * The S3 URI where the validation data is stored.
+     * S3 URI where the validation data is stored.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return The S3 URI where the validation data is stored.
+     * @return S3 URI where the validation data is stored.
      * 
      */
     public Output<String> s3Uri() {
@@ -54,7 +54,7 @@ public final class CustomModelValidationDataConfigValidatorArgs extends com.pulu
         }
 
         /**
-         * @param s3Uri The S3 URI where the validation data is stored.
+         * @param s3Uri S3 URI where the validation data is stored.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CustomModelValidationDataConfigValidatorArgs extends com.pulu
         }
 
         /**
-         * @param s3Uri The S3 URI where the validation data is stored.
+         * @param s3Uri S3 URI where the validation data is stored.
          * 
          * @return builder
          * 

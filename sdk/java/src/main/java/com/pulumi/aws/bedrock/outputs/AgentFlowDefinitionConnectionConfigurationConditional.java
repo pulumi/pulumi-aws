@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionConnectionConfigurationConditional {
     /**
-     * @return The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     private String condition;
 
     private AgentFlowDefinitionConnectionConfigurationConditional() {}
     /**
-     * @return The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * @return List of conditions. See `definition.node.configuration.condition.condition` Block for details.
      * 
      */
     public String condition() {

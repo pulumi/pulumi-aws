@@ -438,7 +438,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
                  large_data_delivery_s3_config: Optional['outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config'] = None):
         """
         :param _builtins.str log_group_name: Log group name.
-        :param _builtins.str role_arn: The role ARN.
+        :param _builtins.str role_arn: Role ARN.
         :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs' large_data_delivery_s3_config: S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
@@ -458,7 +458,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The role ARN.
+        Role ARN.
         """
         return pulumi.get(self, "role_arn")
 

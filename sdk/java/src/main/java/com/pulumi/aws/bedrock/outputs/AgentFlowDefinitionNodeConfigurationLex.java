@@ -16,7 +16,7 @@ public final class AgentFlowDefinitionNodeConfigurationLex {
      */
     private String botAliasArn;
     /**
-     * @return The Region to invoke the Amazon Lex bot in
+     * @return Region to invoke the Amazon Lex bot in.
      * 
      */
     private String localeId;
@@ -30,7 +30,7 @@ public final class AgentFlowDefinitionNodeConfigurationLex {
         return this.botAliasArn;
     }
     /**
-     * @return The Region to invoke the Amazon Lex bot in
+     * @return Region to invoke the Amazon Lex bot in.
      * 
      */
     public String localeId() {

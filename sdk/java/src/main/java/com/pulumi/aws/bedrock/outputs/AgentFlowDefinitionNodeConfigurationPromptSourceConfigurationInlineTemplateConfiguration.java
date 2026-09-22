@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
     /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * @return Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat chat;
     /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration() {}
     /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * @return Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat> chat() {
         return Optional.ofNullable(this.chat);
     }
     /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText> text() {

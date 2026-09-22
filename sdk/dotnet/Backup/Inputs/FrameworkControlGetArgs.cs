@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// The name of a control. This name is between 1 and 256 characters.
+        /// Name of a control. This name is between 1 and 256 characters.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        /// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.FrameworkControlScopeGetArgs>? Scope { get; set; }

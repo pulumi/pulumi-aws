@@ -36,14 +36,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Items definition for array properties. See `items` Block above.
+     * Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
      * 
      */
     @Import(name="items")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs> items;
 
     /**
-     * @return Items definition for array properties. See `items` Block above.
+     * @return Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs>> items() {
@@ -66,14 +66,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Set of nested property definitions for object properties.
+     * Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
      * 
      */
     @Import(name="properties")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs>> properties;
 
     /**
-     * @return Set of nested property definitions for object properties.
+     * @return Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs>>> properties() {
@@ -161,7 +161,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Items definition for array properties. See `items` Block above.
+         * @param items Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Items definition for array properties. See `items` Block above.
+         * @param items Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of nested property definitions for object properties.
+         * @param properties Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of nested property definitions for object properties.
+         * @param properties Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of nested property definitions for object properties.
+         * @param properties Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
          * 
          * @return builder
          * 

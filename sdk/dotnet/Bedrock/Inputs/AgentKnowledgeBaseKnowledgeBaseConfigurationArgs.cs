@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` block for details.
+        /// Settings for an Amazon Kendra knowledge base. See `KendraKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("kendraKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs>? KendraKnowledgeBaseConfiguration { get; set; }
 
         /// <summary>
-        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` block for details.
+        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("managedKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs>? ManagedKnowledgeBaseConfiguration { get; set; }
 
         /// <summary>
-        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
+        /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("sqlKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs>? SqlKnowledgeBaseConfiguration { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` block for details.
+        /// Details about the model that's used to convert the data source into vector embeddings. See `VectorKnowledgeBaseConfiguration` Block for details.
         /// </summary>
         [Input("vectorKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>? VectorKnowledgeBaseConfiguration { get; set; }

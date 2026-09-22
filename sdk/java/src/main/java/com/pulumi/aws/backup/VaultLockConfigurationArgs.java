@@ -33,14 +33,14 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     @Import(name="changeableForDays")
     private @Nullable Output<Integer> changeableForDays;
 
     /**
-     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+     * @return Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     public Optional<Output<Integer>> changeableForDays() {
@@ -48,14 +48,14 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The maximum retention period that the vault retains its recovery points.
+     * Maximum retention period that the vault retains its recovery points.
      * 
      */
     @Import(name="maxRetentionDays")
     private @Nullable Output<Integer> maxRetentionDays;
 
     /**
-     * @return The maximum retention period that the vault retains its recovery points.
+     * @return Maximum retention period that the vault retains its recovery points.
      * 
      */
     public Optional<Output<Integer>> maxRetentionDays() {
@@ -63,14 +63,14 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The minimum retention period that the vault retains its recovery points.
+     * Minimum retention period that the vault retains its recovery points.
      * 
      */
     @Import(name="minRetentionDays")
     private @Nullable Output<Integer> minRetentionDays;
 
     /**
-     * @return The minimum retention period that the vault retains its recovery points.
+     * @return Minimum retention period that the vault retains its recovery points.
      * 
      */
     public Optional<Output<Integer>> minRetentionDays() {
@@ -142,7 +142,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+         * @param changeableForDays Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+         * @param changeableForDays Number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxRetentionDays The maximum retention period that the vault retains its recovery points.
+         * @param maxRetentionDays Maximum retention period that the vault retains its recovery points.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxRetentionDays The maximum retention period that the vault retains its recovery points.
+         * @param maxRetentionDays Maximum retention period that the vault retains its recovery points.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minRetentionDays The minimum retention period that the vault retains its recovery points.
+         * @param minRetentionDays Minimum retention period that the vault retains its recovery points.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param minRetentionDays The minimum retention period that the vault retains its recovery points.
+         * @param minRetentionDays Minimum retention period that the vault retains its recovery points.
          * 
          * @return builder
          * 

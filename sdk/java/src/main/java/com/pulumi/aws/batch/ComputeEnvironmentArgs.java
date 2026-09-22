@@ -51,14 +51,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+     * @return Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -111,14 +111,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * @return State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -141,14 +141,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+     * @return Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     public Output<String> type() {
@@ -156,14 +156,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * Infrastructure update policy for the compute environment. See details below.
      * 
      */
     @Import(name="updatePolicy")
     private @Nullable Output<ComputeEnvironmentUpdatePolicyArgs> updatePolicy;
 
     /**
-     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * @return Infrastructure update policy for the compute environment. See details below.
      * 
      */
     public Optional<Output<ComputeEnvironmentUpdatePolicyArgs>> updatePolicy() {
@@ -246,7 +246,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * @param name Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+         * @param name Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param state The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param state State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param state The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param state State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+         * @param type Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+         * @param type Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * @param updatePolicy Infrastructure update policy for the compute environment. See details below.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * @param updatePolicy Infrastructure update policy for the compute environment. See details below.
          * 
          * @return builder
          * 

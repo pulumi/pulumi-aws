@@ -164,58 +164,56 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
     @Export(name="computeEnvironmentOrders", refs={List.class,JobQueueComputeEnvironmentOrder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<JobQueueComputeEnvironmentOrder>> computeEnvironmentOrders;
 
     /**
-     * @return The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+     * @return Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
     public Output<Optional<List<JobQueueComputeEnvironmentOrder>>> computeEnvironmentOrders() {
         return Codegen.optional(this.computeEnvironmentOrders);
     }
     /**
-     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
     @Export(name="jobStateTimeLimitActions", refs={List.class,JobQueueJobStateTimeLimitAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<JobQueueJobStateTimeLimitAction>> jobStateTimeLimitActions;
 
     /**
-     * @return The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * @return Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
     public Output<Optional<List<JobQueueJobStateTimeLimitAction>>> jobStateTimeLimitActions() {
         return Codegen.optional(this.jobStateTimeLimitActions);
     }
     /**
-     * Specifies the name of the job queue.
+     * Name of the job queue.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the job queue.
+     * @return Name of the job queue.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
+     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
      * 
      */
     public Output<Integer> priority() {
@@ -236,28 +234,28 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
     @Export(name="schedulingPolicyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedulingPolicyArn;
 
     /**
-     * @return The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
+     * @return ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
     public Output<Optional<String>> schedulingPolicyArn() {
         return Codegen.optional(this.schedulingPolicyArn);
     }
     /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+     * @return State of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
     public Output<String> state() {
@@ -278,14 +276,14 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -173,7 +173,7 @@ namespace Pulumi.Aws.BedrockFoundation
         public readonly string ProviderName;
         public readonly string Region;
         /// <summary>
-        /// Indicates whether the model supports streaming.
+        /// Whether the model supports streaming.
         /// </summary>
         public readonly bool ResponseStreamingSupported;
 

@@ -19,14 +19,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     public static final BudgetNotificationArgs Empty = new BudgetNotificationArgs();
 
     /**
-     * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+     * Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
      * 
      */
     @Import(name="comparisonOperator", required=true)
     private Output<String> comparisonOperator;
 
     /**
-     * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+     * @return Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
      * 
      */
     public Output<String> comparisonOperator() {
@@ -34,14 +34,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+     * What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
     /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+     * @return What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
     public Output<String> notificationType() {
@@ -49,14 +49,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+     * E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
      * 
      */
     @Import(name="subscriberEmailAddresses")
     private @Nullable Output<List<String>> subscriberEmailAddresses;
 
     /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+     * @return E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
      * 
      */
     public Optional<Output<List<String>>> subscriberEmailAddresses() {
@@ -64,14 +64,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+     * SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
      * 
      */
     @Import(name="subscriberSnsTopicArns")
     private @Nullable Output<List<String>> subscriberSnsTopicArns;
 
     /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+     * @return SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
      * 
      */
     public Optional<Output<List<String>>> subscriberSnsTopicArns() {
@@ -79,14 +79,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Required) Threshold when the notification should be sent.
+     * Threshold when the notification should be sent.
      * 
      */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
     /**
-     * @return (Required) Threshold when the notification should be sent.
+     * @return Threshold when the notification should be sent.
      * 
      */
     public Output<Double> threshold() {
@@ -94,14 +94,14 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+     * What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
      * 
      */
     @Import(name="thresholdType", required=true)
     private Output<String> thresholdType;
 
     /**
-     * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+     * @return What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
      * 
      */
     public Output<String> thresholdType() {
@@ -138,7 +138,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param comparisonOperator (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+         * @param comparisonOperator Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param comparisonOperator (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+         * @param comparisonOperator Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param notificationType (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+         * @param notificationType What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param notificationType (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+         * @param notificationType What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * @param subscriberEmailAddresses E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * @param subscriberEmailAddresses E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberEmailAddresses (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+         * @param subscriberEmailAddresses E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * @param subscriberSnsTopicArns SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * @param subscriberSnsTopicArns SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subscriberSnsTopicArns (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+         * @param subscriberSnsTopicArns SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param threshold (Required) Threshold when the notification should be sent.
+         * @param threshold Threshold when the notification should be sent.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param threshold (Required) Threshold when the notification should be sent.
+         * @param threshold Threshold when the notification should be sent.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param thresholdType (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+         * @param thresholdType What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param thresholdType (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+         * @param thresholdType What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          * 
          * @return builder
          * 

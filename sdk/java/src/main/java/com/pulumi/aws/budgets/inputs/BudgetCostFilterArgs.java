@@ -16,14 +16,14 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
     public static final BudgetCostFilterArgs Empty = new BudgetCostFilterArgs();
 
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of a budget. Unique within accounts.
+     * @return Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * (Optional) A list of cost category values to match. At least one value is required.
+     * List of values used for filtering.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of values used for filtering.
      * 
      */
     public Output<List<String>> values() {
@@ -71,7 +71,7 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of a budget. Unique within accounts.
+         * @param name Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of a budget. Unique within accounts.
+         * @param name Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values used for filtering.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values used for filtering.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of values used for filtering.
          * 
          * @return builder
          * 

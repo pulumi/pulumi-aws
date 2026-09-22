@@ -18,14 +18,14 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
     public static final BudgetFilterExpressionAndNotArgs Empty = new BudgetFilterExpressionAndNotArgs();
 
     /**
-     * (Optional) A Cost Category Filter block.
+     * Cost Categories block.
      * 
      */
     @Import(name="costCategories")
     private @Nullable Output<BudgetFilterExpressionAndNotCostCategoriesArgs> costCategories;
 
     /**
-     * @return (Optional) A Cost Category Filter block.
+     * @return Cost Categories block.
      * 
      */
     public Optional<Output<BudgetFilterExpressionAndNotCostCategoriesArgs>> costCategories() {
@@ -33,14 +33,14 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
     }
 
     /**
-     * (Optional) A Dimension Filter block.
+     * Dimensions block.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<BudgetFilterExpressionAndNotDimensionsArgs> dimensions;
 
     /**
-     * @return (Optional) A Dimension Filter block.
+     * @return Dimensions block.
      * 
      */
     public Optional<Output<BudgetFilterExpressionAndNotDimensionsArgs>> dimensions() {
@@ -89,7 +89,7 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
         }
 
         /**
-         * @param costCategories (Optional) A Cost Category Filter block.
+         * @param costCategories Cost Categories block.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
         }
 
         /**
-         * @param costCategories (Optional) A Cost Category Filter block.
+         * @param costCategories Cost Categories block.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
         }
 
         /**
-         * @param dimensions (Optional) A Dimension Filter block.
+         * @param dimensions Dimensions block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BudgetFilterExpressionAndNotArgs extends com.pulumi.resources
         }
 
         /**
-         * @param dimensions (Optional) A Dimension Filter block.
+         * @param dimensions Dimensions block.
          * 
          * @return builder
          * 

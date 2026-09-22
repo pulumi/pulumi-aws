@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable
     {
         /// <summary>
-        /// Information about a column in the table. See `Column` block for details.
+        /// Information about a column in the table. See `Column` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn> Columns;
         /// <summary>

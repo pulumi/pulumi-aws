@@ -69,11 +69,14 @@ namespace Pulumi.Aws.Batch
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Fair share scheduling policy details. The `FairSharePolicy` block is documented below.
+        /// </summary>
         [Output("fairSharePolicy")]
         public Output<Outputs.SchedulingPolicyFairSharePolicy?> FairSharePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the scheduling policy.
+        /// Name of the scheduling policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -91,7 +94,7 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -142,11 +145,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class SchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Fair share scheduling policy details. The `FairSharePolicy` block is documented below.
+        /// </summary>
         [Input("fairSharePolicy")]
         public Input<Inputs.SchedulingPolicyFairSharePolicyArgs>? FairSharePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the scheduling policy.
+        /// Name of the scheduling policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,11 +189,14 @@ namespace Pulumi.Aws.Batch
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Fair share scheduling policy details. The `FairSharePolicy` block is documented below.
+        /// </summary>
         [Input("fairSharePolicy")]
         public Input<Inputs.SchedulingPolicyFairSharePolicyGetArgs>? FairSharePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the scheduling policy.
+        /// Name of the scheduling policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -214,7 +223,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

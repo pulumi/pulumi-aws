@@ -17,7 +17,7 @@ public final class JobQueueComputeEnvironmentOrder {
      */
     private String computeEnvironment;
     /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+     * @return Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
      * 
      */
     private Integer order;
@@ -31,7 +31,7 @@ public final class JobQueueComputeEnvironmentOrder {
         return this.computeEnvironment;
     }
     /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+     * @return Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
      * 
      */
     public Integer order() {

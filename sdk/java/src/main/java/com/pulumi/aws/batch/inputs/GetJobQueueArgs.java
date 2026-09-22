@@ -48,14 +48,14 @@ public final class GetJobQueueArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Key-value map of resource tags
+     * Key-value map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags
+     * @return Key-value map of resource tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,7 +131,7 @@ public final class GetJobQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags
+         * @param tags Key-value map of resource tags.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetJobQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags
+         * @param tags Key-value map of resource tags.
          * 
          * @return builder
          * 

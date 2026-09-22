@@ -16,18 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **Microsoft-Specific Configuration:**
-     * 
-     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-     * 
-     * **Standard Tenant ID:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     private @Nullable Integer clientCredentialsWoVersion;
     /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
      * 
      */
     private @Nullable String clientId;
@@ -38,16 +32,12 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassia
      */
     private @Nullable String clientIdWo;
     /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
+     * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig clientSecretConfig;
@@ -63,29 +53,21 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassia
      */
     private @Nullable String clientSecretWo;
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig() {}
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **Microsoft-Specific Configuration:**
-     * 
-     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-     * 
-     * **Standard Tenant ID:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     public Optional<Integer> clientCredentialsWoVersion() {
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
     /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
      * 
      */
     public Optional<String> clientId() {
@@ -100,18 +82,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassia
         return Optional.ofNullable(this.clientIdWo);
     }
     /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
+     * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig> clientSecretConfig() {
@@ -133,9 +111,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassia
         return Optional.ofNullable(this.clientSecretWo);
     }
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery> oauthDiscoveries() {

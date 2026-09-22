@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage
     {
         /// <summary>
-        /// Configuration block for intermedia S3 storage.
+        /// Configuration block for intermediate S3 storage. See `S3Location` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location? S3Location;
 

@@ -18,14 +18,14 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
     public static final AgentcoreHarnessMemoryActualArgs Empty = new AgentcoreHarnessMemoryActualArgs();
 
     /**
-     * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
      * 
      */
     @Import(name="agentcoreMemoryConfigurations", required=true)
     private Output<List<AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs>> agentcoreMemoryConfigurations;
 
     /**
-     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+     * @return AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs>> agentcoreMemoryConfigurations() {
@@ -33,14 +33,14 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
     }
 
     /**
-     * Explicitly disable memory for this harness. See `disabled` Block below.
+     * Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
      * 
      */
     @Import(name="disableds", required=true)
     private Output<List<AgentcoreHarnessMemoryActualDisabledArgs>> disableds;
 
     /**
-     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * @return Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessMemoryActualDisabledArgs>> disableds() {
@@ -48,14 +48,14 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
     }
 
     /**
-     * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
      * 
      */
     @Import(name="managedMemoryConfigurations", required=true)
     private Output<List<AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs>> managedMemoryConfigurations;
 
     /**
-     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * @return Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs>> managedMemoryConfigurations() {
@@ -89,7 +89,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param agentcoreMemoryConfigurations AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * @param agentcoreMemoryConfigurations AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param agentcoreMemoryConfigurations AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * @param agentcoreMemoryConfigurations AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param agentcoreMemoryConfigurations AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         * @param agentcoreMemoryConfigurations AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param disableds Explicitly disable memory for this harness. See `disabled` Block below.
+         * @param disableds Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param disableds Explicitly disable memory for this harness. See `disabled` Block below.
+         * @param disableds Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param disableds Explicitly disable memory for this harness. See `disabled` Block below.
+         * @param disableds Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedMemoryConfigurations Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * @param managedMemoryConfigurations Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedMemoryConfigurations Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * @param managedMemoryConfigurations Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreHarnessMemoryActualArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedMemoryConfigurations Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * @param managedMemoryConfigurations Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
          * 
          * @return builder
          * 

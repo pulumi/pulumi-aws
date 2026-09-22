@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessMemoryActual
     {
         /// <summary>
-        /// AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `AgentcoreMemoryConfiguration` Block below.
+        /// AgentCore memory configuration. See `memory_actual.agentcore_memory_configuration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration> AgentcoreMemoryConfigurations;
         /// <summary>
-        /// Explicitly disable memory for this harness. See `Disabled` Block below.
+        /// Present when memory is explicitly disabled. See `memory_actual.disabled` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessMemoryActualDisabled> Disableds;
         /// <summary>
-        /// Managed memory configuration. Creates and manages a memory resource automatically. See `ManagedMemoryConfiguration` Block below.
+        /// Managed memory configuration. See `memory_actual.managed_memory_configuration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessMemoryActualManagedMemoryConfiguration> ManagedMemoryConfigurations;
 

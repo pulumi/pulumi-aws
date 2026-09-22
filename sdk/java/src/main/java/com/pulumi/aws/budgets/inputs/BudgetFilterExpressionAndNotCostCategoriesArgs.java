@@ -17,14 +17,14 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
     public static final BudgetFilterExpressionAndNotCostCategoriesArgs Empty = new BudgetFilterExpressionAndNotCostCategoriesArgs();
 
     /**
-     * (Optional) The cost category key to filter on.
+     * Cost category key to filter on.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return (Optional) The cost category key to filter on.
+     * @return Cost category key to filter on.
      * 
      */
     public Optional<Output<String>> key() {
@@ -32,14 +32,14 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
     }
 
     /**
-     * (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     @Import(name="matchOptions")
     private @Nullable Output<List<String>> matchOptions;
 
     /**
-     * @return (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+     * @return Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
      * 
      */
     public Optional<Output<List<String>>> matchOptions() {
@@ -47,14 +47,14 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
     }
 
     /**
-     * (Optional) A list of cost category values to match. At least one value is required.
+     * List of cost category values to match. At least one value is required.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * @return List of cost category values to match. At least one value is required.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -88,7 +88,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param key (Optional) The cost category key to filter on.
+         * @param key Cost category key to filter on.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param key (Optional) The cost category key to filter on.
+         * @param key Cost category key to filter on.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param matchOptions (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+         * @param matchOptions Match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of cost category values to match. At least one value is required.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of cost category values to match. At least one value is required.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class BudgetFilterExpressionAndNotCostCategoriesArgs extends com.pu
         }
 
         /**
-         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * @param values List of cost category values to match. At least one value is required.
          * 
          * @return builder
          * 

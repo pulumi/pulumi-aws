@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains configurations for the node. See Node Configuration for more information.
+        /// Configurations for the node. See `definition.node.configuration` Block for details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationGetArgs>? Configuration { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeInputGetArgs>? _inputs;
 
         /// <summary>
-        /// A list of objects containing information about an input into the node. See Node Input for more information.
+        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeInputGetArgs> Inputs
         {
@@ -31,7 +31,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// A name for the node.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -40,7 +42,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeOutputGetArgs>? _outputs;
 
         /// <summary>
-        /// A list of objects containing information about an output from the node. See Node Output for more information.
+        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeOutputGetArgs> Outputs
         {
@@ -49,7 +51,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Type of node. This value must match the name of the key you provide in `Configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        /// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

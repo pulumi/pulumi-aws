@@ -16,14 +16,14 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
     public static final JobQueueJobStateTimeLimitActionArgs Empty = new JobQueueJobStateTimeLimitActionArgs();
 
     /**
-     * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
+     * Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
+     * @return Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
      * 
      */
     public Output<String> action() {
@@ -31,14 +31,14 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
     }
 
     /**
-     * The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
+     * Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
      * 
      */
     @Import(name="maxTimeSeconds", required=true)
     private Output<Integer> maxTimeSeconds;
 
     /**
-     * @return The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
+     * @return Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
      * 
      */
     public Output<Integer> maxTimeSeconds() {
@@ -46,14 +46,14 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
     }
 
     /**
-     * The reason to log for the action being taken.
+     * Reason to log for the action being taken.
      * 
      */
     @Import(name="reason", required=true)
     private Output<String> reason;
 
     /**
-     * @return The reason to log for the action being taken.
+     * @return Reason to log for the action being taken.
      * 
      */
     public Output<String> reason() {
@@ -61,14 +61,14 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
     }
 
     /**
-     * The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
+     * State of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
+     * @return State of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
      * 
      */
     public Output<String> state() {
@@ -103,7 +103,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param action The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
+         * @param action Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param action The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
+         * @param action Action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param maxTimeSeconds The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
+         * @param maxTimeSeconds Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param maxTimeSeconds The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
+         * @param maxTimeSeconds Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param reason The reason to log for the action being taken.
+         * @param reason Reason to log for the action being taken.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param reason The reason to log for the action being taken.
+         * @param reason Reason to log for the action being taken.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param state The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
+         * @param state State of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class JobQueueJobStateTimeLimitActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param state The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
+         * @param state State of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
          * 
          * @return builder
          * 

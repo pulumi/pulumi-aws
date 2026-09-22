@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+        /// Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
         /// </summary>
         [Input("additionalModelRequestFields")]
         public Input<string>? AdditionalModelRequestFields { get; set; }
 
         /// <summary>
-        /// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `GenAiResource` must be defined. See Generative AI Resource for more information.
+        /// Generative AI resource with which to use the prompt. If this is not supplied, then a `ModelId` must be defined. See `GenAiResource` Block for more information.
         /// </summary>
         [Input("genAiResource")]
         public Input<Inputs.AgentPromptVariantGenAiResourceArgs>? GenAiResource { get; set; }
 
         /// <summary>
-        /// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+        /// Inference configurations for the prompt variant. See `InferenceConfiguration` Block for more information.
         /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentPromptVariantInferenceConfigurationArgs>? InferenceConfiguration { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentPromptVariantMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+        /// List of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See `Metadata` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantMetadataArgs> Metadatas
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? ModelId { get; set; }
 
         /// <summary>
-        /// Name of the prompt variant.
+        /// Name of the tool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Contains configurations for the prompt template. See Template Configuration for more information.
+        /// Configurations for the prompt template. See `TemplateConfiguration` Block for more information.
         /// </summary>
         [Input("templateConfiguration")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationArgs>? TemplateConfiguration { get; set; }

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPrompt
     {
         /// <summary>
-        /// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+        /// Configuration of a guardrail for prompt generation. See `definition.node.configuration.prompt.guardrail_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration? GuardrailConfiguration;
         /// <summary>
-        /// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+        /// Configuration of the prompt source, either inline or from Prompt management. See `definition.node.configuration.prompt.source_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration? SourceConfiguration;
 

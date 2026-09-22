@@ -20,14 +20,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     public static final ViewArgs Empty = new ViewArgs();
 
     /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      * 
      */
     @Import(name="dataFilterExpression")
     private @Nullable Output<ViewDataFilterExpressionArgs> dataFilterExpression;
 
     /**
-     * @return Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+     * @return Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
      * 
      */
     public Optional<Output<ViewDataFilterExpressionArgs>> dataFilterExpression() {
@@ -84,14 +84,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of key value map specifying tags associated to the billing view being created.
+     * Key-value map of tags associated with the billing view being created.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return List of key value map specifying tags associated to the billing view being created.
+     * @return Key-value map of tags associated with the billing view being created.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -135,7 +135,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. See `dataFilterExpression` below for details.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
+         * @param tags Key-value map of tags associated with the billing view being created.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
+         * @param tags Key-value map of tags associated with the billing view being created.
          * 
          * @return builder
          * 

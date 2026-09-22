@@ -14,7 +14,7 @@ namespace Pulumi.Aws.BcmData.Outputs
     public sealed class ExportExportDestinationConfiguration
     {
         /// <summary>
-        /// Object that describes the destination of the data exports file. See the `S3Destination` argument reference below.
+        /// Object that describes the destination of the data exports file. See the `S3Destination` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfigurationS3Destination> S3Destinations;
 

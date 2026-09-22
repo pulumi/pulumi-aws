@@ -153,7 +153,7 @@ class GetCustomModelResult:
     @pulumi.getter(name="modelKmsKeyArn")
     def model_kms_key_arn(self) -> _builtins.str:
         """
-        The custom model is encrypted at rest using this key.
+        Key used to encrypt the custom model at rest.
         """
         return pulumi.get(self, "model_kms_key_arn")
 
@@ -214,7 +214,7 @@ class GetCustomModelResult:
     @pulumi.getter(name="validationMetrics")
     def validation_metrics(self) -> Sequence['outputs.GetCustomModelValidationMetricResult']:
         """
-        The loss metric for each validator that you provided.
+        Loss metric for each validator that you provided.
         """
         return pulumi.get(self, "validation_metrics")
 

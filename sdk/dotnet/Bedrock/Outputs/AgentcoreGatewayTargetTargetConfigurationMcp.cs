@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway? ApiGateway;
         /// <summary>
-        /// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `Connector` Block below.
+        /// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector? Connector;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? McpServer;
         /// <summary>
-        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` Block below.
+        /// OpenAPI schema-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `S3` (see `S3` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? OpenApiSchema;
         /// <summary>
-        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` Block below.
+        /// Smithy model-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `S3` (see `S3` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? SmithyModel;
 

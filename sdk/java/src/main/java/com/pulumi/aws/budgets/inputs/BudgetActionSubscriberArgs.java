@@ -15,14 +15,14 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
     public static final BudgetActionSubscriberArgs Empty = new BudgetActionSubscriberArgs();
 
     /**
-     * The address that AWS sends budget notifications to, either an SNS topic or an email.
+     * Address that AWS sends budget notifications to, either an SNS topic or an email.
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return The address that AWS sends budget notifications to, either an SNS topic or an email.
+     * @return Address that AWS sends budget notifications to, either an SNS topic or an email.
      * 
      */
     public Output<String> address() {
@@ -30,14 +30,14 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+     * Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
      * 
      */
     @Import(name="subscriptionType", required=true)
     private Output<String> subscriptionType;
 
     /**
-     * @return The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+     * @return Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
      * 
      */
     public Output<String> subscriptionType() {
@@ -70,7 +70,7 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param address The address that AWS sends budget notifications to, either an SNS topic or an email.
+         * @param address Address that AWS sends budget notifications to, either an SNS topic or an email.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param address The address that AWS sends budget notifications to, either an SNS topic or an email.
+         * @param address Address that AWS sends budget notifications to, either an SNS topic or an email.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param subscriptionType The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+         * @param subscriptionType Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param subscriptionType The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+         * @param subscriptionType Type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceConnectorAr
     public static final AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs Empty = new AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs();
 
     /**
-     * Source configuration identifying which connector to use. See `source` Block below.
+     * Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     @Import(name="source", required=true)
     private Output<AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceArgs> source;
 
     /**
-     * @return Source configuration identifying which connector to use. See `source` Block below.
+     * @return Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
      * 
      */
     public Output<AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceArgs> source() {
@@ -54,7 +54,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceConnectorAr
         }
 
         /**
-         * @param source Source configuration identifying which connector to use. See `source` Block below.
+         * @param source Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceConnectorAr
         }
 
         /**
-         * @param source Source configuration identifying which connector to use. See `source` Block below.
+         * @param source Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
          * 
          * @return builder
          * 

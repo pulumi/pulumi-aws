@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+        /// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -332,19 +332,19 @@ namespace Pulumi.Aws.Batch
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the compute environment (for example, CREATING or VALID).
+        /// Current status of the compute environment (for example, CREATING or VALID).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A short, human-readable string to provide additional details about the current status of the compute environment.
+        /// Short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
@@ -356,19 +356,19 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        /// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// Infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Output("updatePolicy")]
         public Output<Outputs.ComputeEnvironmentUpdatePolicy> UpdatePolicy { get; private set; } = null!;
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }
 
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+        /// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -474,13 +474,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        /// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// Infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Input("updatePolicy")]
         public Input<Inputs.ComputeEnvironmentUpdatePolicyArgs>? UpdatePolicy { get; set; }
@@ -518,7 +518,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.ComputeEnvironmentEksConfigurationGetArgs>? EksConfiguration { get; set; }
 
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+        /// Name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -542,19 +542,19 @@ namespace Pulumi.Aws.Batch
         public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// State of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The current status of the compute environment (for example, CREATING or VALID).
+        /// Current status of the compute environment (for example, CREATING or VALID).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// A short, human-readable string to provide additional details about the current status of the compute environment.
+        /// Short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
@@ -575,7 +575,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -584,13 +584,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        /// Type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// Infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Input("updatePolicy")]
         public Input<Inputs.ComputeEnvironmentUpdatePolicyGetArgs>? UpdatePolicy { get; set; }

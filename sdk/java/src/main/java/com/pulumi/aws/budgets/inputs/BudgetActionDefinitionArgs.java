@@ -18,14 +18,14 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
     public static final BudgetActionDefinitionArgs Empty = new BudgetActionDefinitionArgs();
 
     /**
-     * The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+     * AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
      * 
      */
     @Import(name="iamActionDefinition")
     private @Nullable Output<BudgetActionDefinitionIamActionDefinitionArgs> iamActionDefinition;
 
     /**
-     * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+     * @return AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
      * 
      */
     public Optional<Output<BudgetActionDefinitionIamActionDefinitionArgs>> iamActionDefinition() {
@@ -33,14 +33,14 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The service control policies (SCPs) action definition details. See SCP Action Definition.
+     * Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
      * 
      */
     @Import(name="scpActionDefinition")
     private @Nullable Output<BudgetActionDefinitionScpActionDefinitionArgs> scpActionDefinition;
 
     /**
-     * @return The service control policies (SCPs) action definition details. See SCP Action Definition.
+     * @return Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
      * 
      */
     public Optional<Output<BudgetActionDefinitionScpActionDefinitionArgs>> scpActionDefinition() {
@@ -48,14 +48,14 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+     * AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
      * 
      */
     @Import(name="ssmActionDefinition")
     private @Nullable Output<BudgetActionDefinitionSsmActionDefinitionArgs> ssmActionDefinition;
 
     /**
-     * @return The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+     * @return AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
      * 
      */
     public Optional<Output<BudgetActionDefinitionSsmActionDefinitionArgs>> ssmActionDefinition() {
@@ -89,7 +89,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param iamActionDefinition The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+         * @param iamActionDefinition AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param iamActionDefinition The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+         * @param iamActionDefinition AWS Identity and Access Management (IAM) action definition details. See `iamActionDefinition` Block.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scpActionDefinition The service control policies (SCPs) action definition details. See SCP Action Definition.
+         * @param scpActionDefinition Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scpActionDefinition The service control policies (SCPs) action definition details. See SCP Action Definition.
+         * @param scpActionDefinition Service control policies (SCPs) action definition details. See `scpActionDefinition` Block.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ssmActionDefinition The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+         * @param ssmActionDefinition AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ssmActionDefinition The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+         * @param ssmActionDefinition AWS Systems Manager (SSM) action definition details. See `ssmActionDefinition` Block.
          * 
          * @return builder
          * 

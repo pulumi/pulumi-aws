@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _enabledMemoryTypes;
 
         /// <summary>
-        /// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        /// Type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
         /// </summary>
         public InputList<string> EnabledMemoryTypes
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+        /// Number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         /// </summary>
         [Input("storageDays", required: true)]
         public Input<int> StorageDays { get; set; } = null!;

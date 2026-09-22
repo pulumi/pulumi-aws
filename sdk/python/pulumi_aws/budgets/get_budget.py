@@ -94,13 +94,16 @@ class GetBudgetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the budget.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoAdjustDatas")
     def auto_adjust_datas(self) -> Sequence['outputs.GetBudgetAutoAdjustDataResult']:
         """
-        Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        Object that determines the budget amount for an auto-adjusting budget. See `auto_adjust_data` Block for details.
         """
         return pulumi.get(self, "auto_adjust_datas")
 
@@ -116,7 +119,7 @@ class GetBudgetResult:
     @pulumi.getter(name="budgetExceeded")
     def budget_exceeded(self) -> _builtins.bool:
         """
-        Boolean indicating whether this budget has been exceeded.
+        Whether the budget has been exceeded.
         """
         return pulumi.get(self, "budget_exceeded")
 
@@ -124,7 +127,7 @@ class GetBudgetResult:
     @pulumi.getter(name="budgetLimits")
     def budget_limits(self) -> Sequence['outputs.GetBudgetBudgetLimitResult']:
         """
-        The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
+        Amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage tracked by the budget. See `budget_limit` Block for details.
         """
         return pulumi.get(self, "budget_limits")
 
@@ -132,7 +135,7 @@ class GetBudgetResult:
     @pulumi.getter(name="budgetType")
     def budget_type(self) -> _builtins.str:
         """
-        Whether this budget tracks monetary cost or usage.
+        Whether the budget tracks monetary cost or usage.
         """
         return pulumi.get(self, "budget_type")
 
@@ -140,7 +143,7 @@ class GetBudgetResult:
     @pulumi.getter(name="calculatedSpends")
     def calculated_spends(self) -> Sequence['outputs.GetBudgetCalculatedSpendResult']:
         """
-        The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
+        Spend objects associated with the budget. See `calculated_spend` Block for details.
         """
         return pulumi.get(self, "calculated_spends")
 
@@ -148,7 +151,7 @@ class GetBudgetResult:
     @pulumi.getter(name="costFilters")
     def cost_filters(self) -> Sequence['outputs.GetBudgetCostFilterResult']:
         """
-        A list of CostFilter name/values pair to apply to budget.
+        Cost filters applied to the budget. See `cost_filter` Block for details.
         """
         return pulumi.get(self, "cost_filters")
 
@@ -156,7 +159,7 @@ class GetBudgetResult:
     @pulumi.getter(name="costTypes")
     def cost_types(self) -> Sequence['outputs.GetBudgetCostTypeResult']:
         """
-        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+        Types of cost included in the budget. See `cost_types` Block for details.
         """
         return pulumi.get(self, "cost_types")
 
@@ -171,6 +174,9 @@ class GetBudgetResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the cost filter.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -182,7 +188,7 @@ class GetBudgetResult:
     @pulumi.getter
     def notifications(self) -> Sequence['outputs.GetBudgetNotificationResult']:
         """
-        Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+        Notifications associated with the budget. See `notification` Block for details.
         """
         return pulumi.get(self, "notifications")
 
@@ -190,7 +196,7 @@ class GetBudgetResult:
     @pulumi.getter(name="plannedLimits")
     def planned_limits(self) -> Sequence['outputs.GetBudgetPlannedLimitResult']:
         """
-        Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        Budget limits planned for future periods. See `planned_limit` Block for details.
         """
         return pulumi.get(self, "planned_limits")
 
@@ -206,7 +212,7 @@ class GetBudgetResult:
     @pulumi.getter(name="timePeriodEnd")
     def time_period_end(self) -> _builtins.str:
         """
-        The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+        End of the time period covered by the budget. Format: `2017-01-01_12:00`.
         """
         return pulumi.get(self, "time_period_end")
 
@@ -214,7 +220,7 @@ class GetBudgetResult:
     @pulumi.getter(name="timePeriodStart")
     def time_period_start(self) -> _builtins.str:
         """
-        The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        Start of the time period covered by the budget. Format: `2017-01-01_12:00`.
         """
         return pulumi.get(self, "time_period_start")
 
@@ -222,7 +228,7 @@ class GetBudgetResult:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> _builtins.str:
         """
-        The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        Length of time until the budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         """
         return pulumi.get(self, "time_unit")
 
@@ -274,11 +280,11 @@ def get_budget(account_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-    :param _builtins.str name: The name of a budget. Unique within accounts.
+    :param _builtins.str account_id: ID of the target account for the budget. Defaults to the current account ID.
+    :param _builtins.str name: Name of the budget. Unique within an account.
            
            The following arguments are optional:
-    :param _builtins.str name_prefix: The prefix of the name of a budget. Unique within accounts.
+    :param _builtins.str name_prefix: Prefix of the budget name. Unique within an account.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -329,11 +335,11 @@ def get_budget_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]
     ```
 
 
-    :param _builtins.str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-    :param _builtins.str name: The name of a budget. Unique within accounts.
+    :param _builtins.str account_id: ID of the target account for the budget. Defaults to the current account ID.
+    :param _builtins.str name: Name of the budget. Unique within an account.
            
            The following arguments are optional:
-    :param _builtins.str name_prefix: The prefix of the name of a budget. Unique within accounts.
+    :param _builtins.str name_prefix: Prefix of the budget name. Unique within an account.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()

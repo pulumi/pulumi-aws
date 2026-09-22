@@ -14,62 +14,66 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionConnection {
     /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionConnectionConfiguration configuration;
     /**
-     * @return A name for the connection that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
     /**
-     * @return The node that the connection starts at.
+     * @return Node that the connection starts at.
      * 
      */
     private String source;
     /**
-     * @return The node that the connection ends at.
+     * @return Node that the connection ends at.
      * 
      */
     private String target;
     /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     private String type;
 
     private AgentFlowDefinitionConnection() {}
     /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
+     * @return Configurations for the node. See `definition.node.configuration` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionConnectionConfiguration> configuration() {
         return Optional.ofNullable(this.configuration);
     }
     /**
-     * @return A name for the connection that you can reference.
+     * @return Name for the flow.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The node that the connection starts at.
+     * @return Node that the connection starts at.
      * 
      */
     public String source() {
         return this.source;
     }
     /**
-     * @return The node that the connection ends at.
+     * @return Node that the connection ends at.
      * 
      */
     public String target() {
         return this.target;
     }
     /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
+     * @return Data type of the output. If the output doesn&#39;t match this type at runtime, a validation error is thrown.
      * 
      */
     public String type() {

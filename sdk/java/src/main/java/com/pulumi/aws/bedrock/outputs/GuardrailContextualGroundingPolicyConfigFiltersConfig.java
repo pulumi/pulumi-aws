@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GuardrailContextualGroundingPolicyConfigFiltersConfig {
     /**
-     * @return The threshold for this filter.
+     * @return Threshold for this filter.
      * 
      */
     private Double threshold;
@@ -24,7 +24,7 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfig {
 
     private GuardrailContextualGroundingPolicyConfigFiltersConfig() {}
     /**
-     * @return The threshold for this filter.
+     * @return Threshold for this filter.
      * 
      */
     public Double threshold() {

@@ -63,7 +63,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The time at which the inference profile was created.
+        Time at which the inference profile was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -71,7 +71,7 @@ class GetInferenceProfileResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the inference profile.
+        Description of the inference profile.
         """
         return pulumi.get(self, "description")
 
@@ -79,7 +79,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> _builtins.str:
         """
-        The ARN of the inference profile.
+        ARN of the inference profile.
         """
         return pulumi.get(self, "inference_profile_arn")
 
@@ -92,7 +92,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> _builtins.str:
         """
-        The unique identifier of the inference profile.
+        Unique identifier of the inference profile.
         """
         return pulumi.get(self, "inference_profile_name")
 
@@ -100,7 +100,7 @@ class GetInferenceProfileResult:
     @pulumi.getter
     def models(self) -> Sequence['outputs.GetInferenceProfileModelResult']:
         """
-        A list of information about each model in the inference profile. See `models`.
+        List of information about each model in the inference profile. See `models`.
         """
         return pulumi.get(self, "models")
 
@@ -113,7 +113,7 @@ class GetInferenceProfileResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         """
         return pulumi.get(self, "status")
 
@@ -121,7 +121,7 @@ class GetInferenceProfileResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+        Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         """
         return pulumi.get(self, "type")
 
@@ -129,7 +129,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
         """
-        The time at which the inference profile was last updated.
+        Time at which the inference profile was last updated.
         """
         return pulumi.get(self, "updated_at")
 

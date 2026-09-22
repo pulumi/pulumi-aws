@@ -63,31 +63,31 @@ import (
 type InferenceProfile struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the inference profile.
+	// ARN of the inference profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	ModelSource InferenceProfileModelSourcePtrOutput `pulumi:"modelSource"`
+	// List of information about each model in the inference profile. See `models`.
+	Models InferenceProfileModelArrayOutput `pulumi:"models"`
+	// Name of the inference profile.
 	//
 	// The following arguments are optional:
-	ModelSource InferenceProfileModelSourcePtrOutput `pulumi:"modelSource"`
-	// A list of information about each model in the inference profile. See `models`.
-	Models InferenceProfileModelArrayOutput `pulumi:"models"`
-	// The name of the inference profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
 	Timeouts InferenceProfileTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -121,60 +121,60 @@ func GetInferenceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InferenceProfile resources.
 type inferenceProfileState struct {
-	// The ARN of the inference profile.
+	// ARN of the inference profile.
 	Arn *string `pulumi:"arn"`
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description *string `pulumi:"description"`
-	// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
+	// List of information about each model in the inference profile. See `models`.
+	Models []InferenceProfileModel `pulumi:"models"`
+	// Name of the inference profile.
 	//
 	// The following arguments are optional:
-	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
-	// A list of information about each model in the inference profile. See `models`.
-	Models []InferenceProfileModel `pulumi:"models"`
-	// The name of the inference profile.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     map[string]string         `pulumi:"tags"`
 	TagsAll  map[string]string         `pulumi:"tagsAll"`
 	Timeouts *InferenceProfileTimeouts `pulumi:"timeouts"`
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 	Type *string `pulumi:"type"`
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type InferenceProfileState struct {
-	// The ARN of the inference profile.
+	// ARN of the inference profile.
 	Arn pulumi.StringPtrInput
-	// The time at which the inference profile was created.
+	// Time at which the inference profile was created.
 	CreatedAt pulumi.StringPtrInput
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description pulumi.StringPtrInput
-	// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	ModelSource InferenceProfileModelSourcePtrInput
+	// List of information about each model in the inference profile. See `models`.
+	Models InferenceProfileModelArrayInput
+	// Name of the inference profile.
 	//
 	// The following arguments are optional:
-	ModelSource InferenceProfileModelSourcePtrInput
-	// A list of information about each model in the inference profile. See `models`.
-	Models InferenceProfileModelArrayInput
-	// The name of the inference profile.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts InferenceProfileTimeoutsPtrInput
-	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 	Type pulumi.StringPtrInput
-	// The time at which the inference profile was last updated.
+	// Time at which the inference profile was last updated.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -183,13 +183,13 @@ func (InferenceProfileState) ElementType() reflect.Type {
 }
 
 type inferenceProfileArgs struct {
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description *string `pulumi:"description"`
-	// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
+	// Name of the inference profile.
 	//
 	// The following arguments are optional:
-	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
-	// The name of the inference profile.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -200,13 +200,13 @@ type inferenceProfileArgs struct {
 
 // The set of arguments for constructing a InferenceProfile resource.
 type InferenceProfileArgs struct {
-	// The description of the inference profile.
+	// Description of the inference profile.
 	Description pulumi.StringPtrInput
-	// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
+	ModelSource InferenceProfileModelSourcePtrInput
+	// Name of the inference profile.
 	//
 	// The following arguments are optional:
-	ModelSource InferenceProfileModelSourcePtrInput
-	// The name of the inference profile.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -302,34 +302,34 @@ func (o InferenceProfileOutput) ToInferenceProfileOutputWithContext(ctx context.
 	return o
 }
 
-// The ARN of the inference profile.
+// ARN of the inference profile.
 func (o InferenceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The time at which the inference profile was created.
+// Time at which the inference profile was created.
 func (o InferenceProfileOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the inference profile.
+// Description of the inference profile.
 func (o InferenceProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-//
-// The following arguments are optional:
+// Source of the model this inference profile will track metrics and cost for. See `modelSource`.
 func (o InferenceProfileOutput) ModelSource() InferenceProfileModelSourcePtrOutput {
 	return o.ApplyT(func(v *InferenceProfile) InferenceProfileModelSourcePtrOutput { return v.ModelSource }).(InferenceProfileModelSourcePtrOutput)
 }
 
-// A list of information about each model in the inference profile. See `models`.
+// List of information about each model in the inference profile. See `models`.
 func (o InferenceProfileOutput) Models() InferenceProfileModelArrayOutput {
 	return o.ApplyT(func(v *InferenceProfile) InferenceProfileModelArrayOutput { return v.Models }).(InferenceProfileModelArrayOutput)
 }
 
-// The name of the inference profile.
+// Name of the inference profile.
+//
+// The following arguments are optional:
 func (o InferenceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -339,7 +339,7 @@ func (o InferenceProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 func (o InferenceProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -357,12 +357,12 @@ func (o InferenceProfileOutput) Timeouts() InferenceProfileTimeoutsPtrOutput {
 	return o.ApplyT(func(v *InferenceProfile) InferenceProfileTimeoutsPtrOutput { return v.Timeouts }).(InferenceProfileTimeoutsPtrOutput)
 }
 
-// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 func (o InferenceProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The time at which the inference profile was last updated.
+// Time at which the inference profile was last updated.
 func (o InferenceProfileOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

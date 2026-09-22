@@ -34,14 +34,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     }
 
     /**
-     * The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+     * Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
      * 
      */
     @Import(name="embeddingModelConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> embeddingModelConfiguration;
 
     /**
-     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+     * @return Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs>> embeddingModelConfiguration() {
@@ -49,14 +49,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     }
 
     /**
-     * supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+     * Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
      * 
      */
     @Import(name="supplementalDataStorageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs> supplementalDataStorageConfiguration;
 
     /**
-     * @return supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+     * @return Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs>> supplementalDataStorageConfiguration() {
@@ -111,7 +111,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param embeddingModelConfiguration The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+         * @param embeddingModelConfiguration Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param embeddingModelConfiguration The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+         * @param embeddingModelConfiguration Embeddings model configuration details for the vector model used in the knowledge base. See `embeddingModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param supplementalDataStorageConfiguration supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+         * @param supplementalDataStorageConfiguration Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param supplementalDataStorageConfiguration supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+         * @param supplementalDataStorageConfiguration Supplemental data storage configuration for images extracted from multimodal documents. See `supplementalDataStorageConfiguration` Block for details.
          * 
          * @return builder
          * 

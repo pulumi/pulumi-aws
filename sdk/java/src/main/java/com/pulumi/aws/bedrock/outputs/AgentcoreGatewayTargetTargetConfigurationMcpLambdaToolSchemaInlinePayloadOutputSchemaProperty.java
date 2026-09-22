@@ -22,7 +22,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private @Nullable String description;
     /**
-     * @return Items definition for array properties. See `items` Block above.
+     * @return Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems items;
@@ -32,7 +32,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private String name;
     /**
-     * @return Set of nested property definitions for object properties.
+     * @return Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> properties;
@@ -56,7 +56,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Items definition for array properties. See `items` Block above.
+     * @return Items definition for array properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.items` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems> items() {
@@ -70,7 +70,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return this.name;
     }
     /**
-     * @return Set of nested property definitions for object properties.
+     * @return Set of nested property definitions for object properties. See `target_configuration.mcp.lambda.tool_schema.inline_payload.output_schema.property.property` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> properties() {

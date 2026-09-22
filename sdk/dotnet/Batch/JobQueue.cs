@@ -123,26 +123,25 @@ namespace Pulumi.Aws.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
         [Output("computeEnvironmentOrders")]
         public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrders { get; private set; } = null!;
 
         /// <summary>
-        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
         [Output("jobStateTimeLimitActions")]
         public Output<ImmutableArray<Outputs.JobQueueJobStateTimeLimitAction>> JobStateTimeLimitActions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the job queue.
+        /// Name of the job queue.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The priority of the job queue. Job queues with a higher priority
-        /// are evaluated first when associated with the same compute environment.
+        /// Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -154,13 +153,13 @@ namespace Pulumi.Aws.Batch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
         [Output("schedulingPolicyArn")]
         public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        /// State of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -172,7 +171,7 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -230,7 +229,7 @@ namespace Pulumi.Aws.Batch
         private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrders;
 
         /// <summary>
-        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
         public InputList<Inputs.JobQueueComputeEnvironmentOrderArgs> ComputeEnvironmentOrders
         {
@@ -242,7 +241,7 @@ namespace Pulumi.Aws.Batch
         private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
 
         /// <summary>
-        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
         public InputList<Inputs.JobQueueJobStateTimeLimitActionArgs> JobStateTimeLimitActions
         {
@@ -251,14 +250,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies the name of the job queue.
+        /// Name of the job queue.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority of the job queue. Job queues with a higher priority
-        /// are evaluated first when associated with the same compute environment.
+        /// Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -270,13 +268,13 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
         [Input("schedulingPolicyArn")]
         public Input<string>? SchedulingPolicyArn { get; set; }
 
         /// <summary>
-        /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        /// State of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -314,7 +312,7 @@ namespace Pulumi.Aws.Batch
         private InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>? _computeEnvironmentOrders;
 
         /// <summary>
-        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// Set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
         public InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs> ComputeEnvironmentOrders
         {
@@ -326,7 +324,7 @@ namespace Pulumi.Aws.Batch
         private InputList<Inputs.JobQueueJobStateTimeLimitActionGetArgs>? _jobStateTimeLimitActions;
 
         /// <summary>
-        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// Set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
         public InputList<Inputs.JobQueueJobStateTimeLimitActionGetArgs> JobStateTimeLimitActions
         {
@@ -335,14 +333,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Specifies the name of the job queue.
+        /// Name of the job queue.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority of the job queue. Job queues with a higher priority
-        /// are evaluated first when associated with the same compute environment.
+        /// Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -354,13 +351,13 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
         [Input("schedulingPolicyArn")]
         public Input<string>? SchedulingPolicyArn { get; set; }
 
         /// <summary>
-        /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        /// State of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -381,7 +378,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

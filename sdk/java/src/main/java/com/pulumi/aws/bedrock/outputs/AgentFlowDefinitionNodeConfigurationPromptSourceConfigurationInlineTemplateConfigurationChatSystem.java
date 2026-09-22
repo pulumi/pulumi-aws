@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem {
     /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint cachePoint;
     /**
-     * @return The text in the system prompt.
+     * @return Message for the prompt.
      * 
      */
     private @Nullable String text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem() {}
     /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+     * @return Cache checkpoint within a template configuration. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.text.cache_point` Block for details.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
     /**
-     * @return The text in the system prompt.
+     * @return Message for the prompt.
      * 
      */
     public Optional<String> text() {

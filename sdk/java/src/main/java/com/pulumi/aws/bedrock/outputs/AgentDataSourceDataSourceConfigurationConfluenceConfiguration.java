@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+    /**
+     * @return Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration crawlerConfiguration;
+    /**
+     * @return Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration sourceConfiguration;
 
     private AgentDataSourceDataSourceConfigurationConfluenceConfiguration() {}
+    /**
+     * @return Configuration for Confluence content. See `data_source_configuration.confluence_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
+    /**
+     * @return Endpoint information to connect to your Confluence data source. See `data_source_configuration.confluence_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }

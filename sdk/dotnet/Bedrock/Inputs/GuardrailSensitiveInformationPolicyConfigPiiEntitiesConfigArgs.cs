@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<bool>? OutputEnabled { get; set; }
 
         /// <summary>
-        /// The currently supported PII entities.
+        /// Currently supported PII entities.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

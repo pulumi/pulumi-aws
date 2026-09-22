@@ -3718,6 +3718,10 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_msk_channel": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_msk_cluster": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true

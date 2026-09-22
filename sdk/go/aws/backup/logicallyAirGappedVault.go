@@ -54,9 +54,9 @@ import (
 type LogicallyAirGappedVault struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Logically Air Gapped Backup Vault.
+	// ARN of the Logically Air Gapped Backup Vault.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn pulumi.StringOutput `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
@@ -68,7 +68,7 @@ type LogicallyAirGappedVault struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
 	Timeouts LogicallyAirGappedVaultTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -109,9 +109,9 @@ func GetLogicallyAirGappedVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogicallyAirGappedVault resources.
 type logicallyAirGappedVaultState struct {
-	// The ARN of the Logically Air Gapped Backup Vault.
+	// ARN of the Logically Air Gapped Backup Vault.
 	Arn *string `pulumi:"arn"`
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
@@ -123,15 +123,15 @@ type logicallyAirGappedVaultState struct {
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string                `pulumi:"tagsAll"`
 	Timeouts *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
 }
 
 type LogicallyAirGappedVaultState struct {
-	// The ARN of the Logically Air Gapped Backup Vault.
+	// ARN of the Logically Air Gapped Backup Vault.
 	Arn pulumi.StringPtrInput
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
@@ -143,7 +143,7 @@ type LogicallyAirGappedVaultState struct {
 	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts LogicallyAirGappedVaultTimeoutsPtrInput
 }
@@ -153,7 +153,7 @@ func (LogicallyAirGappedVaultState) ElementType() reflect.Type {
 }
 
 type logicallyAirGappedVaultArgs struct {
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays int `pulumi:"maxRetentionDays"`
@@ -170,7 +170,7 @@ type logicallyAirGappedVaultArgs struct {
 
 // The set of arguments for constructing a LogicallyAirGappedVault resource.
 type LogicallyAirGappedVaultArgs struct {
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntInput
@@ -272,12 +272,12 @@ func (o LogicallyAirGappedVaultOutput) ToLogicallyAirGappedVaultOutputWithContex
 	return o
 }
 
-// The ARN of the Logically Air Gapped Backup Vault.
+// ARN of the Logically Air Gapped Backup Vault.
 func (o LogicallyAirGappedVaultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 func (o LogicallyAirGappedVaultOutput) EncryptionKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
@@ -307,7 +307,7 @@ func (o LogicallyAirGappedVaultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogicallyAirGappedVaultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

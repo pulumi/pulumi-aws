@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration
     {
         /// <summary>
-        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` block for details.
+        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio? Audio;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? Dimensions;
         /// <summary>
-        /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Valid values are `FLOAT32` and `BINARY`.
         /// </summary>
         public readonly string? EmbeddingDataType;
         /// <summary>
-        /// Configuration for processing video content in multimodal knowledge bases. See `Video` block for details.
+        /// Configuration for processing video content in multimodal knowledge bases. See `Video` Block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo? Video;
 

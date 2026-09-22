@@ -29,23 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.0.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			alphaSubnet, err := ec2.NewSubnet(ctx, "alpha", &ec2.SubnetArgs{
-//				VpcId:            foo.ID().ToIDOutput().ToStringOutput(),
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
-//				FileSystemId: pulumi.Any(fooAwsEfsFileSystem.Id),
-//				SubnetId:     alphaSubnet.ID().ToIDOutput().ToStringOutput(),
+//			_, err = efs.NewMountTarget(ctx, "example", &efs.MountTargetArgs{
+//				FileSystemId: pulumi.Any(exampleAwsEfsFileSystem.Id),
+//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -58,10 +58,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) ID of the mount target.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+// $ pulumi import aws:efs/mountTarget:MountTarget example fsmt-52a643fb
 // ```
 type MountTarget struct {
 	pulumi.CustomResourceState

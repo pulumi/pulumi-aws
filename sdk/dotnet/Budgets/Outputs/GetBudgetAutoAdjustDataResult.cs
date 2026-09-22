@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class GetBudgetAutoAdjustDataResult
     {
         /// <summary>
-        /// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+        /// String that defines whether the budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
         /// </summary>
         public readonly string AutoAdjustType;
         /// <summary>
-        /// (Optional) - Configuration block of Historical Options. Required for `AutoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        /// Historical data that the auto-adjusting budget is based on. See `HistoricalOptions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetAutoAdjustDataHistoricalOptionResult> HistoricalOptions;
         /// <summary>
-        /// (Optional) - The last time that your budget was auto-adjusted.
+        /// Last time that the budget was auto-adjusted.
         /// </summary>
         public readonly string LastAutoAdjustTime;
 

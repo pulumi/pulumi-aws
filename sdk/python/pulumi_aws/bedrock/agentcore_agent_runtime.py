@@ -41,9 +41,9 @@ class AgentcoreAgentRuntimeArgs:
         :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
         :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
@@ -108,8 +108,6 @@ class AgentcoreAgentRuntimeArgs:
     def network_configuration(self) -> pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']:
         """
         Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "network_configuration")
 
@@ -122,6 +120,8 @@ class AgentcoreAgentRuntimeArgs:
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
         ARN of the IAM role that the agent runtime assumes to access AWS services.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -283,14 +283,14 @@ class _AgentcoreAgentRuntimeState:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
         :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs']]] workload_identity_details: Workload identity details for the agent runtime. See `workload_identity_details` below.
         """
         if agent_runtime_arn is not None:
@@ -457,8 +457,6 @@ class _AgentcoreAgentRuntimeState:
     def network_configuration(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeNetworkConfigurationArgs']]:
         """
         Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "network_configuration")
 
@@ -507,6 +505,8 @@ class _AgentcoreAgentRuntimeState:
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the agent runtime assumes to access AWS services.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -530,7 +530,7 @@ class _AgentcoreAgentRuntimeState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -746,12 +746,12 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
         :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -1027,14 +1027,14 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
         :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs', 'AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict', 'outputs.AgentcoreAgentRuntimeWorkloadIdentityDetail']]]] workload_identity_details: Workload identity details for the agent runtime. See `workload_identity_details` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1147,8 +1147,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     def network_configuration(self) -> pulumi.Output['outputs.AgentcoreAgentRuntimeNetworkConfiguration']:
         """
         Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "network_configuration")
 
@@ -1181,6 +1179,8 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN of the IAM role that the agent runtime assumes to access AWS services.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role_arn")
 
@@ -1196,7 +1196,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

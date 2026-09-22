@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
     /**
-     * Enables access logs for the API stage. See Access Log Settings below.
+     * Enables access logs for the API stage. See `accessLogSettings` Block below.
      * 
      */
     @Export(name="accessLogSettings", refs={StageAccessLogSettings.class}, tree="[0]")
     private Output</* @Nullable */ StageAccessLogSettings> accessLogSettings;
 
     /**
-     * @return Enables access logs for the API stage. See Access Log Settings below.
+     * @return Enables access logs for the API stage. See `accessLogSettings` Block below.
      * 
      */
     public Output<Optional<StageAccessLogSettings>> accessLogSettings() {
@@ -139,14 +139,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cacheClusterSize);
     }
     /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
+     * Configuration settings of a canary deployment. See `canarySettings` Block below.
      * 
      */
     @Export(name="canarySettings", refs={StageCanarySettings.class}, tree="[0]")
     private Output</* @Nullable */ StageCanarySettings> canarySettings;
 
     /**
-     * @return Configuration settings of a canary deployment. See Canary Settings below.
+     * @return Configuration settings of a canary deployment. See `canarySettings` Block below.
      * 
      */
     public Output<Optional<StageCanarySettings>> canarySettings() {

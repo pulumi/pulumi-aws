@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
      * 
      */
     private @Nullable String parsingModality;
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration() {}
     /**
-     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+     * @return Whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
      * 
      */
     public Optional<String> parsingModality() {

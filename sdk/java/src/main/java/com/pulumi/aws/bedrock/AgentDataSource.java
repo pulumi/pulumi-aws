@@ -289,14 +289,14 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
         return this.dataDeletionPolicy;
     }
     /**
-     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     * Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
      * 
      */
     @Export(name="dataSourceConfiguration", refs={AgentDataSourceDataSourceConfiguration.class}, tree="[0]")
     private Output<AgentDataSourceDataSourceConfiguration> dataSourceConfiguration;
 
     /**
-     * @return Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     * @return Details about how the data source is stored. See `dataSourceConfiguration` Block for details.
      * 
      */
     public Output<AgentDataSourceDataSourceConfiguration> dataSourceConfiguration() {
@@ -377,14 +377,14 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     @Export(name="serverSideEncryptionConfiguration", refs={AgentDataSourceServerSideEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentDataSourceServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
-     * @return Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     * @return Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` Block for details.
      * 
      */
     public Output<Optional<AgentDataSourceServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
@@ -397,14 +397,14 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     * Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
      * 
      */
     @Export(name="vectorIngestionConfiguration", refs={AgentDataSourceVectorIngestionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentDataSourceVectorIngestionConfiguration> vectorIngestionConfiguration;
 
     /**
-     * @return Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     * @return Details about how to ingest the documents in the data source. See `vectorIngestionConfiguration` Block for details.
      * 
      */
     public Output<Optional<AgentDataSourceVectorIngestionConfiguration>> vectorIngestionConfiguration() {

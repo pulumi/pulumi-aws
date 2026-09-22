@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfiguration
     {
         /// <summary>
-        /// Settings for using Amazon Bedrock Data Automation to parse documents. See `BedrockDataAutomationConfiguration` block for details.
+        /// Settings for using Amazon Bedrock Data Automation to parse documents. See `BedrockDataAutomationConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration? BedrockDataAutomationConfiguration;
         /// <summary>
-        /// Settings for a foundation model used to parse documents in a data source. See `BedrockFoundationModelConfiguration` block for details.
+        /// Settings for a foundation model used to parse documents in a data source. See `BedrockFoundationModelConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration? BedrockFoundationModelConfiguration;
         /// <summary>
-        /// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        /// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
         /// </summary>
         public readonly string ParsingStrategy;
 

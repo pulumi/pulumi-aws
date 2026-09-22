@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationInferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `Connector` Block below.
+        /// Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `target_configuration.inference.connector` Block below.
         /// </summary>
         [Input("connector")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorGetArgs>? Connector { get; set; }

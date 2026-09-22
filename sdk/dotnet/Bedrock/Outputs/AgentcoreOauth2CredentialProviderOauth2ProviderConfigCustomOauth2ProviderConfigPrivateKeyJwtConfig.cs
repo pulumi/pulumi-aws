@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig
     {
+        /// <summary>
+        /// Key-value map of additional claims to include in the JWT header.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalHeaderClaims;
+        /// <summary>
+        /// Key-value map of additional claims to include in the JWT payload.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalPayloadClaims;
+        /// <summary>
+        /// Source of the private key used to sign the JWT. See `PrivateKeySource` Block below.
+        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource? PrivateKeySource;
+        /// <summary>
+        /// Algorithm used to sign the JWT.
+        /// </summary>
         public readonly string? SigningAlgorithm;
 
         [OutputConstructor]

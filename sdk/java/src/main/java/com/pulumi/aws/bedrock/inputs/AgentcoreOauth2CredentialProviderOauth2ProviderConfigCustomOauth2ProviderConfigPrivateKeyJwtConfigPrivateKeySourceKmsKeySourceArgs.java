@@ -14,9 +14,17 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs();
 
+    /**
+     * ARN of the AWS KMS key used to sign the JWT.
+     * 
+     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
+    /**
+     * @return ARN of the AWS KMS key used to sign the JWT.
+     * 
+     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -45,11 +53,23 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS KMS key used to sign the JWT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS KMS key used to sign the JWT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentComputeResourcesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<int>? BidPercentage { get; set; }
 
         /// <summary>
-        /// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("desiredVcpus")]
         public Input<int>? DesiredVcpus { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("ec2KeyPair")]
         public Input<string>? Ec2KeyPair { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("instanceRole")]
         public Input<string>? InstanceRole { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<string>? _instanceTypes;
 
         /// <summary>
-        /// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// List of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public InputList<string> InstanceTypes
         {
@@ -73,25 +73,25 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// The maximum number of EC2 vCPUs that an environment can reach.
+        /// Maximum number of EC2 vCPUs that an environment can reach.
         /// </summary>
         [Input("maxVcpus", required: true)]
         public Input<int> MaxVcpus { get; set; } = null!;
 
         /// <summary>
-        /// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// Minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("minVcpus")]
         public Input<int>? MinVcpus { get; set; }
 
         /// <summary>
-        /// The Amazon EC2 placement group to associate with your compute resources.
+        /// Amazon EC2 placement group to associate with your compute resources.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+        /// List of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of VPC subnets into which the compute resources are launched.
+        /// List of VPC subnets into which the compute resources are launched.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+        /// Type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

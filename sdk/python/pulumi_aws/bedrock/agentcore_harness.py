@@ -358,9 +358,9 @@ class _AgentcoreHarnessState:
         Input properties used for looking up and filtering AgentcoreHarness resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
+        :param pulumi.Input[_builtins.str] arn: ARN of the managed memory resource.
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]] environment_actuals: Actual deployed environment configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
@@ -370,7 +370,7 @@ class _AgentcoreHarnessState:
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
         :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration. See `memory_actual` Block below.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
@@ -378,7 +378,7 @@ class _AgentcoreHarnessState:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessTruncationArgs']]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
@@ -448,7 +448,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Harness.
+        ARN of the managed memory resource.
         """
         return pulumi.get(self, "arn")
 
@@ -472,7 +472,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="environmentActuals")
     def environment_actuals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]]]:
         """
-        Actual deployed environment configuration.
+        Actual deployed environment configuration. See `environment_actual` Block below.
         """
         return pulumi.get(self, "environment_actuals")
 
@@ -592,7 +592,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="memoryActuals")
     def memory_actuals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]]]:
         """
-        Actual deployed memory configuration.
+        Actual deployed memory configuration. See `memory_actual` Block below.
         """
         return pulumi.get(self, "memory_actuals")
 
@@ -666,7 +666,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1194,9 +1194,9 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Harness.
+        :param pulumi.Input[_builtins.str] arn: ARN of the managed memory resource.
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict', 'outputs.AgentcoreHarnessAuthorizerConfiguration']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict', 'outputs.AgentcoreHarnessEnvironmentActual']]]] environment_actuals: Actual deployed environment configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict', 'outputs.AgentcoreHarnessEnvironmentActual']]]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
@@ -1206,7 +1206,7 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
         :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict', 'outputs.AgentcoreHarnessMemory']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict', 'outputs.AgentcoreHarnessMemoryActual']]]] memory_actuals: Actual deployed memory configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict', 'outputs.AgentcoreHarnessMemoryActual']]]] memory_actuals: Actual deployed memory configuration. See `memory_actual` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict', 'outputs.AgentcoreHarnessModel']] model: Model configuration for the harness. See `model` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict', 'outputs.AgentcoreHarnessSkill']]]] skills: Skill configurations. See `skill` Block below.
@@ -1214,7 +1214,7 @@ class AgentcoreHarness(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict', 'outputs.AgentcoreHarnessTool']]]] tools: Tool configurations. See `tool` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessTruncationArgs', 'AgentcoreHarnessTruncationArgsDict', 'outputs.AgentcoreHarnessTruncation']]]] truncations: Truncation configuration for conversation history. See `truncation` Block below.
@@ -1261,7 +1261,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the Harness.
+        ARN of the managed memory resource.
         """
         return pulumi.get(self, "arn")
 
@@ -1277,7 +1277,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="environmentActuals")
     def environment_actuals(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessEnvironmentActual']]:
         """
-        Actual deployed environment configuration.
+        Actual deployed environment configuration. See `environment_actual` Block below.
         """
         return pulumi.get(self, "environment_actuals")
 
@@ -1357,7 +1357,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="memoryActuals")
     def memory_actuals(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessMemoryActual']]:
         """
-        Actual deployed memory configuration.
+        Actual deployed memory configuration. See `memory_actual` Block below.
         """
         return pulumi.get(self, "memory_actuals")
 
@@ -1407,7 +1407,7 @@ class AgentcoreHarness(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

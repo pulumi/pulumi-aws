@@ -22,14 +22,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     public static final BudgetActionArgs Empty = new BudgetActionArgs();
 
     /**
-     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+     * @return ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -37,14 +37,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The trigger threshold of the action. See Action Threshold.
+     * Trigger threshold of the action. See `actionThreshold` Block.
      * 
      */
     @Import(name="actionThreshold", required=true)
     private Output<BudgetActionActionThresholdArgs> actionThreshold;
 
     /**
-     * @return The trigger threshold of the action. See Action Threshold.
+     * @return Trigger threshold of the action. See `actionThreshold` Block.
      * 
      */
     public Output<BudgetActionActionThresholdArgs> actionThreshold() {
@@ -52,14 +52,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
     @Import(name="actionType", required=true)
     private Output<String> actionType;
 
     /**
-     * @return The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * @return Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
     public Output<String> actionType() {
@@ -67,14 +67,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
     @Import(name="approvalModel", required=true)
     private Output<String> approvalModel;
 
     /**
-     * @return This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * @return Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
     public Output<String> approvalModel() {
@@ -82,14 +82,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a budget.
+     * Name of a budget.
      * 
      */
     @Import(name="budgetName", required=true)
     private Output<String> budgetName;
 
     /**
-     * @return The name of a budget.
+     * @return Name of a budget.
      * 
      */
     public Output<String> budgetName() {
@@ -97,14 +97,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies all of the type-specific parameters. See Definition.
+     * Type-specific parameters. See `definition` Block.
      * 
      */
     @Import(name="definition", required=true)
     private Output<BudgetActionDefinitionArgs> definition;
 
     /**
-     * @return Specifies all of the type-specific parameters. See Definition.
+     * @return Type-specific parameters. See `definition` Block.
      * 
      */
     public Output<BudgetActionDefinitionArgs> definition() {
@@ -112,14 +112,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * Role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
     @Import(name="executionRoleArn", required=true)
     private Output<String> executionRoleArn;
 
     /**
-     * @return The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * @return Role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
     public Output<String> executionRoleArn() {
@@ -127,14 +127,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
     /**
-     * @return The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * @return Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
     public Output<String> notificationType() {
@@ -142,14 +142,14 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subscribers. See Subscriber.
+     * Set of subscribers. See `subscriber` Block.
      * 
      */
     @Import(name="subscribers", required=true)
     private Output<List<BudgetActionSubscriberArgs>> subscribers;
 
     /**
-     * @return A list of subscribers. See Subscriber.
+     * @return Set of subscribers. See `subscriber` Block.
      * 
      */
     public Output<List<BudgetActionSubscriberArgs>> subscribers() {
@@ -205,7 +205,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+         * @param accountId ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
+         * @param accountId ID of the target account for the budget. Uses the current user&#39;s account ID by default if omitted.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionThreshold The trigger threshold of the action. See Action Threshold.
+         * @param actionThreshold Trigger threshold of the action. See `actionThreshold` Block.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionThreshold The trigger threshold of the action. See Action Threshold.
+         * @param actionThreshold Trigger threshold of the action. See `actionThreshold` Block.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionType The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+         * @param actionType Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionType The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+         * @param actionType Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param approvalModel This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+         * @param approvalModel Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param approvalModel This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+         * @param approvalModel Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param budgetName The name of a budget.
+         * @param budgetName Name of a budget.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param budgetName The name of a budget.
+         * @param budgetName Name of a budget.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition Specifies all of the type-specific parameters. See Definition.
+         * @param definition Type-specific parameters. See `definition` Block.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition Specifies all of the type-specific parameters. See Definition.
+         * @param definition Type-specific parameters. See `definition` Block.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn The role passed for action execution and reversion. Roles and actions must be in the same account.
+         * @param executionRoleArn Role passed for action execution and reversion. Roles and actions must be in the same account.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn The role passed for action execution and reversion. Roles and actions must be in the same account.
+         * @param executionRoleArn Role passed for action execution and reversion. Roles and actions must be in the same account.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationType The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+         * @param notificationType Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationType The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+         * @param notificationType Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscribers A list of subscribers. See Subscriber.
+         * @param subscribers Set of subscribers. See `subscriber` Block.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscribers A list of subscribers. See Subscriber.
+         * @param subscribers Set of subscribers. See `subscriber` Block.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscribers A list of subscribers. See Subscriber.
+         * @param subscribers Set of subscribers. See `subscriber` Block.
          * 
          * @return builder
          * 

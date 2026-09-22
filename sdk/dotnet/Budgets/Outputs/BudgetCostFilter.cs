@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetCostFilter
     {
         /// <summary>
-        /// The name of a budget. Unique within accounts.
+        /// Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) A list of cost category values to match. At least one value is required.
+        /// List of values used for filtering.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

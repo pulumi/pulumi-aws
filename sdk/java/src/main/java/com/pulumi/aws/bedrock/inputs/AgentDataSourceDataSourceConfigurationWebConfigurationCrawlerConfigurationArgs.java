@@ -18,14 +18,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs();
 
     /**
-     * Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+     * Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
      * 
      */
     @Import(name="crawlerLimits")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs> crawlerLimits;
 
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs>> crawlerLimits() {
@@ -33,14 +33,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
      * 
      */
     @Import(name="exclusionFilters")
     private @Nullable Output<List<String>> exclusionFilters;
 
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
      * 
      */
     public Optional<Output<List<String>>> exclusionFilters() {
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * List of one or more inclusion regular expression patterns to include object types that match the pattern.
      * 
      */
     @Import(name="inclusionFilters")
     private @Nullable Output<List<String>> inclusionFilters;
 
     /**
-     * @return List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
      * 
      */
     public Optional<Output<List<String>>> inclusionFilters() {
@@ -78,14 +78,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
 
     /**
-     * String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
      * 
      */
     @Import(name="userAgent")
     private @Nullable Output<String> userAgent;
 
     /**
-     * @return String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
      * 
      */
     public Optional<Output<String>> userAgent() {
@@ -121,7 +121,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+         * @param exclusionFilters List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param inclusionFilters List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+         * @param inclusionFilters List of one or more inclusion regular expression patterns to include object types that match the pattern.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param userAgent String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * @param userAgent String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param userAgent String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+         * @param userAgent String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
          * 
          * @return builder
          * 

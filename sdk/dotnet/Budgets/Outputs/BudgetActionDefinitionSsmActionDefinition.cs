@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class BudgetActionDefinitionSsmActionDefinition
     {
         /// <summary>
-        /// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+        /// Action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
         /// </summary>
         public readonly string ActionSubType;
         /// <summary>
-        /// The EC2 and RDS instance IDs.
+        /// EC2 and RDS instance IDs.
         /// </summary>
         public readonly ImmutableArray<string> InstanceIds;
         /// <summary>
-        /// The Region to run the SSM document.
+        /// Region to run the SSM document.
         /// </summary>
         public readonly string Region;
 

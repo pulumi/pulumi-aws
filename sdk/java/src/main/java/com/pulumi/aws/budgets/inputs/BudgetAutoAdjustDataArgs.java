@@ -18,14 +18,14 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
     public static final BudgetAutoAdjustDataArgs Empty = new BudgetAutoAdjustDataArgs();
 
     /**
-     * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
      * 
      */
     @Import(name="autoAdjustType", required=true)
     private Output<String> autoAdjustType;
 
     /**
-     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * @return Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
      * 
      */
     public Output<String> autoAdjustType() {
@@ -33,14 +33,14 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     @Import(name="historicalOptions")
     private @Nullable Output<BudgetAutoAdjustDataHistoricalOptionsArgs> historicalOptions;
 
     /**
-     * @return (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * @return Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
      * 
      */
     public Optional<Output<BudgetAutoAdjustDataHistoricalOptionsArgs>> historicalOptions() {
@@ -48,14 +48,14 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Optional) - The last time that your budget was auto-adjusted.
+     * Last time that your budget was auto-adjusted.
      * 
      */
     @Import(name="lastAutoAdjustTime")
     private @Nullable Output<String> lastAutoAdjustTime;
 
     /**
-     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * @return Last time that your budget was auto-adjusted.
      * 
      */
     public Optional<Output<String>> lastAutoAdjustTime() {
@@ -89,7 +89,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoAdjustType (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * @param autoAdjustType Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoAdjustType (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * @param autoAdjustType Whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`, `HISTORICAL`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * @param historicalOptions Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * @param historicalOptions Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL`. Defines the historical data that your auto-adjusting budget is based on.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param lastAutoAdjustTime (Optional) - The last time that your budget was auto-adjusted.
+         * @param lastAutoAdjustTime Last time that your budget was auto-adjusted.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param lastAutoAdjustTime (Optional) - The last time that your budget was auto-adjusted.
+         * @param lastAutoAdjustTime Last time that your budget was auto-adjusted.
          * 
          * @return builder
          * 

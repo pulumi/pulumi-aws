@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CallbackUrl { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the client secret.
+        /// ARN of the AWS Secrets Manager secret containing the client secret. See `ClientSecretArn` Block below.
         /// </summary>
         [Output("clientSecretArns")]
         public Output<ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderClientSecretArn>> ClientSecretArns { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CredentialProviderArn { get; private set; } = null!;
 
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
         /// </summary>
         [Output("credentialProviderVendor")]
         public Output<string> CredentialProviderVendor { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` below.
+        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreOauth2CredentialProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
         /// </summary>
         [Input("credentialProviderVendor", required: true)]
         public Input<string> CredentialProviderVendor { get; set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` below.
+        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreOauth2CredentialProviderClientSecretArnGetArgs>? _clientSecretArns;
 
         /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the client secret.
+        /// ARN of the AWS Secrets Manager secret containing the client secret. See `ClientSecretArn` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderClientSecretArnGetArgs> ClientSecretArns
         {
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CredentialProviderArn { get; set; }
 
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
         /// </summary>
         [Input("credentialProviderVendor")]
         public Input<string>? CredentialProviderVendor { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` below.
+        /// OAuth2 provider configuration. Must contain exactly one provider type. See `Oauth2ProviderConfig` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

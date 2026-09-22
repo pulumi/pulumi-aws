@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentPromptVariantInferenceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+        /// Inference configurations for the prompt variant. See `variant.inference_configuration.text` Block for more information.
         /// </summary>
         [Input("text")]
         public Input<Inputs.AgentPromptVariantInferenceConfigurationTextGetArgs>? Text { get; set; }

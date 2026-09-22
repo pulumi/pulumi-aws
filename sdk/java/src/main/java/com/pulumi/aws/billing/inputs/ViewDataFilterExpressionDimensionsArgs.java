@@ -16,14 +16,14 @@ public final class ViewDataFilterExpressionDimensionsArgs extends com.pulumi.res
     public static final ViewDataFilterExpressionDimensionsArgs Empty = new ViewDataFilterExpressionDimensionsArgs();
 
     /**
-     * Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+     * Key of the dimension. Valid values are `LINKED_ACCOUNT`.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+     * @return Key of the dimension. Valid values are `LINKED_ACCOUNT`.
      * 
      */
     public Output<String> key() {
@@ -71,7 +71,7 @@ public final class ViewDataFilterExpressionDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param key Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+         * @param key Key of the dimension. Valid values are `LINKED_ACCOUNT`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ViewDataFilterExpressionDimensionsArgs extends com.pulumi.res
         }
 
         /**
-         * @param key Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+         * @param key Key of the dimension. Valid values are `LINKED_ACCOUNT`.
          * 
          * @return builder
          * 

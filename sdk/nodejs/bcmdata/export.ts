@@ -101,7 +101,7 @@ export class Export extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      */
     declare public readonly export: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface ExportState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface ExportState {
  */
 export interface ExportArgs {
     /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+     * Details of the export, including data query, name, description, and destination configuration. See the `export` block below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport | undefined>;
     /**

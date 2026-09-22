@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class GetBudgetPlannedLimit {
     /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+     * @return Amount of cost or usage measured for the budget.
      * 
      */
     private String amount;
     /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * @return Start time of the budget limit. Format: `2017-01-01_12:00`.
      * 
      */
     private String startTime;
     /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+     * @return Unit of measurement used for the budget, such as dollars or GB.
      * 
      */
     private String unit;
 
     private GetBudgetPlannedLimit() {}
     /**
-     * @return The cost or usage amount that&#39;s associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+     * @return Amount of cost or usage measured for the budget.
      * 
      */
     public String amount() {
         return this.amount;
     }
     /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+     * @return Start time of the budget limit. Format: `2017-01-01_12:00`.
      * 
      */
     public String startTime() {
         return this.startTime;
     }
     /**
-     * @return The unit of measurement that&#39;s used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+     * @return Unit of measurement used for the budget, such as dollars or GB.
      * 
      */
     public String unit() {

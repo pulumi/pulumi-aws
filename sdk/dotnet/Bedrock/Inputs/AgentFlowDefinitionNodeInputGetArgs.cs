@@ -19,19 +19,21 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Category { get; set; }
 
         /// <summary>
-        /// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        /// Expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
         /// <summary>
-        /// A name for the input that you can reference.
+        /// Name for the flow.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+        /// Data type of the output. If the output doesn't match this type at runtime, a validation error is thrown.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

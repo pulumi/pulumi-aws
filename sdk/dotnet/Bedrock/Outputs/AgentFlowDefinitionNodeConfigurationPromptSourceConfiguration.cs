@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     {
         /// <summary>
-        /// Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
+        /// Configurations for a prompt that is defined inline. See `definition.node.configuration.prompt.source_configuration.inline` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline? Inline;
         /// <summary>
-        /// Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
+        /// Configurations for a prompt from Prompt management. See `definition.node.configuration.prompt.source_configuration.resource` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource? Resource;
 

@@ -22,7 +22,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway;
     /**
-     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpConnector connector;
@@ -37,12 +37,12 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServer mcpServer;
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema openApiSchema;
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel smithyModel;
@@ -56,7 +56,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         return Optional.ofNullable(this.apiGateway);
     }
     /**
-     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpConnector> connector() {
@@ -77,14 +77,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         return Optional.ofNullable(this.mcpServer);
     }
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema> openApiSchema() {
         return Optional.ofNullable(this.openApiSchema);
     }
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
+     * @return Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel> smithyModel() {

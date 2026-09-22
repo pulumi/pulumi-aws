@@ -82,10 +82,21 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the file system.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the EFS file system policies using the `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+    /// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy example fs-6fa144c6
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/fileSystemPolicy:FileSystemPolicy")]

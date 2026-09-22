@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? EmbeddingModelArn { get; set; }
 
         /// <summary>
-        /// Configuration for the embedding model. Required when `EmbeddingModelType` is `CUSTOM`. See `EmbeddingModelConfiguration` block for details.
+        /// Configuration for the embedding model. Required when `EmbeddingModelType` is `CUSTOM`. See `EmbeddingModelConfiguration` Block for details.
         /// </summary>
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? EmbeddingModelType { get; set; }
 
         /// <summary>
-        /// Server-side encryption configuration for the managed knowledge base. See `ServerSideEncryptionConfiguration` block for details.
+        /// Server-side encryption configuration for the managed knowledge base. See `ServerSideEncryptionConfiguration` Block for details.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }

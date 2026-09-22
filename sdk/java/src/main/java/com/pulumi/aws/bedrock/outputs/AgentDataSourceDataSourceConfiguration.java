@@ -19,27 +19,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfiguration {
     /**
-     * @return Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
     /**
-     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * @return Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration managedKnowledgeBaseConnectorConfiguration;
     /**
-     * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+     * @return Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
     /**
-     * @return Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration;
     /**
-     * @return Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+     * @return Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
@@ -49,42 +49,42 @@ public final class AgentDataSourceDataSourceConfiguration {
      */
     private String type;
     /**
-     * @return Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+     * @return Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration;
 
     private AgentDataSourceDataSourceConfiguration() {}
     /**
-     * @return Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfiguration> confluenceConfiguration() {
         return Optional.ofNullable(this.confluenceConfiguration);
     }
     /**
-     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * @return Configuration details for a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration> managedKnowledgeBaseConnectorConfiguration() {
         return Optional.ofNullable(this.managedKnowledgeBaseConnectorConfiguration);
     }
     /**
-     * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+     * @return Configuration details for the S3 object that contains the data source. See `s3Configuration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
     /**
-     * @return Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+     * @return Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfiguration> salesforceConfiguration() {
         return Optional.ofNullable(this.salesforceConfiguration);
     }
     /**
-     * @return Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+     * @return Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationSharePointConfiguration> sharePointConfiguration() {
@@ -98,7 +98,7 @@ public final class AgentDataSourceDataSourceConfiguration {
         return this.type;
     }
     /**
-     * @return Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
+     * @return Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfiguration> webConfiguration() {

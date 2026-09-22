@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the configuration of the Confluence data source. See `ConfluenceDataSourceConfiguration` block for details.
+        /// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
         /// </summary>
         [Input("confluenceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` block for details.
+        /// Configuration details for a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` Block for details.
         /// </summary>
         [Input("managedKnowledgeBaseConnectorConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs>? ManagedKnowledgeBaseConnectorConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
+        /// Configuration details for the S3 object that contains the data source. See `S3Configuration` Block for details.
         /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs>? S3Configuration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `SalesforceDataSourceConfiguration` block for details.
+        /// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
         /// </summary>
         [Input("salesforceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs>? SalesforceConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `SharePointDataSourceConfiguration` block for details.
+        /// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
         /// </summary>
         [Input("sharePointConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Details about the configuration of the web data source. See `WebDataSourceConfiguration` block for details.
+        /// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
         /// </summary>
         [Input("webConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationArgs>? WebConfiguration { get; set; }

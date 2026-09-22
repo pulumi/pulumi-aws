@@ -596,6 +596,7 @@ func (o WebAclRuleStatementGeoMatchStatementPtrOutput) ForwardedIpConfig() WebAc
 }
 
 type WebAclRuleStatementGeoMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -613,6 +614,7 @@ type WebAclRuleStatementGeoMatchStatementForwardedIpConfigInput interface {
 }
 
 type WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -695,6 +697,7 @@ func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) ToWebAclRul
 	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementGeoMatchStatementForwardedIpConfig) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
@@ -728,6 +731,7 @@ func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) Elem() W
 	}).(WebAclRuleStatementGeoMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementGeoMatchStatementForwardedIpConfig) *string {
 		if v == nil {
@@ -9063,6 +9067,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchSt
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -9080,6 +9085,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchState
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -9162,6 +9168,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchSt
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig) string {
 		return v.FallbackBehavior
@@ -9199,6 +9206,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchSt
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig) *string {
 		if v == nil {
@@ -12882,6 +12890,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchSt
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -12899,6 +12908,7 @@ type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchState
 }
 
 type WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -12981,6 +12991,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchSt
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig) string {
 		return v.FallbackBehavior
@@ -13018,6 +13029,7 @@ func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchSt
 	}).(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig) *string {
 		if v == nil {
@@ -34093,6 +34105,7 @@ func (o WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationA
 }
 
 type WebAclRuleStatementRateBasedStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -34110,6 +34123,7 @@ type WebAclRuleStatementRateBasedStatementForwardedIpConfigInput interface {
 }
 
 type WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -34192,6 +34206,7 @@ func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ToWebAclRu
 	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementForwardedIpConfig) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
@@ -34225,6 +34240,7 @@ func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) Elem() 
 	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementForwardedIpConfig) *string {
 		if v == nil {
@@ -34988,6 +35004,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -35005,6 +35022,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementFor
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -35087,6 +35105,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig) string {
 		return v.FallbackBehavior
@@ -35124,6 +35143,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig) *string {
 		if v == nil {
@@ -38807,6 +38827,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName string `pulumi:"headerName"`
@@ -38824,6 +38845,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementFor
 }
 
 type WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs struct {
+	// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 	// Name of the header containing the forwarded IP address.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
@@ -38906,6 +38928,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig) string {
 		return v.FallbackBehavior
@@ -38943,6 +38966,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigOutput)
 }
 
+// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig) *string {
 		if v == nil {

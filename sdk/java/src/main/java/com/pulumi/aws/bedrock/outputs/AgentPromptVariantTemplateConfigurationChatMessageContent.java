@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatMessageContent {
+    /**
+     * @return Cache checkpoint within a message. See `cachePoint` Block for more information.
+     * 
+     */
     private @Nullable AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint cachePoint;
+    /**
+     * @return Text in the message.
+     * 
+     */
     private @Nullable String text;
 
     private AgentPromptVariantTemplateConfigurationChatMessageContent() {}
+    /**
+     * @return Cache checkpoint within a message. See `cachePoint` Block for more information.
+     * 
+     */
     public Optional<AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
+    /**
+     * @return Text in the message.
+     * 
+     */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }

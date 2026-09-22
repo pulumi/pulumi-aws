@@ -12,23 +12,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+    /**
+     * @return One or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * 
+     */
     private @Nullable List<String> exclusionFilters;
+    /**
+     * @return One or more inclusion regular expression patterns to include object types that match the pattern.
+     * 
+     */
     private @Nullable List<String> inclusionFilters;
     /**
-     * @return The supported object type or content type of the data source.
+     * @return Object type or content type of the data source.
      * 
      */
     private String objectType;
 
     private AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter() {}
+    /**
+     * @return One or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * 
+     */
     public List<String> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
+    /**
+     * @return One or more inclusion regular expression patterns to include object types that match the pattern.
+     * 
+     */
     public List<String> inclusionFilters() {
         return this.inclusionFilters == null ? List.of() : this.inclusionFilters;
     }
     /**
-     * @return The supported object type or content type of the data source.
+     * @return Object type or content type of the data source.
      * 
      */
     public String objectType() {

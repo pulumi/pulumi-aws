@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanRuleScanAction {
+    /**
+     * @return Malware scanner used for the scan setting.
+     * 
+     */
     private String malwareScanner;
+    /**
+     * @return Mode of the malware scan.
+     * 
+     */
     private String scanMode;
 
     private GetPlanRuleScanAction() {}
+    /**
+     * @return Malware scanner used for the scan setting.
+     * 
+     */
     public String malwareScanner() {
         return this.malwareScanner;
     }
+    /**
+     * @return Mode of the malware scan.
+     * 
+     */
     public String scanMode() {
         return this.scanMode;
     }

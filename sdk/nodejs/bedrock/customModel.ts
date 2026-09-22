@@ -99,11 +99,11 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public readonly baseModelIdentifier: pulumi.Output<string>;
     /**
-     * The ARN of the output model.
+     * ARN of the output model.
      */
     declare public /*out*/ readonly customModelArn: pulumi.Output<string>;
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      */
     declare public readonly customModelKmsKeyId: pulumi.Output<string | undefined>;
     /**
@@ -111,7 +111,7 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public readonly customModelName: pulumi.Output<string>;
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
     declare public readonly customizationType: pulumi.Output<string>;
     /**
@@ -119,19 +119,19 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public readonly hyperparameters: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ARN of the customization job.
+     * ARN of the customization job.
      */
     declare public /*out*/ readonly jobArn: pulumi.Output<string>;
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      */
     declare public readonly jobName: pulumi.Output<string>;
     /**
-     * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      */
     declare public /*out*/ readonly jobStatus: pulumi.Output<string>;
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      */
     declare public readonly outputDataConfig: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig>;
     /**
@@ -143,7 +143,7 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -152,7 +152,7 @@ export class CustomModel extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.CustomModelTimeouts | undefined>;
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      */
     declare public readonly trainingDataConfig: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig>;
     /**
@@ -160,15 +160,15 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly trainingMetrics: pulumi.Output<outputs.bedrock.CustomModelTrainingMetric[]>;
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      */
     declare public readonly validationDataConfig: pulumi.Output<outputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
-     * The loss metric for each validator that you provided.
+     * Loss metric for each validator that you provided.
      */
     declare public /*out*/ readonly validationMetrics: pulumi.Output<outputs.bedrock.CustomModelValidationMetric[]>;
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      */
     declare public readonly vpcConfig: pulumi.Output<outputs.bedrock.CustomModelVpcConfig | undefined>;
 
@@ -263,11 +263,11 @@ export interface CustomModelState {
      */
     baseModelIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the output model.
+     * ARN of the output model.
      */
     customModelArn?: pulumi.Input<string | undefined>;
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      */
     customModelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -275,7 +275,7 @@ export interface CustomModelState {
      */
     customModelName?: pulumi.Input<string | undefined>;
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
     customizationType?: pulumi.Input<string | undefined>;
     /**
@@ -283,19 +283,19 @@ export interface CustomModelState {
      */
     hyperparameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ARN of the customization job.
+     * ARN of the customization job.
      */
     jobArn?: pulumi.Input<string | undefined>;
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      */
     jobName?: pulumi.Input<string | undefined>;
     /**
-     * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      */
     jobStatus?: pulumi.Input<string | undefined>;
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      */
     outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface CustomModelState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface CustomModelState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts | undefined>;
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      */
     trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig | undefined>;
     /**
@@ -324,15 +324,15 @@ export interface CustomModelState {
      */
     trainingMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelTrainingMetric>[] | undefined>;
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      */
     validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
-     * The loss metric for each validator that you provided.
+     * Loss metric for each validator that you provided.
      */
     validationMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationMetric>[] | undefined>;
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      */
     vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }
@@ -346,7 +346,7 @@ export interface CustomModelArgs {
      */
     baseModelIdentifier: pulumi.Input<string>;
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      */
     customModelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -354,7 +354,7 @@ export interface CustomModelArgs {
      */
     customModelName: pulumi.Input<string>;
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
     customizationType?: pulumi.Input<string | undefined>;
     /**
@@ -362,11 +362,11 @@ export interface CustomModelArgs {
      */
     hyperparameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      */
     jobName: pulumi.Input<string>;
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      */
     outputDataConfig: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
     /**
@@ -378,20 +378,20 @@ export interface CustomModelArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts | undefined>;
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      */
     trainingDataConfig: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      */
     validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      */
     vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }

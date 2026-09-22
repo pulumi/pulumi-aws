@@ -48,9 +48,9 @@ class ViewDataFilterExpression(dict):
                  tags: Optional[Sequence['outputs.ViewDataFilterExpressionTag']] = None,
                  time_range: Optional['outputs.ViewDataFilterExpressionTimeRange'] = None):
         """
-        :param 'ViewDataFilterExpressionDimensionsArgs' dimensions: Dimension to use for `expression`. Refer to #dimensions for more details.
-        :param Sequence['ViewDataFilterExpressionTagArgs'] tags: List of key value map specifying tags associated to the billing view being created.
-        :param 'ViewDataFilterExpressionTimeRangeArgs' time_range: Time range to use for `expression`. Refer to #time-range for more details.
+        :param 'ViewDataFilterExpressionDimensionsArgs' dimensions: Dimension to use for the expression. See `dimensions` below for details.
+        :param Sequence['ViewDataFilterExpressionTagArgs'] tags: Tags to use for the expression. See `tags` below for details.
+        :param 'ViewDataFilterExpressionTimeRangeArgs' time_range: Time range to use for the expression. See `time_range` below for details.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -63,7 +63,7 @@ class ViewDataFilterExpression(dict):
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.ViewDataFilterExpressionDimensions']:
         """
-        Dimension to use for `expression`. Refer to #dimensions for more details.
+        Dimension to use for the expression. See `dimensions` below for details.
         """
         return pulumi.get(self, "dimensions")
 
@@ -71,7 +71,7 @@ class ViewDataFilterExpression(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ViewDataFilterExpressionTag']]:
         """
-        List of key value map specifying tags associated to the billing view being created.
+        Tags to use for the expression. See `tags` below for details.
         """
         return pulumi.get(self, "tags")
 
@@ -79,7 +79,7 @@ class ViewDataFilterExpression(dict):
     @pulumi.getter(name="timeRange")
     def time_range(self) -> Optional['outputs.ViewDataFilterExpressionTimeRange']:
         """
-        Time range to use for `expression`. Refer to #time-range for more details.
+        Time range to use for the expression. See `time_range` below for details.
         """
         return pulumi.get(self, "time_range")
 
@@ -90,7 +90,7 @@ class ViewDataFilterExpressionDimensions(dict):
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str key: Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+        :param _builtins.str key: Key of the dimension. Valid values are `LINKED_ACCOUNT`.
         :param Sequence[_builtins.str] values: List of metadata values that you can use to filter and group your results.
         """
         pulumi.set(__self__, "key", key)
@@ -100,7 +100,7 @@ class ViewDataFilterExpressionDimensions(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+        Key of the dimension. Valid values are `LINKED_ACCOUNT`.
         """
         return pulumi.get(self, "key")
 
@@ -167,7 +167,8 @@ class ViewDataFilterExpressionTimeRange(dict):
                  begin_date_inclusive: _builtins.str,
                  end_date_inclusive: _builtins.str):
         """
-        :param _builtins.str begin_date_inclusive: Inclusive end date of the time range.
+        :param _builtins.str begin_date_inclusive: Inclusive start date of the time range.
+        :param _builtins.str end_date_inclusive: Inclusive end date of the time range.
         """
         pulumi.set(__self__, "begin_date_inclusive", begin_date_inclusive)
         pulumi.set(__self__, "end_date_inclusive", end_date_inclusive)
@@ -176,13 +177,16 @@ class ViewDataFilterExpressionTimeRange(dict):
     @pulumi.getter(name="beginDateInclusive")
     def begin_date_inclusive(self) -> _builtins.str:
         """
-        Inclusive end date of the time range.
+        Inclusive start date of the time range.
         """
         return pulumi.get(self, "begin_date_inclusive")
 
     @_builtins.property
     @pulumi.getter(name="endDateInclusive")
     def end_date_inclusive(self) -> _builtins.str:
+        """
+        Inclusive end date of the time range.
+        """
         return pulumi.get(self, "end_date_inclusive")
 
 
@@ -239,6 +243,7 @@ class GetViewsBillingViewResult(dict):
                  owner_account_id: _builtins.str):
         """
         :param _builtins.str arn: ARN of the billing view.
+        :param _builtins.str billing_view_type: Type of the billing view.
         :param _builtins.str description: Description of the billing view.
         :param _builtins.str name: Name of the billing view.
         :param _builtins.str owner_account_id: Account ID of the billing view owner.
@@ -260,6 +265,9 @@ class GetViewsBillingViewResult(dict):
     @_builtins.property
     @pulumi.getter(name="billingViewType")
     def billing_view_type(self) -> _builtins.str:
+        """
+        Type of the billing view.
+        """
         return pulumi.get(self, "billing_view_type")
 
     @_builtins.property

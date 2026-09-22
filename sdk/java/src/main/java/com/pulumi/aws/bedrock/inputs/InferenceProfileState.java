@@ -21,14 +21,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     public static final InferenceProfileState Empty = new InferenceProfileState();
 
     /**
-     * The ARN of the inference profile.
+     * ARN of the inference profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the inference profile.
+     * @return ARN of the inference profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -36,14 +36,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The time at which the inference profile was created.
+     * Time at which the inference profile was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The time at which the inference profile was created.
+     * @return Time at which the inference profile was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -51,14 +51,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The description of the inference profile.
+     * Description of the inference profile.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the inference profile.
+     * @return Description of the inference profile.
      * 
      */
     public Optional<Output<String>> description() {
@@ -66,18 +66,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
+     * Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      */
     @Import(name="modelSource")
     private @Nullable Output<InferenceProfileModelSourceArgs> modelSource;
 
     /**
-     * @return The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
+     * @return Source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      */
     public Optional<Output<InferenceProfileModelSourceArgs>> modelSource() {
@@ -85,14 +81,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of information about each model in the inference profile. See `models`.
+     * List of information about each model in the inference profile. See `models`.
      * 
      */
     @Import(name="models")
     private @Nullable Output<List<InferenceProfileModelArgs>> models;
 
     /**
-     * @return A list of information about each model in the inference profile. See `models`.
+     * @return List of information about each model in the inference profile. See `models`.
      * 
      */
     public Optional<Output<List<InferenceProfileModelArgs>>> models() {
@@ -100,14 +96,18 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the inference profile.
+     * Name of the inference profile.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the inference profile.
+     * @return Name of the inference profile.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -130,14 +130,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+     * @return Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
     public Optional<Output<String>> status() {
@@ -174,14 +174,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+     * @return Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     public Optional<Output<String>> type() {
@@ -189,14 +189,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The time at which the inference profile was last updated.
+     * Time at which the inference profile was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The time at which the inference profile was last updated.
+     * @return Time at which the inference profile was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -240,7 +240,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The ARN of the inference profile.
+         * @param arn ARN of the inference profile.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The ARN of the inference profile.
+         * @param arn ARN of the inference profile.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt The time at which the inference profile was created.
+         * @param createdAt Time at which the inference profile was created.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt The time at which the inference profile was created.
+         * @param createdAt Time at which the inference profile was created.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description The description of the inference profile.
+         * @param description Description of the inference profile.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description The description of the inference profile.
+         * @param description Description of the inference profile.
          * 
          * @return builder
          * 
@@ -303,9 +303,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-         * 
-         * The following arguments are optional:
+         * @param modelSource Source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * @return builder
          * 
@@ -316,9 +314,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-         * 
-         * The following arguments are optional:
+         * @param modelSource Source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * @return builder
          * 
@@ -328,7 +324,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param models A list of information about each model in the inference profile. See `models`.
+         * @param models List of information about each model in the inference profile. See `models`.
          * 
          * @return builder
          * 
@@ -339,7 +335,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param models A list of information about each model in the inference profile. See `models`.
+         * @param models List of information about each model in the inference profile. See `models`.
          * 
          * @return builder
          * 
@@ -349,7 +345,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param models A list of information about each model in the inference profile. See `models`.
+         * @param models List of information about each model in the inference profile. See `models`.
          * 
          * @return builder
          * 
@@ -359,7 +355,9 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the inference profile.
+         * @param name Name of the inference profile.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -370,7 +368,9 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the inference profile.
+         * @param name Name of the inference profile.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param status The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+         * @param status Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param status The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+         * @param status Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+         * @param type Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
+         * @param type Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt The time at which the inference profile was last updated.
+         * @param updatedAt Time at which the inference profile was last updated.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param updatedAt The time at which the inference profile was last updated.
+         * @param updatedAt Time at which the inference profile was last updated.
          * 
          * @return builder
          * 

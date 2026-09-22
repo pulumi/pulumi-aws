@@ -16,18 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **Microsoft-Specific Configuration:**
-     * 
-     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-     * 
-     * **Standard Tenant ID:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     private @Nullable Integer clientCredentialsWoVersion;
     /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
      * 
      */
     private @Nullable String clientId;
@@ -38,16 +32,12 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
      */
     private @Nullable String clientIdWo;
     /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
+     * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig clientSecretConfig;
@@ -63,49 +53,37 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
      */
     private @Nullable String clientSecretWo;
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
     /**
-     * @return Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-     * 
-     * **Write-Only Tenant ID:**
+     * @return Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
      * 
      */
     private @Nullable String tenantId;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+     * Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
      * 
      */
     private @Nullable String tenantIdWo;
     /**
-     * @return Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-     * 
-     * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+     * @return Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
      * 
      */
     private @Nullable Integer tenantIdWoVersion;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig() {}
     /**
-     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
-     * 
-     * **Microsoft-Specific Configuration:**
-     * 
-     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
-     * 
-     * **Standard Tenant ID:**
+     * @return Version used together with the write-only credentials. Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
      * 
      */
     public Optional<Integer> clientCredentialsWoVersion() {
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
     /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
      * 
      */
     public Optional<String> clientId() {
@@ -120,18 +98,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
         return Optional.ofNullable(this.clientIdWo);
     }
     /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
+     * @return OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
-     * 
-     * **Advanced Configuration:**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig> clientSecretConfig() {
@@ -153,18 +127,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
         return Optional.ofNullable(this.clientSecretWo);
     }
     /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     * **Externally-Managed Client Secret:**
+     * @return OAuth discovery configuration resolved by the service. See `oauth2_provider_config.slack_oauth2_provider_config.oauth_discovery` Block below.
      * 
      */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery> oauthDiscoveries() {
         return this.oauthDiscoveries == null ? List.of() : this.oauthDiscoveries;
     }
     /**
-     * @return Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
-     * 
-     * **Write-Only Tenant ID:**
+     * @return Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantIdWo`.
      * 
      */
     public Optional<String> tenantId() {
@@ -172,16 +142,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+     * Write-only Microsoft Entra (Azure AD) tenant ID. Conflicts with `tenantId`. Must be used together with `tenantIdWoVersion`.
      * 
      */
     public Optional<String> tenantIdWo() {
         return Optional.ofNullable(this.tenantIdWo);
     }
     /**
-     * @return Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
-     * 
-     * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+     * @return Version paired with the write-only tenant ID. Increment this value to trigger an update to `tenantIdWo`.
      * 
      */
     public Optional<Integer> tenantIdWoVersion() {

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource
     {
+        /// <summary>
+        /// AWS KMS key source configuration for the signing key. See `KmsKeySource` Block below.
+        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource? KmsKeySource;
 
         [OutputConstructor]

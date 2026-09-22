@@ -93,21 +93,29 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     @Export(name="fairSharePolicy", refs={SchedulingPolicyFairSharePolicy.class}, tree="[0]")
     private Output</* @Nullable */ SchedulingPolicyFairSharePolicy> fairSharePolicy;
 
+    /**
+     * @return Fair share scheduling policy details. The `fairSharePolicy` block is documented below.
+     * 
+     */
     public Output<Optional<SchedulingPolicyFairSharePolicy>> fairSharePolicy() {
         return Codegen.optional(this.fairSharePolicy);
     }
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the scheduling policy.
+     * @return Name of the scheduling policy.
      * 
      */
     public Output<String> name() {
@@ -142,14 +150,14 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

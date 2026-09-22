@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? ConnectorParameters { get; set; }
 
         /// <summary>
-        /// Configuration for deletion protection on the data source. See `DeletionProtectionConfiguration` block for details.
+        /// Configuration for deletion protection on the data source. See `DeletionProtectionConfiguration` Block for details.
         /// </summary>
         [Input("deletionProtectionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs>? DeletionProtectionConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration for extracting media content (images, audio, video) from documents. See `MediaExtractionConfiguration` block for details.
+        /// Configuration for extracting media content (images, audio, video) from documents. See `MediaExtractionConfiguration` Block for details.
         /// </summary>
         [Input("mediaExtractionConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs>? MediaExtractionConfiguration { get; set; }

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:msk/channel:Channel":
+		r = &Channel{}
 	case "aws:msk/cluster:Cluster":
 		r = &Cluster{}
 	case "aws:msk/clusterPolicy:ClusterPolicy":
@@ -52,6 +54,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/channel",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/cluster",

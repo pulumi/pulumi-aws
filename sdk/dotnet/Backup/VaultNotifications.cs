@@ -91,13 +91,13 @@ namespace Pulumi.Aws.Backup
     public partial class VaultNotifications : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
         /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// Array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
         [Output("backupVaultEvents")]
         public Output<ImmutableArray<string>> BackupVaultEvents { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _backupVaultEvents;
 
         /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// Array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
         public InputList<string> BackupVaultEvents
         {
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Backup
     public sealed class VaultNotificationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
         public Input<string>? BackupVaultArn { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _backupVaultEvents;
 
         /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// Array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
         public InputList<string> BackupVaultEvents
         {

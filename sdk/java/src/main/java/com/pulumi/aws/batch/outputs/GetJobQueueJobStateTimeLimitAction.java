@@ -11,27 +11,51 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobQueueJobStateTimeLimitAction {
+    /**
+     * @return Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+     * 
+     */
     private String action;
+    /**
+     * @return Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+     * 
+     */
     private Integer maxTimeSeconds;
+    /**
+     * @return Reason to log for the action being taken.
+     * 
+     */
     private String reason;
     /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+     * @return Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      * 
      */
     private String state;
 
     private GetJobQueueJobStateTimeLimitAction() {}
+    /**
+     * @return Action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+     * 
+     */
     public String action() {
         return this.action;
     }
+    /**
+     * @return Approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+     * 
+     */
     public Integer maxTimeSeconds() {
         return this.maxTimeSeconds;
     }
+    /**
+     * @return Reason to log for the action being taken.
+     * 
+     */
     public String reason() {
         return this.reason;
     }
     /**
-     * @return Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+     * @return Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
      * 
      */
     public String state() {

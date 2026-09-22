@@ -17,14 +17,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs();
 
     /**
-     * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
      * 
      */
     @Import(name="chat")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs> chat;
 
     /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * @return Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs>> chat() {
@@ -32,14 +32,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * Message for the prompt.
      * 
      */
     @Import(name="text")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs> text;
 
     /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs>> text() {
@@ -72,7 +72,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * @param chat Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * @param chat Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 

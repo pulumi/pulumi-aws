@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class SchedulingPolicyFairSharePolicy
     {
         /// <summary>
-        /// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        /// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         /// </summary>
         public readonly int? ComputeReservation;
+        /// <summary>
+        /// Time period to use to calculate a fair share percentage for each fair share identifier in use, in seconds. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        /// </summary>
         public readonly int? ShareDecaySeconds;
         /// <summary>
         /// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `ShareDistribution` block is documented below.

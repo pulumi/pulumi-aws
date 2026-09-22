@@ -15,6 +15,10 @@ public final class GetViewsBillingView {
      * 
      */
     private String arn;
+    /**
+     * @return Type of the billing view.
+     * 
+     */
     private String billingViewType;
     /**
      * @return Description of the billing view.
@@ -40,6 +44,10 @@ public final class GetViewsBillingView {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Type of the billing view.
+     * 
+     */
     public String billingViewType() {
         return this.billingViewType;
     }

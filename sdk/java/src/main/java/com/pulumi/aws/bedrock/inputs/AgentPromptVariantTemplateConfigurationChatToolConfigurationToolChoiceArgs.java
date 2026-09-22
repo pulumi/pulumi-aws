@@ -18,14 +18,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs();
 
     /**
-     * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
      * 
      */
     @Import(name="any")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs> any;
 
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * @return Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs>> any() {
@@ -33,14 +33,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     }
 
     /**
-     * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
      * 
      */
     @Import(name="auto")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs> auto;
 
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * @return Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs>> auto() {
@@ -48,14 +48,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
     }
 
     /**
-     * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
      * 
      */
     @Import(name="tool")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs> tool;
 
     /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+     * @return Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs>> tool() {
@@ -89,7 +89,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * @param any Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * @param any Tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * @param auto Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * @param auto Tools from which the model automatically decides whether to call a tool or to generate text instead. This object has no fields.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param tool Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * @param tool Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
         }
 
         /**
-         * @param tool Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+         * @param tool Specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See `variant.template_configuration.chat.tool_configuration.tool_choice.tool` Block for more information.
          * 
          * @return builder
          * 

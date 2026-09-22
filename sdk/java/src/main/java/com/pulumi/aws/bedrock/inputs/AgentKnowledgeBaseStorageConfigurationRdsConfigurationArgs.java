@@ -46,14 +46,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     }
 
     /**
-     * Names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
      * 
      */
     @Import(name="fieldMapping", required=true)
     private Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
+     * @return Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping() {
@@ -161,7 +161,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
+         * @param fieldMapping Names of the fields to which to map information about the vector store. See `storage_configuration.rds_configuration.field_mapping` Block for details.
          * 
          * @return builder
          * 

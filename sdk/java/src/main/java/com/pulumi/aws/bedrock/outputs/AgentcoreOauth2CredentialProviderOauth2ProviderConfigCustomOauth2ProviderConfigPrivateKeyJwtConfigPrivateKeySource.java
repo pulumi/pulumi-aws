@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+    /**
+     * @return AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+     * 
+     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource kmsKeySource;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource() {}
+    /**
+     * @return AWS KMS key source configuration for the signing key. See `kmsKeySource` Block below.
+     * 
+     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource> kmsKeySource() {
         return Optional.ofNullable(this.kmsKeySource);
     }

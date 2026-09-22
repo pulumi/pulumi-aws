@@ -181,7 +181,8 @@ type AgentAgentCollaborator struct {
 
 	AgentDescriptor AgentAgentCollaboratorAgentDescriptorOutput `pulumi:"agentDescriptor"`
 	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringOutput `pulumi:"agentId"`
+	AgentId pulumi.StringOutput `pulumi:"agentId"`
+	// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringOutput `pulumi:"collaborationInstruction"`
@@ -244,7 +245,8 @@ func GetAgentAgentCollaborator(ctx *pulumi.Context,
 type agentAgentCollaboratorState struct {
 	AgentDescriptor *AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
 	// ID if the agent to associate the collaborator.
-	AgentId      *string `pulumi:"agentId"`
+	AgentId *string `pulumi:"agentId"`
+	// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Instruction to give the collaborator.
 	CollaborationInstruction *string `pulumi:"collaborationInstruction"`
@@ -266,7 +268,8 @@ type agentAgentCollaboratorState struct {
 type AgentAgentCollaboratorState struct {
 	AgentDescriptor AgentAgentCollaboratorAgentDescriptorPtrInput
 	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringPtrInput
+	AgentId pulumi.StringPtrInput
+	// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringPtrInput
@@ -292,7 +295,8 @@ func (AgentAgentCollaboratorState) ElementType() reflect.Type {
 type agentAgentCollaboratorArgs struct {
 	AgentDescriptor AgentAgentCollaboratorAgentDescriptor `pulumi:"agentDescriptor"`
 	// ID if the agent to associate the collaborator.
-	AgentId      string  `pulumi:"agentId"`
+	AgentId string `pulumi:"agentId"`
+	// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
 	// Instruction to give the collaborator.
 	CollaborationInstruction string `pulumi:"collaborationInstruction"`
@@ -313,7 +317,8 @@ type agentAgentCollaboratorArgs struct {
 type AgentAgentCollaboratorArgs struct {
 	AgentDescriptor AgentAgentCollaboratorAgentDescriptorInput
 	// ID if the agent to associate the collaborator.
-	AgentId      pulumi.StringInput
+	AgentId pulumi.StringInput
+	// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
 	// Instruction to give the collaborator.
 	CollaborationInstruction pulumi.StringInput
@@ -426,6 +431,7 @@ func (o AgentAgentCollaboratorOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
+// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
 func (o AgentAgentCollaboratorOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }

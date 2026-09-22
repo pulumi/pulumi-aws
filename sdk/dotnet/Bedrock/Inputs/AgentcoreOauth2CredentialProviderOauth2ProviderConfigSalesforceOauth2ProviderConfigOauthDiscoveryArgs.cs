@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>? _authorizationServerMetadatas;
 
         /// <summary>
-        /// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `DiscoveryUrl`. See `AuthorizationServerMetadata` below.
+        /// OAuth2 authorization server metadata resolved by the service. See `AuthorizationServerMetadata` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs> AuthorizationServerMetadatas
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `AuthorizationServerMetadata`.
+        /// OpenID Connect discovery URL resolved by the service.
         /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;

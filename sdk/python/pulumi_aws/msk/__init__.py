@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .channel import *
 from .cluster import *
 from .cluster_policy import *
 from .configuration import *

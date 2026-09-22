@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("inputVariables")]
         private InputList<Inputs.AgentPromptVariantTemplateConfigurationChatInputVariableGetArgs>? _inputVariables;
+
+        /// <summary>
+        /// List of variables in the prompt template. See `InputVariable` Block for more information.
+        /// </summary>
         public InputList<Inputs.AgentPromptVariantTemplateConfigurationChatInputVariableGetArgs> InputVariables
         {
             get => _inputVariables ?? (_inputVariables = new InputList<Inputs.AgentPromptVariantTemplateConfigurationChatInputVariableGetArgs>());
@@ -24,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentPromptVariantTemplateConfigurationChatMessageGetArgs>? _messages;
 
         /// <summary>
-        /// A list of messages in the chat for the prompt. See Message for more information.
+        /// List of messages in the chat for the prompt. See `Message` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantTemplateConfigurationChatMessageGetArgs> Messages
         {
@@ -36,7 +40,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentPromptVariantTemplateConfigurationChatSystemGetArgs>? _systems;
 
         /// <summary>
-        /// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        /// List of system prompts to provide context to the model or to describe how it should behave. See `System` Block for more information.
         /// </summary>
         public InputList<Inputs.AgentPromptVariantTemplateConfigurationChatSystemGetArgs> Systems
         {
@@ -45,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        /// Configuration information for the tools that the model can use when generating a response. See `ToolConfiguration` Block for more information.
         /// </summary>
         [Input("toolConfiguration")]
         public Input<Inputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationGetArgs>? ToolConfiguration { get; set; }

@@ -17,30 +17,62 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs();
 
+    /**
+     * Key-value map of additional claims to include in the JWT header.
+     * 
+     */
     @Import(name="additionalHeaderClaims")
     private @Nullable Output<Map<String,String>> additionalHeaderClaims;
 
+    /**
+     * @return Key-value map of additional claims to include in the JWT header.
+     * 
+     */
     public Optional<Output<Map<String,String>>> additionalHeaderClaims() {
         return Optional.ofNullable(this.additionalHeaderClaims);
     }
 
+    /**
+     * Key-value map of additional claims to include in the JWT payload.
+     * 
+     */
     @Import(name="additionalPayloadClaims")
     private @Nullable Output<Map<String,String>> additionalPayloadClaims;
 
+    /**
+     * @return Key-value map of additional claims to include in the JWT payload.
+     * 
+     */
     public Optional<Output<Map<String,String>>> additionalPayloadClaims() {
         return Optional.ofNullable(this.additionalPayloadClaims);
     }
 
+    /**
+     * Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+     * 
+     */
     @Import(name="privateKeySource")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs> privateKeySource;
 
+    /**
+     * @return Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+     * 
+     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs>> privateKeySource() {
         return Optional.ofNullable(this.privateKeySource);
     }
 
+    /**
+     * Algorithm used to sign the JWT.
+     * 
+     */
     @Import(name="signingAlgorithm")
     private @Nullable Output<String> signingAlgorithm;
 
+    /**
+     * @return Algorithm used to sign the JWT.
+     * 
+     */
     public Optional<Output<String>> signingAlgorithm() {
         return Optional.ofNullable(this.signingAlgorithm);
     }
@@ -72,38 +104,86 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param additionalHeaderClaims Key-value map of additional claims to include in the JWT header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalHeaderClaims(@Nullable Output<Map<String,String>> additionalHeaderClaims) {
             $.additionalHeaderClaims = additionalHeaderClaims;
             return this;
         }
 
+        /**
+         * @param additionalHeaderClaims Key-value map of additional claims to include in the JWT header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalHeaderClaims(Map<String,String> additionalHeaderClaims) {
             return additionalHeaderClaims(Output.of(additionalHeaderClaims));
         }
 
+        /**
+         * @param additionalPayloadClaims Key-value map of additional claims to include in the JWT payload.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalPayloadClaims(@Nullable Output<Map<String,String>> additionalPayloadClaims) {
             $.additionalPayloadClaims = additionalPayloadClaims;
             return this;
         }
 
+        /**
+         * @param additionalPayloadClaims Key-value map of additional claims to include in the JWT payload.
+         * 
+         * @return builder
+         * 
+         */
         public Builder additionalPayloadClaims(Map<String,String> additionalPayloadClaims) {
             return additionalPayloadClaims(Output.of(additionalPayloadClaims));
         }
 
+        /**
+         * @param privateKeySource Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateKeySource(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs> privateKeySource) {
             $.privateKeySource = privateKeySource;
             return this;
         }
 
+        /**
+         * @param privateKeySource Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateKeySource(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceArgs privateKeySource) {
             return privateKeySource(Output.of(privateKeySource));
         }
 
+        /**
+         * @param signingAlgorithm Algorithm used to sign the JWT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingAlgorithm(@Nullable Output<String> signingAlgorithm) {
             $.signingAlgorithm = signingAlgorithm;
             return this;
         }
 
+        /**
+         * @param signingAlgorithm Algorithm used to sign the JWT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder signingAlgorithm(String signingAlgorithm) {
             return signingAlgorithm(Output.of(signingAlgorithm));
         }

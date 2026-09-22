@@ -116,14 +116,14 @@ public class ProvisionedModelThroughput extends com.pulumi.resources.CustomResou
         return this.modelUnits;
     }
     /**
-     * The ARN of the Provisioned Throughput.
+     * ARN of the Provisioned Throughput.
      * 
      */
     @Export(name="provisionedModelArn", refs={String.class}, tree="[0]")
     private Output<String> provisionedModelArn;
 
     /**
-     * @return The ARN of the Provisioned Throughput.
+     * @return ARN of the Provisioned Throughput.
      * 
      */
     public Output<String> provisionedModelArn() {
@@ -158,14 +158,14 @@ public class ProvisionedModelThroughput extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -203,14 +203,14 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return this.callbackUrl;
     }
     /**
-     * ARN of the AWS Secrets Manager secret containing the client secret.
+     * ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
      * 
      */
     @Export(name="clientSecretArns", refs={List.class,AgentcoreOauth2CredentialProviderClientSecretArn.class}, tree="[0,1]")
     private Output<List<AgentcoreOauth2CredentialProviderClientSecretArn>> clientSecretArns;
 
     /**
-     * @return ARN of the AWS Secrets Manager secret containing the client secret.
+     * @return ARN of the AWS Secrets Manager secret containing the client secret. See `clientSecretArn` Block below.
      * 
      */
     public Output<List<AgentcoreOauth2CredentialProviderClientSecretArn>> clientSecretArns() {
@@ -231,14 +231,14 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return this.credentialProviderArn;
     }
     /**
-     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
      * 
      */
     @Export(name="credentialProviderVendor", refs={String.class}, tree="[0]")
     private Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list.
      * 
      */
     public Output<String> credentialProviderVendor() {
@@ -259,7 +259,7 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return this.name;
     }
     /**
-     * OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+     * OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -268,7 +268,7 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
     private Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig;
 
     /**
-     * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
+     * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -305,14 +305,14 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

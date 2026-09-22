@@ -16,14 +16,14 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
     public static final AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs();
 
     /**
-     * The Salesforce standard object configuration. See `filterConfiguration` block for details.
+     * Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
      * 
      */
     @Import(name="filterConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
 
     /**
-     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
+     * @return Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs>> filterConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
         }
 
         /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * @param filterConfiguration Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
         }
 
         /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
+         * @param filterConfiguration Object configuration used to filter crawled content. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration` Block for details.
          * 
          * @return builder
          * 

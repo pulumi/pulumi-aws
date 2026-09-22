@@ -17,14 +17,14 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
     public static final AgentPromptVariantTemplateConfigurationChatSystemArgs Empty = new AgentPromptVariantTemplateConfigurationChatSystemArgs();
 
     /**
-     * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+     * Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
      * 
      */
     @Import(name="cachePoint")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs> cachePoint;
 
     /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+     * @return Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs>> cachePoint() {
@@ -32,14 +32,14 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
     }
 
     /**
-     * The text in the system prompt.
+     * Text in the system prompt.
      * 
      */
     @Import(name="text")
     private @Nullable Output<String> text;
 
     /**
-     * @return The text in the system prompt.
+     * @return Text in the system prompt.
      * 
      */
     public Optional<Output<String>> text() {
@@ -72,7 +72,7 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
         }
 
         /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
         }
 
         /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+         * @param cachePoint Cache checkpoint within the system prompt. See `cachePoint` Block for more information.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
         }
 
         /**
-         * @param text The text in the system prompt.
+         * @param text Text in the system prompt.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentPromptVariantTemplateConfigurationChatSystemArgs extends
         }
 
         /**
-         * @param text The text in the system prompt.
+         * @param text Text in the system prompt.
          * 
          * @return builder
          * 

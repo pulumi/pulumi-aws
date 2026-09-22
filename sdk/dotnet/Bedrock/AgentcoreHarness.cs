@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<string>> AllowedTools { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Harness.
+        /// ARN of the managed memory resource.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreHarnessAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Actual deployed environment configuration.
+        /// Actual deployed environment configuration. See `EnvironmentActual` Block below.
         /// </summary>
         [Output("environmentActuals")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessEnvironmentActual>> EnvironmentActuals { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreHarnessMemory?> Memory { get; private set; } = null!;
 
         /// <summary>
-        /// Actual deployed memory configuration.
+        /// Actual deployed memory configuration. See `MemoryActual` Block below.
         /// </summary>
         [Output("memoryActuals")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessMemoryActual>> MemoryActuals { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -642,7 +642,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// ARN of the Harness.
+        /// ARN of the managed memory resource.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -657,7 +657,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentActualGetArgs>? _environmentActuals;
 
         /// <summary>
-        /// Actual deployed environment configuration.
+        /// Actual deployed environment configuration. See `EnvironmentActual` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentActualGetArgs> EnvironmentActuals
         {
@@ -739,7 +739,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessMemoryActualGetArgs>? _memoryActuals;
 
         /// <summary>
-        /// Actual deployed memory configuration.
+        /// Actual deployed memory configuration. See `MemoryActual` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessMemoryActualGetArgs> MemoryActuals
         {
@@ -801,7 +801,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

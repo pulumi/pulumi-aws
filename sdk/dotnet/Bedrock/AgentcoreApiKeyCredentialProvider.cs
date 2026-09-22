@@ -55,7 +55,44 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Customer-Managed Secret
+    /// 
+    /// Reference an API key already stored in a customer-managed AWS Secrets Manager secret instead of having AgentCore create and manage one.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreApiKeyCredentialProvider("example", new()
+    ///     {
+    ///         ApiKeySecretConfig = new Aws.Bedrock.Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs
+    ///         {
+    ///             SecretId = exampleAwsSecretsmanagerSecret.Id,
+    ///             JsonKey = "apiKey",
+    ///         },
+    ///         Name = "example-api-key-provider",
+    ///         ApiKeySecretSource = "EXTERNAL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) API key credential provider name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
     /// 
@@ -67,9 +104,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreApiKeyCredentialProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
+        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -81,8 +116,20 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<Outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn>> ApiKeySecretArns { get; private set; } = null!;
 
         /// <summary>
+        /// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `ApiKeySecretSource = "EXTERNAL"`. See below.
+        /// </summary>
+        [Output("apiKeySecretConfig")]
+        public Output<Outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig?> ApiKeySecretConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `ApiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `ApiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        /// </summary>
+        [Output("apiKeySecretSource")]
+        public Output<string> ApiKeySecretSource { get; private set; } = null!;
+
+        /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
+        /// Write-only API key value. Conflicts with `ApiKey` and `ApiKeySecretConfig`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         [Output("apiKeyWo")]
         public Output<string?> ApiKeyWo { get; private set; } = null!;
@@ -115,14 +162,12 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **Standard API Key (choose one approach):**
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -182,9 +227,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
+        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -196,12 +239,24 @@ namespace Pulumi.Aws.Bedrock
             }
         }
 
+        /// <summary>
+        /// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `ApiKeySecretSource = "EXTERNAL"`. See below.
+        /// </summary>
+        [Input("apiKeySecretConfig")]
+        public Input<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs>? ApiKeySecretConfig { get; set; }
+
+        /// <summary>
+        /// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `ApiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `ApiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        /// </summary>
+        [Input("apiKeySecretSource")]
+        public Input<string>? ApiKeySecretSource { get; set; }
+
         [Input("apiKeyWo")]
         private Input<string>? _apiKeyWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
+        /// Write-only API key value. Conflicts with `ApiKey` and `ApiKeySecretConfig`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -238,8 +293,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **Standard API Key (choose one approach):**
         /// </summary>
         public InputMap<string> Tags
         {
@@ -259,9 +312,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
+        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -285,12 +336,24 @@ namespace Pulumi.Aws.Bedrock
             set => _apiKeySecretArns = value;
         }
 
+        /// <summary>
+        /// Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `ApiKeySecretSource = "EXTERNAL"`. See below.
+        /// </summary>
+        [Input("apiKeySecretConfig")]
+        public Input<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfigGetArgs>? ApiKeySecretConfig { get; set; }
+
+        /// <summary>
+        /// Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `ApiKey`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `ApiKeySecretConfig`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
+        /// </summary>
+        [Input("apiKeySecretSource")]
+        public Input<string>? ApiKeySecretSource { get; set; }
+
         [Input("apiKeyWo")]
         private Input<string>? _apiKeyWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
+        /// Write-only API key value. Conflicts with `ApiKey` and `ApiKeySecretConfig`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -333,8 +396,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **Standard API Key (choose one approach):**
         /// </summary>
         public InputMap<string> Tags
         {
@@ -346,7 +407,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

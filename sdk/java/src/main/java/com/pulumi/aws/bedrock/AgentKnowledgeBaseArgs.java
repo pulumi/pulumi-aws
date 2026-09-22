@@ -36,14 +36,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     @Import(name="knowledgeBaseConfiguration", required=true)
     private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
      * 
      */
     public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration() {
@@ -100,14 +100,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
@@ -189,7 +189,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` Block for details.
          * 
          * @return builder
          * 

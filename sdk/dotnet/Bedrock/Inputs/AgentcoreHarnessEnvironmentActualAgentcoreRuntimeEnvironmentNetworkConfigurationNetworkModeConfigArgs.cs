@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to require an S3 endpoint for the service in the VPC.
+        /// Whether an S3 endpoint is required for the service in the VPC.
         /// </summary>
         [Input("requireServiceS3Endpoint", required: true)]
         public Input<bool> RequireServiceS3Endpoint { get; set; } = null!;

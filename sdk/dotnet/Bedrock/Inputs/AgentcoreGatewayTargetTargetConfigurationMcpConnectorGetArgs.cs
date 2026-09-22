@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Source configuration identifying which connector to use. See `Source` Block below.
+        /// Source configuration identifying which connector to use. See `target_configuration.mcp.connector.source` Block below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceGetArgs> Source { get; set; } = null!;

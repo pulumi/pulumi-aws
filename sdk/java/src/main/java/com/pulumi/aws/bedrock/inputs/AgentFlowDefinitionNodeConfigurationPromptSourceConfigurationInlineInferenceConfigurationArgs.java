@@ -16,14 +16,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs();
 
     /**
-     * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * Message for the prompt.
      * 
      */
     @Import(name="text")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs> text;
 
     /**
-     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * @return Message for the prompt.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs>> text() {
@@ -55,7 +55,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * @param text Message for the prompt.
          * 
          * @return builder
          * 

@@ -16,43 +16,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChat {
+    /**
+     * @return List of variables in the prompt template. See `inputVariable` Block for more information.
+     * 
+     */
     private @Nullable List<AgentPromptVariantTemplateConfigurationChatInputVariable> inputVariables;
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return List of messages in the chat for the prompt. See `message` Block for more information.
      * 
      */
     private List<AgentPromptVariantTemplateConfigurationChatMessage> messages;
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
      * 
      */
     private @Nullable List<AgentPromptVariantTemplateConfigurationChatSystem> systems;
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfiguration toolConfiguration;
 
     private AgentPromptVariantTemplateConfigurationChat() {}
+    /**
+     * @return List of variables in the prompt template. See `inputVariable` Block for more information.
+     * 
+     */
     public List<AgentPromptVariantTemplateConfigurationChatInputVariable> inputVariables() {
         return this.inputVariables == null ? List.of() : this.inputVariables;
     }
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return List of messages in the chat for the prompt. See `message` Block for more information.
      * 
      */
     public List<AgentPromptVariantTemplateConfigurationChatMessage> messages() {
         return this.messages;
     }
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
      * 
      */
     public List<AgentPromptVariantTemplateConfigurationChatSystem> systems() {
         return this.systems == null ? List.of() : this.systems;
     }
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfiguration> toolConfiguration() {

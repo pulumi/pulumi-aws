@@ -69,7 +69,7 @@ export class Stage extends pulumi.CustomResource {
     }
 
     /**
-     * Enables access logs for the API stage. See Access Log Settings below.
+     * Enables access logs for the API stage. See `accessLogSettings` Block below.
      */
     declare public readonly accessLogSettings: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
@@ -85,7 +85,7 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly cacheClusterSize: pulumi.Output<string | undefined>;
     /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
+     * Configuration settings of a canary deployment. See `canarySettings` Block below.
      */
     declare public readonly canarySettings: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
     /**
@@ -218,7 +218,7 @@ export class Stage extends pulumi.CustomResource {
  */
 export interface StageState {
     /**
-     * Enables access logs for the API stage. See Access Log Settings below.
+     * Enables access logs for the API stage. See `accessLogSettings` Block below.
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface StageState {
      */
     cacheClusterSize?: pulumi.Input<string | undefined>;
     /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
+     * Configuration settings of a canary deployment. See `canarySettings` Block below.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface StageState {
  */
 export interface StageArgs {
     /**
-     * Enables access logs for the API stage. See Access Log Settings below.
+     * Enables access logs for the API stage. See `accessLogSettings` Block below.
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface StageArgs {
      */
     cacheClusterSize?: pulumi.Input<string | undefined>;
     /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
+     * Configuration settings of a canary deployment. See `canarySettings` Block below.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings | undefined>;
     /**

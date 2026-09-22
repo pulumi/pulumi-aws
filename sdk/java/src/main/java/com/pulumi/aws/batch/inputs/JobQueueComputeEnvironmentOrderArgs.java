@@ -31,14 +31,14 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
     }
 
     /**
-     * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+     * Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
      * 
      */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
     /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+     * @return Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
      * 
      */
     public Output<Integer> order() {
@@ -92,7 +92,7 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param order The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+         * @param order Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param order The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+         * @param order Order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
          * 
          * @return builder
          * 

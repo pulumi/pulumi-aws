@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
     /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+     * @return Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
      * 
      */
     private List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration() {}
     /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+     * @return Storage location specification for images extracted from multimodal documents in your data source. See `storageLocation` Block for details.
      * 
      */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations() {

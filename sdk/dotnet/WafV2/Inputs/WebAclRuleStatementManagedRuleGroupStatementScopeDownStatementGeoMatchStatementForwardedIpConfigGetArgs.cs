@@ -12,6 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        /// </summary>
         [Input("fallbackBehavior", required: true)]
         public Input<string> FallbackBehavior { get; set; } = null!;
 

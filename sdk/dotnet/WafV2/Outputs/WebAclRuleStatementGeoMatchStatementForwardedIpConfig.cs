@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementGeoMatchStatementForwardedIpConfig
     {
+        /// <summary>
+        /// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
+        /// </summary>
         public readonly string FallbackBehavior;
         /// <summary>
         /// Name of the header containing the forwarded IP address.

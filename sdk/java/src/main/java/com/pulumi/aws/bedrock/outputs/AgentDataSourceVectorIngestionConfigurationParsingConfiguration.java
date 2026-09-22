@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
     /**
-     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration bedrockDataAutomationConfiguration;
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration bedrockFoundationModelConfiguration;
     /**
-     * @return The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     private String parsingStrategy;
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfiguration() {}
     /**
-     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration> bedrockDataAutomationConfiguration() {
         return Optional.ofNullable(this.bedrockDataAutomationConfiguration);
     }
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration> bedrockFoundationModelConfiguration() {
         return Optional.ofNullable(this.bedrockFoundationModelConfiguration);
     }
     /**
-     * @return The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     public String parsingStrategy() {

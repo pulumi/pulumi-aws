@@ -19,14 +19,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs();
 
     /**
-     * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
      * 
      */
     @Import(name="bedrockDataAutomationConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs> bedrockDataAutomationConfiguration;
 
     /**
-     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs>> bedrockDataAutomationConfiguration() {
@@ -34,14 +34,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+     * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
      * 
      */
     @Import(name="bedrockFoundationModelConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> bedrockFoundationModelConfiguration;
 
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs>> bedrockFoundationModelConfiguration() {
@@ -49,14 +49,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     @Import(name="parsingStrategy", required=true)
     private Output<String> parsingStrategy;
 
     /**
-     * @return The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     public Output<String> parsingStrategy() {
@@ -90,7 +90,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+         * @param parsingStrategy Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          * 
          * @return builder
          * 

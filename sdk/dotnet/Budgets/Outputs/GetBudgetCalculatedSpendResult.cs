@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Budgets.Outputs
     [OutputType]
     public sealed class GetBudgetCalculatedSpendResult
     {
+        /// <summary>
+        /// Amount of cost, usage, RI units, or Savings Plans units used. See `ActualSpend` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetCalculatedSpendActualSpendResult> ActualSpends;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetPlanRuleCopyActionResult
     {
+        /// <summary>
+        /// ARN of the destination backup vault for the copied backup.
+        /// </summary>
         public readonly string DestinationVaultArn;
+        /// <summary>
+        /// Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlanRuleCopyActionLifecycleResult> Lifecycles;
 
         [OutputConstructor]

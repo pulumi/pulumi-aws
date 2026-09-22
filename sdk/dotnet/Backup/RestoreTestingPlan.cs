@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Backup
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+        /// Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        /// Recovery point selection configuration. See `RecoveryPointSelection` below.
         /// </summary>
         [Output("recoveryPointSelection")]
         public Output<Outputs.RestoreTestingPlanRecoveryPointSelection> RecoveryPointSelection { get; private set; } = null!;
@@ -81,28 +81,31 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule expression for the restore testing plan.
+        /// Schedule expression for the restore testing plan.
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string> ScheduleExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
+        /// Timezone for the schedule expression. If not provided, the state value will be used.
         /// </summary>
         [Output("scheduleExpressionTimezone")]
         public Output<string> ScheduleExpressionTimezone { get; private set; } = null!;
 
         /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+        /// Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         /// </summary>
         [Output("startWindowHours")]
         public Output<int> StartWindowHours { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,13 +157,13 @@ namespace Pulumi.Aws.Backup
     public sealed class RestoreTestingPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+        /// Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        /// Recovery point selection configuration. See `RecoveryPointSelection` below.
         /// </summary>
         [Input("recoveryPointSelection", required: true)]
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs> RecoveryPointSelection { get; set; } = null!;
@@ -172,25 +175,29 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The schedule expression for the restore testing plan.
+        /// Schedule expression for the restore testing plan.
         /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
         /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
+        /// Timezone for the schedule expression. If not provided, the state value will be used.
         /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
         /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+        /// Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         /// </summary>
         [Input("startWindowHours")]
         public Input<int>? StartWindowHours { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -212,13 +219,13 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
+        /// Name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        /// Recovery point selection configuration. See `RecoveryPointSelection` below.
         /// </summary>
         [Input("recoveryPointSelection")]
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionGetArgs>? RecoveryPointSelection { get; set; }
@@ -230,25 +237,29 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The schedule expression for the restore testing plan.
+        /// Schedule expression for the restore testing plan.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
         /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
+        /// Timezone for the schedule expression. If not provided, the state value will be used.
         /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
         /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
+        /// Number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         /// </summary>
         [Input("startWindowHours")]
         public Input<int>? StartWindowHours { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -259,7 +270,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

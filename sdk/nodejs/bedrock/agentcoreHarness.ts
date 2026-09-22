@@ -194,7 +194,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly allowedTools: pulumi.Output<string[]>;
     /**
-     * ARN of the Harness.
+     * ARN of the managed memory resource.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
-     * Actual deployed environment configuration.
+     * Actual deployed environment configuration. See `environmentActual` Block below.
      */
     declare public /*out*/ readonly environmentActuals: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironmentActual[]>;
     /**
@@ -242,7 +242,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly memory: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
-     * Actual deployed memory configuration.
+     * Actual deployed memory configuration. See `memoryActual` Block below.
      */
     declare public /*out*/ readonly memoryActuals: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemoryActual[]>;
     /**
@@ -268,7 +268,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -377,7 +377,7 @@ export interface AgentcoreHarnessState {
      */
     allowedTools?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * ARN of the Harness.
+     * ARN of the managed memory resource.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -385,7 +385,7 @@ export interface AgentcoreHarnessState {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfiguration | undefined>;
     /**
-     * Actual deployed environment configuration.
+     * Actual deployed environment configuration. See `environmentActual` Block below.
      */
     environmentActuals?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActual>[] | undefined>;
     /**
@@ -425,7 +425,7 @@ export interface AgentcoreHarnessState {
      */
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
-     * Actual deployed memory configuration.
+     * Actual deployed memory configuration. See `memoryActual` Block below.
      */
     memoryActuals?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActual>[] | undefined>;
     /**
@@ -451,7 +451,7 @@ export interface AgentcoreHarnessState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

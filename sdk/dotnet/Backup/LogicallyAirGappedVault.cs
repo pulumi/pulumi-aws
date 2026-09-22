@@ -46,13 +46,13 @@ namespace Pulumi.Aws.Backup
     public partial class LogicallyAirGappedVault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Logically Air Gapped Backup Vault.
+        /// ARN of the Logically Air Gapped Backup Vault.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string> EncryptionKeyArn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Backup
     public sealed class LogicallyAirGappedVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
@@ -196,13 +196,13 @@ namespace Pulumi.Aws.Backup
     public sealed class LogicallyAirGappedVaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Logically Air Gapped Backup Vault.
+        /// ARN of the Logically Air Gapped Backup Vault.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+        /// AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

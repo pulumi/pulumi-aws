@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits crawlerLimits;
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
      * 
      */
     private @Nullable List<String> exclusionFilters;
     /**
-     * @return List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
      * 
      */
     private @Nullable List<String> inclusionFilters;
@@ -34,28 +34,28 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      */
     private @Nullable String scope;
     /**
-     * @return String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
      * 
      */
     private @Nullable String userAgent;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration() {}
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` Block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits> crawlerLimits() {
         return Optional.ofNullable(this.crawlerLimits);
     }
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
      * 
      */
     public List<String> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
     /**
-     * @return List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
      * 
      */
     public List<String> inclusionFilters() {
@@ -69,7 +69,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         return Optional.ofNullable(this.scope);
     }
     /**
-     * @return String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
      * 
      */
     public Optional<String> userAgent() {

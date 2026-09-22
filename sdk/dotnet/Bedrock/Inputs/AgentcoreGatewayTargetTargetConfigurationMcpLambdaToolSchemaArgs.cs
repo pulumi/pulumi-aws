@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>? _inlinePayloads;
 
         /// <summary>
-        /// Inline tool definition. See `InlinePayload` Block below.
+        /// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs> InlinePayloads
         {

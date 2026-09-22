@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<Inputs.BudgetFilterExpressionAndGetArgs>? _ands;
 
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with AND logic. Each `And` block is one operand and must itself contain exactly one root.
         /// </summary>
         public InputList<Inputs.BudgetFilterExpressionAndGetArgs> Ands
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Budgets.Inputs
         }
 
         /// <summary>
-        /// (Optional) A Cost Category Filter block.
+        /// Cost Categories block.
         /// </summary>
         [Input("costCategories")]
         public Input<Inputs.BudgetFilterExpressionCostCategoriesGetArgs>? CostCategories { get; set; }
 
         /// <summary>
-        /// (Optional) A Dimension Filter block.
+        /// Dimensions block.
         /// </summary>
         [Input("dimensions")]
         public Input<Inputs.BudgetFilterExpressionDimensionsGetArgs>? Dimensions { get; set; }
 
         /// <summary>
-        /// (Optional) A single filter expression to negate. Must contain exactly one root.
+        /// Single filter expression to negate. Must contain exactly one root.
         /// </summary>
         [Input("not")]
         public Input<Inputs.BudgetFilterExpressionNotGetArgs>? Not { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<Inputs.BudgetFilterExpressionOrGetArgs>? _ors;
 
         /// <summary>
-        /// (Optional) A list of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
+        /// List of filter expressions to combine with OR logic. Each `Or` block is one operand and must itself contain exactly one root.
         /// </summary>
         public InputList<Inputs.BudgetFilterExpressionOrGetArgs> Ors
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         }
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags block.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.BudgetFilterExpressionTagsGetArgs>? Tags { get; set; }

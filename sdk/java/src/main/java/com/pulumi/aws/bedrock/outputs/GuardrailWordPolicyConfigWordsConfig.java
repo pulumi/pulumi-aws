@@ -34,7 +34,7 @@ public final class GuardrailWordPolicyConfigWordsConfig {
      */
     private @Nullable Boolean outputEnabled;
     /**
-     * @return The custom word text.
+     * @return Custom word text.
      * 
      */
     private String text;
@@ -69,7 +69,7 @@ public final class GuardrailWordPolicyConfigWordsConfig {
         return Optional.ofNullable(this.outputEnabled);
     }
     /**
-     * @return The custom word text.
+     * @return Custom word text.
      * 
      */
     public String text() {

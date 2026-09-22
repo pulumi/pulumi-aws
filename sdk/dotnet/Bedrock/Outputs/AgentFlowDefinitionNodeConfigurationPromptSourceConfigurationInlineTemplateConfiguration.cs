@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration
     {
         /// <summary>
-        /// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        /// Configurations to use the prompt in a conversational format. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat? Chat;
         /// <summary>
-        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        /// Message for the prompt.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText? Text;
 

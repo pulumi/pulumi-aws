@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies the infrastructure update policy for the compute environment.
+        /// Infrastructure update policy for the compute environment.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> UpdatePolicies;
 

@@ -18,53 +18,149 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPlanRule {
+    /**
+     * @return Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+     * 
+     */
     private Integer completionWindow;
+    /**
+     * @return Configuration block(s) with copy operation settings. See below.
+     * 
+     */
     private List<GetPlanRuleCopyAction> copyActions;
+    /**
+     * @return Whether AWS Backup creates continuous backups.
+     * 
+     */
     private Boolean enableContinuousBackup;
+    /**
+     * @return Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+     * 
+     */
     private List<GetPlanRuleLifecycle> lifecycles;
+    /**
+     * @return Metadata that you can assign to help organize the resources that you create.
+     * 
+     */
     private @Nullable Map<String,String> recoveryPointTags;
+    /**
+     * @return Display name of a backup rule.
+     * 
+     */
     private String ruleName;
+    /**
+     * @return Configuration block(s) with malware scanning settings. See below.
+     * 
+     */
     private List<GetPlanRuleScanAction> scanActions;
+    /**
+     * @return CRON expression specifying when AWS Backup initiates a backup job.
+     * 
+     */
     private String schedule;
+    /**
+     * @return Timezone in which the schedule expression is set.
+     * 
+     */
     private String scheduleExpressionTimezone;
+    /**
+     * @return Amount of time in minutes before beginning a backup.
+     * 
+     */
     private Integer startWindow;
+    /**
+     * @return ARN of the logically air-gapped backup vault where the recovery point is copied.
+     * 
+     */
     private String targetLogicallyAirGappedBackupVaultArn;
+    /**
+     * @return Name of a logical container where backups are stored.
+     * 
+     */
     private String targetVaultName;
 
     private GetPlanRule() {}
+    /**
+     * @return Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+     * 
+     */
     public Integer completionWindow() {
         return this.completionWindow;
     }
+    /**
+     * @return Configuration block(s) with copy operation settings. See below.
+     * 
+     */
     public List<GetPlanRuleCopyAction> copyActions() {
         return this.copyActions;
     }
+    /**
+     * @return Whether AWS Backup creates continuous backups.
+     * 
+     */
     public Boolean enableContinuousBackup() {
         return this.enableContinuousBackup;
     }
+    /**
+     * @return Lifecycle defining when a recovery point transitions to cold storage and when it expires. See below.
+     * 
+     */
     public List<GetPlanRuleLifecycle> lifecycles() {
         return this.lifecycles;
     }
+    /**
+     * @return Metadata that you can assign to help organize the resources that you create.
+     * 
+     */
     public Map<String,String> recoveryPointTags() {
         return this.recoveryPointTags == null ? Map.of() : this.recoveryPointTags;
     }
+    /**
+     * @return Display name of a backup rule.
+     * 
+     */
     public String ruleName() {
         return this.ruleName;
     }
+    /**
+     * @return Configuration block(s) with malware scanning settings. See below.
+     * 
+     */
     public List<GetPlanRuleScanAction> scanActions() {
         return this.scanActions;
     }
+    /**
+     * @return CRON expression specifying when AWS Backup initiates a backup job.
+     * 
+     */
     public String schedule() {
         return this.schedule;
     }
+    /**
+     * @return Timezone in which the schedule expression is set.
+     * 
+     */
     public String scheduleExpressionTimezone() {
         return this.scheduleExpressionTimezone;
     }
+    /**
+     * @return Amount of time in minutes before beginning a backup.
+     * 
+     */
     public Integer startWindow() {
         return this.startWindow;
     }
+    /**
+     * @return ARN of the logically air-gapped backup vault where the recovery point is copied.
+     * 
+     */
     public String targetLogicallyAirGappedBackupVaultArn() {
         return this.targetLogicallyAirGappedBackupVaultArn;
     }
+    /**
+     * @return Name of a logical container where backups are stored.
+     * 
+     */
     public String targetVaultName() {
         return this.targetVaultName;
     }

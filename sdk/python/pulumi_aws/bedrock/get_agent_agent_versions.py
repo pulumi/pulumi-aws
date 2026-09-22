@@ -48,7 +48,7 @@ class GetAgentAgentVersionsResult:
     @pulumi.getter(name="agentVersionSummaries")
     def agent_version_summaries(self) -> Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryResult']]:
         """
-        List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+        List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
         """
         return pulumi.get(self, "agent_version_summaries")
 
@@ -89,7 +89,7 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -123,7 +123,7 @@ def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.st
 
 
     :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

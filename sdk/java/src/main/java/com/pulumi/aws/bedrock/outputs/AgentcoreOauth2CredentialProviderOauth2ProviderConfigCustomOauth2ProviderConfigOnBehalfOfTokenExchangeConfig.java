@@ -19,7 +19,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      */
     private String grantType;
     /**
-     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig tokenExchangeGrantTypeConfig;
@@ -33,7 +33,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return this.grantType;
     }
     /**
-     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+     * @return Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` Block below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig> tokenExchangeGrantTypeConfig() {

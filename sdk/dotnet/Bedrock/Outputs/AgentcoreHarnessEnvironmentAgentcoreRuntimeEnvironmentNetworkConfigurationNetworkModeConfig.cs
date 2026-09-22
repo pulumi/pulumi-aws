@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig
     {
         /// <summary>
-        /// Whether to require an S3 endpoint for the service in the VPC.
+        /// Whether an S3 endpoint is required for the service in the VPC.
         /// </summary>
         public readonly bool? RequireServiceS3Endpoint;
         /// <summary>

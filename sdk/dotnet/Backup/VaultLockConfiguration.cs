@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Backup
     public partial class VaultLockConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
@@ -57,19 +57,19 @@ namespace Pulumi.Aws.Backup
         public Output<string> BackupVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
+        /// Number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Output("changeableForDays")]
         public Output<int?> ChangeableForDays { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum retention period that the vault retains its recovery points.
+        /// Maximum retention period that the vault retains its recovery points.
         /// </summary>
         [Output("maxRetentionDays")]
         public Output<int?> MaxRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum retention period that the vault retains its recovery points.
+        /// Minimum retention period that the vault retains its recovery points.
         /// </summary>
         [Output("minRetentionDays")]
         public Output<int?> MinRetentionDays { get; private set; } = null!;
@@ -133,19 +133,19 @@ namespace Pulumi.Aws.Backup
         public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
+        /// Number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Input("changeableForDays")]
         public Input<int>? ChangeableForDays { get; set; }
 
         /// <summary>
-        /// The maximum retention period that the vault retains its recovery points.
+        /// Maximum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("maxRetentionDays")]
         public Input<int>? MaxRetentionDays { get; set; }
 
         /// <summary>
-        /// The minimum retention period that the vault retains its recovery points.
+        /// Minimum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("minRetentionDays")]
         public Input<int>? MinRetentionDays { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Backup
     public sealed class VaultLockConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
         public Input<string>? BackupVaultArn { get; set; }
@@ -177,19 +177,19 @@ namespace Pulumi.Aws.Backup
         public Input<string>? BackupVaultName { get; set; }
 
         /// <summary>
-        /// The number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
+        /// Number of days before the lock date. If omitted creates a vault lock in `Governance` mode, otherwise it will create a vault lock in `Compliance` mode.
         /// </summary>
         [Input("changeableForDays")]
         public Input<int>? ChangeableForDays { get; set; }
 
         /// <summary>
-        /// The maximum retention period that the vault retains its recovery points.
+        /// Maximum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("maxRetentionDays")]
         public Input<int>? MaxRetentionDays { get; set; }
 
         /// <summary>
-        /// The minimum retention period that the vault retains its recovery points.
+        /// Minimum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("minRetentionDays")]
         public Input<int>? MinRetentionDays { get; set; }

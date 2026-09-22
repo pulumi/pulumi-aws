@@ -80,7 +80,6 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
 
     /**
      * Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     @Import(name="description", required=true)
@@ -88,16 +87,23 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
 
     /**
      * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
      * 
      */
     public Output<String> description() {
         return this.description;
     }
 
+    /**
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     @Import(name="guardrailConfigurations")
     private @Nullable Output<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>> guardrailConfigurations;
 
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * 
+     */
     public Optional<Output<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>>> guardrailConfigurations() {
         return Optional.ofNullable(this.guardrailConfigurations);
     }
@@ -233,7 +239,6 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
 
         /**
          * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          * 
          * @return builder
          * 
@@ -245,7 +250,6 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
 
         /**
          * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
          * 
          * @return builder
          * 
@@ -254,15 +258,33 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
             return description(Output.of(description));
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(@Nullable Output<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>> guardrailConfigurations) {
             $.guardrailConfigurations = guardrailConfigurations;
             return this;
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs> guardrailConfigurations) {
             return guardrailConfigurations(Output.of(guardrailConfigurations));
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs... guardrailConfigurations) {
             return guardrailConfigurations(List.of(guardrailConfigurations));
         }

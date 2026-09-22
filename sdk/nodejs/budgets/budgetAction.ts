@@ -115,51 +115,51 @@ export class BudgetAction extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for the budget. Uses the current user's account ID by default if omitted.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The id of the budget action.
+     * ID of the budget action.
      */
     declare public /*out*/ readonly actionId: pulumi.Output<string>;
     /**
-     * The trigger threshold of the action. See Action Threshold.
+     * Trigger threshold of the action. See `actionThreshold` Block.
      */
     declare public readonly actionThreshold: pulumi.Output<outputs.budgets.BudgetActionActionThreshold>;
     /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
     declare public readonly actionType: pulumi.Output<string>;
     /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      */
     declare public readonly approvalModel: pulumi.Output<string>;
     /**
-     * The ARN of the budget action.
+     * ARN of the budget action.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of a budget.
+     * Name of a budget.
      */
     declare public readonly budgetName: pulumi.Output<string>;
     /**
-     * Specifies all of the type-specific parameters. See Definition.
+     * Type-specific parameters. See `definition` Block.
      */
     declare public readonly definition: pulumi.Output<outputs.budgets.BudgetActionDefinition>;
     /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * Role passed for action execution and reversion. Roles and actions must be in the same account.
      */
     declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
     declare public readonly notificationType: pulumi.Output<string>;
     /**
-     * The status of the budget action.
+     * Status of the budget action.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * A list of subscribers. See Subscriber.
+     * Set of subscribers. See `subscriber` Block.
      */
     declare public readonly subscribers: pulumi.Output<outputs.budgets.BudgetActionSubscriber[]>;
     /**
@@ -249,51 +249,51 @@ export class BudgetAction extends pulumi.CustomResource {
  */
 export interface BudgetActionState {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for the budget. Uses the current user's account ID by default if omitted.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The id of the budget action.
+     * ID of the budget action.
      */
     actionId?: pulumi.Input<string | undefined>;
     /**
-     * The trigger threshold of the action. See Action Threshold.
+     * Trigger threshold of the action. See `actionThreshold` Block.
      */
     actionThreshold?: pulumi.Input<inputs.budgets.BudgetActionActionThreshold | undefined>;
     /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
     actionType?: pulumi.Input<string | undefined>;
     /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      */
     approvalModel?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the budget action.
+     * ARN of the budget action.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of a budget.
+     * Name of a budget.
      */
     budgetName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies all of the type-specific parameters. See Definition.
+     * Type-specific parameters. See `definition` Block.
      */
     definition?: pulumi.Input<inputs.budgets.BudgetActionDefinition | undefined>;
     /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * Role passed for action execution and reversion. Roles and actions must be in the same account.
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
     notificationType?: pulumi.Input<string | undefined>;
     /**
-     * The status of the budget action.
+     * Status of the budget action.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * A list of subscribers. See Subscriber.
+     * Set of subscribers. See `subscriber` Block.
      */
     subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[] | undefined>;
     /**
@@ -311,39 +311,39 @@ export interface BudgetActionState {
  */
 export interface BudgetActionArgs {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for the budget. Uses the current user's account ID by default if omitted.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The trigger threshold of the action. See Action Threshold.
+     * Trigger threshold of the action. See `actionThreshold` Block.
      */
     actionThreshold: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
     /**
-     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+     * Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
     actionType: pulumi.Input<string>;
     /**
-     * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+     * Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      */
     approvalModel: pulumi.Input<string>;
     /**
-     * The name of a budget.
+     * Name of a budget.
      */
     budgetName: pulumi.Input<string>;
     /**
-     * Specifies all of the type-specific parameters. See Definition.
+     * Type-specific parameters. See `definition` Block.
      */
     definition: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
     /**
-     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     * Role passed for action execution and reversion. Roles and actions must be in the same account.
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+     * Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
     notificationType: pulumi.Input<string>;
     /**
-     * A list of subscribers. See Subscriber.
+     * Set of subscribers. See `subscriber` Block.
      */
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
     /**

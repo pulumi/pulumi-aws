@@ -18,14 +18,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs();
 
     /**
-     * Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+     * Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
      * 
      */
     @Import(name="content")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs> content;
 
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs>> content() {
@@ -33,14 +33,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * The role that the message belongs to.
+     * Role that the message belongs to.
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return The role that the message belongs to.
+     * @return Role that the message belongs to.
      * 
      */
     public Output<String> role() {
@@ -73,7 +73,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+         * @param content Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
+         * @param content Content for the message you pass to, or receive from, a model. See `definition.node.configuration.prompt.source_configuration.inline.template_configuration.chat.message.content` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param role The role that the message belongs to.
+         * @param role Role that the message belongs to.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param role The role that the message belongs to.
+         * @param role Role that the message belongs to.
          * 
          * @return builder
          * 

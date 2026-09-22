@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetCostFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of a budget. Unique within accounts.
+        /// Name of the cost filter. Valid values are `AZ`, `BillingEntity`, `CostCategory`, `InstanceType`, `InvoicingEntity`, `LegalEntityName`, `LinkedAccount`, `Operation`, `PurchaseType`, `Region`, `Service`, `TagKeyValue`, `UsageType`, and `UsageTypeGroup`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// (Optional) A list of cost category values to match. At least one value is required.
+        /// List of values used for filtering.
         /// </summary>
         public InputList<string> Values
         {

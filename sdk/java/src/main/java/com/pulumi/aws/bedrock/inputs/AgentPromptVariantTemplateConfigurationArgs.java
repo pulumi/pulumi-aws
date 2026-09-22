@@ -17,14 +17,14 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
     public static final AgentPromptVariantTemplateConfigurationArgs Empty = new AgentPromptVariantTemplateConfigurationArgs();
 
     /**
-     * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * Configurations to use the prompt in a conversational format. See `chat` Block for more information.
      * 
      */
     @Import(name="chat")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatArgs> chat;
 
     /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+     * @return Configurations to use the prompt in a conversational format. See `chat` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatArgs>> chat() {
@@ -32,14 +32,14 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
     }
 
     /**
-     * Contains configurations for the text in a message for a prompt. See Text Template Configuration
+     * Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
      * 
      */
     @Import(name="text")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationTextArgs> text;
 
     /**
-     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration
+     * @return Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationTextArgs>> text() {
@@ -72,7 +72,7 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * @param chat Configurations to use the prompt in a conversational format. See `chat` Block for more information.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+         * @param chat Configurations to use the prompt in a conversational format. See `chat` Block for more information.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration
+         * @param text Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentPromptVariantTemplateConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration
+         * @param text Configurations for the text in a message for a prompt. See `variant.template_configuration.text` Block for more information.
          * 
          * @return builder
          * 

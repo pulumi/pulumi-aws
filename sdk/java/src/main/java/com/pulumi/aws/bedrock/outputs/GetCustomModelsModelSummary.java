@@ -16,12 +16,12 @@ public final class GetCustomModelsModelSummary {
      */
     private String creationTime;
     /**
-     * @return The ARN of the custom model.
+     * @return ARN of the custom model.
      * 
      */
     private String modelArn;
     /**
-     * @return The name of the custom model.
+     * @return Name of the custom model.
      * 
      */
     private String modelName;
@@ -35,14 +35,14 @@ public final class GetCustomModelsModelSummary {
         return this.creationTime;
     }
     /**
-     * @return The ARN of the custom model.
+     * @return ARN of the custom model.
      * 
      */
     public String modelArn() {
         return this.modelArn;
     }
     /**
-     * @return The name of the custom model.
+     * @return Name of the custom model.
      * 
      */
     public String modelName() {

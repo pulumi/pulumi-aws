@@ -17,17 +17,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
     /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration kendraKnowledgeBaseConfiguration;
     /**
-     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration managedKnowledgeBaseConfiguration;
     /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration sqlKnowledgeBaseConfiguration;
@@ -37,28 +37,28 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
      */
     private String type;
     /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration vectorKnowledgeBaseConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfiguration() {}
     /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
+     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration> kendraKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.kendraKnowledgeBaseConfiguration);
     }
     /**
-     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration> managedKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.managedKnowledgeBaseConfiguration);
     }
     /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
+     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration> sqlKnowledgeBaseConfiguration() {
@@ -72,7 +72,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         return this.type;
     }
     /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
+     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` Block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration> vectorKnowledgeBaseConfiguration() {

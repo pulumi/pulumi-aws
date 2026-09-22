@@ -79,7 +79,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
      */
     declare public readonly modelUnits: pulumi.Output<number>;
     /**
-     * The ARN of the Provisioned Throughput.
+     * ARN of the Provisioned Throughput.
      */
     declare public /*out*/ readonly provisionedModelArn: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface ProvisionedModelThroughputState {
      */
     modelUnits?: pulumi.Input<number | undefined>;
     /**
-     * The ARN of the Provisioned Throughput.
+     * ARN of the Provisioned Throughput.
      */
     provisionedModelArn?: pulumi.Input<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ProvisionedModelThroughputState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface ProvisionedModelThroughputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.ProvisionedModelThroughputTimeouts | undefined>;

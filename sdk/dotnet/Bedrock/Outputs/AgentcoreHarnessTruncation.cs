@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessTruncation
     {
         /// <summary>
-        /// Strategy-specific configuration. See `truncation config` below.
+        /// Strategy-specific configuration. See `truncation.config` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessTruncationConfig> Configs;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string HookDetails;
         /// <summary>
-        /// ARN of the Lambda function to invoke
+        /// ARN of the Lambda function to invoke (empty for `PAUSE` hooks)
         /// </summary>
         public readonly string HookTargetArn;
         /// <summary>
@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// ARN of the IAM role that allows ECS to manage the target groups.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Type of hook target (`AWS_LAMBDA` or `PAUSE`)
+        /// </summary>
+        public readonly string TargetType;
+        /// <summary>
+        /// Timeout configuration for `PAUSE` hooks. See `TimeoutConfiguration` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationResult> TimeoutConfigurations;
 
         [OutputConstructor]
         private GetServiceDeploymentConfigurationLifecycleHookResult(
@@ -38,12 +46,18 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             ImmutableArray<string> lifecycleStages,
 
-            string roleArn)
+            string roleArn,
+
+            string targetType,
+
+            ImmutableArray<Outputs.GetServiceDeploymentConfigurationLifecycleHookTimeoutConfigurationResult> timeoutConfigurations)
         {
             HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;
+            TargetType = targetType;
+            TimeoutConfigurations = timeoutConfigurations;
         }
     }
 }

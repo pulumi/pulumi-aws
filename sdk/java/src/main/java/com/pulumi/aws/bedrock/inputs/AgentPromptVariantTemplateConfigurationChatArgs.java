@@ -20,22 +20,30 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
 
     public static final AgentPromptVariantTemplateConfigurationChatArgs Empty = new AgentPromptVariantTemplateConfigurationChatArgs();
 
+    /**
+     * List of variables in the prompt template. See `inputVariable` Block for more information.
+     * 
+     */
     @Import(name="inputVariables")
     private @Nullable Output<List<AgentPromptVariantTemplateConfigurationChatInputVariableArgs>> inputVariables;
 
+    /**
+     * @return List of variables in the prompt template. See `inputVariable` Block for more information.
+     * 
+     */
     public Optional<Output<List<AgentPromptVariantTemplateConfigurationChatInputVariableArgs>>> inputVariables() {
         return Optional.ofNullable(this.inputVariables);
     }
 
     /**
-     * A list of messages in the chat for the prompt. See Message for more information.
+     * List of messages in the chat for the prompt. See `message` Block for more information.
      * 
      */
     @Import(name="messages", required=true)
     private Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages;
 
     /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
+     * @return List of messages in the chat for the prompt. See `message` Block for more information.
      * 
      */
     public Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages() {
@@ -43,14 +51,14 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
     }
 
     /**
-     * A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
      * 
      */
     @Import(name="systems")
     private @Nullable Output<List<AgentPromptVariantTemplateConfigurationChatSystemArgs>> systems;
 
     /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+     * @return List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
      * 
      */
     public Optional<Output<List<AgentPromptVariantTemplateConfigurationChatSystemArgs>>> systems() {
@@ -58,14 +66,14 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
     }
 
     /**
-     * Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
      * 
      */
     @Import(name="toolConfiguration")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs> toolConfiguration;
 
     /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+     * @return Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs>> toolConfiguration() {
@@ -99,21 +107,39 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
             $ = new AgentPromptVariantTemplateConfigurationChatArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inputVariables List of variables in the prompt template. See `inputVariable` Block for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(@Nullable Output<List<AgentPromptVariantTemplateConfigurationChatInputVariableArgs>> inputVariables) {
             $.inputVariables = inputVariables;
             return this;
         }
 
+        /**
+         * @param inputVariables List of variables in the prompt template. See `inputVariable` Block for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(List<AgentPromptVariantTemplateConfigurationChatInputVariableArgs> inputVariables) {
             return inputVariables(Output.of(inputVariables));
         }
 
+        /**
+         * @param inputVariables List of variables in the prompt template. See `inputVariable` Block for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(AgentPromptVariantTemplateConfigurationChatInputVariableArgs... inputVariables) {
             return inputVariables(List.of(inputVariables));
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages List of messages in the chat for the prompt. See `message` Block for more information.
          * 
          * @return builder
          * 
@@ -124,7 +150,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages List of messages in the chat for the prompt. See `message` Block for more information.
          * 
          * @return builder
          * 
@@ -134,7 +160,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param messages A list of messages in the chat for the prompt. See Message for more information.
+         * @param messages List of messages in the chat for the prompt. See `message` Block for more information.
          * 
          * @return builder
          * 
@@ -144,7 +170,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
          * 
          * @return builder
          * 
@@ -155,7 +181,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
          * 
          * @return builder
          * 
@@ -165,7 +191,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param systems A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+         * @param systems List of system prompts to provide context to the model or to describe how it should behave. See `system` Block for more information.
          * 
          * @return builder
          * 
@@ -175,7 +201,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
          * 
          * @return builder
          * 
@@ -186,7 +212,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         /**
-         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+         * @param toolConfiguration Configuration information for the tools that the model can use when generating a response. See `toolConfiguration` Block for more information.
          * 
          * @return builder
          * 

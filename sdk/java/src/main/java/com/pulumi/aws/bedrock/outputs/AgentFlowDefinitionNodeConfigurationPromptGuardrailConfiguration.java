@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
     /**
-     * @return The unique identifier of the guardrail.
+     * @return Unique identifier of the guardrail.
      * 
      */
     private String guardrailIdentifier;
     /**
-     * @return The version of the guardrail.
+     * @return Version of the guardrail.
      * 
      */
     private String guardrailVersion;
 
     private AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration() {}
     /**
-     * @return The unique identifier of the guardrail.
+     * @return Unique identifier of the guardrail.
      * 
      */
     public String guardrailIdentifier() {
         return this.guardrailIdentifier;
     }
     /**
-     * @return The version of the guardrail.
+     * @return Version of the guardrail.
      * 
      */
     public String guardrailVersion() {

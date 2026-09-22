@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class PlanRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
+        /// Amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         /// </summary>
         [Input("completionWindow")]
         public Input<int>? CompletionWindow { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<bool>? EnableContinuousBackup { get; set; }
 
         /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// Lifecycle that defines when a protected resource is transitioned to cold storage and when it expires. Detailed below.
         /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.PlanRuleLifecycleArgs>? Lifecycle { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// An display name for a backup rule.
+        /// Display name for a backup rule.
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<Inputs.PlanRuleScanActionArgs>? _scanActions;
 
         /// <summary>
-        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
+        /// Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         /// </summary>
         public InputList<Inputs.PlanRuleScanActionArgs> ScanActions
         {
@@ -73,31 +73,31 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
+        /// CRON expression specifying when AWS Backup initiates a backup job.
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        /// Timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
         /// <summary>
-        /// The amount of time in minutes before beginning a backup.
+        /// Amount of time in minutes before beginning a backup.
         /// </summary>
         [Input("startWindow")]
         public Input<int>? StartWindow { get; set; }
 
         /// <summary>
-        /// The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        /// ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         /// </summary>
         [Input("targetLogicallyAirGappedBackupVaultArn")]
         public Input<string>? TargetLogicallyAirGappedBackupVaultArn { get; set; }
 
         /// <summary>
-        /// The name of a logical container where backups are stored.
+        /// Name of a logical container where backups are stored.
         /// </summary>
         [Input("targetVaultName", required: true)]
         public Input<string> TargetVaultName { get; set; } = null!;

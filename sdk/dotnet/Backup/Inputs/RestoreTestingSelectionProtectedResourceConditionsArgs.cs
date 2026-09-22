@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>? _stringEquals;
 
         /// <summary>
-        /// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        /// List of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See `StringEquals` below.
         /// </summary>
         public InputList<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs> StringEquals
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>? _stringNotEquals;
 
         /// <summary>
-        /// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        /// List of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See `StringNotEquals` below.
         /// </summary>
         public InputList<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs> StringNotEquals
         {

@@ -20,14 +20,14 @@ public final class LogicallyAirGappedVaultArgs extends com.pulumi.resources.Reso
     public static final LogicallyAirGappedVaultArgs Empty = new LogicallyAirGappedVaultArgs();
 
     /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
     /**
-     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+     * @return AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
      * 
      */
     public Optional<Output<String>> encryptionKeyArn() {
@@ -147,7 +147,7 @@ public final class LogicallyAirGappedVaultArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * @param encryptionKeyArn AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LogicallyAirGappedVaultArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+         * @param encryptionKeyArn AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
          * 
          * @return builder
          * 

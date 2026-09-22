@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
-        /// The currently supported PII entities.
+        /// Currently supported PII entities.
         /// </summary>
         public readonly string Type;
 

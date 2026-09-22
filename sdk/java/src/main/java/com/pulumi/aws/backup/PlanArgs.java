@@ -22,14 +22,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanArgs Empty = new PlanArgs();
 
     /**
-     * An object that specifies backup options for each resource type.
+     * Object that specifies backup options for each resource type. Detailed below.
      * 
      */
     @Import(name="advancedBackupSettings")
     private @Nullable Output<List<PlanAdvancedBackupSettingArgs>> advancedBackupSettings;
 
     /**
-     * @return An object that specifies backup options for each resource type.
+     * @return Object that specifies backup options for each resource type. Detailed below.
      * 
      */
     public Optional<Output<List<PlanAdvancedBackupSettingArgs>>> advancedBackupSettings() {
@@ -37,14 +37,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The display name of a backup plan.
+     * @return Display name of a backup plan.
      * 
      */
     public Optional<Output<String>> name() {
@@ -67,14 +67,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<PlanRuleArgs>> rules;
 
     /**
-     * @return A rule object that specifies a scheduled task that is used to back up a selection of resources.
+     * @return Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
      * 
      */
     public Output<List<PlanRuleArgs>> rules() {
@@ -141,7 +141,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
+         * @param advancedBackupSettings Object that specifies backup options for each resource type. Detailed below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
+         * @param advancedBackupSettings Object that specifies backup options for each resource type. Detailed below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
+         * @param advancedBackupSettings Object that specifies backup options for each resource type. Detailed below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of a backup plan.
+         * @param name Display name of a backup plan.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of a backup plan.
+         * @param name Display name of a backup plan.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
+         * @param rules Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
+         * @param rules Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
+         * @param rules Rule that specifies a scheduled task used to back up a selection of resources. Detailed below.
          * 
          * @return builder
          * 

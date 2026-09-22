@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig {
     /**
-     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * @return Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     private Boolean requireServiceS3Endpoint;
@@ -30,7 +30,7 @@ public final class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentN
 
     private AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig() {}
     /**
-     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * @return Whether an S3 endpoint is required for the service in the VPC.
      * 
      */
     public Boolean requireServiceS3Endpoint() {

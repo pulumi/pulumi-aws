@@ -15,14 +15,14 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
     public static final RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs Empty = new RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs();
 
     /**
-     * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+     * Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+     * @return Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
     }
 
     /**
-     * The value of the Tag. Maximum length of 256.
+     * Value of the Tag. Maximum length of 256.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the Tag. Maximum length of 256.
+     * @return Value of the Tag. Maximum length of 256.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
         }
 
         /**
-         * @param key The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * @param key Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
         }
 
         /**
-         * @param key The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         * @param key Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
         }
 
         /**
-         * @param value The value of the Tag. Maximum length of 256.
+         * @param value Value of the Tag. Maximum length of 256.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEq
         }
 
         /**
-         * @param value The value of the Tag. Maximum length of 256.
+         * @param value Value of the Tag. Maximum length of 256.
          * 
          * @return builder
          * 

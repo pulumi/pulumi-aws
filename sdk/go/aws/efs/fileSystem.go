@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
+//			_, err := efs.NewFileSystem(ctx, "example", &efs.FileSystemArgs{
 //				CreationToken: pulumi.String("my-product"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("MyProduct"),
@@ -77,10 +77,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) ID of the file system.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import the EFS file systems using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+// $ pulumi import aws:efs/fileSystem:FileSystem example fs-6fa144c6
 // ```
 type FileSystem struct {
 	pulumi.CustomResourceState

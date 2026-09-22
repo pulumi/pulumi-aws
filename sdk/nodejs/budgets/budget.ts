@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+ * Manages a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage. For more detailed documentation about each argument, refer to the [AWS official documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
  *
  * ## Example Usage
  *
@@ -373,11 +373,11 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for budget. Uses the current user's account ID by default if omitted.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The ARN of the budget.
+     * ARN of the budget.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -393,11 +393,11 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public readonly budgetType: pulumi.Output<string>;
     /**
-     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     declare public readonly costFilters: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      */
     declare public readonly costTypes: pulumi.Output<outputs.budgets.BudgetCostTypes>;
     /**
@@ -405,23 +405,23 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public readonly filterExpression: pulumi.Output<outputs.budgets.BudgetFilterExpression | undefined>;
     /**
-     * The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      */
     declare public readonly limitAmount: pulumi.Output<string>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     declare public readonly limitUnit: pulumi.Output<string>;
     /**
-     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      */
     declare public readonly metrics: pulumi.Output<string | undefined>;
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of a budget. Unique within accounts.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the name of a budget. Unique within accounts.
      */
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
@@ -441,18 +441,15 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     declare public readonly timePeriodEnd: pulumi.Output<string | undefined>;
     /**
-     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * Start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
     declare public readonly timePeriodStart: pulumi.Output<string>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *
      * The following arguments are optional:
      */
@@ -530,11 +527,11 @@ export class Budget extends pulumi.CustomResource {
  */
 export interface BudgetState {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for budget. Uses the current user's account ID by default if omitted.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the budget.
+     * ARN of the budget.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -550,11 +547,11 @@ export interface BudgetState {
      */
     budgetType?: pulumi.Input<string | undefined>;
     /**
-     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[] | undefined>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes | undefined>;
     /**
@@ -562,23 +559,23 @@ export interface BudgetState {
      */
     filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression | undefined>;
     /**
-     * The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      */
     limitAmount?: pulumi.Input<string | undefined>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     limitUnit?: pulumi.Input<string | undefined>;
     /**
-     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      */
     metrics?: pulumi.Input<string | undefined>;
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of a budget. Unique within accounts.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
@@ -598,18 +595,15 @@ export interface BudgetState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodEnd?: pulumi.Input<string | undefined>;
     /**
-     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * Start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodStart?: pulumi.Input<string | undefined>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *
      * The following arguments are optional:
      */
@@ -621,7 +615,7 @@ export interface BudgetState {
  */
 export interface BudgetArgs {
     /**
-     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
+     * ID of the target account for budget. Uses the current user's account ID by default if omitted.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -637,11 +631,11 @@ export interface BudgetArgs {
      */
     budgetType: pulumi.Input<string>;
     /**
-     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
+     * List of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[] | undefined>;
     /**
-     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+     * Object containing CostTypes that defines the types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes | undefined>;
     /**
@@ -649,23 +643,23 @@ export interface BudgetArgs {
      */
     filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression | undefined>;
     /**
-     * The amount of cost or usage being measured for a budget.
+     * Amount of cost or usage being measured for a budget.
      */
     limitAmount?: pulumi.Input<string | undefined>;
     /**
-     * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+     * Unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     limitUnit?: pulumi.Input<string | undefined>;
     /**
-     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * List containing definition for how the budget data is aggregated. Valid values are `UnblendedCost`, `BlendedCost`, `AmortizedCost`, `NetUnblendedCost`, `NetAmortizedCost`, `UsageQuantity`, `NormalizedUsageAmount`, and `Hours`. Conflicts with `costTypes` and requires `filterExpression`.
      */
     metrics?: pulumi.Input<string | undefined>;
     /**
-     * The name of a budget. Unique within accounts.
+     * Name of a budget. Unique within accounts.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The prefix of the name of a budget. Unique within accounts.
+     * Prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
@@ -681,18 +675,15 @@ export interface BudgetArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+     * End of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodEnd?: pulumi.Input<string | undefined>;
     /**
-     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official
-     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * Start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodStart?: pulumi.Input<string | undefined>;
     /**
-     * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * Length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *
      * The following arguments are optional:
      */

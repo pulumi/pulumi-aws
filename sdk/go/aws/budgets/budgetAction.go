@@ -147,29 +147,29 @@ import (
 type BudgetAction struct {
 	pulumi.CustomResourceState
 
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The id of the budget action.
+	// ID of the budget action.
 	ActionId pulumi.StringOutput `pulumi:"actionId"`
-	// The trigger threshold of the action. See Action Threshold.
+	// Trigger threshold of the action. See `actionThreshold` Block.
 	ActionThreshold BudgetActionActionThresholdOutput `pulumi:"actionThreshold"`
-	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+	// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 	ActionType pulumi.StringOutput `pulumi:"actionType"`
-	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+	// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel pulumi.StringOutput `pulumi:"approvalModel"`
-	// The ARN of the budget action.
+	// ARN of the budget action.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of a budget.
+	// Name of a budget.
 	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
-	// Specifies all of the type-specific parameters. See Definition.
+	// Type-specific parameters. See `definition` Block.
 	Definition BudgetActionDefinitionOutput `pulumi:"definition"`
-	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	// Role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+	// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// The status of the budget action.
+	// Status of the budget action.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of subscribers. See Subscriber.
+	// Set of subscribers. See `subscriber` Block.
 	Subscribers BudgetActionSubscriberArrayOutput `pulumi:"subscribers"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -231,29 +231,29 @@ func GetBudgetAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BudgetAction resources.
 type budgetActionState struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId *string `pulumi:"accountId"`
-	// The id of the budget action.
+	// ID of the budget action.
 	ActionId *string `pulumi:"actionId"`
-	// The trigger threshold of the action. See Action Threshold.
+	// Trigger threshold of the action. See `actionThreshold` Block.
 	ActionThreshold *BudgetActionActionThreshold `pulumi:"actionThreshold"`
-	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+	// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 	ActionType *string `pulumi:"actionType"`
-	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+	// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel *string `pulumi:"approvalModel"`
-	// The ARN of the budget action.
+	// ARN of the budget action.
 	Arn *string `pulumi:"arn"`
-	// The name of a budget.
+	// Name of a budget.
 	BudgetName *string `pulumi:"budgetName"`
-	// Specifies all of the type-specific parameters. See Definition.
+	// Type-specific parameters. See `definition` Block.
 	Definition *BudgetActionDefinition `pulumi:"definition"`
-	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	// Role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+	// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType *string `pulumi:"notificationType"`
-	// The status of the budget action.
+	// Status of the budget action.
 	Status *string `pulumi:"status"`
-	// A list of subscribers. See Subscriber.
+	// Set of subscribers. See `subscriber` Block.
 	Subscribers []BudgetActionSubscriber `pulumi:"subscribers"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -262,29 +262,29 @@ type budgetActionState struct {
 }
 
 type BudgetActionState struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId pulumi.StringPtrInput
-	// The id of the budget action.
+	// ID of the budget action.
 	ActionId pulumi.StringPtrInput
-	// The trigger threshold of the action. See Action Threshold.
+	// Trigger threshold of the action. See `actionThreshold` Block.
 	ActionThreshold BudgetActionActionThresholdPtrInput
-	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+	// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 	ActionType pulumi.StringPtrInput
-	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+	// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel pulumi.StringPtrInput
-	// The ARN of the budget action.
+	// ARN of the budget action.
 	Arn pulumi.StringPtrInput
-	// The name of a budget.
+	// Name of a budget.
 	BudgetName pulumi.StringPtrInput
-	// Specifies all of the type-specific parameters. See Definition.
+	// Type-specific parameters. See `definition` Block.
 	Definition BudgetActionDefinitionPtrInput
-	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	// Role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+	// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringPtrInput
-	// The status of the budget action.
+	// Status of the budget action.
 	Status pulumi.StringPtrInput
-	// A list of subscribers. See Subscriber.
+	// Set of subscribers. See `subscriber` Block.
 	Subscribers BudgetActionSubscriberArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -297,23 +297,23 @@ func (BudgetActionState) ElementType() reflect.Type {
 }
 
 type budgetActionArgs struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId *string `pulumi:"accountId"`
-	// The trigger threshold of the action. See Action Threshold.
+	// Trigger threshold of the action. See `actionThreshold` Block.
 	ActionThreshold BudgetActionActionThreshold `pulumi:"actionThreshold"`
-	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+	// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 	ActionType string `pulumi:"actionType"`
-	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+	// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel string `pulumi:"approvalModel"`
-	// The name of a budget.
+	// Name of a budget.
 	BudgetName string `pulumi:"budgetName"`
-	// Specifies all of the type-specific parameters. See Definition.
+	// Type-specific parameters. See `definition` Block.
 	Definition BudgetActionDefinition `pulumi:"definition"`
-	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	// Role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+	// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType string `pulumi:"notificationType"`
-	// A list of subscribers. See Subscriber.
+	// Set of subscribers. See `subscriber` Block.
 	Subscribers []BudgetActionSubscriber `pulumi:"subscribers"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -321,23 +321,23 @@ type budgetActionArgs struct {
 
 // The set of arguments for constructing a BudgetAction resource.
 type BudgetActionArgs struct {
-	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 	AccountId pulumi.StringPtrInput
-	// The trigger threshold of the action. See Action Threshold.
+	// Trigger threshold of the action. See `actionThreshold` Block.
 	ActionThreshold BudgetActionActionThresholdInput
-	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+	// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 	ActionType pulumi.StringInput
-	// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+	// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 	ApprovalModel pulumi.StringInput
-	// The name of a budget.
+	// Name of a budget.
 	BudgetName pulumi.StringInput
-	// Specifies all of the type-specific parameters. See Definition.
+	// Type-specific parameters. See `definition` Block.
 	Definition BudgetActionDefinitionInput
-	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	// Role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringInput
-	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+	// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringInput
-	// A list of subscribers. See Subscriber.
+	// Set of subscribers. See `subscriber` Block.
 	Subscribers BudgetActionSubscriberArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -430,62 +430,62 @@ func (o BudgetActionOutput) ToBudgetActionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+// ID of the target account for the budget. Uses the current user's account ID by default if omitted.
 func (o BudgetActionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The id of the budget action.
+// ID of the budget action.
 func (o BudgetActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
 }
 
-// The trigger threshold of the action. See Action Threshold.
+// Trigger threshold of the action. See `actionThreshold` Block.
 func (o BudgetActionOutput) ActionThreshold() BudgetActionActionThresholdOutput {
 	return o.ApplyT(func(v *BudgetAction) BudgetActionActionThresholdOutput { return v.ActionThreshold }).(BudgetActionActionThresholdOutput)
 }
 
-// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+// Type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
 func (o BudgetActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+// Whether the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
 func (o BudgetActionOutput) ApprovalModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.ApprovalModel }).(pulumi.StringOutput)
 }
 
-// The ARN of the budget action.
+// ARN of the budget action.
 func (o BudgetActionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of a budget.
+// Name of a budget.
 func (o BudgetActionOutput) BudgetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
 }
 
-// Specifies all of the type-specific parameters. See Definition.
+// Type-specific parameters. See `definition` Block.
 func (o BudgetActionOutput) Definition() BudgetActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetAction) BudgetActionDefinitionOutput { return v.Definition }).(BudgetActionDefinitionOutput)
 }
 
-// The role passed for action execution and reversion. Roles and actions must be in the same account.
+// Role passed for action execution and reversion. Roles and actions must be in the same account.
 func (o BudgetActionOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+// Type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 func (o BudgetActionOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// The status of the budget action.
+// Status of the budget action.
 func (o BudgetActionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A list of subscribers. See Subscriber.
+// Set of subscribers. See `subscriber` Block.
 func (o BudgetActionOutput) Subscribers() BudgetActionSubscriberArrayOutput {
 	return o.ApplyT(func(v *BudgetAction) BudgetActionSubscriberArrayOutput { return v.Subscribers }).(BudgetActionSubscriberArrayOutput)
 }

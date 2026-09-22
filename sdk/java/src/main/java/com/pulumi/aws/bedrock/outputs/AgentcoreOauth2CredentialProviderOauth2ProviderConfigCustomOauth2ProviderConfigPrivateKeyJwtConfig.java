@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+    /**
+     * @return Key-value map of additional claims to include in the JWT header.
+     * 
+     */
     private @Nullable Map<String,String> additionalHeaderClaims;
+    /**
+     * @return Key-value map of additional claims to include in the JWT payload.
+     * 
+     */
     private @Nullable Map<String,String> additionalPayloadClaims;
+    /**
+     * @return Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+     * 
+     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource privateKeySource;
+    /**
+     * @return Algorithm used to sign the JWT.
+     * 
+     */
     private @Nullable String signingAlgorithm;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig() {}
+    /**
+     * @return Key-value map of additional claims to include in the JWT header.
+     * 
+     */
     public Map<String,String> additionalHeaderClaims() {
         return this.additionalHeaderClaims == null ? Map.of() : this.additionalHeaderClaims;
     }
+    /**
+     * @return Key-value map of additional claims to include in the JWT payload.
+     * 
+     */
     public Map<String,String> additionalPayloadClaims() {
         return this.additionalPayloadClaims == null ? Map.of() : this.additionalPayloadClaims;
     }
+    /**
+     * @return Source of the private key used to sign the JWT. See `privateKeySource` Block below.
+     * 
+     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource> privateKeySource() {
         return Optional.ofNullable(this.privateKeySource);
     }
+    /**
+     * @return Algorithm used to sign the JWT.
+     * 
+     */
     public Optional<String> signingAlgorithm() {
         return Optional.ofNullable(this.signingAlgorithm);
     }

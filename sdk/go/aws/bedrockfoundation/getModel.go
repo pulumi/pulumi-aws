@@ -81,7 +81,7 @@ type GetModelResult struct {
 	// Model provider name.
 	ProviderName string `pulumi:"providerName"`
 	Region       string `pulumi:"region"`
-	// Indicates whether the model supports streaming.
+	// Whether the model supports streaming.
 	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
 }
 
@@ -164,7 +164,7 @@ func (o GetModelResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the model supports streaming.
+// Whether the model supports streaming.
 func (o GetModelResultOutput) ResponseStreamingSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetModelResult) bool { return v.ResponseStreamingSupported }).(pulumi.BoolOutput)
 }

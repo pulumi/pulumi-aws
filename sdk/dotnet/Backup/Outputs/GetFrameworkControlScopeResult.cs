@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class GetFrameworkControlScopeResult
     {
         /// <summary>
-        /// The ID of the only AWS resource that you want your control scope to contain.
+        /// ID of the only AWS resource that you want your control scope to contain.
         /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceIds;
         /// <summary>
-        /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
+        /// Whether the control scope includes one or more types of resources, such as EFS or RDS.
         /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
         /// <summary>

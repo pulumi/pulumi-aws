@@ -240,7 +240,7 @@ type AgentcoreGateway struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
 	Timeouts AgentcoreGatewayTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
@@ -317,7 +317,7 @@ type agentcoreGatewayState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string         `pulumi:"tagsAll"`
 	Timeouts *AgentcoreGatewayTimeouts `pulumi:"timeouts"`
 	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
@@ -359,7 +359,7 @@ type AgentcoreGatewayState struct {
 	RoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentcoreGatewayTimeoutsPtrInput
 	// Workload identity details for the gateway. See `workloadIdentityDetails` below.
@@ -612,7 +612,7 @@ func (o AgentcoreGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

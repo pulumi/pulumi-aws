@@ -54,7 +54,7 @@ func GetAgentAgentVersions(ctx *pulumi.Context, args *GetAgentAgentVersionsArgs,
 type GetAgentAgentVersionsArgs struct {
 	// Unique identifier of the agent.
 	AgentId string `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	// List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -63,7 +63,7 @@ type GetAgentAgentVersionsArgs struct {
 // A collection of values returned by getAgentAgentVersions.
 type GetAgentAgentVersionsResult struct {
 	AgentId string `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	// List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
 	Region                string                                     `pulumi:"region"`
 }
@@ -77,7 +77,7 @@ func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersions
 type GetAgentAgentVersionsOutputArgs struct {
 	// Unique identifier of the agent.
 	AgentId pulumi.StringInput `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	// List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
 	AgentVersionSummaries GetAgentAgentVersionsAgentVersionSummaryArrayInput `pulumi:"agentVersionSummaries"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -106,7 +106,7 @@ func (o GetAgentAgentVersionsResultOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) string { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+// List of objects, each of which contains information about a version of the agent. See `agentVersionSummaries` Block
 func (o GetAgentAgentVersionsResultOutput) AgentVersionSummaries() GetAgentAgentVersionsAgentVersionSummaryArrayOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) []GetAgentAgentVersionsAgentVersionSummary {
 		return v.AgentVersionSummaries

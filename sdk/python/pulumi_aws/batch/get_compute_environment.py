@@ -151,7 +151,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="updatePolicies")
     def update_policies(self) -> Sequence['outputs.GetComputeEnvironmentUpdatePolicyResult']:
         """
-        Specifies the infrastructure update policy for the compute environment.
+        Infrastructure update policy for the compute environment.
         """
         return pulumi.get(self, "update_policies")
 

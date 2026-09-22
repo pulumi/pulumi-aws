@@ -25,14 +25,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     public static final AgentKnowledgeBaseStorageConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationArgs();
 
     /**
-     * The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
      * 
      */
     @Import(name="mongoDbAtlasConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs> mongoDbAtlasConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs>> mongoDbAtlasConfiguration() {
@@ -40,14 +40,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
      * 
      */
     @Import(name="neptuneAnalyticsConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs> neptuneAnalyticsConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs>> neptuneAnalyticsConfiguration() {
@@ -55,14 +55,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
      * 
      */
     @Import(name="opensearchManagedClusterConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs> opensearchManagedClusterConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs>> opensearchManagedClusterConfiguration() {
@@ -70,14 +70,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+     * Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
      * 
      */
     @Import(name="opensearchServerlessConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs> opensearchServerlessConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs>> opensearchServerlessConfiguration() {
@@ -85,14 +85,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+     * Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
      * 
      */
     @Import(name="pineconeConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs> pineconeConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs>> pineconeConfiguration() {
@@ -100,14 +100,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+     * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
      * 
      */
     @Import(name="rdsConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs> rdsConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs>> rdsConfiguration() {
@@ -115,14 +115,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+     * Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
      * 
      */
     @Import(name="redisEnterpriseCloudConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs> redisEnterpriseCloudConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs>> redisEnterpriseCloudConfiguration() {
@@ -130,14 +130,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
      * 
      */
     @Import(name="s3VectorsConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs> s3VectorsConfiguration;
 
     /**
-     * @return The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+     * @return Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs>> s3VectorsConfiguration() {
@@ -192,7 +192,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param mongoDbAtlasConfiguration The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+         * @param mongoDbAtlasConfiguration Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param mongoDbAtlasConfiguration The storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` block for details.
+         * @param mongoDbAtlasConfiguration Storage configuration of the knowledge base in MongoDB Atlas. See `mongoDbAtlasConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param neptuneAnalyticsConfiguration The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+         * @param neptuneAnalyticsConfiguration Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param neptuneAnalyticsConfiguration The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` block for details.
+         * @param neptuneAnalyticsConfiguration Storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptuneAnalyticsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchManagedClusterConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+         * @param opensearchManagedClusterConfiguration Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchManagedClusterConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` block for details.
+         * @param opensearchManagedClusterConfiguration Storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearchManagedClusterConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchServerlessConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+         * @param opensearchServerlessConfiguration Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchServerlessConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` block for details.
+         * @param opensearchServerlessConfiguration Storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearchServerlessConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param pineconeConfiguration The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+         * @param pineconeConfiguration Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param pineconeConfiguration The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
+         * @param pineconeConfiguration Storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
+         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param redisEnterpriseCloudConfiguration The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+         * @param redisEnterpriseCloudConfiguration Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param redisEnterpriseCloudConfiguration The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
+         * @param redisEnterpriseCloudConfiguration Storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param s3VectorsConfiguration The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+         * @param s3VectorsConfiguration Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param s3VectorsConfiguration The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` block for details.
+         * @param s3VectorsConfiguration Storage configuration of the knowledge base in Amazon S3 Vectors. See `s3VectorsConfiguration` Block for details.
          * 
          * @return builder
          * 

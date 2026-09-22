@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
     /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+     * @return Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
      * 
      */
     private @Nullable List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters;
     /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+     * @return Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
      * 
      */
     private String type;
 
     private AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration() {}
     /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+     * @return Configuration for filtering objects or content types of the data source. See `data_source_configuration.share_point_configuration.crawler_configuration.filter_configuration.pattern_object_filter` Block for details.
      * 
      */
     public List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters() {
         return this.patternObjectFilters == null ? List.of() : this.patternObjectFilters;
     }
     /**
-     * @return The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+     * @return Type of filtering to apply to objects or content of the data source. For example, the `PATTERN` type uses regular expression patterns to filter content.
      * 
      */
     public String type() {

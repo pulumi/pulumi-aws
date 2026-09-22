@@ -40,14 +40,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the output model.
+     * ARN of the output model.
      * 
      */
     @Import(name="customModelArn")
     private @Nullable Output<String> customModelArn;
 
     /**
-     * @return The ARN of the output model.
+     * @return ARN of the output model.
      * 
      */
     public Optional<Output<String>> customModelArn() {
@@ -55,14 +55,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom model is encrypted at rest using this key. Specify the key ARN.
+     * Key ARN used to encrypt the custom model at rest.
      * 
      */
     @Import(name="customModelKmsKeyId")
     private @Nullable Output<String> customModelKmsKeyId;
 
     /**
-     * @return The custom model is encrypted at rest using this key. Specify the key ARN.
+     * @return Key ARN used to encrypt the custom model at rest.
      * 
      */
     public Optional<Output<String>> customModelKmsKeyId() {
@@ -85,14 +85,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     @Import(name="customizationType")
     private @Nullable Output<String> customizationType;
 
     /**
-     * @return The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+     * @return Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
     public Optional<Output<String>> customizationType() {
@@ -115,14 +115,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the customization job.
+     * ARN of the customization job.
      * 
      */
     @Import(name="jobArn")
     private @Nullable Output<String> jobArn;
 
     /**
-     * @return The ARN of the customization job.
+     * @return ARN of the customization job.
      * 
      */
     public Optional<Output<String>> jobArn() {
@@ -130,14 +130,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the customization job.
+     * Name for the customization job.
      * 
      */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
     /**
-     * @return A name for the customization job.
+     * @return Name for the customization job.
      * 
      */
     public Optional<Output<String>> jobName() {
@@ -145,14 +145,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      * 
      */
     @Import(name="jobStatus")
     private @Nullable Output<String> jobStatus;
 
     /**
-     * @return The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+     * @return Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      * 
      */
     public Optional<Output<String>> jobStatus() {
@@ -160,14 +160,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 location for the output data.
+     * S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     @Import(name="outputDataConfig")
     private @Nullable Output<CustomModelOutputDataConfigArgs> outputDataConfig;
 
     /**
-     * @return S3 location for the output data.
+     * @return S3 location for the output data. See `outputDataConfig` below.
      * 
      */
     public Optional<Output<CustomModelOutputDataConfigArgs>> outputDataConfig() {
@@ -205,14 +205,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -242,14 +242,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the training dataset.
+     * Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     @Import(name="trainingDataConfig")
     private @Nullable Output<CustomModelTrainingDataConfigArgs> trainingDataConfig;
 
     /**
-     * @return Information about the training dataset.
+     * @return Information about the training dataset. See `trainingDataConfig` below.
      * 
      */
     public Optional<Output<CustomModelTrainingDataConfigArgs>> trainingDataConfig() {
@@ -272,14 +272,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the validation dataset.
+     * Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     @Import(name="validationDataConfig")
     private @Nullable Output<CustomModelValidationDataConfigArgs> validationDataConfig;
 
     /**
-     * @return Information about the validation dataset.
+     * @return Information about the validation dataset. See `validationDataConfig` below.
      * 
      */
     public Optional<Output<CustomModelValidationDataConfigArgs>> validationDataConfig() {
@@ -287,14 +287,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The loss metric for each validator that you provided.
+     * Loss metric for each validator that you provided.
      * 
      */
     @Import(name="validationMetrics")
     private @Nullable Output<List<CustomModelValidationMetricArgs>> validationMetrics;
 
     /**
-     * @return The loss metric for each validator that you provided.
+     * @return Loss metric for each validator that you provided.
      * 
      */
     public Optional<Output<List<CustomModelValidationMetricArgs>>> validationMetrics() {
@@ -302,14 +302,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<CustomModelVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Configuration parameters for the private VPC that contains the resources you are using for this job.
+     * @return Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
      * 
      */
     public Optional<Output<CustomModelVpcConfigArgs>> vpcConfig() {
@@ -381,7 +381,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelArn The ARN of the output model.
+         * @param customModelArn ARN of the output model.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelArn The ARN of the output model.
+         * @param customModelArn ARN of the output model.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelKmsKeyId The custom model is encrypted at rest using this key. Specify the key ARN.
+         * @param customModelKmsKeyId Key ARN used to encrypt the custom model at rest.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customModelKmsKeyId The custom model is encrypted at rest using this key. Specify the key ARN.
+         * @param customModelKmsKeyId Key ARN used to encrypt the custom model at rest.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customizationType The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+         * @param customizationType Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customizationType The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+         * @param customizationType Customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobArn The ARN of the customization job.
+         * @param jobArn ARN of the customization job.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobArn The ARN of the customization job.
+         * @param jobArn ARN of the customization job.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName A name for the customization job.
+         * @param jobName Name for the customization job.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName A name for the customization job.
+         * @param jobName Name for the customization job.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStatus The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+         * @param jobStatus Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStatus The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
+         * @param jobStatus Status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputDataConfig S3 location for the output data.
+         * @param outputDataConfig S3 location for the output data. See `outputDataConfig` below.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputDataConfig S3 location for the output data.
+         * @param outputDataConfig S3 location for the output data. See `outputDataConfig` below.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trainingDataConfig Information about the training dataset.
+         * @param trainingDataConfig Information about the training dataset. See `trainingDataConfig` below.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trainingDataConfig Information about the training dataset.
+         * @param trainingDataConfig Information about the training dataset. See `trainingDataConfig` below.
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationDataConfig Information about the validation dataset.
+         * @param validationDataConfig Information about the validation dataset. See `validationDataConfig` below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationDataConfig Information about the validation dataset.
+         * @param validationDataConfig Information about the validation dataset. See `validationDataConfig` below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationMetrics The loss metric for each validator that you provided.
+         * @param validationMetrics Loss metric for each validator that you provided.
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationMetrics The loss metric for each validator that you provided.
+         * @param validationMetrics Loss metric for each validator that you provided.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationMetrics The loss metric for each validator that you provided.
+         * @param validationMetrics Loss metric for each validator that you provided.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job. See `vpcConfig` below.
          * 
          * @return builder
          * 

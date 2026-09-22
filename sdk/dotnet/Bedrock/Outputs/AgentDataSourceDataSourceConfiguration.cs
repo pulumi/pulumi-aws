@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfiguration
     {
         /// <summary>
-        /// Details about the configuration of the Confluence data source. See `ConfluenceDataSourceConfiguration` block for details.
+        /// Configuration details for the Confluence data source. See `data_source_configuration.confluence_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration;
         /// <summary>
-        /// Details about the configuration of a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` block for details.
+        /// Configuration details for a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration? ManagedKnowledgeBaseConnectorConfiguration;
         /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
+        /// Configuration details for the S3 object that contains the data source. See `S3Configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration;
         /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `SalesforceDataSourceConfiguration` block for details.
+        /// Configuration details for the Salesforce data source. See `data_source_configuration.salesforce_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? SalesforceConfiguration;
         /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `SharePointDataSourceConfiguration` block for details.
+        /// Configuration details for the SharePoint data source. See `data_source_configuration.share_point_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Details about the configuration of the web data source. See `WebDataSourceConfiguration` block for details.
+        /// Configuration details for the web data source. See `data_source_configuration.web_configuration` Block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration;
 

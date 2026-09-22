@@ -18,14 +18,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs();
 
     /**
-     * Defines which tools the model should request when invoked. See Tool Choice for more information.
+     * Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
      * 
      */
     @Import(name="toolChoice")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs> toolChoice;
 
     /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
+     * @return Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs>> toolChoice() {
@@ -33,14 +33,14 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
     }
 
     /**
-     * A list of tools to pass to a model. See Tool for more information.
+     * List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
      * 
      */
     @Import(name="tools")
     private @Nullable Output<List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs>> tools;
 
     /**
-     * @return A list of tools to pass to a model. See Tool for more information.
+     * @return List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
      * 
      */
     public Optional<Output<List<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs>>> tools() {
@@ -73,7 +73,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
         }
 
         /**
-         * @param toolChoice Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * @param toolChoice Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
         }
 
         /**
-         * @param toolChoice Defines which tools the model should request when invoked. See Tool Choice for more information.
+         * @param toolChoice Configuration for which tools the model should request when invoked. See `toolChoice` Block for more information.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
         }
 
         /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
+         * @param tools List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
         }
 
         /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
+         * @param tools List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationA
         }
 
         /**
-         * @param tools A list of tools to pass to a model. See Tool for more information.
+         * @param tools List of tools to pass to a model. See `variant.template_configuration.chat.tool_configuration.tool` Block for more information.
          * 
          * @return builder
          * 

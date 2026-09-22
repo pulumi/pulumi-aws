@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ChannelArgs, ChannelState } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -90,6 +95,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:msk/channel:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "aws:msk/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:msk/clusterPolicy:ClusterPolicy":
@@ -113,6 +120,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "msk/channel", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/clusterPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/configuration", _module)

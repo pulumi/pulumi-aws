@@ -55,7 +55,7 @@ type LookupJobQueueArgs struct {
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -63,34 +63,25 @@ type LookupJobQueueArgs struct {
 type LookupJobQueueResult struct {
 	// ARN of the job queue.
 	Arn string `pulumi:"arn"`
-	// The compute environments that are attached to the job queue and the order in
-	// which job placement is preferred. Compute environments are selected for job placement in ascending order.
-	// * `compute_environment_order.#.order` - The order of the compute environment.
-	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+	// Compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-	// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-	// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-	// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-	// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+	// Action that AWS Batch takes after the job has remained at the head of the queue in the specified state for longer than the specified time.
 	JobStateTimeLimitActions []GetJobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	Name                     string                               `pulumi:"name"`
-	// Priority of the job queue. Job queues with a higher priority are evaluated first when
-	// associated with the same compute environment.
+	// Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
 	Priority int    `pulumi:"priority"`
 	Region   string `pulumi:"region"`
-	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+	// ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
-	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+	// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 	State string `pulumi:"state"`
 	// Current status of the job queue (for example, `CREATING` or `VALID`).
 	Status string `pulumi:"status"`
-	// Short, human-readable string to provide additional details about the current status
-	// of the job queue.
+	// Short, human-readable string to provide additional details about the current status of the job queue.
 	StatusReason string `pulumi:"statusReason"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -105,7 +96,7 @@ type LookupJobQueueOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags
+	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -133,10 +124,7 @@ func (o LookupJobQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The compute environments that are attached to the job queue and the order in
-// which job placement is preferred. Compute environments are selected for job placement in ascending order.
-// * `compute_environment_order.#.order` - The order of the compute environment.
-// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+// Compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order.
 func (o LookupJobQueueResultOutput) ComputeEnvironmentOrders() GetJobQueueComputeEnvironmentOrderArrayOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) []GetJobQueueComputeEnvironmentOrder { return v.ComputeEnvironmentOrders }).(GetJobQueueComputeEnvironmentOrderArrayOutput)
 }
@@ -146,11 +134,7 @@ func (o LookupJobQueueResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+// Action that AWS Batch takes after the job has remained at the head of the queue in the specified state for longer than the specified time.
 func (o LookupJobQueueResultOutput) JobStateTimeLimitActions() GetJobQueueJobStateTimeLimitActionArrayOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) []GetJobQueueJobStateTimeLimitAction { return v.JobStateTimeLimitActions }).(GetJobQueueJobStateTimeLimitActionArrayOutput)
 }
@@ -159,8 +143,7 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Priority of the job queue. Job queues with a higher priority are evaluated first when
-// associated with the same compute environment.
+// Priority of the job queue. Job queues with a higher priority are evaluated first when associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -169,12 +152,12 @@ func (o LookupJobQueueResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
+// ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.SchedulingPolicyArn }).(pulumi.StringOutput)
 }
 
-// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+// Ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 func (o LookupJobQueueResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.State }).(pulumi.StringOutput)
 }
@@ -184,13 +167,12 @@ func (o LookupJobQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Short, human-readable string to provide additional details about the current status
-// of the job queue.
+// Short, human-readable string to provide additional details about the current status of the job queue.
 func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags
+// Key-value map of resource tags.
 func (o LookupJobQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

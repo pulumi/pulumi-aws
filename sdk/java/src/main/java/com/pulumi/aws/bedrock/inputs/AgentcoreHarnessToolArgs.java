@@ -18,14 +18,14 @@ public final class AgentcoreHarnessToolArgs extends com.pulumi.resources.Resourc
     public static final AgentcoreHarnessToolArgs Empty = new AgentcoreHarnessToolArgs();
 
     /**
-     * Tool-specific configuration. See `tool config` below.
+     * Tool-specific configuration. See `tool.config` Block below.
      * 
      */
     @Import(name="config")
     private @Nullable Output<AgentcoreHarnessToolConfigArgs> config;
 
     /**
-     * @return Tool-specific configuration. See `tool config` below.
+     * @return Tool-specific configuration. See `tool.config` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigArgs>> config() {
@@ -89,7 +89,7 @@ public final class AgentcoreHarnessToolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param config Tool-specific configuration. See `tool config` below.
+         * @param config Tool-specific configuration. See `tool.config` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreHarnessToolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param config Tool-specific configuration. See `tool config` below.
+         * @param config Tool-specific configuration. See `tool.config` Block below.
          * 
          * @return builder
          * 

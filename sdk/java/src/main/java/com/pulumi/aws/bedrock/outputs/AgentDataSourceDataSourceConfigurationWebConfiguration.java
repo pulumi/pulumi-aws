@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfiguration {
+    /**
+     * @return Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration crawlerConfiguration;
+    /**
+     * @return Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration sourceConfiguration;
 
     private AgentDataSourceDataSourceConfigurationWebConfiguration() {}
+    /**
+     * @return Configuration for web content. See `data_source_configuration.web_configuration.crawler_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration> crawlerConfiguration() {
         return Optional.ofNullable(this.crawlerConfiguration);
     }
+    /**
+     * @return Endpoint information to connect to your web data source. See `data_source_configuration.web_configuration.source_configuration` Block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }

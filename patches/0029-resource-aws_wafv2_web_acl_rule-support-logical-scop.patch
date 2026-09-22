@@ -630,10 +630,10 @@ index b5a5cc6584c1..d25bbdd921a4 100644
  	return fmt.Sprintf(`
  resource "aws_wafv2_web_acl" "test" {
 diff --git a/website/docs/r/wafv2_web_acl_rule.html.markdown b/website/docs/r/wafv2_web_acl_rule.html.markdown
-index a4520b7fbce9..31aafaaa4b21 100644
+index 3b9271713b9e..736759d4f592 100644
 --- a/website/docs/r/wafv2_web_acl_rule.html.markdown
 +++ b/website/docs/r/wafv2_web_acl_rule.html.markdown
-@@ -747,16 +747,21 @@ Exactly one of the following must be specified:
+@@ -752,16 +752,21 @@ Exactly one of the following must be specified:
  
  Exactly one of the following scope down statement blocks must be specified:
  
