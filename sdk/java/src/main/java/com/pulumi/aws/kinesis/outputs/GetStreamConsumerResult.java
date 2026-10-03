@@ -30,6 +30,10 @@ public final class GetStreamConsumerResult {
      */
     private String status;
     private String streamArn;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetStreamConsumerResult() {}
@@ -66,6 +70,10 @@ public final class GetStreamConsumerResult {
     public String streamArn() {
         return this.streamArn;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

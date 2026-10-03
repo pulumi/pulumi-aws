@@ -116,30 +116,30 @@ type VpcConnection struct {
 
 	// ARN of the VPC connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+	// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringOutput `pulumi:"availabilityStatus"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	// List of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
-	// The display name for the VPC connection.
+	// Display name for the VPC connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM role to associate with the VPC connection.
+	// IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A list of security group IDs for the VPC connection.
+	// List of security group IDs for the VPC connection.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs for the VPC connection.
-	//
-	// The following arguments are optional:
+	// List of subnet IDs for the VPC connection.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timeouts VpcConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC connection.
+	// ID of the VPC connection.
+	//
+	// The following arguments are optional:
 	VpcConnectionId pulumi.StringOutput `pulumi:"vpcConnectionId"`
 }
 
@@ -187,60 +187,60 @@ func GetVpcConnection(ctx *pulumi.Context,
 type vpcConnectionState struct {
 	// ARN of the VPC connection.
 	Arn *string `pulumi:"arn"`
-	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+	// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus *string `pulumi:"availabilityStatus"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	// List of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
-	// The display name for the VPC connection.
+	// Display name for the VPC connection.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM role to associate with the VPC connection.
+	// IAM role to associate with the VPC connection.
 	RoleArn *string `pulumi:"roleArn"`
-	// A list of security group IDs for the VPC connection.
+	// List of security group IDs for the VPC connection.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs for the VPC connection.
-	//
-	// The following arguments are optional:
+	// List of subnet IDs for the VPC connection.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string      `pulumi:"tagsAll"`
 	Timeouts *VpcConnectionTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC connection.
+	// ID of the VPC connection.
+	//
+	// The following arguments are optional:
 	VpcConnectionId *string `pulumi:"vpcConnectionId"`
 }
 
 type VpcConnectionState struct {
 	// ARN of the VPC connection.
 	Arn pulumi.StringPtrInput
-	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+	// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	// List of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
-	// The display name for the VPC connection.
+	// Display name for the VPC connection.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM role to associate with the VPC connection.
+	// IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringPtrInput
-	// A list of security group IDs for the VPC connection.
+	// List of security group IDs for the VPC connection.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A list of subnet IDs for the VPC connection.
-	//
-	// The following arguments are optional:
+	// List of subnet IDs for the VPC connection.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts VpcConnectionTimeoutsPtrInput
-	// The ID of the VPC connection.
+	// ID of the VPC connection.
+	//
+	// The following arguments are optional:
 	VpcConnectionId pulumi.StringPtrInput
 }
 
@@ -251,24 +251,24 @@ func (VpcConnectionState) ElementType() reflect.Type {
 type vpcConnectionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	// List of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
-	// The display name for the VPC connection.
+	// Display name for the VPC connection.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM role to associate with the VPC connection.
+	// IAM role to associate with the VPC connection.
 	RoleArn string `pulumi:"roleArn"`
-	// A list of security group IDs for the VPC connection.
+	// List of security group IDs for the VPC connection.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs for the VPC connection.
-	//
-	// The following arguments are optional:
+	// List of subnet IDs for the VPC connection.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string      `pulumi:"tags"`
 	Timeouts *VpcConnectionTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC connection.
+	// ID of the VPC connection.
+	//
+	// The following arguments are optional:
 	VpcConnectionId string `pulumi:"vpcConnectionId"`
 }
 
@@ -276,24 +276,24 @@ type vpcConnectionArgs struct {
 type VpcConnectionArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	// List of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
-	// The display name for the VPC connection.
+	// Display name for the VPC connection.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM role to associate with the VPC connection.
+	// IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringInput
-	// A list of security group IDs for the VPC connection.
+	// List of security group IDs for the VPC connection.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A list of subnet IDs for the VPC connection.
-	//
-	// The following arguments are optional:
+	// List of subnet IDs for the VPC connection.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts VpcConnectionTimeoutsPtrInput
-	// The ID of the VPC connection.
+	// ID of the VPC connection.
+	//
+	// The following arguments are optional:
 	VpcConnectionId pulumi.StringInput
 }
 
@@ -389,7 +389,7 @@ func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 func (o VpcConnectionOutput) AvailabilityStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AvailabilityStatus }).(pulumi.StringOutput)
 }
@@ -399,12 +399,12 @@ func (o VpcConnectionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+// List of IP addresses of DNS resolver endpoints for the VPC connection.
 func (o VpcConnectionOutput) DnsResolvers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.DnsResolvers }).(pulumi.StringArrayOutput)
 }
 
-// The display name for the VPC connection.
+// Display name for the VPC connection.
 func (o VpcConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -414,19 +414,17 @@ func (o VpcConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM role to associate with the VPC connection.
+// IAM role to associate with the VPC connection.
 func (o VpcConnectionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs for the VPC connection.
+// List of security group IDs for the VPC connection.
 func (o VpcConnectionOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs for the VPC connection.
-//
-// The following arguments are optional:
+// List of subnet IDs for the VPC connection.
 func (o VpcConnectionOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -436,7 +434,7 @@ func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -445,7 +443,9 @@ func (o VpcConnectionOutput) Timeouts() VpcConnectionTimeoutsPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionTimeoutsPtrOutput { return v.Timeouts }).(VpcConnectionTimeoutsPtrOutput)
 }
 
-// The ID of the VPC connection.
+// ID of the VPC connection.
+//
+// The following arguments are optional:
 func (o VpcConnectionOutput) VpcConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.VpcConnectionId }).(pulumi.StringOutput)
 }

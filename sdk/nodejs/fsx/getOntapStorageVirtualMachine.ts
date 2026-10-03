@@ -77,7 +77,7 @@ export interface GetOntapStorageVirtualMachineArgs {
  */
 export interface GetOntapStorageVirtualMachineResult {
     /**
-     * Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+     * Microsoft Active Directory configuration to which the SVM is joined, if applicable. See `activeDirectoryConfiguration` Block below.
      */
     readonly activeDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
     /**
@@ -89,7 +89,7 @@ export interface GetOntapStorageVirtualMachineResult {
      */
     readonly creationTime: string;
     /**
-     * Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+     * Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. See `endpoints` Block below.
      */
     readonly endpoints: outputs.fsx.GetOntapStorageVirtualMachineEndpoint[];
     /**
@@ -106,7 +106,7 @@ export interface GetOntapStorageVirtualMachineResult {
      */
     readonly lifecycleStatus: string;
     /**
-     * Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+     * Reason why the SVM lifecycle state changed. See `lifecycleTransitionReason` Block below.
      */
     readonly lifecycleTransitionReasons: outputs.fsx.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
     /**

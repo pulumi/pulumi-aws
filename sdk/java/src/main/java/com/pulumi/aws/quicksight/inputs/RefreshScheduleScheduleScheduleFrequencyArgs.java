@@ -18,14 +18,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
     public static final RefreshScheduleScheduleScheduleFrequencyArgs Empty = new RefreshScheduleScheduleScheduleFrequencyArgs();
 
     /**
-     * The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+     * Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
      * 
      */
     @Import(name="interval", required=true)
     private Output<String> interval;
 
     /**
-     * @return The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+     * @return Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
      * 
      */
     public Output<String> interval() {
@@ -33,14 +33,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
     }
 
     /**
-     * The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+     * [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
      * 
      */
     @Import(name="refreshOnDay")
     private @Nullable Output<RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs> refreshOnDay;
 
     /**
-     * @return The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+     * @return [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
      * 
      */
     public Optional<Output<RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs>> refreshOnDay() {
@@ -48,14 +48,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
     }
 
     /**
-     * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
      * 
      */
     @Import(name="timeOfTheDay")
     private @Nullable Output<String> timeOfTheDay;
 
     /**
-     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * @return Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
      * 
      */
     public Optional<Output<String>> timeOfTheDay() {
@@ -63,14 +63,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
     }
 
     /**
-     * The timezone that you want the refresh schedule to use.
+     * Timezone that you want the refresh schedule to use.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The timezone that you want the refresh schedule to use.
+     * @return Timezone that you want the refresh schedule to use.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -105,7 +105,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param interval The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+         * @param interval Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param interval The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+         * @param interval Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param refreshOnDay The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+         * @param refreshOnDay [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param refreshOnDay The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+         * @param refreshOnDay [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param timeOfTheDay The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         * @param timeOfTheDay Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param timeOfTheDay The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         * @param timeOfTheDay Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param timezone The timezone that you want the refresh schedule to use.
+         * @param timezone Timezone that you want the refresh schedule to use.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         /**
-         * @param timezone The timezone that you want the refresh schedule to use.
+         * @param timezone Timezone that you want the refresh schedule to use.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersBatchJobParametersArrayPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+        /// Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }

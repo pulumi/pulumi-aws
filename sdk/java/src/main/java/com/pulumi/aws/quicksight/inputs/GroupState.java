@@ -46,14 +46,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the group.
+     * Description for the group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the group.
+     * @return Description for the group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -61,14 +61,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the group.
+     * Name for the group.
      * 
      */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
     /**
-     * @return A name for the group.
+     * @return Name for the group.
      * 
      */
     public Optional<Output<String>> groupName() {
@@ -76,14 +76,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * Namespace. Currently, you should set this to `default`.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace. Currently, you should set this to `default`.
+     * @return Namespace. Currently, you should set this to `default`.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -177,7 +177,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the group.
+         * @param description Description for the group.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the group.
+         * @param description Description for the group.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupName A name for the group.
+         * @param groupName Name for the group.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupName A name for the group.
+         * @param groupName Name for the group.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace The namespace. Currently, you should set this to `default`.
+         * @param namespace Namespace. Currently, you should set this to `default`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace The namespace. Currently, you should set this to `default`.
+         * @param namespace Namespace. Currently, you should set this to `default`.
          * 
          * @return builder
          * 

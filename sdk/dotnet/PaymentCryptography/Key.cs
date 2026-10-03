@@ -74,6 +74,9 @@ namespace Pulumi.Aws.PaymentCryptography
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        /// </summary>
         [Output("deletionWindowInDays")]
         public Output<int> DeletionWindowInDays { get; private set; } = null!;
 
@@ -128,7 +131,7 @@ namespace Pulumi.Aws.PaymentCryptography
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -188,6 +191,9 @@ namespace Pulumi.Aws.PaymentCryptography
 
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
 
@@ -233,7 +239,7 @@ namespace Pulumi.Aws.PaymentCryptography
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -258,6 +264,9 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
 
@@ -321,7 +330,7 @@ namespace Pulumi.Aws.PaymentCryptography
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

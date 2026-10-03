@@ -61,11 +61,11 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Group.
+	// ARN of the Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression pulumi.StringOutput `pulumi:"filterExpression"`
-	// The name of the group.
+	// Name of the group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationOutput `pulumi:"insightsConfiguration"`
@@ -73,7 +73,7 @@ type Group struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -113,11 +113,11 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// The ARN of the Group.
+	// ARN of the Group.
 	Arn *string `pulumi:"arn"`
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression *string `pulumi:"filterExpression"`
-	// The name of the group.
+	// Name of the group.
 	GroupName *string `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
@@ -125,16 +125,16 @@ type groupState struct {
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GroupState struct {
-	// The ARN of the Group.
+	// ARN of the Group.
 	Arn pulumi.StringPtrInput
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression pulumi.StringPtrInput
-	// The name of the group.
+	// Name of the group.
 	GroupName pulumi.StringPtrInput
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
@@ -142,7 +142,7 @@ type GroupState struct {
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -151,9 +151,9 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression string `pulumi:"filterExpression"`
-	// The name of the group.
+	// Name of the group.
 	GroupName string `pulumi:"groupName"`
 	// Configuration options for enabling insights.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
@@ -165,9 +165,9 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+	// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 	FilterExpression pulumi.StringInput
-	// The name of the group.
+	// Name of the group.
 	GroupName pulumi.StringInput
 	// Configuration options for enabling insights.
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
@@ -264,17 +264,17 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-// The ARN of the Group.
+// ARN of the Group.
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 func (o GroupOutput) FilterExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.FilterExpression }).(pulumi.StringOutput)
 }
 
-// The name of the group.
+// Name of the group.
 func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -294,7 +294,7 @@ func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -68,7 +68,7 @@ class GetQuicksightUserResult:
     @pulumi.getter
     def active(self) -> _builtins.bool:
         """
-        The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
+        Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
         """
         return pulumi.get(self, "active")
 
@@ -89,7 +89,7 @@ class GetQuicksightUserResult:
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> _builtins.str:
         """
-        The custom permissions profile associated with this user.
+        Custom permissions profile associated with this user.
         """
         return pulumi.get(self, "custom_permissions_name")
 
@@ -97,7 +97,7 @@ class GetQuicksightUserResult:
     @pulumi.getter
     def email(self) -> _builtins.str:
         """
-        The user's email address.
+        User's email address.
         """
         return pulumi.get(self, "email")
 
@@ -113,7 +113,7 @@ class GetQuicksightUserResult:
     @pulumi.getter(name="identityType")
     def identity_type(self) -> _builtins.str:
         """
-        The type of identity authentication used by the user.
+        Type of identity authentication used by the user.
         """
         return pulumi.get(self, "identity_type")
 
@@ -126,7 +126,7 @@ class GetQuicksightUserResult:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
         """
-        The principal ID of the user.
+        Principal ID of the user.
         """
         return pulumi.get(self, "principal_id")
 
@@ -144,10 +144,7 @@ class GetQuicksightUserResult:
     @pulumi.getter(name="userRole")
     def user_role(self) -> _builtins.str:
         """
-        The Amazon QuickSight role for the user. The user role can be one of the following:.
-        - `READER`: A user who has read-only access to dashboards.
-        - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-        - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
+        Amazon QuickSight role for the user. Valid values are `READER` (read-only access to dashboards), `AUTHOR` (can create data sources, datasets, analyses, and dashboards), and `ADMIN` (an author who can also manage Amazon QuickSight settings).
         """
         return pulumi.get(self, "user_role")
 
@@ -197,7 +194,7 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_name: The name of the user that you want to match.
+    :param _builtins.str user_name: Name of the user that you want to match.
            
            The following arguments are optional:
     """
@@ -247,7 +244,7 @@ def get_quicksight_user_output(aws_account_id: pulumi.Input[Optional[Optional[_b
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_name: The name of the user that you want to match.
+    :param _builtins.str user_name: Name of the user that you want to match.
            
            The following arguments are optional:
     """

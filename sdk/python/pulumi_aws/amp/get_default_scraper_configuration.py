@@ -38,7 +38,7 @@ class GetDefaultScraperConfigurationResult:
     @pulumi.getter
     def configuration(self) -> _builtins.str:
         """
-        The configuration file.
+        Configuration file.
         """
         return pulumi.get(self, "configuration")
 

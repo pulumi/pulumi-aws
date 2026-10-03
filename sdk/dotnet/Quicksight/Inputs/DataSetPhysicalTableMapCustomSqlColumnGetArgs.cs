@@ -13,7 +13,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetPhysicalTableMapCustomSqlColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of this column in the underlying data source.
+        /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

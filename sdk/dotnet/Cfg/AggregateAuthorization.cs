@@ -55,16 +55,16 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The region authorized to collect aggregated data.
+        /// The region authorized to collect aggregated data. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Output("authorizedAwsRegion")]
-        public Output<string?> AuthorizedAwsRegion { get; private set; } = null!;
+        public Output<string> AuthorizedAwsRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
+        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Output("region")]
-        public Output<string?> Region { get; private set; } = null!;
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The region authorized to collect aggregated data.
+        /// The region authorized to collect aggregated data. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Input("authorizedAwsRegion")]
         public Input<string>? AuthorizedAwsRegion { get; set; }
 
         /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
+        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The region authorized to collect aggregated data.
+        /// The region authorized to collect aggregated data. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Input("authorizedAwsRegion")]
         public Input<string>? AuthorizedAwsRegion { get; set; }
 
         /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
+        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead. Exactly one of `AuthorizedAwsRegion` or `Region` is required.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

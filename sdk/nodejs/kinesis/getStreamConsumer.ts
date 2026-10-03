@@ -52,6 +52,9 @@ export interface GetStreamConsumerArgs {
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -75,6 +78,9 @@ export interface GetStreamConsumerResult {
      */
     readonly status: string;
     readonly streamArn: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -125,5 +131,8 @@ export interface GetStreamConsumerOutputArgs {
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

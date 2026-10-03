@@ -11,7 +11,9 @@ import java.util.Objects;
 @CustomType
 public final class DataSetPhysicalTableMapCustomSqlColumn {
     /**
-     * @return Name of this column in the underlying data source.
+     * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
@@ -23,7 +25,9 @@ public final class DataSetPhysicalTableMapCustomSqlColumn {
 
     private DataSetPhysicalTableMapCustomSqlColumn() {}
     /**
-     * @return Name of this column in the underlying data source.
+     * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

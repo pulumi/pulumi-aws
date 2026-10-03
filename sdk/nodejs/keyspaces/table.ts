@@ -70,35 +70,35 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the table.
+     * ARN of the table.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies the read/write throughput capacity mode for the table.
+     * Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      */
     declare public readonly capacitySpecification: pulumi.Output<outputs.keyspaces.TableCapacitySpecification>;
     /**
-     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      */
     declare public readonly clientSideTimestamps: pulumi.Output<outputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
-     * A description of the table.
+     * Description of the table. See `comment` below.
      */
     declare public readonly comment: pulumi.Output<outputs.keyspaces.TableComment>;
     /**
-     * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
     declare public readonly defaultTimeToLive: pulumi.Output<number | undefined>;
     /**
-     * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      */
     declare public readonly encryptionSpecification: pulumi.Output<outputs.keyspaces.TableEncryptionSpecification>;
     /**
-     * The name of the keyspace that the table is going to be created in.
+     * Name of the keyspace that the table is going to be created in.
      */
     declare public readonly keyspaceName: pulumi.Output<string>;
     /**
-     * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      */
     declare public readonly pointInTimeRecovery: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery>;
     /**
@@ -106,25 +106,25 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Describes the schema of the table.
+     * Schema of the table. See `schemaDefinition` below.
      */
     declare public readonly schemaDefinition: pulumi.Output<outputs.keyspaces.TableSchemaDefinition>;
     /**
-     * The name of the table.
+     * Name of the table.
      *
      * The following arguments are optional:
      */
     declare public readonly tableName: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      */
     declare public readonly ttl: pulumi.Output<outputs.keyspaces.TableTtl | undefined>;
 
@@ -191,35 +191,35 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableState {
     /**
-     * The ARN of the table.
+     * ARN of the table.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the read/write throughput capacity mode for the table.
+     * Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      */
     capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification | undefined>;
     /**
-     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      */
     clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
-     * A description of the table.
+     * Description of the table. See `comment` below.
      */
     comment?: pulumi.Input<inputs.keyspaces.TableComment | undefined>;
     /**
-     * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
     defaultTimeToLive?: pulumi.Input<number | undefined>;
     /**
-     * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      */
     encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification | undefined>;
     /**
-     * The name of the keyspace that the table is going to be created in.
+     * Name of the keyspace that the table is going to be created in.
      */
     keyspaceName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery | undefined>;
     /**
@@ -227,25 +227,25 @@ export interface TableState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Describes the schema of the table.
+     * Schema of the table. See `schemaDefinition` below.
      */
     schemaDefinition?: pulumi.Input<inputs.keyspaces.TableSchemaDefinition | undefined>;
     /**
-     * The name of the table.
+     * Name of the table.
      *
      * The following arguments are optional:
      */
     tableName?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      */
     ttl?: pulumi.Input<inputs.keyspaces.TableTtl | undefined>;
 }
@@ -255,31 +255,31 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * Specifies the read/write throughput capacity mode for the table.
+     * Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      */
     capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification | undefined>;
     /**
-     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      */
     clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
-     * A description of the table.
+     * Description of the table. See `comment` below.
      */
     comment?: pulumi.Input<inputs.keyspaces.TableComment | undefined>;
     /**
-     * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
     defaultTimeToLive?: pulumi.Input<number | undefined>;
     /**
-     * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      */
     encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification | undefined>;
     /**
-     * The name of the keyspace that the table is going to be created in.
+     * Name of the keyspace that the table is going to be created in.
      */
     keyspaceName: pulumi.Input<string>;
     /**
-     * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery | undefined>;
     /**
@@ -287,21 +287,21 @@ export interface TableArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Describes the schema of the table.
+     * Schema of the table. See `schemaDefinition` below.
      */
     schemaDefinition: pulumi.Input<inputs.keyspaces.TableSchemaDefinition>;
     /**
-     * The name of the table.
+     * Name of the table.
      *
      * The following arguments are optional:
      */
     tableName: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      */
     ttl?: pulumi.Input<inputs.keyspaces.TableTtl | undefined>;
 }

@@ -20,98 +20,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfiguration {
     /**
-     * @return The code location and type parameters for the application.
+     * @return Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
      * 
      */
     private ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration;
     /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * @return Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationApplicationEncryptionConfiguration applicationEncryptionConfiguration;
     /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
+     * @return Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration;
     /**
-     * @return Describes execution properties for a Flink-based application.
+     * @return Execution properties for a Flink-based application. See `environmentProperties` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties;
     /**
-     * @return The configuration of a Flink-based application.
+     * @return Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration;
     /**
-     * @return Describes the starting properties for a Flink-based application.
+     * @return Starting properties for a Flink-based application. See `runConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration;
     /**
-     * @return The configuration of a SQL-based application.
+     * @return Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration;
     /**
-     * @return The VPC configuration of a Flink-based application.
+     * @return VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration;
 
     private ApplicationApplicationConfiguration() {}
     /**
-     * @return The code location and type parameters for the application.
+     * @return Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
      * 
      */
     public ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration() {
         return this.applicationCodeConfiguration;
     }
     /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * @return Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationApplicationEncryptionConfiguration> applicationEncryptionConfiguration() {
         return Optional.ofNullable(this.applicationEncryptionConfiguration);
     }
     /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
+     * @return Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationApplicationSnapshotConfiguration> applicationSnapshotConfiguration() {
         return Optional.ofNullable(this.applicationSnapshotConfiguration);
     }
     /**
-     * @return Describes execution properties for a Flink-based application.
+     * @return Execution properties for a Flink-based application. See `environmentProperties` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationEnvironmentProperties> environmentProperties() {
         return Optional.ofNullable(this.environmentProperties);
     }
     /**
-     * @return The configuration of a Flink-based application.
+     * @return Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationFlinkApplicationConfiguration> flinkApplicationConfiguration() {
         return Optional.ofNullable(this.flinkApplicationConfiguration);
     }
     /**
-     * @return Describes the starting properties for a Flink-based application.
+     * @return Starting properties for a Flink-based application. See `runConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationRunConfiguration> runConfiguration() {
         return Optional.ofNullable(this.runConfiguration);
     }
     /**
-     * @return The configuration of a SQL-based application.
+     * @return Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfiguration> sqlApplicationConfiguration() {
         return Optional.ofNullable(this.sqlApplicationConfiguration);
     }
     /**
-     * @return The VPC configuration of a Flink-based application.
+     * @return VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationVpcConfiguration> vpcConfiguration() {

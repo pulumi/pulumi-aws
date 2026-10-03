@@ -129,31 +129,37 @@ type Faq struct {
 
 	// ARN of the FAQ.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   pulumi.StringOutput    `pulumi:"createdAt"`
+	// Unix datetime that the FAQ was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Description for a FAQ.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// The identifier of the FAQ.
-	FaqId      pulumi.StringOutput    `pulumi:"faqId"`
+	// Identifier of the FAQ.
+	FaqId pulumi.StringOutput `pulumi:"faqId"`
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      pulumi.StringOutput `pulumi:"indexId"`
+	// Identifier of the index for a FAQ.
+	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
+	// Name that should be associated with the FAQ.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
+	// S3 location of the FAQ input data. Detailed below.
+	//
+	// The following arguments are optional:
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Status of the FAQ. It is ready to use when the status is ACTIVE.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The date and time that the FAQ was last updated.
+	// Date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -198,62 +204,74 @@ func GetFaq(ctx *pulumi.Context,
 type faqState struct {
 	// ARN of the FAQ.
 	Arn *string `pulumi:"arn"`
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   *string `pulumi:"createdAt"`
+	// Unix datetime that the FAQ was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Description for a FAQ.
 	Description *string `pulumi:"description"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage *string `pulumi:"errorMessage"`
-	// The identifier of the FAQ.
-	FaqId      *string `pulumi:"faqId"`
+	// Identifier of the FAQ.
+	FaqId *string `pulumi:"faqId"`
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 	FileFormat *string `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      *string `pulumi:"indexId"`
+	// Identifier of the index for a FAQ.
+	IndexId *string `pulumi:"indexId"`
+	// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode *string `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
+	// Name that should be associated with the FAQ.
 	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
+	// S3 location of the FAQ input data. Detailed below.
+	//
+	// The following arguments are optional:
 	S3Path *FaqS3Path `pulumi:"s3Path"`
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Status of the FAQ. It is ready to use when the status is ACTIVE.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The date and time that the FAQ was last updated.
+	// Date and time that the FAQ was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type FaqState struct {
 	// ARN of the FAQ.
 	Arn pulumi.StringPtrInput
-	// The Unix datetime that the FAQ was created.
-	CreatedAt   pulumi.StringPtrInput
+	// Unix datetime that the FAQ was created.
+	CreatedAt pulumi.StringPtrInput
+	// Description for a FAQ.
 	Description pulumi.StringPtrInput
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage pulumi.StringPtrInput
-	// The identifier of the FAQ.
-	FaqId      pulumi.StringPtrInput
+	// Identifier of the FAQ.
+	FaqId pulumi.StringPtrInput
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 	FileFormat pulumi.StringPtrInput
-	// The identifier of the index for a FAQ.
-	IndexId      pulumi.StringPtrInput
+	// Identifier of the index for a FAQ.
+	IndexId pulumi.StringPtrInput
+	// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringPtrInput
-	// The name that should be associated with the FAQ.
+	// Name that should be associated with the FAQ.
 	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput
-	// The S3 location of the FAQ input data. Detailed below.
+	// S3 location of the FAQ input data. Detailed below.
+	//
+	// The following arguments are optional:
 	S3Path FaqS3PathPtrInput
-	// The status of the FAQ. It is ready to use when the status is ACTIVE.
+	// Status of the FAQ. It is ready to use when the status is ACTIVE.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The date and time that the FAQ was last updated.
+	// Date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -262,38 +280,50 @@ func (FaqState) ElementType() reflect.Type {
 }
 
 type faqArgs struct {
+	// Description for a FAQ.
 	Description *string `pulumi:"description"`
-	FileFormat  *string `pulumi:"fileFormat"`
-	// The identifier of the index for a FAQ.
-	IndexId      string  `pulumi:"indexId"`
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+	FileFormat *string `pulumi:"fileFormat"`
+	// Identifier of the index for a FAQ.
+	IndexId string `pulumi:"indexId"`
+	// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode *string `pulumi:"languageCode"`
-	// The name that should be associated with the FAQ.
+	// Name that should be associated with the FAQ.
 	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
-	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3Path         `pulumi:"s3Path"`
-	Tags   map[string]string `pulumi:"tags"`
+	// S3 location of the FAQ input data. Detailed below.
+	//
+	// The following arguments are optional:
+	S3Path FaqS3Path `pulumi:"s3Path"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Faq resource.
 type FaqArgs struct {
+	// Description for a FAQ.
 	Description pulumi.StringPtrInput
-	FileFormat  pulumi.StringPtrInput
-	// The identifier of the index for a FAQ.
-	IndexId      pulumi.StringInput
+	// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+	FileFormat pulumi.StringPtrInput
+	// Identifier of the index for a FAQ.
+	IndexId pulumi.StringInput
+	// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode pulumi.StringPtrInput
-	// The name that should be associated with the FAQ.
+	// Name that should be associated with the FAQ.
 	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringInput
-	// The S3 location of the FAQ input data. Detailed below.
+	// S3 location of the FAQ input data. Detailed below.
+	//
+	// The following arguments are optional:
 	S3Path FaqS3PathInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {
@@ -388,11 +418,12 @@ func (o FaqOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Unix datetime that the FAQ was created.
+// Unix datetime that the FAQ was created.
 func (o FaqOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Description for a FAQ.
 func (o FaqOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -402,30 +433,32 @@ func (o FaqOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The identifier of the FAQ.
+// Identifier of the FAQ.
 func (o FaqOutput) FaqId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.FaqId }).(pulumi.StringOutput)
 }
 
+// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
 func (o FaqOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the index for a FAQ.
+// Identifier of the index for a FAQ.
 func (o FaqOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 func (o FaqOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// The name that should be associated with the FAQ.
+// Name that should be associated with the FAQ.
 func (o FaqOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FaqOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -435,26 +468,29 @@ func (o FaqOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 location of the FAQ input data. Detailed below.
+// S3 location of the FAQ input data. Detailed below.
+//
+// The following arguments are optional:
 func (o FaqOutput) S3Path() FaqS3PathOutput {
 	return o.ApplyT(func(v *Faq) FaqS3PathOutput { return v.S3Path }).(FaqS3PathOutput)
 }
 
-// The status of the FAQ. It is ready to use when the status is ACTIVE.
+// Status of the FAQ. It is ready to use when the status is ACTIVE.
 func (o FaqOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FaqOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The date and time that the FAQ was last updated.
+// Date and time that the FAQ was last updated.
 func (o FaqOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

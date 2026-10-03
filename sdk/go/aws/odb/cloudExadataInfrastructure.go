@@ -89,14 +89,14 @@ type CloudExadataInfrastructure struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+	//
+	// The following arguments are optional:
 	Shape pulumi.StringOutput `pulumi:"shape"`
 	// Current status of the Exadata infrastructure.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Additional information about the status of the Exadata infrastructure.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-	//
-	// The following arguments are optional:
 	StorageCount pulumi.IntOutput `pulumi:"storageCount"`
 	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	StorageServerType pulumi.StringPtrOutput `pulumi:"storageServerType"`
@@ -215,14 +215,14 @@ type cloudExadataInfrastructureState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+	//
+	// The following arguments are optional:
 	Shape *string `pulumi:"shape"`
 	// Current status of the Exadata infrastructure.
 	Status *string `pulumi:"status"`
 	// Additional information about the status of the Exadata infrastructure.
 	StatusReason *string `pulumi:"statusReason"`
 	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-	//
-	// The following arguments are optional:
 	StorageCount *int `pulumi:"storageCount"`
 	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	StorageServerType *string `pulumi:"storageServerType"`
@@ -300,14 +300,14 @@ type CloudExadataInfrastructureState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+	//
+	// The following arguments are optional:
 	Shape pulumi.StringPtrInput
 	// Current status of the Exadata infrastructure.
 	Status pulumi.StringPtrInput
 	// Additional information about the status of the Exadata infrastructure.
 	StatusReason pulumi.StringPtrInput
 	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-	//
-	// The following arguments are optional:
 	StorageCount pulumi.IntPtrInput
 	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	StorageServerType pulumi.StringPtrInput
@@ -343,10 +343,10 @@ type cloudExadataInfrastructureArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
-	Shape string `pulumi:"shape"`
-	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
 	//
 	// The following arguments are optional:
+	Shape string `pulumi:"shape"`
+	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
 	StorageCount *int `pulumi:"storageCount"`
 	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	StorageServerType *string `pulumi:"storageServerType"`
@@ -374,10 +374,10 @@ type CloudExadataInfrastructureArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
-	Shape pulumi.StringInput
-	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
 	//
 	// The following arguments are optional:
+	Shape pulumi.StringInput
+	// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
 	StorageCount pulumi.IntPtrInput
 	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	StorageServerType pulumi.StringPtrInput
@@ -633,6 +633,8 @@ func (o CloudExadataInfrastructureOutput) Region() pulumi.StringOutput {
 }
 
 // Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+//
+// The following arguments are optional:
 func (o CloudExadataInfrastructureOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.StringOutput { return v.Shape }).(pulumi.StringOutput)
 }
@@ -648,8 +650,6 @@ func (o CloudExadataInfrastructureOutput) StatusReason() pulumi.StringOutput {
 }
 
 // Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-//
-// The following arguments are optional:
 func (o CloudExadataInfrastructureOutput) StorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.IntOutput { return v.StorageCount }).(pulumi.IntOutput)
 }

@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow {
     /**
-     * @return The name of the lookback window column.
+     * @return Name of the lookback window column.
      * 
      */
     private String columnName;
     /**
-     * @return The lookback window column size.
+     * @return Lookback window column size.
      * 
      */
     private Integer size;
     /**
-     * @return The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+     * @return Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
      * 
      */
     private String sizeUnit;
 
     private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow() {}
     /**
-     * @return The name of the lookback window column.
+     * @return Name of the lookback window column.
      * 
      */
     public String columnName() {
         return this.columnName;
     }
     /**
-     * @return The lookback window column size.
+     * @return Lookback window column size.
      * 
      */
     public Integer size() {
         return this.size;
     }
     /**
-     * @return The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+     * @return Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
      * 
      */
     public String sizeUnit() {

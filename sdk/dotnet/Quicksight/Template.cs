@@ -172,13 +172,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the template was created.
+        /// Time that the template was created.
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the template was last updated.
+        /// Time that the template was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the template. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplatePermission>> Permissions { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See `SourceEntity` Block.
         /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> SourceEntityArn { get; private set; } = null!;
 
         /// <summary>
-        /// The template creation status.
+        /// Template creation status.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> TemplateId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the current template version being created/updated.
+        /// Description of the current template version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> VersionDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the template version.
+        /// Version number of the template version.
         /// </summary>
         [Output("versionNumber")]
         public Output<int> VersionNumber { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.TemplatePermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the template. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         public InputList<Inputs.TemplatePermissionArgs> Permissions
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See `SourceEntity` Block.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> TemplateId { get; set; } = null!;
 
         /// <summary>
-        /// A description of the current template version being created/updated.
+        /// Description of the current template version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -380,13 +380,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The time that the template was created.
+        /// Time that the template was created.
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// The time that the template was last updated.
+        /// Time that the template was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.TemplatePermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the template. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         public InputList<Inputs.TemplatePermissionGetArgs> Permissions
         {
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the template (analysis or template). Only one of `Definition` or `SourceEntity` should be configured. See `SourceEntity` Block.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateSourceEntityGetArgs>? SourceEntity { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? SourceEntityArn { get; set; }
 
         /// <summary>
-        /// The template creation status.
+        /// Template creation status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? TemplateId { get; set; }
 
         /// <summary>
-        /// A description of the current template version being created/updated.
+        /// Description of the current template version being created/updated.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? VersionDescription { get; set; }
 
         /// <summary>
-        /// The version number of the template version.
+        /// Version number of the template version.
         /// </summary>
         [Input("versionNumber")]
         public Input<int>? VersionNumber { get; set; }

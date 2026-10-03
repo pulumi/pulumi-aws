@@ -15,14 +15,14 @@ public final class QueryLoggingConfigurationDestinationFiltersArgs extends com.p
     public static final QueryLoggingConfigurationDestinationFiltersArgs Empty = new QueryLoggingConfigurationDestinationFiltersArgs();
 
     /**
-     * The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+     * Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
      * 
      */
     @Import(name="qspThreshold", required=true)
     private Output<Integer> qspThreshold;
 
     /**
-     * @return The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+     * @return Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
      * 
      */
     public Output<Integer> qspThreshold() {
@@ -54,7 +54,7 @@ public final class QueryLoggingConfigurationDestinationFiltersArgs extends com.p
         }
 
         /**
-         * @param qspThreshold The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+         * @param qspThreshold Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class QueryLoggingConfigurationDestinationFiltersArgs extends com.p
         }
 
         /**
-         * @param qspThreshold The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+         * @param qspThreshold Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
          * 
          * @return builder
          * 

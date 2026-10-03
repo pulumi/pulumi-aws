@@ -92,30 +92,28 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * @return Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+     * Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+     * @return Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
      * 
      */
     public Output<String> namePrefix() {

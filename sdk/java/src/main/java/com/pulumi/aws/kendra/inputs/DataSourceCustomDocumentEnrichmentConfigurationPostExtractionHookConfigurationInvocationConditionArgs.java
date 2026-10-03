@@ -18,14 +18,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
     public static final DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs();
 
     /**
-     * The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+     * Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
      * 
      */
     @Import(name="conditionDocumentAttributeKey", required=true)
     private Output<String> conditionDocumentAttributeKey;
 
     /**
-     * @return The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+     * @return Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
      * 
      */
     public Output<String> conditionDocumentAttributeKey() {
@@ -33,14 +33,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
     }
 
     /**
-     * The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+     * Value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     @Import(name="conditionOnValue")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs> conditionOnValue;
 
     /**
-     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+     * @return Value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs>> conditionOnValue() {
@@ -48,14 +48,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
     }
 
     /**
-     * The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+     * Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+     * @return Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
      * 
      */
     public Output<String> operator() {
@@ -89,7 +89,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param conditionDocumentAttributeKey The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+         * @param conditionDocumentAttributeKey Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param conditionDocumentAttributeKey The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+         * @param conditionDocumentAttributeKey Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+         * @param conditionOnValue Value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+         * @param conditionOnValue Value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param operator The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+         * @param operator Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param operator The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+         * @param operator Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
          * 
          * @return builder
          * 

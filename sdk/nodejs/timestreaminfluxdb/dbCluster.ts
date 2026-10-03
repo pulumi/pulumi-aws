@@ -245,7 +245,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     declare public readonly dbStorageType: pulumi.Output<string>;
     /**
-     * Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      */
     declare public readonly deploymentType: pulumi.Output<string>;
     /**
@@ -257,7 +257,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly engineType: pulumi.Output<string>;
     /**
-     * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+     * Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
      */
     declare public readonly failoverMode: pulumi.Output<string>;
     /**
@@ -277,7 +277,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      */
     declare public readonly networkType: pulumi.Output<string>;
     /**
@@ -289,15 +289,15 @@ export class DbCluster extends pulumi.CustomResource {
      */
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
-     * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      */
     declare public readonly port: pulumi.Output<number>;
     /**
-     * Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
     declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
-     * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      */
     declare public /*out*/ readonly readerEndpoint: pulumi.Output<string>;
     /**
@@ -443,7 +443,7 @@ export interface DbClusterState {
      */
     dbStorageType?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      */
     deploymentType?: pulumi.Input<string | undefined>;
     /**
@@ -455,7 +455,7 @@ export interface DbClusterState {
      */
     engineType?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+     * Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
      */
     failoverMode?: pulumi.Input<string | undefined>;
     /**
@@ -475,7 +475,7 @@ export interface DbClusterState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
@@ -487,15 +487,15 @@ export interface DbClusterState {
      */
     password?: pulumi.Input<string | undefined>;
     /**
-     * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      */
     port?: pulumi.Input<number | undefined>;
     /**
-     * Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
     publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
-     * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      */
     readerEndpoint?: pulumi.Input<string | undefined>;
     /**
@@ -552,11 +552,11 @@ export interface DbClusterArgs {
      */
     dbStorageType?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      */
     deploymentType?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+     * Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
      */
     failoverMode?: pulumi.Input<string | undefined>;
     /**
@@ -572,7 +572,7 @@ export interface DbClusterArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
@@ -584,11 +584,11 @@ export interface DbClusterArgs {
      */
     password?: pulumi.Input<string | undefined>;
     /**
-     * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      */
     port?: pulumi.Input<number | undefined>;
     /**
-     * Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
     publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**

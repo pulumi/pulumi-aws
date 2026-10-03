@@ -103,7 +103,7 @@ class GetTableResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the table.
+        Name of the timestream attribute used for a dimension key.
         """
         return pulumi.get(self, "name")
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeEnrichmentParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+        /// HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
         /// </summary>
         [Input("httpParameters")]
         public Input<Inputs.PipeEnrichmentParametersHttpParametersArgs>? HttpParameters { get; set; }

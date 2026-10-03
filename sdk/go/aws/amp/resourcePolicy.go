@@ -210,16 +210,16 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
+	// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
+	// Revision ID of the current resource-based policy.
 	RevisionId pulumi.StringOutput             `pulumi:"revisionId"`
 	Timeouts   ResourcePolicyTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
+	// ID of the workspace to attach the resource-based policy to.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -259,30 +259,30 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
+	// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
+	// Revision ID of the current resource-based policy.
 	RevisionId *string                 `pulumi:"revisionId"`
 	Timeouts   *ResourcePolicyTimeouts `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
+	// ID of the workspace to attach the resource-based policy to.
+	//
+	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type ResourcePolicyState struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
+	// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 	PolicyDocument pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The revision ID of the current resource-based policy.
+	// Revision ID of the current resource-based policy.
 	RevisionId pulumi.StringPtrInput
 	Timeouts   ResourcePolicyTimeoutsPtrInput
-	// The ID of the workspace to attach the resource-based policy to.
+	// ID of the workspace to attach the resource-based policy to.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -291,31 +291,31 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
+	// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 	PolicyDocument string `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The revision ID of the current resource-based policy.
+	// Revision ID of the current resource-based policy.
 	RevisionId *string                 `pulumi:"revisionId"`
 	Timeouts   *ResourcePolicyTimeouts `pulumi:"timeouts"`
-	// The ID of the workspace to attach the resource-based policy to.
+	// ID of the workspace to attach the resource-based policy to.
+	//
+	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-	//
-	// The following arguments are optional:
+	// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 	PolicyDocument pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The revision ID of the current resource-based policy.
+	// Revision ID of the current resource-based policy.
 	RevisionId pulumi.StringPtrInput
 	Timeouts   ResourcePolicyTimeoutsPtrInput
-	// The ID of the workspace to attach the resource-based policy to.
+	// ID of the workspace to attach the resource-based policy to.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
 }
 
@@ -406,9 +406,7 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-//
-// The following arguments are optional:
+// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
 func (o ResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
@@ -418,7 +416,7 @@ func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The revision ID of the current resource-based policy.
+// Revision ID of the current resource-based policy.
 func (o ResourcePolicyOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
@@ -427,7 +425,9 @@ func (o ResourcePolicyOutput) Timeouts() ResourcePolicyTimeoutsPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicyTimeoutsPtrOutput { return v.Timeouts }).(ResourcePolicyTimeoutsPtrOutput)
 }
 
-// The ID of the workspace to attach the resource-based policy to.
+// ID of the workspace to attach the resource-based policy to.
+//
+// The following arguments are optional:
 func (o ResourcePolicyOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

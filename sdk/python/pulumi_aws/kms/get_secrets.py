@@ -97,7 +97,8 @@ def get_secrets(region: Optional[_builtins.str] = None,
     That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
 
 
-    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict', 'outputs.GetSecretsSecretResult']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict', 'outputs.GetSecretsSecretResult']] secrets: One or more encrypted payload definitions from the KMS service. See `secret` below.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -126,7 +127,8 @@ def get_secrets_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] =
     That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
 
 
-    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict', 'outputs.GetSecretsSecretResult']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict', 'outputs.GetSecretsSecretResult']] secrets: One or more encrypted payload definitions from the KMS service. See `secret` below.
     """
     __args__ = dict()
     __args__['region'] = region

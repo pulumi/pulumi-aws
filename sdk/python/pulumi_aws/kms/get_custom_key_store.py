@@ -55,13 +55,16 @@ class GetCustomKeyStoreResult:
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> _builtins.str:
+        """
+        ID for the CloudHSM cluster that is associated with the custom key store.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="connectionState")
     def connection_state(self) -> _builtins.str:
         """
-        Indicates whether the custom key store is connected to its CloudHSM cluster.
+        Whether the custom key store is connected to its CloudHSM cluster.
         """
         return pulumi.get(self, "connection_state")
 
@@ -69,7 +72,7 @@ class GetCustomKeyStoreResult:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
         """
-        The date and time when the custom key store was created.
+        Date and time when the custom key store was created.
         """
         return pulumi.get(self, "creation_date")
 
@@ -100,7 +103,7 @@ class GetCustomKeyStoreResult:
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> _builtins.str:
         """
-        The trust anchor certificate of the associated CloudHSM cluster.
+        Trust anchor certificate of the associated CloudHSM cluster.
         """
         return pulumi.get(self, "trust_anchor_certificate")
 
@@ -140,8 +143,8 @@ def get_custom_key_store(custom_key_store_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str custom_key_store_id: The ID for the custom key store.
-    :param _builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param _builtins.str custom_key_store_id: ID for the custom key store.
+    :param _builtins.str custom_key_store_name: User-specified friendly name for the custom key store.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -179,8 +182,8 @@ def get_custom_key_store_output(custom_key_store_id: pulumi.Input[Optional[Optio
     ```
 
 
-    :param _builtins.str custom_key_store_id: The ID for the custom key store.
-    :param _builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param _builtins.str custom_key_store_id: ID for the custom key store.
+    :param _builtins.str custom_key_store_name: User-specified friendly name for the custom key store.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

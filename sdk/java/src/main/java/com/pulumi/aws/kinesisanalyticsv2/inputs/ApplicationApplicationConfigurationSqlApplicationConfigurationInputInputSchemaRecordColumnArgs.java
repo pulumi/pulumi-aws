@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs();
 
     /**
-     * A reference to the data element in the streaming input or the reference data source.
+     * Reference to the data element in the streaming input or the reference data source.
      * 
      */
     @Import(name="mapping")
     private @Nullable Output<String> mapping;
 
     /**
-     * @return A reference to the data element in the streaming input or the reference data source.
+     * @return Reference to the data element in the streaming input or the reference data source.
      * 
      */
     public Optional<Output<String>> mapping() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The name of the column that is created in the in-application input stream or reference table.
+     * Name of the column that is created in the in-application input stream or reference table.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the column that is created in the in-application input stream or reference table.
+     * @return Name of the column that is created in the in-application input stream or reference table.
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The type of column created in the in-application input stream or reference table.
+     * Type of column created in the in-application input stream or reference table.
      * 
      */
     @Import(name="sqlType", required=true)
     private Output<String> sqlType;
 
     /**
-     * @return The type of column created in the in-application input stream or reference table.
+     * @return Type of column created in the in-application input stream or reference table.
      * 
      */
     public Output<String> sqlType() {
@@ -88,7 +88,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param mapping A reference to the data element in the streaming input or the reference data source.
+         * @param mapping Reference to the data element in the streaming input or the reference data source.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param mapping A reference to the data element in the streaming input or the reference data source.
+         * @param mapping Reference to the data element in the streaming input or the reference data source.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param name The name of the column that is created in the in-application input stream or reference table.
+         * @param name Name of the column that is created in the in-application input stream or reference table.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param name The name of the column that is created in the in-application input stream or reference table.
+         * @param name Name of the column that is created in the in-application input stream or reference table.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param sqlType The type of column created in the in-application input stream or reference table.
+         * @param sqlType Type of column created in the in-application input stream or reference table.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param sqlType The type of column created in the in-application input stream or reference table.
+         * @param sqlType Type of column created in the in-application input stream or reference table.
          * 
          * @return builder
          * 

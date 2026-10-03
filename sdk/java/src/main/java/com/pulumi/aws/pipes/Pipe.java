@@ -371,28 +371,28 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A description of the pipe. At most 512 characters.
+     * Description of the pipe. At most 512 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the pipe. At most 512 characters.
+     * @return Description of the pipe. At most 512 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
     @Export(name="desiredState", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> desiredState;
 
     /**
-     * @return The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * @return State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
     public Output<Optional<String>> desiredState() {
@@ -413,14 +413,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enrichment);
     }
     /**
-     * Parameters to configure enrichment for your pipe. Detailed below.
+     * Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      * 
      */
     @Export(name="enrichmentParameters", refs={PipeEnrichmentParameters.class}, tree="[0]")
     private Output</* @Nullable */ PipeEnrichmentParameters> enrichmentParameters;
 
     /**
-     * @return Parameters to configure enrichment for your pipe. Detailed below.
+     * @return Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      * 
      */
     public Output<Optional<PipeEnrichmentParameters>> enrichmentParameters() {
@@ -441,14 +441,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyIdentifier);
     }
     /**
-     * Logging configuration settings for the pipe. Detailed below.
+     * Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      * 
      */
     @Export(name="logConfiguration", refs={PipeLogConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PipeLogConfiguration> logConfiguration;
 
     /**
-     * @return Logging configuration settings for the pipe. Detailed below.
+     * @return Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      * 
      */
     public Output<Optional<PipeLogConfiguration>> logConfiguration() {
@@ -525,28 +525,28 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.source;
     }
     /**
-     * Parameters to configure a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      * 
      */
     @Export(name="sourceParameters", refs={PipeSourceParameters.class}, tree="[0]")
     private Output<PipeSourceParameters> sourceParameters;
 
     /**
-     * @return Parameters to configure a source for the pipe. Detailed below.
+     * @return Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      * 
      */
     public Output<PipeSourceParameters> sourceParameters() {
         return this.sourceParameters;
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -585,14 +585,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.target;
     }
     /**
-     * Parameters to configure a target for your pipe. Detailed below.
+     * Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      * 
      */
     @Export(name="targetParameters", refs={PipeTargetParameters.class}, tree="[0]")
     private Output</* @Nullable */ PipeTargetParameters> targetParameters;
 
     /**
-     * @return Parameters to configure a target for your pipe. Detailed below.
+     * @return Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      * 
      */
     public Output<Optional<PipeTargetParameters>> targetParameters() {

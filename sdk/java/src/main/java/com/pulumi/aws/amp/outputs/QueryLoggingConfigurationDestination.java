@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class QueryLoggingConfigurationDestination {
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
      * 
      */
     private QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
     /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+     * @return List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
      * 
      */
     private QueryLoggingConfigurationDestinationFilters filters;
 
     private QueryLoggingConfigurationDestination() {}
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
      * 
      */
     public QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs() {
         return this.cloudwatchLogs;
     }
     /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+     * @return List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
      * 
      */
     public QueryLoggingConfigurationDestinationFilters filters() {

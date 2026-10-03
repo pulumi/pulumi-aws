@@ -86,6 +86,8 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// Name of the custom billing view to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -110,8 +112,6 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// List of ARNs of the source data views for the custom billing view.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("sourceViews")]
         public Output<ImmutableArray<string>> SourceViews { get; private set; } = null!;
@@ -203,6 +203,8 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// Name of the custom billing view to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -212,8 +214,6 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// List of ARNs of the source data views for the custom billing view.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SourceViews
         {
@@ -282,6 +282,8 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// Name of the custom billing view to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -309,8 +311,6 @@ namespace Pulumi.Aws.Billing
 
         /// <summary>
         /// List of ARNs of the source data views for the custom billing view.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SourceViews
         {

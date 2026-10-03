@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        /// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs to associate with Kinesis Firehose.
+        /// List of security group IDs to associate with Kinesis Firehose.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs to associate with Kinesis Firehose.
+        /// List of subnet IDs to associate with Kinesis Firehose.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -42,6 +42,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// ID of the VPC associated with the delivery stream.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

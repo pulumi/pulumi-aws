@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableSchemaDefinition {
     /**
-     * @return The columns that are part of the clustering key of the table.
+     * @return Columns that are part of the clustering key of the table. See `clusteringKey` below.
      * 
      */
     private @Nullable List<TableSchemaDefinitionClusteringKey> clusteringKeys;
     /**
-     * @return The regular columns of the table.
+     * @return Regular columns of the table. See `column` below.
      * 
      */
     private List<TableSchemaDefinitionColumn> columns;
     /**
-     * @return The columns that are part of the partition key of the table .
+     * @return Columns that are part of the partition key of the table. See `partitionKey` below.
      * 
      */
     private List<TableSchemaDefinitionPartitionKey> partitionKeys;
     /**
-     * @return The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+     * @return Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
      * 
      */
     private @Nullable List<TableSchemaDefinitionStaticColumn> staticColumns;
 
     private TableSchemaDefinition() {}
     /**
-     * @return The columns that are part of the clustering key of the table.
+     * @return Columns that are part of the clustering key of the table. See `clusteringKey` below.
      * 
      */
     public List<TableSchemaDefinitionClusteringKey> clusteringKeys() {
         return this.clusteringKeys == null ? List.of() : this.clusteringKeys;
     }
     /**
-     * @return The regular columns of the table.
+     * @return Regular columns of the table. See `column` below.
      * 
      */
     public List<TableSchemaDefinitionColumn> columns() {
         return this.columns;
     }
     /**
-     * @return The columns that are part of the partition key of the table .
+     * @return Columns that are part of the partition key of the table. See `partitionKey` below.
      * 
      */
     public List<TableSchemaDefinitionPartitionKey> partitionKeys() {
         return this.partitionKeys;
     }
     /**
-     * @return The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+     * @return Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
      * 
      */
     public List<TableSchemaDefinitionStaticColumn> staticColumns() {

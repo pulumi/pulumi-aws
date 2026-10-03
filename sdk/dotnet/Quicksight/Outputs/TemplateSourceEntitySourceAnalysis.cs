@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A list of dataset references used as placeholders in the template. See data_set_references.
+        /// List of dataset references used as placeholders in the template. See `DataSetReferences` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSourceEntitySourceAnalysisDataSetReference> DataSetReferences;
 

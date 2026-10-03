@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetColumnGroup
     {
         /// <summary>
-        /// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        /// Geospatial column group that denotes a hierarchy. See `GeoSpatialColumnGroup` Block below.
         /// </summary>
         public readonly Outputs.DataSetColumnGroupGeoSpatialColumnGroup? GeoSpatialColumnGroup;
 

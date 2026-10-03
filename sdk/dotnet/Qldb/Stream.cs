@@ -46,31 +46,31 @@ namespace Pulumi.Aws.Qldb
     public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the QLDB Stream.
+        /// ARN of the QLDB Stream.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+        /// Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
         [Output("exclusiveEndTime")]
         public Output<string?> ExclusiveEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+        /// Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
         [Output("inclusiveStartTime")]
         public Output<string> InclusiveStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        /// Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
         [Output("kinesisConfiguration")]
         public Output<Outputs.StreamKinesisConfiguration> KinesisConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the QLDB ledger.
+        /// Name of the QLDB ledger.
         /// </summary>
         [Output("ledgerName")]
         public Output<string> LedgerName { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Qldb
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+        /// Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
         [Output("streamName")]
         public Output<string> StreamName { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Qldb
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -152,25 +152,25 @@ namespace Pulumi.Aws.Qldb
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+        /// Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
         [Input("exclusiveEndTime")]
         public Input<string>? ExclusiveEndTime { get; set; }
 
         /// <summary>
-        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+        /// Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
         [Input("inclusiveStartTime", required: true)]
         public Input<string> InclusiveStartTime { get; set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        /// Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
         [Input("kinesisConfiguration", required: true)]
         public Input<Inputs.StreamKinesisConfigurationArgs> KinesisConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The name of the QLDB ledger.
+        /// Name of the QLDB ledger.
         /// </summary>
         [Input("ledgerName", required: true)]
         public Input<string> LedgerName { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Qldb
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+        /// Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;
@@ -214,31 +214,31 @@ namespace Pulumi.Aws.Qldb
     public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the QLDB Stream.
+        /// ARN of the QLDB Stream.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+        /// Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
         [Input("exclusiveEndTime")]
         public Input<string>? ExclusiveEndTime { get; set; }
 
         /// <summary>
-        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+        /// Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `ExclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
         [Input("inclusiveStartTime")]
         public Input<string>? InclusiveStartTime { get; set; }
 
         /// <summary>
-        /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        /// Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
         [Input("kinesisConfiguration")]
         public Input<Inputs.StreamKinesisConfigurationGetArgs>? KinesisConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the QLDB ledger.
+        /// Name of the QLDB ledger.
         /// </summary>
         [Input("ledgerName")]
         public Input<string>? LedgerName { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Qldb
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+        /// Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Qldb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

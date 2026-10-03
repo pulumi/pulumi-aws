@@ -79,7 +79,7 @@ export class SamplingRule extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the sampling rule.
+     * ARN of the sampling rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * Percentage of matching requests to instrument, after the reservoir is exhausted.
      */
     declare public readonly fixedRate: pulumi.Output<number>;
     /**
@@ -99,7 +99,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly httpMethod: pulumi.Output<string>;
     /**
-     * The priority of the sampling rule.
+     * Priority of the sampling rule.
      */
     declare public readonly priority: pulumi.Output<number>;
     /**
@@ -107,7 +107,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
     declare public readonly reservoirSize: pulumi.Output<number>;
     /**
@@ -115,7 +115,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
-     * The name of the sampling rule.
+     * Name of the sampling rule.
      */
     declare public readonly ruleName: pulumi.Output<string | undefined>;
     /**
@@ -131,7 +131,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -139,7 +139,7 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     declare public readonly urlPath: pulumi.Output<string>;
     /**
-     * The version of the sampling rule format (`1` )
+     * Version of the sampling rule format (`1` )
      */
     declare public readonly version: pulumi.Output<number>;
 
@@ -231,7 +231,7 @@ export class SamplingRule extends pulumi.CustomResource {
  */
 export interface SamplingRuleState {
     /**
-     * The ARN of the sampling rule.
+     * ARN of the sampling rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface SamplingRuleState {
      */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * Percentage of matching requests to instrument, after the reservoir is exhausted.
      */
     fixedRate?: pulumi.Input<number | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface SamplingRuleState {
      */
     httpMethod?: pulumi.Input<string | undefined>;
     /**
-     * The priority of the sampling rule.
+     * Priority of the sampling rule.
      */
     priority?: pulumi.Input<number | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface SamplingRuleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
     reservoirSize?: pulumi.Input<number | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface SamplingRuleState {
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the sampling rule.
+     * Name of the sampling rule.
      */
     ruleName?: pulumi.Input<string | undefined>;
     /**
@@ -283,7 +283,7 @@ export interface SamplingRuleState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -291,7 +291,7 @@ export interface SamplingRuleState {
      */
     urlPath?: pulumi.Input<string | undefined>;
     /**
-     * The version of the sampling rule format (`1` )
+     * Version of the sampling rule format (`1` )
      */
     version?: pulumi.Input<number | undefined>;
 }
@@ -305,7 +305,7 @@ export interface SamplingRuleArgs {
      */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * Percentage of matching requests to instrument, after the reservoir is exhausted.
      */
     fixedRate: pulumi.Input<number>;
     /**
@@ -317,7 +317,7 @@ export interface SamplingRuleArgs {
      */
     httpMethod: pulumi.Input<string>;
     /**
-     * The priority of the sampling rule.
+     * Priority of the sampling rule.
      */
     priority: pulumi.Input<number>;
     /**
@@ -325,7 +325,7 @@ export interface SamplingRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
     reservoirSize: pulumi.Input<number>;
     /**
@@ -333,7 +333,7 @@ export interface SamplingRuleArgs {
      */
     resourceArn: pulumi.Input<string>;
     /**
-     * The name of the sampling rule.
+     * Name of the sampling rule.
      */
     ruleName?: pulumi.Input<string | undefined>;
     /**
@@ -353,7 +353,7 @@ export interface SamplingRuleArgs {
      */
     urlPath: pulumi.Input<string>;
     /**
-     * The version of the sampling rule format (`1` )
+     * Version of the sampling rule format (`1` )
      */
     version: pulumi.Input<number>;
 }

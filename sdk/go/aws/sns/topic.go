@@ -202,6 +202,8 @@ type Topic struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"lambdaSuccessFeedbackSampleRate"`
+	// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+	MaximumMessageSize pulumi.IntOutput `pulumi:"maximumMessageSize"`
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
@@ -300,6 +302,8 @@ type topicState struct {
 	LambdaSuccessFeedbackRoleArn *string `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate *int `pulumi:"lambdaSuccessFeedbackSampleRate"`
+	// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+	MaximumMessageSize *int `pulumi:"maximumMessageSize"`
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
@@ -369,6 +373,8 @@ type TopicState struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrInput
+	// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+	MaximumMessageSize pulumi.IntPtrInput
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
@@ -438,6 +444,8 @@ type topicArgs struct {
 	LambdaSuccessFeedbackRoleArn *string `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate *int `pulumi:"lambdaSuccessFeedbackSampleRate"`
+	// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+	MaximumMessageSize *int `pulumi:"maximumMessageSize"`
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
@@ -500,6 +508,8 @@ type TopicArgs struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrInput
+	// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+	MaximumMessageSize pulumi.IntPtrInput
 	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
@@ -712,6 +722,11 @@ func (o TopicOutput) LambdaSuccessFeedbackRoleArn() pulumi.StringPtrOutput {
 // Percentage of success to sample
 func (o TopicOutput) LambdaSuccessFeedbackSampleRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.LambdaSuccessFeedbackSampleRate }).(pulumi.IntPtrOutput)
+}
+
+// The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+func (o TopicOutput) MaximumMessageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.MaximumMessageSize }).(pulumi.IntOutput)
 }
 
 // The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`

@@ -183,14 +183,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The time that the folder was created.
+     * Time that the folder was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return The time that the folder was created.
+     * @return Time that the folder was created.
      * 
      */
     public Output<String> createdTime() {
@@ -199,6 +199,8 @@ public class Folder extends com.pulumi.resources.CustomResource {
     /**
      * Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="folderId", refs={String.class}, tree="[0]")
     private Output<String> folderId;
@@ -206,47 +208,49 @@ public class Folder extends com.pulumi.resources.CustomResource {
     /**
      * @return Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> folderId() {
         return this.folderId;
     }
     /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * Array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
     @Export(name="folderPaths", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> folderPaths;
 
     /**
-     * @return An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * @return Array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
     public Output<List<String>> folderPaths() {
         return this.folderPaths;
     }
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     @Export(name="folderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folderType;
 
     /**
-     * @return The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * @return Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     public Output<Optional<String>> folderType() {
         return Codegen.optional(this.folderType);
     }
     /**
-     * The time that the folder was last updated.
+     * Time that the folder was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the folder was last updated.
+     * @return Time that the folder was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
@@ -255,16 +259,12 @@ public class Folder extends com.pulumi.resources.CustomResource {
     /**
      * Display name for the folder.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Display name for the folder.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -285,14 +285,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentFolderArn);
     }
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Export(name="permissions", refs={List.class,FolderPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FolderPermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Output<Optional<List<FolderPermission>>> permissions() {
@@ -327,14 +327,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

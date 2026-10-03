@@ -71,14 +71,14 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Runtime summary for the last scheduled query run.
+     * Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      * 
      */
     @Import(name="lastRunSummaries")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryArgs>> lastRunSummaries;
 
     /**
-     * @return Runtime summary for the last scheduled query run.
+     * @return Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryLastRunSummaryArgs>>> lastRunSummaries() {
@@ -131,14 +131,14 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Runtime summary for the last five failed scheduled query runs.
+     * Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      * 
      */
     @Import(name="recentlyFailedRuns")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunArgs>> recentlyFailedRuns;
 
     /**
-     * @return Runtime summary for the last five failed scheduled query runs.
+     * @return Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunArgs>>> recentlyFailedRuns() {
@@ -316,7 +316,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param lastRunSummaries Runtime summary for the last scheduled query run.
+         * @param lastRunSummaries Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param lastRunSummaries Runtime summary for the last scheduled query run.
+         * @param lastRunSummaries Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param lastRunSummaries Runtime summary for the last scheduled query run.
+         * @param lastRunSummaries Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs.
+         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs.
+         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs.
+         * @param recentlyFailedRuns Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
          * 
          * @return builder
          * 

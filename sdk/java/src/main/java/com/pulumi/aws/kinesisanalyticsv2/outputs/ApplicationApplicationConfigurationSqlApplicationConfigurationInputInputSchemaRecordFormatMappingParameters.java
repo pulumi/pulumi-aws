@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
     /**
-     * @return Provides additional mapping information when the record format uses delimiters (for example, CSV).
+     * @return Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters csvMappingParameters;
     /**
-     * @return Provides additional mapping information when JSON is the record format on the streaming source.
+     * @return Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters jsonMappingParameters;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters() {}
     /**
-     * @return Provides additional mapping information when the record format uses delimiters (for example, CSV).
+     * @return Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters> csvMappingParameters() {
         return Optional.ofNullable(this.csvMappingParameters);
     }
     /**
-     * @return Provides additional mapping information when JSON is the record format on the streaming source.
+     * @return Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters> jsonMappingParameters() {

@@ -25,7 +25,7 @@ public final class DataSetPhysicalTableMapRelationalTable {
      */
     private String dataSourceArn;
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     private List<DataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
@@ -56,7 +56,7 @@ public final class DataSetPhysicalTableMapRelationalTable {
         return this.dataSourceArn;
     }
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     public List<DataSetPhysicalTableMapRelationalTableInputColumn> inputColumns() {

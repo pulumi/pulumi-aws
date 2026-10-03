@@ -16,14 +16,14 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
     public static final PipeTargetParametersSqsQueueParametersArgs Empty = new PipeTargetParametersSqsQueueParametersArgs();
 
     /**
-     * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
      * 
      */
     @Import(name="messageDeduplicationId")
     private @Nullable Output<String> messageDeduplicationId;
 
     /**
-     * @return This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * @return Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
      * 
      */
     public Optional<Output<String>> messageDeduplicationId() {
@@ -31,14 +31,14 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
     }
 
     /**
-     * The FIFO message group ID to use as the target.
+     * FIFO message group ID to use as the target.
      * 
      */
     @Import(name="messageGroupId")
     private @Nullable Output<String> messageGroupId;
 
     /**
-     * @return The FIFO message group ID to use as the target.
+     * @return FIFO message group ID to use as the target.
      * 
      */
     public Optional<Output<String>> messageGroupId() {
@@ -71,7 +71,7 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
         }
 
         /**
-         * @param messageDeduplicationId This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         * @param messageDeduplicationId Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
         }
 
         /**
-         * @param messageDeduplicationId This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         * @param messageDeduplicationId Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
         }
 
         /**
-         * @param messageGroupId The FIFO message group ID to use as the target.
+         * @param messageGroupId FIFO message group ID to use as the target.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersSqsQueueParametersArgs extends com.pulumi
         }
 
         /**
-         * @param messageGroupId The FIFO message group ID to use as the target.
+         * @param messageGroupId FIFO message group ID to use as the target.
          * 
          * @return builder
          * 

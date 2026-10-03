@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the dataset.
+        /// ID of the dataset.
         /// </summary>
         [Output("dataSetId")]
         public Output<string> DataSetId { get; private set; } = null!;
@@ -143,15 +143,15 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
+        /// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `Schedule` Block.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.RefreshScheduleSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the refresh schedule.
+        /// ID of the refresh schedule.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("scheduleId")]
         public Output<string> ScheduleId { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The ID of the dataset.
+        /// ID of the dataset.
         /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
@@ -221,15 +221,15 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
+        /// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `Schedule` Block.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.RefreshScheduleScheduleArgs> Schedule { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the refresh schedule.
+        /// ID of the refresh schedule.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("scheduleId", required: true)]
         public Input<string> ScheduleId { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The ID of the dataset.
+        /// ID of the dataset.
         /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
@@ -267,15 +267,15 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-        /// 
-        /// The following arguments are optional:
+        /// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `Schedule` Block.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.RefreshScheduleScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The ID of the refresh schedule.
+        /// ID of the refresh schedule.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("scheduleId")]
         public Input<string>? ScheduleId { get; set; }

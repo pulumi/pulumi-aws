@@ -106,14 +106,14 @@ public final class GetVoicesVoiceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies which engines are supported by a given voice.
+     * Engines supported by a given voice.
      * 
      */
     @Import(name="supportedEngines", required=true)
     private Output<List<String>> supportedEngines;
 
     /**
-     * @return Specifies which engines are supported by a given voice.
+     * @return Engines supported by a given voice.
      * 
      */
     public Output<List<String>> supportedEngines() {
@@ -287,7 +287,7 @@ public final class GetVoicesVoiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedEngines Specifies which engines are supported by a given voice.
+         * @param supportedEngines Engines supported by a given voice.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class GetVoicesVoiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedEngines Specifies which engines are supported by a given voice.
+         * @param supportedEngines Engines supported by a given voice.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class GetVoicesVoiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedEngines Specifies which engines are supported by a given voice.
+         * @param supportedEngines Engines supported by a given voice.
          * 
          * @return builder
          * 

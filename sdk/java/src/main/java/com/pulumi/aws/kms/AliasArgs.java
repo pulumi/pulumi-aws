@@ -17,14 +17,14 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     public static final AliasArgs Empty = new AliasArgs();
 
     /**
-     * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+     * @return Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
      * 
      */
     public Optional<Output<String>> name() {
@@ -32,16 +32,14 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+     * Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+     * @return Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -106,7 +104,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+         * @param name Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
          * 
          * @return builder
          * 
@@ -117,7 +115,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
+         * @param name Display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).
          * 
          * @return builder
          * 
@@ -127,8 +125,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates an unique alias beginning with the specified prefix.
-         * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+         * @param namePrefix Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -139,8 +136,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates an unique alias beginning with the specified prefix.
-         * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
+         * @param namePrefix Creates a unique alias beginning with the specified prefix. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/). Conflicts with `name`.
          * 
          * @return builder
          * 

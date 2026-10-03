@@ -16,14 +16,14 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
     public static final QueryLoggingConfigurationDestinationArgs Empty = new QueryLoggingConfigurationDestinationArgs();
 
     /**
-     * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+     * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
      * 
      */
     @Import(name="cloudwatchLogs", required=true)
     private Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
      * 
      */
     public Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs() {
@@ -31,14 +31,14 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
     }
 
     /**
-     * A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+     * List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
      * 
      */
     @Import(name="filters", required=true)
     private Output<QueryLoggingConfigurationDestinationFiltersArgs> filters;
 
     /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+     * @return List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
      * 
      */
     public Output<QueryLoggingConfigurationDestinationFiltersArgs> filters() {
@@ -71,7 +71,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param filters A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+         * @param filters List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         /**
-         * @param filters A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+         * @param filters List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
          * 
          * @return builder
          * 

@@ -29,7 +29,7 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettings {
      */
     private @Nullable String format;
     /**
-     * @return A row number to start reading data from.
+     * @return Row number to start reading data from.
      * 
      */
     private @Nullable Integer startFromRow;
@@ -62,7 +62,7 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettings {
         return Optional.ofNullable(this.format);
     }
     /**
-     * @return A row number to start reading data from.
+     * @return Row number to start reading data from.
      * 
      */
     public Optional<Integer> startFromRow() {

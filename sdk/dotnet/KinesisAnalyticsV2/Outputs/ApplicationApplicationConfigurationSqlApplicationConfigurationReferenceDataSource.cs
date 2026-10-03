@@ -13,17 +13,20 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource
     {
+        /// <summary>
+        /// Identifier of the reference data source.
+        /// </summary>
         public readonly string? ReferenceId;
         /// <summary>
-        /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+        /// Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `ReferenceSchema` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema ReferenceSchema;
         /// <summary>
-        /// Identifies the S3 bucket and object that contains the reference data.
+        /// S3 bucket and object that contains the reference data. See `S3ReferenceDataSource` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource S3ReferenceDataSource;
         /// <summary>
-        /// The name of the in-application table to create.
+        /// Name of the in-application table to create.
         /// </summary>
         public readonly string TableName;
 

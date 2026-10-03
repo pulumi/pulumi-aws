@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string FileSystemAdministratorsGroup;
         /// <summary>
-        /// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        /// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the SVM is joined.
         /// </summary>
         public readonly string OrganizationalUnitDistinguishedName;
         /// <summary>

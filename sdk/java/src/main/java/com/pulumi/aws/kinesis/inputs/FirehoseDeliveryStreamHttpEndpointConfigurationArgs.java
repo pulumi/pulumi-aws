@@ -23,14 +23,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationArgs();
 
     /**
-     * The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+     * Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
     @Import(name="accessKey")
     private @Nullable Output<String> accessKey;
 
     /**
-     * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+     * @return Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
     public Optional<Output<String>> accessKey() {
@@ -68,14 +68,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -83,14 +83,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The HTTP endpoint name.
+     * HTTP endpoint name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The HTTP endpoint name.
+     * @return HTTP endpoint name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -98,14 +98,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -113,14 +113,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The request configuration.  See `requestConfiguration` block below for details.
+     * Request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     @Import(name="requestConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs> requestConfiguration;
 
     /**
-     * @return The request configuration.  See `requestConfiguration` block below for details.
+     * @return Request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs>> requestConfiguration() {
@@ -158,14 +158,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+     * How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -173,14 +173,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The S3 Configuration. See `s3Configuration` block below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -188,14 +188,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+     * Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     @Import(name="secretsManagerConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
 
     /**
-     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+     * @return Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
@@ -203,14 +203,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+     * HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+     * @return HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     public Output<String> url() {
@@ -254,7 +254,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param accessKey The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+         * @param accessKey Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param accessKey The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+         * @param accessKey Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param name The HTTP endpoint name.
+         * @param name HTTP endpoint name.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param name The HTTP endpoint name.
+         * @param name HTTP endpoint name.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param requestConfiguration The request configuration.  See `requestConfiguration` block below for details.
+         * @param requestConfiguration Request configuration.  See `requestConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param requestConfiguration The request configuration.  See `requestConfiguration` block below for details.
+         * @param requestConfiguration Request configuration.  See `requestConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param secretsManagerConfiguration The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+         * @param secretsManagerConfiguration Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param secretsManagerConfiguration The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+         * @param secretsManagerConfiguration Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+         * @param url HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+         * @param url HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
          * 
          * @return builder
          * 

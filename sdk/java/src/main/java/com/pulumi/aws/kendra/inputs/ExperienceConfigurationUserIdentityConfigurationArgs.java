@@ -15,14 +15,14 @@ public final class ExperienceConfigurationUserIdentityConfigurationArgs extends 
     public static final ExperienceConfigurationUserIdentityConfigurationArgs Empty = new ExperienceConfigurationUserIdentityConfigurationArgs();
 
     /**
-     * The AWS SSO field name that contains the identifiers of your users, such as their emails.
+     * AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
     @Import(name="identityAttributeName", required=true)
     private Output<String> identityAttributeName;
 
     /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
+     * @return AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
     public Output<String> identityAttributeName() {
@@ -54,7 +54,7 @@ public final class ExperienceConfigurationUserIdentityConfigurationArgs extends 
         }
 
         /**
-         * @param identityAttributeName The AWS SSO field name that contains the identifiers of your users, such as their emails.
+         * @param identityAttributeName AWS SSO field name that contains the identifiers of your users, such as their emails.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ExperienceConfigurationUserIdentityConfigurationArgs extends 
         }
 
         /**
-         * @param identityAttributeName The AWS SSO field name that contains the identifiers of your users, such as their emails.
+         * @param identityAttributeName AWS SSO field name that contains the identifiers of your users, such as their emails.
          * 
          * @return builder
          * 

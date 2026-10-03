@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kms.Outputs
     public sealed class GetKeyXksKeyConfigurationResult
     {
         /// <summary>
-        /// The globally unique identifier for the key
+        /// ID of the external key in the external key manager.
         /// </summary>
         public readonly string Id;
 

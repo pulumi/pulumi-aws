@@ -32,14 +32,14 @@ public final class DataSetLogicalTableMapSourceArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the result of a join of two logical tables. See join_instruction.
+     * Result of a join of two logical tables. See `joinInstruction` Block below.
      * 
      */
     @Import(name="joinInstruction")
     private @Nullable Output<DataSetLogicalTableMapSourceJoinInstructionArgs> joinInstruction;
 
     /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
+     * @return Result of a join of two logical tables. See `joinInstruction` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapSourceJoinInstructionArgs>> joinInstruction() {
@@ -109,7 +109,7 @@ public final class DataSetLogicalTableMapSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param joinInstruction Specifies the result of a join of two logical tables. See join_instruction.
+         * @param joinInstruction Result of a join of two logical tables. See `joinInstruction` Block below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DataSetLogicalTableMapSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param joinInstruction Specifies the result of a join of two logical tables. See join_instruction.
+         * @param joinInstruction Result of a join of two logical tables. See `joinInstruction` Block below.
          * 
          * @return builder
          * 

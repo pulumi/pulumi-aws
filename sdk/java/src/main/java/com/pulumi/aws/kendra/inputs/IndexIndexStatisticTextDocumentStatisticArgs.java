@@ -16,14 +16,14 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
     public static final IndexIndexStatisticTextDocumentStatisticArgs Empty = new IndexIndexStatisticTextDocumentStatisticArgs();
 
     /**
-     * The total size, in bytes, of the indexed documents.
+     * Total size, in bytes, of the indexed documents.
      * 
      */
     @Import(name="indexedTextBytes")
     private @Nullable Output<Integer> indexedTextBytes;
 
     /**
-     * @return The total size, in bytes, of the indexed documents.
+     * @return Total size, in bytes, of the indexed documents.
      * 
      */
     public Optional<Output<Integer>> indexedTextBytes() {
@@ -31,14 +31,14 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
     }
 
     /**
-     * The number of text documents indexed.
+     * Number of text documents indexed.
      * 
      */
     @Import(name="indexedTextDocumentsCount")
     private @Nullable Output<Integer> indexedTextDocumentsCount;
 
     /**
-     * @return The number of text documents indexed.
+     * @return Number of text documents indexed.
      * 
      */
     public Optional<Output<Integer>> indexedTextDocumentsCount() {
@@ -71,7 +71,7 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
         }
 
         /**
-         * @param indexedTextBytes The total size, in bytes, of the indexed documents.
+         * @param indexedTextBytes Total size, in bytes, of the indexed documents.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
         }
 
         /**
-         * @param indexedTextBytes The total size, in bytes, of the indexed documents.
+         * @param indexedTextBytes Total size, in bytes, of the indexed documents.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
         }
 
         /**
-         * @param indexedTextDocumentsCount The number of text documents indexed.
+         * @param indexedTextDocumentsCount Number of text documents indexed.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IndexIndexStatisticTextDocumentStatisticArgs extends com.pulu
         }
 
         /**
-         * @param indexedTextDocumentsCount The number of text documents indexed.
+         * @param indexedTextDocumentsCount Number of text documents indexed.
          * 
          * @return builder
          * 

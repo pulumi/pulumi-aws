@@ -92,21 +92,21 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * The region authorized to collect aggregated data.
+     * The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      */
     @Export(name="authorizedAwsRegion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> authorizedAwsRegion;
+    private Output<String> authorizedAwsRegion;
 
     /**
-     * @return The region authorized to collect aggregated data.
+     * @return The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      */
-    public Output<Optional<String>> authorizedAwsRegion() {
-        return Codegen.optional(this.authorizedAwsRegion);
+    public Output<String> authorizedAwsRegion() {
+        return this.authorizedAwsRegion;
     }
     /**
-     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
@@ -114,14 +114,14 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
      */
     @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> region;
+    private Output<String> region;
 
     /**
-     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      */
-    public Output<Optional<String>> region() {
-        return Codegen.optional(this.region);
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

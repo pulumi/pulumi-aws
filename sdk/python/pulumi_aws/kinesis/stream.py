@@ -38,17 +38,17 @@ class StreamArgs:
         The set of arguments for constructing a Stream resource.
 
         :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
-        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
+        :param pulumi.Input[_builtins.str] kms_key_id: Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
-        :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.int] shard_count: Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.
         """
         if arn is not None:
@@ -94,7 +94,7 @@ class StreamArgs:
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -106,7 +106,7 @@ class StreamArgs:
     @pulumi.getter(name="enforceConsumerDeletion")
     def enforce_consumer_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
         """
         return pulumi.get(self, "enforce_consumer_deletion")
 
@@ -118,7 +118,7 @@ class StreamArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -130,7 +130,7 @@ class StreamArgs:
     @pulumi.getter(name="maxRecordSizeInKib")
     def max_record_size_in_kib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         """
         return pulumi.get(self, "max_record_size_in_kib")
 
@@ -142,7 +142,7 @@ class StreamArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         """
         return pulumi.get(self, "name")
 
@@ -178,7 +178,7 @@ class StreamArgs:
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         """
         return pulumi.get(self, "shard_count")
 
@@ -190,7 +190,7 @@ class StreamArgs:
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         """
         return pulumi.get(self, "shard_level_metrics")
 
@@ -202,7 +202,7 @@ class StreamArgs:
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> pulumi.Input[Optional['StreamStreamModeDetailsArgs']]:
         """
-        Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
@@ -214,7 +214,7 @@ class StreamArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -256,18 +256,18 @@ class _StreamState:
         Input properties used for looking up and filtering Stream resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
-        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
+        :param pulumi.Input[_builtins.str] kms_key_id: Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
-        :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] shard_count: Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.
         """
         if arn is not None:
@@ -315,7 +315,7 @@ class _StreamState:
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -327,7 +327,7 @@ class _StreamState:
     @pulumi.getter(name="enforceConsumerDeletion")
     def enforce_consumer_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
         """
         return pulumi.get(self, "enforce_consumer_deletion")
 
@@ -339,7 +339,7 @@ class _StreamState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -351,7 +351,7 @@ class _StreamState:
     @pulumi.getter(name="maxRecordSizeInKib")
     def max_record_size_in_kib(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         """
         return pulumi.get(self, "max_record_size_in_kib")
 
@@ -363,7 +363,7 @@ class _StreamState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         """
         return pulumi.get(self, "name")
 
@@ -399,7 +399,7 @@ class _StreamState:
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         """
         return pulumi.get(self, "shard_count")
 
@@ -411,7 +411,7 @@ class _StreamState:
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         """
         return pulumi.get(self, "shard_level_metrics")
 
@@ -423,7 +423,7 @@ class _StreamState:
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> pulumi.Input[Optional['StreamStreamModeDetailsArgs']]:
         """
-        Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
@@ -435,7 +435,7 @@ class _StreamState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -447,7 +447,7 @@ class _StreamState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -539,17 +539,17 @@ class Stream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
-        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
+        :param pulumi.Input[_builtins.str] kms_key_id: Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
-        :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.int] shard_count: Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.
         """
         ...
@@ -689,18 +689,18 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
-        :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
-        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[_builtins.str] encryption_type: Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
+        :param pulumi.Input[_builtins.str] kms_key_id: Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
-        :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] shard_count: Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -735,7 +735,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         """
         return pulumi.get(self, "encryption_type")
 
@@ -743,7 +743,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="enforceConsumerDeletion")
     def enforce_consumer_deletion(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
         """
         return pulumi.get(self, "enforce_consumer_deletion")
 
@@ -751,7 +751,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -759,7 +759,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="maxRecordSizeInKib")
     def max_record_size_in_kib(self) -> pulumi.Output[_builtins.int]:
         """
-        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         """
         return pulumi.get(self, "max_record_size_in_kib")
 
@@ -767,7 +767,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         """
         return pulumi.get(self, "name")
 
@@ -791,7 +791,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        Number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         """
         return pulumi.get(self, "shard_count")
 
@@ -799,7 +799,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         """
         return pulumi.get(self, "shard_level_metrics")
 
@@ -807,7 +807,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> pulumi.Output['outputs.StreamStreamModeDetails']:
         """
-        Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
@@ -815,7 +815,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -823,7 +823,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

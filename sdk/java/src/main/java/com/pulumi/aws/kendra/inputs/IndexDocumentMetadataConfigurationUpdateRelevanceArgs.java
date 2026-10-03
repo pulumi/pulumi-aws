@@ -19,14 +19,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
     public static final IndexDocumentMetadataConfigurationUpdateRelevanceArgs Empty = new IndexDocumentMetadataConfigurationUpdateRelevanceArgs();
 
     /**
-     * Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+     * Time period that the boost applies to. Required if `type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
     @Import(name="duration")
     private @Nullable Output<String> duration;
 
     /**
-     * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+     * @return Time period that the boost applies to. Required if `type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
     public Optional<Output<String>> duration() {
@@ -34,14 +34,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
     }
 
     /**
-     * Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+     * Whether this field determines how &#34;fresh&#34; a document is. Required if `type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
     @Import(name="freshness")
     private @Nullable Output<Boolean> freshness;
 
     /**
-     * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+     * @return Whether this field determines how &#34;fresh&#34; a document is. Required if `type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
     public Optional<Output<Boolean>> freshness() {
@@ -49,14 +49,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
     }
 
     /**
-     * The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+     * Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
     @Import(name="importance")
     private @Nullable Output<Integer> importance;
 
     /**
-     * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+     * @return Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
     public Optional<Output<Integer>> importance() {
@@ -64,14 +64,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
     }
 
     /**
-     * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+     * How values should be interpreted. Required if `type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
     @Import(name="rankOrder")
     private @Nullable Output<String> rankOrder;
 
     /**
-     * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+     * @return How values should be interpreted. Required if `type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
     public Optional<Output<String>> rankOrder() {
@@ -79,14 +79,14 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
     }
 
     /**
-     * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+     * List of values that should be given a different boost when they appear in the result list. Required if `type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
     @Import(name="valuesImportanceMap")
     private @Nullable Output<Map<String,Integer>> valuesImportanceMap;
 
     /**
-     * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+     * @return List of values that should be given a different boost when they appear in the result list. Required if `type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
     public Optional<Output<Map<String,Integer>>> valuesImportanceMap() {
@@ -122,7 +122,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param duration Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+         * @param duration Time period that the boost applies to. Required if `type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param duration Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+         * @param duration Time period that the boost applies to. Required if `type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param freshness Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+         * @param freshness Whether this field determines how &#34;fresh&#34; a document is. Required if `type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param freshness Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+         * @param freshness Whether this field determines how &#34;fresh&#34; a document is. Required if `type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param importance The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+         * @param importance Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param importance The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+         * @param importance Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param rankOrder Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+         * @param rankOrder How values should be interpreted. Required if `type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param rankOrder Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+         * @param rankOrder How values should be interpreted. Required if `type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param valuesImportanceMap A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+         * @param valuesImportanceMap List of values that should be given a different boost when they appear in the result list. Required if `type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
         }
 
         /**
-         * @param valuesImportanceMap A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+         * @param valuesImportanceMap List of values that should be given a different boost when they appear in the result list. Required if `type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          * 
          * @return builder
          * 

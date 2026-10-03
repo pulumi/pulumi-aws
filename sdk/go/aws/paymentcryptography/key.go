@@ -74,8 +74,9 @@ type Key struct {
 	pulumi.CustomResourceState
 
 	// ARN of the key.
-	Arn                  pulumi.StringOutput `pulumi:"arn"`
-	DeletionWindowInDays pulumi.IntOutput    `pulumi:"deletionWindowInDays"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+	DeletionWindowInDays pulumi.IntOutput `pulumi:"deletionWindowInDays"`
 	// Whether to enable the key.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Whether the key is exportable from the service.
@@ -94,7 +95,7 @@ type Key struct {
 	KeyState pulumi.StringOutput `pulumi:"keyState"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -135,8 +136,9 @@ func GetKey(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Key resources.
 type keyState struct {
 	// ARN of the key.
-	Arn                  *string `pulumi:"arn"`
-	DeletionWindowInDays *int    `pulumi:"deletionWindowInDays"`
+	Arn *string `pulumi:"arn"`
+	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// Whether to enable the key.
 	Enabled *bool `pulumi:"enabled"`
 	// Whether the key is exportable from the service.
@@ -155,7 +157,7 @@ type keyState struct {
 	KeyState *string `pulumi:"keyState"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -164,7 +166,8 @@ type keyState struct {
 
 type KeyState struct {
 	// ARN of the key.
-	Arn                  pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
 	DeletionWindowInDays pulumi.IntPtrInput
 	// Whether to enable the key.
 	Enabled pulumi.BoolPtrInput
@@ -184,7 +187,7 @@ type KeyState struct {
 	KeyState pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
@@ -196,6 +199,7 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
+	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// Whether to enable the key.
 	Enabled *bool `pulumi:"enabled"`
@@ -209,13 +213,14 @@ type keyArgs struct {
 	KeyCheckValueAlgorithm *string `pulumi:"keyCheckValueAlgorithm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *KeyTimeouts      `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
 	DeletionWindowInDays pulumi.IntPtrInput
 	// Whether to enable the key.
 	Enabled pulumi.BoolPtrInput
@@ -229,7 +234,7 @@ type KeyArgs struct {
 	KeyCheckValueAlgorithm pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts KeyTimeoutsPtrInput
 }
@@ -326,6 +331,7 @@ func (o KeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
 func (o KeyOutput) DeletionWindowInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Key) pulumi.IntOutput { return v.DeletionWindowInDays }).(pulumi.IntOutput)
 }
@@ -372,7 +378,7 @@ func (o KeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o KeyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

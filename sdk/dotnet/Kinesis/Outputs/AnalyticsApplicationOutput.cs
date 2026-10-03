@@ -14,29 +14,27 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class AnalyticsApplicationOutput
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `KinesisStream`.
-        /// See Kinesis Firehose below for more details.
+        /// Kinesis Firehose configuration for the destination stream. Conflicts with `KinesisStream`. See `outputs.kinesis_firehose` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisFirehose? KinesisFirehose;
         /// <summary>
-        /// The Kinesis Stream configuration for the destination stream. Conflicts with `KinesisFirehose`.
-        /// See Kinesis Stream below for more details.
+        /// Kinesis Stream configuration for the destination stream. Conflicts with `KinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisStream? KinesisStream;
         /// <summary>
-        /// The Lambda function destination. See Lambda below for more details.
+        /// Lambda function destination. See `outputs.lambda` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputLambda? Lambda;
         /// <summary>
-        /// The Name of the in-application stream.
+        /// Name of the in-application stream.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
+        /// Schema format of the data written to the destination. See `outputs.schema` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputSchema Schema;
 

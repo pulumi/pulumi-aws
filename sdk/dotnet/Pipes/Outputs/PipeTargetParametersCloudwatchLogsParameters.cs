@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersCloudwatchLogsParameters
     {
         /// <summary>
-        /// The name of the log stream.
+        /// Name of the log stream.
         /// </summary>
         public readonly string? LogStreamName;
         /// <summary>
-        /// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        /// Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
         /// </summary>
         public readonly string? Timestamp;
 

@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Xray
     public partial class SamplingRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the sampling rule.
+        /// ARN of the sampling rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Xray
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
+        /// Percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         [Output("fixedRate")]
         public Output<double> FixedRate { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The priority of the sampling rule.
+        /// Priority of the sampling rule.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        /// Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         [Output("reservoirSize")]
         public Output<int> ReservoirSize { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the sampling rule.
+        /// Name of the sampling rule.
         /// </summary>
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Xray
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> UrlPath { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the sampling rule format (`1` )
+        /// Version of the sampling rule format (`1` )
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Xray
         }
 
         /// <summary>
-        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
+        /// Percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         [Input("fixedRate", required: true)]
         public Input<double> FixedRate { get; set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Xray
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The priority of the sampling rule.
+        /// Priority of the sampling rule.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        /// Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         [Input("reservoirSize", required: true)]
         public Input<int> ReservoirSize { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Xray
         public Input<string> ResourceArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the sampling rule.
+        /// Name of the sampling rule.
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Xray
         public Input<string> UrlPath { get; set; } = null!;
 
         /// <summary>
-        /// The version of the sampling rule format (`1` )
+        /// Version of the sampling rule format (`1` )
         /// </summary>
         [Input("version", required: true)]
         public Input<int> Version { get; set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Xray
     public sealed class SamplingRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the sampling rule.
+        /// ARN of the sampling rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Xray
         }
 
         /// <summary>
-        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
+        /// Percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         [Input("fixedRate")]
         public Input<double>? FixedRate { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The priority of the sampling rule.
+        /// Priority of the sampling rule.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        /// Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         [Input("reservoirSize")]
         public Input<int>? ReservoirSize { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// The name of the sampling rule.
+        /// Name of the sampling rule.
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? UrlPath { get; set; }
 
         /// <summary>
-        /// The version of the sampling rule format (`1` )
+        /// Version of the sampling rule format (`1` )
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

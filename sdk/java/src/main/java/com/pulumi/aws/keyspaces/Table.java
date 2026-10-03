@@ -86,112 +86,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:keyspaces/table:Table")
 public class Table extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the table.
+     * ARN of the table.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the table.
+     * @return ARN of the table.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies the read/write throughput capacity mode for the table.
+     * Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      * 
      */
     @Export(name="capacitySpecification", refs={TableCapacitySpecification.class}, tree="[0]")
     private Output<TableCapacitySpecification> capacitySpecification;
 
     /**
-     * @return Specifies the read/write throughput capacity mode for the table.
+     * @return Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      * 
      */
     public Output<TableCapacitySpecification> capacitySpecification() {
         return this.capacitySpecification;
     }
     /**
-     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      * 
      */
     @Export(name="clientSideTimestamps", refs={TableClientSideTimestamps.class}, tree="[0]")
     private Output</* @Nullable */ TableClientSideTimestamps> clientSideTimestamps;
 
     /**
-     * @return Enables client-side timestamps for the table. By default, the setting is disabled.
+     * @return Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      * 
      */
     public Output<Optional<TableClientSideTimestamps>> clientSideTimestamps() {
         return Codegen.optional(this.clientSideTimestamps);
     }
     /**
-     * A description of the table.
+     * Description of the table. See `comment` below.
      * 
      */
     @Export(name="comment", refs={TableComment.class}, tree="[0]")
     private Output<TableComment> comment;
 
     /**
-     * @return A description of the table.
+     * @return Description of the table. See `comment` below.
      * 
      */
     public Output<TableComment> comment() {
         return this.comment;
     }
     /**
-     * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
     @Export(name="defaultTimeToLive", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTimeToLive;
 
     /**
-     * @return The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * @return Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
     public Output<Optional<Integer>> defaultTimeToLive() {
         return Codegen.optional(this.defaultTimeToLive);
     }
     /**
-     * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      * 
      */
     @Export(name="encryptionSpecification", refs={TableEncryptionSpecification.class}, tree="[0]")
     private Output<TableEncryptionSpecification> encryptionSpecification;
 
     /**
-     * @return Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * @return Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      * 
      */
     public Output<TableEncryptionSpecification> encryptionSpecification() {
         return this.encryptionSpecification;
     }
     /**
-     * The name of the keyspace that the table is going to be created in.
+     * Name of the keyspace that the table is going to be created in.
      * 
      */
     @Export(name="keyspaceName", refs={String.class}, tree="[0]")
     private Output<String> keyspaceName;
 
     /**
-     * @return The name of the keyspace that the table is going to be created in.
+     * @return Name of the keyspace that the table is going to be created in.
      * 
      */
     public Output<String> keyspaceName() {
         return this.keyspaceName;
     }
     /**
-     * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      * 
      */
     @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
-     * @return Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * @return Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      * 
      */
     public Output<TablePointInTimeRecovery> pointInTimeRecovery() {
@@ -212,21 +212,21 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Describes the schema of the table.
+     * Schema of the table. See `schemaDefinition` below.
      * 
      */
     @Export(name="schemaDefinition", refs={TableSchemaDefinition.class}, tree="[0]")
     private Output<TableSchemaDefinition> schemaDefinition;
 
     /**
-     * @return Describes the schema of the table.
+     * @return Schema of the table. See `schemaDefinition` below.
      * 
      */
     public Output<TableSchemaDefinition> schemaDefinition() {
         return this.schemaDefinition;
     }
     /**
-     * The name of the table.
+     * Name of the table.
      * 
      * The following arguments are optional:
      * 
@@ -235,7 +235,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     private Output<String> tableName;
 
     /**
-     * @return The name of the table.
+     * @return Name of the table.
      * 
      * The following arguments are optional:
      * 
@@ -244,42 +244,42 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.tableName;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      * 
      */
     @Export(name="ttl", refs={TableTtl.class}, tree="[0]")
     private Output</* @Nullable */ TableTtl> ttl;
 
     /**
-     * @return Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * @return Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      * 
      */
     public Output<Optional<TableTtl>> ttl() {

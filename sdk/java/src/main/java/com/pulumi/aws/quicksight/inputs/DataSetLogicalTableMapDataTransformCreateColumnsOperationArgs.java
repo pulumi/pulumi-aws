@@ -16,14 +16,14 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
     public static final DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs Empty = new DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs();
 
     /**
-     * Calculated columns to create. See columns.
+     * Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
      * 
      */
     @Import(name="columns", required=true)
     private Output<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> columns;
 
     /**
-     * @return Calculated columns to create. See columns.
+     * @return Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
      * 
      */
     public Output<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> columns() {
@@ -55,7 +55,7 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
         }
 
         /**
-         * @param columns Calculated columns to create. See columns.
+         * @param columns Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
         }
 
         /**
-         * @param columns Calculated columns to create. See columns.
+         * @param columns Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
         }
 
         /**
-         * @param columns Calculated columns to create. See columns.
+         * @param columns Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
          * 
          * @return builder
          * 

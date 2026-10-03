@@ -47,14 +47,14 @@ public final class ClusterIamRolesState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      * 
      */
     @Import(name="iamRoleArns")
     private @Nullable Output<List<String>> iamRoleArns;
 
     /**
-     * @return A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * @return A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      * 
      */
     public Optional<Output<List<String>>> iamRoleArns() {
@@ -146,7 +146,7 @@ public final class ClusterIamRolesState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ClusterIamRolesState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ClusterIamRolesState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+         * @param iamRoleArns A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class DataSourceSslPropertiesArgs extends com.pulumi.resources.Reso
     public static final DataSourceSslPropertiesArgs Empty = new DataSourceSslPropertiesArgs();
 
     /**
-     * A Boolean option to control whether SSL should be disabled.
+     * Whether to disable SSL.
      * 
      */
     @Import(name="disableSsl", required=true)
     private Output<Boolean> disableSsl;
 
     /**
-     * @return A Boolean option to control whether SSL should be disabled.
+     * @return Whether to disable SSL.
      * 
      */
     public Output<Boolean> disableSsl() {
@@ -54,7 +54,7 @@ public final class DataSourceSslPropertiesArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableSsl A Boolean option to control whether SSL should be disabled.
+         * @param disableSsl Whether to disable SSL.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSourceSslPropertiesArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableSsl A Boolean option to control whether SSL should be disabled.
+         * @param disableSsl Whether to disable SSL.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceGetArgs>? _dataSetReferences;
 
         /// <summary>
-        /// List of dataset references. See data_set_references.
+        /// List of dataset references. See `DataSetReferences`.
         /// </summary>
         public InputList<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceGetArgs> DataSetReferences
         {

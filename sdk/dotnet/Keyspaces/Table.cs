@@ -63,49 +63,49 @@ namespace Pulumi.Aws.Keyspaces
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the table.
+        /// ARN of the table.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the read/write throughput capacity mode for the table.
+        /// Read/write throughput capacity mode for the table. See `CapacitySpecification` below.
         /// </summary>
         [Output("capacitySpecification")]
         public Output<Outputs.TableCapacitySpecification> CapacitySpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// Enables client-side timestamps for the table. By default, the setting is disabled. See `ClientSideTimestamps` below.
         /// </summary>
         [Output("clientSideTimestamps")]
         public Output<Outputs.TableClientSideTimestamps?> ClientSideTimestamps { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the table.
+        /// Description of the table. See `Comment` below.
         /// </summary>
         [Output("comment")]
         public Output<Outputs.TableComment> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        /// Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
         [Output("defaultTimeToLive")]
         public Output<int?> DefaultTimeToLive { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        /// Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `EncryptionSpecification` below.
         /// </summary>
         [Output("encryptionSpecification")]
         public Output<Outputs.TableEncryptionSpecification> EncryptionSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the keyspace that the table is going to be created in.
+        /// Name of the keyspace that the table is going to be created in.
         /// </summary>
         [Output("keyspaceName")]
         public Output<string> KeyspaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        /// Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `PointInTimeRecovery` below.
         /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<Outputs.TablePointInTimeRecovery> PointInTimeRecovery { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.Keyspaces
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the schema of the table.
+        /// Schema of the table. See `SchemaDefinition` below.
         /// </summary>
         [Output("schemaDefinition")]
         public Output<Outputs.TableSchemaDefinition> SchemaDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -131,19 +131,19 @@ namespace Pulumi.Aws.Keyspaces
         public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `Ttl` below.
         /// </summary>
         [Output("ttl")]
         public Output<Outputs.TableTtl?> Ttl { get; private set; } = null!;
@@ -195,43 +195,43 @@ namespace Pulumi.Aws.Keyspaces
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the read/write throughput capacity mode for the table.
+        /// Read/write throughput capacity mode for the table. See `CapacitySpecification` below.
         /// </summary>
         [Input("capacitySpecification")]
         public Input<Inputs.TableCapacitySpecificationArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
-        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// Enables client-side timestamps for the table. By default, the setting is disabled. See `ClientSideTimestamps` below.
         /// </summary>
         [Input("clientSideTimestamps")]
         public Input<Inputs.TableClientSideTimestampsArgs>? ClientSideTimestamps { get; set; }
 
         /// <summary>
-        /// A description of the table.
+        /// Description of the table. See `Comment` below.
         /// </summary>
         [Input("comment")]
         public Input<Inputs.TableCommentArgs>? Comment { get; set; }
 
         /// <summary>
-        /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        /// Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
         [Input("defaultTimeToLive")]
         public Input<int>? DefaultTimeToLive { get; set; }
 
         /// <summary>
-        /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        /// Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `EncryptionSpecification` below.
         /// </summary>
         [Input("encryptionSpecification")]
         public Input<Inputs.TableEncryptionSpecificationArgs>? EncryptionSpecification { get; set; }
 
         /// <summary>
-        /// The name of the keyspace that the table is going to be created in.
+        /// Name of the keyspace that the table is going to be created in.
         /// </summary>
         [Input("keyspaceName", required: true)]
         public Input<string> KeyspaceName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        /// Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `PointInTimeRecovery` below.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryArgs>? PointInTimeRecovery { get; set; }
@@ -243,13 +243,13 @@ namespace Pulumi.Aws.Keyspaces
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Describes the schema of the table.
+        /// Schema of the table. See `SchemaDefinition` below.
         /// </summary>
         [Input("schemaDefinition", required: true)]
         public Input<Inputs.TableSchemaDefinitionArgs> SchemaDefinition { get; set; } = null!;
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Keyspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Keyspaces
         }
 
         /// <summary>
-        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `Ttl` below.
         /// </summary>
         [Input("ttl")]
         public Input<Inputs.TableTtlArgs>? Ttl { get; set; }
@@ -283,49 +283,49 @@ namespace Pulumi.Aws.Keyspaces
     public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the table.
+        /// ARN of the table.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies the read/write throughput capacity mode for the table.
+        /// Read/write throughput capacity mode for the table. See `CapacitySpecification` below.
         /// </summary>
         [Input("capacitySpecification")]
         public Input<Inputs.TableCapacitySpecificationGetArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
-        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// Enables client-side timestamps for the table. By default, the setting is disabled. See `ClientSideTimestamps` below.
         /// </summary>
         [Input("clientSideTimestamps")]
         public Input<Inputs.TableClientSideTimestampsGetArgs>? ClientSideTimestamps { get; set; }
 
         /// <summary>
-        /// A description of the table.
+        /// Description of the table. See `Comment` below.
         /// </summary>
         [Input("comment")]
         public Input<Inputs.TableCommentGetArgs>? Comment { get; set; }
 
         /// <summary>
-        /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        /// Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
         [Input("defaultTimeToLive")]
         public Input<int>? DefaultTimeToLive { get; set; }
 
         /// <summary>
-        /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        /// Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `EncryptionSpecification` below.
         /// </summary>
         [Input("encryptionSpecification")]
         public Input<Inputs.TableEncryptionSpecificationGetArgs>? EncryptionSpecification { get; set; }
 
         /// <summary>
-        /// The name of the keyspace that the table is going to be created in.
+        /// Name of the keyspace that the table is going to be created in.
         /// </summary>
         [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
 
         /// <summary>
-        /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        /// Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `PointInTimeRecovery` below.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryGetArgs>? PointInTimeRecovery { get; set; }
@@ -337,13 +337,13 @@ namespace Pulumi.Aws.Keyspaces
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Describes the schema of the table.
+        /// Schema of the table. See `SchemaDefinition` below.
         /// </summary>
         [Input("schemaDefinition")]
         public Input<Inputs.TableSchemaDefinitionGetArgs>? SchemaDefinition { get; set; }
 
         /// <summary>
-        /// The name of the table.
+        /// Name of the table.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Keyspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Keyspaces
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Keyspaces
         }
 
         /// <summary>
-        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `Ttl` below.
         /// </summary>
         [Input("ttl")]
         public Input<Inputs.TableTtlGetArgs>? Ttl { get; set; }

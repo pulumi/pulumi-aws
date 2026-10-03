@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalyticsApplicationOutputLambda {
-    /**
-     * @return The ARN of the Lambda function.
-     * 
-     */
     private String resourceArn;
-    /**
-     * @return The ARN of the IAM Role used to access the Lambda function.
-     * 
-     */
     private String roleArn;
 
     private AnalyticsApplicationOutputLambda() {}
-    /**
-     * @return The ARN of the Lambda function.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * @return The ARN of the IAM Role used to access the Lambda function.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

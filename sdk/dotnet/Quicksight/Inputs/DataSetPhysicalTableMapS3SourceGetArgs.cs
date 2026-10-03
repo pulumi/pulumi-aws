@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetPhysicalTableMapS3SourceInputColumnGetArgs>? _inputColumns;
 
         /// <summary>
-        /// Column schema of the table. See input_columns.
+        /// Column schema of the table. See `InputColumns` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapS3SourceInputColumnGetArgs> InputColumns
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         }
 
         /// <summary>
-        /// Information about the format for the S3 source file or files. See upload_settings.
+        /// Information about the format for the S3 source file or files. See `UploadSettings` Block below.
         /// </summary>
         [Input("uploadSettings", required: true)]
         public Input<Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsGetArgs> UploadSettings { get; set; } = null!;

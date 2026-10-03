@@ -20,20 +20,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     public static final ReplicaExternalKeyArgs Empty = new ReplicaExternalKeyArgs();
 
     /**
-     * A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      * 
      */
     @Import(name="bypassPolicyLockoutSafetyCheck")
     private @Nullable Output<Boolean> bypassPolicyLockoutSafetyCheck;
 
     /**
-     * @return A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * @return Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> bypassPolicyLockoutSafetyCheck() {
@@ -41,16 +35,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
     @Import(name="deletionWindowInDays")
     private @Nullable Output<Integer> deletionWindowInDays;
 
     /**
-     * @return The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * @return Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
     public Optional<Output<Integer>> deletionWindowInDays() {
@@ -58,14 +50,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A description of the KMS key.
+     * Description of the KMS key.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the KMS key.
+     * @return Description of the KMS key.
      * 
      */
     public Optional<Output<String>> description() {
@@ -73,14 +65,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * @return Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -103,14 +95,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * @return Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -118,14 +110,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
     @Import(name="primaryKeyArn", required=true)
     private Output<String> primaryKeyArn;
 
     /**
-     * @return The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * @return ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
     public Output<String> primaryKeyArn() {
@@ -148,14 +140,14 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -211,10 +203,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bypassPolicyLockoutSafetyCheck A flag to indicate whether to bypass the key policy lockout safety check.
-         * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-         * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-         * The default value is `false`.
+         * @param bypassPolicyLockoutSafetyCheck Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
          * 
          * @return builder
          * 
@@ -225,10 +214,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bypassPolicyLockoutSafetyCheck A flag to indicate whether to bypass the key policy lockout safety check.
-         * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-         * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-         * The default value is `false`.
+         * @param bypassPolicyLockoutSafetyCheck Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
          * 
          * @return builder
          * 
@@ -238,8 +224,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deletionWindowInDays The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-         * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+         * @param deletionWindowInDays Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
          * 
          * @return builder
          * 
@@ -250,8 +235,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deletionWindowInDays The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-         * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+         * @param deletionWindowInDays Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
          * 
          * @return builder
          * 
@@ -261,7 +245,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A description of the KMS key.
+         * @param description Description of the KMS key.
          * 
          * @return builder
          * 
@@ -272,7 +256,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A description of the KMS key.
+         * @param description Description of the KMS key.
          * 
          * @return builder
          * 
@@ -282,7 +266,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+         * @param enabled Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
          * 
          * @return builder
          * 
@@ -293,7 +277,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+         * @param enabled Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
          * 
          * @return builder
          * 
@@ -324,7 +308,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policy The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+         * @param policy Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
          * 
          * @return builder
          * 
@@ -335,7 +319,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policy The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+         * @param policy Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
          * 
          * @return builder
          * 
@@ -345,7 +329,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryKeyArn The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+         * @param primaryKeyArn ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
          * 
          * @return builder
          * 
@@ -356,7 +340,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryKeyArn The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+         * @param primaryKeyArn ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
          * 
          * @return builder
          * 
@@ -387,7 +371,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -398,7 +382,7 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

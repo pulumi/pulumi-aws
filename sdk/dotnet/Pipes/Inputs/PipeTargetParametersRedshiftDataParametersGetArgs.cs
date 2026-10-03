@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersRedshiftDataParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the database. Required when authenticating using temporary credentials.
+        /// Name of the database. Required when authenticating using temporary credentials.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// The database user name. Required when authenticating using temporary credentials.
+        /// Database user name. Required when authenticating using temporary credentials.
         /// </summary>
         [Input("dbUser")]
         public Input<string>? DbUser { get; set; }
 
         /// <summary>
-        /// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+        /// Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
         /// </summary>
         [Input("secretManagerArn")]
         public Input<string>? SecretManagerArn { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        /// Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }
 
         /// <summary>
-        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        /// Whether to send an event back to EventBridge after the SQL statement runs.
         /// </summary>
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }

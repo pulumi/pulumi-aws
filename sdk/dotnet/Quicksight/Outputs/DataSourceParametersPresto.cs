@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersPresto
     {
         /// <summary>
-        /// The catalog to which to connect.
+        /// Catalog to which to connect.
         /// </summary>
         public readonly string Catalog;
         /// <summary>
-        /// The host to which to connect.
+        /// Host to which to connect.
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The port to which to connect.
+        /// Port to which to connect.
         /// </summary>
         public readonly int Port;
 

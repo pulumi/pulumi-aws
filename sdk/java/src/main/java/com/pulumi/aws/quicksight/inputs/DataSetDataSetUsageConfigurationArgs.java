@@ -16,14 +16,14 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
     public static final DataSetDataSetUsageConfigurationArgs Empty = new DataSetDataSetUsageConfigurationArgs();
 
     /**
-     * Controls whether a child dataset of a direct query can use this dataset as a source.
+     * Whether to prevent a child dataset of a direct query from using this dataset as a source.
      * 
      */
     @Import(name="disableUseAsDirectQuerySource")
     private @Nullable Output<Boolean> disableUseAsDirectQuerySource;
 
     /**
-     * @return Controls whether a child dataset of a direct query can use this dataset as a source.
+     * @return Whether to prevent a child dataset of a direct query from using this dataset as a source.
      * 
      */
     public Optional<Output<Boolean>> disableUseAsDirectQuerySource() {
@@ -31,14 +31,14 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+     * Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
      * 
      */
     @Import(name="disableUseAsImportedSource")
     private @Nullable Output<Boolean> disableUseAsImportedSource;
 
     /**
-     * @return Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+     * @return Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
      * 
      */
     public Optional<Output<Boolean>> disableUseAsImportedSource() {
@@ -71,7 +71,7 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param disableUseAsDirectQuerySource Controls whether a child dataset of a direct query can use this dataset as a source.
+         * @param disableUseAsDirectQuerySource Whether to prevent a child dataset of a direct query from using this dataset as a source.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param disableUseAsDirectQuerySource Controls whether a child dataset of a direct query can use this dataset as a source.
+         * @param disableUseAsDirectQuerySource Whether to prevent a child dataset of a direct query from using this dataset as a source.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param disableUseAsImportedSource Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+         * @param disableUseAsImportedSource Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param disableUseAsImportedSource Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+         * @param disableUseAsImportedSource Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
          * 
          * @return builder
          * 

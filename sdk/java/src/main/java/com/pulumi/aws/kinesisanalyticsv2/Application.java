@@ -373,84 +373,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesisanalyticsv2/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
-     * The application&#39;s configuration
+     * Application configuration. See `applicationConfiguration` Block below.
      * 
      */
     @Export(name="applicationConfiguration", refs={ApplicationApplicationConfiguration.class}, tree="[0]")
     private Output<ApplicationApplicationConfiguration> applicationConfiguration;
 
     /**
-     * @return The application&#39;s configuration
+     * @return Application configuration. See `applicationConfiguration` Block below.
      * 
      */
     public Output<ApplicationApplicationConfiguration> applicationConfiguration() {
         return this.applicationConfiguration;
     }
     /**
-     * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
     @Export(name="applicationMode", refs={String.class}, tree="[0]")
     private Output<String> applicationMode;
 
     /**
-     * @return The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * @return Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
     public Output<String> applicationMode() {
         return this.applicationMode;
     }
     /**
-     * The ARN of the application.
+     * ARN of the application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the application.
+     * @return ARN of the application.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A CloudWatch log stream to monitor application configuration errors.
+     * CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      * 
      */
     @Export(name="cloudwatchLoggingOptions", refs={ApplicationCloudwatchLoggingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
     /**
-     * @return A CloudWatch log stream to monitor application configuration errors.
+     * @return CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      * 
      */
     public Output<Optional<ApplicationCloudwatchLoggingOptions>> cloudwatchLoggingOptions() {
         return Codegen.optional(this.cloudwatchLoggingOptions);
     }
     /**
-     * The current timestamp when the application was created.
+     * Current timestamp when the application was created.
      * 
      */
     @Export(name="createTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createTimestamp;
 
     /**
-     * @return The current timestamp when the application was created.
+     * @return Current timestamp when the application was created.
      * 
      */
     public Output<String> createTimestamp() {
         return this.createTimestamp;
     }
     /**
-     * A summary description of the application.
+     * Summary description of the application.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A summary description of the application.
+     * @return Summary description of the application.
      * 
      */
     public Output<Optional<String>> description() {
@@ -471,28 +471,28 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceStop);
     }
     /**
-     * The current timestamp when the application was last updated.
+     * Current timestamp when the application was last updated.
      * 
      */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
     /**
-     * @return The current timestamp when the application was last updated.
+     * @return Current timestamp when the application was last updated.
      * 
      */
     public Output<String> lastUpdateTimestamp() {
         return this.lastUpdateTimestamp;
     }
     /**
-     * The name of the application.
+     * Name of the application.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the application.
+     * @return Name of the application.
      * 
      */
     public Output<String> name() {
@@ -513,28 +513,32 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      * 
      */
     @Export(name="runtimeEnvironment", refs={String.class}, tree="[0]")
     private Output<String> runtimeEnvironment;
 
     /**
-     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * @return Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      * 
      */
     public Output<String> runtimeEnvironment() {
         return this.runtimeEnvironment;
     }
     /**
-     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="serviceExecutionRole", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRole;
 
     /**
-     * @return The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * @return ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceExecutionRole() {
@@ -555,56 +559,56 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startApplication);
     }
     /**
-     * The status of the application.
+     * Status of the application.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the application.
+     * @return Status of the application.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * @return Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      * 
      */
     @Export(name="versionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionId;
 
     /**
-     * @return The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * @return Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      * 
      */
     public Output<Integer> versionId() {

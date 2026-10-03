@@ -14,11 +14,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters
     {
         /// <summary>
-        /// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+        /// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
         /// </summary>
         public readonly string RecordColumnDelimiter;
         /// <summary>
-        /// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+        /// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
         /// </summary>
         public readonly string RecordRowDelimiter;
 

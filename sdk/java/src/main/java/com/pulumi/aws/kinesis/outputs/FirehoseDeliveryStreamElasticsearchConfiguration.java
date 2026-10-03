@@ -28,32 +28,32 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * @return Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     private @Nullable String clusterEndpoint;
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * @return ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     private @Nullable String domainArn;
     /**
-     * @return The Elasticsearch index name.
+     * @return Elasticsearch index name.
      * 
      */
     private String indexName;
     /**
-     * @return The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration;
@@ -63,27 +63,27 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     private String roleArn;
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration;
     /**
-     * @return The Elasticsearch type name with maximum length of 100 characters.
+     * @return Elasticsearch type name with maximum length of 100 characters.
      * 
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig;
@@ -104,42 +104,42 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * @return Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     public Optional<String> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
     }
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * @return ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     public Optional<String> domainArn() {
         return Optional.ofNullable(this.domainArn);
     }
     /**
-     * @return The Elasticsearch index name.
+     * @return Elasticsearch index name.
      * 
      */
     public String indexName() {
         return this.indexName;
     }
     /**
-     * @return The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     public Optional<String> indexRotationPeriod() {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -153,35 +153,35 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The Elasticsearch type name with maximum length of 100 characters.
+     * @return Elasticsearch type name with maximum length of 100 characters.
      * 
      */
     public Optional<String> typeName() {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig> vpcConfig() {

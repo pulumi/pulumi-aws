@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamKinesisSourceConfiguration
     {
         /// <summary>
-        /// The kinesis stream used as the source of the firehose delivery stream.
+        /// Kinesis stream used as the source of the firehose delivery stream.
         /// </summary>
         public readonly string KinesisStreamArn;
         /// <summary>
-        /// The ARN of the role that provides access to the source Kinesis stream.
+        /// ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
         public readonly string RoleArn;
 

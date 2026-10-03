@@ -22,27 +22,27 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+        /// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         /// </summary>
         public readonly int? HecAcknowledgmentTimeout;
         /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+        /// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         /// </summary>
         public readonly string HecEndpoint;
         /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+        /// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
         /// </summary>
         public readonly string? HecEndpointType;
         /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? HecToken;
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -50,14 +50,16 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// `SecretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration S3Configuration;
+        /// <summary>
+        /// Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
+        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
 
         [OutputConstructor]

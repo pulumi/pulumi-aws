@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string ColumnName;
         /// <summary>
-        /// The column tags to remove from this column.
+        /// Column tags to remove from this column.
         /// </summary>
         public readonly ImmutableArray<string> TagNames;
 

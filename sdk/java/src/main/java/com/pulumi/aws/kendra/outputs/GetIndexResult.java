@@ -24,7 +24,7 @@ public final class GetIndexResult {
      */
     private String arn;
     /**
-     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     private List<GetIndexCapacityUnit> capacityUnits;
@@ -39,7 +39,7 @@ public final class GetIndexResult {
      */
     private String description;
     /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Detailed below.
      * 
      */
     private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
@@ -53,13 +53,9 @@ public final class GetIndexResult {
      * 
      */
     private String errorMessage;
-    /**
-     * @return Identifier of the Index.
-     * 
-     */
     private String id;
     /**
-     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     private List<GetIndexIndexStatistic> indexStatistics;
@@ -70,12 +66,12 @@ public final class GetIndexResult {
     private String name;
     private String region;
     /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * @return AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     private String roleArn;
     /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+     * @return Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
@@ -100,12 +96,12 @@ public final class GetIndexResult {
      */
     private String userContextPolicy;
     /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
+     * @return Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Detailed below.
      * 
      */
     private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
     /**
-     * @return A block that specifies the user token configuration. Documented below.
+     * @return Block that specifies the user token configuration. Detailed below.
      * 
      */
     private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
@@ -119,7 +115,7 @@ public final class GetIndexResult {
         return this.arn;
     }
     /**
-     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     public List<GetIndexCapacityUnit> capacityUnits() {
@@ -140,7 +136,7 @@ public final class GetIndexResult {
         return this.description;
     }
     /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Detailed below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates() {
@@ -160,15 +156,11 @@ public final class GetIndexResult {
     public String errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * @return Identifier of the Index.
-     * 
-     */
     public String id() {
         return this.id;
     }
     /**
-     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     public List<GetIndexIndexStatistic> indexStatistics() {
@@ -185,14 +177,14 @@ public final class GetIndexResult {
         return this.region;
     }
     /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * @return AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
+     * @return Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     public List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations() {
@@ -227,14 +219,14 @@ public final class GetIndexResult {
         return this.userContextPolicy;
     }
     /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
+     * @return Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Detailed below.
      * 
      */
     public List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations() {
         return this.userGroupResolutionConfigurations;
     }
     /**
-     * @return A block that specifies the user token configuration. Documented below.
+     * @return Block that specifies the user token configuration. Detailed below.
      * 
      */
     public List<GetIndexUserTokenConfiguration> userTokenConfigurations() {

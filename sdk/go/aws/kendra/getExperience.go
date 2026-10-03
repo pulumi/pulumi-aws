@@ -63,13 +63,13 @@ type LookupExperienceArgs struct {
 type LookupExperienceResult struct {
 	// ARN of the Experience.
 	Arn string `pulumi:"arn"`
-	// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+	// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
 	Configurations []GetExperienceConfiguration `pulumi:"configurations"`
 	// Unix datetime that the Experience was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Description of the Experience.
 	Description string `pulumi:"description"`
-	// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+	// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
 	Endpoints []GetExperienceEndpoint `pulumi:"endpoints"`
 	// Reason your Amazon Kendra Experience could not properly process.
 	ErrorMessage string `pulumi:"errorMessage"`
@@ -127,7 +127,7 @@ func (o LookupExperienceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExperienceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
 func (o LookupExperienceResultOutput) Configurations() GetExperienceConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupExperienceResult) []GetExperienceConfiguration { return v.Configurations }).(GetExperienceConfigurationArrayOutput)
 }
@@ -142,7 +142,7 @@ func (o LookupExperienceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExperienceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
 func (o LookupExperienceResultOutput) Endpoints() GetExperienceEndpointArrayOutput {
 	return o.ApplyT(func(v LookupExperienceResult) []GetExperienceEndpoint { return v.Endpoints }).(GetExperienceEndpointArrayOutput)
 }

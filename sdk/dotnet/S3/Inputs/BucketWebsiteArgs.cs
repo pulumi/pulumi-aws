@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? ErrorDocument { get; set; }
 
         /// <summary>
-        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `RedirectAllRequestsTo`.
         /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }

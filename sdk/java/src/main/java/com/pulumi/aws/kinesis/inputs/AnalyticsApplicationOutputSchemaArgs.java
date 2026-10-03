@@ -15,14 +15,14 @@ public final class AnalyticsApplicationOutputSchemaArgs extends com.pulumi.resou
     public static final AnalyticsApplicationOutputSchemaArgs Empty = new AnalyticsApplicationOutputSchemaArgs();
 
     /**
-     * The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+     * Format Type of the records on the output stream. Can be `CSV` or `JSON`.
      * 
      */
     @Import(name="recordFormatType", required=true)
     private Output<String> recordFormatType;
 
     /**
-     * @return The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+     * @return Format Type of the records on the output stream. Can be `CSV` or `JSON`.
      * 
      */
     public Output<String> recordFormatType() {
@@ -54,7 +54,7 @@ public final class AnalyticsApplicationOutputSchemaArgs extends com.pulumi.resou
         }
 
         /**
-         * @param recordFormatType The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+         * @param recordFormatType Format Type of the records on the output stream. Can be `CSV` or `JSON`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AnalyticsApplicationOutputSchemaArgs extends com.pulumi.resou
         }
 
         /**
-         * @param recordFormatType The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+         * @param recordFormatType Format Type of the records on the output stream. Can be `CSV` or `JSON`.
          * 
          * @return builder
          * 

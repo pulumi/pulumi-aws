@@ -35,14 +35,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the placement group.
+     * Name of the placement group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the placement group.
+     * @return Name of the placement group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -50,18 +50,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      * 
      */
     @Import(name="partitionCount")
     private @Nullable Output<Integer> partitionCount;
 
     /**
-     * @return The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * @return Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -69,14 +65,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the placement group.
+     * ID of the placement group.
      * 
      */
     @Import(name="placementGroupId")
     private @Nullable Output<String> placementGroupId;
 
     /**
-     * @return The ID of the placement group.
+     * @return ID of the placement group.
      * 
      */
     public Optional<Output<String>> placementGroupId() {
@@ -99,16 +95,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     @Import(name="spreadLevel")
     private @Nullable Output<String> spreadLevel;
 
     /**
-     * @return Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * @return How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     public Optional<Output<String>> spreadLevel() {
@@ -116,14 +110,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * Placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     @Import(name="strategy")
     private @Nullable Output<Either<String,PlacementStrategy>> strategy;
 
     /**
-     * @return The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * @return Placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     public Optional<Output<Either<String,PlacementStrategy>>> strategy() {
@@ -146,14 +140,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -214,7 +208,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the placement group.
+         * @param name Name of the placement group.
          * 
          * @return builder
          * 
@@ -225,7 +219,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the placement group.
+         * @param name Name of the placement group.
          * 
          * @return builder
          * 
@@ -235,9 +229,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partitionCount The number of partitions to create in the
-         * placement group.  Can only be specified when the `strategy` is set to
-         * `partition`.  Must be at least `1`. (default is `2`).
+         * @param partitionCount Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
          * 
          * @return builder
          * 
@@ -248,9 +240,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partitionCount The number of partitions to create in the
-         * placement group.  Can only be specified when the `strategy` is set to
-         * `partition`.  Must be at least `1`. (default is `2`).
+         * @param partitionCount Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
          * 
          * @return builder
          * 
@@ -260,7 +250,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param placementGroupId The ID of the placement group.
+         * @param placementGroupId ID of the placement group.
          * 
          * @return builder
          * 
@@ -271,7 +261,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param placementGroupId The ID of the placement group.
+         * @param placementGroupId ID of the placement group.
          * 
          * @return builder
          * 
@@ -302,8 +292,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spreadLevel Determines how placement groups spread instances. Can only be used
-         * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+         * @param spreadLevel How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
          * 
          * @return builder
          * 
@@ -314,8 +303,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spreadLevel Determines how placement groups spread instances. Can only be used
-         * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+         * @param spreadLevel How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
          * 
          * @return builder
          * 
@@ -325,7 +313,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
+         * @param strategy Placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -336,7 +324,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
+         * @param strategy Placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -346,7 +334,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
+         * @param strategy Placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -356,7 +344,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
+         * @param strategy Placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -387,7 +375,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -398,7 +386,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

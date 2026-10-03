@@ -66,7 +66,7 @@ export class ClusterIamRoles extends pulumi.CustomResource {
      */
     declare public readonly defaultIamRoleArn: pulumi.Output<string>;
     /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      */
     declare public readonly iamRoleArns: pulumi.Output<string[]>;
     /**
@@ -119,7 +119,7 @@ export interface ClusterIamRolesState {
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface ClusterIamRolesArgs {
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

@@ -15,14 +15,18 @@ public final class DataSetPhysicalTableMapCustomSqlColumnArgs extends com.pulumi
     public static final DataSetPhysicalTableMapCustomSqlColumnArgs Empty = new DataSetPhysicalTableMapCustomSqlColumnArgs();
 
     /**
-     * Name of this column in the underlying data source.
+     * Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of this column in the underlying data source.
+     * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -70,7 +74,9 @@ public final class DataSetPhysicalTableMapCustomSqlColumnArgs extends com.pulumi
         }
 
         /**
-         * @param name Name of this column in the underlying data source.
+         * @param name Display name for the dataset.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -81,7 +87,9 @@ public final class DataSetPhysicalTableMapCustomSqlColumnArgs extends com.pulumi
         }
 
         /**
-         * @param name Name of this column in the underlying data source.
+         * @param name Display name for the dataset.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

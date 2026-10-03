@@ -179,28 +179,28 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The time that the template was created.
+     * Time that the template was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return The time that the template was created.
+     * @return Time that the template was created.
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * The time that the template was last updated.
+     * Time that the template was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the template was last updated.
+     * @return Time that the template was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
@@ -221,14 +221,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Export(name="permissions", refs={List.class,TemplatePermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TemplatePermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Output<Optional<List<TemplatePermission>>> permissions() {
@@ -249,14 +249,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     @Export(name="sourceEntity", refs={TemplateSourceEntity.class}, tree="[0]")
     private Output</* @Nullable */ TemplateSourceEntity> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     public Output<Optional<TemplateSourceEntity>> sourceEntity() {
@@ -277,14 +277,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.sourceEntityArn;
     }
     /**
-     * The template creation status.
+     * Template creation status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The template creation status.
+     * @return Template creation status.
      * 
      */
     public Output<String> status() {
@@ -305,14 +305,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -333,7 +333,7 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.templateId;
     }
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -342,7 +342,7 @@ public class Template extends com.pulumi.resources.CustomResource {
     private Output<String> versionDescription;
 
     /**
-     * @return A description of the current template version being created/updated.
+     * @return Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -351,14 +351,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return this.versionDescription;
     }
     /**
-     * The version number of the template version.
+     * Version number of the template version.
      * 
      */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the template version.
+     * @return Version number of the template version.
      * 
      */
     public Output<Integer> versionNumber() {

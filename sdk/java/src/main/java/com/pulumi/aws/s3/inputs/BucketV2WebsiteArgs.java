@@ -31,14 +31,14 @@ public final class BucketV2WebsiteArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+     * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
      * 
      */
     @Import(name="indexDocument")
     private @Nullable Output<String> indexDocument;
 
     /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
      * 
      */
     public Optional<Output<String>> indexDocument() {
@@ -124,7 +124,7 @@ public final class BucketV2WebsiteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class BucketV2WebsiteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
          * 
          * @return builder
          * 

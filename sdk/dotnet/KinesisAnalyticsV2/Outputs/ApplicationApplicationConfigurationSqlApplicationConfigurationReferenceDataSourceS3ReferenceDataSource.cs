@@ -14,11 +14,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource
     {
         /// <summary>
-        /// The ARN of the S3 bucket.
+        /// ARN of the S3 bucket.
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
-        /// The object key name containing the reference data.
+        /// Object key name containing the reference data.
         /// </summary>
         public readonly string FileKey;
 

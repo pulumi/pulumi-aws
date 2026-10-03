@@ -14,7 +14,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     public sealed class ScheduledQueryRecentlyFailedRunErrorReportLocation
     {
         /// <summary>
-        /// S3 location where error reports are written.
+        /// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation> S3ReportLocations;
 

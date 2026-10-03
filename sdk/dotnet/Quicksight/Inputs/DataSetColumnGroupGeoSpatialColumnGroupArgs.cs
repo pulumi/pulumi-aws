@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// A display name for the hierarchy.
+        /// Display name for the hierarchy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

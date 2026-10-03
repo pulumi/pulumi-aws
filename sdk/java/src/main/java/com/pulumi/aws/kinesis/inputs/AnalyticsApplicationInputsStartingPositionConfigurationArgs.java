@@ -16,14 +16,14 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs e
     public static final AnalyticsApplicationInputsStartingPositionConfigurationArgs Empty = new AnalyticsApplicationInputsStartingPositionConfigurationArgs();
 
     /**
-     * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+     * Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
     @Import(name="startingPosition")
     private @Nullable Output<String> startingPosition;
 
     /**
-     * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+     * @return Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
     public Optional<Output<String>> startingPosition() {
@@ -55,7 +55,7 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs e
         }
 
         /**
-         * @param startingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * @param startingPosition Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs e
         }
 
         /**
-         * @param startingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * @param startingPosition Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          * 
          * @return builder
          * 

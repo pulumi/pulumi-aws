@@ -222,18 +222,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
+     * JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      * 
      */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
     /**
-     * @return The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
+     * @return JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      * 
      */
     public Output<String> policyDocument() {
@@ -254,14 +250,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The revision ID of the current resource-based policy.
+     * Revision ID of the current resource-based policy.
      * 
      */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
     /**
-     * @return The revision ID of the current resource-based policy.
+     * @return Revision ID of the current resource-based policy.
      * 
      */
     public Output<String> revisionId() {
@@ -274,14 +270,18 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the workspace to attach the resource-based policy to.
+     * ID of the workspace to attach the resource-based policy to.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the workspace to attach the resource-based policy to.
+     * @return ID of the workspace to attach the resource-based policy to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workspaceId() {

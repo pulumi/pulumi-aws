@@ -16,7 +16,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationGetArgs>? _errorReportLocations;
 
         /// <summary>
-        /// S3 location for error report.
+        /// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunErrorReportLocationGetArgs> ErrorReportLocations
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunExecutionStatGetArgs>? _executionStats;
 
         /// <summary>
-        /// Statistics for a single scheduled query run.
+        /// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunExecutionStatGetArgs> ExecutionStats
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseGetArgs>? _queryInsightsResponses;
 
         /// <summary>
-        /// Various insights and metrics related to the run summary of the scheduled query.
+        /// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseGetArgs> QueryInsightsResponses
         {

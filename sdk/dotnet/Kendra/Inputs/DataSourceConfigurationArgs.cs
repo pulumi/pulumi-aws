@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class DataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+        /// Configuration information to connect to an Amazon S3 bucket as your data source. Required when `Type` is set to `S3`. Detailed below.
         /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.DataSourceConfigurationS3ConfigurationArgs>? S3Configuration { get; set; }
 
         /// <summary>
-        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        /// Configuration information required for Amazon Kendra Web Crawler. Required when `Type` is set to `TEMPLATE`. Detailed below.
         /// </summary>
         [Input("templateConfiguration")]
         public Input<Inputs.DataSourceConfigurationTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
 
         /// <summary>
-        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        /// Configuration information required for Amazon Kendra Web Crawler. Required when `Type` is set to `WEBCRAWLER`. Detailed below.
         /// </summary>
         [Input("webCrawlerConfiguration")]
         public Input<Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs>? WebCrawlerConfiguration { get; set; }

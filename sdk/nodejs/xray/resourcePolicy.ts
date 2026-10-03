@@ -70,7 +70,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+     * Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      */
     declare public readonly bypassPolicyLockoutCheck: pulumi.Output<boolean | undefined>;
     /**
@@ -79,16 +79,16 @@ export class ResourcePolicy extends pulumi.CustomResource {
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     *
-     * The following arguments are optional:
      */
     declare public readonly policyDocument: pulumi.Output<string>;
     /**
      * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     *
+     * The following arguments are optional:
      */
     declare public readonly policyName: pulumi.Output<string>;
     /**
-     * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+     * Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      */
     declare public readonly policyRevisionId: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+     * Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      */
     bypassPolicyLockoutCheck?: pulumi.Input<boolean | undefined>;
     /**
@@ -149,16 +149,16 @@ export interface ResourcePolicyState {
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     *
-     * The following arguments are optional:
      */
     policyDocument?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     *
+     * The following arguments are optional:
      */
     policyName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+     * Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      */
     policyRevisionId?: pulumi.Input<string | undefined>;
     /**
@@ -172,21 +172,21 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+     * Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      */
     bypassPolicyLockoutCheck?: pulumi.Input<boolean | undefined>;
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     *
-     * The following arguments are optional:
      */
     policyDocument: pulumi.Input<string>;
     /**
      * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     *
+     * The following arguments are optional:
      */
     policyName: pulumi.Input<string>;
     /**
-     * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+     * Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      */
     policyRevisionId?: pulumi.Input<string | undefined>;
     /**

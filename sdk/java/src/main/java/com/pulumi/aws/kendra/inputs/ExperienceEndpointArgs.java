@@ -16,14 +16,14 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
     public static final ExperienceEndpointArgs Empty = new ExperienceEndpointArgs();
 
     /**
-     * The endpoint of your Amazon Kendra experience.
+     * Endpoint of your Amazon Kendra experience.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The endpoint of your Amazon Kendra experience.
+     * @return Endpoint of your Amazon Kendra experience.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -31,14 +31,14 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of endpoint for your Amazon Kendra experience.
+     * Type of endpoint for your Amazon Kendra experience.
      * 
      */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
     /**
-     * @return The type of endpoint for your Amazon Kendra experience.
+     * @return Type of endpoint for your Amazon Kendra experience.
      * 
      */
     public Optional<Output<String>> endpointType() {
@@ -71,7 +71,7 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param endpoint The endpoint of your Amazon Kendra experience.
+         * @param endpoint Endpoint of your Amazon Kendra experience.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param endpoint The endpoint of your Amazon Kendra experience.
+         * @param endpoint Endpoint of your Amazon Kendra experience.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param endpointType The type of endpoint for your Amazon Kendra experience.
+         * @param endpointType Type of endpoint for your Amazon Kendra experience.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param endpointType The type of endpoint for your Amazon Kendra experience.
+         * @param endpointType Type of endpoint for your Amazon Kendra experience.
          * 
          * @return builder
          * 

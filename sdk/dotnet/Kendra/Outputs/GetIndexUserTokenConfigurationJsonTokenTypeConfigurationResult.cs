@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult
     {
         /// <summary>
-        /// The group attribute field.
+        /// Group attribute field.
         /// </summary>
         public readonly string GroupAttributeField;
         /// <summary>
-        /// The user name attribute field.
+        /// User name attribute field.
         /// </summary>
         public readonly string UserNameAttributeField;
 

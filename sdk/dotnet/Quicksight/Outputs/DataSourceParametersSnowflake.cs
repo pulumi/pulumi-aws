@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersSnowflake
     {
         /// <summary>
-        /// The database to which to connect.
+        /// Database to which to connect.
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// The host to which to connect.
+        /// Host to which to connect.
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The warehouse to which to connect.
+        /// Warehouse to which to connect.
         /// </summary>
         public readonly string Warehouse;
 

@@ -17,14 +17,14 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
     public static final ThemeConfigurationTypographyArgs Empty = new ThemeConfigurationTypographyArgs();
 
     /**
-     * Determines the list of font families. Maximum number of 5 items. See font_families.
+     * List of font families. Maximum number of 5 items. See font_families.
      * 
      */
     @Import(name="fontFamilies")
     private @Nullable Output<List<ThemeConfigurationTypographyFontFamilyArgs>> fontFamilies;
 
     /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
+     * @return List of font families. Maximum number of 5 items. See font_families.
      * 
      */
     public Optional<Output<List<ThemeConfigurationTypographyFontFamilyArgs>>> fontFamilies() {
@@ -56,7 +56,7 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
+         * @param fontFamilies List of font families. Maximum number of 5 items. See font_families.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
+         * @param fontFamilies List of font families. Maximum number of 5 items. See font_families.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ThemeConfigurationTypographyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param fontFamilies Determines the list of font families. Maximum number of 5 items. See font_families.
+         * @param fontFamilies List of font families. Maximum number of 5 items. See font_families.
          * 
          * @return builder
          * 

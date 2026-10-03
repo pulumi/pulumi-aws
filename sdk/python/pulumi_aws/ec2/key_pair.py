@@ -27,8 +27,8 @@ class KeyPairArgs:
         """
         The set of arguments for constructing a KeyPair resource.
 
-        :param pulumi.Input[_builtins.str] public_key: The public key material.
-        :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        :param pulumi.Input[_builtins.str] public_key: Public key material.
+        :param pulumi.Input[_builtins.str] key_name: Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         :param pulumi.Input[_builtins.str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -47,7 +47,7 @@ class KeyPairArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[_builtins.str]:
         """
-        The public key material.
+        Public key material.
         """
         return pulumi.get(self, "public_key")
 
@@ -59,7 +59,7 @@ class KeyPairArgs:
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         """
         return pulumi.get(self, "key_name")
 
@@ -120,16 +120,16 @@ class _KeyPairState:
         """
         Input properties used for looking up and filtering KeyPair resources.
 
-        :param pulumi.Input[_builtins.str] arn: The key pair ARN.
-        :param pulumi.Input[_builtins.str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        :param pulumi.Input[_builtins.str] arn: Key pair ARN.
+        :param pulumi.Input[_builtins.str] fingerprint: MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        :param pulumi.Input[_builtins.str] key_name: Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         :param pulumi.Input[_builtins.str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
-        :param pulumi.Input[_builtins.str] key_pair_id: The key pair ID.
-        :param pulumi.Input[_builtins.str] key_type: The type of key pair.
-        :param pulumi.Input[_builtins.str] public_key: The public key material.
+        :param pulumi.Input[_builtins.str] key_pair_id: Key pair ID.
+        :param pulumi.Input[_builtins.str] key_type: Type of key pair.
+        :param pulumi.Input[_builtins.str] public_key: Public key material.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -156,7 +156,7 @@ class _KeyPairState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The key pair ARN.
+        Key pair ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -168,7 +168,7 @@ class _KeyPairState:
     @pulumi.getter
     def fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        MD5 public key fingerprint as specified in section 4 of RFC 4716.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -180,7 +180,7 @@ class _KeyPairState:
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         """
         return pulumi.get(self, "key_name")
 
@@ -204,7 +204,7 @@ class _KeyPairState:
     @pulumi.getter(name="keyPairId")
     def key_pair_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The key pair ID.
+        Key pair ID.
         """
         return pulumi.get(self, "key_pair_id")
 
@@ -216,7 +216,7 @@ class _KeyPairState:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of key pair.
+        Type of key pair.
         """
         return pulumi.get(self, "key_type")
 
@@ -228,7 +228,7 @@ class _KeyPairState:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The public key material.
+        Public key material.
         """
         return pulumi.get(self, "public_key")
 
@@ -264,7 +264,7 @@ class _KeyPairState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -329,9 +329,9 @@ class KeyPair(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        :param pulumi.Input[_builtins.str] key_name: Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         :param pulumi.Input[_builtins.str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
-        :param pulumi.Input[_builtins.str] public_key: The public key material.
+        :param pulumi.Input[_builtins.str] public_key: Public key material.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -451,16 +451,16 @@ class KeyPair(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The key pair ARN.
-        :param pulumi.Input[_builtins.str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        :param pulumi.Input[_builtins.str] arn: Key pair ARN.
+        :param pulumi.Input[_builtins.str] fingerprint: MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        :param pulumi.Input[_builtins.str] key_name: Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         :param pulumi.Input[_builtins.str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
-        :param pulumi.Input[_builtins.str] key_pair_id: The key pair ID.
-        :param pulumi.Input[_builtins.str] key_type: The type of key pair.
-        :param pulumi.Input[_builtins.str] public_key: The public key material.
+        :param pulumi.Input[_builtins.str] key_pair_id: Key pair ID.
+        :param pulumi.Input[_builtins.str] key_type: Type of key pair.
+        :param pulumi.Input[_builtins.str] public_key: Public key material.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -482,7 +482,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The key pair ARN.
+        Key pair ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -490,7 +490,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[_builtins.str]:
         """
-        The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        MD5 public key fingerprint as specified in section 4 of RFC 4716.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -498,7 +498,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        Name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         """
         return pulumi.get(self, "key_name")
 
@@ -514,7 +514,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyPairId")
     def key_pair_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The key pair ID.
+        Key pair ID.
         """
         return pulumi.get(self, "key_pair_id")
 
@@ -522,7 +522,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of key pair.
+        Type of key pair.
         """
         return pulumi.get(self, "key_type")
 
@@ -530,7 +530,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[_builtins.str]:
         """
-        The public key material.
+        Public key material.
         """
         return pulumi.get(self, "public_key")
 
@@ -554,7 +554,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

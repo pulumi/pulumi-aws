@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableSchemaCompositePartitionKey {
+    /**
+     * @return Level of enforcement for the specification of a dimension key in ingested records.
+     * 
+     */
     private String enforcementInRecord;
     /**
      * @return Name of the Timestream table.
@@ -23,6 +27,10 @@ public final class GetTableSchemaCompositePartitionKey {
     private String type;
 
     private GetTableSchemaCompositePartitionKey() {}
+    /**
+     * @return Level of enforcement for the specification of a dimension key in ingested records.
+     * 
+     */
     public String enforcementInRecord() {
         return this.enforcementInRecord;
     }

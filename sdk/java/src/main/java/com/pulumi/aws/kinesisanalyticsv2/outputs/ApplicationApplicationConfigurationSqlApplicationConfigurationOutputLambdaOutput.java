@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
     /**
-     * @return The ARN of the destination Lambda function to write to.
+     * @return ARN of the destination Lambda function to write to.
      * 
      */
     private String resourceArn;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput() {}
     /**
-     * @return The ARN of the destination Lambda function to write to.
+     * @return ARN of the destination Lambda function to write to.
      * 
      */
     public String resourceArn() {

@@ -155,7 +155,7 @@ func (o DbClusterLogDeliveryConfigurationPtrOutput) S3Configuration() DbClusterL
 type DbClusterLogDeliveryConfigurationS3Configuration struct {
 	// Name of the S3 bucket to deliver logs to.
 	BucketName string `pulumi:"bucketName"`
-	// Indicates whether log delivery to the S3 bucket is enabled.
+	// Whether log delivery to the S3 bucket is enabled.
 	//
 	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 	Enabled bool `pulumi:"enabled"`
@@ -175,7 +175,7 @@ type DbClusterLogDeliveryConfigurationS3ConfigurationInput interface {
 type DbClusterLogDeliveryConfigurationS3ConfigurationArgs struct {
 	// Name of the S3 bucket to deliver logs to.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Indicates whether log delivery to the S3 bucket is enabled.
+	// Whether log delivery to the S3 bucket is enabled.
 	//
 	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -263,7 +263,7 @@ func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) BucketName() pul
 	return o.ApplyT(func(v DbClusterLogDeliveryConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Indicates whether log delivery to the S3 bucket is enabled.
+// Whether log delivery to the S3 bucket is enabled.
 //
 // **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) Enabled() pulumi.BoolOutput {
@@ -304,7 +304,7 @@ func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) BucketName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether log delivery to the S3 bucket is enabled.
+// Whether log delivery to the S3 bucket is enabled.
 //
 // **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -789,7 +789,7 @@ func (o DbInstanceLogDeliveryConfigurationPtrOutput) S3Configuration() DbInstanc
 type DbInstanceLogDeliveryConfigurationS3Configuration struct {
 	// Name of the S3 bucket to deliver logs to.
 	BucketName string `pulumi:"bucketName"`
-	// Indicates whether log delivery to the S3 bucket is enabled.
+	// Whether log delivery to the S3 bucket is enabled.
 	//
 	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `deploymentType`, `dbInstanceType`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
 	Enabled bool `pulumi:"enabled"`
@@ -809,7 +809,7 @@ type DbInstanceLogDeliveryConfigurationS3ConfigurationInput interface {
 type DbInstanceLogDeliveryConfigurationS3ConfigurationArgs struct {
 	// Name of the S3 bucket to deliver logs to.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Indicates whether log delivery to the S3 bucket is enabled.
+	// Whether log delivery to the S3 bucket is enabled.
 	//
 	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `deploymentType`, `dbInstanceType`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -897,7 +897,7 @@ func (o DbInstanceLogDeliveryConfigurationS3ConfigurationOutput) BucketName() pu
 	return o.ApplyT(func(v DbInstanceLogDeliveryConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Indicates whether log delivery to the S3 bucket is enabled.
+// Whether log delivery to the S3 bucket is enabled.
 //
 // **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `deploymentType`, `dbInstanceType`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
 func (o DbInstanceLogDeliveryConfigurationS3ConfigurationOutput) Enabled() pulumi.BoolOutput {
@@ -938,7 +938,7 @@ func (o DbInstanceLogDeliveryConfigurationS3ConfigurationPtrOutput) BucketName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether log delivery to the S3 bucket is enabled.
+// Whether log delivery to the S3 bucket is enabled.
 //
 // **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `deploymentType`, `dbInstanceType`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
 func (o DbInstanceLogDeliveryConfigurationS3ConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {

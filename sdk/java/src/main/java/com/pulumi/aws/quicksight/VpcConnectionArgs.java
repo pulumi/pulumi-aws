@@ -35,14 +35,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * List of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
     @Import(name="dnsResolvers")
     private @Nullable Output<List<String>> dnsResolvers;
 
     /**
-     * @return A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * @return List of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
     public Optional<Output<List<String>>> dnsResolvers() {
@@ -50,14 +50,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The display name for the VPC connection.
+     * Display name for the VPC connection.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The display name for the VPC connection.
+     * @return Display name for the VPC connection.
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,14 +80,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role to associate with the VPC connection.
+     * IAM role to associate with the VPC connection.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role to associate with the VPC connection.
+     * @return IAM role to associate with the VPC connection.
      * 
      */
     public Output<String> roleArn() {
@@ -95,14 +95,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of security group IDs for the VPC connection.
+     * List of security group IDs for the VPC connection.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of security group IDs for the VPC connection.
+     * @return List of security group IDs for the VPC connection.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -110,18 +110,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
+     * List of subnet IDs for the VPC connection.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
+     * @return List of subnet IDs for the VPC connection.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -151,14 +147,18 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VPC connection.
+     * ID of the VPC connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="vpcConnectionId", required=true)
     private Output<String> vpcConnectionId;
 
     /**
-     * @return The ID of the VPC connection.
+     * @return ID of the VPC connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcConnectionId() {
@@ -220,7 +220,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
+         * @param dnsResolvers List of IP addresses of DNS resolver endpoints for the VPC connection.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
+         * @param dnsResolvers List of IP addresses of DNS resolver endpoints for the VPC connection.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
+         * @param dnsResolvers List of IP addresses of DNS resolver endpoints for the VPC connection.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name for the VPC connection.
+         * @param name Display name for the VPC connection.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The display name for the VPC connection.
+         * @param name Display name for the VPC connection.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role to associate with the VPC connection.
+         * @param roleArn IAM role to associate with the VPC connection.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role to associate with the VPC connection.
+         * @param roleArn IAM role to associate with the VPC connection.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
+         * @param securityGroupIds List of security group IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
+         * @param securityGroupIds List of security group IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
+         * @param securityGroupIds List of security group IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -345,9 +345,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds List of subnet IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -358,9 +356,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds List of subnet IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -370,9 +366,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds List of subnet IDs for the VPC connection.
          * 
          * @return builder
          * 
@@ -412,7 +406,9 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectionId The ID of the VPC connection.
+         * @param vpcConnectionId ID of the VPC connection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -423,7 +419,9 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectionId The ID of the VPC connection.
+         * @param vpcConnectionId ID of the VPC connection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
     public static final PipeTargetParametersBatchJobParametersContainerOverridesArgs Empty = new PipeTargetParametersBatchJobParametersContainerOverridesArgs();
 
     /**
-     * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+     * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
     /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     public Optional<Output<List<String>>> commands() {
@@ -34,14 +34,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
     }
 
     /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+     * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>> environments;
 
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+     * @return Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs>>> environments() {
@@ -49,14 +49,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
     }
 
     /**
-     * The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
+     * Instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
+     * @return Instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -64,14 +64,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
     }
 
     /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+     * Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
      * 
      */
     @Import(name="resourceRequirements")
     private @Nullable Output<List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>> resourceRequirements;
 
     /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+     * @return Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs>>> resourceRequirements() {
@@ -106,7 +106,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         * @param commands List of commands to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param instanceType The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
+         * @param instanceType Instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param instanceType The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
+         * @param instanceType Instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesArgs 
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
          * 
          * @return builder
          * 

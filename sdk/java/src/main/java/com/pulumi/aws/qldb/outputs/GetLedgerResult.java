@@ -12,23 +12,51 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLedgerResult {
+    /**
+     * @return ARN of the QLDB Ledger.
+     * 
+     */
     private String arn;
+    /**
+     * @return Deletion protection setting of the QLDB Ledger.
+     * 
+     */
     private Boolean deletionProtection;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return KMS key used for encryption of data at rest in the ledger.
+     * 
+     */
     private String kmsKey;
     private String name;
+    /**
+     * @return Permissions mode of the QLDB Ledger.
+     * 
+     */
     private String permissionsMode;
     private String region;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetLedgerResult() {}
+    /**
+     * @return ARN of the QLDB Ledger.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Deletion protection setting of the QLDB Ledger.
+     * 
+     */
     public Boolean deletionProtection() {
         return this.deletionProtection;
     }
@@ -39,18 +67,30 @@ public final class GetLedgerResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return KMS key used for encryption of data at rest in the ledger.
+     * 
+     */
     public String kmsKey() {
         return this.kmsKey;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return Permissions mode of the QLDB Ledger.
+     * 
+     */
     public String permissionsMode() {
         return this.permissionsMode;
     }
     public String region() {
         return this.region;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

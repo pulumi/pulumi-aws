@@ -15,14 +15,14 @@ public final class DataSetRefreshPropertiesRefreshConfigurationArgs extends com.
     public static final DataSetRefreshPropertiesRefreshConfigurationArgs Empty = new DataSetRefreshPropertiesRefreshConfigurationArgs();
 
     /**
-     * The incremental refresh for the data set. See incremental_refresh.
+     * Incremental refresh for the data set. See `incrementalRefresh` Block below.
      * 
      */
     @Import(name="incrementalRefresh", required=true)
     private Output<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs> incrementalRefresh;
 
     /**
-     * @return The incremental refresh for the data set. See incremental_refresh.
+     * @return Incremental refresh for the data set. See `incrementalRefresh` Block below.
      * 
      */
     public Output<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs> incrementalRefresh() {
@@ -54,7 +54,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationArgs extends com.
         }
 
         /**
-         * @param incrementalRefresh The incremental refresh for the data set. See incremental_refresh.
+         * @param incrementalRefresh Incremental refresh for the data set. See `incrementalRefresh` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationArgs extends com.
         }
 
         /**
-         * @param incrementalRefresh The incremental refresh for the data set. See incremental_refresh.
+         * @param incrementalRefresh Incremental refresh for the data set. See `incrementalRefresh` Block below.
          * 
          * @return builder
          * 

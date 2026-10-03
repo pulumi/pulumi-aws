@@ -21,14 +21,14 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
     public static final TableSchemaDefinitionArgs Empty = new TableSchemaDefinitionArgs();
 
     /**
-     * The columns that are part of the clustering key of the table.
+     * Columns that are part of the clustering key of the table. See `clusteringKey` below.
      * 
      */
     @Import(name="clusteringKeys")
     private @Nullable Output<List<TableSchemaDefinitionClusteringKeyArgs>> clusteringKeys;
 
     /**
-     * @return The columns that are part of the clustering key of the table.
+     * @return Columns that are part of the clustering key of the table. See `clusteringKey` below.
      * 
      */
     public Optional<Output<List<TableSchemaDefinitionClusteringKeyArgs>>> clusteringKeys() {
@@ -36,14 +36,14 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The regular columns of the table.
+     * Regular columns of the table. See `column` below.
      * 
      */
     @Import(name="columns", required=true)
     private Output<List<TableSchemaDefinitionColumnArgs>> columns;
 
     /**
-     * @return The regular columns of the table.
+     * @return Regular columns of the table. See `column` below.
      * 
      */
     public Output<List<TableSchemaDefinitionColumnArgs>> columns() {
@@ -51,14 +51,14 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The columns that are part of the partition key of the table .
+     * Columns that are part of the partition key of the table. See `partitionKey` below.
      * 
      */
     @Import(name="partitionKeys", required=true)
     private Output<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys;
 
     /**
-     * @return The columns that are part of the partition key of the table .
+     * @return Columns that are part of the partition key of the table. See `partitionKey` below.
      * 
      */
     public Output<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys() {
@@ -66,14 +66,14 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+     * Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
      * 
      */
     @Import(name="staticColumns")
     private @Nullable Output<List<TableSchemaDefinitionStaticColumnArgs>> staticColumns;
 
     /**
-     * @return The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+     * @return Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
      * 
      */
     public Optional<Output<List<TableSchemaDefinitionStaticColumnArgs>>> staticColumns() {
@@ -108,7 +108,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
+         * @param clusteringKeys Columns that are part of the clustering key of the table. See `clusteringKey` below.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
+         * @param clusteringKeys Columns that are part of the clustering key of the table. See `clusteringKey` below.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
+         * @param clusteringKeys Columns that are part of the clustering key of the table. See `clusteringKey` below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param columns The regular columns of the table.
+         * @param columns Regular columns of the table. See `column` below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param columns The regular columns of the table.
+         * @param columns Regular columns of the table. See `column` below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param columns The regular columns of the table.
+         * @param columns Regular columns of the table. See `column` below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
+         * @param partitionKeys Columns that are part of the partition key of the table. See `partitionKey` below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
+         * @param partitionKeys Columns that are part of the partition key of the table. See `partitionKey` below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
+         * @param partitionKeys Columns that are part of the partition key of the table. See `partitionKey` below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+         * @param staticColumns Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+         * @param staticColumns Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+         * @param staticColumns Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
          * 
          * @return builder
          * 

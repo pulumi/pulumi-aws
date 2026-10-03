@@ -19,14 +19,14 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
     public static final PipeTargetParametersRedshiftDataParametersArgs Empty = new PipeTargetParametersRedshiftDataParametersArgs();
 
     /**
-     * The name of the database. Required when authenticating using temporary credentials.
+     * Name of the database. Required when authenticating using temporary credentials.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The name of the database. Required when authenticating using temporary credentials.
+     * @return Name of the database. Required when authenticating using temporary credentials.
      * 
      */
     public Output<String> database() {
@@ -34,14 +34,14 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
     }
 
     /**
-     * The database user name. Required when authenticating using temporary credentials.
+     * Database user name. Required when authenticating using temporary credentials.
      * 
      */
     @Import(name="dbUser")
     private @Nullable Output<String> dbUser;
 
     /**
-     * @return The database user name. Required when authenticating using temporary credentials.
+     * @return Database user name. Required when authenticating using temporary credentials.
      * 
      */
     public Optional<Output<String>> dbUser() {
@@ -49,14 +49,14 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
     }
 
     /**
-     * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+     * Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
      * 
      */
     @Import(name="secretManagerArn")
     private @Nullable Output<String> secretManagerArn;
 
     /**
-     * @return The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+     * @return Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
      * 
      */
     public Optional<Output<String>> secretManagerArn() {
@@ -79,14 +79,14 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
     }
 
     /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     * Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
     @Import(name="statementName")
     private @Nullable Output<String> statementName;
 
     /**
-     * @return The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     * @return Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
     public Optional<Output<String>> statementName() {
@@ -94,14 +94,14 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
     }
 
     /**
-     * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+     * Whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
     @Import(name="withEvent")
     private @Nullable Output<Boolean> withEvent;
 
     /**
-     * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
+     * @return Whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
     public Optional<Output<Boolean>> withEvent() {
@@ -138,7 +138,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param database The name of the database. Required when authenticating using temporary credentials.
+         * @param database Name of the database. Required when authenticating using temporary credentials.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param database The name of the database. Required when authenticating using temporary credentials.
+         * @param database Name of the database. Required when authenticating using temporary credentials.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param dbUser The database user name. Required when authenticating using temporary credentials.
+         * @param dbUser Database user name. Required when authenticating using temporary credentials.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param dbUser The database user name. Required when authenticating using temporary credentials.
+         * @param dbUser Database user name. Required when authenticating using temporary credentials.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param secretManagerArn The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+         * @param secretManagerArn Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param secretManagerArn The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+         * @param secretManagerArn Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param statementName The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+         * @param statementName Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param statementName The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+         * @param statementName Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param withEvent Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         * @param withEvent Whether to send an event back to EventBridge after the SQL statement runs.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         /**
-         * @param withEvent Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         * @param withEvent Whether to send an event back to EventBridge after the SQL statement runs.
          * 
          * @return builder
          * 

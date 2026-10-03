@@ -35,15 +35,15 @@ class DataSourceArgs:
         """
         The set of arguments for constructing a DataSource resource.
 
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for your Amazon Kendra data source.
-        :param pulumi.Input[_builtins.str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for your Amazon Kendra data source.
+        :param pulumi.Input[_builtins.str] type: Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
-        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-        :param pulumi.Input[_builtins.str] description: A description for the Data Source connector.
-        :param pulumi.Input[_builtins.str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        :param pulumi.Input[_builtins.str] name: A name for your data source connector.
+        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[_builtins.str] description: Description for the Data Source connector.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name for your data source connector.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         :param pulumi.Input[_builtins.str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
@@ -74,7 +74,7 @@ class DataSourceArgs:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the index for your Amazon Kendra data source.
+        Identifier of the index for your Amazon Kendra data source.
         """
         return pulumi.get(self, "index_id")
 
@@ -86,7 +86,7 @@ class DataSourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
 
         The following arguments are optional:
         """
@@ -100,7 +100,7 @@ class DataSourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['DataSourceConfigurationArgs']]:
         """
-        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
@@ -112,7 +112,7 @@ class DataSourceArgs:
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
         """
-        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
@@ -124,7 +124,7 @@ class DataSourceArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the Data Source connector.
+        Description for the Data Source connector.
         """
         return pulumi.get(self, "description")
 
@@ -136,7 +136,7 @@ class DataSourceArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
         return pulumi.get(self, "language_code")
 
@@ -148,7 +148,7 @@ class DataSourceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for your data source connector.
+        Name for your data source connector.
         """
         return pulumi.get(self, "name")
 
@@ -230,25 +230,25 @@ class _DataSourceState:
         Input properties used for looking up and filtering DataSource resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Data Source.
-        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input[_builtins.str] created_at: The Unix time stamp of when the Data Source was created.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-        :param pulumi.Input[_builtins.str] data_source_id: The unique identifiers of the Data Source.
-        :param pulumi.Input[_builtins.str] description: A description for the Data Source connector.
+        :param pulumi.Input['DataSourceConfigurationArgs'] configuration: Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[_builtins.str] created_at: Unix time stamp of when the Data Source was created.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[_builtins.str] data_source_id: Unique identifiers of the Data Source.
+        :param pulumi.Input[_builtins.str] description: Description for the Data Source connector.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for your Amazon Kendra data source.
-        :param pulumi.Input[_builtins.str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        :param pulumi.Input[_builtins.str] name: A name for your data source connector.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for your Amazon Kendra data source.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name for your data source connector.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         :param pulumi.Input[_builtins.str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-        :param pulumi.Input[_builtins.str] status: The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        :param pulumi.Input[_builtins.str] status: Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] type: Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] updated_at: The Unix time stamp of when the Data Source was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: Unix time stamp of when the Data Source was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -303,7 +303,7 @@ class _DataSourceState:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['DataSourceConfigurationArgs']]:
         """
-        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
@@ -315,7 +315,7 @@ class _DataSourceState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Unix time stamp of when the Data Source was created.
+        Unix time stamp of when the Data Source was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -327,7 +327,7 @@ class _DataSourceState:
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
         """
-        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
@@ -339,7 +339,7 @@ class _DataSourceState:
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifiers of the Data Source.
+        Unique identifiers of the Data Source.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -351,7 +351,7 @@ class _DataSourceState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the Data Source connector.
+        Description for the Data Source connector.
         """
         return pulumi.get(self, "description")
 
@@ -375,7 +375,7 @@ class _DataSourceState:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the index for your Amazon Kendra data source.
+        Identifier of the index for your Amazon Kendra data source.
         """
         return pulumi.get(self, "index_id")
 
@@ -387,7 +387,7 @@ class _DataSourceState:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
         return pulumi.get(self, "language_code")
 
@@ -399,7 +399,7 @@ class _DataSourceState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for your data source connector.
+        Name for your data source connector.
         """
         return pulumi.get(self, "name")
 
@@ -447,7 +447,7 @@ class _DataSourceState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         """
         return pulumi.get(self, "status")
 
@@ -471,7 +471,7 @@ class _DataSourceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -483,7 +483,7 @@ class _DataSourceState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
 
         The following arguments are optional:
         """
@@ -497,7 +497,7 @@ class _DataSourceState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Unix time stamp of when the Data Source was last updated.
+        Unix time stamp of when the Data Source was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -876,17 +876,17 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict', 'outputs.DataSourceConfiguration']] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict', 'outputs.DataSourceCustomDocumentEnrichmentConfiguration']] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-        :param pulumi.Input[_builtins.str] description: A description for the Data Source connector.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for your Amazon Kendra data source.
-        :param pulumi.Input[_builtins.str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        :param pulumi.Input[_builtins.str] name: A name for your data source connector.
+        :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict', 'outputs.DataSourceConfiguration']] configuration: Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict', 'outputs.DataSourceCustomDocumentEnrichmentConfiguration']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[_builtins.str] description: Description for the Data Source connector.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for your Amazon Kendra data source.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name for your data source connector.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         :param pulumi.Input[_builtins.str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[_builtins.str] type: Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
         """
@@ -1339,25 +1339,25 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Data Source.
-        :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict', 'outputs.DataSourceConfiguration']] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input[_builtins.str] created_at: The Unix time stamp of when the Data Source was created.
-        :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict', 'outputs.DataSourceCustomDocumentEnrichmentConfiguration']] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-        :param pulumi.Input[_builtins.str] data_source_id: The unique identifiers of the Data Source.
-        :param pulumi.Input[_builtins.str] description: A description for the Data Source connector.
+        :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict', 'outputs.DataSourceConfiguration']] configuration: Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        :param pulumi.Input[_builtins.str] created_at: Unix time stamp of when the Data Source was created.
+        :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict', 'outputs.DataSourceCustomDocumentEnrichmentConfiguration']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        :param pulumi.Input[_builtins.str] data_source_id: Unique identifiers of the Data Source.
+        :param pulumi.Input[_builtins.str] description: Description for the Data Source connector.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for your Amazon Kendra data source.
-        :param pulumi.Input[_builtins.str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        :param pulumi.Input[_builtins.str] name: A name for your data source connector.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for your Amazon Kendra data source.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name for your data source connector.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         :param pulumi.Input[_builtins.str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-        :param pulumi.Input[_builtins.str] status: The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        :param pulumi.Input[_builtins.str] status: Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] type: Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] updated_at: The Unix time stamp of when the Data Source was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: Unix time stamp of when the Data Source was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1395,7 +1395,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.DataSourceConfiguration']]:
         """
-        A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
@@ -1403,7 +1403,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The Unix time stamp of when the Data Source was created.
+        Unix time stamp of when the Data Source was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -1411,7 +1411,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']]:
         """
-        A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+        Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
@@ -1419,7 +1419,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifiers of the Data Source.
+        Unique identifiers of the Data Source.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -1427,7 +1427,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the Data Source connector.
+        Description for the Data Source connector.
         """
         return pulumi.get(self, "description")
 
@@ -1443,7 +1443,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the index for your Amazon Kendra data source.
+        Identifier of the index for your Amazon Kendra data source.
         """
         return pulumi.get(self, "index_id")
 
@@ -1451,7 +1451,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
         """
-        The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
         return pulumi.get(self, "language_code")
 
@@ -1459,7 +1459,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name for your data source connector.
+        Name for your data source connector.
         """
         return pulumi.get(self, "name")
 
@@ -1491,7 +1491,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
         """
         return pulumi.get(self, "status")
 
@@ -1507,7 +1507,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1515,7 +1515,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
 
         The following arguments are optional:
         """
@@ -1525,7 +1525,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The Unix time stamp of when the Data Source was last updated.
+        Unix time stamp of when the Data Source was last updated.
         """
         return pulumi.get(self, "updated_at")
 

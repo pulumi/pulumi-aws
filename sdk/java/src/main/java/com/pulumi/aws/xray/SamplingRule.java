@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:xray/samplingRule:SamplingRule")
 public class SamplingRule extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the sampling rule.
+     * ARN of the sampling rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the sampling rule.
+     * @return ARN of the sampling rule.
      * 
      */
     public Output<String> arn() {
@@ -115,14 +115,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.attributes);
     }
     /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * Percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
     @Export(name="fixedRate", refs={Double.class}, tree="[0]")
     private Output<Double> fixedRate;
 
     /**
-     * @return The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * @return Percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
     public Output<Double> fixedRate() {
@@ -157,14 +157,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return this.httpMethod;
     }
     /**
-     * The priority of the sampling rule.
+     * Priority of the sampling rule.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return The priority of the sampling rule.
+     * @return Priority of the sampling rule.
      * 
      */
     public Output<Integer> priority() {
@@ -185,14 +185,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
     @Export(name="reservoirSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> reservoirSize;
 
     /**
-     * @return A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * @return Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
     public Output<Integer> reservoirSize() {
@@ -213,14 +213,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return this.resourceArn;
     }
     /**
-     * The name of the sampling rule.
+     * Name of the sampling rule.
      * 
      */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ruleName;
 
     /**
-     * @return The name of the sampling rule.
+     * @return Name of the sampling rule.
      * 
      */
     public Output<Optional<String>> ruleName() {
@@ -269,14 +269,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -297,14 +297,14 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
         return this.urlPath;
     }
     /**
-     * The version of the sampling rule format (`1` )
+     * Version of the sampling rule format (`1` )
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**
-     * @return The version of the sampling rule format (`1` )
+     * @return Version of the sampling rule format (`1` )
      * 
      */
     public Output<Integer> version() {

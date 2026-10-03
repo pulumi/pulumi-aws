@@ -195,40 +195,37 @@ import (
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Kinesis Analytics Appliation.
+	// ARN of the Kinesis Analytics Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The CloudWatch log stream options to monitor application errors.
-	// See CloudWatch Logging Options below for more details.
+	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
 	Code pulumi.StringPtrOutput `pulumi:"code"`
-	// The Timestamp when the application version was created.
+	// Timestamp when the application version was created.
 	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
 	// Description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Input configuration of the application. See Inputs below for more details.
+	// Input configuration of the application. See `inputs` Block below for details.
 	Inputs AnalyticsApplicationInputsPtrOutput `pulumi:"inputs"`
-	// The Timestamp when the application was last updated.
+	// Timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Output destination configuration of the application. See Outputs below for more details.
+	// Output destination configuration of the application. See `outputs` Block below for details.
 	Outputs AnalyticsApplicationOutputTypeArrayOutput `pulumi:"outputs"`
-	// An S3 Reference Data Source for the application.
-	// See Reference Data Sources below for more details.
+	// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrOutput `pulumi:"referenceDataSources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
-	// The Status of the application.
+	// Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Version of the application.
+	// Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
 
@@ -262,78 +259,72 @@ func GetAnalyticsApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsApplication resources.
 type analyticsApplicationState struct {
-	// The ARN of the Kinesis Analytics Appliation.
+	// ARN of the Kinesis Analytics Application.
 	Arn *string `pulumi:"arn"`
-	// The CloudWatch log stream options to monitor application errors.
-	// See CloudWatch Logging Options below for more details.
+	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions *AnalyticsApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
 	Code *string `pulumi:"code"`
-	// The Timestamp when the application version was created.
+	// Timestamp when the application version was created.
 	CreateTimestamp *string `pulumi:"createTimestamp"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
-	// Input configuration of the application. See Inputs below for more details.
+	// Input configuration of the application. See `inputs` Block below for details.
 	Inputs *AnalyticsApplicationInputs `pulumi:"inputs"`
-	// The Timestamp when the application was last updated.
+	// Timestamp when the application was last updated.
 	LastUpdateTimestamp *string `pulumi:"lastUpdateTimestamp"`
 	// Name of the Kinesis Analytics Application.
 	Name *string `pulumi:"name"`
-	// Output destination configuration of the application. See Outputs below for more details.
+	// Output destination configuration of the application. See `outputs` Block below for details.
 	Outputs []AnalyticsApplicationOutputType `pulumi:"outputs"`
-	// An S3 Reference Data Source for the application.
-	// See Reference Data Sources below for more details.
+	// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool `pulumi:"startApplication"`
-	// The Status of the application.
+	// Status of the application.
 	Status *string `pulumi:"status"`
-	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Version of the application.
+	// Version of the application.
 	Version *int `pulumi:"version"`
 }
 
 type AnalyticsApplicationState struct {
-	// The ARN of the Kinesis Analytics Appliation.
+	// ARN of the Kinesis Analytics Application.
 	Arn pulumi.StringPtrInput
-	// The CloudWatch log stream options to monitor application errors.
-	// See CloudWatch Logging Options below for more details.
+	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrInput
 	// SQL Code to transform input data, and generate output.
 	Code pulumi.StringPtrInput
-	// The Timestamp when the application version was created.
+	// Timestamp when the application version was created.
 	CreateTimestamp pulumi.StringPtrInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
-	// Input configuration of the application. See Inputs below for more details.
+	// Input configuration of the application. See `inputs` Block below for details.
 	Inputs AnalyticsApplicationInputsPtrInput
-	// The Timestamp when the application was last updated.
+	// Timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringPtrInput
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringPtrInput
-	// Output destination configuration of the application. See Outputs below for more details.
+	// Output destination configuration of the application. See `outputs` Block below for details.
 	Outputs AnalyticsApplicationOutputTypeArrayInput
-	// An S3 Reference Data Source for the application.
-	// See Reference Data Sources below for more details.
+	// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
-	// The Status of the application.
+	// Status of the application.
 	Status pulumi.StringPtrInput
-	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Version of the application.
+	// Version of the application.
 	Version pulumi.IntPtrInput
 }
 
@@ -342,55 +333,49 @@ func (AnalyticsApplicationState) ElementType() reflect.Type {
 }
 
 type analyticsApplicationArgs struct {
-	// The CloudWatch log stream options to monitor application errors.
-	// See CloudWatch Logging Options below for more details.
+	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions *AnalyticsApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
 	Code *string `pulumi:"code"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
-	// Input configuration of the application. See Inputs below for more details.
+	// Input configuration of the application. See `inputs` Block below for details.
 	Inputs *AnalyticsApplicationInputs `pulumi:"inputs"`
 	// Name of the Kinesis Analytics Application.
 	Name *string `pulumi:"name"`
-	// Output destination configuration of the application. See Outputs below for more details.
+	// Output destination configuration of the application. See `outputs` Block below for details.
 	Outputs []AnalyticsApplicationOutputType `pulumi:"outputs"`
-	// An S3 Reference Data Source for the application.
-	// See Reference Data Sources below for more details.
+	// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool `pulumi:"startApplication"`
-	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
 type AnalyticsApplicationArgs struct {
-	// The CloudWatch log stream options to monitor application errors.
-	// See CloudWatch Logging Options below for more details.
+	// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrInput
 	// SQL Code to transform input data, and generate output.
 	Code pulumi.StringPtrInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
-	// Input configuration of the application. See Inputs below for more details.
+	// Input configuration of the application. See `inputs` Block below for details.
 	Inputs AnalyticsApplicationInputsPtrInput
 	// Name of the Kinesis Analytics Application.
 	Name pulumi.StringPtrInput
-	// Output destination configuration of the application. See Outputs below for more details.
+	// Output destination configuration of the application. See `outputs` Block below for details.
 	Outputs AnalyticsApplicationOutputTypeArrayInput
-	// An S3 Reference Data Source for the application.
-	// See Reference Data Sources below for more details.
+	// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
-	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -481,13 +466,12 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the Kinesis Analytics Appliation.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The CloudWatch log stream options to monitor application errors.
-// See CloudWatch Logging Options below for more details.
+// CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
 func (o AnalyticsApplicationOutput) CloudwatchLoggingOptions() AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput {
 		return v.CloudwatchLoggingOptions
@@ -499,7 +483,7 @@ func (o AnalyticsApplicationOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// The Timestamp when the application version was created.
+// Timestamp when the application version was created.
 func (o AnalyticsApplicationOutput) CreateTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.CreateTimestamp }).(pulumi.StringOutput)
 }
@@ -509,12 +493,12 @@ func (o AnalyticsApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Input configuration of the application. See Inputs below for more details.
+// Input configuration of the application. See `inputs` Block below for details.
 func (o AnalyticsApplicationOutput) Inputs() AnalyticsApplicationInputsPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplicationInputsPtrOutput { return v.Inputs }).(AnalyticsApplicationInputsPtrOutput)
 }
 
-// The Timestamp when the application was last updated.
+// Timestamp when the application was last updated.
 func (o AnalyticsApplicationOutput) LastUpdateTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.LastUpdateTimestamp }).(pulumi.StringOutput)
 }
@@ -524,13 +508,12 @@ func (o AnalyticsApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Output destination configuration of the application. See Outputs below for more details.
+// Output destination configuration of the application. See `outputs` Block below for details.
 func (o AnalyticsApplicationOutput) Outputs() AnalyticsApplicationOutputTypeArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplicationOutputTypeArrayOutput { return v.Outputs }).(AnalyticsApplicationOutputTypeArrayOutput)
 }
 
-// An S3 Reference Data Source for the application.
-// See Reference Data Sources below for more details.
+// S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
 func (o AnalyticsApplicationOutput) ReferenceDataSources() AnalyticsApplicationReferenceDataSourcesPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplicationReferenceDataSourcesPtrOutput {
 		return v.ReferenceDataSources
@@ -542,28 +525,27 @@ func (o AnalyticsApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 func (o AnalyticsApplicationOutput) StartApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.BoolPtrOutput { return v.StartApplication }).(pulumi.BoolPtrOutput)
 }
 
-// The Status of the application.
+// Status of the application.
 func (o AnalyticsApplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnalyticsApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnalyticsApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Version of the application.
+// Version of the application.
 func (o AnalyticsApplicationOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

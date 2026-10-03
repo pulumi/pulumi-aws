@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class GetOntapStorageVirtualMachineResult
     {
         /// <summary>
-        /// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+        /// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See `ActiveDirectoryConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult> ActiveDirectoryConfigurations;
         /// <summary>
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+        /// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. See `Endpoints` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointResult> Endpoints;
         /// <summary>
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string LifecycleStatus;
         /// <summary>
-        /// Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+        /// Reason why the SVM lifecycle state changed. See `LifecycleTransitionReason` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult> LifecycleTransitionReasons;
         /// <summary>

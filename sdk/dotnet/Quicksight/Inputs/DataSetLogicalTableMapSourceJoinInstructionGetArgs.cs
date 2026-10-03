@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetLogicalTableMapSourceJoinInstructionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Join key properties of the left operand. See left_join_key_properties.
+        /// Join key properties of the left operand. See `LeftJoinKeyProperties` Block below.
         /// </summary>
         [Input("leftJoinKeyProperties")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesGetArgs>? LeftJoinKeyProperties { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> OnClause { get; set; } = null!;
 
         /// <summary>
-        /// Join key properties of the right operand. See right_join_key_properties.
+        /// Join key properties of the right operand. See `RightJoinKeyProperties` Block below.
         /// </summary>
         [Input("rightJoinKeyProperties")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesGetArgs>? RightJoinKeyProperties { get; set; }

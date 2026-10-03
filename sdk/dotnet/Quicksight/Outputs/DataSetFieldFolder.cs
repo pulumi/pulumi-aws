@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetFieldFolder
     {
         /// <summary>
-        /// An array of column names to add to the folder. A column can only be in one folder.
+        /// Array of column names to add to the folder. A column can only be in one folder.
         /// </summary>
         public readonly ImmutableArray<string> Columns;
         /// <summary>

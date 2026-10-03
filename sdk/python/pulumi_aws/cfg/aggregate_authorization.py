@@ -27,8 +27,8 @@ class AggregateAuthorizationArgs:
         The set of arguments for constructing a AggregateAuthorization resource.
 
         :param pulumi.Input[_builtins.str] account_id: Account ID.
-        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
-        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
+        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -58,7 +58,7 @@ class AggregateAuthorizationArgs:
     @pulumi.getter(name="authorizedAwsRegion")
     def authorized_aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region authorized to collect aggregated data.
+        The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "authorized_aws_region")
 
@@ -71,7 +71,7 @@ class AggregateAuthorizationArgs:
     @_utilities.deprecated("""region is deprecated. Use authorized_aws_region instead.""")
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "region")
 
@@ -106,8 +106,8 @@ class _AggregateAuthorizationState:
 
         :param pulumi.Input[_builtins.str] account_id: Account ID.
         :param pulumi.Input[_builtins.str] arn: The ARN of the authorization
-        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
-        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
+        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -155,7 +155,7 @@ class _AggregateAuthorizationState:
     @pulumi.getter(name="authorizedAwsRegion")
     def authorized_aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region authorized to collect aggregated data.
+        The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "authorized_aws_region")
 
@@ -168,7 +168,7 @@ class _AggregateAuthorizationState:
     @_utilities.deprecated("""region is deprecated. Use authorized_aws_region instead.""")
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "region")
 
@@ -238,8 +238,8 @@ class AggregateAuthorization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID.
-        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
-        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
+        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -332,8 +332,8 @@ class AggregateAuthorization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID.
         :param pulumi.Input[_builtins.str] arn: The ARN of the authorization
-        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
-        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
+        :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -367,18 +367,18 @@ class AggregateAuthorization(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="authorizedAwsRegion")
-    def authorized_aws_region(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def authorized_aws_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region authorized to collect aggregated data.
+        The region authorized to collect aggregated data. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "authorized_aws_region")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use authorized_aws_region instead.""")
-    def region(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+        The region authorized to collect aggregated data. Use `authorized_aws_region` instead. Exactly one of `authorized_aws_region` or `region` is required.
         """
         return pulumi.get(self, "region")
 

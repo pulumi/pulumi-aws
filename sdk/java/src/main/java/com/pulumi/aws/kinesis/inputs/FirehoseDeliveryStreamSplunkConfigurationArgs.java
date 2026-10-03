@@ -52,14 +52,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -67,14 +67,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+     * Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
      * 
      */
     @Import(name="hecAcknowledgmentTimeout")
     private @Nullable Output<Integer> hecAcknowledgmentTimeout;
 
     /**
-     * @return The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+     * @return Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
      * 
      */
     public Optional<Output<Integer>> hecAcknowledgmentTimeout() {
@@ -82,14 +82,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+     * HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
      * 
      */
     @Import(name="hecEndpoint", required=true)
     private Output<String> hecEndpoint;
 
     /**
-     * @return The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+     * @return HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
      * 
      */
     public Output<String> hecEndpoint() {
@@ -97,14 +97,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+     * HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
      * 
      */
     @Import(name="hecEndpointType")
     private @Nullable Output<String> hecEndpointType;
 
     /**
-     * @return The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+     * @return HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
      * 
      */
     public Optional<Output<String>> hecEndpointType() {
@@ -112,14 +112,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+     * GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="hecToken")
     private @Nullable Output<String> hecToken;
 
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> hecToken() {
@@ -127,14 +127,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -157,16 +157,14 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+     * How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -174,23 +172,31 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     }
 
     /**
-     * The S3 Configuration. See `s3Configuration` block below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs> s3Configuration() {
         return this.s3Configuration;
     }
 
+    /**
+     * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+     * 
+     */
     @Import(name="secretsManagerConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
 
+    /**
+     * @return Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+     * 
+     */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
@@ -273,7 +279,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -284,7 +290,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -294,7 +300,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecAcknowledgmentTimeout The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+         * @param hecAcknowledgmentTimeout Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
          * 
          * @return builder
          * 
@@ -305,7 +311,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecAcknowledgmentTimeout The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+         * @param hecAcknowledgmentTimeout Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
          * 
          * @return builder
          * 
@@ -315,7 +321,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecEndpoint The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+         * @param hecEndpoint HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
          * 
          * @return builder
          * 
@@ -326,7 +332,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecEndpoint The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+         * @param hecEndpoint HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
          * 
          * @return builder
          * 
@@ -336,7 +342,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecEndpointType The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+         * @param hecEndpointType HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
          * 
          * @return builder
          * 
@@ -347,7 +353,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecEndpointType The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+         * @param hecEndpointType HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
          * 
          * @return builder
          * 
@@ -357,7 +363,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param hecToken GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -368,7 +374,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param hecToken The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param hecToken GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -378,7 +384,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -389,7 +395,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -420,8 +426,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          * 
          * @return builder
          * 
@@ -432,8 +437,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          * 
          * @return builder
          * 
@@ -443,7 +447,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -454,7 +458,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -463,11 +467,23 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
             return s3Configuration(Output.of(s3Configuration));
         }
 
+        /**
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
             $.secretsManagerConfiguration = secretsManagerConfiguration;
             return this;
         }
 
+        /**
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsManagerConfiguration(FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
             return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
         }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersFilterCriteria
     {
         /// <summary>
-        /// An array of up to 5 event patterns. Detailed below.
+        /// Array of up to 5 event patterns. See `Filter` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeSourceParametersFilterCriteriaFilter> Filters;
 

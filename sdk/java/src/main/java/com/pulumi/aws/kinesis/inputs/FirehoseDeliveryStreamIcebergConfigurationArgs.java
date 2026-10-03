@@ -23,9 +23,17 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
 
     public static final FirehoseDeliveryStreamIcebergConfigurationArgs Empty = new FirehoseDeliveryStreamIcebergConfigurationArgs();
 
+    /**
+     * Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+     * 
+     */
     @Import(name="appendOnly")
     private @Nullable Output<Boolean> appendOnly;
 
+    /**
+     * @return Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+     * 
+     */
     public Optional<Output<Boolean>> appendOnly() {
         return Optional.ofNullable(this.appendOnly);
     }
@@ -61,14 +69,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     }
 
     /**
-     * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+     * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
      * 
      */
     @Import(name="catalogArn", required=true)
     private Output<String> catalogArn;
 
     /**
-     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
      * 
      */
     public Output<String> catalogArn() {
@@ -76,14 +84,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -106,14 +114,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -121,14 +129,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     }
 
     /**
-     * The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+     * Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
      * 
      */
     @Import(name="retryDuration")
     private @Nullable Output<Integer> retryDuration;
 
     /**
-     * @return The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+     * @return Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
      * 
      */
     public Optional<Output<Integer>> retryDuration() {
@@ -136,36 +144,44 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
     }
 
     /**
-     * The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+     * ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+     * @return ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
+    /**
+     * Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+     * 
+     */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
+    /**
+     * @return Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+     * 
+     */
     public Optional<Output<String>> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
 
     /**
-     * The S3 Configuration. See `s3Configuration` block below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -206,11 +222,23 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
             $ = new FirehoseDeliveryStreamIcebergConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appendOnly Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appendOnly(@Nullable Output<Boolean> appendOnly) {
             $.appendOnly = appendOnly;
             return this;
         }
 
+        /**
+         * @param appendOnly Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appendOnly(Boolean appendOnly) {
             return appendOnly(Output.of(appendOnly));
         }
@@ -258,7 +286,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param catalogArn Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+         * @param catalogArn Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
          * 
          * @return builder
          * 
@@ -269,7 +297,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param catalogArn Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+         * @param catalogArn Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
          * 
          * @return builder
          * 
@@ -279,7 +307,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -290,7 +318,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -331,7 +359,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -342,7 +370,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -352,7 +380,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param retryDuration The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+         * @param retryDuration Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
          * 
          * @return builder
          * 
@@ -363,7 +391,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param retryDuration The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+         * @param retryDuration Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
          * 
          * @return builder
          * 
@@ -373,7 +401,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
          * 
          * @return builder
          * 
@@ -384,7 +412,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
          * 
          * @return builder
          * 
@@ -393,17 +421,29 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BackupMode(@Nullable Output<String> s3BackupMode) {
             $.s3BackupMode = s3BackupMode;
             return this;
         }
 
+        /**
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3BackupMode(String s3BackupMode) {
             return s3BackupMode(Output.of(s3BackupMode));
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -414,7 +454,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationArgs extends com.pu
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 

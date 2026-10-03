@@ -13,6 +13,118 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSecurityGroupFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Security Group will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetSecurityGroupFilterInput is an input type that accepts GetSecurityGroupFilterArgs and GetSecurityGroupFilterOutput values.
+// You can construct a concrete instance of `GetSecurityGroupFilterInput` via:
+//
+//	GetSecurityGroupFilterArgs{...}
+type GetSecurityGroupFilterInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput
+	ToGetSecurityGroupFilterOutputWithContext(context.Context) GetSecurityGroupFilterOutput
+}
+
+type GetSecurityGroupFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Security Group will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSecurityGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupFilter)(nil)).Elem()
+}
+
+func (i GetSecurityGroupFilterArgs) ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput {
+	return i.ToGetSecurityGroupFilterOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupFilterArgs) ToGetSecurityGroupFilterOutputWithContext(ctx context.Context) GetSecurityGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupFilterOutput)
+}
+
+// GetSecurityGroupFilterArrayInput is an input type that accepts GetSecurityGroupFilterArray and GetSecurityGroupFilterArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupFilterArrayInput` via:
+//
+//	GetSecurityGroupFilterArray{ GetSecurityGroupFilterArgs{...} }
+type GetSecurityGroupFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput
+	ToGetSecurityGroupFilterArrayOutputWithContext(context.Context) GetSecurityGroupFilterArrayOutput
+}
+
+type GetSecurityGroupFilterArray []GetSecurityGroupFilterInput
+
+func (GetSecurityGroupFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupFilter)(nil)).Elem()
+}
+
+func (i GetSecurityGroupFilterArray) ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput {
+	return i.ToGetSecurityGroupFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupFilterArray) ToGetSecurityGroupFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupFilterArrayOutput)
+}
+
+type GetSecurityGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupFilter)(nil)).Elem()
+}
+
+func (o GetSecurityGroupFilterOutput) ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput {
+	return o
+}
+
+func (o GetSecurityGroupFilterOutput) ToGetSecurityGroupFilterOutputWithContext(ctx context.Context) GetSecurityGroupFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+func (o GetSecurityGroupFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Security Group will be selected if any one of the given values matches.
+func (o GetSecurityGroupFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSecurityGroupFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupFilter)(nil)).Elem()
+}
+
+func (o GetSecurityGroupFilterArrayOutput) ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupFilterArrayOutput) ToGetSecurityGroupFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupFilter {
+		return vs[0].([]GetSecurityGroupFilter)[vs[1].(int)]
+	}).(GetSecurityGroupFilterOutput)
+}
+
 type GetSecurityGroupsFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -4190,6 +4302,8 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterInput)(nil)).Elem(), GetSecurityGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterArrayInput)(nil)).Elem(), GetSecurityGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterInput)(nil)).Elem(), GetSecurityGroupsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterArrayInput)(nil)).Elem(), GetSecurityGroupsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArgs{})
@@ -4262,6 +4376,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetSecurityGroupFilterOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterOutput{})

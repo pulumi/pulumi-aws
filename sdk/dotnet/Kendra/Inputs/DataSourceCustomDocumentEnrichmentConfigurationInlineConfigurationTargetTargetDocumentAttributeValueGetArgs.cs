@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+        /// Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
         /// </summary>
         [Input("dateValue")]
         public Input<string>? DateValue { get; set; }
 
         /// <summary>
-        /// A long integer value.
+        /// Long integer value.
         /// </summary>
         [Input("longValue")]
         public Input<int>? LongValue { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputList<string>? _stringListValues;
 
         /// <summary>
-        /// A list of strings.
+        /// List of strings.
         /// </summary>
         public InputList<string> StringListValues
         {
@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Kendra.Inputs
             set => _stringListValues = value;
         }
 
+        /// <summary>
+        /// String, such as "department".
+        /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 

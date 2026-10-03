@@ -20,14 +20,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs();
 
     /**
-     * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+     * Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
      * 
      */
     @Import(name="recordColumns", required=true)
     private Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs>> recordColumns;
 
     /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+     * @return Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
      * 
      */
     public Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs>> recordColumns() {
@@ -35,14 +35,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+     * Encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
     @Import(name="recordEncoding")
     private @Nullable Output<String> recordEncoding;
 
     /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+     * @return Encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
     public Optional<Output<String>> recordEncoding() {
@@ -50,14 +50,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Specifies the format of the records on the streaming source.
+     * Format of the records on the streaming source. See `recordFormat` Block above.
      * 
      */
     @Import(name="recordFormat", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs> recordFormat;
 
     /**
-     * @return Specifies the format of the records on the streaming source.
+     * @return Format of the records on the streaming source. See `recordFormat` Block above.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs> recordFormat() {
@@ -91,7 +91,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         * @param recordColumns Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         * @param recordColumns Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordColumns Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         * @param recordColumns Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         * @param recordEncoding Encoding of the records in the streaming source. For example, `UTF-8`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordEncoding Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         * @param recordEncoding Encoding of the records in the streaming source. For example, `UTF-8`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormat Specifies the format of the records on the streaming source.
+         * @param recordFormat Format of the records on the streaming source. See `recordFormat` Block above.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormat Specifies the format of the records on the streaming source.
+         * @param recordFormat Format of the records on the streaming source. See `recordFormat` Block above.
          * 
          * @return builder
          * 

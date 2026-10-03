@@ -23,7 +23,7 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
      */
     private @Nullable String keyArn;
     /**
-     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
      * 
      */
     private @Nullable String keyType;
@@ -44,7 +44,7 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
         return Optional.ofNullable(this.keyArn);
     }
     /**
-     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
      * 
      */
     public Optional<String> keyType() {

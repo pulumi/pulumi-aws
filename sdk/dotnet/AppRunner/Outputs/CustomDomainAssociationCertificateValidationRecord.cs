@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class CustomDomainAssociationCertificateValidationRecord
     {
         /// <summary>
-        /// Certificate CNAME record name.
+        /// Certificate `CNAME` record name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        /// Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         /// </summary>
         public readonly string? Status;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Certificate CNAME record value.
+        /// Certificate `CNAME` record value.
         /// </summary>
         public readonly string? Value;
 

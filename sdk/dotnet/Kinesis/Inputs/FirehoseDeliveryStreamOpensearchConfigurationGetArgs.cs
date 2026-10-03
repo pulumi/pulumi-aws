@@ -25,43 +25,43 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
+        /// Endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
         /// </summary>
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// The method for setting up document ID. See [`DocumentIdOptions` block] below for details.
+        /// Method for setting up document ID. See `DocumentIdOptions` block below for details.
         /// </summary>
         [Input("documentIdOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsGetArgs>? DocumentIdOptions { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
+        /// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
         /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }
 
         /// <summary>
-        /// The OpenSearch index name.
+        /// OpenSearch index name.
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        /// OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         /// </summary>
         [Input("indexRotationPeriod")]
         public Input<string>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The data processing configuration. See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration. See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -73,31 +73,31 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        /// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+        /// Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `VpcConfig` block below for details.
+        /// VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }

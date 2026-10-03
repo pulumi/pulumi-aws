@@ -47,14 +47,14 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The region authorized to collect aggregated data.
+     * The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      */
     @Import(name="authorizedAwsRegion")
     private @Nullable Output<String> authorizedAwsRegion;
 
     /**
-     * @return The region authorized to collect aggregated data.
+     * @return The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      */
     public Optional<Output<String>> authorizedAwsRegion() {
@@ -62,7 +62,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
@@ -73,7 +73,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     private @Nullable Output<String> region;
 
     /**
-     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
      * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
@@ -186,7 +186,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authorizedAwsRegion The region authorized to collect aggregated data.
+         * @param authorizedAwsRegion The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authorizedAwsRegion The region authorized to collect aggregated data.
+         * @param authorizedAwsRegion The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
          * 
          * @return builder
          * 

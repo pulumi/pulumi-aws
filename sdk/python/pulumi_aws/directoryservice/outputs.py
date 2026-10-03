@@ -17,6 +17,9 @@ from .. import _utilities
 __all__ = [
     'DirectoryConnectSettings',
     'DirectoryVpcSettings',
+    'IpRouteTimeouts',
+    'IpRoutesExclusiveIpRoute',
+    'IpRoutesExclusiveTimeouts',
     'ServiceRegionVpcSettings',
     'SharedDirectoryTarget',
     'GetDirectoryConnectSettingResult',
@@ -178,6 +181,130 @@ class DirectoryVpcSettings(dict):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "availability_zones")
+
+
+@pulumi.output_type
+class IpRouteTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class IpRoutesExclusiveIpRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "cidrIpv6":
+            suggest = "cidr_ipv6"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpRoutesExclusiveIpRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpRoutesExclusiveIpRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpRoutesExclusiveIpRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ip: Optional[_builtins.str] = None,
+                 cidr_ipv6: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cidr_ip: IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ip_route` blocks.
+        :param _builtins.str cidr_ipv6: IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ip_route` blocks.
+        :param _builtins.str description: Description of the address block.
+        """
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if cidr_ipv6 is not None:
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[_builtins.str]:
+        """
+        IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ip_route` blocks.
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrIpv6")
+    def cidr_ipv6(self) -> Optional[_builtins.str]:
+        """
+        IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ip_route` blocks.
+        """
+        return pulumi.get(self, "cidr_ipv6")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the address block.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class IpRoutesExclusiveTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

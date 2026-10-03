@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class ThemeConfigurationSheetTileLayoutMargin
     {
         /// <summary>
-        /// This Boolean value controls whether to display sheet margins.
+        /// Whether to display sheet margins.
         /// </summary>
         public readonly bool? Show;
 

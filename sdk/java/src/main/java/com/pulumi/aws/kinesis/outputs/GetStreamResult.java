@@ -41,12 +41,12 @@ public final class GetStreamResult {
      */
     private String id;
     /**
-     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+     * @return Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
      * 
      */
     private String kmsKeyId;
     /**
-     * @return The maximum size for a single data record in KiB.
+     * @return Maximum size for a single data record in KiB.
      * 
      */
     private Integer maxRecordSizeInKib;
@@ -129,14 +129,14 @@ public final class GetStreamResult {
         return this.id;
     }
     /**
-     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+     * @return Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
      * 
      */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * @return The maximum size for a single data record in KiB.
+     * @return Maximum size for a single data record in KiB.
      * 
      */
     public Integer maxRecordSizeInKib() {

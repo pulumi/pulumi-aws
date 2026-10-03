@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Snowflake role.
+        /// Snowflake role.
         /// </summary>
         [Input("snowflakeRole")]
         public Input<string>? SnowflakeRole { get; set; }

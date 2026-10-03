@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class RefreshScheduleSchedule
     {
         /// <summary>
-        /// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        /// Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         /// </summary>
         public readonly string RefreshType;
         /// <summary>
-        /// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        /// Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `ScheduleFrequency` Block.
         /// </summary>
         public readonly Outputs.RefreshScheduleScheduleScheduleFrequency ScheduleFrequency;
         /// <summary>

@@ -16,14 +16,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
     public static final DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs Empty = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs();
 
     /**
-     * The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+     * List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
     @Import(name="siteMaps", required=true)
     private Output<List<String>> siteMaps;
 
     /**
-     * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+     * @return List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
     public Output<List<String>> siteMaps() {
@@ -55,7 +55,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
         }
 
         /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+         * @param siteMaps List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
         }
 
         /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+         * @param siteMaps List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
         }
 
         /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+         * @param siteMaps List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
          * 
          * @return builder
          * 

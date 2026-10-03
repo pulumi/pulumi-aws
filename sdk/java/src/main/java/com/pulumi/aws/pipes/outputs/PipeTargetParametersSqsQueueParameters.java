@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersSqsQueueParameters {
     /**
-     * @return This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * @return Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
      * 
      */
     private @Nullable String messageDeduplicationId;
     /**
-     * @return The FIFO message group ID to use as the target.
+     * @return FIFO message group ID to use as the target.
      * 
      */
     private @Nullable String messageGroupId;
 
     private PipeTargetParametersSqsQueueParameters() {}
     /**
-     * @return This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+     * @return Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
      * 
      */
     public Optional<String> messageDeduplicationId() {
         return Optional.ofNullable(this.messageDeduplicationId);
     }
     /**
-     * @return The FIFO message group ID to use as the target.
+     * @return FIFO message group ID to use as the target.
      * 
      */
     public Optional<String> messageGroupId() {

@@ -60,8 +60,9 @@ type LookupStreamConsumerArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the data stream the consumer is registered with.
-	StreamArn string            `pulumi:"streamArn"`
-	Tags      map[string]string `pulumi:"tags"`
+	StreamArn string `pulumi:"streamArn"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStreamConsumer.
@@ -74,9 +75,10 @@ type LookupStreamConsumerResult struct {
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
 	// Current status of the stream consumer.
-	Status    string            `pulumi:"status"`
-	StreamArn string            `pulumi:"streamArn"`
-	Tags      map[string]string `pulumi:"tags"`
+	Status    string `pulumi:"status"`
+	StreamArn string `pulumi:"streamArn"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOutputArgs, opts ...pulumi.InvokeOption) LookupStreamConsumerResultOutput {
@@ -93,8 +95,9 @@ type LookupStreamConsumerOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the data stream the consumer is registered with.
-	StreamArn pulumi.StringInput    `pulumi:"streamArn"`
-	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupStreamConsumerOutputArgs) ElementType() reflect.Type {
@@ -147,6 +150,7 @@ func (o LookupStreamConsumerResultOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.StreamArn }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o LookupStreamConsumerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

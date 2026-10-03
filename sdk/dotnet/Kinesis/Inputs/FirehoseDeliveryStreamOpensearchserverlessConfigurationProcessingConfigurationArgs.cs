@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs>? _processors;
 
         /// <summary>
-        /// Specifies the data processors as multiple blocks. See `Processors` block below for details.
+        /// Data processors as multiple blocks. See `Processors` block below for details.
         /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs> Processors
         {

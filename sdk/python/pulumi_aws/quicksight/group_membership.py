@@ -27,10 +27,10 @@ class GroupMembershipArgs:
         """
         The set of arguments for constructing a GroupMembership resource.
 
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
+        :param pulumi.Input[_builtins.str] group_name: Name of the group in which the member will be added.
+        :param pulumi.Input[_builtins.str] member_name: Name of the member to add to the group.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[_builtins.str] namespace: Namespace that you want the user to be a part of. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
@@ -46,7 +46,7 @@ class GroupMembershipArgs:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the group in which the member will be added.
+        Name of the group in which the member will be added.
         """
         return pulumi.get(self, "group_name")
 
@@ -58,7 +58,7 @@ class GroupMembershipArgs:
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the member to add to the group.
+        Name of the member to add to the group.
         """
         return pulumi.get(self, "member_name")
 
@@ -82,7 +82,7 @@ class GroupMembershipArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace that you want the user to be a part of. Defaults to `default`.
+        Namespace that you want the user to be a part of. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
 
@@ -115,10 +115,11 @@ class _GroupMembershipState:
         """
         Input properties used for looking up and filtering GroupMembership resources.
 
+        :param pulumi.Input[_builtins.str] arn: ARN of the group membership.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[_builtins.str] group_name: Name of the group in which the member will be added.
+        :param pulumi.Input[_builtins.str] member_name: Name of the member to add to the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace that you want the user to be a part of. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
@@ -137,6 +138,9 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the group membership.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -159,7 +163,7 @@ class _GroupMembershipState:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the group in which the member will be added.
+        Name of the group in which the member will be added.
         """
         return pulumi.get(self, "group_name")
 
@@ -171,7 +175,7 @@ class _GroupMembershipState:
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the member to add to the group.
+        Name of the member to add to the group.
         """
         return pulumi.get(self, "member_name")
 
@@ -183,7 +187,7 @@ class _GroupMembershipState:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace that you want the user to be a part of. Defaults to `default`.
+        Namespace that you want the user to be a part of. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
 
@@ -242,9 +246,9 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[_builtins.str] group_name: Name of the group in which the member will be added.
+        :param pulumi.Input[_builtins.str] member_name: Name of the member to add to the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace that you want the user to be a part of. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -338,10 +342,11 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: ARN of the group membership.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[_builtins.str] group_name: Name of the group in which the member will be added.
+        :param pulumi.Input[_builtins.str] member_name: Name of the member to add to the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace that you want the user to be a part of. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -359,6 +364,9 @@ class GroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN of the group membership.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -373,7 +381,7 @@ class GroupMembership(pulumi.CustomResource):
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the group in which the member will be added.
+        Name of the group in which the member will be added.
         """
         return pulumi.get(self, "group_name")
 
@@ -381,7 +389,7 @@ class GroupMembership(pulumi.CustomResource):
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the member to add to the group.
+        Name of the member to add to the group.
         """
         return pulumi.get(self, "member_name")
 
@@ -389,7 +397,7 @@ class GroupMembership(pulumi.CustomResource):
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The namespace that you want the user to be a part of. Defaults to `default`.
+        Namespace that you want the user to be a part of. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
 

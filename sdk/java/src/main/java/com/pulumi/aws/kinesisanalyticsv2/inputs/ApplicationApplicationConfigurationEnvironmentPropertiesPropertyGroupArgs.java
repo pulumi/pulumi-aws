@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
     public static final ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs Empty = new ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs();
 
     /**
-     * The key of the application execution property key-value map.
+     * Key of the application execution property key-value map.
      * 
      */
     @Import(name="propertyGroupId", required=true)
     private Output<String> propertyGroupId;
 
     /**
-     * @return The key of the application execution property key-value map.
+     * @return Key of the application execution property key-value map.
      * 
      */
     public Output<String> propertyGroupId() {
@@ -71,7 +71,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
         }
 
         /**
-         * @param propertyGroupId The key of the application execution property key-value map.
+         * @param propertyGroupId Key of the application execution property key-value map.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
         }
 
         /**
-         * @param propertyGroupId The key of the application execution property key-value map.
+         * @param propertyGroupId Key of the application execution property key-value map.
          * 
          * @return builder
          * 

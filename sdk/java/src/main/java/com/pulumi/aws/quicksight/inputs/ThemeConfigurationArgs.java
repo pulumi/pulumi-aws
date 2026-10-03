@@ -49,14 +49,14 @@ public final class ThemeConfigurationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Determines the typography options. See typography.
+     * Typography options. See typography.
      * 
      */
     @Import(name="typography")
     private @Nullable Output<ThemeConfigurationTypographyArgs> typography;
 
     /**
-     * @return Determines the typography options. See typography.
+     * @return Typography options. See typography.
      * 
      */
     public Optional<Output<ThemeConfigurationTypographyArgs>> typography() {
@@ -148,7 +148,7 @@ public final class ThemeConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param typography Determines the typography options. See typography.
+         * @param typography Typography options. See typography.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ThemeConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param typography Determines the typography options. See typography.
+         * @param typography Typography options. See typography.
          * 
          * @return builder
          * 

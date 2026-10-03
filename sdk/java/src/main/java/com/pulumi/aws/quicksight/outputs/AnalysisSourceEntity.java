@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalysisSourceEntity {
     /**
-     * @return The source template. See source_template.
+     * @return Source template. See source_template.
      * 
      */
     private @Nullable AnalysisSourceEntitySourceTemplate sourceTemplate;
 
     private AnalysisSourceEntity() {}
     /**
-     * @return The source template. See source_template.
+     * @return Source template. See source_template.
      * 
      */
     public Optional<AnalysisSourceEntitySourceTemplate> sourceTemplate() {

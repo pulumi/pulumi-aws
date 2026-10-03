@@ -16,14 +16,14 @@ public final class PipeTargetParametersBatchJobParametersArrayPropertiesArgs ext
     public static final PipeTargetParametersBatchJobParametersArrayPropertiesArgs Empty = new PipeTargetParametersBatchJobParametersArrayPropertiesArgs();
 
     /**
-     * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+     * Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+     * @return Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -55,7 +55,7 @@ public final class PipeTargetParametersBatchJobParametersArrayPropertiesArgs ext
         }
 
         /**
-         * @param size The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+         * @param size Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PipeTargetParametersBatchJobParametersArrayPropertiesArgs ext
         }
 
         /**
-         * @param size The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+         * @param size Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
          * 
          * @return builder
          * 

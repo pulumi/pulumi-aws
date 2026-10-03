@@ -15,14 +15,14 @@ public final class DataSetRefreshPropertiesArgs extends com.pulumi.resources.Res
     public static final DataSetRefreshPropertiesArgs Empty = new DataSetRefreshPropertiesArgs();
 
     /**
-     * The refresh configuration for the data set. See refresh_configuration.
+     * Refresh configuration for the data set. See `refreshConfiguration` Block below.
      * 
      */
     @Import(name="refreshConfiguration", required=true)
     private Output<DataSetRefreshPropertiesRefreshConfigurationArgs> refreshConfiguration;
 
     /**
-     * @return The refresh configuration for the data set. See refresh_configuration.
+     * @return Refresh configuration for the data set. See `refreshConfiguration` Block below.
      * 
      */
     public Output<DataSetRefreshPropertiesRefreshConfigurationArgs> refreshConfiguration() {
@@ -54,7 +54,7 @@ public final class DataSetRefreshPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param refreshConfiguration The refresh configuration for the data set. See refresh_configuration.
+         * @param refreshConfiguration Refresh configuration for the data set. See `refreshConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSetRefreshPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param refreshConfiguration The refresh configuration for the data set. See refresh_configuration.
+         * @param refreshConfiguration Refresh configuration for the data set. See `refreshConfiguration` Block below.
          * 
          * @return builder
          * 

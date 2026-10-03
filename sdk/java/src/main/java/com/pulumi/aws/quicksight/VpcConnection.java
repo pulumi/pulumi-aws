@@ -123,14 +123,14 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+     * Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
     @Export(name="availabilityStatus", refs={String.class}, tree="[0]")
     private Output<String> availabilityStatus;
 
     /**
-     * @return The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+     * @return Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
     public Output<String> availabilityStatus() {
@@ -151,28 +151,28 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * List of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
     @Export(name="dnsResolvers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolvers;
 
     /**
-     * @return A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * @return List of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
     public Output<Optional<List<String>>> dnsResolvers() {
         return Codegen.optional(this.dnsResolvers);
     }
     /**
-     * The display name for the VPC connection.
+     * Display name for the VPC connection.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The display name for the VPC connection.
+     * @return Display name for the VPC connection.
      * 
      */
     public Output<String> name() {
@@ -193,46 +193,42 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM role to associate with the VPC connection.
+     * IAM role to associate with the VPC connection.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role to associate with the VPC connection.
+     * @return IAM role to associate with the VPC connection.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * A list of security group IDs for the VPC connection.
+     * List of security group IDs for the VPC connection.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of security group IDs for the VPC connection.
+     * @return List of security group IDs for the VPC connection.
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
+     * List of subnet IDs for the VPC connection.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
+     * @return List of subnet IDs for the VPC connection.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -253,14 +249,14 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -273,14 +269,18 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the VPC connection.
+     * ID of the VPC connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="vpcConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcConnectionId;
 
     /**
-     * @return The ID of the VPC connection.
+     * @return ID of the VPC connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcConnectionId() {

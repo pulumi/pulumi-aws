@@ -52,14 +52,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -67,14 +67,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+     * Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
      * 
      */
     @Import(name="collectionEndpoint", required=true)
     private Output<String> collectionEndpoint;
 
     /**
-     * @return The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+     * @return Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
      * 
      */
     public Output<String> collectionEndpoint() {
@@ -82,14 +82,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The Serverless offering for Amazon OpenSearch Service index name.
+     * Serverless offering for Amazon OpenSearch Service index name.
      * 
      */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
     /**
-     * @return The Serverless offering for Amazon OpenSearch Service index name.
+     * @return Serverless offering for Amazon OpenSearch Service index name.
      * 
      */
     public Output<String> indexName() {
@@ -97,14 +97,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -142,14 +142,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -157,14 +157,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The S3 Configuration. See `s3Configuration` block below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -172,14 +172,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+     * VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs>> vpcConfig() {
@@ -263,7 +263,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param collectionEndpoint The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+         * @param collectionEndpoint Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param collectionEndpoint The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+         * @param collectionEndpoint Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param indexName The Serverless offering for Amazon OpenSearch Service index name.
+         * @param indexName Serverless offering for Amazon OpenSearch Service index name.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param indexName The Serverless offering for Amazon OpenSearch Service index name.
+         * @param indexName Serverless offering for Amazon OpenSearch Service index name.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration.  See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+         * @param vpcConfig VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+         * @param vpcConfig VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 

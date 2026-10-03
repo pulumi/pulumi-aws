@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetWindowsFileSystemDiskIopsConfigurationResult
     {
+        /// <summary>
+        /// Total number of SSD IOPS provisioned for the file system.
+        /// </summary>
         public readonly int Iops;
+        /// <summary>
+        /// Mode for the number of IOPS for the file system.
+        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

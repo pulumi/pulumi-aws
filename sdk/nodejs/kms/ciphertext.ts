@@ -63,7 +63,7 @@ export class Ciphertext extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ciphertextBlob: pulumi.Output<string>;
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      */
     declare public readonly context: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Ciphertext extends pulumi.CustomResource {
      */
     declare public readonly plaintextWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      */
     declare public readonly plaintextWoVersion: pulumi.Output<string | undefined>;
     /**
@@ -137,7 +137,7 @@ export interface CiphertextState {
      */
     ciphertextBlob?: pulumi.Input<string | undefined>;
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface CiphertextState {
      */
     plaintextWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      */
     plaintextWoVersion?: pulumi.Input<string | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface CiphertextState {
  */
 export interface CiphertextArgs {
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -185,7 +185,7 @@ export interface CiphertextArgs {
      */
     plaintextWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      */
     plaintextWoVersion?: pulumi.Input<string | undefined>;
     /**

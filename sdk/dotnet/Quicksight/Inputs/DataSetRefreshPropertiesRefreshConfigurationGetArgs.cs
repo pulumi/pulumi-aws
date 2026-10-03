@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetRefreshPropertiesRefreshConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The incremental refresh for the data set. See incremental_refresh.
+        /// Incremental refresh for the data set. See `IncrementalRefresh` Block below.
         /// </summary>
         [Input("incrementalRefresh", required: true)]
         public Input<Inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshGetArgs> IncrementalRefresh { get; set; } = null!;

@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        /// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         /// </summary>
         [Output("availabilityStatus")]
         public Output<string> AvailabilityStatus { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// List of IP addresses of DNS resolver endpoints for the VPC connection.
         /// </summary>
         [Output("dnsResolvers")]
         public Output<ImmutableArray<string>> DnsResolvers { get; private set; } = null!;
 
         /// <summary>
-        /// The display name for the VPC connection.
+        /// Display name for the VPC connection.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -142,21 +142,19 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role to associate with the VPC connection.
+        /// IAM role to associate with the VPC connection.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security group IDs for the VPC connection.
+        /// List of security group IDs for the VPC connection.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs for the VPC connection.
-        /// 
-        /// The following arguments are optional:
+        /// List of subnet IDs for the VPC connection.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -168,7 +166,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -177,7 +175,9 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.VpcConnectionTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC connection.
+        /// ID of the VPC connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcConnectionId")]
         public Output<string> VpcConnectionId { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _dnsResolvers;
 
         /// <summary>
-        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// List of IP addresses of DNS resolver endpoints for the VPC connection.
         /// </summary>
         public InputList<string> DnsResolvers
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The display name for the VPC connection.
+        /// Display name for the VPC connection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role to associate with the VPC connection.
+        /// IAM role to associate with the VPC connection.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs for the VPC connection.
+        /// List of security group IDs for the VPC connection.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -280,9 +280,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs for the VPC connection.
-        /// 
-        /// The following arguments are optional:
+        /// List of subnet IDs for the VPC connection.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -306,7 +304,9 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.VpcConnectionTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the VPC connection.
+        /// ID of the VPC connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConnectionId", required: true)]
         public Input<string> VpcConnectionId { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        /// Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         /// </summary>
         [Input("availabilityStatus")]
         public Input<string>? AvailabilityStatus { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _dnsResolvers;
 
         /// <summary>
-        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// List of IP addresses of DNS resolver endpoints for the VPC connection.
         /// </summary>
         public InputList<string> DnsResolvers
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The display name for the VPC connection.
+        /// Display name for the VPC connection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role to associate with the VPC connection.
+        /// IAM role to associate with the VPC connection.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs for the VPC connection.
+        /// List of security group IDs for the VPC connection.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -383,9 +383,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs for the VPC connection.
-        /// 
-        /// The following arguments are optional:
+        /// List of subnet IDs for the VPC connection.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -409,7 +407,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -421,7 +419,9 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.VpcConnectionTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the VPC connection.
+        /// ID of the VPC connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConnectionId")]
         public Input<string>? VpcConnectionId { get; set; }

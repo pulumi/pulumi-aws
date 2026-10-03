@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceParametersServiceNowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base URL of the Jira instance's site to which to connect.
+        /// Base URL of the ServiceNow instance's site to which to connect.
         /// </summary>
         [Input("siteBaseUrl", required: true)]
         public Input<string> SiteBaseUrl { get; set; } = null!;

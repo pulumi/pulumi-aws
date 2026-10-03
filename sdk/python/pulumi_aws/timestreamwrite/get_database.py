@@ -53,7 +53,7 @@ class GetDatabaseResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The ARN that uniquely identifies this database.
+        ARN that uniquely identifies this database.
         """
         return pulumi.get(self, "arn")
 
@@ -69,7 +69,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The ARN of the KMS key used to encrypt the data stored in the database.
+        ARN of the KMS key used to encrypt the data stored in the database.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -133,6 +133,7 @@ def get_database(name: Optional[_builtins.str] = None,
     ```
 
 
+    :param _builtins.str name: Name of the Timestream database. Minimum length of 3. Maximum length of 256.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -167,6 +168,7 @@ def get_database_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
+    :param _builtins.str name: Name of the Timestream database. Minimum length of 3. Maximum length of 256.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

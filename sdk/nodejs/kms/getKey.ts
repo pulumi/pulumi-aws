@@ -47,15 +47,11 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetKeyArgs {
     /**
-     * List of grant tokens
+     * List of grant tokens.
      */
     grantTokens?: string[];
     /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      */
     keyId: string;
     /**
@@ -69,23 +65,23 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
-     * The key ARN of a primary or replica key of a multi-Region key.
+     * Key ARN of a primary or replica key of a multi-Region key.
      */
     readonly arn: string;
     /**
-     * The twelve-digit account ID of the AWS account that owns the key
+     * Twelve-digit account ID of the AWS account that owns the key.
      */
     readonly awsAccountId: string;
     /**
-     * The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     * Cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
      */
     readonly cloudHsmClusterId: string;
     /**
-     * The date and time when the key was created
+     * Date and time when the key was created.
      */
     readonly creationDate: string;
     /**
-     * A unique identifier for the custom key store that contains the KMS key.
+     * Unique identifier for the custom key store that contains the KMS key.
      */
     readonly customKeyStoreId: string;
     /**
@@ -93,19 +89,19 @@ export interface GetKeyResult {
      */
     readonly customerMasterKeySpec: string;
     /**
-     * The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
+     * Date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0.
      */
     readonly deletionDate: string;
     /**
-     * The description of the key.
+     * Description of the key.
      */
     readonly description: string;
     /**
-     * Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
+     * Whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false.
      */
     readonly enabled: boolean;
     /**
-     * Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
+     * Whether the key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty.
      */
     readonly expirationModel: string;
     readonly grantTokens?: string[];
@@ -115,47 +111,47 @@ export interface GetKeyResult {
     readonly id: string;
     readonly keyId: string;
     /**
-     * The key's manager
+     * Manager of the key.
      */
     readonly keyManager: string;
     /**
-     * Describes the type of key material in the KMS key.
+     * Type of key material in the KMS key.
      */
     readonly keySpec: string;
     /**
-     * The state of the key
+     * State of the key.
      */
     readonly keyState: string;
     /**
-     * Specifies the intended use of the key
+     * Intended use of the key.
      */
     readonly keyUsage: string;
     /**
-     * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
+     * Whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
      */
     readonly multiRegion: boolean;
     /**
-     * Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
+     * Primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`. See `multiRegionConfiguration` Block below.
      */
     readonly multiRegionConfigurations: outputs.kms.GetKeyMultiRegionConfiguration[];
     /**
-     * When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+     * Source of the key material. When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material.
      */
     readonly origin: string;
     /**
-     * The waiting period before the primary key in a multi-Region key is deleted.
+     * Waiting period before the primary key in a multi-Region key is deleted.
      */
     readonly pendingDeletionWindowInDays: number;
     /**
-     * The AWS Region of a primary or replica key in a multi-Region key.
+     * AWS Region of a primary or replica key in a multi-Region key.
      */
     readonly region: string;
     /**
-     * The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * Time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0.
      */
     readonly validTo: string;
     /**
-     * Information about the external key that is associated with a KMS key in an external key store.
+     * Information about the external key that is associated with a KMS key in an external key store. See `xksKeyConfiguration` Block below.
      */
     readonly xksKeyConfigurations: outputs.kms.GetKeyXksKeyConfiguration[];
 }
@@ -199,15 +195,11 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputO
  */
 export interface GetKeyOutputArgs {
     /**
-     * List of grant tokens
+     * List of grant tokens.
      */
     grantTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      */
     keyId: pulumi.Input<string>;
     /**

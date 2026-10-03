@@ -33,13 +33,13 @@ class FolderArgs:
         The set of arguments for constructing a Folder resource.
 
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] folder_type: Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        :param pulumi.Input[_builtins.str] name: Display name for the folder.
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -64,6 +64,8 @@ class FolderArgs:
     def folder_id(self) -> pulumi.Input[_builtins.str]:
         """
         Identifier for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "folder_id")
 
@@ -87,7 +89,7 @@ class FolderArgs:
     @pulumi.getter(name="folderType")
     def folder_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         """
         return pulumi.get(self, "folder_type")
 
@@ -100,8 +102,6 @@ class FolderArgs:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for the folder.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -125,7 +125,7 @@ class FolderArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FolderPermissionArgs']]]]:
         """
-        A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -179,19 +179,19 @@ class _FolderState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the folder.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the folder was created.
+        :param pulumi.Input[_builtins.str] created_time: Time that the folder was created.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: An array of ancestor ARN strings for the folder. Empty for root-level folders.
-        :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the folder was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: Array of ancestor ARN strings for the folder. Empty for root-level folders.
+        :param pulumi.Input[_builtins.str] folder_type: Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the folder was last updated.
+        :param pulumi.Input[_builtins.str] name: Display name for the folder.
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -248,7 +248,7 @@ class _FolderState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the folder was created.
+        Time that the folder was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -261,6 +261,8 @@ class _FolderState:
     def folder_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "folder_id")
 
@@ -272,7 +274,7 @@ class _FolderState:
     @pulumi.getter(name="folderPaths")
     def folder_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of ancestor ARN strings for the folder. Empty for root-level folders.
+        Array of ancestor ARN strings for the folder. Empty for root-level folders.
         """
         return pulumi.get(self, "folder_paths")
 
@@ -284,7 +286,7 @@ class _FolderState:
     @pulumi.getter(name="folderType")
     def folder_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         """
         return pulumi.get(self, "folder_type")
 
@@ -296,7 +298,7 @@ class _FolderState:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the folder was last updated.
+        Time that the folder was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -309,8 +311,6 @@ class _FolderState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for the folder.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -334,7 +334,7 @@ class _FolderState:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FolderPermissionArgs']]]]:
         """
-        A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -370,7 +370,7 @@ class _FolderState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -462,12 +462,12 @@ class Folder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
-        :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] folder_type: Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        :param pulumi.Input[_builtins.str] name: Display name for the folder.
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -620,19 +620,19 @@ class Folder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the folder.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the folder was created.
+        :param pulumi.Input[_builtins.str] created_time: Time that the folder was created.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: An array of ancestor ARN strings for the folder. Empty for root-level folders.
-        :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the folder was last updated.
-        :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_paths: Array of ancestor ARN strings for the folder. Empty for root-level folders.
+        :param pulumi.Input[_builtins.str] folder_type: Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the folder was last updated.
+        :param pulumi.Input[_builtins.str] name: Display name for the folder.
         :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict', 'outputs.FolderPermission']]]] permissions: Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -673,7 +673,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the folder was created.
+        Time that the folder was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -682,6 +682,8 @@ class Folder(pulumi.CustomResource):
     def folder_id(self) -> pulumi.Output[_builtins.str]:
         """
         Identifier for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "folder_id")
 
@@ -689,7 +691,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="folderPaths")
     def folder_paths(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        An array of ancestor ARN strings for the folder. Empty for root-level folders.
+        Array of ancestor ARN strings for the folder. Empty for root-level folders.
         """
         return pulumi.get(self, "folder_paths")
 
@@ -697,7 +699,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="folderType")
     def folder_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         """
         return pulumi.get(self, "folder_type")
 
@@ -705,7 +707,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the folder was last updated.
+        Time that the folder was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -714,8 +716,6 @@ class Folder(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Display name for the folder.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -731,7 +731,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FolderPermission']]]:
         """
-        A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -755,7 +755,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

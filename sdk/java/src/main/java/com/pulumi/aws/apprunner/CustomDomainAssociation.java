@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * The attribute `certificateValidationRecords` has a fixed count of records, 3 when `enableWwwSubdomain` is `true` (the default) or 2 otherwise. Due to a limitation in how the `forEach` and `count` meta-arguments are handled, they cannot directly use the value of `certificateValidationRecords` when creating a new `aws.apprunner.CustomDomainAssociation`, as the value is unknown. A workaround is shown below, using a fixed `count` based on the value of `enableWwwSubdomain`.
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -33,6 +35,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apprunner.CustomDomainAssociation;
  * import com.pulumi.aws.apprunner.CustomDomainAssociationArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -51,6 +56,19 @@ import javax.annotation.Nullable;
  *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .build());
  * 
+ *         final var certificateValidationRecords = example.certificateValidationRecords();
+ * 
+ *         for (var i = 0; i < example.enableWwwSubdomain().applyValue(_enableWwwSubdomain -> _enableWwwSubdomain ? 3 : 2); i++) {
+ *             new Record("validation-" + i, RecordArgs.builder()
+ *                 .zoneId(exampleAwsRoute53Zone.zoneId())
+ *                 .name(certificateValidationRecords.applyValue(_certificateValidationRecords -> _certificateValidationRecords[range.value()].name()))
+ *                 .type("CNAME")
+ *                 .ttl(300)
+ *                 .records(certificateValidationRecords.applyValue(_certificateValidationRecords -> _certificateValidationRecords[range.value()].value()))
+ *                 .build());
+ * 
+ *         
+ * }
  *     }
  * }
  * }
@@ -82,42 +100,42 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
         return this.certificateValidationRecords;
     }
     /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      * 
      */
     @Export(name="dnsTarget", refs={String.class}, tree="[0]")
     private Output<String> dnsTarget;
 
     /**
-     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      * 
      */
     public Output<String> dnsTarget() {
         return this.dnsTarget;
     }
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     @Export(name="enableWwwSubdomain", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableWwwSubdomain;
 
     /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     public Output<Optional<Boolean>> enableWwwSubdomain() {
@@ -152,14 +170,14 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
         return this.serviceArn;
     }
     /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * @return Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     public Output<String> status() {

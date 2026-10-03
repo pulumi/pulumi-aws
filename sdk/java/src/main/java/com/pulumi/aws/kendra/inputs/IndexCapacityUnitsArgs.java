@@ -16,14 +16,14 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
     public static final IndexCapacityUnitsArgs Empty = new IndexCapacityUnitsArgs();
 
     /**
-     * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+     * Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
     @Import(name="queryCapacityUnits")
     private @Nullable Output<Integer> queryCapacityUnits;
 
     /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+     * @return Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
     public Optional<Output<Integer>> queryCapacityUnits() {
@@ -31,14 +31,14 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+     * Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
     @Import(name="storageCapacityUnits")
     private @Nullable Output<Integer> storageCapacityUnits;
 
     /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+     * @return Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
     public Optional<Output<Integer>> storageCapacityUnits() {
@@ -71,7 +71,7 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param queryCapacityUnits The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+         * @param queryCapacityUnits Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param queryCapacityUnits The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+         * @param queryCapacityUnits Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageCapacityUnits The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+         * @param storageCapacityUnits Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IndexCapacityUnitsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageCapacityUnits The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+         * @param storageCapacityUnits Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          * 
          * @return builder
          * 

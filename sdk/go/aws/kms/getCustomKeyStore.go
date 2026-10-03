@@ -52,9 +52,9 @@ func LookupCustomKeyStore(ctx *pulumi.Context, args *LookupCustomKeyStoreArgs, o
 
 // A collection of arguments for invoking getCustomKeyStore.
 type LookupCustomKeyStoreArgs struct {
-	// The ID for the custom key store.
+	// ID for the custom key store.
 	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
-	// The user-specified friendly name for the custom key store.
+	// User-specified friendly name for the custom key store.
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -62,17 +62,18 @@ type LookupCustomKeyStoreArgs struct {
 
 // A collection of values returned by getCustomKeyStore.
 type LookupCustomKeyStoreResult struct {
+	// ID for the CloudHSM cluster that is associated with the custom key store.
 	CloudHsmClusterId string `pulumi:"cloudHsmClusterId"`
-	// Indicates whether the custom key store is connected to its CloudHSM cluster.
+	// Whether the custom key store is connected to its CloudHSM cluster.
 	ConnectionState string `pulumi:"connectionState"`
-	// The date and time when the custom key store was created.
+	// Date and time when the custom key store was created.
 	CreationDate       string `pulumi:"creationDate"`
 	CustomKeyStoreId   string `pulumi:"customKeyStoreId"`
 	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// The trust anchor certificate of the associated CloudHSM cluster.
+	// Trust anchor certificate of the associated CloudHSM cluster.
 	TrustAnchorCertificate string `pulumi:"trustAnchorCertificate"`
 }
 
@@ -83,9 +84,9 @@ func LookupCustomKeyStoreOutput(ctx *pulumi.Context, args LookupCustomKeyStoreOu
 
 // A collection of arguments for invoking getCustomKeyStore.
 type LookupCustomKeyStoreOutputArgs struct {
-	// The ID for the custom key store.
+	// ID for the custom key store.
 	CustomKeyStoreId pulumi.StringPtrInput `pulumi:"customKeyStoreId"`
-	// The user-specified friendly name for the custom key store.
+	// User-specified friendly name for the custom key store.
 	CustomKeyStoreName pulumi.StringPtrInput `pulumi:"customKeyStoreName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -110,16 +111,17 @@ func (o LookupCustomKeyStoreResultOutput) ToLookupCustomKeyStoreResultOutputWith
 	return o
 }
 
+// ID for the CloudHSM cluster that is associated with the custom key store.
 func (o LookupCustomKeyStoreResultOutput) CloudHsmClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.CloudHsmClusterId }).(pulumi.StringOutput)
 }
 
-// Indicates whether the custom key store is connected to its CloudHSM cluster.
+// Whether the custom key store is connected to its CloudHSM cluster.
 func (o LookupCustomKeyStoreResultOutput) ConnectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.ConnectionState }).(pulumi.StringOutput)
 }
 
-// The date and time when the custom key store was created.
+// Date and time when the custom key store was created.
 func (o LookupCustomKeyStoreResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
@@ -141,7 +143,7 @@ func (o LookupCustomKeyStoreResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The trust anchor certificate of the associated CloudHSM cluster.
+// Trust anchor certificate of the associated CloudHSM cluster.
 func (o LookupCustomKeyStoreResultOutput) TrustAnchorCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.TrustAnchorCertificate }).(pulumi.StringOutput)
 }

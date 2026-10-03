@@ -17,14 +17,14 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
     public static final AnalyticsApplicationCloudwatchLoggingOptionsArgs Empty = new AnalyticsApplicationCloudwatchLoggingOptionsArgs();
 
     /**
-     * The ARN of the Kinesis Analytics Application.
+     * ARN of the Kinesis Analytics Application.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Optional<Output<String>> id() {
@@ -32,14 +32,14 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
     }
 
     /**
-     * The ARN of the CloudWatch Log Stream.
+     * ARN of the CloudWatch Log Stream.
      * 
      */
     @Import(name="logStreamArn", required=true)
     private Output<String> logStreamArn;
 
     /**
-     * @return The ARN of the CloudWatch Log Stream.
+     * @return ARN of the CloudWatch Log Stream.
      * 
      */
     public Output<String> logStreamArn() {
@@ -47,14 +47,14 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
     }
 
     /**
-     * The ARN of the IAM Role used to send application messages.
+     * ARN of the IAM Role used to send application messages.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM Role used to send application messages.
+     * @return ARN of the IAM Role used to send application messages.
      * 
      */
     public Output<String> roleArn() {
@@ -88,7 +88,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param logStreamArn The ARN of the CloudWatch Log Stream.
+         * @param logStreamArn ARN of the CloudWatch Log Stream.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param logStreamArn The ARN of the CloudWatch Log Stream.
+         * @param logStreamArn ARN of the CloudWatch Log Stream.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role used to send application messages.
+         * @param roleArn ARN of the IAM Role used to send application messages.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role used to send application messages.
+         * @param roleArn ARN of the IAM Role used to send application messages.
          * 
          * @return builder
          * 

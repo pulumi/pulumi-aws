@@ -15,14 +15,14 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
     public static final TableSchemaDefinitionColumnArgs Empty = new TableSchemaDefinitionColumnArgs();
 
     /**
-     * The name of the column.
+     * Name of the column.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the column.
+     * @return Name of the column.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
     }
 
     /**
-     * The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+     * Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+     * @return Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
      * 
      */
     public Output<String> type() {
@@ -70,7 +70,7 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the column.
+         * @param name Name of the column.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the column.
+         * @param name Name of the column.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+         * @param type Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TableSchemaDefinitionColumnArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+         * @param type Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
          * 
          * @return builder
          * 

@@ -18,18 +18,14 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
     /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
+     * JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      * 
      */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
     /**
-     * @return The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
+     * @return JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      * 
      */
     public Output<String> policyDocument() {
@@ -52,14 +48,14 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The revision ID of the current resource-based policy.
+     * Revision ID of the current resource-based policy.
      * 
      */
     @Import(name="revisionId")
     private @Nullable Output<String> revisionId;
 
     /**
-     * @return The revision ID of the current resource-based policy.
+     * @return Revision ID of the current resource-based policy.
      * 
      */
     public Optional<Output<String>> revisionId() {
@@ -74,14 +70,18 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the workspace to attach the resource-based policy to.
+     * ID of the workspace to attach the resource-based policy to.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the workspace to attach the resource-based policy to.
+     * @return ID of the workspace to attach the resource-based policy to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workspaceId() {
@@ -117,9 +117,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyDocument The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-         * 
-         * The following arguments are optional:
+         * @param policyDocument JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
          * 
          * @return builder
          * 
@@ -130,9 +128,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyDocument The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-         * 
-         * The following arguments are optional:
+         * @param policyDocument JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
          * 
          * @return builder
          * 
@@ -163,7 +159,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param revisionId The revision ID of the current resource-based policy.
+         * @param revisionId Revision ID of the current resource-based policy.
          * 
          * @return builder
          * 
@@ -174,7 +170,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param revisionId The revision ID of the current resource-based policy.
+         * @param revisionId Revision ID of the current resource-based policy.
          * 
          * @return builder
          * 
@@ -193,7 +189,9 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param workspaceId The ID of the workspace to attach the resource-based policy to.
+         * @param workspaceId ID of the workspace to attach the resource-based policy to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -204,7 +202,9 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param workspaceId The ID of the workspace to attach the resource-based policy to.
+         * @param workspaceId ID of the workspace to attach the resource-based policy to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

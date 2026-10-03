@@ -99,6 +99,9 @@ class GetStreamConsumerResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -144,6 +147,7 @@ def get_stream_consumer(arn: Optional[_builtins.str] = None,
     :param _builtins.str name: Name of the stream consumer.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str stream_arn: ARN of the data stream the consumer is registered with.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -189,6 +193,7 @@ def get_stream_consumer_output(arn: pulumi.Input[Optional[Optional[_builtins.str
     :param _builtins.str name: Name of the stream consumer.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str stream_arn: ARN of the data stream the consumer is registered with.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

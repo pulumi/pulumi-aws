@@ -17,13 +17,16 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
         /// Name of S3 bucket.
         /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Encryption option for S3 location.
+        /// </summary>
         public readonly string EncryptionOption;
         /// <summary>
-        /// AWS KMS key ID for S3 location with AWS maanged key.
+        /// AWS KMS key ID for S3 location with AWS managed key.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// Object key preview for S3 location.
+        /// Object key prefix for S3 location.
         /// </summary>
         public readonly string ObjectKeyPrefix;
 

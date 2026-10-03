@@ -54,7 +54,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[_builtins.str] contact_number: 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -228,7 +228,7 @@ class AccountSubscriptionArgs:
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         """
         return pulumi.get(self, "contact_number")
 
@@ -381,7 +381,7 @@ class _AccountSubscriptionState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[_builtins.str] contact_number: 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -551,7 +551,7 @@ class _AccountSubscriptionState:
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         """
         return pulumi.get(self, "contact_number")
 
@@ -758,7 +758,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[_builtins.str] contact_number: 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -926,7 +926,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[_builtins.str] contact_number: 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -1044,7 +1044,7 @@ class AccountSubscription(pulumi.CustomResource):
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         """
         return pulumi.get(self, "contact_number")
 

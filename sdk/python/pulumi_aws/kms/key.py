@@ -36,29 +36,22 @@ class KeyArgs:
         """
         The set of arguments for constructing a Key resource.
 
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-               The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
-        :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-               Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[_builtins.int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-               If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
-        :param pulumi.Input[_builtins.str] description: The description of the key as viewed in AWS console.
-        :param pulumi.Input[_builtins.bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the key is enabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-               Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-               
-               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[_builtins.str] customer_master_key_spec: Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the key as viewed in AWS console.
+        :param pulumi.Input[_builtins.bool] enable_key_rotation: Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] is_enabled: Whether the key is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] key_usage: Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[_builtins.bool] multi_region: Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] policy: Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] xks_key_id: External key that serves as key material for the KMS key in an external key store.
+               
+               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
@@ -93,10 +86,7 @@ class KeyArgs:
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-        The default value is `false`.
+        Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -120,8 +110,7 @@ class KeyArgs:
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-        Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         """
         return pulumi.get(self, "customer_master_key_spec")
 
@@ -133,9 +122,7 @@ class KeyArgs:
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         """
         return pulumi.get(self, "deletion_window_in_days")
 
@@ -147,7 +134,7 @@ class KeyArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the key as viewed in AWS console.
+        Description of the key as viewed in AWS console.
         """
         return pulumi.get(self, "description")
 
@@ -159,7 +146,7 @@ class KeyArgs:
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -171,7 +158,7 @@ class KeyArgs:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the key is enabled. Defaults to `true`.
+        Whether the key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -183,8 +170,7 @@ class KeyArgs:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-        Defaults to `ENCRYPT_DECRYPT`.
+        Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
@@ -196,7 +182,7 @@ class KeyArgs:
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
@@ -208,9 +194,7 @@ class KeyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-
-        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -246,7 +230,7 @@ class KeyArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -258,7 +242,9 @@ class KeyArgs:
     @pulumi.getter(name="xksKeyId")
     def xks_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifies the external key that serves as key material for the KMS key in an external key store.
+        External key that serves as key material for the KMS key in an external key store.
+
+        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         return pulumi.get(self, "xks_key_id")
 
@@ -291,31 +277,24 @@ class _KeyState:
         Input properties used for looking up and filtering Key resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the key.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-               The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
-        :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-               Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[_builtins.int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-               If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
-        :param pulumi.Input[_builtins.str] description: The description of the key as viewed in AWS console.
-        :param pulumi.Input[_builtins.bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the key is enabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] key_id: The globally unique identifier for the key.
-        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-               Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-               
-               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[_builtins.str] customer_master_key_spec: Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the key as viewed in AWS console.
+        :param pulumi.Input[_builtins.bool] enable_key_rotation: Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] is_enabled: Whether the key is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] key_id: Globally unique identifier for the key.
+        :param pulumi.Input[_builtins.str] key_usage: Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[_builtins.bool] multi_region: Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] policy: Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] xks_key_id: External key that serves as key material for the KMS key in an external key store.
+               
+               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -368,10 +347,7 @@ class _KeyState:
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-        The default value is `false`.
+        Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -395,8 +371,7 @@ class _KeyState:
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-        Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         """
         return pulumi.get(self, "customer_master_key_spec")
 
@@ -408,9 +383,7 @@ class _KeyState:
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         """
         return pulumi.get(self, "deletion_window_in_days")
 
@@ -422,7 +395,7 @@ class _KeyState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the key as viewed in AWS console.
+        Description of the key as viewed in AWS console.
         """
         return pulumi.get(self, "description")
 
@@ -434,7 +407,7 @@ class _KeyState:
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -446,7 +419,7 @@ class _KeyState:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the key is enabled. Defaults to `true`.
+        Whether the key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -458,7 +431,7 @@ class _KeyState:
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The globally unique identifier for the key.
+        Globally unique identifier for the key.
         """
         return pulumi.get(self, "key_id")
 
@@ -470,8 +443,7 @@ class _KeyState:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-        Defaults to `ENCRYPT_DECRYPT`.
+        Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
@@ -483,7 +455,7 @@ class _KeyState:
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
@@ -495,9 +467,7 @@ class _KeyState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-
-        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -533,7 +503,7 @@ class _KeyState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -545,7 +515,7 @@ class _KeyState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -557,7 +527,9 @@ class _KeyState:
     @pulumi.getter(name="xksKeyId")
     def xks_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifies the external key that serves as key material for the KMS key in an external key store.
+        External key that serves as key material for the KMS key in an external key store.
+
+        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         return pulumi.get(self, "xks_key_id")
 
@@ -914,29 +886,22 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-               The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
-        :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-               Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[_builtins.int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-               If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
-        :param pulumi.Input[_builtins.str] description: The description of the key as viewed in AWS console.
-        :param pulumi.Input[_builtins.bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the key is enabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-               Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-               
-               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[_builtins.str] customer_master_key_spec: Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the key as viewed in AWS console.
+        :param pulumi.Input[_builtins.bool] enable_key_rotation: Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] is_enabled: Whether the key is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] key_usage: Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[_builtins.bool] multi_region: Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] policy: Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] xks_key_id: External key that serves as key material for the KMS key in an external key store.
+               
+               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         ...
     @overload
@@ -1359,31 +1324,24 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the key.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-               The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
-        :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-               Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[_builtins.int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-               If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
-        :param pulumi.Input[_builtins.str] description: The description of the key as viewed in AWS console.
-        :param pulumi.Input[_builtins.bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the key is enabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] key_id: The globally unique identifier for the key.
-        :param pulumi.Input[_builtins.str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-               Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[_builtins.bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-               
-               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[_builtins.str] customer_master_key_spec: Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        :param pulumi.Input[_builtins.str] description: Description of the key as viewed in AWS console.
+        :param pulumi.Input[_builtins.bool] enable_key_rotation: Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] is_enabled: Whether the key is enabled. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] key_id: Globally unique identifier for the key.
+        :param pulumi.Input[_builtins.str] key_usage: Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[_builtins.bool] multi_region: Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] policy: Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] xks_key_id: External key that serves as key material for the KMS key in an external key store.
+               
+               > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1420,10 +1378,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-        The default value is `false`.
+        Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -1439,8 +1394,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
-        Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         """
         return pulumi.get(self, "customer_master_key_spec")
 
@@ -1448,9 +1402,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`. If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         """
         return pulumi.get(self, "deletion_window_in_days")
 
@@ -1458,7 +1410,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        The description of the key as viewed in AWS console.
+        Description of the key as viewed in AWS console.
         """
         return pulumi.get(self, "description")
 
@@ -1466,7 +1418,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        Whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -1474,7 +1426,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether the key is enabled. Defaults to `true`.
+        Whether the key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -1482,7 +1434,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The globally unique identifier for the key.
+        Globally unique identifier for the key.
         """
         return pulumi.get(self, "key_id")
 
@@ -1490,8 +1442,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
-        Defaults to `ENCRYPT_DECRYPT`.
+        Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
@@ -1499,7 +1450,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
@@ -1507,9 +1458,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
-
-        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        Valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -1533,7 +1482,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1541,7 +1490,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1549,7 +1498,9 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="xksKeyId")
     def xks_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifies the external key that serves as key material for the KMS key in an external key store.
+        External key that serves as key material for the KMS key in an external key store.
+
+        > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         return pulumi.get(self, "xks_key_id")
 

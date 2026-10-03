@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexIndexStatisticFaqStatistic {
     /**
-     * @return The total number of FAQ questions and answers contained in the index.
+     * @return Total number of FAQ questions and answers contained in the index.
      * 
      */
     private Integer indexedQuestionAnswersCount;
 
     private GetIndexIndexStatisticFaqStatistic() {}
     /**
-     * @return The total number of FAQ questions and answers contained in the index.
+     * @return Total number of FAQ questions and answers contained in the index.
      * 
      */
     public Integer indexedQuestionAnswersCount() {

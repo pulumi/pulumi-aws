@@ -33,14 +33,14 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Registered keys. See key_registration.
+     * Registered keys. See `keyRegistration` Block.
      * 
      */
     @Import(name="keyRegistrations")
     private @Nullable Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations;
 
     /**
-     * @return Registered keys. See key_registration.
+     * @return Registered keys. See `keyRegistration` Block.
      * 
      */
     public Optional<Output<List<KeyRegistrationKeyRegistrationArgs>>> keyRegistrations() {
@@ -110,7 +110,7 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyRegistrations Registered keys. See key_registration.
+         * @param keyRegistrations Registered keys. See `keyRegistration` Block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyRegistrations Registered keys. See key_registration.
+         * @param keyRegistrations Registered keys. See `keyRegistration` Block.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyRegistrations Registered keys. See key_registration.
+         * @param keyRegistrations Registered keys. See `keyRegistration` Block.
          * 
          * @return builder
          * 

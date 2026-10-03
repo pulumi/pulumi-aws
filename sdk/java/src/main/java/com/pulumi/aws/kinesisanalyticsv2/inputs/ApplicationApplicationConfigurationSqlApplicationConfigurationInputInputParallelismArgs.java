@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs();
 
     /**
-     * The number of in-application streams to create.
+     * Number of in-application streams to create.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return The number of in-application streams to create.
+     * @return Number of in-application streams to create.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -55,7 +55,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param count The number of in-application streams to create.
+         * @param count Number of in-application streams to create.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param count The number of in-application streams to create.
+         * @param count Number of in-application streams to create.
          * 
          * @return builder
          * 

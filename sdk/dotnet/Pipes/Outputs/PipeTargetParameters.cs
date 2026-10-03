@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParameters
     {
         /// <summary>
-        /// The parameters for using an AWS Batch job as a target. Detailed below.
+        /// Parameters for using an AWS Batch job as a target. See `BatchJobParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersBatchJobParameters? BatchJobParameters;
         /// <summary>
-        /// The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+        /// Parameters for using a CloudWatch Logs log stream as a target. See `CloudwatchLogsParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersCloudwatchLogsParameters? CloudwatchLogsParameters;
         /// <summary>
-        /// The parameters for using an Amazon ECS task as a target. Detailed below.
+        /// Parameters for using an Amazon ECS task as a target. See `EcsTaskParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersEcsTaskParameters? EcsTaskParameters;
         /// <summary>
-        /// The parameters for using an EventBridge event bus as a target. Detailed below.
+        /// Parameters for using an EventBridge event bus as a target. See `EventbridgeEventBusParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersEventbridgeEventBusParameters? EventbridgeEventBusParameters;
         /// <summary>
-        /// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+        /// Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersHttpParameters? HttpParameters;
         /// <summary>
@@ -38,27 +38,27 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string? InputTemplate;
         /// <summary>
-        /// The parameters for using a Kinesis stream as a source. Detailed below.
+        /// Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersKinesisStreamParameters? KinesisStreamParameters;
         /// <summary>
-        /// The parameters for using a Lambda function as a target. Detailed below.
+        /// Parameters for using a Lambda function as a target. See `LambdaFunctionParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersLambdaFunctionParameters? LambdaFunctionParameters;
         /// <summary>
-        /// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+        /// Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `RedshiftDataParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersRedshiftDataParameters? RedshiftDataParameters;
         /// <summary>
-        /// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+        /// Parameters for using a SageMaker AI pipeline as a target. See `SagemakerPipelineParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersSagemakerPipelineParameters? SagemakerPipelineParameters;
         /// <summary>
-        /// The parameters for using a Amazon SQS stream as a target. Detailed below.
+        /// Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersSqsQueueParameters? SqsQueueParameters;
         /// <summary>
-        /// The parameters for using a Step Functions state machine as a target. Detailed below.
+        /// Parameters for using a Step Functions state machine as a target. See `StepFunctionStateMachineParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersStepFunctionStateMachineParameters? StepFunctionStateMachineParameters;
 

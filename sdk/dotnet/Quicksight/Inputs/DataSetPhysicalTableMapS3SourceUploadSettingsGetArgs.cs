@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// A row number to start reading data from.
+        /// Row number to start reading data from.
         /// </summary>
         [Input("startFromRow")]
         public Input<int>? StartFromRow { get; set; }

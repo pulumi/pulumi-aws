@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class ThemeConfigurationSheet
     {
         /// <summary>
-        /// The display options for tiles. See tile.
+        /// Display options for tiles. See tile.
         /// </summary>
         public readonly Outputs.ThemeConfigurationSheetTile? Tile;
         /// <summary>
-        /// The layout options for tiles. See tile_layout.
+        /// Layout options for tiles. See tile_layout.
         /// </summary>
         public readonly Outputs.ThemeConfigurationSheetTileLayout? TileLayout;
 

@@ -16,47 +16,31 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArg
 
     public static final AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs Empty = new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs();
 
-    /**
-     * The Mapping reference to the data element.
-     * 
-     */
     @Import(name="mapping")
     private @Nullable Output<String> mapping;
 
-    /**
-     * @return The Mapping reference to the data element.
-     * 
-     */
     public Optional<Output<String>> mapping() {
         return Optional.ofNullable(this.mapping);
     }
 
     /**
-     * Name of the column.
+     * Name of the Kinesis Analytics Application.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the column.
+     * @return Name of the Kinesis Analytics Application.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The SQL Type of the column.
-     * 
-     */
     @Import(name="sqlType", required=true)
     private Output<String> sqlType;
 
-    /**
-     * @return The SQL Type of the column.
-     * 
-     */
     public Output<String> sqlType() {
         return this.sqlType;
     }
@@ -87,29 +71,17 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArg
             $ = new AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapping The Mapping reference to the data element.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapping(@Nullable Output<String> mapping) {
             $.mapping = mapping;
             return this;
         }
 
-        /**
-         * @param mapping The Mapping reference to the data element.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapping(String mapping) {
             return mapping(Output.of(mapping));
         }
 
         /**
-         * @param name Name of the column.
+         * @param name Name of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -120,7 +92,7 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArg
         }
 
         /**
-         * @param name Name of the column.
+         * @param name Name of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -129,23 +101,11 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArg
             return name(Output.of(name));
         }
 
-        /**
-         * @param sqlType The SQL Type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlType(Output<String> sqlType) {
             $.sqlType = sqlType;
             return this;
         }
 
-        /**
-         * @param sqlType The SQL Type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlType(String sqlType) {
             return sqlType(Output.of(sqlType));
         }

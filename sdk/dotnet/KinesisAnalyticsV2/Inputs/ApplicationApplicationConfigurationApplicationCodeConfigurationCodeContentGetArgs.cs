@@ -13,13 +13,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the Amazon S3 bucket containing the application code.
+        /// Information about the Amazon S3 bucket containing the application code. See `S3ContentLocation` Block below.
         /// </summary>
         [Input("s3ContentLocation")]
         public Input<Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs>? S3ContentLocation { get; set; }
 
         /// <summary>
-        /// The text-format code for the application.
+        /// Text-format code for the application.
         /// </summary>
         [Input("textContent")]
         public Input<string>? TextContent { get; set; }

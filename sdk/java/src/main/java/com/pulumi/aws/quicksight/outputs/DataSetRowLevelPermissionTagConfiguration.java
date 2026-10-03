@@ -15,26 +15,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetRowLevelPermissionTagConfiguration {
     /**
-     * @return The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+     * @return Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
     private @Nullable String status;
     /**
-     * @return A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+     * @return Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
      * 
      */
     private List<DataSetRowLevelPermissionTagConfigurationTagRule> tagRules;
 
     private DataSetRowLevelPermissionTagConfiguration() {}
     /**
-     * @return The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+     * @return Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+     * @return Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
      * 
      */
     public List<DataSetRowLevelPermissionTagConfigurationTagRule> tagRules() {

@@ -121,23 +121,23 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	// The ARN that uniquely identifies this table.
+	// ARN that uniquely identifies this table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the Timestream database.
+	// Name of the Timestream database.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesOutput `pulumi:"magneticStoreWriteProperties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+	// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesOutput `pulumi:"retentionProperties"`
-	// The schema of the table. See Schema below for more details.
+	// Schema of the table. See `schema` Block below for more details.
 	Schema TableSchemaOutput `pulumi:"schema"`
-	// The name of the Timestream table.
+	// Name of the Timestream table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -177,44 +177,44 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
-	// The ARN that uniquely identifies this table.
+	// ARN that uniquely identifies this table.
 	Arn *string `pulumi:"arn"`
-	// The name of the Timestream database.
+	// Name of the Timestream database.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+	// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
-	// The schema of the table. See Schema below for more details.
+	// Schema of the table. See `schema` Block below for more details.
 	Schema *TableSchema `pulumi:"schema"`
-	// The name of the Timestream table.
+	// Name of the Timestream table.
 	TableName *string `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TableState struct {
-	// The ARN that uniquely identifies this table.
+	// ARN that uniquely identifies this table.
 	Arn pulumi.StringPtrInput
-	// The name of the Timestream database.
+	// Name of the Timestream database.
 	DatabaseName pulumi.StringPtrInput
-	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+	// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
-	// The schema of the table. See Schema below for more details.
+	// Schema of the table. See `schema` Block below for more details.
 	Schema TableSchemaPtrInput
-	// The name of the Timestream table.
+	// Name of the Timestream table.
 	TableName pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -223,17 +223,17 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// The name of the Timestream database.
+	// Name of the Timestream database.
 	DatabaseName string `pulumi:"databaseName"`
-	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 	MagneticStoreWriteProperties *TableMagneticStoreWriteProperties `pulumi:"magneticStoreWriteProperties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+	// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
-	// The schema of the table. See Schema below for more details.
+	// Schema of the table. See `schema` Block below for more details.
 	Schema *TableSchema `pulumi:"schema"`
-	// The name of the Timestream table.
+	// Name of the Timestream table.
 	TableName string `pulumi:"tableName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -241,17 +241,17 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// The name of the Timestream database.
+	// Name of the Timestream database.
 	DatabaseName pulumi.StringInput
-	// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+	// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 	MagneticStoreWriteProperties TableMagneticStoreWritePropertiesPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+	// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesPtrInput
-	// The schema of the table. See Schema below for more details.
+	// Schema of the table. See `schema` Block below for more details.
 	Schema TableSchemaPtrInput
-	// The name of the Timestream table.
+	// Name of the Timestream table.
 	TableName pulumi.StringInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -344,17 +344,17 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
-// The ARN that uniquely identifies this table.
+// ARN that uniquely identifies this table.
 func (o TableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the Timestream database.
+// Name of the Timestream database.
 func (o TableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+// Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
 func (o TableOutput) MagneticStoreWriteProperties() TableMagneticStoreWritePropertiesOutput {
 	return o.ApplyT(func(v *Table) TableMagneticStoreWritePropertiesOutput { return v.MagneticStoreWriteProperties }).(TableMagneticStoreWritePropertiesOutput)
 }
@@ -364,17 +364,17 @@ func (o TableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+// Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 func (o TableOutput) RetentionProperties() TableRetentionPropertiesOutput {
 	return o.ApplyT(func(v *Table) TableRetentionPropertiesOutput { return v.RetentionProperties }).(TableRetentionPropertiesOutput)
 }
 
-// The schema of the table. See Schema below for more details.
+// Schema of the table. See `schema` Block below for more details.
 func (o TableOutput) Schema() TableSchemaOutput {
 	return o.ApplyT(func(v *Table) TableSchemaOutput { return v.Schema }).(TableSchemaOutput)
 }
 
-// The name of the Timestream table.
+// Name of the Timestream table.
 func (o TableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
@@ -384,7 +384,7 @@ func (o TableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -64,17 +64,15 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the placement group.
+     * Name of the placement group.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      */
     declare public readonly partitionCount: pulumi.Output<number>;
     /**
-     * The ID of the placement group.
+     * ID of the placement group.
      */
     declare public /*out*/ readonly placementGroupId: pulumi.Output<string>;
     /**
@@ -82,12 +80,11 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
     declare public readonly spreadLevel: pulumi.Output<string>;
     /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * Placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     declare public readonly strategy: pulumi.Output<string>;
     /**
@@ -95,7 +92,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -150,17 +147,15 @@ export interface PlacementGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the placement group.
+     * Name of the placement group.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      */
     partitionCount?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the placement group.
+     * ID of the placement group.
      */
     placementGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -168,12 +163,11 @@ export interface PlacementGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
     spreadLevel?: pulumi.Input<string | undefined>;
     /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * Placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy | undefined>;
     /**
@@ -181,7 +175,7 @@ export interface PlacementGroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -191,13 +185,11 @@ export interface PlacementGroupState {
  */
 export interface PlacementGroupArgs {
     /**
-     * The name of the placement group.
+     * Name of the placement group.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      */
     partitionCount?: pulumi.Input<number | undefined>;
     /**
@@ -205,12 +197,11 @@ export interface PlacementGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
     spreadLevel?: pulumi.Input<string | undefined>;
     /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * Placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**

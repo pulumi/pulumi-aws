@@ -13,35 +13,38 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the data format when records are written to the destination.
+        /// Data format when records are written to the destination. See `DestinationSchema` Block below.
         /// </summary>
         [Input("destinationSchema", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs> DestinationSchema { get; set; } = null!;
 
         /// <summary>
-        /// Identifies a Kinesis Data Firehose delivery stream as the destination.
+        /// Destination Kinesis Data Firehose delivery stream. See `KinesisFirehoseOutput` Block below.
         /// </summary>
         [Input("kinesisFirehoseOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs>? KinesisFirehoseOutput { get; set; }
 
         /// <summary>
-        /// Identifies a Kinesis data stream as the destination.
+        /// Destination Kinesis data stream. See `KinesisStreamsOutput` Block below.
         /// </summary>
         [Input("kinesisStreamsOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs>? KinesisStreamsOutput { get; set; }
 
         /// <summary>
-        /// Identifies a Lambda function as the destination.
+        /// Destination Lambda function. See `LambdaOutput` Block below.
         /// </summary>
         [Input("lambdaOutput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs>? LambdaOutput { get; set; }
 
         /// <summary>
-        /// The name of the in-application stream.
+        /// Name of the in-application stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of the output configuration.
+        /// </summary>
         [Input("outputId")]
         public Input<string>? OutputId { get; set; }
 

@@ -75,10 +75,6 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
 export interface GetPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * prefix lists. The given filters must match exactly one prefix list
-     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetPrefixListFilter[];
     /**
@@ -183,10 +179,6 @@ export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulum
 export interface GetPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * prefix lists. The given filters must match exactly one prefix list
-     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPrefixListFilterArgs>[] | undefined>;
     /**

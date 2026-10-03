@@ -16,7 +16,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      */
     private String claimRegex;
     /**
-     * @return The group attribute field.
+     * @return Group attribute field.
      * 
      */
     private String groupAttributeField;
@@ -26,7 +26,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      */
     private String issuer;
     /**
-     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
      * 
      */
     private String keyLocation;
@@ -41,7 +41,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      */
     private String url;
     /**
-     * @return The user name attribute field.
+     * @return User name attribute field.
      * 
      */
     private String userNameAttributeField;
@@ -55,7 +55,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         return this.claimRegex;
     }
     /**
-     * @return The group attribute field.
+     * @return Group attribute field.
      * 
      */
     public String groupAttributeField() {
@@ -69,7 +69,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         return this.issuer;
     }
     /**
-     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
      * 
      */
     public String keyLocation() {
@@ -90,7 +90,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         return this.url;
     }
     /**
-     * @return The user name attribute field.
+     * @return User name attribute field.
      * 
      */
     public String userNameAttributeField() {

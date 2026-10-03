@@ -18,14 +18,14 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
     public static final CustomDomainAssociationArgs Empty = new CustomDomainAssociationArgs();
 
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     public Output<String> domainName() {
@@ -33,14 +33,14 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     @Import(name="enableWwwSubdomain")
     private @Nullable Output<Boolean> enableWwwSubdomain;
 
     /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     public Optional<Output<Boolean>> enableWwwSubdomain() {
@@ -105,7 +105,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
          * 
          * @return builder
          * 

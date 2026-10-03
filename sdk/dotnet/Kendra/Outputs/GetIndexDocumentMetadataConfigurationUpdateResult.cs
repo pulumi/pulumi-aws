@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        /// Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateRelevanceResult> Relevances;
         /// <summary>
-        /// Block that provides information about how the field is used during a search. Documented below.
+        /// Block that provides information about how the field is used during a search. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateSearchResult> Searches;
         /// <summary>

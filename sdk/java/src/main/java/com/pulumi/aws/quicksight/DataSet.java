@@ -417,28 +417,28 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+     * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
      * 
      */
     @Export(name="columnGroups", refs={List.class,DataSetColumnGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetColumnGroup>> columnGroups;
 
     /**
-     * @return Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+     * @return Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
      * 
      */
     public Output<Optional<List<DataSetColumnGroup>>> columnGroups() {
         return Codegen.optional(this.columnGroups);
     }
     /**
-     * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+     * Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
      * 
      */
     @Export(name="columnLevelPermissionRules", refs={List.class,DataSetColumnLevelPermissionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetColumnLevelPermissionRule>> columnLevelPermissionRules;
 
     /**
-     * @return A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+     * @return Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
      * 
      */
     public Output<Optional<List<DataSetColumnLevelPermissionRule>>> columnLevelPermissionRules() {
@@ -459,56 +459,56 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.dataSetId;
     }
     /**
-     * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+     * Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
      * 
      */
     @Export(name="dataSetUsageConfiguration", refs={DataSetDataSetUsageConfiguration.class}, tree="[0]")
     private Output<DataSetDataSetUsageConfiguration> dataSetUsageConfiguration;
 
     /**
-     * @return The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+     * @return Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
      * 
      */
     public Output<DataSetDataSetUsageConfiguration> dataSetUsageConfiguration() {
         return this.dataSetUsageConfiguration;
     }
     /**
-     * The folder that contains fields and nested subfolders for your dataset. See field_folders.
+     * Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
      * 
      */
     @Export(name="fieldFolders", refs={List.class,DataSetFieldFolder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetFieldFolder>> fieldFolders;
 
     /**
-     * @return The folder that contains fields and nested subfolders for your dataset. See field_folders.
+     * @return Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
      * 
      */
     public Output<Optional<List<DataSetFieldFolder>>> fieldFolders() {
         return Codegen.optional(this.fieldFolders);
     }
     /**
-     * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+     * Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
     @Export(name="importMode", refs={String.class}, tree="[0]")
     private Output<String> importMode;
 
     /**
-     * @return Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+     * @return Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
     public Output<String> importMode() {
         return this.importMode;
     }
     /**
-     * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+     * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
      * 
      */
     @Export(name="logicalTableMaps", refs={List.class,DataSetLogicalTableMap.class}, tree="[0,1]")
     private Output<List<DataSetLogicalTableMap>> logicalTableMaps;
 
     /**
-     * @return Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+     * @return Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
      * 
      */
     public Output<List<DataSetLogicalTableMap>> logicalTableMaps() {
@@ -533,56 +533,56 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
+     * Final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set. See `outputColumns` Block below.
      * 
      */
     @Export(name="outputColumns", refs={List.class,DataSetOutputColumn.class}, tree="[0,1]")
     private Output<List<DataSetOutputColumn>> outputColumns;
 
     /**
-     * @return The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
+     * @return Final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set. See `outputColumns` Block below.
      * 
      */
     public Output<List<DataSetOutputColumn>> outputColumns() {
         return this.outputColumns;
     }
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
      * 
      */
     @Export(name="permissions", refs={List.class,DataSetPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetPermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
      * 
      */
     public Output<Optional<List<DataSetPermission>>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
      * 
      */
     @Export(name="physicalTableMaps", refs={List.class,DataSetPhysicalTableMap.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetPhysicalTableMap>> physicalTableMaps;
 
     /**
-     * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * @return Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
      * 
      */
     public Output<Optional<List<DataSetPhysicalTableMap>>> physicalTableMaps() {
         return Codegen.optional(this.physicalTableMaps);
     }
     /**
-     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     * Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
      * 
      */
     @Export(name="refreshProperties", refs={DataSetRefreshProperties.class}, tree="[0]")
     private Output</* @Nullable */ DataSetRefreshProperties> refreshProperties;
 
     /**
-     * @return The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     * @return Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
      * 
      */
     public Output<Optional<DataSetRefreshProperties>> refreshProperties() {
@@ -603,28 +603,28 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+     * Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
      * 
      */
     @Export(name="rowLevelPermissionDataSet", refs={DataSetRowLevelPermissionDataSet.class}, tree="[0]")
     private Output</* @Nullable */ DataSetRowLevelPermissionDataSet> rowLevelPermissionDataSet;
 
     /**
-     * @return The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+     * @return Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
      * 
      */
     public Output<Optional<DataSetRowLevelPermissionDataSet>> rowLevelPermissionDataSet() {
         return Codegen.optional(this.rowLevelPermissionDataSet);
     }
     /**
-     * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+     * Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
      * 
      */
     @Export(name="rowLevelPermissionTagConfiguration", refs={DataSetRowLevelPermissionTagConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfiguration;
 
     /**
-     * @return The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+     * @return Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
      * 
      */
     public Output<Optional<DataSetRowLevelPermissionTagConfiguration>> rowLevelPermissionTagConfiguration() {
@@ -645,28 +645,28 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
      * 
      */
     @Export(name="useAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> useAs;
 
     /**
-     * @return Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * @return Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
      * 
      */
     public Output<Optional<String>> useAs() {

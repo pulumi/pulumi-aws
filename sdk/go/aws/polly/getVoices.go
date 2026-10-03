@@ -84,7 +84,7 @@ type GetVoicesArgs struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
+	// List of voices with their properties. See `voices` Block below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
 
@@ -97,7 +97,7 @@ type GetVoicesResult struct {
 	// Language code of the voice.
 	LanguageCode *string `pulumi:"languageCode"`
 	Region       string  `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
+	// List of voices with their properties. See `voices` Block below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
 
@@ -116,7 +116,7 @@ type GetVoicesOutputArgs struct {
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
+	// List of voices with their properties. See `voices` Block below.
 	Voices GetVoicesVoiceArrayInput `pulumi:"voices"`
 }
 
@@ -161,7 +161,7 @@ func (o GetVoicesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of voices with their properties. See `voices` Attribute Reference below.
+// List of voices with their properties. See `voices` Block below.
 func (o GetVoicesResultOutput) Voices() GetVoicesVoiceArrayOutput {
 	return o.ApplyT(func(v GetVoicesResult) []GetVoicesVoice { return v.Voices }).(GetVoicesVoiceArrayOutput)
 }

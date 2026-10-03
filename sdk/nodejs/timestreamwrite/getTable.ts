@@ -76,7 +76,7 @@ export interface GetTableResult {
      */
     readonly magneticStoreWriteProperties: outputs.timestreamwrite.GetTableMagneticStoreWriteProperty[];
     /**
-     * Name of the table.
+     * Name of the timestream attribute used for a dimension key.
      */
     readonly name: string;
     readonly region: string;

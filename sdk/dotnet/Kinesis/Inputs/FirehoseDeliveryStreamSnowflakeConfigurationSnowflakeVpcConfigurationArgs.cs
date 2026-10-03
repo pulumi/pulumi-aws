@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The VPCE ID for Firehose to privately connect with Snowflake.
+        /// VPCE ID for Firehose to privately connect with Snowflake.
         /// </summary>
         [Input("privateLinkVpceId", required: true)]
         public Input<string> PrivateLinkVpceId { get; set; } = null!;

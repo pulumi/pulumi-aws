@@ -68,27 +68,27 @@ type Experience struct {
 
 	// ARN of the Experience.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	//
-	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+	// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationOutput `pulumi:"configuration"`
-	// A description for your Amazon Kendra experience.
+	// Description for your Amazon Kendra experience.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
 	Endpoints ExperienceEndpointArrayOutput `pulumi:"endpoints"`
-	// The unique identifier of the experience.
+	// Unique identifier of the experience.
 	ExperienceId pulumi.StringOutput `pulumi:"experienceId"`
-	// The identifier of the index for your Amazon Kendra experience.
+	// Identifier of the index for your Amazon Kendra experience.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// A name for your Amazon Kendra experience.
+	// Name for your Amazon Kendra experience.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The current processing status of your Amazon Kendra experience.
+	// Current processing status of your Amazon Kendra experience.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -130,54 +130,54 @@ func GetExperience(ctx *pulumi.Context,
 type experienceState struct {
 	// ARN of the Experience.
 	Arn *string `pulumi:"arn"`
-	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	//
-	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+	// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
-	// A description for your Amazon Kendra experience.
+	// Description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
 	// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
 	Endpoints []ExperienceEndpoint `pulumi:"endpoints"`
-	// The unique identifier of the experience.
+	// Unique identifier of the experience.
 	ExperienceId *string `pulumi:"experienceId"`
-	// The identifier of the index for your Amazon Kendra experience.
+	// Identifier of the index for your Amazon Kendra experience.
 	IndexId *string `pulumi:"indexId"`
-	// A name for your Amazon Kendra experience.
+	// Name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Region *string `pulumi:"region"`
 	// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
 	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
-	// The current processing status of your Amazon Kendra experience.
+	// Current processing status of your Amazon Kendra experience.
 	Status *string `pulumi:"status"`
 }
 
 type ExperienceState struct {
 	// ARN of the Experience.
 	Arn pulumi.StringPtrInput
-	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	//
-	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+	// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationPtrInput
-	// A description for your Amazon Kendra experience.
+	// Description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
 	// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
 	Endpoints ExperienceEndpointArrayInput
-	// The unique identifier of the experience.
+	// Unique identifier of the experience.
 	ExperienceId pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra experience.
+	// Identifier of the index for your Amazon Kendra experience.
 	IndexId pulumi.StringPtrInput
-	// A name for your Amazon Kendra experience.
+	// Name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Region pulumi.StringPtrInput
 	// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
-	// The current processing status of your Amazon Kendra experience.
+	// Current processing status of your Amazon Kendra experience.
 	Status pulumi.StringPtrInput
 }
 
@@ -186,17 +186,17 @@ func (ExperienceState) ElementType() reflect.Type {
 }
 
 type experienceArgs struct {
-	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	//
-	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+	// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
-	// A description for your Amazon Kendra experience.
+	// Description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
-	// The identifier of the index for your Amazon Kendra experience.
+	// Identifier of the index for your Amazon Kendra experience.
 	IndexId string `pulumi:"indexId"`
-	// A name for your Amazon Kendra experience.
+	// Name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Region *string `pulumi:"region"`
 	// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -206,17 +206,17 @@ type experienceArgs struct {
 
 // The set of arguments for constructing a Experience resource.
 type ExperienceArgs struct {
-	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-	//
-	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+	// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 	Configuration ExperienceConfigurationPtrInput
-	// A description for your Amazon Kendra experience.
+	// Description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
-	// The identifier of the index for your Amazon Kendra experience.
+	// Identifier of the index for your Amazon Kendra experience.
 	IndexId pulumi.StringInput
-	// A name for your Amazon Kendra experience.
+	// Name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Region pulumi.StringPtrInput
 	// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -316,14 +316,12 @@ func (o ExperienceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-//
-// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceOutput) Configuration() ExperienceConfigurationOutput {
 	return o.ApplyT(func(v *Experience) ExperienceConfigurationOutput { return v.Configuration }).(ExperienceConfigurationOutput)
 }
 
-// A description for your Amazon Kendra experience.
+// Description for your Amazon Kendra experience.
 func (o ExperienceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -333,22 +331,24 @@ func (o ExperienceOutput) Endpoints() ExperienceEndpointArrayOutput {
 	return o.ApplyT(func(v *Experience) ExperienceEndpointArrayOutput { return v.Endpoints }).(ExperienceEndpointArrayOutput)
 }
 
-// The unique identifier of the experience.
+// Unique identifier of the experience.
 func (o ExperienceOutput) ExperienceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.ExperienceId }).(pulumi.StringOutput)
 }
 
-// The identifier of the index for your Amazon Kendra experience.
+// Identifier of the index for your Amazon Kendra experience.
 func (o ExperienceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// A name for your Amazon Kendra experience.
+// Name for your Amazon Kendra experience.
 func (o ExperienceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+//
+// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 func (o ExperienceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -360,7 +360,7 @@ func (o ExperienceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The current processing status of your Amazon Kendra experience.
+// Current processing status of your Amazon Kendra experience.
 func (o ExperienceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

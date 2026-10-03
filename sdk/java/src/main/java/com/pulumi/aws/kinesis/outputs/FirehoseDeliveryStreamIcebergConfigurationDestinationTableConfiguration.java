@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
     /**
-     * @return The name of the Apache Iceberg database.
+     * @return Name of the Apache Iceberg database.
      * 
      */
     private String databaseName;
     /**
-     * @return The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+     * @return Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
      * 
      */
     private @Nullable String s3ErrorOutputPrefix;
     /**
-     * @return The name of the Apache Iceberg Table.
+     * @return Name of the Apache Iceberg Table.
      * 
      */
     private String tableName;
     /**
-     * @return A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+     * @return List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
      * 
      */
     private @Nullable List<String> uniqueKeys;
 
     private FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration() {}
     /**
-     * @return The name of the Apache Iceberg database.
+     * @return Name of the Apache Iceberg database.
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+     * @return Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
      * 
      */
     public Optional<String> s3ErrorOutputPrefix() {
         return Optional.ofNullable(this.s3ErrorOutputPrefix);
     }
     /**
-     * @return The name of the Apache Iceberg Table.
+     * @return Name of the Apache Iceberg Table.
      * 
      */
     public String tableName() {
         return this.tableName;
     }
     /**
-     * @return A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+     * @return List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
      * 
      */
     public List<String> uniqueKeys() {

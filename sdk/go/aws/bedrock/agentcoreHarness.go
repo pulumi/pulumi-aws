@@ -274,7 +274,7 @@ type AgentcoreHarness struct {
 	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayOutput `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrOutput `pulumi:"environmentArtifact"`
-	// Map of environment variables.
+	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayOutput `pulumi:"environments"`
@@ -374,7 +374,7 @@ type agentcoreHarnessState struct {
 	EnvironmentActuals []AgentcoreHarnessEnvironmentActual `pulumi:"environmentActuals"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
-	// Map of environment variables.
+	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
@@ -426,7 +426,7 @@ type AgentcoreHarnessState struct {
 	EnvironmentActuals AgentcoreHarnessEnvironmentActualArrayInput
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
-	// Map of environment variables.
+	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapInput
 	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
@@ -478,7 +478,7 @@ type agentcoreHarnessArgs struct {
 	AuthorizerConfiguration *AgentcoreHarnessAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
-	// Map of environment variables.
+	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
@@ -521,7 +521,7 @@ type AgentcoreHarnessArgs struct {
 	AuthorizerConfiguration AgentcoreHarnessAuthorizerConfigurationPtrInput
 	// Environment artifact configuration. See `environmentArtifact` Block below.
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
-	// Map of environment variables.
+	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapInput
 	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
@@ -670,7 +670,7 @@ func (o AgentcoreHarnessOutput) EnvironmentArtifact() AgentcoreHarnessEnvironmen
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArtifactPtrOutput { return v.EnvironmentArtifact }).(AgentcoreHarnessEnvironmentArtifactPtrOutput)
 }
 
-// Map of environment variables.
+// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 func (o AgentcoreHarnessOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }

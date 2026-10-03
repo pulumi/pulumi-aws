@@ -16,36 +16,16 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
 
     public static final AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs Empty = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs();
 
-    /**
-     * Mapping information when the record format uses delimiters.
-     * See CSV Mapping Parameters below for more details.
-     * 
-     */
     @Import(name="csv")
     private @Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs> csv;
 
-    /**
-     * @return Mapping information when the record format uses delimiters.
-     * See CSV Mapping Parameters below for more details.
-     * 
-     */
     public Optional<Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs>> csv() {
         return Optional.ofNullable(this.csv);
     }
 
-    /**
-     * Mapping information when JSON is the record format on the streaming source.
-     * See JSON Mapping Parameters below for more details.
-     * 
-     */
     @Import(name="json")
     private @Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs> json;
 
-    /**
-     * @return Mapping information when JSON is the record format on the streaming source.
-     * See JSON Mapping Parameters below for more details.
-     * 
-     */
     public Optional<Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs>> json() {
         return Optional.ofNullable(this.json);
     }
@@ -75,48 +55,20 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
             $ = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csv Mapping information when the record format uses delimiters.
-         * See CSV Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(@Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs> csv) {
             $.csv = csv;
             return this;
         }
 
-        /**
-         * @param csv Mapping information when the record format uses delimiters.
-         * See CSV Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csv(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs csv) {
             return csv(Output.of(csv));
         }
 
-        /**
-         * @param json Mapping information when JSON is the record format on the streaming source.
-         * See JSON Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(@Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs> json) {
             $.json = json;
             return this;
         }
 
-        /**
-         * @param json Mapping information when JSON is the record format on the streaming source.
-         * See JSON Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs json) {
             return json(Output.of(json));
         }

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexCapacityUnitResult> CapacityUnits;
         /// <summary>
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateResult> DocumentMetadataConfigurationUpdates;
         /// <summary>
@@ -181,12 +181,9 @@ namespace Pulumi.Aws.Kendra
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
         public readonly string ErrorMessage;
-        /// <summary>
-        /// Identifier of the Index.
-        /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        /// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexIndexStatisticResult> IndexStatistics;
         /// <summary>
@@ -195,11 +192,11 @@ namespace Pulumi.Aws.Kendra
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+        /// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        /// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexServerSideEncryptionConfigurationResult> ServerSideEncryptionConfigurations;
         /// <summary>
@@ -219,11 +216,11 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string UserContextPolicy;
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
+        /// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexUserGroupResolutionConfigurationResult> UserGroupResolutionConfigurations;
         /// <summary>
-        /// A block that specifies the user token configuration. Documented below.
+        /// Block that specifies the user token configuration. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexUserTokenConfigurationResult> UserTokenConfigurations;
 

@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationApplicationConfigurationEnvironmentProperties {
     /**
-     * @return Describes the execution property groups.
+     * @return Execution property groups. See `propertyGroup` Block below.
      * 
      */
     private List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups;
 
     private ApplicationApplicationConfigurationEnvironmentProperties() {}
     /**
-     * @return Describes the execution property groups.
+     * @return Execution property groups. See `propertyGroup` Block below.
      * 
      */
     public List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups() {

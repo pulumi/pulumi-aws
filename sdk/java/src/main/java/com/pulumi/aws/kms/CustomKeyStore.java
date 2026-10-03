@@ -156,9 +156,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
 public class CustomKeyStore extends com.pulumi.resources.CustomResource {
+    /**
+     * Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     @Export(name="cloudHsmClusterId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudHsmClusterId;
 
+    /**
+     * @return Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     public Output<Optional<String>> cloudHsmClusterId() {
         return Codegen.optional(this.cloudHsmClusterId);
     }
@@ -181,22 +189,30 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
         return this.customKeyStoreName;
     }
     /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+     * Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
     @Export(name="customKeyStoreType", refs={String.class}, tree="[0]")
     private Output<String> customKeyStoreType;
 
     /**
-     * @return Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+     * @return Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
     public Output<String> customKeyStoreType() {
         return this.customKeyStoreType;
     }
+    /**
+     * Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     @Export(name="keyStorePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyStorePassword;
 
+    /**
+     * @return Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     public Output<Optional<String>> keyStorePassword() {
         return Codegen.optional(this.keyStorePassword);
     }
@@ -214,39 +230,87 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     @Export(name="trustAnchorCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trustAnchorCertificate;
 
+    /**
+     * @return Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+     * 
+     */
     public Output<Optional<String>> trustAnchorCertificate() {
         return Codegen.optional(this.trustAnchorCertificate);
     }
+    /**
+     * Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
+     * 
+     */
     @Export(name="xksProxyAuthenticationCredential", refs={CustomKeyStoreXksProxyAuthenticationCredential.class}, tree="[0]")
     private Output</* @Nullable */ CustomKeyStoreXksProxyAuthenticationCredential> xksProxyAuthenticationCredential;
 
+    /**
+     * @return Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
+     * 
+     */
     public Output<Optional<CustomKeyStoreXksProxyAuthenticationCredential>> xksProxyAuthenticationCredential() {
         return Codegen.optional(this.xksProxyAuthenticationCredential);
     }
+    /**
+     * How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     @Export(name="xksProxyConnectivity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xksProxyConnectivity;
 
+    /**
+     * @return How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     public Output<Optional<String>> xksProxyConnectivity() {
         return Codegen.optional(this.xksProxyConnectivity);
     }
+    /**
+     * Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     @Export(name="xksProxyUriEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xksProxyUriEndpoint;
 
+    /**
+     * @return Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     public Output<Optional<String>> xksProxyUriEndpoint() {
         return Codegen.optional(this.xksProxyUriEndpoint);
     }
+    /**
+     * Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     @Export(name="xksProxyUriPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xksProxyUriPath;
 
+    /**
+     * @return Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+     * 
+     */
     public Output<Optional<String>> xksProxyUriPath() {
         return Codegen.optional(this.xksProxyUriPath);
     }
+    /**
+     * Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+     * 
+     */
     @Export(name="xksProxyVpcEndpointServiceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xksProxyVpcEndpointServiceName;
 
+    /**
+     * @return Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+     * 
+     */
     public Output<Optional<String>> xksProxyVpcEndpointServiceName() {
         return Codegen.optional(this.xksProxyVpcEndpointServiceName);
     }

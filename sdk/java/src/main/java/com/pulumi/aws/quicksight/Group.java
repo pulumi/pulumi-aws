@@ -90,42 +90,42 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * A description for the group.
+     * Description for the group.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the group.
+     * @return Description for the group.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A name for the group.
+     * Name for the group.
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
-     * @return A name for the group.
+     * @return Name for the group.
      * 
      */
     public Output<String> groupName() {
         return this.groupName;
     }
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * Namespace. Currently, you should set this to `default`.
      * 
      */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
     /**
-     * @return The namespace. Currently, you should set this to `default`.
+     * @return Namespace. Currently, you should set this to `default`.
      * 
      */
     public Output<Optional<String>> namespace() {

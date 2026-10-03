@@ -25,7 +25,7 @@ public final class GetThemeConfiguration {
      */
     private List<GetThemeConfigurationSheet> sheets;
     /**
-     * @return Determines the typography options. See typography.
+     * @return Typography options. See typography.
      * 
      */
     private List<GetThemeConfigurationTypography> typographies;
@@ -51,7 +51,7 @@ public final class GetThemeConfiguration {
         return this.sheets;
     }
     /**
-     * @return Determines the typography options. See typography.
+     * @return Typography options. See typography.
      * 
      */
     public List<GetThemeConfigurationTypography> typographies() {

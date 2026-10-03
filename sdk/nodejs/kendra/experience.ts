@@ -76,13 +76,11 @@ export class Experience extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     *
-     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     declare public readonly configuration: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
     /**
-     * A description for your Amazon Kendra experience.
+     * Description for your Amazon Kendra experience.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -90,19 +88,21 @@ export class Experience extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
     /**
-     * The unique identifier of the experience.
+     * Unique identifier of the experience.
      */
     declare public /*out*/ readonly experienceId: pulumi.Output<string>;
     /**
-     * The identifier of the index for your Amazon Kendra experience.
+     * Identifier of the index for your Amazon Kendra experience.
      */
     declare public readonly indexId: pulumi.Output<string>;
     /**
-     * A name for your Amazon Kendra experience.
+     * Name for your Amazon Kendra experience.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class Experience extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The current processing status of your Amazon Kendra experience.
+     * Current processing status of your Amazon Kendra experience.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -172,13 +172,11 @@ export interface ExperienceState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     *
-     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**
-     * A description for your Amazon Kendra experience.
+     * Description for your Amazon Kendra experience.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -186,19 +184,21 @@ export interface ExperienceState {
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.kendra.ExperienceEndpoint>[] | undefined>;
     /**
-     * The unique identifier of the experience.
+     * Unique identifier of the experience.
      */
     experienceId?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for your Amazon Kendra experience.
+     * Identifier of the index for your Amazon Kendra experience.
      */
     indexId?: pulumi.Input<string | undefined>;
     /**
-     * A name for your Amazon Kendra experience.
+     * Name for your Amazon Kendra experience.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface ExperienceState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The current processing status of your Amazon Kendra experience.
+     * Current processing status of your Amazon Kendra experience.
      */
     status?: pulumi.Input<string | undefined>;
 }
@@ -218,25 +218,25 @@ export interface ExperienceState {
  */
 export interface ExperienceArgs {
     /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     *
-     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**
-     * A description for your Amazon Kendra experience.
+     * Description for your Amazon Kendra experience.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for your Amazon Kendra experience.
+     * Identifier of the index for your Amazon Kendra experience.
      */
     indexId: pulumi.Input<string>;
     /**
-     * A name for your Amazon Kendra experience.
+     * Name for your Amazon Kendra experience.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     region?: pulumi.Input<string | undefined>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersSagemakerPipelineParametersPipelineParameter
     {
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
         /// </summary>
         public readonly string Name;
         /// <summary>

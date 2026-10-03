@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `Enabled` is true.
+        /// CloudWatch group name for logging. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `Enabled` is true.
+        /// CloudWatch log stream name for logging. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? LogStreamName;
 

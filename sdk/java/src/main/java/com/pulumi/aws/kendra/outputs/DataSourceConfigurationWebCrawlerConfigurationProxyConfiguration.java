@@ -19,12 +19,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
      */
     private @Nullable String credentials;
     /**
-     * @return The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+     * @return Name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
     private String host;
     /**
-     * @return The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+     * @return Port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
     private Integer port;
@@ -38,14 +38,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurat
         return Optional.ofNullable(this.credentials);
     }
     /**
-     * @return The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+     * @return Name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
     public String host() {
         return this.host;
     }
     /**
-     * @return The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+     * @return Port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
     public Integer port() {

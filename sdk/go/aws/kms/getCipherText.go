@@ -58,7 +58,7 @@ func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCipherText.
 type GetCipherTextArgs struct {
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
 	KeyId string `pulumi:"keyId"`
@@ -87,7 +87,7 @@ func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts
 
 // A collection of arguments for invoking getCipherText.
 type GetCipherTextOutputArgs struct {
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context pulumi.StringMapInput `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`

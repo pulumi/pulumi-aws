@@ -210,9 +210,9 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly environmentArtifact: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
-     * Map of environment variables.
+     * Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      */
-    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string}>;
     /**
      * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
@@ -393,7 +393,7 @@ export interface AgentcoreHarnessState {
      */
     environmentArtifact?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
-     * Map of environment variables.
+     * Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -486,7 +486,7 @@ export interface AgentcoreHarnessArgs {
      */
     environmentArtifact?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifact | undefined>;
     /**
-     * Map of environment variables.
+     * Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

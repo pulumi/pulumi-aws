@@ -69,11 +69,11 @@ import (
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the rule group namespace.
+	// ARN of the rule group namespace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringOutput `pulumi:"data"`
-	// The name of the rule group namespace.
+	// Name of the rule group namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -121,11 +121,11 @@ func GetRuleGroupNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroupNamespace resources.
 type ruleGroupNamespaceState struct {
-	// The ARN of the rule group namespace.
+	// ARN of the rule group namespace.
 	Arn *string `pulumi:"arn"`
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data *string `pulumi:"data"`
-	// The name of the rule group namespace.
+	// Name of the rule group namespace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -138,11 +138,11 @@ type ruleGroupNamespaceState struct {
 }
 
 type RuleGroupNamespaceState struct {
-	// The ARN of the rule group namespace.
+	// ARN of the rule group namespace.
 	Arn pulumi.StringPtrInput
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringPtrInput
-	// The name of the rule group namespace.
+	// Name of the rule group namespace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -161,7 +161,7 @@ func (RuleGroupNamespaceState) ElementType() reflect.Type {
 type ruleGroupNamespaceArgs struct {
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data string `pulumi:"data"`
-	// The name of the rule group namespace.
+	// Name of the rule group namespace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -175,7 +175,7 @@ type ruleGroupNamespaceArgs struct {
 type RuleGroupNamespaceArgs struct {
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringInput
-	// The name of the rule group namespace.
+	// Name of the rule group namespace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -272,7 +272,7 @@ func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the rule group namespace.
+// ARN of the rule group namespace.
 func (o RuleGroupNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -282,7 +282,7 @@ func (o RuleGroupNamespaceOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
-// The name of the rule group namespace.
+// Name of the rule group namespace.
 func (o RuleGroupNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

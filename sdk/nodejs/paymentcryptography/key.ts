@@ -80,6 +80,9 @@ export class Key extends pulumi.CustomResource {
      * ARN of the key.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     */
     declare public readonly deletionWindowInDays: pulumi.Output<number>;
     /**
      * Whether to enable the key.
@@ -116,7 +119,7 @@ export class Key extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -183,6 +186,9 @@ export interface KeyState {
      * ARN of the key.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     */
     deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable the key.
@@ -219,7 +225,7 @@ export interface KeyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -233,6 +239,9 @@ export interface KeyState {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    /**
+     * Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     */
     deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable the key.
@@ -257,7 +266,7 @@ export interface KeyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts | undefined>;

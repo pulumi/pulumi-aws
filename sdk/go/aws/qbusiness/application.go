@@ -74,9 +74,10 @@ type Application struct {
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput    `pulumi:"region"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -142,9 +143,10 @@ type applicationState struct {
 	// The following arguments are optional:
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
@@ -170,8 +172,9 @@ type ApplicationState struct {
 	IdentityCenterInstanceArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -196,7 +199,8 @@ type applicationArgs struct {
 	// The following arguments are optional:
 	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string              `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string    `pulumi:"tags"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
@@ -218,7 +222,8 @@ type ApplicationArgs struct {
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -357,11 +362,12 @@ func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

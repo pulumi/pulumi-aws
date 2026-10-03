@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersSelfManagedKafkaParameters
     {
         /// <summary>
-        /// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+        /// Array of server URLs. Maximum number of 2 items, each of maximum length 300.
         /// </summary>
         public readonly ImmutableArray<string> AdditionalBootstrapServers;
         /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
+        /// Maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
         public readonly int? BatchSize;
         /// <summary>
-        /// The name of the destination queue to consume. Maximum value of 200.
+        /// Name of the destination queue to consume. Maximum value of 200.
         /// </summary>
         public readonly string? ConsumerGroupId;
         /// <summary>
-        /// The credentials needed to access the resource. Detailed below.
+        /// Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersSelfManagedKafkaParametersCredentials? Credentials;
         /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
+        /// Maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
-        /// The ARN of the Secrets Manager secret used for certification.
+        /// ARN of the Secrets Manager secret used for certification.
         /// </summary>
         public readonly string? ServerRootCaCertificate;
         /// <summary>
-        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        /// Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
         public readonly string? StartingPosition;
         /// <summary>
-        /// The name of the topic that the pipe will read from. Maximum length of 249.
+        /// Name of the topic that the pipe will read from. Maximum length of 249.
         /// </summary>
         public readonly string TopicName;
         /// <summary>
-        /// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+        /// VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `Vpc` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersSelfManagedKafkaParametersVpc? Vpc;
 

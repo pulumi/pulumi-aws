@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `Enabled` is true.
+        /// CloudWatch group name for logging. This value is required if `Enabled` is true.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `Enabled` is true.
+        /// CloudWatch log stream name for logging. This value is required if `Enabled` is true.
         /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
