@@ -808,7 +808,8 @@
   },
   "aws_bedrockagentcore_workload_identity": {
     "hasInputName": true,
-    "hasUsableRegion": true
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_billing_view": {
     "hasInputName": true,
@@ -1766,6 +1767,12 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_directory_service_ip_route": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_ip_routes_exclusive": {
+    "hasUsableRegion": true
+  },
   "aws_directory_service_log_subscription": {
     "hasUsableRegion": true
   },
@@ -1783,6 +1790,9 @@
     "hasUsableRegion": true
   },
   "aws_directory_service_trust": {
+    "hasUsableRegion": true
+  },
+  "aws_directoryservicedata_user": {
     "hasUsableRegion": true
   },
   "aws_dlm_lifecycle_policy": {
