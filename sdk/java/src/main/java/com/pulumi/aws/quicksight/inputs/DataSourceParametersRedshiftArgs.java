@@ -18,14 +18,14 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
     public static final DataSourceParametersRedshiftArgs Empty = new DataSourceParametersRedshiftArgs();
 
     /**
-     * The ID of the cluster to which to connect.
+     * ID of the cluster to which to connect.
      * 
      */
     @Import(name="clusterId")
     private @Nullable Output<String> clusterId;
 
     /**
-     * @return The ID of the cluster to which to connect.
+     * @return ID of the cluster to which to connect.
      * 
      */
     public Optional<Output<String>> clusterId() {
@@ -33,14 +33,14 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
     }
 
     /**
-     * The database to which to connect.
+     * Database to which to connect.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     public Output<String> database() {
@@ -48,14 +48,14 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
     }
 
     /**
-     * The host to which to connect.
+     * Host to which to connect.
      * 
      */
     @Import(name="host")
     private @Nullable Output<String> host;
 
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public Optional<Output<String>> host() {
@@ -63,14 +63,14 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
     }
 
     /**
-     * The port to which to connect.
+     * Port to which to connect.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port to which to connect.
+     * @return Port to which to connect.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -105,7 +105,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clusterId The ID of the cluster to which to connect.
+         * @param clusterId ID of the cluster to which to connect.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clusterId The ID of the cluster to which to connect.
+         * @param clusterId ID of the cluster to which to connect.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param port The port to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class DataSourceParametersRedshiftArgs extends com.pulumi.resources
         }
 
         /**
-         * @param port The port to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 

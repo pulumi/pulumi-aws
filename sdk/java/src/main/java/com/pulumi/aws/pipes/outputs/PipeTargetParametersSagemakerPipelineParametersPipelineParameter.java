@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
 
     private PipeTargetParametersSagemakerPipelineParametersPipelineParameter() {}
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
      * 
      */
     public String name() {

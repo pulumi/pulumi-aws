@@ -148,7 +148,7 @@ class GetOntapFileSystemResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
         """
-        DNS name for the file system.
+        File system's DNS name. You can mount your file system using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -164,7 +164,7 @@ class GetOntapFileSystemResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetOntapFileSystemEndpointResult']:
         """
-        Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+        Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
         """
         return pulumi.get(self, "endpoints")
 

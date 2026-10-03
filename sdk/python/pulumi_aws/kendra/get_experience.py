@@ -83,7 +83,7 @@ class GetExperienceResult:
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.GetExperienceConfigurationResult']:
         """
-        Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+        Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
         """
         return pulumi.get(self, "configurations")
 
@@ -107,7 +107,7 @@ class GetExperienceResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetExperienceEndpointResult']:
         """
-        Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+        Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
         """
         return pulumi.get(self, "endpoints")
 

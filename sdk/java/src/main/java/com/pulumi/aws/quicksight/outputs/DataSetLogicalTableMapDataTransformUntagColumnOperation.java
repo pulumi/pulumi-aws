@@ -17,7 +17,7 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperation {
      */
     private String columnName;
     /**
-     * @return The column tags to remove from this column.
+     * @return Column tags to remove from this column.
      * 
      */
     private List<String> tagNames;
@@ -31,7 +31,7 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperation {
         return this.columnName;
     }
     /**
-     * @return The column tags to remove from this column.
+     * @return Column tags to remove from this column.
      * 
      */
     public List<String> tagNames() {

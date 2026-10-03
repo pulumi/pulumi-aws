@@ -19,14 +19,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     public static final SamplingRuleState Empty = new SamplingRuleState();
 
     /**
-     * The ARN of the sampling rule.
+     * ARN of the sampling rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the sampling rule.
+     * @return ARN of the sampling rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * Percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
     @Import(name="fixedRate")
     private @Nullable Output<Double> fixedRate;
 
     /**
-     * @return The percentage of matching requests to instrument, after the reservoir is exhausted.
+     * @return Percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
     public Optional<Output<Double>> fixedRate() {
@@ -94,14 +94,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The priority of the sampling rule.
+     * Priority of the sampling rule.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority of the sampling rule.
+     * @return Priority of the sampling rule.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -124,14 +124,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
     @Import(name="reservoirSize")
     private @Nullable Output<Integer> reservoirSize;
 
     /**
-     * @return A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+     * @return Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
     public Optional<Output<Integer>> reservoirSize() {
@@ -154,14 +154,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the sampling rule.
+     * Name of the sampling rule.
      * 
      */
     @Import(name="ruleName")
     private @Nullable Output<String> ruleName;
 
     /**
-     * @return The name of the sampling rule.
+     * @return Name of the sampling rule.
      * 
      */
     public Optional<Output<String>> ruleName() {
@@ -214,14 +214,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -244,14 +244,14 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the sampling rule format (`1` )
+     * Version of the sampling rule format (`1` )
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version of the sampling rule format (`1` )
+     * @return Version of the sampling rule format (`1` )
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -298,7 +298,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the sampling rule.
+         * @param arn ARN of the sampling rule.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the sampling rule.
+         * @param arn ARN of the sampling rule.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fixedRate The percentage of matching requests to instrument, after the reservoir is exhausted.
+         * @param fixedRate Percentage of matching requests to instrument, after the reservoir is exhausted.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fixedRate The percentage of matching requests to instrument, after the reservoir is exhausted.
+         * @param fixedRate Percentage of matching requests to instrument, after the reservoir is exhausted.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority of the sampling rule.
+         * @param priority Priority of the sampling rule.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority of the sampling rule.
+         * @param priority Priority of the sampling rule.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reservoirSize A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+         * @param reservoirSize Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reservoirSize A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+         * @param reservoirSize Fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleName The name of the sampling rule.
+         * @param ruleName Name of the sampling rule.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleName The name of the sampling rule.
+         * @param ruleName Name of the sampling rule.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the sampling rule format (`1` )
+         * @param version Version of the sampling rule format (`1` )
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class SamplingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the sampling rule format (`1` )
+         * @param version Version of the sampling rule format (`1` )
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs();
 
     /**
-     * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+     * Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
      */
     @Import(name="blockSizeBytes")
     private @Nullable Output<Integer> blockSizeBytes;
 
     /**
-     * @return The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+     * @return Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
      */
     public Optional<Output<Integer>> blockSizeBytes() {
@@ -35,14 +35,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+     * List of column names for which you want Kinesis Data Firehose to create bloom filters.
      * 
      */
     @Import(name="bloomFilterColumns")
     private @Nullable Output<List<String>> bloomFilterColumns;
 
     /**
-     * @return A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+     * @return List of column names for which you want Kinesis Data Firehose to create bloom filters.
      * 
      */
     public Optional<Output<List<String>>> bloomFilterColumns() {
@@ -50,14 +50,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+     * Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
      * 
      */
     @Import(name="bloomFilterFalsePositiveProbability")
     private @Nullable Output<Double> bloomFilterFalsePositiveProbability;
 
     /**
-     * @return The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+     * @return Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
      * 
      */
     public Optional<Output<Double>> bloomFilterFalsePositiveProbability() {
@@ -65,14 +65,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The compression code to use over data blocks. The default is `SNAPPY`.
+     * Compression code to use over data blocks. The default is `SNAPPY`.
      * 
      */
     @Import(name="compression")
     private @Nullable Output<String> compression;
 
     /**
-     * @return The compression code to use over data blocks. The default is `SNAPPY`.
+     * @return Compression code to use over data blocks. The default is `SNAPPY`.
      * 
      */
     public Optional<Output<String>> compression() {
@@ -80,14 +80,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+     * Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
      * 
      */
     @Import(name="dictionaryKeyThreshold")
     private @Nullable Output<Double> dictionaryKeyThreshold;
 
     /**
-     * @return A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+     * @return Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
      * 
      */
     public Optional<Output<Double>> dictionaryKeyThreshold() {
@@ -110,14 +110,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+     * Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
      * 
      */
     @Import(name="formatVersion")
     private @Nullable Output<String> formatVersion;
 
     /**
-     * @return The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+     * @return Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
      * 
      */
     public Optional<Output<String>> formatVersion() {
@@ -125,14 +125,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+     * Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
      * 
      */
     @Import(name="paddingTolerance")
     private @Nullable Output<Double> paddingTolerance;
 
     /**
-     * @return A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+     * @return Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
      * 
      */
     public Optional<Output<Double>> paddingTolerance() {
@@ -140,14 +140,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+     * Number of rows between index entries. The default is `10000` and the minimum is `1000`.
      * 
      */
     @Import(name="rowIndexStride")
     private @Nullable Output<Integer> rowIndexStride;
 
     /**
-     * @return The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+     * @return Number of rows between index entries. The default is `10000` and the minimum is `1000`.
      * 
      */
     public Optional<Output<Integer>> rowIndexStride() {
@@ -155,14 +155,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+     * Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
      * 
      */
     @Import(name="stripeSizeBytes")
     private @Nullable Output<Integer> stripeSizeBytes;
 
     /**
-     * @return The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+     * @return Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
      * 
      */
     public Optional<Output<Integer>> stripeSizeBytes() {
@@ -203,7 +203,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param blockSizeBytes The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+         * @param blockSizeBytes Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param blockSizeBytes The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+         * @param blockSizeBytes Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param bloomFilterColumns A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+         * @param bloomFilterColumns List of column names for which you want Kinesis Data Firehose to create bloom filters.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param bloomFilterColumns A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+         * @param bloomFilterColumns List of column names for which you want Kinesis Data Firehose to create bloom filters.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param bloomFilterColumns A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+         * @param bloomFilterColumns List of column names for which you want Kinesis Data Firehose to create bloom filters.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param bloomFilterFalsePositiveProbability The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+         * @param bloomFilterFalsePositiveProbability Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param bloomFilterFalsePositiveProbability The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+         * @param bloomFilterFalsePositiveProbability Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param compression The compression code to use over data blocks. The default is `SNAPPY`.
+         * @param compression Compression code to use over data blocks. The default is `SNAPPY`.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param compression The compression code to use over data blocks. The default is `SNAPPY`.
+         * @param compression Compression code to use over data blocks. The default is `SNAPPY`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param dictionaryKeyThreshold A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+         * @param dictionaryKeyThreshold Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param dictionaryKeyThreshold A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+         * @param dictionaryKeyThreshold Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param formatVersion The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+         * @param formatVersion Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param formatVersion The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+         * @param formatVersion Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param paddingTolerance A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+         * @param paddingTolerance Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param paddingTolerance A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+         * @param paddingTolerance Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param rowIndexStride The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+         * @param rowIndexStride Number of rows between index entries. The default is `10000` and the minimum is `1000`.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param rowIndexStride The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+         * @param rowIndexStride Number of rows between index entries. The default is `10000` and the minimum is `1000`.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param stripeSizeBytes The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+         * @param stripeSizeBytes Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param stripeSizeBytes The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+         * @param stripeSizeBytes Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
          * 
          * @return builder
          * 

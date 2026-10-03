@@ -14,43 +14,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
+    /**
+     * @return Identifier of the reference data source.
+     * 
+     */
     private @Nullable String referenceId;
     /**
-     * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+     * @return Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
      * 
      */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema;
     /**
-     * @return Identifies the S3 bucket and object that contains the reference data.
+     * @return S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
      * 
      */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource;
     /**
-     * @return The name of the in-application table to create.
+     * @return Name of the in-application table to create.
      * 
      */
     private String tableName;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource() {}
+    /**
+     * @return Identifier of the reference data source.
+     * 
+     */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
     /**
-     * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+     * @return Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
      * 
      */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema referenceSchema() {
         return this.referenceSchema;
     }
     /**
-     * @return Identifies the S3 bucket and object that contains the reference data.
+     * @return S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
      * 
      */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource s3ReferenceDataSource() {
         return this.s3ReferenceDataSource;
     }
     /**
-     * @return The name of the in-application table to create.
+     * @return Name of the in-application table to create.
      * 
      */
     public String tableName() {

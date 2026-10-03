@@ -77,6 +77,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` - (String) Name of the workload identity.
+//
+// #### Optional
+//
+// * `accountId` - (String) AWS Account where this resource is managed.
+// * `region` - (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
 //
 // ```sh
@@ -93,6 +104,10 @@ type AgentcoreWorkloadIdentity struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of the Workload Identity.
 	WorkloadIdentityArn pulumi.StringOutput `pulumi:"workloadIdentityArn"`
 }
@@ -135,6 +150,10 @@ type agentcoreWorkloadIdentityState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of the Workload Identity.
 	WorkloadIdentityArn *string `pulumi:"workloadIdentityArn"`
 }
@@ -148,6 +167,10 @@ type AgentcoreWorkloadIdentityState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// ARN of the Workload Identity.
 	WorkloadIdentityArn pulumi.StringPtrInput
 }
@@ -165,6 +188,8 @@ type agentcoreWorkloadIdentityArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AgentcoreWorkloadIdentity resource.
@@ -177,6 +202,8 @@ type AgentcoreWorkloadIdentityArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AgentcoreWorkloadIdentityArgs) ElementType() reflect.Type {
@@ -281,6 +308,16 @@ func (o AgentcoreWorkloadIdentityOutput) Name() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreWorkloadIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AgentcoreWorkloadIdentityOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o AgentcoreWorkloadIdentityOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreWorkloadIdentity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // ARN of the Workload Identity.

@@ -51,14 +51,15 @@ import (
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
+	// ARN of the group membership.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The name of the group in which the member will be added.
+	// Name of the group in which the member will be added.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// The name of the member to add to the group.
+	// Name of the member to add to the group.
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// The namespace that you want the user to be a part of. Defaults to `default`.
+	// Namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -100,28 +101,30 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
+	// ARN of the group membership.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The name of the group in which the member will be added.
+	// Name of the group in which the member will be added.
 	GroupName *string `pulumi:"groupName"`
-	// The name of the member to add to the group.
+	// Name of the member to add to the group.
 	MemberName *string `pulumi:"memberName"`
-	// The namespace that you want the user to be a part of. Defaults to `default`.
+	// Namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type GroupMembershipState struct {
+	// ARN of the group membership.
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The name of the group in which the member will be added.
+	// Name of the group in which the member will be added.
 	GroupName pulumi.StringPtrInput
-	// The name of the member to add to the group.
+	// Name of the member to add to the group.
 	MemberName pulumi.StringPtrInput
-	// The namespace that you want the user to be a part of. Defaults to `default`.
+	// Namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -134,11 +137,11 @@ func (GroupMembershipState) ElementType() reflect.Type {
 type groupMembershipArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The name of the group in which the member will be added.
+	// Name of the group in which the member will be added.
 	GroupName string `pulumi:"groupName"`
-	// The name of the member to add to the group.
+	// Name of the member to add to the group.
 	MemberName string `pulumi:"memberName"`
-	// The namespace that you want the user to be a part of. Defaults to `default`.
+	// Namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -148,11 +151,11 @@ type groupMembershipArgs struct {
 type GroupMembershipArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The name of the group in which the member will be added.
+	// Name of the group in which the member will be added.
 	GroupName pulumi.StringInput
-	// The name of the member to add to the group.
+	// Name of the member to add to the group.
 	MemberName pulumi.StringInput
-	// The namespace that you want the user to be a part of. Defaults to `default`.
+	// Namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -245,6 +248,7 @@ func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the group membership.
 func (o GroupMembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -254,17 +258,17 @@ func (o GroupMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The name of the group in which the member will be added.
+// Name of the group in which the member will be added.
 func (o GroupMembershipOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// The name of the member to add to the group.
+// Name of the member to add to the group.
 func (o GroupMembershipOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
 }
 
-// The namespace that you want the user to be a part of. Defaults to `default`.
+// Namespace that you want the user to be a part of. Defaults to `default`.
 func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

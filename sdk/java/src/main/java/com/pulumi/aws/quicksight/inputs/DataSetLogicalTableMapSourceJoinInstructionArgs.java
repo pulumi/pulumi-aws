@@ -19,14 +19,14 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
     public static final DataSetLogicalTableMapSourceJoinInstructionArgs Empty = new DataSetLogicalTableMapSourceJoinInstructionArgs();
 
     /**
-     * Join key properties of the left operand. See left_join_key_properties.
+     * Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
      * 
      */
     @Import(name="leftJoinKeyProperties")
     private @Nullable Output<DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs> leftJoinKeyProperties;
 
     /**
-     * @return Join key properties of the left operand. See left_join_key_properties.
+     * @return Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs>> leftJoinKeyProperties() {
@@ -64,14 +64,14 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
     }
 
     /**
-     * Join key properties of the right operand. See right_join_key_properties.
+     * Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
      * 
      */
     @Import(name="rightJoinKeyProperties")
     private @Nullable Output<DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs> rightJoinKeyProperties;
 
     /**
-     * @return Join key properties of the right operand. See right_join_key_properties.
+     * @return Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs>> rightJoinKeyProperties() {
@@ -138,7 +138,7 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
         }
 
         /**
-         * @param leftJoinKeyProperties Join key properties of the left operand. See left_join_key_properties.
+         * @param leftJoinKeyProperties Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
         }
 
         /**
-         * @param leftJoinKeyProperties Join key properties of the left operand. See left_join_key_properties.
+         * @param leftJoinKeyProperties Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
         }
 
         /**
-         * @param rightJoinKeyProperties Join key properties of the right operand. See right_join_key_properties.
+         * @param rightJoinKeyProperties Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
         }
 
         /**
-         * @param rightJoinKeyProperties Join key properties of the right operand. See right_join_key_properties.
+         * @param rightJoinKeyProperties Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
          * 
          * @return builder
          * 

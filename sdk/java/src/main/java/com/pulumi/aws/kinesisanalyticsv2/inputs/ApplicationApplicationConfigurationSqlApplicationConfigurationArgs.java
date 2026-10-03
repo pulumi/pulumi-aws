@@ -19,14 +19,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationArgs();
 
     /**
-     * The input stream used by the application.
+     * Input stream used by the application. See `input` Block below.
      * 
      */
     @Import(name="input")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs> input;
 
     /**
-     * @return The input stream used by the application.
+     * @return Input stream used by the application. See `input` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs>> input() {
@@ -34,14 +34,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The destination streams used by the application.
+     * Destination streams used by the application. See `output` Block below.
      * 
      */
     @Import(name="outputs")
     private @Nullable Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>> outputs;
 
     /**
-     * @return The destination streams used by the application.
+     * @return Destination streams used by the application. See `output` Block below.
      * 
      */
     public Optional<Output<List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>>> outputs() {
@@ -49,14 +49,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The reference data source used by the application.
+     * Reference data source used by the application. See `referenceDataSource` Block below.
      * 
      */
     @Import(name="referenceDataSource")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs> referenceDataSource;
 
     /**
-     * @return The reference data source used by the application.
+     * @return Reference data source used by the application. See `referenceDataSource` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs>> referenceDataSource() {
@@ -90,7 +90,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param input The input stream used by the application.
+         * @param input Input stream used by the application. See `input` Block below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param input The input stream used by the application.
+         * @param input Input stream used by the application. See `input` Block below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param outputs The destination streams used by the application.
+         * @param outputs Destination streams used by the application. See `output` Block below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param outputs The destination streams used by the application.
+         * @param outputs Destination streams used by the application. See `output` Block below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param outputs The destination streams used by the application.
+         * @param outputs Destination streams used by the application. See `output` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param referenceDataSource The reference data source used by the application.
+         * @param referenceDataSource Reference data source used by the application. See `referenceDataSource` Block below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param referenceDataSource The reference data source used by the application.
+         * @param referenceDataSource Reference data source used by the application. See `referenceDataSource` Block below.
          * 
          * @return builder
          * 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsProcessingConfiguration
     {
-        /// <summary>
-        /// The Lambda function configuration. See Lambda below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsProcessingConfigurationLambda Lambda;
 
         [OutputConstructor]

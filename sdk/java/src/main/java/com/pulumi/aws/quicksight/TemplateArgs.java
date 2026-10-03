@@ -51,14 +51,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<TemplatePermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Optional<Output<List<TemplatePermissionArgs>>> permissions() {
@@ -81,14 +81,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<TemplateSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     public Optional<Output<TemplateSourceEntityArgs>> sourceEntity() {
@@ -126,7 +126,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -135,7 +135,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> versionDescription;
 
     /**
-     * @return A description of the current template version being created/updated.
+     * @return Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -218,7 +218,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current template version being created/updated.
+         * @param versionDescription Description of the current template version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -346,7 +346,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current template version being created/updated.
+         * @param versionDescription Description of the current template version being created/updated.
          * 
          * The following arguments are optional:
          * 

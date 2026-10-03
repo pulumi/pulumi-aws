@@ -189,6 +189,8 @@ if typing.TYPE_CHECKING:
     directconnect = __directconnect
     import pulumi_aws.directoryservice as __directoryservice
     directoryservice = __directoryservice
+    import pulumi_aws.directoryservicedata as __directoryservicedata
+    directoryservicedata = __directoryservicedata
     import pulumi_aws.dlm as __dlm
     dlm = __dlm
     import pulumi_aws.dms as __dms
@@ -582,6 +584,7 @@ else:
     devopsguru = _utilities.lazy_import('pulumi_aws.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws.directoryservice')
+    directoryservicedata = _utilities.lazy_import('pulumi_aws.directoryservicedata')
     dlm = _utilities.lazy_import('pulumi_aws.dlm')
     dms = _utilities.lazy_import('pulumi_aws.dms')
     docdb = _utilities.lazy_import('pulumi_aws.docdb')
@@ -4512,6 +4515,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directoryservice/ipRoute",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/ipRoute:IpRoute": "IpRoute"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservice/ipRoutesExclusive",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive": "IpRoutesExclusive"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directoryservice/logSubscription",
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
@@ -4556,6 +4575,14 @@ _utilities.register(
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
    "aws:directoryservice/trust:Trust": "Trust"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservicedata/user",
+  "fqn": "pulumi_aws.directoryservicedata",
+  "classes": {
+   "aws:directoryservicedata/user:User": "User"
   }
  },
  {

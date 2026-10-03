@@ -16,14 +16,14 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
     public static final DataSourceParametersAthenaArgs Empty = new DataSourceParametersAthenaArgs();
 
     /**
-     * Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * Use the `roleArn` to override an account-wide role for a specific Athena data source.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * @return Use the `roleArn` to override an account-wide role for a specific Athena data source.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -31,14 +31,14 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The work-group to which to connect.
+     * Work-group to which to connect.
      * 
      */
     @Import(name="workGroup")
     private @Nullable Output<String> workGroup;
 
     /**
-     * @return The work-group to which to connect.
+     * @return Work-group to which to connect.
      * 
      */
     public Optional<Output<String>> workGroup() {
@@ -71,7 +71,7 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param roleArn Use the `roleArn` to override an account-wide role for a specific athena data source.
+         * @param roleArn Use the `roleArn` to override an account-wide role for a specific Athena data source.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param roleArn Use the `roleArn` to override an account-wide role for a specific athena data source.
+         * @param roleArn Use the `roleArn` to override an account-wide role for a specific Athena data source.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param workGroup The work-group to which to connect.
+         * @param workGroup Work-group to which to connect.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param workGroup The work-group to which to connect.
+         * @param workGroup Work-group to which to connect.
          * 
          * @return builder
          * 

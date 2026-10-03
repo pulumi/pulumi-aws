@@ -24,14 +24,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     public static final FirehoseDeliveryStreamSnowflakeConfigurationArgs Empty = new FirehoseDeliveryStreamSnowflakeConfigurationArgs();
 
     /**
-     * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+     * URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
      * 
      */
     @Import(name="accountUrl", required=true)
     private Output<String> accountUrl;
 
     /**
-     * @return The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+     * @return URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
      * 
      */
     public Output<String> accountUrl() {
@@ -69,14 +69,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -84,14 +84,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The name of the content column.
+     * Name of the content column.
      * 
      */
     @Import(name="contentColumnName")
     private @Nullable Output<String> contentColumnName;
 
     /**
-     * @return The name of the content column.
+     * @return Name of the content column.
      * 
      */
     public Optional<Output<String>> contentColumnName() {
@@ -99,14 +99,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The data loading option.
+     * Data loading option.
      * 
      */
     @Import(name="dataLoadingOption")
     private @Nullable Output<String> dataLoadingOption;
 
     /**
-     * @return The data loading option.
+     * @return Data loading option.
      * 
      */
     public Optional<Output<String>> dataLoadingOption() {
@@ -114,14 +114,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The Snowflake database name.
+     * Snowflake database name.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The Snowflake database name.
+     * @return Snowflake database name.
      * 
      */
     public Output<String> database() {
@@ -129,14 +129,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The passphrase for the private key.
+     * Passphrase for the private key.
      * 
      */
     @Import(name="keyPassphrase")
     private @Nullable Output<String> keyPassphrase;
 
     /**
-     * @return The passphrase for the private key.
+     * @return Passphrase for the private key.
      * 
      */
     public Optional<Output<String>> keyPassphrase() {
@@ -144,14 +144,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The name of the metadata column.
+     * Name of the metadata column.
      * 
      */
     @Import(name="metadataColumnName")
     private @Nullable Output<String> metadataColumnName;
 
     /**
-     * @return The name of the metadata column.
+     * @return Name of the metadata column.
      * 
      */
     public Optional<Output<String>> metadataColumnName() {
@@ -159,14 +159,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -174,14 +174,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The processing configuration. See `processingConfiguration` block below for details.
+     * Processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The processing configuration. See `processingConfiguration` block below for details.
+     * @return Processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -204,14 +204,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The ARN of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Output<String> roleArn() {
@@ -219,14 +219,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The S3 backup mode.
+     * S3 backup mode.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return The S3 backup mode.
+     * @return S3 backup mode.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -234,14 +234,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The S3 configuration. See `s3Configuration` block below for details.
+     * S3 configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 configuration. See `s3Configuration` block below for details.
+     * @return S3 configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -249,14 +249,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The Snowflake schema name.
+     * Snowflake schema name.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The Snowflake schema name.
+     * @return Snowflake schema name.
      * 
      */
     public Output<String> schema() {
@@ -264,14 +264,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+     * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
      * 
      */
     @Import(name="secretsManagerConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
 
     /**
-     * @return The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+     * @return Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
@@ -279,14 +279,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The configuration for Snowflake role.
+     * Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
      * 
      */
     @Import(name="snowflakeRoleConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs> snowflakeRoleConfiguration;
 
     /**
-     * @return The configuration for Snowflake role.
+     * @return Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs>> snowflakeRoleConfiguration() {
@@ -294,14 +294,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The VPC configuration for Snowflake.
+     * VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
      * 
      */
     @Import(name="snowflakeVpcConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs> snowflakeVpcConfiguration;
 
     /**
-     * @return The VPC configuration for Snowflake.
+     * @return VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs>> snowflakeVpcConfiguration() {
@@ -309,14 +309,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The Snowflake table name.
+     * Snowflake table name.
      * 
      */
     @Import(name="table", required=true)
     private Output<String> table;
 
     /**
-     * @return The Snowflake table name.
+     * @return Snowflake table name.
      * 
      */
     public Output<String> table() {
@@ -324,14 +324,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
-     * The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="user")
     private @Nullable Output<String> user;
 
     /**
-     * @return The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> user() {
@@ -383,7 +383,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param accountUrl The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+         * @param accountUrl URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param accountUrl The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+         * @param accountUrl URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param contentColumnName The name of the content column.
+         * @param contentColumnName Name of the content column.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param contentColumnName The name of the content column.
+         * @param contentColumnName Name of the content column.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param dataLoadingOption The data loading option.
+         * @param dataLoadingOption Data loading option.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param dataLoadingOption The data loading option.
+         * @param dataLoadingOption Data loading option.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param database The Snowflake database name.
+         * @param database Snowflake database name.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param database The Snowflake database name.
+         * @param database Snowflake database name.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param keyPassphrase The passphrase for the private key.
+         * @param keyPassphrase Passphrase for the private key.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param keyPassphrase The passphrase for the private key.
+         * @param keyPassphrase Passphrase for the private key.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param metadataColumnName The name of the metadata column.
+         * @param metadataColumnName Name of the metadata column.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param metadataColumnName The name of the metadata column.
+         * @param metadataColumnName Name of the metadata column.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param privateKey The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param privateKey Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param privateKey The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param privateKey Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param processingConfiguration The processing configuration. See `processingConfiguration` block below for details.
+         * @param processingConfiguration Processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param processingConfiguration The processing configuration. See `processingConfiguration` block below for details.
+         * @param processingConfiguration Processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -635,7 +635,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -656,7 +656,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param s3BackupMode The S3 backup mode.
+         * @param s3BackupMode S3 backup mode.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param s3BackupMode The S3 backup mode.
+         * @param s3BackupMode S3 backup mode.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param s3Configuration The S3 configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param s3Configuration The S3 configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param schema The Snowflake schema name.
+         * @param schema Snowflake schema name.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param schema The Snowflake schema name.
+         * @param schema Snowflake schema name.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param secretsManagerConfiguration The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param secretsManagerConfiguration The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param snowflakeRoleConfiguration The configuration for Snowflake role.
+         * @param snowflakeRoleConfiguration Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param snowflakeRoleConfiguration The configuration for Snowflake role.
+         * @param snowflakeRoleConfiguration Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param snowflakeVpcConfiguration The VPC configuration for Snowflake.
+         * @param snowflakeVpcConfiguration VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param snowflakeVpcConfiguration The VPC configuration for Snowflake.
+         * @param snowflakeVpcConfiguration VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param table The Snowflake table name.
+         * @param table Snowflake table name.
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param table The Snowflake table name.
+         * @param table Snowflake table name.
          * 
          * @return builder
          * 
@@ -803,7 +803,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param user The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param user User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -814,7 +814,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
         }
 
         /**
-         * @param user The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param user User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 

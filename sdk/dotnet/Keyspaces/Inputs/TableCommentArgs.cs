@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
     public sealed class TableCommentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the table.
+        /// Description of the table.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

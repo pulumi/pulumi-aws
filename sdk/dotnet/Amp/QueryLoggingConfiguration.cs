@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Amp
     public partial class QueryLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block for the logging destinations. See `Destination`.
+        /// Configuration block for the logging destinations. See `Destination` Block.
         /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.QueryLoggingConfigurationDestination>> Destinations { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Amp
         public Output<Outputs.QueryLoggingConfigurationTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
+        /// ID of the AMP workspace for which to configure query logging.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Amp
         private InputList<Inputs.QueryLoggingConfigurationDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Configuration block for the logging destinations. See `Destination`.
+        /// Configuration block for the logging destinations. See `Destination` Block.
         /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationArgs> Destinations
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.QueryLoggingConfigurationTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
+        /// ID of the AMP workspace for which to configure query logging.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Amp
         private InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// Configuration block for the logging destinations. See `Destination`.
+        /// Configuration block for the logging destinations. See `Destination` Block.
         /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs> Destinations
         {
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.QueryLoggingConfigurationTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the AMP workspace for which to configure query logging.
+        /// ID of the AMP workspace for which to configure query logging.
         /// 
         /// The following arguments are optional:
         /// </summary>

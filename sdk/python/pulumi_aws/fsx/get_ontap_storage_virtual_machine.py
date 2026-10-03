@@ -76,7 +76,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="activeDirectoryConfigurations")
     def active_directory_configurations(self) -> Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult']:
         """
-        Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+        Microsoft Active Directory configuration to which the SVM is joined, if applicable. See `active_directory_configuration` Block below.
         """
         return pulumi.get(self, "active_directory_configurations")
 
@@ -100,7 +100,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointResult']:
         """
-        Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+        Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. See `endpoints` Block below.
         """
         return pulumi.get(self, "endpoints")
 
@@ -137,7 +137,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="lifecycleTransitionReasons")
     def lifecycle_transition_reasons(self) -> Sequence['outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult']:
         """
-        Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+        Reason why the SVM lifecycle state changed. See `lifecycle_transition_reason` Block below.
         """
         return pulumi.get(self, "lifecycle_transition_reasons")
 

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersAuroraPostgresql
     {
         /// <summary>
-        /// The database to which to connect.
+        /// Database to which to connect.
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// The host to which to connect.
+        /// Host to which to connect.
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The port to which to connect.
+        /// Port to which to connect.
         /// </summary>
         public readonly int Port;
 

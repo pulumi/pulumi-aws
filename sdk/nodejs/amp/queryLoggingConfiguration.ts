@@ -60,7 +60,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block for the logging destinations. See `destination`.
+     * Configuration block for the logging destinations. See `destination` Block.
      */
     declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[]>;
     /**
@@ -69,7 +69,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
-     * The ID of the AMP workspace for which to configure query logging.
+     * ID of the AMP workspace for which to configure query logging.
      *
      * The following arguments are optional:
      */
@@ -115,7 +115,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface QueryLoggingConfigurationState {
     /**
-     * Configuration block for the logging destinations. See `destination`.
+     * Configuration block for the logging destinations. See `destination` Block.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[] | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface QueryLoggingConfigurationState {
     region?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
-     * The ID of the AMP workspace for which to configure query logging.
+     * ID of the AMP workspace for which to configure query logging.
      *
      * The following arguments are optional:
      */
@@ -136,7 +136,7 @@ export interface QueryLoggingConfigurationState {
  */
 export interface QueryLoggingConfigurationArgs {
     /**
-     * Configuration block for the logging destinations. See `destination`.
+     * Configuration block for the logging destinations. See `destination` Block.
      */
     destinations: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
     /**
@@ -145,7 +145,7 @@ export interface QueryLoggingConfigurationArgs {
     region?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
-     * The ID of the AMP workspace for which to configure query logging.
+     * ID of the AMP workspace for which to configure query logging.
      *
      * The following arguments are optional:
      */

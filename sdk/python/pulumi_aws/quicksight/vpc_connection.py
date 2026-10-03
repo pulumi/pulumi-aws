@@ -34,15 +34,15 @@ class VpcConnectionArgs:
         """
         The set of arguments for constructing a VpcConnection resource.
 
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role to associate with the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[_builtins.str] role_arn: IAM role to associate with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC connection.
+        :param pulumi.Input[_builtins.str] vpc_connection_id: ID of the VPC connection.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_connection_id: The ID of the VPC connection.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
-        :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: List of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[_builtins.str] name: Display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -67,7 +67,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The IAM role to associate with the VPC connection.
+        IAM role to associate with the VPC connection.
         """
         return pulumi.get(self, "role_arn")
 
@@ -79,7 +79,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of security group IDs for the VPC connection.
+        List of security group IDs for the VPC connection.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -91,9 +91,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of subnet IDs for the VPC connection.
-
-        The following arguments are optional:
+        List of subnet IDs for the VPC connection.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -105,7 +103,9 @@ class VpcConnectionArgs:
     @pulumi.getter(name="vpcConnectionId")
     def vpc_connection_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC connection.
+        ID of the VPC connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_connection_id")
 
@@ -129,7 +129,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="dnsResolvers")
     def dns_resolvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        List of IP addresses of DNS resolver endpoints for the VPC connection.
         """
         return pulumi.get(self, "dns_resolvers")
 
@@ -141,7 +141,7 @@ class VpcConnectionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name for the VPC connection.
+        Display name for the VPC connection.
         """
         return pulumi.get(self, "name")
 
@@ -203,19 +203,19 @@ class _VpcConnectionState:
         Input properties used for looking up and filtering VpcConnection resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
-        :param pulumi.Input[_builtins.str] availability_status: The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        :param pulumi.Input[_builtins.str] availability_status: Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
-        :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: List of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[_builtins.str] name: Display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role to associate with the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[_builtins.str] role_arn: IAM role to associate with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_connection_id: ID of the VPC connection.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_connection_id: The ID of the VPC connection.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -260,7 +260,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         """
         return pulumi.get(self, "availability_status")
 
@@ -284,7 +284,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="dnsResolvers")
     def dns_resolvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        List of IP addresses of DNS resolver endpoints for the VPC connection.
         """
         return pulumi.get(self, "dns_resolvers")
 
@@ -296,7 +296,7 @@ class _VpcConnectionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name for the VPC connection.
+        Display name for the VPC connection.
         """
         return pulumi.get(self, "name")
 
@@ -320,7 +320,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IAM role to associate with the VPC connection.
+        IAM role to associate with the VPC connection.
         """
         return pulumi.get(self, "role_arn")
 
@@ -332,7 +332,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of security group IDs for the VPC connection.
+        List of security group IDs for the VPC connection.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -344,9 +344,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of subnet IDs for the VPC connection.
-
-        The following arguments are optional:
+        List of subnet IDs for the VPC connection.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -370,7 +368,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -391,7 +389,9 @@ class _VpcConnectionState:
     @pulumi.getter(name="vpcConnectionId")
     def vpc_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC connection.
+        ID of the VPC connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_connection_id")
 
@@ -480,16 +480,16 @@ class VpcConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
-        :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: List of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[_builtins.str] name: Display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role to associate with the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[_builtins.str] role_arn: IAM role to associate with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_connection_id: ID of the VPC connection.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_connection_id: The ID of the VPC connection.
         """
         ...
     @overload
@@ -643,19 +643,19 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
-        :param pulumi.Input[_builtins.str] availability_status: The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        :param pulumi.Input[_builtins.str] availability_status: Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
-        :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: List of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[_builtins.str] name: Display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM role to associate with the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[_builtins.str] role_arn: IAM role to associate with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_connection_id: ID of the VPC connection.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_connection_id: The ID of the VPC connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -688,7 +688,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         """
         return pulumi.get(self, "availability_status")
 
@@ -704,7 +704,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="dnsResolvers")
     def dns_resolvers(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        List of IP addresses of DNS resolver endpoints for the VPC connection.
         """
         return pulumi.get(self, "dns_resolvers")
 
@@ -712,7 +712,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The display name for the VPC connection.
+        Display name for the VPC connection.
         """
         return pulumi.get(self, "name")
 
@@ -728,7 +728,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The IAM role to associate with the VPC connection.
+        IAM role to associate with the VPC connection.
         """
         return pulumi.get(self, "role_arn")
 
@@ -736,7 +736,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of security group IDs for the VPC connection.
+        List of security group IDs for the VPC connection.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -744,9 +744,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of subnet IDs for the VPC connection.
-
-        The following arguments are optional:
+        List of subnet IDs for the VPC connection.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -762,7 +760,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -775,7 +773,9 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="vpcConnectionId")
     def vpc_connection_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC connection.
+        ID of the VPC connection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_connection_id")
 

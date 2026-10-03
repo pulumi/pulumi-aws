@@ -17,14 +17,14 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
     public static final RuleGroupNamespaceState Empty = new RuleGroupNamespaceState();
 
     /**
-     * The ARN of the rule group namespace.
+     * ARN of the rule group namespace.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the rule group namespace.
+     * @return ARN of the rule group namespace.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the rule group namespace.
+     * @return Name of the rule group namespace.
      * 
      */
     public Optional<Output<String>> name() {
@@ -152,7 +152,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The ARN of the rule group namespace.
+         * @param arn ARN of the rule group namespace.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The ARN of the rule group namespace.
+         * @param arn ARN of the rule group namespace.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the rule group namespace.
+         * @param name Name of the rule group namespace.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the rule group namespace.
+         * @param name Name of the rule group namespace.
          * 
          * @return builder
          * 

@@ -17,22 +17,30 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretsPlainArgs Empty = new GetSecretsPlainArgs();
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * One or more encrypted payload definitions from the KMS service. See `secret` below.
      * 
      */
     @Import(name="secrets", required=true)
     private List<GetSecretsSecret> secrets;
 
     /**
-     * @return One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * @return One or more encrypted payload definitions from the KMS service. See `secret` below.
      * 
      */
     public List<GetSecretsSecret> secrets() {
@@ -64,13 +72,19 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSecretsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+         * @param secrets One or more encrypted payload definitions from the KMS service. See `secret` below.
          * 
          * @return builder
          * 
@@ -81,7 +95,7 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+         * @param secrets One or more encrypted payload definitions from the KMS service. See `secret` below.
          * 
          * @return builder
          * 

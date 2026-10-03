@@ -17,14 +17,14 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
     public static final TableMagneticStoreWritePropertiesArgs Empty = new TableMagneticStoreWritePropertiesArgs();
 
     /**
-     * A flag to enable magnetic store writes.
+     * Whether to enable magnetic store writes.
      * 
      */
     @Import(name="enableMagneticStoreWrites")
     private @Nullable Output<Boolean> enableMagneticStoreWrites;
 
     /**
-     * @return A flag to enable magnetic store writes.
+     * @return Whether to enable magnetic store writes.
      * 
      */
     public Optional<Output<Boolean>> enableMagneticStoreWrites() {
@@ -32,14 +32,14 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
     }
 
     /**
-     * The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+     * Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
      * 
      */
     @Import(name="magneticStoreRejectedDataLocation")
     private @Nullable Output<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs> magneticStoreRejectedDataLocation;
 
     /**
-     * @return The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+     * @return Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
      * 
      */
     public Optional<Output<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs>> magneticStoreRejectedDataLocation() {
@@ -72,7 +72,7 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enableMagneticStoreWrites A flag to enable magnetic store writes.
+         * @param enableMagneticStoreWrites Whether to enable magnetic store writes.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enableMagneticStoreWrites A flag to enable magnetic store writes.
+         * @param enableMagneticStoreWrites Whether to enable magnetic store writes.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param magneticStoreRejectedDataLocation The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+         * @param magneticStoreRejectedDataLocation Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TableMagneticStoreWritePropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param magneticStoreRejectedDataLocation The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+         * @param magneticStoreRejectedDataLocation Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
          * 
          * @return builder
          * 

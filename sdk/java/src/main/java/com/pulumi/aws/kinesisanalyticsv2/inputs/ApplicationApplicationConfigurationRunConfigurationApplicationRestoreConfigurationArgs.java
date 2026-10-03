@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
     public static final ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs Empty = new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs();
 
     /**
-     * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+     * How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
      * 
      */
     @Import(name="applicationRestoreType")
     private @Nullable Output<String> applicationRestoreType;
 
     /**
-     * @return Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+     * @return How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
      * 
      */
     public Optional<Output<String>> applicationRestoreType() {
@@ -31,14 +31,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
     }
 
     /**
-     * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+     * Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
      * 
      */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
     /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+     * @return Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
      * 
      */
     public Optional<Output<String>> snapshotName() {
@@ -71,7 +71,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
         }
 
         /**
-         * @param applicationRestoreType Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+         * @param applicationRestoreType How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
         }
 
         /**
-         * @param applicationRestoreType Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+         * @param applicationRestoreType How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
         }
 
         /**
-         * @param snapshotName The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+         * @param snapshotName Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
         }
 
         /**
-         * @param snapshotName The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+         * @param snapshotName Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
          * 
          * @return builder
          * 

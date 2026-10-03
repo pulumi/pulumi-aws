@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
     /**
-     * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+     * @return List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
     private List<String> siteMaps;
 
     private DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration() {}
     /**
-     * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+     * @return List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
     public List<String> siteMaps() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyXksKeyConfiguration {
     /**
-     * @return The globally unique identifier for the key
+     * @return ID of the external key in the external key manager.
      * 
      */
     private String id;
 
     private GetKeyXksKeyConfiguration() {}
     /**
-     * @return The globally unique identifier for the key
+     * @return ID of the external key in the external key manager.
      * 
      */
     public String id() {

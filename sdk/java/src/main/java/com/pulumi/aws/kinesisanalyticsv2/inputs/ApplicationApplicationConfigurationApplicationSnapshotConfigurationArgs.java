@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
     public static final ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs Empty = new ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs();
 
     /**
-     * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+     * Whether snapshots are enabled for a Flink-based application.
      * 
      */
     @Import(name="snapshotsEnabled", required=true)
     private Output<Boolean> snapshotsEnabled;
 
     /**
-     * @return Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+     * @return Whether snapshots are enabled for a Flink-based application.
      * 
      */
     public Output<Boolean> snapshotsEnabled() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
         }
 
         /**
-         * @param snapshotsEnabled Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         * @param snapshotsEnabled Whether snapshots are enabled for a Flink-based application.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
         }
 
         /**
-         * @param snapshotsEnabled Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         * @param snapshotsEnabled Whether snapshots are enabled for a Flink-based application.
          * 
          * @return builder
          * 

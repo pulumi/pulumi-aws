@@ -14,11 +14,11 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     public sealed class ScheduledQueryRecentlyFailedRun
     {
         /// <summary>
-        /// S3 location for error report.
+        /// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation> ErrorReportLocations;
         /// <summary>
-        /// Statistics for a single scheduled query run.
+        /// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRunExecutionStat> ExecutionStats;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
         /// </summary>
         public readonly string? InvocationTime;
         /// <summary>
-        /// Various insights and metrics related to the run summary of the scheduled query.
+        /// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse> QueryInsightsResponses;
         /// <summary>

@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWindowsFileSystemAuditLogConfiguration {
+    /**
+     * @return ARN for the destination of the audit logs.
+     * 
+     */
     private String auditLogDestination;
+    /**
+     * @return Attempt type logged by Amazon FSx for file and folder accesses.
+     * 
+     */
     private String fileAccessAuditLogLevel;
+    /**
+     * @return Attempt type logged by Amazon FSx for file share accesses.
+     * 
+     */
     private String fileShareAccessAuditLogLevel;
 
     private GetWindowsFileSystemAuditLogConfiguration() {}
+    /**
+     * @return ARN for the destination of the audit logs.
+     * 
+     */
     public String auditLogDestination() {
         return this.auditLogDestination;
     }
+    /**
+     * @return Attempt type logged by Amazon FSx for file and folder accesses.
+     * 
+     */
     public String fileAccessAuditLogLevel() {
         return this.fileAccessAuditLogLevel;
     }
+    /**
+     * @return Attempt type logged by Amazon FSx for file share accesses.
+     * 
+     */
     public String fileShareAccessAuditLogLevel() {
         return this.fileShareAccessAuditLogLevel;
     }

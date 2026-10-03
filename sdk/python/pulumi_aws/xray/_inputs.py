@@ -28,11 +28,11 @@ __all__ = [
 class GroupInsightsConfigurationArgsDict(TypedDict):
     insights_enabled: pulumi.Input[_builtins.bool]
     """
-    Specifies whether insights are enabled.
+    Whether insights are enabled.
     """
     notifications_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Specifies whether insight notifications are enabled.
+    Whether insight notifications are enabled.
     """
 
 @pulumi.input_type
@@ -41,8 +41,8 @@ class GroupInsightsConfigurationArgs:
                  insights_enabled: pulumi.Input[_builtins.bool],
                  notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] insights_enabled: Specifies whether insights are enabled.
-        :param pulumi.Input[_builtins.bool] notifications_enabled: Specifies whether insight notifications are enabled.
+        :param pulumi.Input[_builtins.bool] insights_enabled: Whether insights are enabled.
+        :param pulumi.Input[_builtins.bool] notifications_enabled: Whether insight notifications are enabled.
         """
         pulumi.set(__self__, "insights_enabled", insights_enabled)
         if notifications_enabled is not None:
@@ -52,7 +52,7 @@ class GroupInsightsConfigurationArgs:
     @pulumi.getter(name="insightsEnabled")
     def insights_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Specifies whether insights are enabled.
+        Whether insights are enabled.
         """
         return pulumi.get(self, "insights_enabled")
 
@@ -64,7 +64,7 @@ class GroupInsightsConfigurationArgs:
     @pulumi.getter(name="notificationsEnabled")
     def notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether insight notifications are enabled.
+        Whether insight notifications are enabled.
         """
         return pulumi.get(self, "notifications_enabled")
 

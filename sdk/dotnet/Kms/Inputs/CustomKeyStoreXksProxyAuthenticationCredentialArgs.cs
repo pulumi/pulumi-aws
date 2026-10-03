@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kms.Inputs
     public sealed class CustomKeyStoreXksProxyAuthenticationCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique identifier for the raw secret access key.
+        /// Unique identifier for the raw secret access key.
         /// </summary>
         [Input("accessKeyId", required: true)]
         public Input<string> AccessKeyId { get; set; } = null!;
 
         /// <summary>
-        /// A secret string of 43-64 characters.
+        /// Secret string of 43-64 characters.
         /// </summary>
         [Input("rawSecretAccessKey", required: true)]
         public Input<string> RawSecretAccessKey { get; set; } = null!;

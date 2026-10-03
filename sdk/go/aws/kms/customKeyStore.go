@@ -131,22 +131,30 @@ import (
 type CustomKeyStore struct {
 	pulumi.CustomResourceState
 
+	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId pulumi.StringPtrOutput `pulumi:"cloudHsmClusterId"`
 	// Unique name for Custom Key Store.
 	//
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringOutput `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-	CustomKeyStoreType pulumi.StringOutput    `pulumi:"customKeyStoreType"`
-	KeyStorePassword   pulumi.StringPtrOutput `pulumi:"keyStorePassword"`
+	// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+	CustomKeyStoreType pulumi.StringOutput `pulumi:"customKeyStoreType"`
+	// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	KeyStorePassword pulumi.StringPtrOutput `pulumi:"keyStorePassword"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                           pulumi.StringOutput                                     `pulumi:"region"`
-	TrustAnchorCertificate           pulumi.StringPtrOutput                                  `pulumi:"trustAnchorCertificate"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	TrustAnchorCertificate pulumi.StringPtrOutput `pulumi:"trustAnchorCertificate"`
+	// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput `pulumi:"xksProxyAuthenticationCredential"`
-	XksProxyConnectivity             pulumi.StringPtrOutput                                  `pulumi:"xksProxyConnectivity"`
-	XksProxyUriEndpoint              pulumi.StringPtrOutput                                  `pulumi:"xksProxyUriEndpoint"`
-	XksProxyUriPath                  pulumi.StringPtrOutput                                  `pulumi:"xksProxyUriPath"`
-	XksProxyVpcEndpointServiceName   pulumi.StringPtrOutput                                  `pulumi:"xksProxyVpcEndpointServiceName"`
+	// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyConnectivity pulumi.StringPtrOutput `pulumi:"xksProxyConnectivity"`
+	// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriEndpoint pulumi.StringPtrOutput `pulumi:"xksProxyUriEndpoint"`
+	// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriPath pulumi.StringPtrOutput `pulumi:"xksProxyUriPath"`
+	// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+	XksProxyVpcEndpointServiceName pulumi.StringPtrOutput `pulumi:"xksProxyVpcEndpointServiceName"`
 }
 
 // NewCustomKeyStore registers a new resource with the given unique name, arguments, and options.
@@ -182,41 +190,57 @@ func GetCustomKeyStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomKeyStore resources.
 type customKeyStoreState struct {
+	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`
 	// Unique name for Custom Key Store.
 	//
 	// The following arguments are optional:
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+	// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
-	KeyStorePassword   *string `pulumi:"keyStorePassword"`
+	// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	KeyStorePassword *string `pulumi:"keyStorePassword"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                           *string                                         `pulumi:"region"`
-	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
+	Region *string `pulumi:"region"`
+	// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	TrustAnchorCertificate *string `pulumi:"trustAnchorCertificate"`
+	// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
-	XksProxyConnectivity             *string                                         `pulumi:"xksProxyConnectivity"`
-	XksProxyUriEndpoint              *string                                         `pulumi:"xksProxyUriEndpoint"`
-	XksProxyUriPath                  *string                                         `pulumi:"xksProxyUriPath"`
-	XksProxyVpcEndpointServiceName   *string                                         `pulumi:"xksProxyVpcEndpointServiceName"`
+	// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyConnectivity *string `pulumi:"xksProxyConnectivity"`
+	// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriEndpoint *string `pulumi:"xksProxyUriEndpoint"`
+	// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriPath *string `pulumi:"xksProxyUriPath"`
+	// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+	XksProxyVpcEndpointServiceName *string `pulumi:"xksProxyVpcEndpointServiceName"`
 }
 
 type CustomKeyStoreState struct {
+	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId pulumi.StringPtrInput
 	// Unique name for Custom Key Store.
 	//
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringPtrInput
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+	// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 	CustomKeyStoreType pulumi.StringPtrInput
-	KeyStorePassword   pulumi.StringPtrInput
+	// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	KeyStorePassword pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                           pulumi.StringPtrInput
-	TrustAnchorCertificate           pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	TrustAnchorCertificate pulumi.StringPtrInput
+	// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
-	XksProxyConnectivity             pulumi.StringPtrInput
-	XksProxyUriEndpoint              pulumi.StringPtrInput
-	XksProxyUriPath                  pulumi.StringPtrInput
-	XksProxyVpcEndpointServiceName   pulumi.StringPtrInput
+	// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyConnectivity pulumi.StringPtrInput
+	// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriEndpoint pulumi.StringPtrInput
+	// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriPath pulumi.StringPtrInput
+	// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+	XksProxyVpcEndpointServiceName pulumi.StringPtrInput
 }
 
 func (CustomKeyStoreState) ElementType() reflect.Type {
@@ -224,42 +248,58 @@ func (CustomKeyStoreState) ElementType() reflect.Type {
 }
 
 type customKeyStoreArgs struct {
+	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`
 	// Unique name for Custom Key Store.
 	//
 	// The following arguments are optional:
 	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+	// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 	CustomKeyStoreType *string `pulumi:"customKeyStoreType"`
-	KeyStorePassword   *string `pulumi:"keyStorePassword"`
+	// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	KeyStorePassword *string `pulumi:"keyStorePassword"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                           *string                                         `pulumi:"region"`
-	TrustAnchorCertificate           *string                                         `pulumi:"trustAnchorCertificate"`
+	Region *string `pulumi:"region"`
+	// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	TrustAnchorCertificate *string `pulumi:"trustAnchorCertificate"`
+	// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 	XksProxyAuthenticationCredential *CustomKeyStoreXksProxyAuthenticationCredential `pulumi:"xksProxyAuthenticationCredential"`
-	XksProxyConnectivity             *string                                         `pulumi:"xksProxyConnectivity"`
-	XksProxyUriEndpoint              *string                                         `pulumi:"xksProxyUriEndpoint"`
-	XksProxyUriPath                  *string                                         `pulumi:"xksProxyUriPath"`
-	XksProxyVpcEndpointServiceName   *string                                         `pulumi:"xksProxyVpcEndpointServiceName"`
+	// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyConnectivity *string `pulumi:"xksProxyConnectivity"`
+	// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriEndpoint *string `pulumi:"xksProxyUriEndpoint"`
+	// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriPath *string `pulumi:"xksProxyUriPath"`
+	// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+	XksProxyVpcEndpointServiceName *string `pulumi:"xksProxyVpcEndpointServiceName"`
 }
 
 // The set of arguments for constructing a CustomKeyStore resource.
 type CustomKeyStoreArgs struct {
+	// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 	CloudHsmClusterId pulumi.StringPtrInput
 	// Unique name for Custom Key Store.
 	//
 	// The following arguments are optional:
 	CustomKeyStoreName pulumi.StringInput
-	// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+	// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 	CustomKeyStoreType pulumi.StringPtrInput
-	KeyStorePassword   pulumi.StringPtrInput
+	// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	KeyStorePassword pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region                           pulumi.StringPtrInput
-	TrustAnchorCertificate           pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
+	TrustAnchorCertificate pulumi.StringPtrInput
+	// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 	XksProxyAuthenticationCredential CustomKeyStoreXksProxyAuthenticationCredentialPtrInput
-	XksProxyConnectivity             pulumi.StringPtrInput
-	XksProxyUriEndpoint              pulumi.StringPtrInput
-	XksProxyUriPath                  pulumi.StringPtrInput
-	XksProxyVpcEndpointServiceName   pulumi.StringPtrInput
+	// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyConnectivity pulumi.StringPtrInput
+	// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriEndpoint pulumi.StringPtrInput
+	// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
+	XksProxyUriPath pulumi.StringPtrInput
+	// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
+	XksProxyVpcEndpointServiceName pulumi.StringPtrInput
 }
 
 func (CustomKeyStoreArgs) ElementType() reflect.Type {
@@ -349,6 +389,7 @@ func (o CustomKeyStoreOutput) ToCustomKeyStoreOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Cluster ID of CloudHSM. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 func (o CustomKeyStoreOutput) CloudHsmClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.CloudHsmClusterId }).(pulumi.StringPtrOutput)
 }
@@ -360,11 +401,12 @@ func (o CustomKeyStoreOutput) CustomKeyStoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CustomKeyStoreName }).(pulumi.StringOutput)
 }
 
-// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+// Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
 func (o CustomKeyStoreOutput) CustomKeyStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CustomKeyStoreType }).(pulumi.StringOutput)
 }
 
+// Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 func (o CustomKeyStoreOutput) KeyStorePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.KeyStorePassword }).(pulumi.StringPtrOutput)
 }
@@ -374,28 +416,34 @@ func (o CustomKeyStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Certificate for an AWS CloudHSM key store. Applies when `customKeyStoreType` is `AWS_CLOUDHSM`.
 func (o CustomKeyStoreOutput) TrustAnchorCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.TrustAnchorCertificate }).(pulumi.StringPtrOutput)
 }
 
+// Authentication credential for the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`. See `xksProxyAuthenticationCredential` block below.
 func (o CustomKeyStoreOutput) XksProxyAuthenticationCredential() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
 		return v.XksProxyAuthenticationCredential
 	}).(CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput)
 }
 
+// How AWS KMS communicates with the external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
 func (o CustomKeyStoreOutput) XksProxyConnectivity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.XksProxyConnectivity }).(pulumi.StringPtrOutput)
 }
 
+// Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
 func (o CustomKeyStoreOutput) XksProxyUriEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.XksProxyUriEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE`.
 func (o CustomKeyStoreOutput) XksProxyUriPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.XksProxyUriPath }).(pulumi.StringPtrOutput)
 }
 
+// Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `customKeyStoreType` is `EXTERNAL_KEY_STORE` and required when `xksProxyConnectivity` is `VPC_ENDPOINT_SERVICE`.
 func (o CustomKeyStoreOutput) XksProxyVpcEndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringPtrOutput { return v.XksProxyVpcEndpointServiceName }).(pulumi.StringPtrOutput)
 }

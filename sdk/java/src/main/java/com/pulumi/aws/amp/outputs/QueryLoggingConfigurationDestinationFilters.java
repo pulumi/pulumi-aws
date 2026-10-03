@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class QueryLoggingConfigurationDestinationFilters {
     /**
-     * @return The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+     * @return Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
      * 
      */
     private Integer qspThreshold;
 
     private QueryLoggingConfigurationDestinationFilters() {}
     /**
-     * @return The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+     * @return Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
      * 
      */
     public Integer qspThreshold() {

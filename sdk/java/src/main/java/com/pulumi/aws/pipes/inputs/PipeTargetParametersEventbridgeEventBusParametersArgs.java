@@ -17,14 +17,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     public static final PipeTargetParametersEventbridgeEventBusParametersArgs Empty = new PipeTargetParametersEventbridgeEventBusParametersArgs();
 
     /**
-     * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+     * Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
      * 
      */
     @Import(name="detailType")
     private @Nullable Output<String> detailType;
 
     /**
-     * @return A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+     * @return Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
      * 
      */
     public Optional<Output<String>> detailType() {
@@ -32,14 +32,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     }
 
     /**
-     * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+     * URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
      * 
      */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
     /**
-     * @return The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+     * @return URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
      * 
      */
     public Optional<Output<String>> endpointId() {
@@ -62,14 +62,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     }
 
     /**
-     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * Source of the event. Maximum length of 256.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * @return Source of the event. Maximum length of 256.
      * 
      */
     public Optional<Output<String>> source() {
@@ -77,14 +77,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     }
 
     /**
-     * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
     @Import(name="time")
     private @Nullable Output<String> time;
 
     /**
-     * @return The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * @return Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
     public Optional<Output<String>> time() {
@@ -120,7 +120,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param detailType A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         * @param detailType Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param detailType A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         * @param detailType Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param endpointId The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+         * @param endpointId URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param endpointId The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+         * @param endpointId URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param source Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+         * @param source Source of the event. Maximum length of 256.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param source Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+         * @param source Source of the event. Maximum length of 256.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param time The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * @param time Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param time The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * @param time Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
          * 
          * @return builder
          * 

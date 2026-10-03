@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<Inputs.ThemeConfigurationSheetArgs>? Sheet { get; set; }
 
         /// <summary>
-        /// Determines the typography options. See typography.
+        /// Typography options. See typography.
         /// </summary>
         [Input("typography")]
         public Input<Inputs.ThemeConfigurationTypographyArgs>? Typography { get; set; }

@@ -70,36 +70,47 @@ export class Thesaurus extends pulumi.CustomResource {
      * ARN of the thesaurus.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Description for a thesaurus.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the index for a thesaurus.
+     * Identifier of the index for a thesaurus.
      */
     declare public readonly indexId: pulumi.Output<string>;
     /**
-     * The name for the thesaurus.
+     * Name for the thesaurus.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
+     * S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly sourceS3Path: pulumi.Output<outputs.kendra.ThesaurusSourceS3Path>;
     /**
-     * The current status of the thesaurus.
+     * Current status of the thesaurus.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Unique identifier of the thesaurus.
+     */
     declare public /*out*/ readonly thesaurusId: pulumi.Output<string>;
 
     /**
@@ -162,36 +173,47 @@ export interface ThesaurusState {
      * ARN of the thesaurus.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Description for a thesaurus.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for a thesaurus.
+     * Identifier of the index for a thesaurus.
      */
     indexId?: pulumi.Input<string | undefined>;
     /**
-     * The name for the thesaurus.
+     * Name for the thesaurus.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
+     * S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The following arguments are optional:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path | undefined>;
     /**
-     * The current status of the thesaurus.
+     * Current status of the thesaurus.
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Unique identifier of the thesaurus.
+     */
     thesaurusId?: pulumi.Input<string | undefined>;
 }
 
@@ -199,26 +221,34 @@ export interface ThesaurusState {
  * The set of arguments for constructing a Thesaurus resource.
  */
 export interface ThesaurusArgs {
+    /**
+     * Description for a thesaurus.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for a thesaurus.
+     * Identifier of the index for a thesaurus.
      */
     indexId: pulumi.Input<string>;
     /**
-     * The name for the thesaurus.
+     * Name for the thesaurus.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
+     * S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The following arguments are optional:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

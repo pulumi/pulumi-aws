@@ -135,148 +135,140 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      * 
      */
     @Export(name="bypassPolicyLockoutSafetyCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutSafetyCheck;
 
     /**
-     * @return A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * @return Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> bypassPolicyLockoutSafetyCheck() {
         return Codegen.optional(this.bypassPolicyLockoutSafetyCheck);
     }
     /**
-     * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
     @Export(name="deletionWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deletionWindowInDays;
 
     /**
-     * @return The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * @return Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
     public Output<Optional<Integer>> deletionWindowInDays() {
         return Codegen.optional(this.deletionWindowInDays);
     }
     /**
-     * A description of the KMS key.
+     * Description of the KMS key.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the KMS key.
+     * @return Description of the KMS key.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
+     * Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
+     * @return Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The key ID of the replica key. Related multi-Region keys have the same key ID.
+     * Key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
-     * @return The key ID of the replica key. Related multi-Region keys have the same key ID.
+     * @return Key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
     public Output<String> keyId() {
         return this.keyId;
     }
     /**
-     * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
+     * Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keyRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> keyRotationEnabled;
 
     /**
-     * @return A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
+     * @return Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
     public Output<Boolean> keyRotationEnabled() {
         return this.keyRotationEnabled;
     }
     /**
-     * The type of key material in the KMS key. This is a shared property of multi-Region keys.
+     * Type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keySpec", refs={String.class}, tree="[0]")
     private Output<String> keySpec;
 
     /**
-     * @return The type of key material in the KMS key. This is a shared property of multi-Region keys.
+     * @return Type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     public Output<String> keySpec() {
         return this.keySpec;
     }
     /**
-     * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
+     * [Cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     @Export(name="keyUsage", refs={String.class}, tree="[0]")
     private Output<String> keyUsage;
 
     /**
-     * @return The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
+     * @return [Cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
     public Output<String> keyUsage() {
         return this.keyUsage;
     }
     /**
-     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * @return Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
     @Export(name="primaryKeyArn", refs={String.class}, tree="[0]")
     private Output<String> primaryKeyArn;
 
     /**
-     * @return The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * @return ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
     public Output<String> primaryKeyArn() {
@@ -297,28 +289,28 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -19,98 +19,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParameters {
     /**
-     * @return The parameters for using an Active MQ broker as a source. Detailed below.
+     * @return Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersActivemqBrokerParameters activemqBrokerParameters;
     /**
-     * @return The parameters for using a DynamoDB stream as a source.  Detailed below.
+     * @return Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersDynamodbStreamParameters dynamodbStreamParameters;
     /**
-     * @return The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+     * @return Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersFilterCriteria filterCriteria;
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersKinesisStreamParameters kinesisStreamParameters;
     /**
-     * @return The parameters for using an MSK stream as a source. Detailed below.
+     * @return Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersManagedStreamingKafkaParameters managedStreamingKafkaParameters;
     /**
-     * @return The parameters for using a Rabbit MQ broker as a source. Detailed below.
+     * @return Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersRabbitmqBrokerParameters rabbitmqBrokerParameters;
     /**
-     * @return The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+     * @return Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersSelfManagedKafkaParameters selfManagedKafkaParameters;
     /**
-     * @return The parameters for using a Amazon SQS stream as a source. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersSqsQueueParameters sqsQueueParameters;
 
     private PipeSourceParameters() {}
     /**
-     * @return The parameters for using an Active MQ broker as a source. Detailed below.
+     * @return Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersActivemqBrokerParameters> activemqBrokerParameters() {
         return Optional.ofNullable(this.activemqBrokerParameters);
     }
     /**
-     * @return The parameters for using a DynamoDB stream as a source.  Detailed below.
+     * @return Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersDynamodbStreamParameters> dynamodbStreamParameters() {
         return Optional.ofNullable(this.dynamodbStreamParameters);
     }
     /**
-     * @return The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+     * @return Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
      * 
      */
     public Optional<PipeSourceParametersFilterCriteria> filterCriteria() {
         return Optional.ofNullable(this.filterCriteria);
     }
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersKinesisStreamParameters> kinesisStreamParameters() {
         return Optional.ofNullable(this.kinesisStreamParameters);
     }
     /**
-     * @return The parameters for using an MSK stream as a source. Detailed below.
+     * @return Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersManagedStreamingKafkaParameters> managedStreamingKafkaParameters() {
         return Optional.ofNullable(this.managedStreamingKafkaParameters);
     }
     /**
-     * @return The parameters for using a Rabbit MQ broker as a source. Detailed below.
+     * @return Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersRabbitmqBrokerParameters> rabbitmqBrokerParameters() {
         return Optional.ofNullable(this.rabbitmqBrokerParameters);
     }
     /**
-     * @return The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+     * @return Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersSelfManagedKafkaParameters> selfManagedKafkaParameters() {
         return Optional.ofNullable(this.selfManagedKafkaParameters);
     }
     /**
-     * @return The parameters for using a Amazon SQS stream as a source. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     public Optional<PipeSourceParametersSqsQueueParameters> sqsQueueParameters() {

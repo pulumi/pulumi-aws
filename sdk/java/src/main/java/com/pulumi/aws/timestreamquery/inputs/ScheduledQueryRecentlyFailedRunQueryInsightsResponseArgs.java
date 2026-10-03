@@ -49,14 +49,14 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
     }
 
     /**
-     * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+     * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
      * 
      */
     @Import(name="querySpatialCoverages")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs>> querySpatialCoverages;
 
     /**
-     * @return Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+     * @return Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs>>> querySpatialCoverages() {
@@ -79,14 +79,14 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
     }
 
     /**
-     * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+     * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
      * 
      */
     @Import(name="queryTemporalRanges")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs>> queryTemporalRanges;
 
     /**
-     * @return Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+     * @return Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs>>> queryTemporalRanges() {
@@ -164,7 +164,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+         * @param querySpatialCoverages Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs exte
         }
 
         /**
-         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+         * @param queryTemporalRanges Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
          * 
          * @return builder
          * 

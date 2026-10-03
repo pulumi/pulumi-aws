@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Route53
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var test = new Aws.Route53.RecordsExclusive("test", new()
+    ///     var exampleRecordsExclusive = new Aws.Route53.RecordsExclusive("example", new()
     ///     {
     ///         ResourceRecordSets = new[]
     ///         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Route53
     ///                 Ttl = 30,
     ///             },
     ///         },
-    ///         ZoneId = testAwsRoute53Zone.ZoneId,
+    ///         ZoneId = example.ZoneId,
     ///     });
     /// 
     /// });
@@ -78,9 +78,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Route53.RecordsExclusive("test", new()
+    ///     var example = new Aws.Route53.RecordsExclusive("example", new()
     ///     {
-    ///         ZoneId = testAwsRoute53Zone.ZoneId,
+    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///     });
     /// 
     /// });

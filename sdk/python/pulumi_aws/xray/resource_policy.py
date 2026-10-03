@@ -28,11 +28,11 @@ class ResourcePolicyArgs:
         The set of arguments for constructing a ResourcePolicy resource.
 
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
+        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
-        :param pulumi.Input[_builtins.str] policy_revision_id: Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        :param pulumi.Input[_builtins.str] policy_revision_id: Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -49,8 +49,6 @@ class ResourcePolicyArgs:
     def policy_document(self) -> pulumi.Input[_builtins.str]:
         """
         JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_document")
 
@@ -63,6 +61,8 @@ class ResourcePolicyArgs:
     def policy_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "policy_name")
 
@@ -74,7 +74,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="bypassPolicyLockoutCheck")
     def bypass_policy_lockout_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_check")
 
@@ -86,7 +86,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="policyRevisionId")
     def policy_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         """
         return pulumi.get(self, "policy_revision_id")
 
@@ -119,13 +119,13 @@ class _ResourcePolicyState:
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
 
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         :param pulumi.Input[_builtins.str] last_updated_time: When the policy was last updated, in Unix time seconds.
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
+        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] policy_revision_id: Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        :param pulumi.Input[_builtins.str] policy_revision_id: Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bypass_policy_lockout_check is not None:
@@ -145,7 +145,7 @@ class _ResourcePolicyState:
     @pulumi.getter(name="bypassPolicyLockoutCheck")
     def bypass_policy_lockout_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_check")
 
@@ -170,8 +170,6 @@ class _ResourcePolicyState:
     def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_document")
 
@@ -184,6 +182,8 @@ class _ResourcePolicyState:
     def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "policy_name")
 
@@ -195,7 +195,7 @@ class _ResourcePolicyState:
     @pulumi.getter(name="policyRevisionId")
     def policy_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         """
         return pulumi.get(self, "policy_revision_id")
 
@@ -267,12 +267,12 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
+        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] policy_revision_id: Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        :param pulumi.Input[_builtins.str] policy_revision_id: Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -380,13 +380,13 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         :param pulumi.Input[_builtins.str] last_updated_time: When the policy was last updated, in Unix time seconds.
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
+        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] policy_name: Name of the resource policy. Must be unique within a specific Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] policy_revision_id: Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        :param pulumi.Input[_builtins.str] policy_revision_id: Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,7 +405,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="bypassPolicyLockoutCheck")
     def bypass_policy_lockout_check(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_check")
 
@@ -422,8 +422,6 @@ class ResourcePolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[_builtins.str]:
         """
         JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_document")
 
@@ -432,6 +430,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def policy_name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "policy_name")
 
@@ -439,7 +439,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyRevisionId")
     def policy_revision_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         """
         return pulumi.get(self, "policy_revision_id")
 

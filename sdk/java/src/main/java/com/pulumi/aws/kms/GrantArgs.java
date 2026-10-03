@@ -20,14 +20,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     public static final GrantArgs Empty = new GrantArgs();
 
     /**
-     * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+     * Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     @Import(name="constraints")
     private @Nullable Output<List<GrantConstraintArgs>> constraints;
 
     /**
-     * @return A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+     * @return Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      * 
      */
     public Optional<Output<List<GrantConstraintArgs>>> constraints() {
@@ -35,14 +35,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+     * List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     @Import(name="grantCreationTokens")
     private @Nullable Output<List<String>> grantCreationTokens;
 
     /**
-     * @return A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+     * @return List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      * 
      */
     public Optional<Output<List<String>>> grantCreationTokens() {
@@ -50,14 +50,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+     * Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
     @Import(name="granteePrincipal", required=true)
     private Output<String> granteePrincipal;
 
     /**
-     * @return The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+     * @return Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
     public Output<String> granteePrincipal() {
@@ -80,14 +80,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name for identifying the grant.
+     * Friendly name for identifying the grant.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name for identifying the grant.
+     * @return Friendly name for identifying the grant.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +95,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+     * List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      * 
      */
     @Import(name="operations", required=true)
     private Output<List<String>> operations;
 
     /**
-     * @return A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+     * @return List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      * 
      */
     public Output<List<String>> operations() {
@@ -125,16 +125,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+     * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      * 
      */
     @Import(name="retireOnDelete")
     private @Nullable Output<Boolean> retireOnDelete;
 
     /**
-     * @return If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-     * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+     * @return If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      * 
      */
     public Optional<Output<Boolean>> retireOnDelete() {
@@ -142,14 +140,14 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+     * Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
     @Import(name="retiringPrincipal")
     private @Nullable Output<String> retiringPrincipal;
 
     /**
-     * @return The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+     * @return Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
     public Optional<Output<String>> retiringPrincipal() {
@@ -189,7 +187,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+         * @param constraints Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -200,7 +198,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+         * @param constraints Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -210,7 +208,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param constraints A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+         * @param constraints Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
          * 
          * @return builder
          * 
@@ -220,7 +218,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 
@@ -231,7 +229,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 
@@ -241,7 +239,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantCreationTokens A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+         * @param grantCreationTokens List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
          * 
          * @return builder
          * 
@@ -251,7 +249,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param granteePrincipal The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+         * @param granteePrincipal Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
          * 
          * @return builder
          * 
@@ -262,7 +260,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param granteePrincipal The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+         * @param granteePrincipal Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
          * 
          * @return builder
          * 
@@ -293,7 +291,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name for identifying the grant.
+         * @param name Friendly name for identifying the grant.
          * 
          * @return builder
          * 
@@ -304,7 +302,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name for identifying the grant.
+         * @param name Friendly name for identifying the grant.
          * 
          * @return builder
          * 
@@ -314,7 +312,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operations A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+         * @param operations List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
          * 
          * @return builder
          * 
@@ -325,7 +323,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operations A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+         * @param operations List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
          * 
          * @return builder
          * 
@@ -335,7 +333,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operations A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+         * @param operations List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
          * 
          * @return builder
          * 
@@ -366,8 +364,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retireOnDelete If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-         * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+         * @param retireOnDelete If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
          * 
          * @return builder
          * 
@@ -378,8 +375,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retireOnDelete If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-         * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+         * @param retireOnDelete If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
          * 
          * @return builder
          * 
@@ -389,7 +385,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retiringPrincipal The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+         * @param retiringPrincipal Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
          * 
          * @return builder
          * 
@@ -400,7 +396,7 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retiringPrincipal The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
+         * @param retiringPrincipal Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform&#39;s state may not always be refreshed to reflect what is true in AWS.
          * 
          * @return builder
          * 

@@ -46,7 +46,7 @@ class GetVoicesVoiceArgsDict(TypedDict):
     """
     supported_engines: Sequence[_builtins.str]
     """
-    Specifies which engines are supported by a given voice.
+    Engines supported by a given voice.
     """
 
 @pulumi.input_type
@@ -66,7 +66,7 @@ class GetVoicesVoiceArgs:
         :param _builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
         :param _builtins.str language_name: Human readable name of the language in English.
         :param _builtins.str name: Name of the voice.
-        :param Sequence[_builtins.str] supported_engines: Specifies which engines are supported by a given voice.
+        :param Sequence[_builtins.str] supported_engines: Engines supported by a given voice.
         """
         pulumi.set(__self__, "additional_language_codes", additional_language_codes)
         pulumi.set(__self__, "gender", gender)
@@ -152,7 +152,7 @@ class GetVoicesVoiceArgs:
     @pulumi.getter(name="supportedEngines")
     def supported_engines(self) -> Sequence[_builtins.str]:
         """
-        Specifies which engines are supported by a given voice.
+        Engines supported by a given voice.
         """
         return pulumi.get(self, "supported_engines")
 

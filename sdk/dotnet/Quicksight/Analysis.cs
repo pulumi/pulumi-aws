@@ -173,16 +173,19 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the analysis was created.
+        /// Time that the analysis was created.
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Time that the analysis was last published.
+        /// </summary>
         [Output("lastPublishedTime")]
         public Output<string> LastPublishedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the analysis was last updated.
+        /// Time that the analysis was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
@@ -196,19 +199,19 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        /// Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.AnalysisParameters> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisPermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        /// Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
         [Output("recoveryWindowInDays")]
         public Output<int?> RecoveryWindowInDays { get; private set; } = null!;
@@ -220,13 +223,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
-        /// The analysis creation status.
+        /// Analysis creation status.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -238,7 +241,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -316,7 +319,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        /// Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.AnalysisParametersArgs>? Parameters { get; set; }
@@ -325,7 +328,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.AnalysisPermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
         public InputList<Inputs.AnalysisPermissionArgs> Permissions
         {
@@ -334,7 +337,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        /// Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
         [Input("recoveryWindowInDays")]
         public Input<int>? RecoveryWindowInDays { get; set; }
@@ -346,7 +349,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
@@ -396,16 +399,19 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The time that the analysis was created.
+        /// Time that the analysis was created.
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
+        /// <summary>
+        /// Time that the analysis was last published.
+        /// </summary>
         [Input("lastPublishedTime")]
         public Input<string>? LastPublishedTime { get; set; }
 
         /// <summary>
-        /// The time that the analysis was last updated.
+        /// Time that the analysis was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
@@ -419,7 +425,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        /// Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.AnalysisParametersGetArgs>? Parameters { get; set; }
@@ -428,7 +434,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.AnalysisPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
         public InputList<Inputs.AnalysisPermissionGetArgs> Permissions
         {
@@ -437,7 +443,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        /// Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
         [Input("recoveryWindowInDays")]
         public Input<int>? RecoveryWindowInDays { get; set; }
@@ -449,13 +455,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
+        /// Entity that you are using as a source when you create the analysis (template). Only one of `Definition` or `SourceEntity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityGetArgs>? SourceEntity { get; set; }
 
         /// <summary>
-        /// The analysis creation status.
+        /// Analysis creation status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -476,7 +482,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

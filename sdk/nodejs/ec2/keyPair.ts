@@ -75,15 +75,15 @@ export class KeyPair extends pulumi.CustomResource {
     }
 
     /**
-     * The key pair ARN.
+     * Key pair ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
     declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      */
     declare public readonly keyName: pulumi.Output<string>;
     /**
@@ -91,15 +91,15 @@ export class KeyPair extends pulumi.CustomResource {
      */
     declare public readonly keyNamePrefix: pulumi.Output<string>;
     /**
-     * The key pair ID.
+     * Key pair ID.
      */
     declare public /*out*/ readonly keyPairId: pulumi.Output<string>;
     /**
-     * The type of key pair.
+     * Type of key pair.
      */
     declare public /*out*/ readonly keyType: pulumi.Output<string>;
     /**
-     * The public key material.
+     * Public key material.
      */
     declare public readonly publicKey: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class KeyPair extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -164,15 +164,15 @@ export class KeyPair extends pulumi.CustomResource {
  */
 export interface KeyPairState {
     /**
-     * The key pair ARN.
+     * Key pair ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
     fingerprint?: pulumi.Input<string | undefined>;
     /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      */
     keyName?: pulumi.Input<string | undefined>;
     /**
@@ -180,15 +180,15 @@ export interface KeyPairState {
      */
     keyNamePrefix?: pulumi.Input<string | undefined>;
     /**
-     * The key pair ID.
+     * Key pair ID.
      */
     keyPairId?: pulumi.Input<string | undefined>;
     /**
-     * The type of key pair.
+     * Type of key pair.
      */
     keyType?: pulumi.Input<string | undefined>;
     /**
-     * The public key material.
+     * Public key material.
      */
     publicKey?: pulumi.Input<string | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface KeyPairState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -210,7 +210,7 @@ export interface KeyPairState {
  */
 export interface KeyPairArgs {
     /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      */
     keyName?: pulumi.Input<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface KeyPairArgs {
      */
     keyNamePrefix?: pulumi.Input<string | undefined>;
     /**
-     * The public key material.
+     * Public key material.
      */
     publicKey: pulumi.Input<string>;
     /**

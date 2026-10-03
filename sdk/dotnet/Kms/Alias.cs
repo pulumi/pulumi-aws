@@ -64,14 +64,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
+        /// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -141,14 +140,13 @@ namespace Pulumi.Aws.Kms
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
+        /// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -180,14 +178,13 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
+        /// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

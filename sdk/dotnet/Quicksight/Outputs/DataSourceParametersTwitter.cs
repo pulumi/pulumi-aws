@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersTwitter
     {
         /// <summary>
-        /// The maximum number of rows to query.
+        /// Maximum number of rows to query.
         /// </summary>
         public readonly int MaxRows;
         /// <summary>
-        /// The Twitter query to retrieve the data.
+        /// Twitter query to retrieve the data.
         /// </summary>
         public readonly string Query;
 

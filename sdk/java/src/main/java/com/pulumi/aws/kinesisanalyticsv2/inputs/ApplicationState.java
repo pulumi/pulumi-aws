@@ -21,14 +21,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationState Empty = new ApplicationState();
 
     /**
-     * The application&#39;s configuration
+     * Application configuration. See `applicationConfiguration` Block below.
      * 
      */
     @Import(name="applicationConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationArgs> applicationConfiguration;
 
     /**
-     * @return The application&#39;s configuration
+     * @return Application configuration. See `applicationConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationArgs>> applicationConfiguration() {
@@ -36,14 +36,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
     @Import(name="applicationMode")
     private @Nullable Output<String> applicationMode;
 
     /**
-     * @return The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * @return Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
     public Optional<Output<String>> applicationMode() {
@@ -51,14 +51,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the application.
+     * ARN of the application.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the application.
+     * @return ARN of the application.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -66,14 +66,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A CloudWatch log stream to monitor application configuration errors.
+     * CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<ApplicationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return A CloudWatch log stream to monitor application configuration errors.
+     * @return CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      * 
      */
     public Optional<Output<ApplicationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -81,14 +81,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current timestamp when the application was created.
+     * Current timestamp when the application was created.
      * 
      */
     @Import(name="createTimestamp")
     private @Nullable Output<String> createTimestamp;
 
     /**
-     * @return The current timestamp when the application was created.
+     * @return Current timestamp when the application was created.
      * 
      */
     public Optional<Output<String>> createTimestamp() {
@@ -96,14 +96,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A summary description of the application.
+     * Summary description of the application.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A summary description of the application.
+     * @return Summary description of the application.
      * 
      */
     public Optional<Output<String>> description() {
@@ -126,14 +126,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current timestamp when the application was last updated.
+     * Current timestamp when the application was last updated.
      * 
      */
     @Import(name="lastUpdateTimestamp")
     private @Nullable Output<String> lastUpdateTimestamp;
 
     /**
-     * @return The current timestamp when the application was last updated.
+     * @return Current timestamp when the application was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdateTimestamp() {
@@ -141,14 +141,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the application.
+     * Name of the application.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the application.
+     * @return Name of the application.
      * 
      */
     public Optional<Output<String>> name() {
@@ -171,14 +171,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      * 
      */
     @Import(name="runtimeEnvironment")
     private @Nullable Output<String> runtimeEnvironment;
 
     /**
-     * @return The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * @return Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      * 
      */
     public Optional<Output<String>> runtimeEnvironment() {
@@ -186,14 +186,18 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="serviceExecutionRole")
     private @Nullable Output<String> serviceExecutionRole;
 
     /**
-     * @return The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * @return ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> serviceExecutionRole() {
@@ -216,14 +220,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the application.
+     * Status of the application.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the application.
+     * @return Status of the application.
      * 
      */
     public Optional<Output<String>> status() {
@@ -231,14 +235,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * @return Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -246,14 +250,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -261,14 +265,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      * 
      */
     @Import(name="versionId")
     private @Nullable Output<Integer> versionId;
 
     /**
-     * @return The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * @return Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      * 
      */
     public Optional<Output<Integer>> versionId() {
@@ -316,7 +320,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationConfiguration The application&#39;s configuration
+         * @param applicationConfiguration Application configuration. See `applicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -327,7 +331,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationConfiguration The application&#39;s configuration
+         * @param applicationConfiguration Application configuration. See `applicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -337,7 +341,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationMode The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+         * @param applicationMode Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
          * 
          * @return builder
          * 
@@ -348,7 +352,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationMode The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+         * @param applicationMode Application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
          * 
          * @return builder
          * 
@@ -358,7 +362,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the application.
+         * @param arn ARN of the application.
          * 
          * @return builder
          * 
@@ -369,7 +373,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the application.
+         * @param arn ARN of the application.
          * 
          * @return builder
          * 
@@ -379,7 +383,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLoggingOptions A CloudWatch log stream to monitor application configuration errors.
+         * @param cloudwatchLoggingOptions CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
          * 
          * @return builder
          * 
@@ -390,7 +394,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLoggingOptions A CloudWatch log stream to monitor application configuration errors.
+         * @param cloudwatchLoggingOptions CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
          * 
          * @return builder
          * 
@@ -400,7 +404,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTimestamp The current timestamp when the application was created.
+         * @param createTimestamp Current timestamp when the application was created.
          * 
          * @return builder
          * 
@@ -411,7 +415,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTimestamp The current timestamp when the application was created.
+         * @param createTimestamp Current timestamp when the application was created.
          * 
          * @return builder
          * 
@@ -421,7 +425,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the application.
+         * @param description Summary description of the application.
          * 
          * @return builder
          * 
@@ -432,7 +436,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the application.
+         * @param description Summary description of the application.
          * 
          * @return builder
          * 
@@ -463,7 +467,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdateTimestamp The current timestamp when the application was last updated.
+         * @param lastUpdateTimestamp Current timestamp when the application was last updated.
          * 
          * @return builder
          * 
@@ -474,7 +478,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdateTimestamp The current timestamp when the application was last updated.
+         * @param lastUpdateTimestamp Current timestamp when the application was last updated.
          * 
          * @return builder
          * 
@@ -484,7 +488,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the application.
+         * @param name Name of the application.
          * 
          * @return builder
          * 
@@ -495,7 +499,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the application.
+         * @param name Name of the application.
          * 
          * @return builder
          * 
@@ -526,7 +530,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+         * @param runtimeEnvironment Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
          * 
          * @return builder
          * 
@@ -537,7 +541,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtimeEnvironment The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+         * @param runtimeEnvironment Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
          * 
          * @return builder
          * 
@@ -547,7 +551,9 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRole The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+         * @param serviceExecutionRole ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -558,7 +564,9 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRole The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+         * @param serviceExecutionRole ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -589,7 +597,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application.
+         * @param status Status of the application.
          * 
          * @return builder
          * 
@@ -600,7 +608,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the application.
+         * @param status Status of the application.
          * 
          * @return builder
          * 
@@ -610,7 +618,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+         * @param tags Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -621,7 +629,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+         * @param tags Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -631,7 +639,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -642,7 +650,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -652,7 +660,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionId The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+         * @param versionId Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
          * 
          * @return builder
          * 
@@ -663,7 +671,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionId The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+         * @param versionId Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
          * 
          * @return builder
          * 

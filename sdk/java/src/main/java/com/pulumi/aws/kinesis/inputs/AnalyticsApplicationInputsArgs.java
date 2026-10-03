@@ -24,14 +24,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     public static final AnalyticsApplicationInputsArgs Empty = new AnalyticsApplicationInputsArgs();
 
     /**
-     * The ARN of the Kinesis Analytics Application.
+     * ARN of the Kinesis Analytics Application.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Optional<Output<String>> id() {
@@ -39,16 +39,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-     * See Kinesis Firehose below for more details.
+     * Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
      * 
      */
     @Import(name="kinesisFirehose")
     private @Nullable Output<AnalyticsApplicationInputsKinesisFirehoseArgs> kinesisFirehose;
 
     /**
-     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-     * See Kinesis Firehose below for more details.
+     * @return Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationInputsKinesisFirehoseArgs>> kinesisFirehose() {
@@ -56,16 +54,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-     * See Kinesis Stream below for more details.
+     * Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
      * 
      */
     @Import(name="kinesisStream")
     private @Nullable Output<AnalyticsApplicationInputsKinesisStreamArgs> kinesisStream;
 
     /**
-     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-     * See Kinesis Stream below for more details.
+     * @return Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationInputsKinesisStreamArgs>> kinesisStream() {
@@ -73,14 +69,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Name Prefix to use when creating an in-application stream.
+     * Name Prefix to use when creating an in-application stream.
      * 
      */
     @Import(name="namePrefix", required=true)
     private Output<String> namePrefix;
 
     /**
-     * @return The Name Prefix to use when creating an in-application stream.
+     * @return Name Prefix to use when creating an in-application stream.
      * 
      */
     public Output<String> namePrefix() {
@@ -88,16 +84,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The number of Parallel in-application streams to create.
-     * See Parallelism below for more details.
+     * Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
      * 
      */
     @Import(name="parallelism")
     private @Nullable Output<AnalyticsApplicationInputsParallelismArgs> parallelism;
 
     /**
-     * @return The number of Parallel in-application streams to create.
-     * See Parallelism below for more details.
+     * @return Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationInputsParallelismArgs>> parallelism() {
@@ -105,16 +99,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Processing Configuration to transform records as they are received from the stream.
-     * See Processing Configuration below for more details.
+     * Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<AnalyticsApplicationInputsProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The Processing Configuration to transform records as they are received from the stream.
-     * See Processing Configuration below for more details.
+     * @return Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationInputsProcessingConfigurationArgs>> processingConfiguration() {
@@ -122,14 +114,14 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
      * 
      */
     @Import(name="schema", required=true)
     private Output<AnalyticsApplicationInputsSchemaArgs> schema;
 
     /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * @return Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
      * 
      */
     public Output<AnalyticsApplicationInputsSchemaArgs> schema() {
@@ -137,25 +129,31 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The point at which the application starts processing records from the streaming source.
-     * See Starting Position Configuration below for more details.
+     * Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
      * 
      */
     @Import(name="startingPositionConfigurations")
     private @Nullable Output<List<AnalyticsApplicationInputsStartingPositionConfigurationArgs>> startingPositionConfigurations;
 
     /**
-     * @return The point at which the application starts processing records from the streaming source.
-     * See Starting Position Configuration below for more details.
+     * @return Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
      * 
      */
     public Optional<Output<List<AnalyticsApplicationInputsStartingPositionConfigurationArgs>>> startingPositionConfigurations() {
         return Optional.ofNullable(this.startingPositionConfigurations);
     }
 
+    /**
+     * Names of the in-application streams created for the input.
+     * 
+     */
     @Import(name="streamNames")
     private @Nullable Output<List<String>> streamNames;
 
+    /**
+     * @return Names of the in-application streams created for the input.
+     * 
+     */
     public Optional<Output<List<String>>> streamNames() {
         return Optional.ofNullable(this.streamNames);
     }
@@ -193,7 +191,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -204,7 +202,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -214,8 +212,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * @param kinesisFirehose Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
          * 
          * @return builder
          * 
@@ -226,8 +223,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * @param kinesisFirehose Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
          * 
          * @return builder
          * 
@@ -237,8 +233,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * @param kinesisStream Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
          * 
          * @return builder
          * 
@@ -249,8 +244,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * @param kinesisStream Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
          * 
          * @return builder
          * 
@@ -260,7 +254,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param namePrefix The Name Prefix to use when creating an in-application stream.
+         * @param namePrefix Name Prefix to use when creating an in-application stream.
          * 
          * @return builder
          * 
@@ -271,7 +265,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param namePrefix The Name Prefix to use when creating an in-application stream.
+         * @param namePrefix Name Prefix to use when creating an in-application stream.
          * 
          * @return builder
          * 
@@ -281,8 +275,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param parallelism The number of Parallel in-application streams to create.
-         * See Parallelism below for more details.
+         * @param parallelism Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
          * 
          * @return builder
          * 
@@ -293,8 +286,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param parallelism The number of Parallel in-application streams to create.
-         * See Parallelism below for more details.
+         * @param parallelism Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
          * 
          * @return builder
          * 
@@ -304,8 +296,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param processingConfiguration The Processing Configuration to transform records as they are received from the stream.
-         * See Processing Configuration below for more details.
+         * @param processingConfiguration Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
          * 
          * @return builder
          * 
@@ -316,8 +307,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param processingConfiguration The Processing Configuration to transform records as they are received from the stream.
-         * See Processing Configuration below for more details.
+         * @param processingConfiguration Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
          * 
          * @return builder
          * 
@@ -327,7 +317,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * @param schema Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
          * 
          * @return builder
          * 
@@ -338,7 +328,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * @param schema Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
          * 
          * @return builder
          * 
@@ -348,8 +338,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param startingPositionConfigurations The point at which the application starts processing records from the streaming source.
-         * See Starting Position Configuration below for more details.
+         * @param startingPositionConfigurations Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
          * 
          * @return builder
          * 
@@ -360,8 +349,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param startingPositionConfigurations The point at which the application starts processing records from the streaming source.
-         * See Starting Position Configuration below for more details.
+         * @param startingPositionConfigurations Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
          * 
          * @return builder
          * 
@@ -371,8 +359,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param startingPositionConfigurations The point at which the application starts processing records from the streaming source.
-         * See Starting Position Configuration below for more details.
+         * @param startingPositionConfigurations Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
          * 
          * @return builder
          * 
@@ -381,15 +368,33 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
             return startingPositionConfigurations(List.of(startingPositionConfigurations));
         }
 
+        /**
+         * @param streamNames Names of the in-application streams created for the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamNames(@Nullable Output<List<String>> streamNames) {
             $.streamNames = streamNames;
             return this;
         }
 
+        /**
+         * @param streamNames Names of the in-application streams created for the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamNames(List<String> streamNames) {
             return streamNames(Output.of(streamNames));
         }
 
+        /**
+         * @param streamNames Names of the in-application streams created for the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamNames(String... streamNames) {
             return streamNames(List.of(streamNames));
         }

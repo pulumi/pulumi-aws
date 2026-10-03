@@ -79,33 +79,33 @@ type Theme struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+	// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
+	// Theme configuration, which contains the theme display properties. See configuration.
 	Configuration ThemeConfigurationPtrOutput `pulumi:"configuration"`
-	// The time that the theme was created.
+	// Time that the theme was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The time that the theme was last updated.
+	// Time that the theme was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name of the theme.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The theme creation status.
+	// Theme creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of the theme.
 	//
 	// The following arguments are optional:
 	ThemeId pulumi.StringOutput `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
+	// Description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
-	// The version number of the theme version.
+	// Version number of the theme version.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
 
@@ -149,33 +149,33 @@ type themeState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+	// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId *string `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
+	// Theme configuration, which contains the theme display properties. See configuration.
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
-	// The time that the theme was created.
+	// Time that the theme was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// The time that the theme was last updated.
+	// Time that the theme was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name of the theme.
 	Name *string `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The theme creation status.
+	// Theme creation status.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the theme.
 	//
 	// The following arguments are optional:
 	ThemeId *string `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
+	// Description of the current theme version being created/updated.
 	VersionDescription *string `pulumi:"versionDescription"`
-	// The version number of the theme version.
+	// Version number of the theme version.
 	VersionNumber *int `pulumi:"versionNumber"`
 }
 
@@ -184,33 +184,33 @@ type ThemeState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+	// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringPtrInput
-	// The theme configuration, which contains the theme display properties. See configuration.
+	// Theme configuration, which contains the theme display properties. See configuration.
 	Configuration ThemeConfigurationPtrInput
-	// The time that the theme was created.
+	// Time that the theme was created.
 	CreatedTime pulumi.StringPtrInput
-	// The time that the theme was last updated.
+	// Time that the theme was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Display name of the theme.
 	Name pulumi.StringPtrInput
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The theme creation status.
+	// Theme creation status.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of the theme.
 	//
 	// The following arguments are optional:
 	ThemeId pulumi.StringPtrInput
-	// A description of the current theme version being created/updated.
+	// Description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrInput
-	// The version number of the theme version.
+	// Version number of the theme version.
 	VersionNumber pulumi.IntPtrInput
 }
 
@@ -221,13 +221,13 @@ func (ThemeState) ElementType() reflect.Type {
 type themeArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+	// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId string `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
+	// Theme configuration, which contains the theme display properties. See configuration.
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// Display name of the theme.
 	Name *string `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -237,7 +237,7 @@ type themeArgs struct {
 	//
 	// The following arguments are optional:
 	ThemeId string `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
+	// Description of the current theme version being created/updated.
 	VersionDescription *string `pulumi:"versionDescription"`
 }
 
@@ -245,13 +245,13 @@ type themeArgs struct {
 type ThemeArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+	// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringInput
-	// The theme configuration, which contains the theme display properties. See configuration.
+	// Theme configuration, which contains the theme display properties. See configuration.
 	Configuration ThemeConfigurationPtrInput
 	// Display name of the theme.
 	Name pulumi.StringPtrInput
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -261,7 +261,7 @@ type ThemeArgs struct {
 	//
 	// The following arguments are optional:
 	ThemeId pulumi.StringInput
-	// A description of the current theme version being created/updated.
+	// Description of the current theme version being created/updated.
 	VersionDescription pulumi.StringPtrInput
 }
 
@@ -362,22 +362,22 @@ func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 func (o ThemeOutput) BaseThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BaseThemeId }).(pulumi.StringOutput)
 }
 
-// The theme configuration, which contains the theme display properties. See configuration.
+// Theme configuration, which contains the theme display properties. See configuration.
 func (o ThemeOutput) Configuration() ThemeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Theme) ThemeConfigurationPtrOutput { return v.Configuration }).(ThemeConfigurationPtrOutput)
 }
 
-// The time that the theme was created.
+// Time that the theme was created.
 func (o ThemeOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The time that the theme was last updated.
+// Time that the theme was last updated.
 func (o ThemeOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
@@ -387,7 +387,7 @@ func (o ThemeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
 func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemePermissionArrayOutput { return v.Permissions }).(ThemePermissionArrayOutput)
 }
@@ -397,7 +397,7 @@ func (o ThemeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The theme creation status.
+// Theme creation status.
 func (o ThemeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -407,7 +407,7 @@ func (o ThemeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThemeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -419,12 +419,12 @@ func (o ThemeOutput) ThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ThemeId }).(pulumi.StringOutput)
 }
 
-// A description of the current theme version being created/updated.
+// Description of the current theme version being created/updated.
 func (o ThemeOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the theme version.
+// Version number of the theme version.
 func (o ThemeOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Theme) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

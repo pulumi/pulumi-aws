@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeLogConfiguration {
     /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
      * 
      */
     private @Nullable PipeLogConfigurationCloudwatchLogsLogDestination cloudwatchLogsLogDestination;
     /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
      * 
      */
     private @Nullable PipeLogConfigurationFirehoseLogDestination firehoseLogDestination;
@@ -32,26 +32,26 @@ public final class PipeLogConfiguration {
      */
     private @Nullable List<String> includeExecutionDatas;
     /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+     * @return Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
     private String level;
     /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
+     * @return Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
      * 
      */
     private @Nullable PipeLogConfigurationS3LogDestination s3LogDestination;
 
     private PipeLogConfiguration() {}
     /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
      * 
      */
     public Optional<PipeLogConfigurationCloudwatchLogsLogDestination> cloudwatchLogsLogDestination() {
         return Optional.ofNullable(this.cloudwatchLogsLogDestination);
     }
     /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
      * 
      */
     public Optional<PipeLogConfigurationFirehoseLogDestination> firehoseLogDestination() {
@@ -65,14 +65,14 @@ public final class PipeLogConfiguration {
         return this.includeExecutionDatas == null ? List.of() : this.includeExecutionDatas;
     }
     /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+     * @return Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
     public String level() {
         return this.level;
     }
     /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
+     * @return Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
      * 
      */
     public Optional<PipeLogConfigurationS3LogDestination> s3LogDestination() {

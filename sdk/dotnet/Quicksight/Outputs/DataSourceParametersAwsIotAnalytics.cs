@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersAwsIotAnalytics
     {
         /// <summary>
-        /// The name of the data set to which to connect.
+        /// Name of the data set to which to connect.
         /// </summary>
         public readonly string DataSetName;
 

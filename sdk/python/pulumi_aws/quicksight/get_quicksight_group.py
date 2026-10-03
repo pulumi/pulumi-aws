@@ -69,7 +69,7 @@ class GetQuicksightGroupResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The group description.
+        Group description.
         """
         return pulumi.get(self, "description")
 
@@ -95,7 +95,7 @@ class GetQuicksightGroupResult:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
         """
-        The principal ID of the group.
+        Principal ID of the group.
         """
         return pulumi.get(self, "principal_id")
 
@@ -144,7 +144,7 @@ def get_quicksight_group(aws_account_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-    :param _builtins.str group_name: The name of the group that you want to match.
+    :param _builtins.str group_name: Name of the group that you want to match.
            
            The following arguments are optional:
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
@@ -190,7 +190,7 @@ def get_quicksight_group_output(aws_account_id: pulumi.Input[Optional[Optional[_
 
 
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-    :param _builtins.str group_name: The name of the group that you want to match.
+    :param _builtins.str group_name: Name of the group that you want to match.
            
            The following arguments are optional:
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.

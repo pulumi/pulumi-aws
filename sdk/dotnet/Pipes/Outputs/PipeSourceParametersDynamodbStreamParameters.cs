@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersDynamodbStreamParameters
     {
         /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
+        /// Maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
         public readonly int? BatchSize;
         /// <summary>
-        /// Define the target queue to send dead-letter queue events to. Detailed below.
+        /// Define the target queue to send dead-letter queue events to. See `DeadLetterConfig` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig? DeadLetterConfig;
         /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
+        /// Maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string? OnPartialBatchItemFailure;
         /// <summary>
-        /// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+        /// Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         /// </summary>
         public readonly int? ParallelizationFactor;
         /// <summary>
-        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        /// Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
         public readonly string StartingPosition;
 

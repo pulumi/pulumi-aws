@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs();
 
     /**
-     * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+     * Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
      * 
      */
     @Import(name="csvMappingParameters")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs> csvMappingParameters;
 
     /**
-     * @return Provides additional mapping information when the record format uses delimiters (for example, CSV).
+     * @return Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs>> csvMappingParameters() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Provides additional mapping information when JSON is the record format on the streaming source.
+     * Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
      * 
      */
     @Import(name="jsonMappingParameters")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs> jsonMappingParameters;
 
     /**
-     * @return Provides additional mapping information when JSON is the record format on the streaming source.
+     * @return Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs>> jsonMappingParameters() {
@@ -72,7 +72,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param csvMappingParameters Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         * @param csvMappingParameters Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param csvMappingParameters Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         * @param csvMappingParameters Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param jsonMappingParameters Provides additional mapping information when JSON is the record format on the streaming source.
+         * @param jsonMappingParameters Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param jsonMappingParameters Provides additional mapping information when JSON is the record format on the streaming source.
+         * @param jsonMappingParameters Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
          * 
          * @return builder
          * 

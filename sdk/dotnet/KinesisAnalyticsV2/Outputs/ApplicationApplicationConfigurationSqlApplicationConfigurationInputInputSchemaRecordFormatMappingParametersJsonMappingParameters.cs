@@ -14,7 +14,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters
     {
         /// <summary>
-        /// The path to the top-level parent that contains the records.
+        /// Path to the top-level parent that contains the records.
         /// </summary>
         public readonly string RecordRowPath;
 

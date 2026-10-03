@@ -16,14 +16,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
     public static final RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs Empty = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs();
 
     /**
-     * The day of the month that you want to schedule refresh on.
+     * Day of the month that you want to schedule refresh on.
      * 
      */
     @Import(name="dayOfMonth")
     private @Nullable Output<String> dayOfMonth;
 
     /**
-     * @return The day of the month that you want to schedule refresh on.
+     * @return Day of the month that you want to schedule refresh on.
      * 
      */
     public Optional<Output<String>> dayOfMonth() {
@@ -31,14 +31,14 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
     }
 
     /**
-     * The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+     * Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
      * 
      */
     @Import(name="dayOfWeek")
     private @Nullable Output<String> dayOfWeek;
 
     /**
-     * @return The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+     * @return Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
      * 
      */
     public Optional<Output<String>> dayOfWeek() {
@@ -71,7 +71,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
         }
 
         /**
-         * @param dayOfMonth The day of the month that you want to schedule refresh on.
+         * @param dayOfMonth Day of the month that you want to schedule refresh on.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
         }
 
         /**
-         * @param dayOfMonth The day of the month that you want to schedule refresh on.
+         * @param dayOfMonth Day of the month that you want to schedule refresh on.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
         }
 
         /**
-         * @param dayOfWeek The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+         * @param dayOfWeek Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
         }
 
         /**
-         * @param dayOfWeek The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+         * @param dayOfWeek Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
          * 
          * @return builder
          * 

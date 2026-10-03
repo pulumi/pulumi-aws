@@ -14,17 +14,20 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue
     {
         /// <summary>
-        /// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+        /// Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
         /// </summary>
         public readonly string? DateValue;
         /// <summary>
-        /// A long integer value.
+        /// Long integer value.
         /// </summary>
         public readonly int? LongValue;
         /// <summary>
-        /// A list of strings.
+        /// List of strings.
         /// </summary>
         public readonly ImmutableArray<string> StringListValues;
+        /// <summary>
+        /// String, such as "department".
+        /// </summary>
         public readonly string? StringValue;
 
         [OutputConstructor]

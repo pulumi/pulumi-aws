@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
     /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+     * @return Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
      * 
      */
     private List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns;
     /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+     * @return Encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
     private @Nullable String recordEncoding;
     /**
-     * @return Specifies the format of the records on the streaming source.
+     * @return Format of the records on the streaming source. See `recordFormat` Block above.
      * 
      */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema() {}
     /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+     * @return Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
      * 
      */
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns() {
         return this.recordColumns;
     }
     /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+     * @return Encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
     public Optional<String> recordEncoding() {
         return Optional.ofNullable(this.recordEncoding);
     }
     /**
-     * @return Specifies the format of the records on the streaming source.
+     * @return Format of the records on the streaming source. See `recordFormat` Block above.
      * 
      */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat() {

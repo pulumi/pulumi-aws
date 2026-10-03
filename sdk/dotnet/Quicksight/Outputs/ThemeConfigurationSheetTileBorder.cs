@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class ThemeConfigurationSheetTileBorder
     {
         /// <summary>
-        /// The option to enable display of borders for visuals.
+        /// Whether to enable display of borders for visuals.
         /// </summary>
         public readonly bool? Show;
 

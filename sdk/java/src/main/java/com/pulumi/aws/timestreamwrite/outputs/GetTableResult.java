@@ -40,7 +40,7 @@ public final class GetTableResult {
      */
     private List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties;
     /**
-     * @return Name of the table.
+     * @return Name of the timestream attribute used for a dimension key.
      * 
      */
     private String name;
@@ -98,7 +98,7 @@ public final class GetTableResult {
         return this.magneticStoreWriteProperties;
     }
     /**
-     * @return Name of the table.
+     * @return Name of the timestream attribute used for a dimension key.
      * 
      */
     public String name() {

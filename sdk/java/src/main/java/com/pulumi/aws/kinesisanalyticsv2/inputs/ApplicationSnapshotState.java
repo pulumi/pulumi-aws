@@ -17,14 +17,14 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
     public static final ApplicationSnapshotState Empty = new ApplicationSnapshotState();
 
     /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     @Import(name="applicationName")
     private @Nullable Output<String> applicationName;
 
     /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * @return Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     public Optional<Output<String>> applicationName() {
@@ -32,14 +32,14 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The current application version ID when the snapshot was created.
+     * Current application version ID when the snapshot was created.
      * 
      */
     @Import(name="applicationVersionId")
     private @Nullable Output<Integer> applicationVersionId;
 
     /**
-     * @return The current application version ID when the snapshot was created.
+     * @return Current application version ID when the snapshot was created.
      * 
      */
     public Optional<Output<Integer>> applicationVersionId() {
@@ -62,14 +62,14 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The timestamp of the application snapshot.
+     * Timestamp of the application snapshot.
      * 
      */
     @Import(name="snapshotCreationTimestamp")
     private @Nullable Output<String> snapshotCreationTimestamp;
 
     /**
-     * @return The timestamp of the application snapshot.
+     * @return Timestamp of the application snapshot.
      * 
      */
     public Optional<Output<String>> snapshotCreationTimestamp() {
@@ -77,14 +77,14 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the application snapshot.
+     * Name of the application snapshot.
      * 
      */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
     /**
-     * @return The name of the application snapshot.
+     * @return Name of the application snapshot.
      * 
      */
     public Optional<Output<String>> snapshotName() {
@@ -120,7 +120,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+         * @param applicationName Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+         * @param applicationName Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationVersionId The current application version ID when the snapshot was created.
+         * @param applicationVersionId Current application version ID when the snapshot was created.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationVersionId The current application version ID when the snapshot was created.
+         * @param applicationVersionId Current application version ID when the snapshot was created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param snapshotCreationTimestamp The timestamp of the application snapshot.
+         * @param snapshotCreationTimestamp Timestamp of the application snapshot.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param snapshotCreationTimestamp The timestamp of the application snapshot.
+         * @param snapshotCreationTimestamp Timestamp of the application snapshot.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param snapshotName The name of the application snapshot.
+         * @param snapshotName Name of the application snapshot.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param snapshotName The name of the application snapshot.
+         * @param snapshotName Name of the application snapshot.
          * 
          * @return builder
          * 

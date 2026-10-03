@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class GetOntapFileSystemEndpointInterclusterResult
     {
         /// <summary>
-        /// DNS name for the file system.
+        /// File system's DNS name. You can mount your file system using its DNS name.
         /// </summary>
         public readonly string DnsName;
+        /// <summary>
+        /// IP addresses of the file system endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]

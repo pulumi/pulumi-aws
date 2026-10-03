@@ -39,11 +39,11 @@ class AnalysisArgs:
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        :param pulumi.Input['AnalysisParametersArgs'] parameters: Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[_builtins.int] recovery_window_in_days: Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
@@ -109,7 +109,7 @@ class AnalysisArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional['AnalysisParametersArgs']]:
         """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         """
         return pulumi.get(self, "parameters")
 
@@ -121,7 +121,7 @@ class AnalysisArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisPermissionArgs']]]]:
         """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
@@ -133,7 +133,7 @@ class AnalysisArgs:
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         """
         return pulumi.get(self, "recovery_window_in_days")
 
@@ -157,7 +157,7 @@ class AnalysisArgs:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['AnalysisSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         """
         return pulumi.get(self, "source_entity")
 
@@ -215,19 +215,20 @@ class _AnalysisState:
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
+        :param pulumi.Input[_builtins.str] created_time: Time that the analysis was created.
+        :param pulumi.Input[_builtins.str] last_published_time: Time that the analysis was last published.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the analysis was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        :param pulumi.Input['AnalysisParametersArgs'] parameters: Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]] permissions: Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[_builtins.int] recovery_window_in_days: Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] status: The analysis creation status.
+        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[_builtins.str] status: Analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         if analysis_id is not None:
@@ -303,7 +304,7 @@ class _AnalysisState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the analysis was created.
+        Time that the analysis was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -314,6 +315,9 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Time that the analysis was last published.
+        """
         return pulumi.get(self, "last_published_time")
 
     @last_published_time.setter
@@ -324,7 +328,7 @@ class _AnalysisState:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the analysis was last updated.
+        Time that the analysis was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -350,7 +354,7 @@ class _AnalysisState:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional['AnalysisParametersArgs']]:
         """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         """
         return pulumi.get(self, "parameters")
 
@@ -362,7 +366,7 @@ class _AnalysisState:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisPermissionArgs']]]]:
         """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
@@ -374,7 +378,7 @@ class _AnalysisState:
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         """
         return pulumi.get(self, "recovery_window_in_days")
 
@@ -398,7 +402,7 @@ class _AnalysisState:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['AnalysisSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         """
         return pulumi.get(self, "source_entity")
 
@@ -410,7 +414,7 @@ class _AnalysisState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The analysis creation status.
+        Analysis creation status.
         """
         return pulumi.get(self, "status")
 
@@ -434,7 +438,7 @@ class _AnalysisState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -569,11 +573,11 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[_builtins.int] recovery_window_in_days: Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
@@ -761,19 +765,20 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
+        :param pulumi.Input[_builtins.str] created_time: Time that the analysis was created.
+        :param pulumi.Input[_builtins.str] last_published_time: Time that the analysis was last published.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the analysis was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        :param pulumi.Input[_builtins.int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict', 'outputs.AnalysisParameters']] parameters: Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict', 'outputs.AnalysisPermission']]]] permissions: Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[_builtins.int] recovery_window_in_days: Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] status: The analysis creation status.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict', 'outputs.AnalysisSourceEntity']] source_entity: Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[_builtins.str] status: Analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -826,20 +831,23 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the analysis was created.
+        Time that the analysis was created.
         """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        Time that the analysis was last published.
+        """
         return pulumi.get(self, "last_published_time")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the analysis was last updated.
+        Time that the analysis was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -857,7 +865,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.AnalysisParameters']:
         """
-        The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         """
         return pulumi.get(self, "parameters")
 
@@ -865,7 +873,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisPermission']]]:
         """
-        A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
@@ -873,7 +881,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="recoveryWindowInDays")
     def recovery_window_in_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         """
         return pulumi.get(self, "recovery_window_in_days")
 
@@ -889,7 +897,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
         """
-        The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         """
         return pulumi.get(self, "source_entity")
 
@@ -897,7 +905,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The analysis creation status.
+        Analysis creation status.
         """
         return pulumi.get(self, "status")
 
@@ -913,7 +921,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -16,14 +16,14 @@ public final class DashboardSourceEntityArgs extends com.pulumi.resources.Resour
     public static final DashboardSourceEntityArgs Empty = new DashboardSourceEntityArgs();
 
     /**
-     * The source template. See source_template.
+     * Source template. See `sourceTemplate`.
      * 
      */
     @Import(name="sourceTemplate")
     private @Nullable Output<DashboardSourceEntitySourceTemplateArgs> sourceTemplate;
 
     /**
-     * @return The source template. See source_template.
+     * @return Source template. See `sourceTemplate`.
      * 
      */
     public Optional<Output<DashboardSourceEntitySourceTemplateArgs>> sourceTemplate() {
@@ -55,7 +55,7 @@ public final class DashboardSourceEntityArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceTemplate The source template. See source_template.
+         * @param sourceTemplate Source template. See `sourceTemplate`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DashboardSourceEntityArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceTemplate The source template. See source_template.
+         * @param sourceTemplate Source template. See `sourceTemplate`.
          * 
          * @return builder
          * 

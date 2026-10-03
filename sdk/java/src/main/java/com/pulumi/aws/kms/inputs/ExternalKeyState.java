@@ -79,14 +79,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * @return Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -124,14 +124,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
      */
     @Import(name="keySpec")
     private @Nullable Output<String> keySpec;
 
     /**
-     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     * @return Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
      */
     public Optional<Output<String>> keySpec() {
@@ -139,14 +139,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the CMK.
+     * State of the CMK.
      * 
      */
     @Import(name="keyState")
     private @Nullable Output<String> keyState;
 
     /**
-     * @return The state of the CMK.
+     * @return State of the CMK.
      * 
      */
     public Optional<Output<String>> keyState() {
@@ -154,14 +154,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     @Import(name="keyUsage")
     private @Nullable Output<String> keyUsage;
 
     /**
-     * @return Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+     * @return Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
     public Optional<Output<String>> keyUsage() {
@@ -169,14 +169,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+     * Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
     @Import(name="multiRegion")
     private @Nullable Output<Boolean> multiRegion;
 
     /**
-     * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+     * @return Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> multiRegion() {
@@ -184,14 +184,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+     * Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+     * @return Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -214,14 +214,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -229,14 +229,14 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -382,7 +382,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+         * @param enabled Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+         * @param enabled Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keySpec Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+         * @param keySpec Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keySpec Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+         * @param keySpec Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyState The state of the CMK.
+         * @param keyState State of the CMK.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyState The state of the CMK.
+         * @param keyState State of the CMK.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyUsage Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+         * @param keyUsage Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiRegion Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+         * @param multiRegion Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiRegion Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+         * @param multiRegion Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+         * @param policy Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+         * @param policy Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class ExternalKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

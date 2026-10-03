@@ -53,21 +53,27 @@ type LookupLedgerArgs struct {
 	// Friendly name of the ledger to match.
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	Region *string `pulumi:"region"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLedger.
 type LookupLedgerResult struct {
-	Arn                string `pulumi:"arn"`
-	DeletionProtection bool   `pulumi:"deletionProtection"`
+	// ARN of the QLDB Ledger.
+	Arn string `pulumi:"arn"`
+	// Deletion protection setting of the QLDB Ledger.
+	DeletionProtection bool `pulumi:"deletionProtection"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string            `pulumi:"id"`
-	KmsKey          string            `pulumi:"kmsKey"`
-	Name            string            `pulumi:"name"`
-	PermissionsMode string            `pulumi:"permissionsMode"`
-	Region          string            `pulumi:"region"`
-	Tags            map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// KMS key used for encryption of data at rest in the ledger.
+	KmsKey string `pulumi:"kmsKey"`
+	Name   string `pulumi:"name"`
+	// Permissions mode of the QLDB Ledger.
+	PermissionsMode string `pulumi:"permissionsMode"`
+	Region          string `pulumi:"region"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
@@ -81,7 +87,8 @@ type LookupLedgerOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLedgerOutputArgs) ElementType() reflect.Type {
@@ -103,10 +110,12 @@ func (o LookupLedgerResultOutput) ToLookupLedgerResultOutputWithContext(ctx cont
 	return o
 }
 
+// ARN of the QLDB Ledger.
 func (o LookupLedgerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Deletion protection setting of the QLDB Ledger.
 func (o LookupLedgerResultOutput) DeletionProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLedgerResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
@@ -116,6 +125,7 @@ func (o LookupLedgerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// KMS key used for encryption of data at rest in the ledger.
 func (o LookupLedgerResultOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -124,6 +134,7 @@ func (o LookupLedgerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Permissions mode of the QLDB Ledger.
 func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.PermissionsMode }).(pulumi.StringOutput)
 }
@@ -132,6 +143,7 @@ func (o LookupLedgerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o LookupLedgerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLedgerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

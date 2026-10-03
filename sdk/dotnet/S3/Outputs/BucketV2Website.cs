@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? ErrorDocument;
         /// <summary>
-        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `RedirectAllRequestsTo`.
         /// </summary>
         public readonly string? IndexDocument;
         /// <summary>

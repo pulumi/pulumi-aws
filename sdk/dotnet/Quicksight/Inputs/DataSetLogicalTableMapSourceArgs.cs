@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string>? DataSetArn { get; set; }
 
         /// <summary>
-        /// Specifies the result of a join of two logical tables. See join_instruction.
+        /// Result of a join of two logical tables. See `JoinInstruction` Block below.
         /// </summary>
         [Input("joinInstruction")]
         public Input<Inputs.DataSetLogicalTableMapSourceJoinInstructionArgs>? JoinInstruction { get; set; }

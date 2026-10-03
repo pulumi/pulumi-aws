@@ -22,27 +22,27 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
+        /// Endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
         /// </summary>
         public readonly string? ClusterEndpoint;
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
+        /// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
         /// </summary>
         public readonly string? DomainArn;
         /// <summary>
-        /// The Elasticsearch index name.
+        /// Elasticsearch index name.
         /// </summary>
         public readonly string IndexName;
         /// <summary>
-        /// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        /// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         /// </summary>
         public readonly string? IndexRotationPeriod;
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -50,23 +50,23 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        /// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters.
+        /// Elasticsearch type name with maximum length of 100 characters.
         /// </summary>
         public readonly string? TypeName;
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `VpcConfig` block below for details.
+        /// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig? VpcConfig;
 

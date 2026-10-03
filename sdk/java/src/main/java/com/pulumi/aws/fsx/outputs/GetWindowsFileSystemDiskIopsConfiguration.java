@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWindowsFileSystemDiskIopsConfiguration {
+    /**
+     * @return Total number of SSD IOPS provisioned for the file system.
+     * 
+     */
     private Integer iops;
+    /**
+     * @return Mode for the number of IOPS for the file system.
+     * 
+     */
     private String mode;
 
     private GetWindowsFileSystemDiskIopsConfiguration() {}
+    /**
+     * @return Total number of SSD IOPS provisioned for the file system.
+     * 
+     */
     public Integer iops() {
         return this.iops;
     }
+    /**
+     * @return Mode for the number of IOPS for the file system.
+     * 
+     */
     public String mode() {
         return this.mode;
     }

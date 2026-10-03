@@ -18,14 +18,14 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetKeyArgs Empty = new GetKeyArgs();
 
     /**
-     * List of grant tokens
+     * List of grant tokens.
      * 
      */
     @Import(name="grantTokens")
     private @Nullable Output<List<String>> grantTokens;
 
     /**
-     * @return List of grant tokens
+     * @return List of grant tokens.
      * 
      */
     public Optional<Output<List<String>>> grantTokens() {
@@ -33,22 +33,14 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      * 
      */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
     /**
-     * @return Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * @return Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      * 
      */
     public Output<String> keyId() {
@@ -97,7 +89,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantTokens List of grant tokens
+         * @param grantTokens List of grant tokens.
          * 
          * @return builder
          * 
@@ -108,7 +100,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantTokens List of grant tokens
+         * @param grantTokens List of grant tokens.
          * 
          * @return builder
          * 
@@ -118,7 +110,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantTokens List of grant tokens
+         * @param grantTokens List of grant tokens.
          * 
          * @return builder
          * 
@@ -128,11 +120,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyId Key identifier which can be one of the following format:
-         * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Alias name. E.g.: `alias/my-key`
-         * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+         * @param keyId Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
          * 
          * @return builder
          * 
@@ -143,11 +131,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyId Key identifier which can be one of the following format:
-         * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Alias name. E.g.: `alias/my-key`
-         * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+         * @param keyId Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
          * 
          * @return builder
          * 

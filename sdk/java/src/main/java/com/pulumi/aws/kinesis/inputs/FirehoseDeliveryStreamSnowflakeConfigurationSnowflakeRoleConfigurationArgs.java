@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
     }
 
     /**
-     * The Snowflake role.
+     * Snowflake role.
      * 
      */
     @Import(name="snowflakeRole")
     private @Nullable Output<String> snowflakeRole;
 
     /**
-     * @return The Snowflake role.
+     * @return Snowflake role.
      * 
      */
     public Optional<Output<String>> snowflakeRole() {
@@ -93,7 +93,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
         }
 
         /**
-         * @param snowflakeRole The Snowflake role.
+         * @param snowflakeRole Snowflake role.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
         }
 
         /**
-         * @param snowflakeRole The Snowflake role.
+         * @param snowflakeRole Snowflake role.
          * 
          * @return builder
          * 

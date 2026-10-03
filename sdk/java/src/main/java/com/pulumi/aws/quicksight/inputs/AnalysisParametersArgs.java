@@ -20,14 +20,14 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
     public static final AnalysisParametersArgs Empty = new AnalysisParametersArgs();
 
     /**
-     * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+     * List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
     @Import(name="dateTimeParameters")
     private @Nullable Output<List<AnalysisParametersDateTimeParameterArgs>> dateTimeParameters;
 
     /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+     * @return List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
     public Optional<Output<List<AnalysisParametersDateTimeParameterArgs>>> dateTimeParameters() {
@@ -35,14 +35,14 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+     * List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
     @Import(name="decimalParameters")
     private @Nullable Output<List<AnalysisParametersDecimalParameterArgs>> decimalParameters;
 
     /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+     * @return List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
     public Optional<Output<List<AnalysisParametersDecimalParameterArgs>>> decimalParameters() {
@@ -50,14 +50,14 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+     * List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
     @Import(name="integerParameters")
     private @Nullable Output<List<AnalysisParametersIntegerParameterArgs>> integerParameters;
 
     /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+     * @return List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
     public Optional<Output<List<AnalysisParametersIntegerParameterArgs>>> integerParameters() {
@@ -65,14 +65,14 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+     * List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
     @Import(name="stringParameters")
     private @Nullable Output<List<AnalysisParametersStringParameterArgs>> stringParameters;
 
     /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+     * @return List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
     public Optional<Output<List<AnalysisParametersStringParameterArgs>>> stringParameters() {
@@ -107,7 +107,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         * @param dateTimeParameters List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         * @param dateTimeParameters List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dateTimeParameters A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         * @param dateTimeParameters List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         * @param decimalParameters List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         * @param decimalParameters List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param decimalParameters A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         * @param decimalParameters List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         * @param integerParameters List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         * @param integerParameters List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param integerParameters A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         * @param integerParameters List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         * @param stringParameters List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         * @param stringParameters List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class AnalysisParametersArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stringParameters A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         * @param stringParameters List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
          * 
          * @return builder
          * 

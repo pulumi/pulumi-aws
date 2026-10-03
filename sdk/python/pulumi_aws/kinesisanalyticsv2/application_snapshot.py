@@ -25,8 +25,8 @@ class ApplicationSnapshotArgs:
         """
         The set of arguments for constructing a ApplicationSnapshot resource.
 
-        :param pulumi.Input[_builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the application snapshot.
+        :param pulumi.Input[_builtins.str] application_name: Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of the application snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_name", application_name)
@@ -38,7 +38,7 @@ class ApplicationSnapshotArgs:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 
@@ -50,7 +50,7 @@ class ApplicationSnapshotArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the application snapshot.
+        Name of the application snapshot.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -82,11 +82,11 @@ class _ApplicationSnapshotState:
         """
         Input properties used for looking up and filtering ApplicationSnapshot resources.
 
-        :param pulumi.Input[_builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        :param pulumi.Input[_builtins.int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[_builtins.str] application_name: Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[_builtins.int] application_version_id: Current application version ID when the snapshot was created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the application snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_creation_timestamp: Timestamp of the application snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of the application snapshot.
         """
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
@@ -103,7 +103,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 
@@ -115,7 +115,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter(name="applicationVersionId")
     def application_version_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The current application version ID when the snapshot was created.
+        Current application version ID when the snapshot was created.
         """
         return pulumi.get(self, "application_version_id")
 
@@ -139,7 +139,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter(name="snapshotCreationTimestamp")
     def snapshot_creation_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The timestamp of the application snapshot.
+        Timestamp of the application snapshot.
         """
         return pulumi.get(self, "snapshot_creation_timestamp")
 
@@ -151,7 +151,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the application snapshot.
+        Name of the application snapshot.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -196,9 +196,9 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[_builtins.str] application_name: Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the application snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of the application snapshot.
         """
         ...
     @overload
@@ -288,11 +288,11 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        :param pulumi.Input[_builtins.int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[_builtins.str] application_name: Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[_builtins.int] application_version_id: Current application version ID when the snapshot was created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the application snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_creation_timestamp: Timestamp of the application snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of the application snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,7 +309,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         """
         return pulumi.get(self, "application_name")
 
@@ -317,7 +317,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="applicationVersionId")
     def application_version_id(self) -> pulumi.Output[_builtins.int]:
         """
-        The current application version ID when the snapshot was created.
+        Current application version ID when the snapshot was created.
         """
         return pulumi.get(self, "application_version_id")
 
@@ -333,7 +333,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="snapshotCreationTimestamp")
     def snapshot_creation_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The timestamp of the application snapshot.
+        Timestamp of the application snapshot.
         """
         return pulumi.get(self, "snapshot_creation_timestamp")
 
@@ -341,7 +341,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the application snapshot.
+        Name of the application snapshot.
         """
         return pulumi.get(self, "snapshot_name")
 

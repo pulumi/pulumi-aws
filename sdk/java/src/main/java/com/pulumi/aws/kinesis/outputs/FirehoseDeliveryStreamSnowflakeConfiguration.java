@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamSnowflakeConfiguration {
     /**
-     * @return The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+     * @return URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
      * 
      */
     private String accountUrl;
@@ -35,42 +35,42 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return The name of the content column.
+     * @return Name of the content column.
      * 
      */
     private @Nullable String contentColumnName;
     /**
-     * @return The data loading option.
+     * @return Data loading option.
      * 
      */
     private @Nullable String dataLoadingOption;
     /**
-     * @return The Snowflake database name.
+     * @return Snowflake database name.
      * 
      */
     private String database;
     /**
-     * @return The passphrase for the private key.
+     * @return Passphrase for the private key.
      * 
      */
     private @Nullable String keyPassphrase;
     /**
-     * @return The name of the metadata column.
+     * @return Name of the metadata column.
      * 
      */
     private @Nullable String metadataColumnName;
     /**
-     * @return The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     private @Nullable String privateKey;
     /**
-     * @return The processing configuration. See `processingConfiguration` block below for details.
+     * @return Processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration processingConfiguration;
@@ -80,54 +80,54 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The ARN of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     private String roleArn;
     /**
-     * @return The S3 backup mode.
+     * @return S3 backup mode.
      * 
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 configuration. See `s3Configuration` block below for details.
+     * @return S3 configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration;
     /**
-     * @return The Snowflake schema name.
+     * @return Snowflake schema name.
      * 
      */
     private String schema;
     /**
-     * @return The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+     * @return Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
-     * @return The configuration for Snowflake role.
+     * @return Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration snowflakeRoleConfiguration;
     /**
-     * @return The VPC configuration for Snowflake.
+     * @return VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration snowflakeVpcConfiguration;
     /**
-     * @return The Snowflake table name.
+     * @return Snowflake table name.
      * 
      */
     private String table;
     /**
-     * @return The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     private @Nullable String user;
 
     private FirehoseDeliveryStreamSnowflakeConfiguration() {}
     /**
-     * @return The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+     * @return URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
      * 
      */
     public String accountUrl() {
@@ -148,56 +148,56 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return The name of the content column.
+     * @return Name of the content column.
      * 
      */
     public Optional<String> contentColumnName() {
         return Optional.ofNullable(this.contentColumnName);
     }
     /**
-     * @return The data loading option.
+     * @return Data loading option.
      * 
      */
     public Optional<String> dataLoadingOption() {
         return Optional.ofNullable(this.dataLoadingOption);
     }
     /**
-     * @return The Snowflake database name.
+     * @return Snowflake database name.
      * 
      */
     public String database() {
         return this.database;
     }
     /**
-     * @return The passphrase for the private key.
+     * @return Passphrase for the private key.
      * 
      */
     public Optional<String> keyPassphrase() {
         return Optional.ofNullable(this.keyPassphrase);
     }
     /**
-     * @return The name of the metadata column.
+     * @return Name of the metadata column.
      * 
      */
     public Optional<String> metadataColumnName() {
         return Optional.ofNullable(this.metadataColumnName);
     }
     /**
-     * @return The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<String> privateKey() {
         return Optional.ofNullable(this.privateKey);
     }
     /**
-     * @return The processing configuration. See `processingConfiguration` block below for details.
+     * @return Processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration> processingConfiguration() {
@@ -211,63 +211,63 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The ARN of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The S3 backup mode.
+     * @return S3 backup mode.
      * 
      */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 configuration. See `s3Configuration` block below for details.
+     * @return S3 configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The Snowflake schema name.
+     * @return Snowflake schema name.
      * 
      */
     public String schema() {
         return this.schema;
     }
     /**
-     * @return The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+     * @return Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
      * 
      */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
     /**
-     * @return The configuration for Snowflake role.
+     * @return Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration> snowflakeRoleConfiguration() {
         return Optional.ofNullable(this.snowflakeRoleConfiguration);
     }
     /**
-     * @return The VPC configuration for Snowflake.
+     * @return VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration> snowflakeVpcConfiguration() {
         return Optional.ofNullable(this.snowflakeVpcConfiguration);
     }
     /**
-     * @return The Snowflake table name.
+     * @return Snowflake table name.
      * 
      */
     public String table() {
         return this.table;
     }
     /**
-     * @return The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<String> user() {

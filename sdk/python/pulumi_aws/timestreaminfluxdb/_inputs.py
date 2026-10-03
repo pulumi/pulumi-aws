@@ -69,7 +69,7 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
     """
     enabled: pulumi.Input[_builtins.bool]
     """
-    Indicates whether log delivery to the S3 bucket is enabled.
+    Whether log delivery to the S3 bucket is enabled.
 
     **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
     """
@@ -81,7 +81,7 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket to deliver logs to.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether log delivery to the S3 bucket is enabled.
+        :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to the S3 bucket is enabled.
                
                **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
         """
@@ -104,7 +104,7 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether log delivery to the S3 bucket is enabled.
+        Whether log delivery to the S3 bucket is enabled.
 
         **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
         """
@@ -267,7 +267,7 @@ class DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
     """
     enabled: pulumi.Input[_builtins.bool]
     """
-    Indicates whether log delivery to the S3 bucket is enabled.
+    Whether log delivery to the S3 bucket is enabled.
 
     **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
     """
@@ -279,7 +279,7 @@ class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket to deliver logs to.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether log delivery to the S3 bucket is enabled.
+        :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to the S3 bucket is enabled.
                
                **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
         """
@@ -302,7 +302,7 @@ class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether log delivery to the S3 bucket is enabled.
+        Whether log delivery to the S3 bucket is enabled.
 
         **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
         """

@@ -18,14 +18,14 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
     public static final ApplicationApplicationConfigurationVpcConfigurationArgs Empty = new ApplicationApplicationConfigurationVpcConfigurationArgs();
 
     /**
-     * The Security Group IDs used by the VPC configuration.
+     * Security Group IDs used by the VPC configuration.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return The Security Group IDs used by the VPC configuration.
+     * @return Security Group IDs used by the VPC configuration.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -33,30 +33,46 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
     }
 
     /**
-     * The Subnet IDs used by the VPC configuration.
+     * Subnet IDs used by the VPC configuration.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The Subnet IDs used by the VPC configuration.
+     * @return Subnet IDs used by the VPC configuration.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
+    /**
+     * Identifier of the VPC configuration.
+     * 
+     */
     @Import(name="vpcConfigurationId")
     private @Nullable Output<String> vpcConfigurationId;
 
+    /**
+     * @return Identifier of the VPC configuration.
+     * 
+     */
     public Optional<Output<String>> vpcConfigurationId() {
         return Optional.ofNullable(this.vpcConfigurationId);
     }
 
+    /**
+     * Identifier of the VPC.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return Identifier of the VPC.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -89,7 +105,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param securityGroupIds The Security Group IDs used by the VPC configuration.
+         * @param securityGroupIds Security Group IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -100,7 +116,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param securityGroupIds The Security Group IDs used by the VPC configuration.
+         * @param securityGroupIds Security Group IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -110,7 +126,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param securityGroupIds The Security Group IDs used by the VPC configuration.
+         * @param securityGroupIds Security Group IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -120,7 +136,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param subnetIds The Subnet IDs used by the VPC configuration.
+         * @param subnetIds Subnet IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -131,7 +147,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param subnetIds The Subnet IDs used by the VPC configuration.
+         * @param subnetIds Subnet IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -141,7 +157,7 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
         }
 
         /**
-         * @param subnetIds The Subnet IDs used by the VPC configuration.
+         * @param subnetIds Subnet IDs used by the VPC configuration.
          * 
          * @return builder
          * 
@@ -150,20 +166,44 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs exten
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcConfigurationId Identifier of the VPC configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfigurationId(@Nullable Output<String> vpcConfigurationId) {
             $.vpcConfigurationId = vpcConfigurationId;
             return this;
         }
 
+        /**
+         * @param vpcConfigurationId Identifier of the VPC configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcConfigurationId(String vpcConfigurationId) {
             return vpcConfigurationId(Output.of(vpcConfigurationId));
         }
 
+        /**
+         * @param vpcId Identifier of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId Identifier of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
     /**
-     * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+     * @return ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
      */
     private @Nullable String catalogId;
     /**
-     * @return Specifies the name of the AWS Glue database that contains the schema for the output data.
+     * @return Name of the AWS Glue database that contains the schema for the output data.
      * 
      */
     private String databaseName;
@@ -28,31 +28,31 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      */
     private @Nullable String region;
     /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * @return Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
      * 
      */
     private String roleArn;
     /**
-     * @return Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+     * @return AWS Glue table that contains the column information that constitutes your data schema.
      * 
      */
     private String tableName;
     /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
+     * @return Table version for the output data schema. Defaults to `LATEST`.
      * 
      */
     private @Nullable String versionId;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration() {}
     /**
-     * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+     * @return ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
      */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return Specifies the name of the AWS Glue database that contains the schema for the output data.
+     * @return Name of the AWS Glue database that contains the schema for the output data.
      * 
      */
     public String databaseName() {
@@ -66,21 +66,21 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * @return Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+     * @return AWS Glue table that contains the column information that constitutes your data schema.
      * 
      */
     public String tableName() {
         return this.tableName;
     }
     /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
+     * @return Table version for the output data schema. Defaults to `LATEST`.
      * 
      */
     public Optional<String> versionId() {

@@ -139,15 +139,15 @@ type RefreshSchedule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the dataset.
+	// ID of the dataset.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+	// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
+	Schedule RefreshScheduleScheduleOutput `pulumi:"schedule"`
+	// ID of the refresh schedule.
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleScheduleOutput `pulumi:"schedule"`
-	// The ID of the refresh schedule.
 	ScheduleId pulumi.StringOutput `pulumi:"scheduleId"`
 }
 
@@ -194,15 +194,15 @@ type refreshScheduleState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the dataset.
+	// ID of the dataset.
 	DataSetId *string `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+	// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
+	Schedule *RefreshScheduleSchedule `pulumi:"schedule"`
+	// ID of the refresh schedule.
 	//
 	// The following arguments are optional:
-	Schedule *RefreshScheduleSchedule `pulumi:"schedule"`
-	// The ID of the refresh schedule.
 	ScheduleId *string `pulumi:"scheduleId"`
 }
 
@@ -211,15 +211,15 @@ type RefreshScheduleState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the dataset.
+	// ID of the dataset.
 	DataSetId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+	// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
+	Schedule RefreshScheduleSchedulePtrInput
+	// ID of the refresh schedule.
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleSchedulePtrInput
-	// The ID of the refresh schedule.
 	ScheduleId pulumi.StringPtrInput
 }
 
@@ -230,15 +230,15 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 type refreshScheduleArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the dataset.
+	// ID of the dataset.
 	DataSetId string `pulumi:"dataSetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+	// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
+	Schedule RefreshScheduleSchedule `pulumi:"schedule"`
+	// ID of the refresh schedule.
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleSchedule `pulumi:"schedule"`
-	// The ID of the refresh schedule.
 	ScheduleId string `pulumi:"scheduleId"`
 }
 
@@ -246,15 +246,15 @@ type refreshScheduleArgs struct {
 type RefreshScheduleArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The ID of the dataset.
+	// ID of the dataset.
 	DataSetId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+	// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
+	Schedule RefreshScheduleScheduleInput
+	// ID of the refresh schedule.
 	//
 	// The following arguments are optional:
-	Schedule RefreshScheduleScheduleInput
-	// The ID of the refresh schedule.
 	ScheduleId pulumi.StringInput
 }
 
@@ -355,7 +355,7 @@ func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the dataset.
+// ID of the dataset.
 func (o RefreshScheduleOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
@@ -365,14 +365,14 @@ func (o RefreshScheduleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-//
-// The following arguments are optional:
+// [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
 func (o RefreshScheduleOutput) Schedule() RefreshScheduleScheduleOutput {
 	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleScheduleOutput { return v.Schedule }).(RefreshScheduleScheduleOutput)
 }
 
-// The ID of the refresh schedule.
+// ID of the refresh schedule.
+//
+// The following arguments are optional:
 func (o RefreshScheduleOutput) ScheduleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.ScheduleId }).(pulumi.StringOutput)
 }

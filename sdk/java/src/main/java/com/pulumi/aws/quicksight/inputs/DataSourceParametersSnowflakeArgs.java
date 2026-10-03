@@ -15,14 +15,14 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
     public static final DataSourceParametersSnowflakeArgs Empty = new DataSourceParametersSnowflakeArgs();
 
     /**
-     * The database to which to connect.
+     * Database to which to connect.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     public Output<String> database() {
@@ -30,14 +30,14 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
     }
 
     /**
-     * The host to which to connect.
+     * Host to which to connect.
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public Output<String> host() {
@@ -45,14 +45,14 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
     }
 
     /**
-     * The warehouse to which to connect.
+     * Warehouse to which to connect.
      * 
      */
     @Import(name="warehouse", required=true)
     private Output<String> warehouse;
 
     /**
-     * @return The warehouse to which to connect.
+     * @return Warehouse to which to connect.
      * 
      */
     public Output<String> warehouse() {
@@ -86,7 +86,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param warehouse The warehouse to which to connect.
+         * @param warehouse Warehouse to which to connect.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         /**
-         * @param warehouse The warehouse to which to connect.
+         * @param warehouse Warehouse to which to connect.
          * 
          * @return builder
          * 

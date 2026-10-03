@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideGetArgs>? _containerOverrides;
 
         /// <summary>
-        /// One or more container overrides that are sent to a task. Detailed below.
+        /// One or more container overrides that are sent to a task. See `ContainerOverride` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideGetArgs> ContainerOverrides
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// CPU override for the task.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// The ephemeral storage setting override for the task.  Detailed below.
+        /// Ephemeral storage setting override for the task. See `EphemeralStorage` Block for details.
         /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideGetArgs>? _inferenceAcceleratorOverrides;
 
         /// <summary>
-        /// List of Elastic Inference accelerator overrides for the task. Detailed below.
+        /// List of Elastic Inference accelerator overrides for the task. See `InferenceAcceleratorOverride` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideGetArgs> InferenceAcceleratorOverrides
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        /// Memory override for the task.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }

@@ -18,12 +18,12 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConf
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The ARN of the role the stream assumes.
+     * @return ARN of the role the stream assumes.
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+     * @return ARN of the Secrets Manager secret. This value is required if `enabled` is true.
      * 
      */
     private @Nullable String secretArn;
@@ -37,14 +37,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConf
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The ARN of the role the stream assumes.
+     * @return ARN of the role the stream assumes.
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+     * @return ARN of the Secrets Manager secret. This value is required if `enabled` is true.
      * 
      */
     public Optional<String> secretArn() {

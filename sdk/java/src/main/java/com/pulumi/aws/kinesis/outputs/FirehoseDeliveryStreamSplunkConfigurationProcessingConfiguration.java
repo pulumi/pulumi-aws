@@ -19,7 +19,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
+     * @return Data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors;
@@ -33,7 +33,7 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
+     * @return Data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> processors() {

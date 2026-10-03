@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersManagedStreamingKafkaParametersCredentials
     {
         /// <summary>
-        /// The ARN of the Secrets Manager secret containing the credentials.
+        /// ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
         public readonly string? ClientCertificateTlsAuth;
         /// <summary>
-        /// The ARN of the Secrets Manager secret containing the credentials.
+        /// ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
         public readonly string? SaslScram512Auth;
 

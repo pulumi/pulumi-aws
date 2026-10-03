@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetDataSetUsageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls whether a child dataset of a direct query can use this dataset as a source.
+        /// Whether to prevent a child dataset of a direct query from using this dataset as a source.
         /// </summary>
         [Input("disableUseAsDirectQuerySource")]
         public Input<bool>? DisableUseAsDirectQuerySource { get; set; }
 
         /// <summary>
-        /// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        /// Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
         /// </summary>
         [Input("disableUseAsImportedSource")]
         public Input<bool>? DisableUseAsImportedSource { get; set; }

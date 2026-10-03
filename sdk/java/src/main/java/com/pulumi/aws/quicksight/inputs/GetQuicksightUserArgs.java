@@ -62,7 +62,7 @@ public final class GetQuicksightUserArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The name of the user that you want to match.
+     * Name of the user that you want to match.
      * 
      * The following arguments are optional:
      * 
@@ -71,7 +71,7 @@ public final class GetQuicksightUserArgs extends com.pulumi.resources.InvokeArgs
     private Output<String> userName;
 
     /**
-     * @return The name of the user that you want to match.
+     * @return Name of the user that you want to match.
      * 
      * The following arguments are optional:
      * 
@@ -171,7 +171,7 @@ public final class GetQuicksightUserArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param userName The name of the user that you want to match.
+         * @param userName Name of the user that you want to match.
          * 
          * The following arguments are optional:
          * 
@@ -184,7 +184,7 @@ public final class GetQuicksightUserArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param userName The name of the user that you want to match.
+         * @param userName Name of the user that you want to match.
          * 
          * The following arguments are optional:
          * 

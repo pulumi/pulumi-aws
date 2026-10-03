@@ -69,12 +69,12 @@ import (
 type QueryLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for the logging destinations. See `destination`.
+	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations QueryLoggingConfigurationDestinationArrayOutput `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                        `pulumi:"region"`
 	Timeouts QueryLoggingConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the AMP workspace for which to configure query logging.
+	// ID of the AMP workspace for which to configure query logging.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -116,24 +116,24 @@ func GetQueryLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryLoggingConfiguration resources.
 type queryLoggingConfigurationState struct {
-	// Configuration block for the logging destinations. See `destination`.
+	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations []QueryLoggingConfigurationDestination `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                            `pulumi:"region"`
 	Timeouts *QueryLoggingConfigurationTimeouts `pulumi:"timeouts"`
-	// The ID of the AMP workspace for which to configure query logging.
+	// ID of the AMP workspace for which to configure query logging.
 	//
 	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type QueryLoggingConfigurationState struct {
-	// Configuration block for the logging destinations. See `destination`.
+	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations QueryLoggingConfigurationDestinationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts QueryLoggingConfigurationTimeoutsPtrInput
-	// The ID of the AMP workspace for which to configure query logging.
+	// ID of the AMP workspace for which to configure query logging.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
@@ -144,12 +144,12 @@ func (QueryLoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type queryLoggingConfigurationArgs struct {
-	// Configuration block for the logging destinations. See `destination`.
+	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations []QueryLoggingConfigurationDestination `pulumi:"destinations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                            `pulumi:"region"`
 	Timeouts *QueryLoggingConfigurationTimeouts `pulumi:"timeouts"`
-	// The ID of the AMP workspace for which to configure query logging.
+	// ID of the AMP workspace for which to configure query logging.
 	//
 	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -157,12 +157,12 @@ type queryLoggingConfigurationArgs struct {
 
 // The set of arguments for constructing a QueryLoggingConfiguration resource.
 type QueryLoggingConfigurationArgs struct {
-	// Configuration block for the logging destinations. See `destination`.
+	// Configuration block for the logging destinations. See `destination` Block.
 	Destinations QueryLoggingConfigurationDestinationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts QueryLoggingConfigurationTimeoutsPtrInput
-	// The ID of the AMP workspace for which to configure query logging.
+	// ID of the AMP workspace for which to configure query logging.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
@@ -255,7 +255,7 @@ func (o QueryLoggingConfigurationOutput) ToQueryLoggingConfigurationOutputWithCo
 	return o
 }
 
-// Configuration block for the logging destinations. See `destination`.
+// Configuration block for the logging destinations. See `destination` Block.
 func (o QueryLoggingConfigurationOutput) Destinations() QueryLoggingConfigurationDestinationArrayOutput {
 	return o.ApplyT(func(v *QueryLoggingConfiguration) QueryLoggingConfigurationDestinationArrayOutput {
 		return v.Destinations
@@ -271,7 +271,7 @@ func (o QueryLoggingConfigurationOutput) Timeouts() QueryLoggingConfigurationTim
 	return o.ApplyT(func(v *QueryLoggingConfiguration) QueryLoggingConfigurationTimeoutsPtrOutput { return v.Timeouts }).(QueryLoggingConfigurationTimeoutsPtrOutput)
 }
 
-// The ID of the AMP workspace for which to configure query logging.
+// ID of the AMP workspace for which to configure query logging.
 //
 // The following arguments are optional:
 func (o QueryLoggingConfigurationOutput) WorkspaceId() pulumi.StringOutput {

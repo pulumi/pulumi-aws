@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersDatabricks
     {
         /// <summary>
-        /// The host name of the Databricks data source.
+        /// Host name of the Databricks data source.
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The port for the Databricks data source.
+        /// Port for the Databricks data source.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The HTTP path of the Databricks data source.
+        /// HTTP path of the Databricks data source.
         /// </summary>
         public readonly string SqlEndpointPath;
 

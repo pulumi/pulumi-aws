@@ -17,14 +17,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs();
 
     /**
-     * The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+     * ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+     * @return ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * Specifies the name of the AWS Glue database that contains the schema for the output data.
+     * Name of the AWS Glue database that contains the schema for the output data.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return Specifies the name of the AWS Glue database that contains the schema for the output data.
+     * @return Name of the AWS Glue database that contains the schema for the output data.
      * 
      */
     public Output<String> databaseName() {
@@ -62,14 +62,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * @return Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
      * 
      */
     public Output<String> roleArn() {
@@ -77,14 +77,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+     * AWS Glue table that contains the column information that constitutes your data schema.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+     * @return AWS Glue table that contains the column information that constitutes your data schema.
      * 
      */
     public Output<String> tableName() {
@@ -92,14 +92,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
+     * Table version for the output data schema. Defaults to `LATEST`.
      * 
      */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
     /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
+     * @return Table version for the output data schema. Defaults to `LATEST`.
      * 
      */
     public Optional<Output<String>> versionId() {
@@ -136,7 +136,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param catalogId The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+         * @param catalogId ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param catalogId The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
+         * @param catalogId ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param databaseName Specifies the name of the AWS Glue database that contains the schema for the output data.
+         * @param databaseName Name of the AWS Glue database that contains the schema for the output data.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param databaseName Specifies the name of the AWS Glue database that contains the schema for the output data.
+         * @param databaseName Name of the AWS Glue database that contains the schema for the output data.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param roleArn The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+         * @param roleArn Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param roleArn The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+         * @param roleArn Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param tableName Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+         * @param tableName AWS Glue table that contains the column information that constitutes your data schema.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param tableName Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+         * @param tableName AWS Glue table that contains the column information that constitutes your data schema.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
+         * @param versionId Table version for the output data schema. Defaults to `LATEST`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
+         * @param versionId Table version for the output data schema. Defaults to `LATEST`.
          * 
          * @return builder
          * 

@@ -25,37 +25,37 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
+        /// Endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
         /// </summary>
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
+        /// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
         /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }
 
         /// <summary>
-        /// The Elasticsearch index name.
+        /// Elasticsearch index name.
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        /// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         /// </summary>
         [Input("indexRotationPeriod")]
         public Input<string>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -67,31 +67,31 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        /// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The Elasticsearch type name with maximum length of 100 characters.
+        /// Elasticsearch type name with maximum length of 100 characters.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `VpcConfig` block below for details.
+        /// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs>? VpcConfig { get; set; }

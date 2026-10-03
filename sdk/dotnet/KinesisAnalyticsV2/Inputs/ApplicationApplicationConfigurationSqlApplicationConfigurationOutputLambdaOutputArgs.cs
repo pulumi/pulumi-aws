@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the destination Lambda function to write to.
+        /// ARN of the destination Lambda function to write to.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;

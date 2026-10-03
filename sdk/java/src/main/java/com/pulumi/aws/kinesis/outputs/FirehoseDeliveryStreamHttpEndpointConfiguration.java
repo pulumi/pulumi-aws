@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
     /**
-     * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+     * @return Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
     private @Nullable String accessKey;
@@ -34,22 +34,22 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return The HTTP endpoint name.
+     * @return HTTP endpoint name.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
     /**
-     * @return The request configuration.  See `requestConfiguration` block below for details.
+     * @return Request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
@@ -64,29 +64,29 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String roleArn;
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
     /**
-     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+     * @return Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+     * @return HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     private String url;
 
     private FirehoseDeliveryStreamHttpEndpointConfiguration() {}
     /**
-     * @return The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+     * @return Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
     public Optional<String> accessKey() {
@@ -107,28 +107,28 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return The HTTP endpoint name.
+     * @return HTTP endpoint name.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
     /**
-     * @return The request configuration.  See `requestConfiguration` block below for details.
+     * @return Request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration() {
@@ -149,28 +149,28 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+     * @return Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+     * @return HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     public String url() {

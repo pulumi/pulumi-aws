@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
     public static final ApplicationApplicationConfigurationRunConfigurationArgs Empty = new ApplicationApplicationConfigurationRunConfigurationArgs();
 
     /**
-     * The restore behavior of a restarting application.
+     * Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
      * 
      */
     @Import(name="applicationRestoreConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs> applicationRestoreConfiguration;
 
     /**
-     * @return The restore behavior of a restarting application.
+     * @return Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs>> applicationRestoreConfiguration() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
     }
 
     /**
-     * The starting parameters for a Flink-based Kinesis Data Analytics application.
+     * Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
      * 
      */
     @Import(name="flinkRunConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs> flinkRunConfiguration;
 
     /**
-     * @return The starting parameters for a Flink-based Kinesis Data Analytics application.
+     * @return Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs>> flinkRunConfiguration() {
@@ -72,7 +72,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
         }
 
         /**
-         * @param applicationRestoreConfiguration The restore behavior of a restarting application.
+         * @param applicationRestoreConfiguration Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
         }
 
         /**
-         * @param applicationRestoreConfiguration The restore behavior of a restarting application.
+         * @param applicationRestoreConfiguration Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
         }
 
         /**
-         * @param flinkRunConfiguration The starting parameters for a Flink-based Kinesis Data Analytics application.
+         * @param flinkRunConfiguration Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationArgs exten
         }
 
         /**
-         * @param flinkRunConfiguration The starting parameters for a Flink-based Kinesis Data Analytics application.
+         * @param flinkRunConfiguration Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
          * 
          * @return builder
          * 

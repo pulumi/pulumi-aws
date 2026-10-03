@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly int IndexedTextBytes;
         /// <summary>
-        /// The number of text documents indexed.
+        /// Number of text documents indexed.
         /// </summary>
         public readonly int IndexedTextDocumentsCount;
 

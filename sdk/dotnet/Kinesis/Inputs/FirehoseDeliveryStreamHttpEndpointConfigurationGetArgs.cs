@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private Input<string>? _accessKey;
 
         /// <summary>
-        /// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        /// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
         /// </summary>
         public Input<string>? AccessKey
         {
@@ -41,25 +41,25 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The HTTP endpoint name.
+        /// HTTP endpoint name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The request configuration.  See `RequestConfiguration` block below for details.
+        /// Request configuration.  See `RequestConfiguration` block below for details.
         /// </summary>
         [Input("requestConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationGetArgs>? RequestConfiguration { get; set; }
@@ -77,25 +77,25 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
+        /// Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
         /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationGetArgs>? SecretsManagerConfiguration { get; set; }
 
         /// <summary>
-        /// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+        /// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;

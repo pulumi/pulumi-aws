@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetOntapStorageVirtualMachineEndpointNfResult
     {
+        /// <summary>
+        /// SVM endpoint's DNS name.
+        /// </summary>
         public readonly string DnsName;
+        /// <summary>
+        /// SVM endpoint's IP addresses.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]

@@ -160,23 +160,23 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      */
     declare public readonly credentials: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     /**
-     * An identifier for the data source.
+     * Identifier for the data source.
      */
     declare public readonly dataSourceId: pulumi.Output<string>;
     /**
-     * A name for the data source, maximum of 128 characters.
+     * Name for the data source, maximum of 128 characters.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The parameters used to connect to this data source (exactly one).
+     * Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      */
     declare public readonly parameters: pulumi.Output<outputs.quicksight.DataSourceParameters>;
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.DataSourcePermission[] | undefined>;
     /**
@@ -184,7 +184,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      */
     declare public readonly sslProperties: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
     /**
@@ -192,17 +192,17 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      *
      * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      */
     declare public readonly vpcConnectionProperties: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
@@ -275,23 +275,23 @@ export interface DataSourceState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentials | undefined>;
     /**
-     * An identifier for the data source.
+     * Identifier for the data source.
      */
     dataSourceId?: pulumi.Input<string | undefined>;
     /**
-     * A name for the data source, maximum of 128 characters.
+     * Name for the data source, maximum of 128 characters.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters used to connect to this data source (exactly one).
+     * Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      */
     parameters?: pulumi.Input<inputs.quicksight.DataSourceParameters | undefined>;
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[] | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface DataSourceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslProperties | undefined>;
     /**
@@ -307,17 +307,17 @@ export interface DataSourceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      *
      * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      */
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 }
@@ -331,23 +331,23 @@ export interface DataSourceArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentials | undefined>;
     /**
-     * An identifier for the data source.
+     * Identifier for the data source.
      */
     dataSourceId: pulumi.Input<string>;
     /**
-     * A name for the data source, maximum of 128 characters.
+     * Name for the data source, maximum of 128 characters.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters used to connect to this data source (exactly one).
+     * Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      */
     parameters: pulumi.Input<inputs.quicksight.DataSourceParameters>;
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[] | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface DataSourceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslProperties | undefined>;
     /**
@@ -363,13 +363,13 @@ export interface DataSourceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      *
      * The following arguments are optional:
      */
     type: pulumi.Input<string>;
     /**
-     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      */
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 }

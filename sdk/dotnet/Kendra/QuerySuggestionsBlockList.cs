@@ -60,6 +60,9 @@ namespace Pulumi.Aws.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for a block list.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -82,7 +85,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -94,14 +97,22 @@ namespace Pulumi.Aws.Kendra
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// S3 path where your block list text file is located. See details below.
+        /// S3 path where your block list text file is located. See `SourceS3Path` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.QuerySuggestionsBlockListSourceS3Path> SourceS3Path { get; private set; } = null!;
 
+        /// <summary>
+        /// Current status of the block list.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -157,6 +168,9 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class QuerySuggestionsBlockListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for a block list.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -173,7 +187,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -185,13 +199,19 @@ namespace Pulumi.Aws.Kendra
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// S3 path where your block list text file is located. See details below.
+        /// S3 path where your block list text file is located. See `SourceS3Path` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -212,6 +232,9 @@ namespace Pulumi.Aws.Kendra
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for a block list.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -234,7 +257,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -246,16 +269,25 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// S3 path where your block list text file is located. See details below.
+        /// S3 path where your block list text file is located. See `SourceS3Path` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathGetArgs>? SourceS3Path { get; set; }
 
+        /// <summary>
+        /// Current status of the block list.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

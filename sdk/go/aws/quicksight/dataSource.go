@@ -226,29 +226,29 @@ type DataSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+	// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
-	// An identifier for the data source.
+	// Identifier for the data source.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
-	// A name for the data source, maximum of 128 characters.
+	// Name for the data source, maximum of 128 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters used to connect to this data source (exactly one).
+	// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 	Parameters DataSourceParametersOutput `pulumi:"parameters"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+	// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 	Permissions DataSourcePermissionArrayOutput `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 	SslProperties DataSourceSslPropertiesOutput `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+	// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -295,29 +295,29 @@ type dataSourceState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+	// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
-	// An identifier for the data source.
+	// Identifier for the data source.
 	DataSourceId *string `pulumi:"dataSourceId"`
-	// A name for the data source, maximum of 128 characters.
+	// Name for the data source, maximum of 128 characters.
 	Name *string `pulumi:"name"`
-	// The parameters used to connect to this data source (exactly one).
+	// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 	Parameters *DataSourceParameters `pulumi:"parameters"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+	// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+	// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -326,29 +326,29 @@ type DataSourceState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+	// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 	Credentials DataSourceCredentialsPtrInput
-	// An identifier for the data source.
+	// Identifier for the data source.
 	DataSourceId pulumi.StringPtrInput
-	// A name for the data source, maximum of 128 characters.
+	// Name for the data source, maximum of 128 characters.
 	Name pulumi.StringPtrInput
-	// The parameters used to connect to this data source (exactly one).
+	// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 	Parameters DataSourceParametersPtrInput
-	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+	// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 	Permissions DataSourcePermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+	// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 
@@ -359,27 +359,27 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+	// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
-	// An identifier for the data source.
+	// Identifier for the data source.
 	DataSourceId string `pulumi:"dataSourceId"`
-	// A name for the data source, maximum of 128 characters.
+	// Name for the data source, maximum of 128 characters.
 	Name *string `pulumi:"name"`
-	// The parameters used to connect to this data source (exactly one).
+	// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 	Parameters DataSourceParameters `pulumi:"parameters"`
-	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+	// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+	// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -387,27 +387,27 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+	// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 	Credentials DataSourceCredentialsPtrInput
-	// An identifier for the data source.
+	// Identifier for the data source.
 	DataSourceId pulumi.StringInput
-	// A name for the data source, maximum of 128 characters.
+	// Name for the data source, maximum of 128 characters.
 	Name pulumi.StringPtrInput
-	// The parameters used to connect to this data source (exactly one).
+	// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 	Parameters DataSourceParametersInput
-	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+	// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 	Permissions DataSourcePermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+	// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 
@@ -508,27 +508,27 @@ func (o DataSourceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+// Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
 func (o DataSourceOutput) Credentials() DataSourceCredentialsPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCredentialsPtrOutput { return v.Credentials }).(DataSourceCredentialsPtrOutput)
 }
 
-// An identifier for the data source.
+// Identifier for the data source.
 func (o DataSourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
-// A name for the data source, maximum of 128 characters.
+// Name for the data source, maximum of 128 characters.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters used to connect to this data source (exactly one).
+// Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
 func (o DataSourceOutput) Parameters() DataSourceParametersOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceParametersOutput { return v.Parameters }).(DataSourceParametersOutput)
 }
 
-// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+// Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
 func (o DataSourceOutput) Permissions() DataSourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourcePermissionArrayOutput { return v.Permissions }).(DataSourcePermissionArrayOutput)
 }
@@ -538,7 +538,7 @@ func (o DataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
 func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesOutput { return v.SslProperties }).(DataSourceSslPropertiesOutput)
 }
@@ -548,19 +548,19 @@ func (o DataSourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataSourceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 //
 // The following arguments are optional:
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
 func (o DataSourceOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVpcConnectionPropertiesPtrOutput { return v.VpcConnectionProperties }).(DataSourceVpcConnectionPropertiesPtrOutput)
 }

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersEventbridgeEventBusParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        /// Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         /// </summary>
         [Input("detailType")]
         public Input<string>? DetailType { get; set; }
 
         /// <summary>
-        /// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+        /// URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
         /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// Source of the event. Maximum length of 256.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        /// Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         /// </summary>
         [Input("time")]
         public Input<string>? Time { get; set; }

@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static final ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs Empty = new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs();
 
     /**
-     * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+     * Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     @Import(name="configurationType", required=true)
     private Output<String> configurationType;
 
     /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+     * @return Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     public Output<String> configurationType() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     }
 
     /**
-     * Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+     * Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+     * @return Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -47,14 +47,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     }
 
     /**
-     * Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+     * Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
      * 
      */
     @Import(name="metricsLevel")
     private @Nullable Output<String> metricsLevel;
 
     /**
-     * @return Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+     * @return Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
      * 
      */
     public Optional<Output<String>> metricsLevel() {
@@ -88,7 +88,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+         * @param configurationType Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param configurationType Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+         * @param configurationType Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param logLevel Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+         * @param logLevel Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param logLevel Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+         * @param logLevel Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param metricsLevel Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+         * @param metricsLevel Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param metricsLevel Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+         * @param metricsLevel Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
          * 
          * @return builder
          * 

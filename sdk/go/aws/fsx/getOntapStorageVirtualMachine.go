@@ -99,13 +99,13 @@ type LookupOntapStorageVirtualMachineArgs struct {
 
 // A collection of values returned by getOntapStorageVirtualMachine.
 type LookupOntapStorageVirtualMachineResult struct {
-	// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+	// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See `activeDirectoryConfiguration` Block below.
 	ActiveDirectoryConfigurations []GetOntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfigurations"`
 	// ARN of the SVM.
 	Arn string `pulumi:"arn"`
 	// Time that the SVM was created.
 	CreationTime string `pulumi:"creationTime"`
-	// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+	// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. See `endpoints` Block below.
 	Endpoints []GetOntapStorageVirtualMachineEndpoint `pulumi:"endpoints"`
 	// Identifier of the file system (e.g. `fs-12345678`).
 	FileSystemId string                                `pulumi:"fileSystemId"`
@@ -114,7 +114,7 @@ type LookupOntapStorageVirtualMachineResult struct {
 	Id string `pulumi:"id"`
 	// SVM's lifecycle status.
 	LifecycleStatus string `pulumi:"lifecycleStatus"`
-	// Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+	// Reason why the SVM lifecycle state changed. See `lifecycleTransitionReason` Block below.
 	LifecycleTransitionReasons []GetOntapStorageVirtualMachineLifecycleTransitionReason `pulumi:"lifecycleTransitionReasons"`
 	// Name of the SVM, if provisioned.
 	Name   string `pulumi:"name"`
@@ -163,7 +163,7 @@ func (o LookupOntapStorageVirtualMachineResultOutput) ToLookupOntapStorageVirtua
 	return o
 }
 
-// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See `activeDirectoryConfiguration` Block below.
 func (o LookupOntapStorageVirtualMachineResultOutput) ActiveDirectoryConfigurations() GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) []GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
 		return v.ActiveDirectoryConfigurations
@@ -180,7 +180,7 @@ func (o LookupOntapStorageVirtualMachineResultOutput) CreationTime() pulumi.Stri
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. See `endpoints` Block below.
 func (o LookupOntapStorageVirtualMachineResultOutput) Endpoints() GetOntapStorageVirtualMachineEndpointArrayOutput {
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) []GetOntapStorageVirtualMachineEndpoint {
 		return v.Endpoints
@@ -206,7 +206,7 @@ func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleStatus() pulumi.S
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.LifecycleStatus }).(pulumi.StringOutput)
 }
 
-// Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+// Reason why the SVM lifecycle state changed. See `lifecycleTransitionReason` Block below.
 func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleTransitionReasons() GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput {
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) []GetOntapStorageVirtualMachineLifecycleTransitionReason {
 		return v.LifecycleTransitionReasons

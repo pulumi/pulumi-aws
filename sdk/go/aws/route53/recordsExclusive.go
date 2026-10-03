@@ -36,14 +36,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//			example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
 //				Name:         pulumi.String("example.com"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = route53.NewRecordsExclusive(ctx, "test", &route53.RecordsExclusiveArgs{
+//			_, err = route53.NewRecordsExclusive(ctx, "example", &route53.RecordsExclusiveArgs{
 //				ResourceRecordSets: route53.RecordsExclusiveResourceRecordSetArray{
 //					&route53.RecordsExclusiveResourceRecordSetArgs{
 //						ResourceRecords: route53.RecordsExclusiveResourceRecordSetResourceRecordArray{
@@ -59,7 +59,7 @@ import (
 //						Ttl:  pulumi.Int(30),
 //					},
 //				},
-//				ZoneId: pulumi.Any(testAwsRoute53Zone.ZoneId),
+//				ZoneId: example.ZoneId,
 //			})
 //			if err != nil {
 //				return err
@@ -88,8 +88,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecordsExclusive(ctx, "test", &route53.RecordsExclusiveArgs{
-//				ZoneId: pulumi.Any(testAwsRoute53Zone.ZoneId),
+//			_, err := route53.NewRecordsExclusive(ctx, "example", &route53.RecordsExclusiveArgs{
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //			})
 //			if err != nil {
 //				return err

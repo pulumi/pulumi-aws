@@ -32,14 +32,14 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
     }
 
     /**
-     * The dataset column tag, currently only used for geospatial type tagging. See tags.
+     * Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
      * 
      */
     @Import(name="tags", required=true)
     private Output<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags;
 
     /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
+     * @return Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
      * 
      */
     public Output<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags() {
@@ -93,7 +93,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
         }
 
         /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
+         * @param tags Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
         }
 
         /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
+         * @param tags Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
         }
 
         /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
+         * @param tags Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
          * 
          * @return builder
          * 

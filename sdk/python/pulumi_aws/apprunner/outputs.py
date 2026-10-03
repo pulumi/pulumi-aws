@@ -45,10 +45,10 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: Certificate CNAME record name.
-        :param _builtins.str status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        :param _builtins.str name: Certificate `CNAME` record name.
+        :param _builtins.str status: Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         :param _builtins.str type: Record type, always `CNAME`.
-        :param _builtins.str value: Certificate CNAME record value.
+        :param _builtins.str value: Certificate `CNAME` record value.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -63,7 +63,7 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        Certificate CNAME record name.
+        Certificate `CNAME` record name.
         """
         return pulumi.get(self, "name")
 
@@ -71,7 +71,7 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
         """
-        Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 
@@ -87,7 +87,7 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         """
-        Certificate CNAME record value.
+        Certificate `CNAME` record value.
         """
         return pulumi.get(self, "value")
 

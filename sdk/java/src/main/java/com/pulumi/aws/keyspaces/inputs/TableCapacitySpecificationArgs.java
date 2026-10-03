@@ -17,14 +17,14 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
     public static final TableCapacitySpecificationArgs Empty = new TableCapacitySpecificationArgs();
 
     /**
-     * The throughput capacity specified for read operations defined in read capacity units (RCUs).
+     * Throughput capacity specified for read operations defined in read capacity units (RCUs).
      * 
      */
     @Import(name="readCapacityUnits")
     private @Nullable Output<Integer> readCapacityUnits;
 
     /**
-     * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
+     * @return Throughput capacity specified for read operations defined in read capacity units (RCUs).
      * 
      */
     public Optional<Output<Integer>> readCapacityUnits() {
@@ -32,14 +32,14 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+     * Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
      * 
      */
     @Import(name="throughputMode")
     private @Nullable Output<String> throughputMode;
 
     /**
-     * @return The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+     * @return Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
      * 
      */
     public Optional<Output<String>> throughputMode() {
@@ -47,14 +47,14 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The throughput capacity specified for write operations defined in write capacity units (WCUs).
+     * Throughput capacity specified for write operations defined in write capacity units (WCUs).
      * 
      */
     @Import(name="writeCapacityUnits")
     private @Nullable Output<Integer> writeCapacityUnits;
 
     /**
-     * @return The throughput capacity specified for write operations defined in write capacity units (WCUs).
+     * @return Throughput capacity specified for write operations defined in write capacity units (WCUs).
      * 
      */
     public Optional<Output<Integer>> writeCapacityUnits() {
@@ -88,7 +88,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param readCapacityUnits The throughput capacity specified for read operations defined in read capacity units (RCUs).
+         * @param readCapacityUnits Throughput capacity specified for read operations defined in read capacity units (RCUs).
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param readCapacityUnits The throughput capacity specified for read operations defined in read capacity units (RCUs).
+         * @param readCapacityUnits Throughput capacity specified for read operations defined in read capacity units (RCUs).
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param throughputMode The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+         * @param throughputMode Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param throughputMode The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+         * @param throughputMode Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param writeCapacityUnits The throughput capacity specified for write operations defined in write capacity units (WCUs).
+         * @param writeCapacityUnits Throughput capacity specified for write operations defined in write capacity units (WCUs).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param writeCapacityUnits The throughput capacity specified for write operations defined in write capacity units (WCUs).
+         * @param writeCapacityUnits Throughput capacity specified for write operations defined in write capacity units (WCUs).
          * 
          * @return builder
          * 

@@ -101,19 +101,19 @@ namespace Pulumi.Aws.TimestreamWrite
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN that uniquely identifies this table.
+        /// ARN that uniquely identifies this table.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Timestream database.
+        /// Name of the Timestream database.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// Properties to set on the table when enabling magnetic store writes. See `MagneticStoreWriteProperties` Block below for more details.
         /// </summary>
         [Output("magneticStoreWriteProperties")]
         public Output<Outputs.TableMagneticStoreWriteProperties> MagneticStoreWriteProperties { get; private set; } = null!;
@@ -125,19 +125,19 @@ namespace Pulumi.Aws.TimestreamWrite
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` default to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
+        /// Retention duration for the memory store and magnetic store. See `RetentionProperties` Block below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` defaults to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
         /// </summary>
         [Output("retentionProperties")]
         public Output<Outputs.TableRetentionProperties> RetentionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The schema of the table. See Schema below for more details.
+        /// Schema of the table. See `Schema` Block below for more details.
         /// </summary>
         [Output("schema")]
         public Output<Outputs.TableSchema> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Timestream table.
+        /// Name of the Timestream table.
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.TimestreamWrite
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.TimestreamWrite
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Timestream database.
+        /// Name of the Timestream database.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// Properties to set on the table when enabling magnetic store writes. See `MagneticStoreWriteProperties` Block below for more details.
         /// </summary>
         [Input("magneticStoreWriteProperties")]
         public Input<Inputs.TableMagneticStoreWritePropertiesArgs>? MagneticStoreWriteProperties { get; set; }
@@ -219,19 +219,19 @@ namespace Pulumi.Aws.TimestreamWrite
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` default to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
+        /// Retention duration for the memory store and magnetic store. See `RetentionProperties` Block below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` defaults to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
         /// </summary>
         [Input("retentionProperties")]
         public Input<Inputs.TableRetentionPropertiesArgs>? RetentionProperties { get; set; }
 
         /// <summary>
-        /// The schema of the table. See Schema below for more details.
+        /// Schema of the table. See `Schema` Block below for more details.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.TableSchemaArgs>? Schema { get; set; }
 
         /// <summary>
-        /// The name of the Timestream table.
+        /// Name of the Timestream table.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -257,19 +257,19 @@ namespace Pulumi.Aws.TimestreamWrite
     public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN that uniquely identifies this table.
+        /// ARN that uniquely identifies this table.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the Timestream database.
+        /// Name of the Timestream database.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// Properties to set on the table when enabling magnetic store writes. See `MagneticStoreWriteProperties` Block below for more details.
         /// </summary>
         [Input("magneticStoreWriteProperties")]
         public Input<Inputs.TableMagneticStoreWritePropertiesGetArgs>? MagneticStoreWriteProperties { get; set; }
@@ -281,19 +281,19 @@ namespace Pulumi.Aws.TimestreamWrite
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` default to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
+        /// Retention duration for the memory store and magnetic store. See `RetentionProperties` Block below for more details. If not provided, `MagneticStoreRetentionPeriodInDays` defaults to 73000 and `MemoryStoreRetentionPeriodInHours` defaults to 6.
         /// </summary>
         [Input("retentionProperties")]
         public Input<Inputs.TableRetentionPropertiesGetArgs>? RetentionProperties { get; set; }
 
         /// <summary>
-        /// The schema of the table. See Schema below for more details.
+        /// Schema of the table. See `Schema` Block below for more details.
         /// </summary>
         [Input("schema")]
         public Input<Inputs.TableSchemaGetArgs>? Schema { get; set; }
 
         /// <summary>
-        /// The name of the Timestream table.
+        /// Name of the Timestream table.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.TimestreamWrite
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

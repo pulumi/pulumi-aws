@@ -142,9 +142,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     *
-     * The following arguments are optional:
+     * JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      */
     declare public readonly policyDocument: pulumi.Output<string>;
     /**
@@ -152,12 +150,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The revision ID of the current resource-based policy.
+     * Revision ID of the current resource-based policy.
      */
     declare public readonly revisionId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.amp.ResourcePolicyTimeouts | undefined>;
     /**
-     * The ID of the workspace to attach the resource-based policy to.
+     * ID of the workspace to attach the resource-based policy to.
+     *
+     * The following arguments are optional:
      */
     declare public readonly workspaceId: pulumi.Output<string>;
 
@@ -203,9 +203,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     *
-     * The following arguments are optional:
+     * JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      */
     policyDocument?: pulumi.Input<string | undefined>;
     /**
@@ -213,12 +211,14 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The revision ID of the current resource-based policy.
+     * Revision ID of the current resource-based policy.
      */
     revisionId?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts | undefined>;
     /**
-     * The ID of the workspace to attach the resource-based policy to.
+     * ID of the workspace to attach the resource-based policy to.
+     *
+     * The following arguments are optional:
      */
     workspaceId?: pulumi.Input<string | undefined>;
 }
@@ -228,9 +228,7 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     *
-     * The following arguments are optional:
+     * JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
      */
     policyDocument: pulumi.Input<string>;
     /**
@@ -238,12 +236,14 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The revision ID of the current resource-based policy.
+     * Revision ID of the current resource-based policy.
      */
     revisionId?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts | undefined>;
     /**
-     * The ID of the workspace to attach the resource-based policy to.
+     * ID of the workspace to attach the resource-based policy to.
+     *
+     * The following arguments are optional:
      */
     workspaceId: pulumi.Input<string>;
 }

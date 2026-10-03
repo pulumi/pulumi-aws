@@ -211,11 +211,11 @@ func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) StatusActual
 }
 
 type AnalyticsApplicationCloudwatchLoggingOptions struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
-	// The ARN of the CloudWatch Log Stream.
+	// ARN of the CloudWatch Log Stream.
 	LogStreamArn string `pulumi:"logStreamArn"`
-	// The ARN of the IAM Role used to send application messages.
+	// ARN of the IAM Role used to send application messages.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -231,11 +231,11 @@ type AnalyticsApplicationCloudwatchLoggingOptionsInput interface {
 }
 
 type AnalyticsApplicationCloudwatchLoggingOptionsArgs struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The ARN of the CloudWatch Log Stream.
+	// ARN of the CloudWatch Log Stream.
 	LogStreamArn pulumi.StringInput `pulumi:"logStreamArn"`
-	// The ARN of the IAM Role used to send application messages.
+	// ARN of the IAM Role used to send application messages.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -316,17 +316,17 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicati
 	}).(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationCloudwatchLoggingOptions) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the CloudWatch Log Stream.
+// ARN of the CloudWatch Log Stream.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) LogStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationCloudwatchLoggingOptions) string { return v.LogStreamArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to send application messages.
+// ARN of the IAM Role used to send application messages.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationCloudwatchLoggingOptions) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -355,7 +355,7 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) Elem() AnalyticsA
 	}).(AnalyticsApplicationCloudwatchLoggingOptionsOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -365,7 +365,7 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) Id() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the CloudWatch Log Stream.
+// ARN of the CloudWatch Log Stream.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) LogStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -375,7 +375,7 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) LogStreamArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to send application messages.
+// ARN of the IAM Role used to send application messages.
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -386,28 +386,24 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) RoleArn() pulumi.
 }
 
 type AnalyticsApplicationInputs struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
-	// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-	// See Kinesis Firehose below for more details.
+	// Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
 	KinesisFirehose *AnalyticsApplicationInputsKinesisFirehose `pulumi:"kinesisFirehose"`
-	// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-	// See Kinesis Stream below for more details.
+	// Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
 	KinesisStream *AnalyticsApplicationInputsKinesisStream `pulumi:"kinesisStream"`
-	// The Name Prefix to use when creating an in-application stream.
+	// Name Prefix to use when creating an in-application stream.
 	NamePrefix string `pulumi:"namePrefix"`
-	// The number of Parallel in-application streams to create.
-	// See Parallelism below for more details.
+	// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
 	Parallelism *AnalyticsApplicationInputsParallelism `pulumi:"parallelism"`
-	// The Processing Configuration to transform records as they are received from the stream.
-	// See Processing Configuration below for more details.
+	// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
 	ProcessingConfiguration *AnalyticsApplicationInputsProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The Schema format of the data in the streaming source. See Source Schema below for more details.
+	// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
 	Schema AnalyticsApplicationInputsSchema `pulumi:"schema"`
-	// The point at which the application starts processing records from the streaming source.
-	// See Starting Position Configuration below for more details.
+	// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
 	StartingPositionConfigurations []AnalyticsApplicationInputsStartingPositionConfiguration `pulumi:"startingPositionConfigurations"`
-	StreamNames                    []string                                                  `pulumi:"streamNames"`
+	// Names of the in-application streams created for the input.
+	StreamNames []string `pulumi:"streamNames"`
 }
 
 // AnalyticsApplicationInputsInput is an input type that accepts AnalyticsApplicationInputsArgs and AnalyticsApplicationInputsOutput values.
@@ -422,28 +418,24 @@ type AnalyticsApplicationInputsInput interface {
 }
 
 type AnalyticsApplicationInputsArgs struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-	// See Kinesis Firehose below for more details.
+	// Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
 	KinesisFirehose AnalyticsApplicationInputsKinesisFirehosePtrInput `pulumi:"kinesisFirehose"`
-	// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-	// See Kinesis Stream below for more details.
+	// Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
 	KinesisStream AnalyticsApplicationInputsKinesisStreamPtrInput `pulumi:"kinesisStream"`
-	// The Name Prefix to use when creating an in-application stream.
+	// Name Prefix to use when creating an in-application stream.
 	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
-	// The number of Parallel in-application streams to create.
-	// See Parallelism below for more details.
+	// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
 	Parallelism AnalyticsApplicationInputsParallelismPtrInput `pulumi:"parallelism"`
-	// The Processing Configuration to transform records as they are received from the stream.
-	// See Processing Configuration below for more details.
+	// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
 	ProcessingConfiguration AnalyticsApplicationInputsProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The Schema format of the data in the streaming source. See Source Schema below for more details.
+	// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
 	Schema AnalyticsApplicationInputsSchemaInput `pulumi:"schema"`
-	// The point at which the application starts processing records from the streaming source.
-	// See Starting Position Configuration below for more details.
+	// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
 	StartingPositionConfigurations AnalyticsApplicationInputsStartingPositionConfigurationArrayInput `pulumi:"startingPositionConfigurations"`
-	StreamNames                    pulumi.StringArrayInput                                           `pulumi:"streamNames"`
+	// Names of the in-application streams created for the input.
+	StreamNames pulumi.StringArrayInput `pulumi:"streamNames"`
 }
 
 func (AnalyticsApplicationInputsArgs) ElementType() reflect.Type {
@@ -523,57 +515,53 @@ func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsPtrOutputW
 	}).(AnalyticsApplicationInputsPtrOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationInputsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-// See Kinesis Firehose below for more details.
+// Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
 func (o AnalyticsApplicationInputsOutput) KinesisFirehose() AnalyticsApplicationInputsKinesisFirehosePtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) *AnalyticsApplicationInputsKinesisFirehose {
 		return v.KinesisFirehose
 	}).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
 
-// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-// See Kinesis Stream below for more details.
+// Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
 func (o AnalyticsApplicationInputsOutput) KinesisStream() AnalyticsApplicationInputsKinesisStreamPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) *AnalyticsApplicationInputsKinesisStream { return v.KinesisStream }).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
 
-// The Name Prefix to use when creating an in-application stream.
+// Name Prefix to use when creating an in-application stream.
 func (o AnalyticsApplicationInputsOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) string { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The number of Parallel in-application streams to create.
-// See Parallelism below for more details.
+// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
 func (o AnalyticsApplicationInputsOutput) Parallelism() AnalyticsApplicationInputsParallelismPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) *AnalyticsApplicationInputsParallelism { return v.Parallelism }).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
 
-// The Processing Configuration to transform records as they are received from the stream.
-// See Processing Configuration below for more details.
+// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
 func (o AnalyticsApplicationInputsOutput) ProcessingConfiguration() AnalyticsApplicationInputsProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) *AnalyticsApplicationInputsProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
 
-// The Schema format of the data in the streaming source. See Source Schema below for more details.
+// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
 func (o AnalyticsApplicationInputsOutput) Schema() AnalyticsApplicationInputsSchemaOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsSchema { return v.Schema }).(AnalyticsApplicationInputsSchemaOutput)
 }
 
-// The point at which the application starts processing records from the streaming source.
-// See Starting Position Configuration below for more details.
+// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
 func (o AnalyticsApplicationInputsOutput) StartingPositionConfigurations() AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) []AnalyticsApplicationInputsStartingPositionConfiguration {
 		return v.StartingPositionConfigurations
 	}).(AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput)
 }
 
+// Names of the in-application streams created for the input.
 func (o AnalyticsApplicationInputsOutput) StreamNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputs) []string { return v.StreamNames }).(pulumi.StringArrayOutput)
 }
@@ -602,7 +590,7 @@ func (o AnalyticsApplicationInputsPtrOutput) Elem() AnalyticsApplicationInputsOu
 	}).(AnalyticsApplicationInputsOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationInputsPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *string {
 		if v == nil {
@@ -612,8 +600,7 @@ func (o AnalyticsApplicationInputsPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-// See Kinesis Firehose below for more details.
+// Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) KinesisFirehose() AnalyticsApplicationInputsKinesisFirehosePtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *AnalyticsApplicationInputsKinesisFirehose {
 		if v == nil {
@@ -623,8 +610,7 @@ func (o AnalyticsApplicationInputsPtrOutput) KinesisFirehose() AnalyticsApplicat
 	}).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
 
-// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-// See Kinesis Stream below for more details.
+// Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) KinesisStream() AnalyticsApplicationInputsKinesisStreamPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *AnalyticsApplicationInputsKinesisStream {
 		if v == nil {
@@ -634,7 +620,7 @@ func (o AnalyticsApplicationInputsPtrOutput) KinesisStream() AnalyticsApplicatio
 	}).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
 
-// The Name Prefix to use when creating an in-application stream.
+// Name Prefix to use when creating an in-application stream.
 func (o AnalyticsApplicationInputsPtrOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *string {
 		if v == nil {
@@ -644,8 +630,7 @@ func (o AnalyticsApplicationInputsPtrOutput) NamePrefix() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of Parallel in-application streams to create.
-// See Parallelism below for more details.
+// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) Parallelism() AnalyticsApplicationInputsParallelismPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *AnalyticsApplicationInputsParallelism {
 		if v == nil {
@@ -655,8 +640,7 @@ func (o AnalyticsApplicationInputsPtrOutput) Parallelism() AnalyticsApplicationI
 	}).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
 
-// The Processing Configuration to transform records as they are received from the stream.
-// See Processing Configuration below for more details.
+// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) ProcessingConfiguration() AnalyticsApplicationInputsProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *AnalyticsApplicationInputsProcessingConfiguration {
 		if v == nil {
@@ -666,7 +650,7 @@ func (o AnalyticsApplicationInputsPtrOutput) ProcessingConfiguration() Analytics
 	}).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
 
-// The Schema format of the data in the streaming source. See Source Schema below for more details.
+// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) Schema() AnalyticsApplicationInputsSchemaPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) *AnalyticsApplicationInputsSchema {
 		if v == nil {
@@ -676,8 +660,7 @@ func (o AnalyticsApplicationInputsPtrOutput) Schema() AnalyticsApplicationInputs
 	}).(AnalyticsApplicationInputsSchemaPtrOutput)
 }
 
-// The point at which the application starts processing records from the streaming source.
-// See Starting Position Configuration below for more details.
+// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
 func (o AnalyticsApplicationInputsPtrOutput) StartingPositionConfigurations() AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) []AnalyticsApplicationInputsStartingPositionConfiguration {
 		if v == nil {
@@ -687,6 +670,7 @@ func (o AnalyticsApplicationInputsPtrOutput) StartingPositionConfigurations() An
 	}).(AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput)
 }
 
+// Names of the in-application streams created for the input.
 func (o AnalyticsApplicationInputsPtrOutput) StreamNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputs) []string {
 		if v == nil {
@@ -697,10 +681,8 @@ func (o AnalyticsApplicationInputsPtrOutput) StreamNames() pulumi.StringArrayOut
 }
 
 type AnalyticsApplicationInputsKinesisFirehose struct {
-	// The ARN of the Kinesis Firehose delivery stream.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationInputsKinesisFirehoseInput is an input type that accepts AnalyticsApplicationInputsKinesisFirehoseArgs and AnalyticsApplicationInputsKinesisFirehoseOutput values.
@@ -715,10 +697,8 @@ type AnalyticsApplicationInputsKinesisFirehoseInput interface {
 }
 
 type AnalyticsApplicationInputsKinesisFirehoseArgs struct {
-	// The ARN of the Kinesis Firehose delivery stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationInputsKinesisFirehoseArgs) ElementType() reflect.Type {
@@ -798,12 +778,10 @@ func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationI
 	}).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
 
-// The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisFirehose) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationInputsKinesisFirehoseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisFirehose) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -832,7 +810,6 @@ func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) Elem() AnalyticsAppl
 	}).(AnalyticsApplicationInputsKinesisFirehoseOutput)
 }
 
-// The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisFirehose) *string {
 		if v == nil {
@@ -842,7 +819,6 @@ func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ResourceArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisFirehose) *string {
 		if v == nil {
@@ -853,10 +829,8 @@ func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) RoleArn() pulumi.Str
 }
 
 type AnalyticsApplicationInputsKinesisStream struct {
-	// The ARN of the Kinesis Stream.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationInputsKinesisStreamInput is an input type that accepts AnalyticsApplicationInputsKinesisStreamArgs and AnalyticsApplicationInputsKinesisStreamOutput values.
@@ -871,10 +845,8 @@ type AnalyticsApplicationInputsKinesisStreamInput interface {
 }
 
 type AnalyticsApplicationInputsKinesisStreamArgs struct {
-	// The ARN of the Kinesis Stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationInputsKinesisStreamArgs) ElementType() reflect.Type {
@@ -954,12 +926,10 @@ func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInp
 	}).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
 
-// The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationInputsKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisStream) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationInputsKinesisStreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisStream) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -988,7 +958,6 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) Elem() AnalyticsApplic
 	}).(AnalyticsApplicationInputsKinesisStreamOutput)
 }
 
-// The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisStream) *string {
 		if v == nil {
@@ -998,7 +967,6 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ResourceArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisStream) *string {
 		if v == nil {
@@ -1009,7 +977,7 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) RoleArn() pulumi.Strin
 }
 
 type AnalyticsApplicationInputsParallelism struct {
-	// The Count of streams.
+	// Count of streams.
 	Count *int `pulumi:"count"`
 }
 
@@ -1025,7 +993,7 @@ type AnalyticsApplicationInputsParallelismInput interface {
 }
 
 type AnalyticsApplicationInputsParallelismArgs struct {
-	// The Count of streams.
+	// Count of streams.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -1106,7 +1074,7 @@ func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInput
 	}).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
 
-// The Count of streams.
+// Count of streams.
 func (o AnalyticsApplicationInputsParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -1135,7 +1103,7 @@ func (o AnalyticsApplicationInputsParallelismPtrOutput) Elem() AnalyticsApplicat
 	}).(AnalyticsApplicationInputsParallelismOutput)
 }
 
-// The Count of streams.
+// Count of streams.
 func (o AnalyticsApplicationInputsParallelismPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsParallelism) *int {
 		if v == nil {
@@ -1146,7 +1114,6 @@ func (o AnalyticsApplicationInputsParallelismPtrOutput) Count() pulumi.IntPtrOut
 }
 
 type AnalyticsApplicationInputsProcessingConfiguration struct {
-	// The Lambda function configuration. See Lambda below for more details.
 	Lambda AnalyticsApplicationInputsProcessingConfigurationLambda `pulumi:"lambda"`
 }
 
@@ -1162,7 +1129,6 @@ type AnalyticsApplicationInputsProcessingConfigurationInput interface {
 }
 
 type AnalyticsApplicationInputsProcessingConfigurationArgs struct {
-	// The Lambda function configuration. See Lambda below for more details.
 	Lambda AnalyticsApplicationInputsProcessingConfigurationLambdaInput `pulumi:"lambda"`
 }
 
@@ -1243,7 +1209,6 @@ func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsAppl
 	}).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
 
-// The Lambda function configuration. See Lambda below for more details.
 func (o AnalyticsApplicationInputsProcessingConfigurationOutput) Lambda() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfiguration) AnalyticsApplicationInputsProcessingConfigurationLambda {
 		return v.Lambda
@@ -1274,7 +1239,6 @@ func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) Elem() Analy
 	}).(AnalyticsApplicationInputsProcessingConfigurationOutput)
 }
 
-// The Lambda function configuration. See Lambda below for more details.
 func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) Lambda() AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsProcessingConfiguration) *AnalyticsApplicationInputsProcessingConfigurationLambda {
 		if v == nil {
@@ -1285,10 +1249,8 @@ func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) Lambda() Ana
 }
 
 type AnalyticsApplicationInputsProcessingConfigurationLambda struct {
-	// The ARN of the Lambda function.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the Lambda function.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationInputsProcessingConfigurationLambdaInput is an input type that accepts AnalyticsApplicationInputsProcessingConfigurationLambdaArgs and AnalyticsApplicationInputsProcessingConfigurationLambdaOutput values.
@@ -1303,10 +1265,8 @@ type AnalyticsApplicationInputsProcessingConfigurationLambdaInput interface {
 }
 
 type AnalyticsApplicationInputsProcessingConfigurationLambdaArgs struct {
-	// The ARN of the Lambda function.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the Lambda function.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ElementType() reflect.Type {
@@ -1386,12 +1346,10 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyti
 	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput)
 }
 
-// The ARN of the Lambda function.
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the Lambda function.
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1420,7 +1378,6 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) Elem()
 	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
 }
 
-// The ARN of the Lambda function.
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsProcessingConfigurationLambda) *string {
 		if v == nil {
@@ -1430,7 +1387,6 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) Resour
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the Lambda function.
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsProcessingConfigurationLambda) *string {
 		if v == nil {
@@ -1441,14 +1397,9 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) RoleAr
 }
 
 type AnalyticsApplicationInputsSchema struct {
-	// The Record Column mapping for the streaming source data element.
-	// See Record Columns below for more details.
-	RecordColumns []AnalyticsApplicationInputsSchemaRecordColumn `pulumi:"recordColumns"`
-	// The Encoding of the record in the streaming source.
-	RecordEncoding *string `pulumi:"recordEncoding"`
-	// The Record Format and mapping information to schematize a record.
-	// See Record Format below for more details.
-	RecordFormat AnalyticsApplicationInputsSchemaRecordFormat `pulumi:"recordFormat"`
+	RecordColumns  []AnalyticsApplicationInputsSchemaRecordColumn `pulumi:"recordColumns"`
+	RecordEncoding *string                                        `pulumi:"recordEncoding"`
+	RecordFormat   AnalyticsApplicationInputsSchemaRecordFormat   `pulumi:"recordFormat"`
 }
 
 // AnalyticsApplicationInputsSchemaInput is an input type that accepts AnalyticsApplicationInputsSchemaArgs and AnalyticsApplicationInputsSchemaOutput values.
@@ -1463,14 +1414,9 @@ type AnalyticsApplicationInputsSchemaInput interface {
 }
 
 type AnalyticsApplicationInputsSchemaArgs struct {
-	// The Record Column mapping for the streaming source data element.
-	// See Record Columns below for more details.
-	RecordColumns AnalyticsApplicationInputsSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
-	// The Encoding of the record in the streaming source.
-	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
-	// The Record Format and mapping information to schematize a record.
-	// See Record Format below for more details.
-	RecordFormat AnalyticsApplicationInputsSchemaRecordFormatInput `pulumi:"recordFormat"`
+	RecordColumns  AnalyticsApplicationInputsSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
+	RecordEncoding pulumi.StringPtrInput                                  `pulumi:"recordEncoding"`
+	RecordFormat   AnalyticsApplicationInputsSchemaRecordFormatInput      `pulumi:"recordFormat"`
 }
 
 func (AnalyticsApplicationInputsSchemaArgs) ElementType() reflect.Type {
@@ -1550,21 +1496,16 @@ func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSche
 	}).(AnalyticsApplicationInputsSchemaPtrOutput)
 }
 
-// The Record Column mapping for the streaming source data element.
-// See Record Columns below for more details.
 func (o AnalyticsApplicationInputsSchemaOutput) RecordColumns() AnalyticsApplicationInputsSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchema) []AnalyticsApplicationInputsSchemaRecordColumn {
 		return v.RecordColumns
 	}).(AnalyticsApplicationInputsSchemaRecordColumnArrayOutput)
 }
 
-// The Encoding of the record in the streaming source.
 func (o AnalyticsApplicationInputsSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchema) *string { return v.RecordEncoding }).(pulumi.StringPtrOutput)
 }
 
-// The Record Format and mapping information to schematize a record.
-// See Record Format below for more details.
 func (o AnalyticsApplicationInputsSchemaOutput) RecordFormat() AnalyticsApplicationInputsSchemaRecordFormatOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchema) AnalyticsApplicationInputsSchemaRecordFormat {
 		return v.RecordFormat
@@ -1595,8 +1536,6 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) Elem() AnalyticsApplicationIn
 	}).(AnalyticsApplicationInputsSchemaOutput)
 }
 
-// The Record Column mapping for the streaming source data element.
-// See Record Columns below for more details.
 func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordColumns() AnalyticsApplicationInputsSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchema) []AnalyticsApplicationInputsSchemaRecordColumn {
 		if v == nil {
@@ -1606,7 +1545,6 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordColumns() AnalyticsAppl
 	}).(AnalyticsApplicationInputsSchemaRecordColumnArrayOutput)
 }
 
-// The Encoding of the record in the streaming source.
 func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchema) *string {
 		if v == nil {
@@ -1616,8 +1554,6 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordEncoding() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Record Format and mapping information to schematize a record.
-// See Record Format below for more details.
 func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordFormat() AnalyticsApplicationInputsSchemaRecordFormatPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchema) *AnalyticsApplicationInputsSchemaRecordFormat {
 		if v == nil {
@@ -1628,11 +1564,9 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) RecordFormat() AnalyticsAppli
 }
 
 type AnalyticsApplicationInputsSchemaRecordColumn struct {
-	// The Mapping reference to the data element.
 	Mapping *string `pulumi:"mapping"`
-	// Name of the column.
-	Name string `pulumi:"name"`
-	// The SQL Type of the column.
+	// Name of the Kinesis Analytics Application.
+	Name    string `pulumi:"name"`
 	SqlType string `pulumi:"sqlType"`
 }
 
@@ -1648,11 +1582,9 @@ type AnalyticsApplicationInputsSchemaRecordColumnInput interface {
 }
 
 type AnalyticsApplicationInputsSchemaRecordColumnArgs struct {
-	// The Mapping reference to the data element.
 	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	// Name of the column.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SQL Type of the column.
+	// Name of the Kinesis Analytics Application.
+	Name    pulumi.StringInput `pulumi:"name"`
 	SqlType pulumi.StringInput `pulumi:"sqlType"`
 }
 
@@ -1707,17 +1639,15 @@ func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) ToAnalyticsApplicati
 	return o
 }
 
-// The Mapping reference to the data element.
 func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordColumn) *string { return v.Mapping }).(pulumi.StringPtrOutput)
 }
 
-// Name of the column.
+// Name of the Kinesis Analytics Application.
 func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SQL Type of the column.
 func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) SqlType() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordColumn) string { return v.SqlType }).(pulumi.StringOutput)
 }
@@ -1743,10 +1673,8 @@ func (o AnalyticsApplicationInputsSchemaRecordColumnArrayOutput) Index(i pulumi.
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormat struct {
-	// The Mapping Information for the record format.
-	// See Mapping Parameters below for more details.
 	MappingParameters *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
-	// The type of Record Format. Can be `CSV` or `JSON`.
+	// Type of Record Format of the input streaming source.
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
@@ -1762,10 +1690,8 @@ type AnalyticsApplicationInputsSchemaRecordFormatInput interface {
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatArgs struct {
-	// The Mapping Information for the record format.
-	// See Mapping Parameters below for more details.
 	MappingParameters AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrInput `pulumi:"mappingParameters"`
-	// The type of Record Format. Can be `CSV` or `JSON`.
+	// Type of Record Format of the input streaming source.
 	RecordFormatType pulumi.StringPtrInput `pulumi:"recordFormatType"`
 }
 
@@ -1846,15 +1772,13 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicati
 	}).(AnalyticsApplicationInputsSchemaRecordFormatPtrOutput)
 }
 
-// The Mapping Information for the record format.
-// See Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) MappingParameters() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormat) *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
 		return v.MappingParameters
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of Record Format. Can be `CSV` or `JSON`.
+// Type of Record Format of the input streaming source.
 func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormat) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
 }
@@ -1883,8 +1807,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) Elem() AnalyticsA
 	}).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
 }
 
-// The Mapping Information for the record format.
-// See Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) MappingParameters() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormat) *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
 		if v == nil {
@@ -1894,7 +1816,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) MappingParameters
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of Record Format. Can be `CSV` or `JSON`.
+// Type of Record Format of the input streaming source.
 func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormat) *string {
 		if v == nil {
@@ -1905,11 +1827,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) RecordFormatType(
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParameters struct {
-	// Mapping information when the record format uses delimiters.
-	// See CSV Mapping Parameters below for more details.
-	Csv *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv `pulumi:"csv"`
-	// Mapping information when JSON is the record format on the streaming source.
-	// See JSON Mapping Parameters below for more details.
+	Csv  *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv  `pulumi:"csv"`
 	Json *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson `pulumi:"json"`
 }
 
@@ -1925,11 +1843,7 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput interfac
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs struct {
-	// Mapping information when the record format uses delimiters.
-	// See CSV Mapping Parameters below for more details.
-	Csv AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput `pulumi:"csv"`
-	// Mapping information when JSON is the record format on the streaming source.
-	// See JSON Mapping Parameters below for more details.
+	Csv  AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput  `pulumi:"csv"`
 	Json AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrInput `pulumi:"json"`
 }
 
@@ -2010,16 +1924,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToA
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// Mapping information when the record format uses delimiters.
-// See CSV Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) Csv() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
 		return v.Csv
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// Mapping information when JSON is the record format on the streaming source.
-// See JSON Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) Json() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
 		return v.Json
@@ -2050,8 +1960,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) 
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
 }
 
-// Mapping information when the record format uses delimiters.
-// See CSV Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) Csv() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
 		if v == nil {
@@ -2061,8 +1969,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) 
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// Mapping information when JSON is the record format on the streaming source.
-// See JSON Mapping Parameters below for more details.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) Json() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
 		if v == nil {
@@ -2073,10 +1979,8 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) 
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv struct {
-	// The Column Delimiter.
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	// The Row Delimiter.
-	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
+	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
 }
 
 // AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput values.
@@ -2091,10 +1995,8 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput inter
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs struct {
-	// The Column Delimiter.
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	// The Row Delimiter.
-	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
+	RecordRowDelimiter    pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
 func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ElementType() reflect.Type {
@@ -2174,14 +2076,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) 
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// The Column Delimiter.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) string {
 		return v.RecordColumnDelimiter
 	}).(pulumi.StringOutput)
 }
 
-// The Row Delimiter.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) RecordRowDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) string {
 		return v.RecordRowDelimiter
@@ -2212,7 +2112,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutpu
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
 }
 
-// The Column Delimiter.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) *string {
 		if v == nil {
@@ -2222,7 +2121,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Row Delimiter.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) *string {
 		if v == nil {
@@ -2233,7 +2131,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutpu
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson struct {
-	// Path to the top-level parent that contains the records.
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
@@ -2249,7 +2146,6 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput inte
 }
 
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs struct {
-	// Path to the top-level parent that contains the records.
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
@@ -2330,7 +2226,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
-// Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) string {
 		return v.RecordRowPath
@@ -2361,7 +2256,6 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutp
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 }
 
-// Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) *string {
 		if v == nil {
@@ -2372,7 +2266,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutp
 }
 
 type AnalyticsApplicationInputsStartingPositionConfiguration struct {
-	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+	// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	StartingPosition *string `pulumi:"startingPosition"`
 }
 
@@ -2388,7 +2282,7 @@ type AnalyticsApplicationInputsStartingPositionConfigurationInput interface {
 }
 
 type AnalyticsApplicationInputsStartingPositionConfigurationArgs struct {
-	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+	// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	StartingPosition pulumi.StringPtrInput `pulumi:"startingPosition"`
 }
 
@@ -2443,7 +2337,7 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) ToAnalyti
 	return o
 }
 
-// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsStartingPositionConfiguration) *string { return v.StartingPosition }).(pulumi.StringPtrOutput)
 }
@@ -2469,19 +2363,17 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) Inde
 }
 
 type AnalyticsApplicationOutputType struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
-	// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-	// See Kinesis Firehose below for more details.
+	// Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
 	KinesisFirehose *AnalyticsApplicationOutputKinesisFirehose `pulumi:"kinesisFirehose"`
-	// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-	// See Kinesis Stream below for more details.
+	// Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
 	KinesisStream *AnalyticsApplicationOutputKinesisStream `pulumi:"kinesisStream"`
-	// The Lambda function destination. See Lambda below for more details.
+	// Lambda function destination. See `outputs.lambda` Block below for details.
 	Lambda *AnalyticsApplicationOutputLambda `pulumi:"lambda"`
-	// The Name of the in-application stream.
+	// Name of the in-application stream.
 	Name string `pulumi:"name"`
-	// The Schema format of the data written to the destination. See Destination Schema below for more details.
+	// Schema format of the data written to the destination. See `outputs.schema` Block below for details.
 	Schema AnalyticsApplicationOutputSchema `pulumi:"schema"`
 }
 
@@ -2497,19 +2389,17 @@ type AnalyticsApplicationOutputTypeInput interface {
 }
 
 type AnalyticsApplicationOutputTypeArgs struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-	// See Kinesis Firehose below for more details.
+	// Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
 	KinesisFirehose AnalyticsApplicationOutputKinesisFirehosePtrInput `pulumi:"kinesisFirehose"`
-	// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-	// See Kinesis Stream below for more details.
+	// Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
 	KinesisStream AnalyticsApplicationOutputKinesisStreamPtrInput `pulumi:"kinesisStream"`
-	// The Lambda function destination. See Lambda below for more details.
+	// Lambda function destination. See `outputs.lambda` Block below for details.
 	Lambda AnalyticsApplicationOutputLambdaPtrInput `pulumi:"lambda"`
-	// The Name of the in-application stream.
+	// Name of the in-application stream.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Schema format of the data written to the destination. See Destination Schema below for more details.
+	// Schema format of the data written to the destination. See `outputs.schema` Block below for details.
 	Schema AnalyticsApplicationOutputSchemaInput `pulumi:"schema"`
 }
 
@@ -2564,38 +2454,36 @@ func (o AnalyticsApplicationOutputTypeOutput) ToAnalyticsApplicationOutputTypeOu
 	return o
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationOutputTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-// See Kinesis Firehose below for more details.
+// Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
 func (o AnalyticsApplicationOutputTypeOutput) KinesisFirehose() AnalyticsApplicationOutputKinesisFirehosePtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputKinesisFirehose {
 		return v.KinesisFirehose
 	}).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
 
-// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-// See Kinesis Stream below for more details.
+// Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
 func (o AnalyticsApplicationOutputTypeOutput) KinesisStream() AnalyticsApplicationOutputKinesisStreamPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputKinesisStream {
 		return v.KinesisStream
 	}).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
 
-// The Lambda function destination. See Lambda below for more details.
+// Lambda function destination. See `outputs.lambda` Block below for details.
 func (o AnalyticsApplicationOutputTypeOutput) Lambda() AnalyticsApplicationOutputLambdaPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) *AnalyticsApplicationOutputLambda { return v.Lambda }).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
 
-// The Name of the in-application stream.
+// Name of the in-application stream.
 func (o AnalyticsApplicationOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Schema format of the data written to the destination. See Destination Schema below for more details.
+// Schema format of the data written to the destination. See `outputs.schema` Block below for details.
 func (o AnalyticsApplicationOutputTypeOutput) Schema() AnalyticsApplicationOutputSchemaOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputType) AnalyticsApplicationOutputSchema { return v.Schema }).(AnalyticsApplicationOutputSchemaOutput)
 }
@@ -2621,10 +2509,8 @@ func (o AnalyticsApplicationOutputTypeArrayOutput) Index(i pulumi.IntInput) Anal
 }
 
 type AnalyticsApplicationOutputKinesisFirehose struct {
-	// The ARN of the Kinesis Firehose delivery stream.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationOutputKinesisFirehoseInput is an input type that accepts AnalyticsApplicationOutputKinesisFirehoseArgs and AnalyticsApplicationOutputKinesisFirehoseOutput values.
@@ -2639,10 +2525,8 @@ type AnalyticsApplicationOutputKinesisFirehoseInput interface {
 }
 
 type AnalyticsApplicationOutputKinesisFirehoseArgs struct {
-	// The ARN of the Kinesis Firehose delivery stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationOutputKinesisFirehoseArgs) ElementType() reflect.Type {
@@ -2722,12 +2606,10 @@ func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ToAnalyticsApplicationO
 	}).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
 
-// The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisFirehose) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationOutputKinesisFirehoseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisFirehose) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2756,7 +2638,6 @@ func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) Elem() AnalyticsAppl
 	}).(AnalyticsApplicationOutputKinesisFirehoseOutput)
 }
 
-// The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisFirehose) *string {
 		if v == nil {
@@ -2766,7 +2647,6 @@ func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ResourceArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisFirehose) *string {
 		if v == nil {
@@ -2777,10 +2657,8 @@ func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) RoleArn() pulumi.Str
 }
 
 type AnalyticsApplicationOutputKinesisStream struct {
-	// The ARN of the Kinesis Stream.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationOutputKinesisStreamInput is an input type that accepts AnalyticsApplicationOutputKinesisStreamArgs and AnalyticsApplicationOutputKinesisStreamOutput values.
@@ -2795,10 +2673,8 @@ type AnalyticsApplicationOutputKinesisStreamInput interface {
 }
 
 type AnalyticsApplicationOutputKinesisStreamArgs struct {
-	// The ARN of the Kinesis Stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the stream.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationOutputKinesisStreamArgs) ElementType() reflect.Type {
@@ -2878,12 +2754,10 @@ func (o AnalyticsApplicationOutputKinesisStreamOutput) ToAnalyticsApplicationOut
 	}).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
 
-// The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationOutputKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisStream) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationOutputKinesisStreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisStream) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2912,7 +2786,6 @@ func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) Elem() AnalyticsApplic
 	}).(AnalyticsApplicationOutputKinesisStreamOutput)
 }
 
-// The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisStream) *string {
 		if v == nil {
@@ -2922,7 +2795,6 @@ func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ResourceArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the stream.
 func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisStream) *string {
 		if v == nil {
@@ -2933,10 +2805,8 @@ func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) RoleArn() pulumi.Strin
 }
 
 type AnalyticsApplicationOutputLambda struct {
-	// The ARN of the Lambda function.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the Lambda function.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // AnalyticsApplicationOutputLambdaInput is an input type that accepts AnalyticsApplicationOutputLambdaArgs and AnalyticsApplicationOutputLambdaOutput values.
@@ -2951,10 +2821,8 @@ type AnalyticsApplicationOutputLambdaInput interface {
 }
 
 type AnalyticsApplicationOutputLambdaArgs struct {
-	// The ARN of the Lambda function.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The ARN of the IAM Role used to access the Lambda function.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnalyticsApplicationOutputLambdaArgs) ElementType() reflect.Type {
@@ -3034,12 +2902,10 @@ func (o AnalyticsApplicationOutputLambdaOutput) ToAnalyticsApplicationOutputLamb
 	}).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
 
-// The ARN of the Lambda function.
 func (o AnalyticsApplicationOutputLambdaOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputLambda) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM Role used to access the Lambda function.
 func (o AnalyticsApplicationOutputLambdaOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputLambda) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3068,7 +2934,6 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) Elem() AnalyticsApplicationOu
 	}).(AnalyticsApplicationOutputLambdaOutput)
 }
 
-// The ARN of the Lambda function.
 func (o AnalyticsApplicationOutputLambdaPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputLambda) *string {
 		if v == nil {
@@ -3078,7 +2943,6 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) ResourceArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role used to access the Lambda function.
 func (o AnalyticsApplicationOutputLambdaPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputLambda) *string {
 		if v == nil {
@@ -3089,7 +2953,7 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) RoleArn() pulumi.StringPtrOut
 }
 
 type AnalyticsApplicationOutputSchema struct {
-	// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+	// Format Type of the records on the output stream. Can be `CSV` or `JSON`.
 	RecordFormatType string `pulumi:"recordFormatType"`
 }
 
@@ -3105,7 +2969,7 @@ type AnalyticsApplicationOutputSchemaInput interface {
 }
 
 type AnalyticsApplicationOutputSchemaArgs struct {
-	// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+	// Format Type of the records on the output stream. Can be `CSV` or `JSON`.
 	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
 }
 
@@ -3135,19 +2999,19 @@ func (o AnalyticsApplicationOutputSchemaOutput) ToAnalyticsApplicationOutputSche
 	return o
 }
 
-// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+// Format Type of the records on the output stream. Can be `CSV` or `JSON`.
 func (o AnalyticsApplicationOutputSchemaOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputSchema) string { return v.RecordFormatType }).(pulumi.StringOutput)
 }
 
 type AnalyticsApplicationReferenceDataSources struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
-	// The S3 configuration for the reference data source. See S3 Reference below for more details.
+	// S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
 	S3 AnalyticsApplicationReferenceDataSourcesS3 `pulumi:"s3"`
-	// The Schema format of the data in the streaming source. See Source Schema below for more details.
+	// Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
 	Schema AnalyticsApplicationReferenceDataSourcesSchema `pulumi:"schema"`
-	// The in-application Table Name.
+	// In-application Table Name.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -3163,13 +3027,13 @@ type AnalyticsApplicationReferenceDataSourcesInput interface {
 }
 
 type AnalyticsApplicationReferenceDataSourcesArgs struct {
-	// The ARN of the Kinesis Analytics Application.
+	// ARN of the Kinesis Analytics Application.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The S3 configuration for the reference data source. See S3 Reference below for more details.
+	// S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
 	S3 AnalyticsApplicationReferenceDataSourcesS3Input `pulumi:"s3"`
-	// The Schema format of the data in the streaming source. See Source Schema below for more details.
+	// Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
 	Schema AnalyticsApplicationReferenceDataSourcesSchemaInput `pulumi:"schema"`
-	// The in-application Table Name.
+	// In-application Table Name.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -3250,26 +3114,26 @@ func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationRe
 	}).(AnalyticsApplicationReferenceDataSourcesPtrOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationReferenceDataSourcesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSources) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The S3 configuration for the reference data source. See S3 Reference below for more details.
+// S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
 func (o AnalyticsApplicationReferenceDataSourcesOutput) S3() AnalyticsApplicationReferenceDataSourcesS3Output {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSourcesS3 {
 		return v.S3
 	}).(AnalyticsApplicationReferenceDataSourcesS3Output)
 }
 
-// The Schema format of the data in the streaming source. See Source Schema below for more details.
+// Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
 func (o AnalyticsApplicationReferenceDataSourcesOutput) Schema() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSourcesSchema {
 		return v.Schema
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
 }
 
-// The in-application Table Name.
+// In-application Table Name.
 func (o AnalyticsApplicationReferenceDataSourcesOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSources) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -3298,7 +3162,7 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Elem() AnalyticsAppli
 	}).(AnalyticsApplicationReferenceDataSourcesOutput)
 }
 
-// The ARN of the Kinesis Analytics Application.
+// ARN of the Kinesis Analytics Application.
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) *string {
 		if v == nil {
@@ -3308,7 +3172,7 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Id() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 configuration for the reference data source. See S3 Reference below for more details.
+// S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) S3() AnalyticsApplicationReferenceDataSourcesS3PtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) *AnalyticsApplicationReferenceDataSourcesS3 {
 		if v == nil {
@@ -3318,7 +3182,7 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) S3() AnalyticsApplica
 	}).(AnalyticsApplicationReferenceDataSourcesS3PtrOutput)
 }
 
-// The Schema format of the data in the streaming source. See Source Schema below for more details.
+// Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Schema() AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) *AnalyticsApplicationReferenceDataSourcesSchema {
 		if v == nil {
@@ -3328,7 +3192,7 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Schema() AnalyticsApp
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput)
 }
 
-// The in-application Table Name.
+// In-application Table Name.
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) *string {
 		if v == nil {
@@ -3339,11 +3203,10 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) TableName() pulumi.St
 }
 
 type AnalyticsApplicationReferenceDataSourcesS3 struct {
-	// The S3 Bucket ARN.
+	// S3 Bucket ARN.
 	BucketArn string `pulumi:"bucketArn"`
-	// The File Key name containing reference data.
+	// File Key name containing reference data.
 	FileKey string `pulumi:"fileKey"`
-	// The IAM Role ARN to read the data.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -3359,11 +3222,10 @@ type AnalyticsApplicationReferenceDataSourcesS3Input interface {
 }
 
 type AnalyticsApplicationReferenceDataSourcesS3Args struct {
-	// The S3 Bucket ARN.
+	// S3 Bucket ARN.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The File Key name containing reference data.
+	// File Key name containing reference data.
 	FileKey pulumi.StringInput `pulumi:"fileKey"`
-	// The IAM Role ARN to read the data.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -3444,17 +3306,16 @@ func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplication
 	}).(AnalyticsApplicationReferenceDataSourcesS3PtrOutput)
 }
 
-// The S3 Bucket ARN.
+// S3 Bucket ARN.
 func (o AnalyticsApplicationReferenceDataSourcesS3Output) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesS3) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// The File Key name containing reference data.
+// File Key name containing reference data.
 func (o AnalyticsApplicationReferenceDataSourcesS3Output) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesS3) string { return v.FileKey }).(pulumi.StringOutput)
 }
 
-// The IAM Role ARN to read the data.
 func (o AnalyticsApplicationReferenceDataSourcesS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3483,7 +3344,7 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) Elem() AnalyticsApp
 	}).(AnalyticsApplicationReferenceDataSourcesS3Output)
 }
 
-// The S3 Bucket ARN.
+// S3 Bucket ARN.
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesS3) *string {
 		if v == nil {
@@ -3493,7 +3354,7 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) BucketArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The File Key name containing reference data.
+// File Key name containing reference data.
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) FileKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesS3) *string {
 		if v == nil {
@@ -3503,7 +3364,6 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) FileKey() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IAM Role ARN to read the data.
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesS3) *string {
 		if v == nil {
@@ -3514,14 +3374,9 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) RoleArn() pulumi.St
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchema struct {
-	// The Record Column mapping for the streaming source data element.
-	// See Record Columns below for more details.
-	RecordColumns []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn `pulumi:"recordColumns"`
-	// The Encoding of the record in the streaming source.
-	RecordEncoding *string `pulumi:"recordEncoding"`
-	// The Record Format and mapping information to schematize a record.
-	// See Record Format below for more details.
-	RecordFormat AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat `pulumi:"recordFormat"`
+	RecordColumns  []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn `pulumi:"recordColumns"`
+	RecordEncoding *string                                                      `pulumi:"recordEncoding"`
+	RecordFormat   AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat   `pulumi:"recordFormat"`
 }
 
 // AnalyticsApplicationReferenceDataSourcesSchemaInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaArgs and AnalyticsApplicationReferenceDataSourcesSchemaOutput values.
@@ -3536,14 +3391,9 @@ type AnalyticsApplicationReferenceDataSourcesSchemaInput interface {
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaArgs struct {
-	// The Record Column mapping for the streaming source data element.
-	// See Record Columns below for more details.
-	RecordColumns AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
-	// The Encoding of the record in the streaming source.
-	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
-	// The Record Format and mapping information to schematize a record.
-	// See Record Format below for more details.
-	RecordFormat AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput `pulumi:"recordFormat"`
+	RecordColumns  AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
+	RecordEncoding pulumi.StringPtrInput                                                `pulumi:"recordEncoding"`
+	RecordFormat   AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput      `pulumi:"recordFormat"`
 }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaArgs) ElementType() reflect.Type {
@@ -3623,21 +3473,16 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplica
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput)
 }
 
-// The Record Column mapping for the streaming source data element.
-// See Record Columns below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordColumns() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchema) []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
 		return v.RecordColumns
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput)
 }
 
-// The Encoding of the record in the streaming source.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchema) *string { return v.RecordEncoding }).(pulumi.StringPtrOutput)
 }
 
-// The Record Format and mapping information to schematize a record.
-// See Record Format below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordFormat() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchema) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
 		return v.RecordFormat
@@ -3668,8 +3513,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) Elem() Analytic
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
 }
 
-// The Record Column mapping for the streaming source data element.
-// See Record Columns below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordColumns() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchema) []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
 		if v == nil {
@@ -3679,7 +3522,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordColumns()
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput)
 }
 
-// The Encoding of the record in the streaming source.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchema) *string {
 		if v == nil {
@@ -3689,8 +3531,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordEncoding(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Record Format and mapping information to schematize a record.
-// See Record Format below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordFormat() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchema) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
 		if v == nil {
@@ -3701,11 +3541,9 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) RecordFormat() 
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn struct {
-	// The Mapping reference to the data element.
 	Mapping *string `pulumi:"mapping"`
-	// Name of the column.
-	Name string `pulumi:"name"`
-	// The SQL Type of the column.
+	// Name of the Kinesis Analytics Application.
+	Name    string `pulumi:"name"`
 	SqlType string `pulumi:"sqlType"`
 }
 
@@ -3721,11 +3559,9 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnInput interface {
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs struct {
-	// The Mapping reference to the data element.
 	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	// Name of the column.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SQL Type of the column.
+	// Name of the Kinesis Analytics Application.
+	Name    pulumi.StringInput `pulumi:"name"`
 	SqlType pulumi.StringInput `pulumi:"sqlType"`
 }
 
@@ -3780,17 +3616,15 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) ToAnal
 	return o
 }
 
-// The Mapping reference to the data element.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn) *string { return v.Mapping }).(pulumi.StringPtrOutput)
 }
 
-// Name of the column.
+// Name of the Kinesis Analytics Application.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SQL Type of the column.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) SqlType() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn) string { return v.SqlType }).(pulumi.StringOutput)
 }
@@ -3816,10 +3650,8 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput) I
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat struct {
-	// The Mapping Information for the record format.
-	// See Mapping Parameters below for more details.
 	MappingParameters *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
-	// The type of Record Format. Can be `CSV` or `JSON`.
+	// Type of Record Format of the reference data source.
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
@@ -3835,10 +3667,8 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput interface {
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs struct {
-	// The Mapping Information for the record format.
-	// See Mapping Parameters below for more details.
 	MappingParameters AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrInput `pulumi:"mappingParameters"`
-	// The type of Record Format. Can be `CSV` or `JSON`.
+	// Type of Record Format of the reference data source.
 	RecordFormatType pulumi.StringPtrInput `pulumi:"recordFormatType"`
 }
 
@@ -3919,15 +3749,13 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnal
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput)
 }
 
-// The Mapping Information for the record format.
-// See Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) MappingParameters() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
 		return v.MappingParameters
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of Record Format. Can be `CSV` or `JSON`.
+// Type of Record Format of the reference data source.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
 }
@@ -3956,8 +3784,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) Ele
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
 }
 
-// The Mapping Information for the record format.
-// See Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) MappingParameters() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
 		if v == nil {
@@ -3967,7 +3793,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) Map
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of Record Format. Can be `CSV` or `JSON`.
+// Type of Record Format of the reference data source.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *string {
 		if v == nil {
@@ -3978,11 +3804,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) Rec
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters struct {
-	// Mapping information when the record format uses delimiters.
-	// See CSV Mapping Parameters below for more details.
-	Csv *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv `pulumi:"csv"`
-	// Mapping information when JSON is the record format on the streaming source.
-	// See JSON Mapping Parameters below for more details.
+	Csv  *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv  `pulumi:"csv"`
 	Json *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson `pulumi:"json"`
 }
 
@@ -3998,11 +3820,7 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs struct {
-	// Mapping information when the record format uses delimiters.
-	// See CSV Mapping Parameters below for more details.
-	Csv AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput `pulumi:"csv"`
-	// Mapping information when JSON is the record format on the streaming source.
-	// See JSON Mapping Parameters below for more details.
+	Csv  AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput  `pulumi:"csv"`
 	Json AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrInput `pulumi:"json"`
 }
 
@@ -4083,16 +3901,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// Mapping information when the record format uses delimiters.
-// See CSV Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) Csv() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
 		return v.Csv
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// Mapping information when JSON is the record format on the streaming source.
-// See JSON Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) Json() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
 		return v.Json
@@ -4123,8 +3937,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
 }
 
-// Mapping information when the record format uses delimiters.
-// See CSV Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) Csv() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
 		if v == nil {
@@ -4134,8 +3946,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// Mapping information when JSON is the record format on the streaming source.
-// See JSON Mapping Parameters below for more details.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) Json() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
 		if v == nil {
@@ -4146,10 +3956,8 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv struct {
-	// The Column Delimiter.
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	// The Row Delimiter.
-	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
+	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
 }
 
 // AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput values.
@@ -4164,10 +3972,8 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs struct {
-	// The Column Delimiter.
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	// The Row Delimiter.
-	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
+	RecordRowDelimiter    pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ElementType() reflect.Type {
@@ -4247,14 +4053,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
-// The Column Delimiter.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) string {
 		return v.RecordColumnDelimiter
 	}).(pulumi.StringOutput)
 }
 
-// The Row Delimiter.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) RecordRowDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) string {
 		return v.RecordRowDelimiter
@@ -4285,7 +4089,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
 }
 
-// The Column Delimiter.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) *string {
 		if v == nil {
@@ -4295,7 +4098,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Row Delimiter.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) *string {
 		if v == nil {
@@ -4306,7 +4108,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson struct {
-	// Path to the top-level parent that contains the records.
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
@@ -4322,7 +4123,6 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 }
 
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs struct {
-	// Path to the top-level parent that contains the records.
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
@@ -4403,7 +4203,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
-// Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) string {
 		return v.RecordRowPath
@@ -4434,7 +4233,6 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
 }
 
-// Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) *string {
 		if v == nil {
@@ -4449,29 +4247,29 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+	// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn *string `pulumi:"domainArn"`
-	// The Elasticsearch index name.
+	// Elasticsearch index name.
 	IndexName string `pulumi:"indexName"`
-	// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod *string `pulumi:"indexRotationPeriod"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn string `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The Elasticsearch type name with maximum length of 100 characters.
+	// Elasticsearch type name with maximum length of 100 characters.
 	TypeName *string `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -4491,29 +4289,29 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
-	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+	// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
-	// The Elasticsearch index name.
+	// Elasticsearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod pulumi.StringPtrInput `pulumi:"indexRotationPeriod"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The Elasticsearch type name with maximum length of 100 characters.
+	// Elasticsearch type name with maximum length of 100 characters.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -4604,34 +4402,34 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) BufferingSize() 
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
 
-// The Elasticsearch index name.
+// Elasticsearch index name.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.IndexRotationPeriod }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -4643,29 +4441,29 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) RetryDuration() 
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) S3Configuration() FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput)
 }
 
-// The Elasticsearch type name with maximum length of 100 characters.
+// Elasticsearch type name with maximum length of 100 characters.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) VpcConfig() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
 		return v.VpcConfig
@@ -4716,7 +4514,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) BufferingSize
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -4726,7 +4524,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) CloudwatchLog
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4736,7 +4534,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ClusterEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4746,7 +4544,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) DomainArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Elasticsearch index name.
+// Elasticsearch index name.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4756,7 +4554,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) IndexName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4766,7 +4564,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) IndexRotation
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
 		if v == nil {
@@ -4786,7 +4584,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RetryDuration
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4796,7 +4594,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RoleArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4806,7 +4604,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) S3BackupMode(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration {
 		if v == nil {
@@ -4816,7 +4614,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) S3Configurati
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput)
 }
 
-// The Elasticsearch type name with maximum length of 100 characters.
+// Elasticsearch type name with maximum length of 100 characters.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
@@ -4826,7 +4624,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) TypeName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
 		if v == nil {
@@ -4839,9 +4637,9 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) VpcConfig() F
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -4859,9 +4657,9 @@ type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsInp
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -4949,14 +4747,14 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -4997,7 +4795,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -5007,7 +4805,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -5020,7 +4818,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -5038,7 +4836,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationInpu
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -5126,7 +4924,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -5167,7 +4965,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -5178,9 +4976,9 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -5196,9 +4994,9 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5253,14 +5051,14 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -5404,25 +5202,23 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -5438,25 +5234,23 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationInput interf
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -5537,7 +5331,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) T
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -5549,20 +5343,19 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) B
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		return v.CompressionFormat
@@ -5576,18 +5369,17 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) E
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5616,7 +5408,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -5636,8 +5428,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -5647,7 +5438,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -5657,7 +5448,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -5677,8 +5468,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -5688,7 +5478,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -5698,7 +5488,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -5711,9 +5501,9 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -5731,9 +5521,9 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLo
 type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -5821,14 +5611,14 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -5869,7 +5659,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -5879,7 +5669,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -5890,13 +5680,14 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatc
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn string `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     *string  `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs and FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput values.
@@ -5911,13 +5702,14 @@ type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigInput interface {
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ElementType() reflect.Type {
@@ -5997,21 +5789,22 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFireh
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -6040,7 +5833,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Elem
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string {
 		if v == nil {
@@ -6050,7 +5843,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Role
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string {
 		if v == nil {
@@ -6060,7 +5853,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Secu
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string {
 		if v == nil {
@@ -6070,6 +5863,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Subn
 	}).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string {
 		if v == nil {
@@ -6080,34 +5874,37 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) VpcI
 }
 
 type FirehoseDeliveryStreamExtendedS3Configuration struct {
-	// The ARN of the S3 bucket
-	BucketArn                string                                                                 `pulumi:"bucketArn"`
-	BufferingInterval        *int                                                                   `pulumi:"bufferingInterval"`
-	BufferingSize            *int                                                                   `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
-	// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+	// Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
 	CustomTimeZone *string `pulumi:"customTimeZone"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
 	DataFormatConversionConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
-	// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+	// Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
 	DynamicPartitioningConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// The file extension to override the default file extension (for example, `.json`).
+	// File extension to override the default file extension (for example, `.json`).
 	FileExtension *string `pulumi:"fileExtension"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	RoleArn                 string                                                                `pulumi:"roleArn"`
-	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+	// ARN of the AWS credentials.
+	RoleArn string `pulumi:"roleArn"`
+	// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 	S3BackupConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 }
 
@@ -6123,34 +5920,37 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
-	BucketArn                pulumi.StringInput                                                            `pulumi:"bucketArn"`
-	BufferingInterval        pulumi.IntPtrInput                                                            `pulumi:"bufferingInterval"`
-	BufferingSize            pulumi.IntPtrInput                                                            `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
-	// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+	// Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
 	CustomTimeZone pulumi.StringPtrInput `pulumi:"customTimeZone"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
 	DataFormatConversionConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
-	// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+	// Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
 	DynamicPartitioningConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// The file extension to override the default file extension (for example, `.json`).
+	// File extension to override the default file extension (for example, `.json`).
 	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	RoleArn                 pulumi.StringInput                                                           `pulumi:"roleArn"`
-	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+	// ARN of the AWS credentials.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 	S3BackupConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 }
 
@@ -6231,31 +6031,34 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ToFirehoseDeliveryS
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
 
-// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+// Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CustomTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.CustomTimeZone }).(pulumi.StringPtrOutput)
 }
@@ -6267,7 +6070,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DataFormatConversio
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
-// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+// Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
 		return v.DynamicPartitioningConfiguration
@@ -6279,41 +6082,41 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ErrorOutputPrefix()
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The file extension to override the default file extension (for example, `.json`).
+// File extension to override the default file extension (for example, `.json`).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) FileExtension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
 		return v.S3BackupConfiguration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
@@ -6342,7 +6145,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) Elem() FirehoseD
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6352,6 +6155,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BucketArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *int {
 		if v == nil {
@@ -6361,6 +6165,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingInterva
 	}).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *int {
 		if v == nil {
@@ -6370,6 +6175,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingSize() 
 	}).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -6379,7 +6185,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CloudwatchLoggin
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6389,7 +6195,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CompressionForma
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+// Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CustomTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6409,7 +6215,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DataFormatConver
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
-// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+// Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
 		if v == nil {
@@ -6429,7 +6235,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ErrorOutputPrefi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file extension to override the default file extension (for example, `.json`).
+// File extension to override the default file extension (for example, `.json`).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) FileExtension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6439,8 +6245,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) FileExtension() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6450,7 +6255,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) KmsKeyArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6460,7 +6265,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) Prefix() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
 		if v == nil {
@@ -6470,6 +6275,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ProcessingConfig
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6479,7 +6285,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) RoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
 		if v == nil {
@@ -6489,7 +6295,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupConfigur
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -6502,9 +6308,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupMode() p
 type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -6522,9 +6328,9 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsInput 
 type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -6610,14 +6416,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOut
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -6658,7 +6464,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -6668,7 +6474,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -6681,11 +6487,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration struct {
 	// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
+	// Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
 	InputFormatConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration `pulumi:"inputFormatConfiguration"`
-	// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
+	// Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
 	OutputFormatConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration `pulumi:"outputFormatConfiguration"`
-	// Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
+	// AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
 	SchemaConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration `pulumi:"schemaConfiguration"`
 }
 
@@ -6703,11 +6509,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs struct {
 	// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
+	// Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
 	InputFormatConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationInput `pulumi:"inputFormatConfiguration"`
-	// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
+	// Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
 	OutputFormatConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationInput `pulumi:"outputFormatConfiguration"`
-	// Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
+	// AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
 	SchemaConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput `pulumi:"schemaConfiguration"`
 }
 
@@ -6795,21 +6601,21 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
+// Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) InputFormatConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
 		return v.InputFormatConfiguration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput)
 }
 
-// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
+// Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) OutputFormatConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
 		return v.OutputFormatConfiguration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput)
 }
 
-// Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
+// AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) SchemaConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
 		return v.SchemaConfiguration
@@ -6850,7 +6656,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
+// Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) InputFormatConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
 		if v == nil {
@@ -6860,7 +6666,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput)
 }
 
-// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
+// Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) OutputFormatConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
 		if v == nil {
@@ -6870,7 +6676,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput)
 }
 
-// Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
+// AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) SchemaConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
 		if v == nil {
@@ -6881,7 +6687,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration struct {
-	// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+	// Which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
 	Deserializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer `pulumi:"deserializer"`
 }
 
@@ -6897,7 +6703,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs struct {
-	// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+	// Which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
 	Deserializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerInput `pulumi:"deserializer"`
 }
 
@@ -6978,7 +6784,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput)
 }
 
-// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+// Which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput) Deserializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
 		return v.Deserializer
@@ -7009,7 +6815,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput)
 }
 
-// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+// Which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput) Deserializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
 		if v == nil {
@@ -7020,9 +6826,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer struct {
-	// Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
+	// Native Hive / HCatalog JsonSerDe. See `hiveJsonSerDe` block below for details.
 	HiveJsonSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe `pulumi:"hiveJsonSerDe"`
-	// Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
+	// OpenX SerDe. See `openXJsonSerDe` block below for details.
 	OpenXJsonSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe `pulumi:"openXJsonSerDe"`
 }
 
@@ -7038,9 +6844,9 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs struct {
-	// Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
+	// Native Hive / HCatalog JsonSerDe. See `hiveJsonSerDe` block below for details.
 	HiveJsonSerDe FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrInput `pulumi:"hiveJsonSerDe"`
-	// Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
+	// OpenX SerDe. See `openXJsonSerDe` block below for details.
 	OpenXJsonSerDe FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrInput `pulumi:"openXJsonSerDe"`
 }
 
@@ -7121,14 +6927,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput)
 }
 
-// Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
+// Native Hive / HCatalog JsonSerDe. See `hiveJsonSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput) HiveJsonSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
 		return v.HiveJsonSerDe
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
 
-// Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
+// OpenX SerDe. See `openXJsonSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput) OpenXJsonSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
 		return v.OpenXJsonSerDe
@@ -7159,7 +6965,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput)
 }
 
-// Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
+// Native Hive / HCatalog JsonSerDe. See `hiveJsonSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) HiveJsonSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
 		if v == nil {
@@ -7169,7 +6975,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
 
-// Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
+// OpenX SerDe. See `openXJsonSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) OpenXJsonSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
 		if v == nil {
@@ -7180,7 +6986,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe struct {
-	// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+	// List of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
 	TimestampFormats []string `pulumi:"timestampFormats"`
 }
 
@@ -7196,7 +7002,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs struct {
-	// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+	// List of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
 	TimestampFormats pulumi.StringArrayInput `pulumi:"timestampFormats"`
 }
 
@@ -7277,7 +7083,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
 
-// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+// List of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput) TimestampFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) []string {
 		return v.TimestampFormats
@@ -7308,7 +7114,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput)
 }
 
-// A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+// List of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput) TimestampFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) []string {
 		if v == nil {
@@ -7321,7 +7127,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe struct {
 	// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
 	CaseInsensitive *bool `pulumi:"caseInsensitive"`
-	// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+	// Map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
 	ColumnToJsonKeyMappings map[string]string `pulumi:"columnToJsonKeyMappings"`
 	// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "aB" when using this option. Defaults to `false`.
 	ConvertDotsInJsonKeysToUnderscores *bool `pulumi:"convertDotsInJsonKeysToUnderscores"`
@@ -7341,7 +7147,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs struct {
 	// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
 	CaseInsensitive pulumi.BoolPtrInput `pulumi:"caseInsensitive"`
-	// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+	// Map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
 	ColumnToJsonKeyMappings pulumi.StringMapInput `pulumi:"columnToJsonKeyMappings"`
 	// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "aB" when using this option. Defaults to `false`.
 	ConvertDotsInJsonKeysToUnderscores pulumi.BoolPtrInput `pulumi:"convertDotsInJsonKeysToUnderscores"`
@@ -7431,7 +7237,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+// Map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) map[string]string {
 		return v.ColumnToJsonKeyMappings
@@ -7479,7 +7285,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+// Map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput) ColumnToJsonKeyMappings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) map[string]string {
 		if v == nil {
@@ -7500,7 +7306,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration struct {
-	// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
+	// Which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
 	Serializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer `pulumi:"serializer"`
 }
 
@@ -7516,7 +7322,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs struct {
-	// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
+	// Which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
 	Serializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerInput `pulumi:"serializer"`
 }
 
@@ -7597,7 +7403,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput)
 }
 
-// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
+// Which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput) Serializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
 		return v.Serializer
@@ -7628,7 +7434,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput)
 }
 
-// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
+// Which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput) Serializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
 		if v == nil {
@@ -7639,9 +7445,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer struct {
-	// Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
+	// Converts data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
 	OrcSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe `pulumi:"orcSerDe"`
-	// Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
+	// Converts data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). See `parquetSerDe` block below for details.
 	ParquetSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe `pulumi:"parquetSerDe"`
 }
 
@@ -7657,9 +7463,9 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs struct {
-	// Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
+	// Converts data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
 	OrcSerDe FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrInput `pulumi:"orcSerDe"`
-	// Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
+	// Converts data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). See `parquetSerDe` block below for details.
 	ParquetSerDe FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput `pulumi:"parquetSerDe"`
 }
 
@@ -7740,14 +7546,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput)
 }
 
-// Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
+// Converts data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput) OrcSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
 		return v.OrcSerDe
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
 }
 
-// Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
+// Converts data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). See `parquetSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput) ParquetSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
 		return v.ParquetSerDe
@@ -7778,7 +7584,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput)
 }
 
-// Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
+// Converts data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) OrcSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
 		if v == nil {
@@ -7788,7 +7594,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
 }
 
-// Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
+// Converts data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). See `parquetSerDe` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) ParquetSerDe() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
 		if v == nil {
@@ -7799,25 +7605,25 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe struct {
-	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+	// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	BlockSizeBytes *int `pulumi:"blockSizeBytes"`
-	// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+	// List of column names for which you want Kinesis Data Firehose to create bloom filters.
 	BloomFilterColumns []string `pulumi:"bloomFilterColumns"`
-	// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+	// Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
 	BloomFilterFalsePositiveProbability *float64 `pulumi:"bloomFilterFalsePositiveProbability"`
-	// The compression code to use over data blocks. The default is `SNAPPY`.
+	// Compression code to use over data blocks. The default is `SNAPPY`.
 	Compression *string `pulumi:"compression"`
-	// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+	// Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
 	DictionaryKeyThreshold *float64 `pulumi:"dictionaryKeyThreshold"`
 	// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
 	EnablePadding *bool `pulumi:"enablePadding"`
-	// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+	// Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
 	FormatVersion *string `pulumi:"formatVersion"`
-	// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+	// Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
 	PaddingTolerance *float64 `pulumi:"paddingTolerance"`
-	// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+	// Number of rows between index entries. The default is `10000` and the minimum is `1000`.
 	RowIndexStride *int `pulumi:"rowIndexStride"`
-	// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+	// Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
 	StripeSizeBytes *int `pulumi:"stripeSizeBytes"`
 }
 
@@ -7833,25 +7639,25 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs struct {
-	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+	// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	BlockSizeBytes pulumi.IntPtrInput `pulumi:"blockSizeBytes"`
-	// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+	// List of column names for which you want Kinesis Data Firehose to create bloom filters.
 	BloomFilterColumns pulumi.StringArrayInput `pulumi:"bloomFilterColumns"`
-	// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+	// Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
 	BloomFilterFalsePositiveProbability pulumi.Float64PtrInput `pulumi:"bloomFilterFalsePositiveProbability"`
-	// The compression code to use over data blocks. The default is `SNAPPY`.
+	// Compression code to use over data blocks. The default is `SNAPPY`.
 	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+	// Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
 	DictionaryKeyThreshold pulumi.Float64PtrInput `pulumi:"dictionaryKeyThreshold"`
 	// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
 	EnablePadding pulumi.BoolPtrInput `pulumi:"enablePadding"`
-	// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+	// Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
 	FormatVersion pulumi.StringPtrInput `pulumi:"formatVersion"`
-	// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+	// Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
 	PaddingTolerance pulumi.Float64PtrInput `pulumi:"paddingTolerance"`
-	// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+	// Number of rows between index entries. The default is `10000` and the minimum is `1000`.
 	RowIndexStride pulumi.IntPtrInput `pulumi:"rowIndexStride"`
-	// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+	// Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
 	StripeSizeBytes pulumi.IntPtrInput `pulumi:"stripeSizeBytes"`
 }
 
@@ -7932,35 +7738,35 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
 }
 
-// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) BlockSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		return v.BlockSizeBytes
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+// List of column names for which you want Kinesis Data Firehose to create bloom filters.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) BloomFilterColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) []string {
 		return v.BloomFilterColumns
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+// Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) BloomFilterFalsePositiveProbability() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		return v.BloomFilterFalsePositiveProbability
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The compression code to use over data blocks. The default is `SNAPPY`.
+// Compression code to use over data blocks. The default is `SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *string {
 		return v.Compression
 	}).(pulumi.StringPtrOutput)
 }
 
-// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+// Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) DictionaryKeyThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		return v.DictionaryKeyThreshold
@@ -7974,28 +7780,28 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+// Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) FormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *string {
 		return v.FormatVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+// Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) PaddingTolerance() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		return v.PaddingTolerance
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+// Number of rows between index entries. The default is `10000` and the minimum is `1000`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) RowIndexStride() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		return v.RowIndexStride
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+// Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) StripeSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		return v.StripeSizeBytes
@@ -8026,7 +7832,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput)
 }
 
-// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) BlockSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		if v == nil {
@@ -8036,7 +7842,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+// List of column names for which you want Kinesis Data Firehose to create bloom filters.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) BloomFilterColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) []string {
 		if v == nil {
@@ -8046,7 +7852,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+// Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) BloomFilterFalsePositiveProbability() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		if v == nil {
@@ -8056,7 +7862,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The compression code to use over data blocks. The default is `SNAPPY`.
+// Compression code to use over data blocks. The default is `SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *string {
 		if v == nil {
@@ -8066,7 +7872,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+// Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) DictionaryKeyThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		if v == nil {
@@ -8086,7 +7892,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+// Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) FormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *string {
 		if v == nil {
@@ -8096,7 +7902,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+// Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) PaddingTolerance() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *float64 {
 		if v == nil {
@@ -8106,7 +7912,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+// Number of rows between index entries. The default is `10000` and the minimum is `1000`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) RowIndexStride() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		if v == nil {
@@ -8116,7 +7922,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+// Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) StripeSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *int {
 		if v == nil {
@@ -8127,17 +7933,17 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe struct {
-	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+	// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	BlockSizeBytes *int `pulumi:"blockSizeBytes"`
-	// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+	// Compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
 	Compression *string `pulumi:"compression"`
-	// Indicates whether to enable dictionary compression.
+	// Whether to enable dictionary compression.
 	EnableDictionaryCompression *bool `pulumi:"enableDictionaryCompression"`
-	// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+	// Maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
 	MaxPaddingBytes *int `pulumi:"maxPaddingBytes"`
-	// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+	// Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
 	PageSizeBytes *int `pulumi:"pageSizeBytes"`
-	// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+	// Version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 	WriterVersion *string `pulumi:"writerVersion"`
 }
 
@@ -8153,17 +7959,17 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs struct {
-	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+	// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	BlockSizeBytes pulumi.IntPtrInput `pulumi:"blockSizeBytes"`
-	// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+	// Compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
 	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// Indicates whether to enable dictionary compression.
+	// Whether to enable dictionary compression.
 	EnableDictionaryCompression pulumi.BoolPtrInput `pulumi:"enableDictionaryCompression"`
-	// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+	// Maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
 	MaxPaddingBytes pulumi.IntPtrInput `pulumi:"maxPaddingBytes"`
-	// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+	// Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
 	PageSizeBytes pulumi.IntPtrInput `pulumi:"pageSizeBytes"`
-	// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+	// Version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 	WriterVersion pulumi.StringPtrInput `pulumi:"writerVersion"`
 }
 
@@ -8244,42 +8050,42 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput)
 }
 
-// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) BlockSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		return v.BlockSizeBytes
 	}).(pulumi.IntPtrOutput)
 }
 
-// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+// Compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *string {
 		return v.Compression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable dictionary compression.
+// Whether to enable dictionary compression.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) EnableDictionaryCompression() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *bool {
 		return v.EnableDictionaryCompression
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+// Maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) MaxPaddingBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		return v.MaxPaddingBytes
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+// Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) PageSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		return v.PageSizeBytes
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+// Version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) WriterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *string {
 		return v.WriterVersion
@@ -8310,7 +8116,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput)
 }
 
-// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) BlockSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		if v == nil {
@@ -8320,7 +8126,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+// Compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *string {
 		if v == nil {
@@ -8330,7 +8136,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable dictionary compression.
+// Whether to enable dictionary compression.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) EnableDictionaryCompression() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *bool {
 		if v == nil {
@@ -8340,7 +8146,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+// Maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) MaxPaddingBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		if v == nil {
@@ -8350,7 +8156,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+// Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) PageSizeBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *int {
 		if v == nil {
@@ -8360,7 +8166,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+// Version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) WriterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *string {
 		if v == nil {
@@ -8371,17 +8177,17 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration struct {
-	// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+	// ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
-	// Specifies the name of the AWS Glue database that contains the schema for the output data.
+	// Name of the AWS Glue database that contains the schema for the output data.
 	DatabaseName string `pulumi:"databaseName"`
 	// If you don't specify an AWS Region, the default is the current region.
 	Region *string `pulumi:"region"`
-	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+	// Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn string `pulumi:"roleArn"`
-	// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+	// AWS Glue table that contains the column information that constitutes your data schema.
 	TableName string `pulumi:"tableName"`
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
+	// Table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
 
@@ -8397,17 +8203,17 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs struct {
-	// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+	// ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Specifies the name of the AWS Glue database that contains the schema for the output data.
+	// Name of the AWS Glue database that contains the schema for the output data.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// If you don't specify an AWS Region, the default is the current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+	// Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+	// AWS Glue table that contains the column information that constitutes your data schema.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
+	// Table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
 }
 
@@ -8488,14 +8294,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput)
 }
 
-// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+// ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		return v.CatalogId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the AWS Glue database that contains the schema for the output data.
+// Name of the AWS Glue database that contains the schema for the output data.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) string {
 		return v.DatabaseName
@@ -8509,21 +8315,21 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+// Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) string {
 		return v.RoleArn
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+// AWS Glue table that contains the column information that constitutes your data schema.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) string {
 		return v.TableName
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the table version for the output data schema. Defaults to `LATEST`.
+// Table version for the output data schema. Defaults to `LATEST`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) VersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		return v.VersionId
@@ -8554,7 +8360,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput)
 }
 
-// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+// ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		if v == nil {
@@ -8564,7 +8370,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the AWS Glue database that contains the schema for the output data.
+// Name of the AWS Glue database that contains the schema for the output data.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		if v == nil {
@@ -8584,7 +8390,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+// Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		if v == nil {
@@ -8594,7 +8400,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+// AWS Glue table that contains the column information that constitutes your data schema.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		if v == nil {
@@ -8604,7 +8410,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the table version for the output data schema. Defaults to `LATEST`.
+// Table version for the output data schema. Defaults to `LATEST`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *string {
 		if v == nil {
@@ -8785,7 +8591,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -8803,7 +8609,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput i
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -8889,7 +8695,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutp
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -8930,7 +8736,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -8941,9 +8747,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -8959,9 +8765,9 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9016,14 +8822,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -9167,21 +8973,24 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
-	// The ARN of the S3 bucket
-	BucketArn                string                                                                                      `pulumi:"bucketArn"`
-	BufferingInterval        *int                                                                                        `pulumi:"bufferingInterval"`
-	BufferingSize            *int                                                                                        `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
-	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-	Prefix  *string `pulumi:"prefix"`
-	RoleArn string  `pulumi:"roleArn"`
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
+	Prefix *string `pulumi:"prefix"`
+	// ARN of the AWS credentials.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput values.
@@ -9196,21 +9005,24 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput int
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs struct {
-	// The ARN of the S3 bucket
-	BucketArn                pulumi.StringInput                                                                                 `pulumi:"bucketArn"`
-	BufferingInterval        pulumi.IntPtrInput                                                                                 `pulumi:"bufferingInterval"`
-	BufferingSize            pulumi.IntPtrInput                                                                                 `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
-	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-	Prefix  pulumi.StringPtrInput `pulumi:"prefix"`
-	RoleArn pulumi.StringInput    `pulumi:"roleArn"`
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// ARN of the AWS credentials.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs) ElementType() reflect.Type {
@@ -9290,54 +9102,57 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		return v.BufferingInterval
 	}).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		return v.BufferingSize
 	}).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		return v.CompressionFormat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		return v.ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -9366,7 +9181,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9376,6 +9191,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -9385,6 +9201,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -9394,6 +9211,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -9403,7 +9221,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9413,7 +9231,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9423,8 +9241,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9434,7 +9251,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9444,6 +9261,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -9456,9 +9274,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -9476,9 +9294,9 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatc
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -9566,14 +9384,14 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -9614,7 +9432,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -9624,7 +9442,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -9635,31 +9453,31 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfiguration struct {
-	// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+	// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
 	AccessKey *string `pulumi:"accessKey"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The HTTP endpoint name.
+	// HTTP endpoint name.
 	Name *string `pulumi:"name"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The request configuration.  See `requestConfiguration` block below for details.
+	// Request configuration.  See `requestConfiguration` block below for details.
 	RequestConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration `pulumi:"requestConfiguration"`
 	// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
 	RoleArn *string `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+	// Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 	SecretsManagerConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
-	// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+	// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 	Url string `pulumi:"url"`
 }
 
@@ -9675,31 +9493,31 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationArgs struct {
-	// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+	// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
 	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The HTTP endpoint name.
+	// HTTP endpoint name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The request configuration.  See `requestConfiguration` block below for details.
+	// Request configuration.  See `requestConfiguration` block below for details.
 	RequestConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput `pulumi:"requestConfiguration"`
 	// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+	// Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 	SecretsManagerConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
-	// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+	// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -9780,7 +9598,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliver
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
 
-// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
@@ -9795,26 +9613,26 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) BufferingSize() p
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The HTTP endpoint name.
+// HTTP endpoint name.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The request configuration.  See `requestConfiguration` block below for details.
+// Request configuration.  See `requestConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RequestConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
 		return v.RequestConfiguration
@@ -9831,26 +9649,26 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RoleArn() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) S3Configuration() FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput)
 }
 
-// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+// Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -9879,7 +9697,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() Firehos
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput)
 }
 
-// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {
@@ -9909,7 +9727,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) BufferingSize(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -9919,7 +9737,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) CloudwatchLogg
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The HTTP endpoint name.
+// HTTP endpoint name.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {
@@ -9929,7 +9747,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Name() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
 		if v == nil {
@@ -9939,7 +9757,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ProcessingConf
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The request configuration.  See `requestConfiguration` block below for details.
+// Request configuration.  See `requestConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RequestConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
 		if v == nil {
@@ -9969,7 +9787,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RoleArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {
@@ -9979,7 +9797,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3BackupMode()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration {
 		if v == nil {
@@ -9989,7 +9807,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3Configuratio
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 }
 
-// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+// Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
 		if v == nil {
@@ -9999,7 +9817,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) SecretsManager
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {
@@ -10012,9 +9830,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.S
 type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -10032,9 +9850,9 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsInpu
 type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -10122,14 +9940,14 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -10170,7 +9988,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -10180,7 +9998,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -10193,7 +10011,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsP
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -10211,7 +10029,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationInput
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -10297,7 +10115,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOu
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -10338,7 +10156,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -10349,9 +10167,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -10367,9 +10185,9 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10424,14 +10242,14 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -10575,7 +10393,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration struct {
-	// Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
+	// Metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
 	CommonAttributes []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute `pulumi:"commonAttributes"`
 	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
 	ContentEncoding *string `pulumi:"contentEncoding"`
@@ -10593,7 +10411,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationInput in
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs struct {
-	// Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
+	// Metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
 	CommonAttributes FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput `pulumi:"commonAttributes"`
 	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
 	ContentEncoding pulumi.StringPtrInput `pulumi:"contentEncoding"`
@@ -10676,7 +10494,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutpu
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
 }
 
-// Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
+// Metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) CommonAttributes() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
 		return v.CommonAttributes
@@ -10714,7 +10532,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOu
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput)
 }
 
-// Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
+// Metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) CommonAttributes() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
 		if v == nil {
@@ -10735,9 +10553,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOu
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute struct {
-	// The name of the HTTP endpoint common attribute.
+	// Name of the HTTP endpoint common attribute.
 	Name string `pulumi:"name"`
-	// The value of the HTTP endpoint common attribute.
+	// Value of the HTTP endpoint common attribute.
 	Value string `pulumi:"value"`
 }
 
@@ -10753,9 +10571,9 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAt
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs struct {
-	// The name of the HTTP endpoint common attribute.
+	// Name of the HTTP endpoint common attribute.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the HTTP endpoint common attribute.
+	// Value of the HTTP endpoint common attribute.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -10810,14 +10628,14 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 	return o
 }
 
-// The name of the HTTP endpoint common attribute.
+// Name of the HTTP endpoint common attribute.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The value of the HTTP endpoint common attribute.
+// Value of the HTTP endpoint common attribute.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute) string {
 		return v.Value
@@ -10845,25 +10663,23 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -10879,25 +10695,23 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationInput interfa
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -10978,7 +10792,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) To
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -10990,20 +10804,19 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Bu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		return v.CompressionFormat
@@ -11017,18 +10830,17 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Er
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -11057,7 +10869,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -11077,8 +10889,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int {
 		if v == nil {
@@ -11088,7 +10899,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -11098,7 +10909,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -11118,8 +10929,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -11129,7 +10939,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -11139,7 +10949,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -11152,9 +10962,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -11172,9 +10982,9 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLog
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -11262,14 +11072,14 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatch
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -11310,7 +11120,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatch
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -11320,7 +11130,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatch
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -11333,9 +11143,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatch
 type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled *bool `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn *string `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -11353,9 +11163,9 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationI
 type FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -11443,14 +11253,14 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
 		return v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
 		return v.SecretArn
@@ -11491,7 +11301,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -11501,7 +11311,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -11512,25 +11322,27 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 }
 
 type FirehoseDeliveryStreamIcebergConfiguration struct {
+	// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
 	AppendOnly *bool `pulumi:"appendOnly"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
 	CatalogArn string `pulumi:"catalogArn"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
 	DestinationTableConfigurations []FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration `pulumi:"destinationTableConfigurations"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+	// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-	RoleArn      string  `pulumi:"roleArn"`
+	// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	RoleArn string `pulumi:"roleArn"`
+	// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamIcebergConfigurationS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -11546,25 +11358,27 @@ type FirehoseDeliveryStreamIcebergConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationArgs struct {
+	// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
 	AppendOnly pulumi.BoolPtrInput `pulumi:"appendOnly"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
 	CatalogArn pulumi.StringInput `pulumi:"catalogArn"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
 	DestinationTableConfigurations FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput `pulumi:"destinationTableConfigurations"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+	// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
+	// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -11645,6 +11459,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStre
 	}).(FirehoseDeliveryStreamIcebergConfigurationPtrOutput)
 }
 
+// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) AppendOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *bool { return v.AppendOnly }).(pulumi.BoolPtrOutput)
 }
@@ -11659,12 +11474,12 @@ func (o FirehoseDeliveryStreamIcebergConfigurationOutput) BufferingSize() pulumi
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) CatalogArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) string { return v.CatalogArn }).(pulumi.StringOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -11678,28 +11493,29 @@ func (o FirehoseDeliveryStreamIcebergConfigurationOutput) DestinationTableConfig
 	}).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationOutput) S3Configuration() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
 		return v.S3Configuration
@@ -11730,6 +11546,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) Elem() FirehoseDeli
 	}).(FirehoseDeliveryStreamIcebergConfigurationOutput)
 }
 
+// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) AppendOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *bool {
 		if v == nil {
@@ -11759,7 +11576,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) BufferingSize() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) CatalogArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
 		if v == nil {
@@ -11769,7 +11586,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) CatalogArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -11789,7 +11606,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) DestinationTableCon
 	}).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
 		if v == nil {
@@ -11799,7 +11616,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ProcessingConfigura
 	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *int {
 		if v == nil {
@@ -11809,7 +11626,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RetryDuration() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
 		if v == nil {
@@ -11819,6 +11636,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RoleArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
 		if v == nil {
@@ -11828,7 +11646,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3BackupMode() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
 		if v == nil {
@@ -11841,9 +11659,9 @@ func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3Configuration() F
 type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -11861,9 +11679,9 @@ type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsInput int
 type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -11949,14 +11767,14 @@ func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -11997,7 +11815,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -12007,7 +11825,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -12018,13 +11836,13 @@ func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOut
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration struct {
-	// The name of the Apache Iceberg database.
+	// Name of the Apache Iceberg database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+	// Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
 	S3ErrorOutputPrefix *string `pulumi:"s3ErrorOutputPrefix"`
-	// The name of the Apache Iceberg Table.
+	// Name of the Apache Iceberg Table.
 	TableName string `pulumi:"tableName"`
-	// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+	// List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
 	UniqueKeys []string `pulumi:"uniqueKeys"`
 }
 
@@ -12040,13 +11858,13 @@ type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInpu
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs struct {
-	// The name of the Apache Iceberg database.
+	// Name of the Apache Iceberg database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+	// Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
 	S3ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"s3ErrorOutputPrefix"`
-	// The name of the Apache Iceberg Table.
+	// Name of the Apache Iceberg Table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+	// List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
 	UniqueKeys pulumi.StringArrayInput `pulumi:"uniqueKeys"`
 }
 
@@ -12101,28 +11919,28 @@ func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationO
 	return o
 }
 
-// The name of the Apache Iceberg database.
+// Name of the Apache Iceberg database.
 func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) string {
 		return v.DatabaseName
 	}).(pulumi.StringOutput)
 }
 
-// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+// Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
 func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) S3ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) *string {
 		return v.S3ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Apache Iceberg Table.
+// Name of the Apache Iceberg Table.
 func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) string {
 		return v.TableName
 	}).(pulumi.StringOutput)
 }
 
-// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+// List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
 func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) UniqueKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) []string {
 		return v.UniqueKeys
@@ -12152,7 +11970,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationA
 type FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -12170,7 +11988,7 @@ type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationInput inte
 type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -12256,7 +12074,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput)
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -12297,7 +12115,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -12308,9 +12126,9 @@ func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutp
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -12326,9 +12144,9 @@ type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorI
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12383,14 +12201,14 @@ func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcess
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -12534,25 +12352,23 @@ func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -12568,25 +12384,23 @@ type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -12667,7 +12481,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ToFireh
 	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -12677,20 +12491,19 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) Bufferi
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
@@ -12700,18 +12513,17 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ErrorOu
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -12740,7 +12552,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Elem
 	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
 		if v == nil {
@@ -12760,8 +12572,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Buff
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int {
 		if v == nil {
@@ -12771,7 +12582,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Buff
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -12781,7 +12592,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Clou
 	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
 		if v == nil {
@@ -12801,8 +12612,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Erro
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
 		if v == nil {
@@ -12812,7 +12622,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) KmsK
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
 		if v == nil {
@@ -12822,7 +12632,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Pref
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
 		if v == nil {
@@ -12835,9 +12645,9 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Role
 type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -12855,9 +12665,9 @@ type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingO
 type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -12945,14 +12755,14 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -12993,7 +12803,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -13003,7 +12813,7 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -13014,9 +12824,9 @@ func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggi
 }
 
 type FirehoseDeliveryStreamKinesisSourceConfiguration struct {
-	// The kinesis stream used as the source of the firehose delivery stream.
+	// Kinesis stream used as the source of the firehose delivery stream.
 	KinesisStreamArn string `pulumi:"kinesisStreamArn"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// ARN of the role that provides access to the source Kinesis stream.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -13032,9 +12842,9 @@ type FirehoseDeliveryStreamKinesisSourceConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamKinesisSourceConfigurationArgs struct {
-	// The kinesis stream used as the source of the firehose delivery stream.
+	// Kinesis stream used as the source of the firehose delivery stream.
 	KinesisStreamArn pulumi.StringInput `pulumi:"kinesisStreamArn"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// ARN of the role that provides access to the source Kinesis stream.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -13115,12 +12925,12 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ToFirehoseDelive
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
 
-// The kinesis stream used as the source of the firehose delivery stream.
+// Kinesis stream used as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) KinesisStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamKinesisSourceConfiguration) string { return v.KinesisStreamArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// ARN of the role that provides access to the source Kinesis stream.
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamKinesisSourceConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -13149,7 +12959,7 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) Elem() Fireho
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationOutput)
 }
 
-// The kinesis stream used as the source of the firehose delivery stream.
+// Kinesis stream used as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) KinesisStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamKinesisSourceConfiguration) *string {
 		if v == nil {
@@ -13159,7 +12969,7 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) KinesisStream
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// ARN of the role that provides access to the source Kinesis stream.
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamKinesisSourceConfiguration) *string {
 		if v == nil {
@@ -13170,13 +12980,13 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) RoleArn() pul
 }
 
 type FirehoseDeliveryStreamMskSourceConfiguration struct {
-	// The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
+	// Authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
 	AuthenticationConfiguration FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// The ARN of the Amazon MSK cluster.
+	// ARN of the Amazon MSK cluster.
 	MskClusterArn string `pulumi:"mskClusterArn"`
-	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	// Start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
 	ReadFromTimestamp *string `pulumi:"readFromTimestamp"`
-	// The topic name within the Amazon MSK cluster.
+	// Topic name within the Amazon MSK cluster.
 	TopicName string `pulumi:"topicName"`
 }
 
@@ -13192,13 +13002,13 @@ type FirehoseDeliveryStreamMskSourceConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamMskSourceConfigurationArgs struct {
-	// The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
+	// Authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
 	AuthenticationConfiguration FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
-	// The ARN of the Amazon MSK cluster.
+	// ARN of the Amazon MSK cluster.
 	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
-	// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+	// Start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
 	ReadFromTimestamp pulumi.StringPtrInput `pulumi:"readFromTimestamp"`
-	// The topic name within the Amazon MSK cluster.
+	// Topic name within the Amazon MSK cluster.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
 
@@ -13279,24 +13089,24 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToFirehoseDeliverySt
 	}).(FirehoseDeliveryStreamMskSourceConfigurationPtrOutput)
 }
 
-// The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
+// Authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
 func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) AuthenticationConfiguration() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
 	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput)
 }
 
-// The ARN of the Amazon MSK cluster.
+// ARN of the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) MskClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
 
-// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+// Start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
 func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) *string { return v.ReadFromTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// The topic name within the Amazon MSK cluster.
+// Topic name within the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) string { return v.TopicName }).(pulumi.StringOutput)
 }
@@ -13325,7 +13135,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) Elem() FirehoseDe
 	}).(FirehoseDeliveryStreamMskSourceConfigurationOutput)
 }
 
-// The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
+// Authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
 func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) AuthenticationConfiguration() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
 		if v == nil {
@@ -13335,7 +13145,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) AuthenticationCon
 	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// The ARN of the Amazon MSK cluster.
+// ARN of the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *string {
 		if v == nil {
@@ -13345,7 +13155,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+// Start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
 func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ReadFromTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *string {
 		if v == nil {
@@ -13355,7 +13165,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ReadFromTimestamp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The topic name within the Amazon MSK cluster.
+// Topic name within the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *string {
 		if v == nil {
@@ -13366,9 +13176,9 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulum
 }
 
 type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration struct {
-	// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+	// Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
 	Connectivity string `pulumi:"connectivity"`
-	// The ARN of the role used to access the Amazon MSK cluster.
+	// ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -13384,9 +13194,9 @@ type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInpu
 }
 
 type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs struct {
-	// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+	// Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
 	Connectivity pulumi.StringInput `pulumi:"connectivity"`
-	// The ARN of the role used to access the Amazon MSK cluster.
+	// ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -13467,14 +13277,14 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationO
 	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+// Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
 func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) Connectivity() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) string {
 		return v.Connectivity
 	}).(pulumi.StringOutput)
 }
 
-// The ARN of the role used to access the Amazon MSK cluster.
+// ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) string {
 		return v.RoleArn
@@ -13505,7 +13315,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationP
 	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput)
 }
 
-// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+// Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
 func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) Connectivity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) *string {
 		if v == nil {
@@ -13515,7 +13325,7 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role used to access the Amazon MSK cluster.
+// ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) *string {
 		if v == nil {
@@ -13530,31 +13340,31 @@ type FirehoseDeliveryStreamOpensearchConfiguration struct {
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	// The method for setting up document ID. See [`documentIdOptions` block] below for details.
+	// Method for setting up document ID. See `documentIdOptions` block below for details.
 	DocumentIdOptions *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions `pulumi:"documentIdOptions"`
-	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+	// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn *string `pulumi:"domainArn"`
-	// The OpenSearch index name.
+	// OpenSearch index name.
 	IndexName string `pulumi:"indexName"`
-	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod *string `pulumi:"indexRotationPeriod"`
-	// The data processing configuration. See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn string `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamOpensearchConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+	// Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 	TypeName *string `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -13574,31 +13384,31 @@ type FirehoseDeliveryStreamOpensearchConfigurationArgs struct {
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
-	// The method for setting up document ID. See [`documentIdOptions` block] below for details.
+	// Method for setting up document ID. See `documentIdOptions` block below for details.
 	DocumentIdOptions FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput `pulumi:"documentIdOptions"`
-	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+	// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
-	// The OpenSearch index name.
+	// OpenSearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod pulumi.StringPtrInput `pulumi:"indexRotationPeriod"`
-	// The data processing configuration. See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+	// Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -13689,41 +13499,41 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) BufferingSize() pul
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The method for setting up document ID. See [`documentIdOptions` block] below for details.
+// Method for setting up document ID. See `documentIdOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) DocumentIdOptions() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
 		return v.DocumentIdOptions
 	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
 
-// The OpenSearch index name.
+// OpenSearch index name.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.IndexRotationPeriod }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration. See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -13735,29 +13545,29 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) RetryDuration() pul
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) S3Configuration() FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) FirehoseDeliveryStreamOpensearchConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput)
 }
 
-// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+// Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) VpcConfig() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
 		return v.VpcConfig
@@ -13808,7 +13618,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) BufferingSize() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -13818,7 +13628,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) CloudwatchLoggin
 	}).(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+// Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13828,7 +13638,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ClusterEndpoint(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The method for setting up document ID. See [`documentIdOptions` block] below for details.
+// Method for setting up document ID. See `documentIdOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DocumentIdOptions() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
 		if v == nil {
@@ -13838,7 +13648,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DocumentIdOption
 	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+// ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13848,7 +13658,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DomainArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OpenSearch index name.
+// OpenSearch index name.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13858,7 +13668,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13868,7 +13678,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexRotationPer
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration. See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
 		if v == nil {
@@ -13888,7 +13698,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) RetryDuration() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13898,7 +13708,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) RoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13908,7 +13718,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) S3BackupMode() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration {
 		if v == nil {
@@ -13918,7 +13728,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) S3Configuration(
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput)
 }
 
-// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+// Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13928,7 +13738,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) TypeName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
 		if v == nil {
@@ -13941,9 +13751,9 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) VpcConfig() Fire
 type FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -13961,9 +13771,9 @@ type FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsInput 
 type FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -14049,14 +13859,14 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOut
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -14097,7 +13907,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -14107,7 +13917,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -14118,7 +13928,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtr
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions struct {
-	// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+	// Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
 	DefaultDocumentIdFormat string `pulumi:"defaultDocumentIdFormat"`
 }
 
@@ -14134,7 +13944,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsInput interfa
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs struct {
-	// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+	// Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
 	DefaultDocumentIdFormat pulumi.StringInput `pulumi:"defaultDocumentIdFormat"`
 }
 
@@ -14215,7 +14025,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) To
 	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 }
 
-// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+// Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) DefaultDocumentIdFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) string {
 		return v.DefaultDocumentIdFormat
@@ -14246,7 +14056,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput)
 }
 
-// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+// Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) DefaultDocumentIdFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) *string {
 		if v == nil {
@@ -14259,7 +14069,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -14277,7 +14087,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationInput i
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -14363,7 +14173,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutp
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -14404,7 +14214,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -14415,9 +14225,9 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrO
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -14433,9 +14243,9 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14490,14 +14300,14 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -14641,25 +14451,23 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -14675,25 +14483,23 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationInput interface
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -14774,7 +14580,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) ToFi
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -14784,20 +14590,19 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Buff
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		return v.CompressionFormat
@@ -14811,18 +14616,17 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Erro
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -14851,7 +14655,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) E
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14871,8 +14675,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) B
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -14882,7 +14685,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) B
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -14892,7 +14695,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) C
 	}).(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14912,8 +14715,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) E
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14923,7 +14725,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) K
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14933,7 +14735,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) P
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14946,9 +14748,9 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) R
 type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -14966,9 +14768,9 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggi
 type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -15056,14 +14858,14 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -15104,7 +14906,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -15114,7 +14916,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -15125,13 +14927,14 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLo
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationVpcConfig struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn string `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     *string  `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // FirehoseDeliveryStreamOpensearchConfigurationVpcConfigInput is an input type that accepts FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs and FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput values.
@@ -15146,13 +14949,14 @@ type FirehoseDeliveryStreamOpensearchConfigurationVpcConfigInput interface {
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs) ElementType() reflect.Type {
@@ -15232,21 +15036,22 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) ToFirehose
 	}).(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -15275,7 +15080,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) Elem() 
 	}).(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) *string {
 		if v == nil {
@@ -15285,7 +15090,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) []string {
 		if v == nil {
@@ -15295,7 +15100,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) Securit
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) []string {
 		if v == nil {
@@ -15305,6 +15110,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) SubnetI
 	}).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) *string {
 		if v == nil {
@@ -15319,23 +15125,23 @@ type FirehoseDeliveryStreamOpensearchserverlessConfiguration struct {
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+	// Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 	CollectionEndpoint string `pulumi:"collectionEndpoint"`
-	// The Serverless offering for Amazon OpenSearch Service index name.
+	// Serverless offering for Amazon OpenSearch Service index name.
 	IndexName string `pulumi:"indexName"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 	RoleArn string `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -15355,23 +15161,23 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs struct {
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+	// Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 	CollectionEndpoint pulumi.StringInput `pulumi:"collectionEndpoint"`
-	// The Serverless offering for Amazon OpenSearch Service index name.
+	// Serverless offering for Amazon OpenSearch Service index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
+	// S3 Configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+	// VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
 	VpcConfig FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -15462,24 +15268,24 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) Buffering
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+// Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) CollectionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.CollectionEndpoint }).(pulumi.StringOutput)
 }
 
-// The Serverless offering for Amazon OpenSearch Service index name.
+// Serverless offering for Amazon OpenSearch Service index name.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -15496,19 +15302,19 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) RoleArn()
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) S3Configuration() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) VpcConfig() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
 		return v.VpcConfig
@@ -15559,7 +15365,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) Buffer
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -15569,7 +15375,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) Cloudw
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+// Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) CollectionEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
 		if v == nil {
@@ -15579,7 +15385,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) Collec
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Serverless offering for Amazon OpenSearch Service index name.
+// Serverless offering for Amazon OpenSearch Service index name.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
 		if v == nil {
@@ -15589,7 +15395,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) IndexN
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
 		if v == nil {
@@ -15619,7 +15425,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) RoleAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
 		if v == nil {
@@ -15629,7 +15435,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3Back
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
 		if v == nil {
@@ -15639,7 +15445,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3Conf
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+// VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
 		if v == nil {
@@ -15652,9 +15458,9 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) VpcCon
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -15672,9 +15478,9 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOpt
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -15762,14 +15568,14 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLogging
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -15810,7 +15616,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLogging
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -15820,7 +15626,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLogging
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -15833,7 +15639,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLogging
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -15851,7 +15657,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -15939,7 +15745,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -15980,7 +15786,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -15991,9 +15797,9 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -16009,9 +15815,9 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16066,14 +15872,14 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -16217,25 +16023,23 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -16251,25 +16055,23 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -16350,7 +16152,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) string {
 		return v.BucketArn
@@ -16364,22 +16166,21 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		return v.BufferingSize
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		return v.CompressionFormat
@@ -16393,22 +16194,21 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		return v.Prefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) string {
 		return v.RoleArn
@@ -16439,7 +16239,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16459,8 +16259,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		if v == nil {
@@ -16470,7 +16269,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -16480,7 +16279,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16500,8 +16299,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16511,7 +16309,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16521,7 +16319,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16534,9 +16332,9 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -16554,9 +16352,9 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloud
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -16644,14 +16442,14 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -16692,7 +16490,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -16702,7 +16500,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCl
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -16713,13 +16511,14 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCl
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn string `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     *string  `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput values.
@@ -16734,13 +16533,14 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput inter
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs struct {
-	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// A list of security group IDs to associate with Kinesis Firehose.
+	// List of security group IDs to associate with Kinesis Firehose.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs to associate with Kinesis Firehose.
+	// List of subnet IDs to associate with Kinesis Firehose.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// ID of the VPC associated with the delivery stream.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ElementType() reflect.Type {
@@ -16820,23 +16620,24 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) 
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -16865,7 +16666,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutpu
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput)
 }
 
-// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+// ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string {
 		if v == nil {
@@ -16875,7 +16676,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of security group IDs to associate with Kinesis Firehose.
+// List of security group IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
 		if v == nil {
@@ -16885,7 +16686,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs to associate with Kinesis Firehose.
+// List of subnet IDs to associate with Kinesis Firehose.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
 		if v == nil {
@@ -16895,6 +16696,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC associated with the delivery stream.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string {
 		if v == nil {
@@ -16905,33 +16707,33 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutpu
 }
 
 type FirehoseDeliveryStreamRedshiftConfiguration struct {
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The jdbcurl of the redshift cluster.
+	// JDBC URL of the redshift cluster.
 	ClusterJdbcurl string `pulumi:"clusterJdbcurl"`
-	// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+	// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
 	CopyOptions *string `pulumi:"copyOptions"`
-	// The data table columns that will be targeted by the copy command.
+	// Data table columns that will be targeted by the copy command.
 	DataTableColumns *string `pulumi:"dataTableColumns"`
-	// The name of the table in the redshift cluster that the s3 bucket will copy to.
+	// Name of the table in the redshift cluster that the s3 bucket will copy to.
 	DataTableName string `pulumi:"dataTableName"`
-	// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+	// Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
 	Password *string `pulumi:"password"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+	// Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The arn of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn string `pulumi:"roleArn"`
-	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+	// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 	S3BackupConfiguration *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See s3Configuration below for details.
-	S3Configuration             FirehoseDeliveryStreamRedshiftConfigurationS3Configuration              `pulumi:"s3Configuration"`
+	// S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamRedshiftConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 	SecretsManagerConfiguration *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
-	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+	// Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
 	Username *string `pulumi:"username"`
 }
 
@@ -16947,33 +16749,33 @@ type FirehoseDeliveryStreamRedshiftConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationArgs struct {
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The jdbcurl of the redshift cluster.
+	// JDBC URL of the redshift cluster.
 	ClusterJdbcurl pulumi.StringInput `pulumi:"clusterJdbcurl"`
-	// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+	// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
 	CopyOptions pulumi.StringPtrInput `pulumi:"copyOptions"`
-	// The data table columns that will be targeted by the copy command.
+	// Data table columns that will be targeted by the copy command.
 	DataTableColumns pulumi.StringPtrInput `pulumi:"dataTableColumns"`
-	// The name of the table in the redshift cluster that the s3 bucket will copy to.
+	// Name of the table in the redshift cluster that the s3 bucket will copy to.
 	DataTableName pulumi.StringInput `pulumi:"dataTableName"`
-	// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+	// Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+	// Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The arn of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+	// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 	S3BackupConfiguration FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See s3Configuration below for details.
-	S3Configuration             FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput                `pulumi:"s3Configuration"`
+	// S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 	SecretsManagerConfiguration FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
-	// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+	// Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -17054,82 +16856,82 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ToFirehoseDeliveryStr
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The jdbcurl of the redshift cluster.
+// JDBC URL of the redshift cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ClusterJdbcurl() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.ClusterJdbcurl }).(pulumi.StringOutput)
 }
 
-// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) CopyOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.CopyOptions }).(pulumi.StringPtrOutput)
 }
 
-// The data table columns that will be targeted by the copy command.
+// Data table columns that will be targeted by the copy command.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) DataTableColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.DataTableColumns }).(pulumi.StringPtrOutput)
 }
 
-// The name of the table in the redshift cluster that the s3 bucket will copy to.
+// Name of the table in the redshift cluster that the s3 bucket will copy to.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) DataTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.DataTableName }).(pulumi.StringOutput)
 }
 
-// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+// Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+// Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The arn of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) S3BackupConfiguration() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		return v.S3BackupConfiguration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See s3Configuration below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) S3Configuration() FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) FirehoseDeliveryStreamRedshiftConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput)
 }
 
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+// Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -17158,7 +16960,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Elem() FirehoseDel
 	}).(FirehoseDeliveryStreamRedshiftConfigurationOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -17168,7 +16970,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) CloudwatchLoggingO
 	}).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The jdbcurl of the redshift cluster.
+// JDBC URL of the redshift cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ClusterJdbcurl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17178,7 +16980,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ClusterJdbcurl() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) CopyOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17188,7 +16990,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) CopyOptions() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data table columns that will be targeted by the copy command.
+// Data table columns that will be targeted by the copy command.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) DataTableColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17198,7 +17000,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) DataTableColumns()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the table in the redshift cluster that the s3 bucket will copy to.
+// Name of the table in the redshift cluster that the s3 bucket will copy to.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) DataTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17208,7 +17010,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) DataTableName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+// Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17218,7 +17020,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Password() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
 		if v == nil {
@@ -17228,7 +17030,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ProcessingConfigur
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+// Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *int {
 		if v == nil {
@@ -17238,7 +17040,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RetryDuration() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The arn of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17248,8 +17050,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RoleArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+// Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3BackupConfiguration() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		if v == nil {
@@ -17259,7 +17060,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3BackupConfigurat
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17269,7 +17070,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3BackupMode() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See s3Configuration below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration {
 		if v == nil {
@@ -17279,6 +17080,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) S3Configuration() 
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput)
 }
 
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
 		if v == nil {
@@ -17288,7 +17090,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) SecretsManagerConf
 	}).(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+// Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) *string {
 		if v == nil {
@@ -17301,9 +17103,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Username() pulumi.
 type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -17321,9 +17123,9 @@ type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput in
 type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -17409,14 +17211,14 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutpu
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -17457,7 +17259,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -17467,7 +17269,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -17480,7 +17282,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOu
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -17498,7 +17300,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationInput int
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -17584,7 +17386,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -17625,7 +17427,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -17636,9 +17438,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -17654,9 +17456,9 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17711,14 +17513,14 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -17862,21 +17664,24 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
-	// The ARN of the S3 bucket
-	BucketArn                string                                                                                    `pulumi:"bucketArn"`
-	BufferingInterval        *int                                                                                      `pulumi:"bufferingInterval"`
-	BufferingSize            *int                                                                                      `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
-	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-	Prefix  *string `pulumi:"prefix"`
-	RoleArn string  `pulumi:"roleArn"`
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
+	Prefix *string `pulumi:"prefix"`
+	// ARN of the AWS credentials.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput values.
@@ -17891,21 +17696,24 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput inter
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct {
-	// The ARN of the S3 bucket
-	BucketArn                pulumi.StringInput                                                                               `pulumi:"bucketArn"`
-	BufferingInterval        pulumi.IntPtrInput                                                                               `pulumi:"bufferingInterval"`
-	BufferingSize            pulumi.IntPtrInput                                                                               `pulumi:"bufferingSize"`
+	// ARN of the S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
-	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-	Prefix  pulumi.StringPtrInput `pulumi:"prefix"`
-	RoleArn pulumi.StringInput    `pulumi:"roleArn"`
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// ARN of the AWS credentials.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs) ElementType() reflect.Type {
@@ -17985,52 +17793,55 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		return v.BufferingInterval
 	}).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		return v.CompressionFormat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		return v.ErrorOutputPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -18059,7 +17870,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18069,6 +17880,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -18078,6 +17890,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -18087,6 +17900,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -18096,7 +17910,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18106,7 +17920,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18116,8 +17930,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18127,7 +17940,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18137,6 +17950,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18149,9 +17963,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -18169,9 +17983,9 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchL
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -18259,14 +18073,14 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -18307,7 +18121,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -18317,7 +18131,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -18328,25 +18142,23 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -18362,25 +18174,23 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -18461,7 +18271,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) ToFire
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -18471,20 +18281,19 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) Buffer
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
@@ -18494,18 +18303,17 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) ErrorO
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -18534,7 +18342,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Ele
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -18554,8 +18362,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Buf
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int {
 		if v == nil {
@@ -18565,7 +18372,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Buf
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -18575,7 +18382,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Clo
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -18595,8 +18402,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Err
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -18606,7 +18412,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Kms
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -18616,7 +18422,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Pre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -18629,9 +18435,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Rol
 type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -18649,9 +18455,9 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogging
 type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -18739,14 +18545,14 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogg
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -18787,7 +18593,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogg
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -18797,7 +18603,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -18810,9 +18616,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLogg
 type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled *bool `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn *string `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -18830,9 +18636,9 @@ type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationInput
 type FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -18918,14 +18724,14 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOu
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
 		return v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
 		return v.SecretArn
@@ -18966,7 +18772,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -18976,7 +18782,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -18991,7 +18797,7 @@ type FirehoseDeliveryStreamServerSideEncryption struct {
 	Enabled *bool `pulumi:"enabled"`
 	// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn *string `pulumi:"keyArn"`
-	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
 	KeyType *string `pulumi:"keyType"`
 }
 
@@ -19011,7 +18817,7 @@ type FirehoseDeliveryStreamServerSideEncryptionArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
-	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
 }
 
@@ -19102,7 +18908,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) KeyArn() pulumi.String
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *string { return v.KeyType }).(pulumi.StringPtrOutput)
 }
@@ -19151,7 +18957,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamServerSideEncryption) *string {
 		if v == nil {
@@ -19162,47 +18968,47 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyType() pulumi.St
 }
 
 type FirehoseDeliveryStreamSnowflakeConfiguration struct {
-	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+	// URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 	AccountUrl string `pulumi:"accountUrl"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The name of the content column.
+	// Name of the content column.
 	ContentColumnName *string `pulumi:"contentColumnName"`
-	// The data loading option.
+	// Data loading option.
 	DataLoadingOption *string `pulumi:"dataLoadingOption"`
-	// The Snowflake database name.
+	// Snowflake database name.
 	Database string `pulumi:"database"`
-	// The passphrase for the private key.
+	// Passphrase for the private key.
 	KeyPassphrase *string `pulumi:"keyPassphrase"`
-	// The name of the metadata column.
+	// Name of the metadata column.
 	MetadataColumnName *string `pulumi:"metadataColumnName"`
-	// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	// Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 	PrivateKey *string `pulumi:"privateKey"`
-	// The processing configuration. See `processingConfiguration` block below for details.
+	// Processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The ARN of the IAM role.
+	// ARN of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
-	// The S3 backup mode.
+	// S3 backup mode.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 configuration. See `s3Configuration` block below for details.
+	// S3 configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// The Snowflake schema name.
+	// Snowflake schema name.
 	Schema string `pulumi:"schema"`
-	// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
 	SecretsManagerConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
-	// The configuration for Snowflake role.
+	// Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
 	SnowflakeRoleConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
-	// The VPC configuration for Snowflake.
+	// VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
 	SnowflakeVpcConfiguration *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration `pulumi:"snowflakeVpcConfiguration"`
-	// The Snowflake table name.
+	// Snowflake table name.
 	Table string `pulumi:"table"`
-	// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	// User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 	User *string `pulumi:"user"`
 }
 
@@ -19218,47 +19024,47 @@ type FirehoseDeliveryStreamSnowflakeConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationArgs struct {
-	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+	// URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
 	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The name of the content column.
+	// Name of the content column.
 	ContentColumnName pulumi.StringPtrInput `pulumi:"contentColumnName"`
-	// The data loading option.
+	// Data loading option.
 	DataLoadingOption pulumi.StringPtrInput `pulumi:"dataLoadingOption"`
-	// The Snowflake database name.
+	// Snowflake database name.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The passphrase for the private key.
+	// Passphrase for the private key.
 	KeyPassphrase pulumi.StringPtrInput `pulumi:"keyPassphrase"`
-	// The name of the metadata column.
+	// Name of the metadata column.
 	MetadataColumnName pulumi.StringPtrInput `pulumi:"metadataColumnName"`
-	// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	// Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// The processing configuration. See `processingConfiguration` block below for details.
+	// Processing configuration. See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The ARN of the IAM role.
+	// ARN of the IAM role.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The S3 backup mode.
+	// S3 backup mode.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 configuration. See `s3Configuration` block below for details.
+	// S3 configuration. See `s3Configuration` block below for details.
 	S3Configuration FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
-	// The Snowflake schema name.
+	// Snowflake schema name.
 	Schema pulumi.StringInput `pulumi:"schema"`
-	// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
 	SecretsManagerConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
-	// The configuration for Snowflake role.
+	// Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
 	SnowflakeRoleConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
-	// The VPC configuration for Snowflake.
+	// VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
 	SnowflakeVpcConfiguration FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrInput `pulumi:"snowflakeVpcConfiguration"`
-	// The Snowflake table name.
+	// Snowflake table name.
 	Table pulumi.StringInput `pulumi:"table"`
-	// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+	// User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
@@ -19339,7 +19145,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliverySt
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput)
 }
 
-// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+// URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) AccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
 }
@@ -19354,44 +19160,44 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) BufferingSize() pulu
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The name of the content column.
+// Name of the content column.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ContentColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.ContentColumnName }).(pulumi.StringPtrOutput)
 }
 
-// The data loading option.
+// Data loading option.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) DataLoadingOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.DataLoadingOption }).(pulumi.StringPtrOutput)
 }
 
-// The Snowflake database name.
+// Snowflake database name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The passphrase for the private key.
+// Passphrase for the private key.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) KeyPassphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.KeyPassphrase }).(pulumi.StringPtrOutput)
 }
 
-// The name of the metadata column.
+// Name of the metadata column.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) MetadataColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.MetadataColumnName }).(pulumi.StringPtrOutput)
 }
 
-// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+// Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// The processing configuration. See `processingConfiguration` block below for details.
+// Processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -19403,55 +19209,55 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) RetryDuration() pulu
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role.
+// ARN of the IAM role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 backup mode.
+// S3 backup mode.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 configuration. See `s3Configuration` block below for details.
+// S3 configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) S3Configuration() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput)
 }
 
-// The Snowflake schema name.
+// Snowflake schema name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The configuration for Snowflake role.
+// Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
 		return v.SnowflakeRoleConfiguration
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
 }
 
-// The VPC configuration for Snowflake.
+// VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) SnowflakeVpcConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
 		return v.SnowflakeVpcConfiguration
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
 }
 
-// The Snowflake table name.
+// Snowflake table name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.Table }).(pulumi.StringOutput)
 }
 
-// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+// User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *string { return v.User }).(pulumi.StringPtrOutput)
 }
@@ -19480,7 +19286,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Elem() FirehoseDe
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationOutput)
 }
 
-// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+// URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) AccountUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19510,7 +19316,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) BufferingSize() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -19520,7 +19326,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) CloudwatchLogging
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The name of the content column.
+// Name of the content column.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ContentColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19530,7 +19336,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ContentColumnName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data loading option.
+// Data loading option.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) DataLoadingOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19540,7 +19346,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) DataLoadingOption
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Snowflake database name.
+// Snowflake database name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19550,7 +19356,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Database() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The passphrase for the private key.
+// Passphrase for the private key.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) KeyPassphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19560,7 +19366,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) KeyPassphrase() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the metadata column.
+// Name of the metadata column.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) MetadataColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19570,7 +19376,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) MetadataColumnNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+// Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19580,7 +19386,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) PrivateKey() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The processing configuration. See `processingConfiguration` block below for details.
+// Processing configuration. See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration {
 		if v == nil {
@@ -19600,7 +19406,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) RetryDuration() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role.
+// ARN of the IAM role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19610,7 +19416,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) RoleArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 backup mode.
+// S3 backup mode.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19620,7 +19426,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3BackupMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 configuration. See `s3Configuration` block below for details.
+// S3 configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
 		if v == nil {
@@ -19630,7 +19436,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) S3Configuration()
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput)
 }
 
-// The Snowflake schema name.
+// Snowflake schema name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19640,7 +19446,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Schema() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
 		if v == nil {
@@ -19650,7 +19456,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SecretsManagerCon
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The configuration for Snowflake role.
+// Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeRoleConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
 		if v == nil {
@@ -19660,7 +19466,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeRoleConf
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput)
 }
 
-// The VPC configuration for Snowflake.
+// VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeVpcConfiguration() FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
 		if v == nil {
@@ -19670,7 +19476,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) SnowflakeVpcConfi
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
 }
 
-// The Snowflake table name.
+// Snowflake table name.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Table() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19680,7 +19486,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) Table() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+// User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *string {
 		if v == nil {
@@ -19693,9 +19499,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) User() pulumi.Str
 type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -19713,9 +19519,9 @@ type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsInput i
 type FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -19801,14 +19607,14 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutp
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -19849,7 +19655,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -19859,7 +19665,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -19872,7 +19678,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrO
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -19890,7 +19696,7 @@ type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationInput in
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -19976,7 +19782,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutpu
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -20017,7 +19823,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -20028,9 +19834,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOu
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -20046,9 +19852,9 @@ type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcesso
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20103,14 +19909,14 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProce
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -20254,25 +20060,23 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProce
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -20288,25 +20092,23 @@ type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationInput interface 
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -20387,7 +20189,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) ToFir
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -20397,20 +20199,19 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) Buffe
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		return v.CompressionFormat
@@ -20424,18 +20225,17 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) Error
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -20464,7 +20264,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) El
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20484,8 +20284,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Bu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *int {
 		if v == nil {
@@ -20495,7 +20294,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Bu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -20505,7 +20304,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Cl
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20525,8 +20324,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Er
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20536,7 +20334,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Km
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20546,7 +20344,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Pr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20559,9 +20357,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationPtrOutput) Ro
 type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -20579,9 +20377,9 @@ type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggin
 type FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -20669,14 +20467,14 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLog
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -20717,7 +20515,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLog
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -20727,7 +20525,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLog
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -20740,9 +20538,9 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLog
 type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled *bool `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn *string `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -20760,9 +20558,9 @@ type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationInpu
 type FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -20850,14 +20648,14 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
 		return v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
 		return v.SecretArn
@@ -20898,7 +20696,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -20908,7 +20706,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -20921,7 +20719,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationP
 type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration struct {
 	// Whether the Snowflake role is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// The Snowflake role.
+	// Snowflake role.
 	SnowflakeRole *string `pulumi:"snowflakeRole"`
 }
 
@@ -20939,7 +20737,7 @@ type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationInput
 type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs struct {
 	// Whether the Snowflake role is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The Snowflake role.
+	// Snowflake role.
 	SnowflakeRole pulumi.StringPtrInput `pulumi:"snowflakeRole"`
 }
 
@@ -21025,7 +20823,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOu
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Snowflake role.
+// Snowflake role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationOutput) SnowflakeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *string {
 		return v.SnowflakeRole
@@ -21066,7 +20864,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Snowflake role.
+// Snowflake role.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPtrOutput) SnowflakeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration) *string {
 		if v == nil {
@@ -21077,7 +20875,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationPt
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration struct {
-	// The VPCE ID for Firehose to privately connect with Snowflake.
+	// VPCE ID for Firehose to privately connect with Snowflake.
 	PrivateLinkVpceId string `pulumi:"privateLinkVpceId"`
 }
 
@@ -21093,7 +20891,7 @@ type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationInput 
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs struct {
-	// The VPCE ID for Firehose to privately connect with Snowflake.
+	// VPCE ID for Firehose to privately connect with Snowflake.
 	PrivateLinkVpceId pulumi.StringInput `pulumi:"privateLinkVpceId"`
 }
 
@@ -21174,7 +20972,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOut
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput)
 }
 
-// The VPCE ID for Firehose to privately connect with Snowflake.
+// VPCE ID for Firehose to privately connect with Snowflake.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput) PrivateLinkVpceId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) string {
 		return v.PrivateLinkVpceId
@@ -21205,7 +21003,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtr
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationOutput)
 }
 
-// The VPCE ID for Firehose to privately connect with Snowflake.
+// VPCE ID for Firehose to privately connect with Snowflake.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationPtrOutput) PrivateLinkVpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration) *string {
 		if v == nil {
@@ -21220,25 +21018,25 @@ type FirehoseDeliveryStreamSplunkConfiguration struct {
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+	// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 	HecAcknowledgmentTimeout *int `pulumi:"hecAcknowledgmentTimeout"`
-	// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+	// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 	HecEndpoint string `pulumi:"hecEndpoint"`
-	// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+	// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 	HecEndpointType *string `pulumi:"hecEndpointType"`
-	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+	// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
 	HecToken *string `pulumi:"hecToken"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
-	S3Configuration             FirehoseDeliveryStreamSplunkConfigurationS3Configuration              `pulumi:"s3Configuration"`
+	// S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamSplunkConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 	SecretsManagerConfiguration *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -21258,25 +21056,25 @@ type FirehoseDeliveryStreamSplunkConfigurationArgs struct {
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+	// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 	HecAcknowledgmentTimeout pulumi.IntPtrInput `pulumi:"hecAcknowledgmentTimeout"`
-	// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+	// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 	HecEndpoint pulumi.StringInput `pulumi:"hecEndpoint"`
-	// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+	// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 	HecEndpointType pulumi.StringPtrInput `pulumi:"hecEndpointType"`
-	// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+	// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
 	HecToken pulumi.StringPtrInput `pulumi:"hecToken"`
-	// The data processing configuration.  See `processingConfiguration` block below for details.
+	// Data processing configuration.  See `processingConfiguration` block below for details.
 	ProcessingConfiguration FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-	// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+	// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The S3 Configuration. See `s3Configuration` block below for details.
-	S3Configuration             FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput                `pulumi:"s3Configuration"`
+	// S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 	SecretsManagerConfiguration FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
 }
 
@@ -21367,34 +21165,34 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) BufferingSize() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecAcknowledgmentTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.HecAcknowledgmentTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) string { return v.HecEndpoint }).(pulumi.StringOutput)
 }
 
-// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecEndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.HecEndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) HecToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.HecToken }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -21406,19 +21204,19 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) RetryDuration() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) S3Configuration() FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput)
 }
 
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
 		return v.SecretsManagerConfiguration
@@ -21469,7 +21267,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) BufferingSize() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -21479,7 +21277,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) CloudwatchLoggingOpt
 	}).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecAcknowledgmentTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *int {
 		if v == nil {
@@ -21489,7 +21287,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecAcknowledgmentTim
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
@@ -21499,7 +21297,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecEndpoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecEndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
@@ -21509,7 +21307,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecEndpointType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
@@ -21519,7 +21317,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) HecToken() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  See `processingConfiguration` block below for details.
+// Data processing configuration.  See `processingConfiguration` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
 		if v == nil {
@@ -21539,8 +21337,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) RetryDuration() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-// `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *string {
 		if v == nil {
@@ -21550,7 +21347,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3BackupMode() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Configuration. See `s3Configuration` block below for details.
+// S3 Configuration. See `s3Configuration` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
 		if v == nil {
@@ -21560,6 +21357,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) S3Configuration() Fi
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput)
 }
 
+// Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) SecretsManagerConfiguration() FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
 		if v == nil {
@@ -21572,9 +21370,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) SecretsManagerConfig
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -21592,9 +21390,9 @@ type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput inte
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -21680,14 +21478,14 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput)
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -21728,7 +21526,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -21738,7 +21536,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -21751,7 +21549,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutp
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration struct {
 	// Enables or disables data processing.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
@@ -21769,7 +21567,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationInput inter
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs struct {
 	// Enables or disables data processing.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	// Data processors as multiple blocks. See `processors` block below for details.
 	Processors FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -21855,7 +21653,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) 
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
 		return v.Processors
@@ -21896,7 +21694,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the data processors as multiple blocks. See `processors` block below for details.
+// Data processors as multiple blocks. See `processors` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
 		if v == nil {
@@ -21907,9 +21705,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -21925,9 +21723,9 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorIn
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs struct {
-	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	// Processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21982,14 +21780,14 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return o
 }
 
-// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+// Processor parameters as multiple blocks. See `parameters` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter {
 		return v.Parameters
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+// Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -22133,25 +21931,23 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationS3Configuration struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -22167,25 +21963,23 @@ type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs struct {
-	// The ARN of the S3 bucket
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
-	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-	// be used.
+	// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the AWS credentials.
+	// ARN of the AWS credentials.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -22266,7 +22060,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) ToFireho
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -22276,20 +22070,19 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) Bufferin
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
@@ -22299,18 +22092,17 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) ErrorOut
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -22339,7 +22131,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Elem(
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput)
 }
 
-// The ARN of the S3 bucket
+// ARN of the S3 bucket.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {
@@ -22359,8 +22151,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Buffe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int {
 		if v == nil {
@@ -22370,7 +22161,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Buffe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+// CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -22380,7 +22171,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Cloud
 	}).(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {
@@ -22400,8 +22191,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Error
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-// be used.
+// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {
@@ -22411,7 +22201,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) KmsKe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {
@@ -22421,7 +22211,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Prefi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS credentials.
+// ARN of the AWS credentials.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {
@@ -22434,9 +22224,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) RoleA
 type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
@@ -22454,9 +22244,9 @@ type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOp
 type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
 	// Enables or disables the logging. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	// CloudWatch group name for logging. This value is required if `enabled` is true.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
 }
 
@@ -22544,14 +22334,14 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggin
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		return v.LogStreamName
@@ -22592,7 +22382,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggin
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The CloudWatch group name for logging. This value is required if `enabled` is true.
+// CloudWatch group name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -22602,7 +22392,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+// CloudWatch log stream name for logging. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -22615,9 +22405,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggin
 type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled *bool `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn *string `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -22635,9 +22425,9 @@ type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationInput i
 type FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs struct {
 	// Enables or disables the Secrets Manager configuration.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The ARN of the role the stream assumes.
+	// ARN of the role the stream assumes.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+	// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -22723,12 +22513,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutp
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
 		return v.SecretArn
@@ -22769,7 +22559,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role the stream assumes.
+// ARN of the role the stream assumes.
 func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -22779,7 +22569,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+// ARN of the Secrets Manager secret. This value is required if `enabled` is true.
 func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -22790,7 +22580,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationPtrO
 }
 
 type StreamStreamModeDetails struct {
-	// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+	// Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 	StreamMode string `pulumi:"streamMode"`
 }
 
@@ -22806,7 +22596,7 @@ type StreamStreamModeDetailsInput interface {
 }
 
 type StreamStreamModeDetailsArgs struct {
-	// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+	// Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 	StreamMode pulumi.StringInput `pulumi:"streamMode"`
 }
 
@@ -22887,7 +22677,7 @@ func (o StreamStreamModeDetailsOutput) ToStreamStreamModeDetailsPtrOutputWithCon
 	}).(StreamStreamModeDetailsPtrOutput)
 }
 
-// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+// Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 func (o StreamStreamModeDetailsOutput) StreamMode() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamStreamModeDetails) string { return v.StreamMode }).(pulumi.StringOutput)
 }
@@ -22916,7 +22706,7 @@ func (o StreamStreamModeDetailsPtrOutput) Elem() StreamStreamModeDetailsOutput {
 	}).(StreamStreamModeDetailsOutput)
 }
 
-// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+// Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 func (o StreamStreamModeDetailsPtrOutput) StreamMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamStreamModeDetails) *string {
 		if v == nil {

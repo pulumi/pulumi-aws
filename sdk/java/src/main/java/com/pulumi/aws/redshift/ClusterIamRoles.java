@@ -93,14 +93,14 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
         return this.defaultIamRoleArn;
     }
     /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      * 
      */
     @Export(name="iamRoleArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoleArns;
 
     /**
-     * @return A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+     * @return A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
      * 
      */
     public Output<List<String>> iamRoleArns() {

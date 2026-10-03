@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs();
 
     /**
-     * Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+     * Format of the records on the output stream. Valid values: `CSV`, `JSON`.
      * 
      */
     @Import(name="recordFormatType", required=true)
     private Output<String> recordFormatType;
 
     /**
-     * @return Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+     * @return Format of the records on the output stream. Valid values: `CSV`, `JSON`.
      * 
      */
     public Output<String> recordFormatType() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormatType Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+         * @param recordFormatType Format of the records on the output stream. Valid values: `CSV`, `JSON`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormatType Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+         * @param recordFormatType Format of the records on the output stream. Valid values: `CSV`, `JSON`.
          * 
          * @return builder
          * 

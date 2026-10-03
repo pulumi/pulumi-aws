@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PipeLogConfigurationCloudwatchLogsLogDestination {
     /**
-     * @return Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+     * @return ARN for the CloudWatch log group to which EventBridge sends the log records.
      * 
      */
     private String logGroupArn;
 
     private PipeLogConfigurationCloudwatchLogsLogDestination() {}
     /**
-     * @return Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+     * @return ARN for the CloudWatch log group to which EventBridge sends the log records.
      * 
      */
     public String logGroupArn() {

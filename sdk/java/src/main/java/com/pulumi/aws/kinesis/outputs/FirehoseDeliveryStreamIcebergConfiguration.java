@@ -19,6 +19,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamIcebergConfiguration {
+    /**
+     * @return Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+     * 
+     */
     private @Nullable Boolean appendOnly;
     /**
      * @return Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
@@ -31,12 +35,12 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
      * 
      */
     private String catalogArn;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -46,28 +50,36 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
      */
     private @Nullable List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations;
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration processingConfiguration;
     /**
-     * @return The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+     * @return Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
      * 
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+     * @return ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
      * 
      */
     private String roleArn;
+    /**
+     * @return Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+     * 
+     */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration;
 
     private FirehoseDeliveryStreamIcebergConfiguration() {}
+    /**
+     * @return Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+     * 
+     */
     public Optional<Boolean> appendOnly() {
         return Optional.ofNullable(this.appendOnly);
     }
@@ -86,14 +98,14 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+     * @return Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
      * 
      */
     public String catalogArn() {
         return this.catalogArn;
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -107,31 +119,35 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         return this.destinationTableConfigurations == null ? List.of() : this.destinationTableConfigurations;
     }
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
     /**
-     * @return The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+     * @return Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
      * 
      */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+     * @return ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+     * 
+     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration() {

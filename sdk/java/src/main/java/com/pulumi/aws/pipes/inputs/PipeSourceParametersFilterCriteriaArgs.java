@@ -17,14 +17,14 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
     public static final PipeSourceParametersFilterCriteriaArgs Empty = new PipeSourceParametersFilterCriteriaArgs();
 
     /**
-     * An array of up to 5 event patterns. Detailed below.
+     * Array of up to 5 event patterns. See `filter` Block for details.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<PipeSourceParametersFilterCriteriaFilterArgs>> filters;
 
     /**
-     * @return An array of up to 5 event patterns. Detailed below.
+     * @return Array of up to 5 event patterns. See `filter` Block for details.
      * 
      */
     public Optional<Output<List<PipeSourceParametersFilterCriteriaFilterArgs>>> filters() {
@@ -56,7 +56,7 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param filters An array of up to 5 event patterns. Detailed below.
+         * @param filters Array of up to 5 event patterns. See `filter` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param filters An array of up to 5 event patterns. Detailed below.
+         * @param filters Array of up to 5 event patterns. See `filter` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class PipeSourceParametersFilterCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param filters An array of up to 5 event patterns. Detailed below.
+         * @param filters Array of up to 5 event patterns. See `filter` Block for details.
          * 
          * @return builder
          * 

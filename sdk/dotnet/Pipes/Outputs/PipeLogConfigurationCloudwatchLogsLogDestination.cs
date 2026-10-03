@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeLogConfigurationCloudwatchLogsLogDestination
     {
         /// <summary>
-        /// Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+        /// ARN for the CloudWatch log group to which EventBridge sends the log records.
         /// </summary>
         public readonly string LogGroupArn;
 

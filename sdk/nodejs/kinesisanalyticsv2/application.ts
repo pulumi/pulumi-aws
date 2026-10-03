@@ -259,27 +259,27 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The application's configuration
+     * Application configuration. See `applicationConfiguration` Block below.
      */
     declare public readonly applicationConfiguration: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
     /**
-     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
     declare public readonly applicationMode: pulumi.Output<string>;
     /**
-     * The ARN of the application.
+     * ARN of the application.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A CloudWatch log stream to monitor application configuration errors.
+     * CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      */
     declare public readonly cloudwatchLoggingOptions: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
-     * The current timestamp when the application was created.
+     * Current timestamp when the application was created.
      */
     declare public /*out*/ readonly createTimestamp: pulumi.Output<string>;
     /**
-     * A summary description of the application.
+     * Summary description of the application.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -287,11 +287,11 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly forceStop: pulumi.Output<boolean | undefined>;
     /**
-     * The current timestamp when the application was last updated.
+     * Current timestamp when the application was last updated.
      */
     declare public /*out*/ readonly lastUpdateTimestamp: pulumi.Output<string>;
     /**
-     * The name of the application.
+     * Name of the application.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -299,11 +299,13 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      */
     declare public readonly runtimeEnvironment: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     *
+     * The following arguments are optional:
      */
     declare public readonly serviceExecutionRole: pulumi.Output<string>;
     /**
@@ -311,19 +313,19 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly startApplication: pulumi.Output<boolean | undefined>;
     /**
-     * The status of the application.
+     * Status of the application.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
     declare public /*out*/ readonly versionId: pulumi.Output<number>;
 
@@ -393,27 +395,27 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * The application's configuration
+     * Application configuration. See `applicationConfiguration` Block below.
      */
     applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
     /**
-     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
     applicationMode?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the application.
+     * ARN of the application.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A CloudWatch log stream to monitor application configuration errors.
+     * CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      */
     cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
-     * The current timestamp when the application was created.
+     * Current timestamp when the application was created.
      */
     createTimestamp?: pulumi.Input<string | undefined>;
     /**
-     * A summary description of the application.
+     * Summary description of the application.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -421,11 +423,11 @@ export interface ApplicationState {
      */
     forceStop?: pulumi.Input<boolean | undefined>;
     /**
-     * The current timestamp when the application was last updated.
+     * Current timestamp when the application was last updated.
      */
     lastUpdateTimestamp?: pulumi.Input<string | undefined>;
     /**
-     * The name of the application.
+     * Name of the application.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -433,11 +435,13 @@ export interface ApplicationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      */
     runtimeEnvironment?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     *
+     * The following arguments are optional:
      */
     serviceExecutionRole?: pulumi.Input<string | undefined>;
     /**
@@ -445,19 +449,19 @@ export interface ApplicationState {
      */
     startApplication?: pulumi.Input<boolean | undefined>;
     /**
-     * The status of the application.
+     * Status of the application.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+     * Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
     versionId?: pulumi.Input<number | undefined>;
 }
@@ -467,19 +471,19 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * The application's configuration
+     * Application configuration. See `applicationConfiguration` Block below.
      */
     applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
     /**
-     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
     applicationMode?: pulumi.Input<string | undefined>;
     /**
-     * A CloudWatch log stream to monitor application configuration errors.
+     * CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
      */
     cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
-     * A summary description of the application.
+     * Summary description of the application.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -487,7 +491,7 @@ export interface ApplicationArgs {
      */
     forceStop?: pulumi.Input<boolean | undefined>;
     /**
-     * The name of the application.
+     * Name of the application.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -495,11 +499,13 @@ export interface ApplicationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+     * Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      */
     runtimeEnvironment: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     * ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+     *
+     * The following arguments are optional:
      */
     serviceExecutionRole: pulumi.Input<string>;
     /**
@@ -507,7 +513,7 @@ export interface ApplicationArgs {
      */
     startApplication?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

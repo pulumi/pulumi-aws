@@ -83,42 +83,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/keyPair:KeyPair")
 public class KeyPair extends com.pulumi.resources.CustomResource {
     /**
-     * The key pair ARN.
+     * Key pair ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The key pair ARN.
+     * @return Key pair ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
     @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
-     * @return The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * @return MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
     /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
-     * @return The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      * 
      */
     public Output<String> keyName() {
@@ -139,42 +139,42 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return this.keyNamePrefix;
     }
     /**
-     * The key pair ID.
+     * Key pair ID.
      * 
      */
     @Export(name="keyPairId", refs={String.class}, tree="[0]")
     private Output<String> keyPairId;
 
     /**
-     * @return The key pair ID.
+     * @return Key pair ID.
      * 
      */
     public Output<String> keyPairId() {
         return this.keyPairId;
     }
     /**
-     * The type of key pair.
+     * Type of key pair.
      * 
      */
     @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
-     * @return The type of key pair.
+     * @return Type of key pair.
      * 
      */
     public Output<String> keyType() {
         return this.keyType;
     }
     /**
-     * The public key material.
+     * Public key material.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
-     * @return The public key material.
+     * @return Public key material.
      * 
      */
     public Output<String> publicKey() {
@@ -209,14 +209,14 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

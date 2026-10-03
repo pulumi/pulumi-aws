@@ -36,16 +36,16 @@ class DashboardArgs:
         The set of arguments for constructing a Dashboard resource.
 
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current dashboard version being created/updated.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See `dashboard_publish_options`.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
-        :param pulumi.Input['DashboardParametersArgs'] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input['DashboardParametersArgs'] parameters: Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
@@ -86,7 +86,7 @@ class DashboardArgs:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Input[_builtins.str]:
         """
-        A description of the current dashboard version being created/updated.
+        Description of the current dashboard version being created/updated.
 
         The following arguments are optional:
         """
@@ -112,7 +112,7 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsArgs']]:
         """
-        Options for publishing the dashboard. See dashboard_publish_options.
+        Options for publishing the dashboard. See `dashboard_publish_options`.
         """
         return pulumi.get(self, "dashboard_publish_options")
 
@@ -136,7 +136,7 @@ class DashboardArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional['DashboardParametersArgs']]:
         """
-        The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
         """
         return pulumi.get(self, "parameters")
 
@@ -148,7 +148,7 @@ class DashboardArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardPermissionArgs']]]]:
         """
-        A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         """
         return pulumi.get(self, "permissions")
 
@@ -172,7 +172,7 @@ class DashboardArgs:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['DashboardSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         """
         return pulumi.get(self, "source_entity")
 
@@ -232,24 +232,25 @@ class _DashboardState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the dashboard.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the dashboard was created.
+        :param pulumi.Input[_builtins.str] created_time: Time that the dashboard was created.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the dashboard was last updated.
+        :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See `dashboard_publish_options`.
+        :param pulumi.Input[_builtins.str] last_published_time: Time that the dashboard was last published.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the dashboard was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
-        :param pulumi.Input['DashboardParametersArgs'] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input['DashboardParametersArgs'] parameters: Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         :param pulumi.Input[_builtins.str] source_entity_arn: ARN of a template that was used to create this dashboard.
-        :param pulumi.Input[_builtins.str] status: The dashboard creation status.
+        :param pulumi.Input[_builtins.str] status: Dashboard creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current dashboard version being created/updated.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the dashboard version.
+        :param pulumi.Input[_builtins.int] version_number: Version number of the dashboard version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -318,7 +319,7 @@ class _DashboardState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the dashboard was created.
+        Time that the dashboard was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -342,7 +343,7 @@ class _DashboardState:
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsArgs']]:
         """
-        Options for publishing the dashboard. See dashboard_publish_options.
+        Options for publishing the dashboard. See `dashboard_publish_options`.
         """
         return pulumi.get(self, "dashboard_publish_options")
 
@@ -353,6 +354,9 @@ class _DashboardState:
     @_builtins.property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Time that the dashboard was last published.
+        """
         return pulumi.get(self, "last_published_time")
 
     @last_published_time.setter
@@ -363,7 +367,7 @@ class _DashboardState:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the dashboard was last updated.
+        Time that the dashboard was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -387,7 +391,7 @@ class _DashboardState:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional['DashboardParametersArgs']]:
         """
-        The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
         """
         return pulumi.get(self, "parameters")
 
@@ -399,7 +403,7 @@ class _DashboardState:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardPermissionArgs']]]]:
         """
-        A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         """
         return pulumi.get(self, "permissions")
 
@@ -423,7 +427,7 @@ class _DashboardState:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['DashboardSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         """
         return pulumi.get(self, "source_entity")
 
@@ -447,7 +451,7 @@ class _DashboardState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The dashboard creation status.
+        Dashboard creation status.
         """
         return pulumi.get(self, "status")
 
@@ -471,7 +475,7 @@ class _DashboardState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -495,7 +499,7 @@ class _DashboardState:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the current dashboard version being created/updated.
+        Description of the current dashboard version being created/updated.
 
         The following arguments are optional:
         """
@@ -509,7 +513,7 @@ class _DashboardState:
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version number of the dashboard version.
+        Version number of the dashboard version.
         """
         return pulumi.get(self, "version_number")
 
@@ -632,15 +636,15 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict', 'outputs.DashboardDashboardPublishOptions']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict', 'outputs.DashboardDashboardPublishOptions']] dashboard_publish_options: Options for publishing the dashboard. See `dashboard_publish_options`.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
-        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict', 'outputs.DashboardParameters']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict', 'outputs.DashboardPermission']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict', 'outputs.DashboardParameters']] parameters: Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict', 'outputs.DashboardPermission']]]] permissions: Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict', 'outputs.DashboardSourceEntity']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict', 'outputs.DashboardSourceEntity']] source_entity: Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current dashboard version being created/updated.
                
                The following arguments are optional:
         """
@@ -838,24 +842,25 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the dashboard.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the dashboard was created.
+        :param pulumi.Input[_builtins.str] created_time: Time that the dashboard was created.
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict', 'outputs.DashboardDashboardPublishOptions']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the dashboard was last updated.
+        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict', 'outputs.DashboardDashboardPublishOptions']] dashboard_publish_options: Options for publishing the dashboard. See `dashboard_publish_options`.
+        :param pulumi.Input[_builtins.str] last_published_time: Time that the dashboard was last published.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the dashboard was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the dashboard.
-        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict', 'outputs.DashboardParameters']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict', 'outputs.DashboardPermission']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict', 'outputs.DashboardParameters']] parameters: Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict', 'outputs.DashboardPermission']]]] permissions: Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict', 'outputs.DashboardSourceEntity']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict', 'outputs.DashboardSourceEntity']] source_entity: Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         :param pulumi.Input[_builtins.str] source_entity_arn: ARN of a template that was used to create this dashboard.
-        :param pulumi.Input[_builtins.str] status: The dashboard creation status.
+        :param pulumi.Input[_builtins.str] status: Dashboard creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current dashboard version being created/updated.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the dashboard version.
+        :param pulumi.Input[_builtins.int] version_number: Version number of the dashboard version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -902,7 +907,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the dashboard was created.
+        Time that the dashboard was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -918,20 +923,23 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> pulumi.Output['outputs.DashboardDashboardPublishOptions']:
         """
-        Options for publishing the dashboard. See dashboard_publish_options.
+        Options for publishing the dashboard. See `dashboard_publish_options`.
         """
         return pulumi.get(self, "dashboard_publish_options")
 
     @_builtins.property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        Time that the dashboard was last published.
+        """
         return pulumi.get(self, "last_published_time")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the dashboard was last updated.
+        Time that the dashboard was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -947,7 +955,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output['outputs.DashboardParameters']:
         """
-        The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
         """
         return pulumi.get(self, "parameters")
 
@@ -955,7 +963,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardPermission']]]:
         """
-        A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
         """
         return pulumi.get(self, "permissions")
 
@@ -971,7 +979,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardSourceEntity']]:
         """
-        The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See `source_entity`.
         """
         return pulumi.get(self, "source_entity")
 
@@ -987,7 +995,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The dashboard creation status.
+        Dashboard creation status.
         """
         return pulumi.get(self, "status")
 
@@ -1003,7 +1011,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1019,7 +1027,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[_builtins.str]:
         """
-        A description of the current dashboard version being created/updated.
+        Description of the current dashboard version being created/updated.
 
         The following arguments are optional:
         """
@@ -1029,7 +1037,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
         """
-        The version number of the dashboard version.
+        Version number of the dashboard version.
         """
         return pulumi.get(self, "version_number")
 

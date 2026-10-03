@@ -32,14 +32,14 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
     }
 
     /**
-     * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+     * Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
     @Import(name="emptyFillColor")
     private @Nullable Output<String> emptyFillColor;
 
     /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+     * @return Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
     public Optional<Output<String>> emptyFillColor() {
@@ -47,14 +47,14 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
     }
 
     /**
-     * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+     * Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
     @Import(name="minMaxGradients")
     private @Nullable Output<List<String>> minMaxGradients;
 
     /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+     * @return Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
     public Optional<Output<List<String>>> minMaxGradients() {
@@ -119,7 +119,7 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
         }
 
         /**
-         * @param emptyFillColor The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         * @param emptyFillColor Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
         }
 
         /**
-         * @param emptyFillColor The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         * @param emptyFillColor Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
         }
 
         /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         * @param minMaxGradients Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
         }
 
         /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         * @param minMaxGradients Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ThemeConfigurationDataColorPaletteArgs extends com.pulumi.res
         }
 
         /**
-         * @param minMaxGradients The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         * @param minMaxGradients Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          * 
          * @return builder
          * 

@@ -201,6 +201,10 @@ export class Topic extends pulumi.CustomResource {
      */
     declare public readonly lambdaSuccessFeedbackSampleRate: pulumi.Output<number | undefined>;
     /**
+     * The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+     */
+    declare public readonly maximumMessageSize: pulumi.Output<number>;
+    /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */
     declare public readonly name: pulumi.Output<string>;
@@ -283,6 +287,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["lambdaFailureFeedbackRoleArn"] = state?.lambdaFailureFeedbackRoleArn;
             resourceInputs["lambdaSuccessFeedbackRoleArn"] = state?.lambdaSuccessFeedbackRoleArn;
             resourceInputs["lambdaSuccessFeedbackSampleRate"] = state?.lambdaSuccessFeedbackSampleRate;
+            resourceInputs["maximumMessageSize"] = state?.maximumMessageSize;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
             resourceInputs["owner"] = state?.owner;
@@ -316,6 +321,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["lambdaFailureFeedbackRoleArn"] = args?.lambdaFailureFeedbackRoleArn;
             resourceInputs["lambdaSuccessFeedbackRoleArn"] = args?.lambdaSuccessFeedbackRoleArn;
             resourceInputs["lambdaSuccessFeedbackSampleRate"] = args?.lambdaSuccessFeedbackSampleRate;
+            resourceInputs["maximumMessageSize"] = args?.maximumMessageSize;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
             resourceInputs["policy"] = args?.policy;
@@ -424,6 +430,10 @@ export interface TopicState {
      * Percentage of success to sample
      */
     lambdaSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
+    /**
+     * The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+     */
+    maximumMessageSize?: pulumi.Input<number | undefined>;
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */
@@ -554,6 +564,10 @@ export interface TopicArgs {
      * Percentage of success to sample
      */
     lambdaSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
+    /**
+     * The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+     */
+    maximumMessageSize?: pulumi.Input<number | undefined>;
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */

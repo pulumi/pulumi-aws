@@ -12,11 +12,14 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationCloudwatchLoggingOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier of the CloudWatch logging option.
+        /// </summary>
         [Input("cloudwatchLoggingOptionId")]
         public Input<string>? CloudwatchLoggingOptionId { get; set; }
 
         /// <summary>
-        /// The ARN of the CloudWatch log stream to receive application messages.
+        /// ARN of the CloudWatch log stream to receive application messages.
         /// </summary>
         [Input("logStreamArn", required: true)]
         public Input<string> LogStreamArn { get; set; } = null!;

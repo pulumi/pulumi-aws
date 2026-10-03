@@ -76,42 +76,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:xray/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Group.
+     * ARN of the Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Group.
+     * @return ARN of the Group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+     * Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      * 
      */
     @Export(name="filterExpression", refs={String.class}, tree="[0]")
     private Output<String> filterExpression;
 
     /**
-     * @return The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+     * @return Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      * 
      */
     public Output<String> filterExpression() {
         return this.filterExpression;
     }
     /**
-     * The name of the group.
+     * Name of the group.
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
-     * @return The name of the group.
+     * @return Name of the group.
      * 
      */
     public Output<String> groupName() {
@@ -160,14 +160,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

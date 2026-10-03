@@ -17,7 +17,7 @@ public final class TableEncryptionSpecification {
      */
     private @Nullable String kmsKeyIdentifier;
     /**
-     * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+     * @return Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
      * 
      */
     private @Nullable String type;
@@ -31,7 +31,7 @@ public final class TableEncryptionSpecification {
         return Optional.ofNullable(this.kmsKeyIdentifier);
     }
     /**
-     * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+     * @return Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
      * 
      */
     public Optional<String> type() {

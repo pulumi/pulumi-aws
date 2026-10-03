@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfiguration {
     /**
-     * @return The input stream used by the application.
+     * @return Input stream used by the application. See `input` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInput input;
     /**
-     * @return The destination streams used by the application.
+     * @return Destination streams used by the application. See `output` Block below.
      * 
      */
     private @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> outputs;
     /**
-     * @return The reference data source used by the application.
+     * @return Reference data source used by the application. See `referenceDataSource` Block below.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource referenceDataSource;
 
     private ApplicationApplicationConfigurationSqlApplicationConfiguration() {}
     /**
-     * @return The input stream used by the application.
+     * @return Input stream used by the application. See `input` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationInput> input() {
         return Optional.ofNullable(this.input);
     }
     /**
-     * @return The destination streams used by the application.
+     * @return Destination streams used by the application. See `output` Block below.
      * 
      */
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> outputs() {
         return this.outputs == null ? List.of() : this.outputs;
     }
     /**
-     * @return The reference data source used by the application.
+     * @return Reference data source used by the application. See `referenceDataSource` Block below.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource> referenceDataSource() {

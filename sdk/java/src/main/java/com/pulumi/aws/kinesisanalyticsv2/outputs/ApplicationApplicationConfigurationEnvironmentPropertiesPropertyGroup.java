@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
     /**
-     * @return The key of the application execution property key-value map.
+     * @return Key of the application execution property key-value map.
      * 
      */
     private String propertyGroupId;
@@ -24,7 +24,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
 
     private ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup() {}
     /**
-     * @return The key of the application execution property key-value map.
+     * @return Key of the application execution property key-value map.
      * 
      */
     public String propertyGroupId() {

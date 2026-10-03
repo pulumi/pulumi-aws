@@ -18,14 +18,14 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
     public static final CiphertextArgs Empty = new CiphertextArgs();
 
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      * 
      */
     @Import(name="context")
     private @Nullable Output<Map<String,String>> context;
 
     /**
-     * @return An optional mapping that makes up the encryption context.
+     * @return Mapping that makes up the encryption context.
      * 
      */
     public Optional<Output<Map<String,String>>> context() {
@@ -80,14 +80,14 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      * 
      */
     @Import(name="plaintextWoVersion")
     private @Nullable Output<String> plaintextWoVersion;
 
     /**
-     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * @return Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      * 
      */
     public Optional<Output<String>> plaintextWoVersion() {
@@ -139,7 +139,7 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param context An optional mapping that makes up the encryption context.
+         * @param context Mapping that makes up the encryption context.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param context An optional mapping that makes up the encryption context.
+         * @param context Mapping that makes up the encryption context.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+         * @param plaintextWoVersion Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class CiphertextArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+         * @param plaintextWoVersion Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
          * 
          * @return builder
          * 

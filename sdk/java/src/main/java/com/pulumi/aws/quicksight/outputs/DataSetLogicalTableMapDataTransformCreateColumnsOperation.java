@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSetLogicalTableMapDataTransformCreateColumnsOperation {
     /**
-     * @return Calculated columns to create. See columns.
+     * @return Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
      * 
      */
     private List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
 
     private DataSetLogicalTableMapDataTransformCreateColumnsOperation() {}
     /**
-     * @return Calculated columns to create. See columns.
+     * @return Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
      * 
      */
     public List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns() {

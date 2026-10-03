@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        /// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         /// </summary>
         [Input("uniqueKey")]
         public Input<bool>? UniqueKey { get; set; }

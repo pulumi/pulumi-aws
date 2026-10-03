@@ -53,14 +53,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -68,14 +68,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     @Import(name="clusterEndpoint")
     private @Nullable Output<String> clusterEndpoint;
 
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * @return Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     public Optional<Output<String>> clusterEndpoint() {
@@ -83,14 +83,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The method for setting up document ID. See [`documentIdOptions` block] below for details.
+     * Method for setting up document ID. See `documentIdOptions` block below for details.
      * 
      */
     @Import(name="documentIdOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs> documentIdOptions;
 
     /**
-     * @return The method for setting up document ID. See [`documentIdOptions` block] below for details.
+     * @return Method for setting up document ID. See `documentIdOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs>> documentIdOptions() {
@@ -98,14 +98,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     @Import(name="domainArn")
     private @Nullable Output<String> domainArn;
 
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * @return ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     public Optional<Output<String>> domainArn() {
@@ -113,14 +113,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The OpenSearch index name.
+     * OpenSearch index name.
      * 
      */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
     /**
-     * @return The OpenSearch index name.
+     * @return OpenSearch index name.
      * 
      */
     public Output<String> indexName() {
@@ -128,14 +128,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     @Import(name="indexRotationPeriod")
     private @Nullable Output<String> indexRotationPeriod;
 
     /**
-     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     public Optional<Output<String>> indexRotationPeriod() {
@@ -143,14 +143,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The data processing configuration. See `processingConfiguration` block below for details.
+     * Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration. See `processingConfiguration` block below for details.
+     * @return Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -173,14 +173,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+     * ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     public Output<String> roleArn() {
@@ -188,14 +188,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -203,14 +203,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The S3 Configuration. See `s3Configuration` block below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs> s3Configuration() {
@@ -218,14 +218,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+     * Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
      * 
      */
     @Import(name="typeName")
     private @Nullable Output<String> typeName;
 
     /**
-     * @return The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+     * @return Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
      * 
      */
     public Optional<Output<String>> typeName() {
@@ -233,14 +233,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+     * VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs>> vpcConfig() {
@@ -328,7 +328,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+         * @param clusterEndpoint Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+         * @param clusterEndpoint Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param documentIdOptions The method for setting up document ID. See [`documentIdOptions` block] below for details.
+         * @param documentIdOptions Method for setting up document ID. See `documentIdOptions` block below for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param documentIdOptions The method for setting up document ID. See [`documentIdOptions` block] below for details.
+         * @param documentIdOptions Method for setting up document ID. See `documentIdOptions` block below for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+         * @param domainArn ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+         * @param domainArn ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexName The OpenSearch index name.
+         * @param indexName OpenSearch index name.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexName The OpenSearch index name.
+         * @param indexName OpenSearch index name.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexRotationPeriod The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * @param indexRotationPeriod OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexRotationPeriod The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * @param indexRotationPeriod OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration. See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration. See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * @param s3BackupMode How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See `s3Configuration` block below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param typeName The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+         * @param typeName Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param typeName The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+         * @param typeName Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+         * @param vpcConfig VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+         * @param vpcConfig VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
          * 
          * @return builder
          * 

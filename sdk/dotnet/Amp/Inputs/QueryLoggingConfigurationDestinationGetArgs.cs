@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class QueryLoggingConfigurationDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for CloudWatch Logs destination. See `CloudwatchLogs`.
+        /// Configuration block for CloudWatch Logs destination. See `CloudwatchLogs` Block.
         /// </summary>
         [Input("cloudwatchLogs", required: true)]
         public Input<Inputs.QueryLoggingConfigurationDestinationCloudwatchLogsGetArgs> CloudwatchLogs { get; set; } = null!;
 
         /// <summary>
-        /// A list of filter configurations that specify which logs should be sent to the destination. See `Filters`.
+        /// List of filter configurations that specify which logs should be sent to the destination. See `Filters` Block.
         /// </summary>
         [Input("filters", required: true)]
         public Input<Inputs.QueryLoggingConfigurationDestinationFiltersGetArgs> Filters { get; set; } = null!;

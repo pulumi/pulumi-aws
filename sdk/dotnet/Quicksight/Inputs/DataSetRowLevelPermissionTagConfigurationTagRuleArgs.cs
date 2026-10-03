@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> ColumnName { get; set; } = null!;
 
         /// <summary>
-        /// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        /// String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
         /// </summary>
         [Input("matchAllValue")]
         public Input<string>? MatchAllValue { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> TagKey { get; set; } = null!;
 
         /// <summary>
-        /// A string that you want to use to delimit the values when you pass the values at run time.
+        /// String that you want to use to delimit the values when you pass the values at run time.
         /// </summary>
         [Input("tagMultiValueDelimiter")]
         public Input<string>? TagMultiValueDelimiter { get; set; }

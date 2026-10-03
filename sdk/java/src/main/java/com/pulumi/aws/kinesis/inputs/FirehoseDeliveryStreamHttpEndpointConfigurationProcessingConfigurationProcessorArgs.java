@@ -19,14 +19,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs();
 
     /**
-     * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+     * Processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>> parameters;
 
     /**
-     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+     * @return Processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>>> parameters() {
@@ -34,14 +34,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
     }
 
     /**
-     * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+     * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+     * @return Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
      * 
      */
     public Output<String> type() {
@@ -74,7 +74,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * @param parameters Processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * @param parameters Processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * @param parameters Processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * @param type Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * @param type Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          * 
          * @return builder
          * 

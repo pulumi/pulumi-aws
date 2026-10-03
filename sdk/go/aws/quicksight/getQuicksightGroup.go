@@ -56,7 +56,7 @@ func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts 
 type GetQuicksightGroupArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The name of the group that you want to match.
+	// Name of the group that you want to match.
 	//
 	// The following arguments are optional:
 	GroupName string `pulumi:"groupName"`
@@ -71,13 +71,13 @@ type GetQuicksightGroupResult struct {
 	// ARN for the group.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// The group description.
+	// Group description.
 	Description string `pulumi:"description"`
 	GroupName   string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string  `pulumi:"id"`
 	Namespace *string `pulumi:"namespace"`
-	// The principal ID of the group.
+	// Principal ID of the group.
 	PrincipalId string `pulumi:"principalId"`
 	Region      string `pulumi:"region"`
 }
@@ -91,7 +91,7 @@ func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutput
 type GetQuicksightGroupOutputArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	// The name of the group that you want to match.
+	// Name of the group that you want to match.
 	//
 	// The following arguments are optional:
 	GroupName pulumi.StringInput `pulumi:"groupName"`
@@ -129,7 +129,7 @@ func (o GetQuicksightGroupResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The group description.
+// Group description.
 func (o GetQuicksightGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -147,7 +147,7 @@ func (o GetQuicksightGroupResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The principal ID of the group.
+// Principal ID of the group.
 func (o GetQuicksightGroupResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

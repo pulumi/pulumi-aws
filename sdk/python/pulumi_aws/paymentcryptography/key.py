@@ -33,13 +33,14 @@ class KeyArgs:
         The set of arguments for constructing a Key resource.
 
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "exportable", exportable)
         if deletion_window_in_days is not None:
@@ -72,6 +73,9 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
@@ -132,7 +136,7 @@ class KeyArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -170,6 +174,7 @@ class _KeyState:
         Input properties used for looking up and filtering Key resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the key.
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
         :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -180,7 +185,7 @@ class _KeyState:
         :param pulumi.Input[_builtins.str] key_origin: Source of the key material.
         :param pulumi.Input[_builtins.str] key_state: State of key that is being created or deleted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -225,6 +230,9 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
@@ -333,7 +341,7 @@ class _KeyState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -421,6 +429,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict', 'outputs.KeyKeyAttribute']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -428,7 +437,7 @@ class Key(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -555,6 +564,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the key.
+        :param pulumi.Input[_builtins.int] deletion_window_in_days: Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict', 'outputs.KeyKeyAttribute']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -565,7 +575,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_origin: Source of the key material.
         :param pulumi.Input[_builtins.str] key_state: State of key that is being created or deleted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -598,6 +608,9 @@ class Key(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Output[_builtins.int]:
+        """
+        Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @_builtins.property
@@ -670,7 +683,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

@@ -19,51 +19,23 @@ public final class AnalyticsApplicationInputsSchemaArgs extends com.pulumi.resou
 
     public static final AnalyticsApplicationInputsSchemaArgs Empty = new AnalyticsApplicationInputsSchemaArgs();
 
-    /**
-     * The Record Column mapping for the streaming source data element.
-     * See Record Columns below for more details.
-     * 
-     */
     @Import(name="recordColumns", required=true)
     private Output<List<AnalyticsApplicationInputsSchemaRecordColumnArgs>> recordColumns;
 
-    /**
-     * @return The Record Column mapping for the streaming source data element.
-     * See Record Columns below for more details.
-     * 
-     */
     public Output<List<AnalyticsApplicationInputsSchemaRecordColumnArgs>> recordColumns() {
         return this.recordColumns;
     }
 
-    /**
-     * The Encoding of the record in the streaming source.
-     * 
-     */
     @Import(name="recordEncoding")
     private @Nullable Output<String> recordEncoding;
 
-    /**
-     * @return The Encoding of the record in the streaming source.
-     * 
-     */
     public Optional<Output<String>> recordEncoding() {
         return Optional.ofNullable(this.recordEncoding);
     }
 
-    /**
-     * The Record Format and mapping information to schematize a record.
-     * See Record Format below for more details.
-     * 
-     */
     @Import(name="recordFormat", required=true)
     private Output<AnalyticsApplicationInputsSchemaRecordFormatArgs> recordFormat;
 
-    /**
-     * @return The Record Format and mapping information to schematize a record.
-     * See Record Format below for more details.
-     * 
-     */
     public Output<AnalyticsApplicationInputsSchemaRecordFormatArgs> recordFormat() {
         return this.recordFormat;
     }
@@ -94,80 +66,33 @@ public final class AnalyticsApplicationInputsSchemaArgs extends com.pulumi.resou
             $ = new AnalyticsApplicationInputsSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recordColumns The Record Column mapping for the streaming source data element.
-         * See Record Columns below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(Output<List<AnalyticsApplicationInputsSchemaRecordColumnArgs>> recordColumns) {
             $.recordColumns = recordColumns;
             return this;
         }
 
-        /**
-         * @param recordColumns The Record Column mapping for the streaming source data element.
-         * See Record Columns below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(List<AnalyticsApplicationInputsSchemaRecordColumnArgs> recordColumns) {
             return recordColumns(Output.of(recordColumns));
         }
 
-        /**
-         * @param recordColumns The Record Column mapping for the streaming source data element.
-         * See Record Columns below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordColumns(AnalyticsApplicationInputsSchemaRecordColumnArgs... recordColumns) {
             return recordColumns(List.of(recordColumns));
         }
 
-        /**
-         * @param recordEncoding The Encoding of the record in the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordEncoding(@Nullable Output<String> recordEncoding) {
             $.recordEncoding = recordEncoding;
             return this;
         }
 
-        /**
-         * @param recordEncoding The Encoding of the record in the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordEncoding(String recordEncoding) {
             return recordEncoding(Output.of(recordEncoding));
         }
 
-        /**
-         * @param recordFormat The Record Format and mapping information to schematize a record.
-         * See Record Format below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormat(Output<AnalyticsApplicationInputsSchemaRecordFormatArgs> recordFormat) {
             $.recordFormat = recordFormat;
             return this;
         }
 
-        /**
-         * @param recordFormat The Record Format and mapping information to schematize a record.
-         * See Record Format below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormat(AnalyticsApplicationInputsSchemaRecordFormatArgs recordFormat) {
             return recordFormat(Output.of(recordFormat));
         }

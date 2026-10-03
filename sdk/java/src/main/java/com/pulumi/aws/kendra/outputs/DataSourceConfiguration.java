@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceConfiguration {
     /**
-     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * @return Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
      * @deprecated
      * s3_configuration is deprecated. Use templateConfiguration instead.
@@ -23,12 +23,12 @@ public final class DataSourceConfiguration {
     @Deprecated /* s3_configuration is deprecated. Use templateConfiguration instead. */
     private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
      * 
      */
     private @Nullable DataSourceConfigurationTemplateConfiguration templateConfiguration;
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
      * @deprecated
      * web_crawler_configuration is deprecated. Use templateConfiguration instead.
@@ -39,7 +39,7 @@ public final class DataSourceConfiguration {
 
     private DataSourceConfiguration() {}
     /**
-     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * @return Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
      * @deprecated
      * s3_configuration is deprecated. Use templateConfiguration instead.
@@ -50,14 +50,14 @@ public final class DataSourceConfiguration {
         return Optional.ofNullable(this.s3Configuration);
     }
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
      * 
      */
     public Optional<DataSourceConfigurationTemplateConfiguration> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
      * @deprecated
      * web_crawler_configuration is deprecated. Use templateConfiguration instead.

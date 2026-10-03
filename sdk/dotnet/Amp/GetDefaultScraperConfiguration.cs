@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Amp
     public sealed class GetDefaultScraperConfigurationResult
     {
         /// <summary>
-        /// The configuration file.
+        /// Configuration file.
         /// </summary>
         public readonly string Configuration;
         public readonly string Region;

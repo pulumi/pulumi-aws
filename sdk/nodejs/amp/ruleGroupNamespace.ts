@@ -69,7 +69,7 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the rule group namespace.
+     * ARN of the rule group namespace.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -77,7 +77,7 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
      */
     declare public readonly data: pulumi.Output<string>;
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
  */
 export interface RuleGroupNamespaceState {
     /**
-     * The ARN of the rule group namespace.
+     * ARN of the rule group namespace.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface RuleGroupNamespaceState {
      */
     data?: pulumi.Input<string | undefined>;
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface RuleGroupNamespaceArgs {
      */
     data: pulumi.Input<string>;
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      */
     name?: pulumi.Input<string | undefined>;
     /**

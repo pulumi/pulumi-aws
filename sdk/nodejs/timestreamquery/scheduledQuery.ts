@@ -342,7 +342,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
-     * Runtime summary for the last scheduled query run.
+     * Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      */
     declare public readonly lastRunSummaries: pulumi.Output<outputs.timestreamquery.ScheduledQueryLastRunSummary[] | undefined>;
     /**
@@ -366,7 +366,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     declare public readonly queryString: pulumi.Output<string>;
     /**
-     * Runtime summary for the last five failed scheduled query runs.
+     * Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      */
     declare public readonly recentlyFailedRuns: pulumi.Output<outputs.timestreamquery.ScheduledQueryRecentlyFailedRun[] | undefined>;
     /**
@@ -499,7 +499,7 @@ export interface ScheduledQueryState {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * Runtime summary for the last scheduled query run.
+     * Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      */
     lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[] | undefined>;
     /**
@@ -523,7 +523,7 @@ export interface ScheduledQueryState {
      */
     queryString?: pulumi.Input<string | undefined>;
     /**
-     * Runtime summary for the last five failed scheduled query runs.
+     * Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[] | undefined>;
     /**
@@ -572,7 +572,7 @@ export interface ScheduledQueryArgs {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * Runtime summary for the last scheduled query run.
+     * Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      */
     lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[] | undefined>;
     /**
@@ -588,7 +588,7 @@ export interface ScheduledQueryArgs {
      */
     queryString: pulumi.Input<string>;
     /**
-     * Runtime summary for the last five failed scheduled query runs.
+     * Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[] | undefined>;
     /**

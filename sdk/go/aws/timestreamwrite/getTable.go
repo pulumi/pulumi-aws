@@ -73,7 +73,7 @@ type LookupTableResult struct {
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Object containing the following attributes to desribe magnetic store writes.
 	MagneticStoreWriteProperties []GetTableMagneticStoreWriteProperty `pulumi:"magneticStoreWriteProperties"`
-	// Name of the table.
+	// Name of the timestream attribute used for a dimension key.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
 	// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
@@ -143,7 +143,7 @@ func (o LookupTableResultOutput) MagneticStoreWriteProperties() GetTableMagnetic
 	return o.ApplyT(func(v LookupTableResult) []GetTableMagneticStoreWriteProperty { return v.MagneticStoreWriteProperties }).(GetTableMagneticStoreWritePropertyArrayOutput)
 }
 
-// Name of the table.
+// Name of the timestream attribute used for a dimension key.
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
 }

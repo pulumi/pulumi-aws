@@ -14,43 +14,51 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineEndpoint {
+    /**
+     * @return Endpoint for connecting using the Internet Small Computer Systems Interface (iSCSI) protocol. See `iscsi` Block below.
+     * 
+     */
     private List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis;
     /**
-     * @return Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+     * @return Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See `management` Block below.
      * 
      */
     private List<GetOntapStorageVirtualMachineEndpointManagement> managements;
     /**
-     * @return Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+     * @return Endpoint for connecting using the Network File System (NFS) protocol. See `nfs` Block below.
      * 
      */
     private List<GetOntapStorageVirtualMachineEndpointNf> nfs;
     /**
-     * @return Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+     * @return Endpoint for connecting using the Server Message Block (SMB) protocol. See `smb` Block below.
      * 
      */
     private List<GetOntapStorageVirtualMachineEndpointSmb> smbs;
 
     private GetOntapStorageVirtualMachineEndpoint() {}
+    /**
+     * @return Endpoint for connecting using the Internet Small Computer Systems Interface (iSCSI) protocol. See `iscsi` Block below.
+     * 
+     */
     public List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis() {
         return this.iscsis;
     }
     /**
-     * @return Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+     * @return Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See `management` Block below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointManagement> managements() {
         return this.managements;
     }
     /**
-     * @return Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+     * @return Endpoint for connecting using the Network File System (NFS) protocol. See `nfs` Block below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointNf> nfs() {
         return this.nfs;
     }
     /**
-     * @return Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+     * @return Endpoint for connecting using the Server Message Block (SMB) protocol. See `smb` Block below.
      * 
      */
     public List<GetOntapStorageVirtualMachineEndpointSmb> smbs() {

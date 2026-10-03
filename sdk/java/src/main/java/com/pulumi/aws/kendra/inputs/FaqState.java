@@ -33,23 +33,31 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Unix datetime that the FAQ was created.
+     * Unix datetime that the FAQ was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The Unix datetime that the FAQ was created.
+     * @return Unix datetime that the FAQ was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
+    /**
+     * Description for a FAQ.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for a FAQ.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -70,58 +78,74 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      * 
      */
     @Import(name="faqId")
     private @Nullable Output<String> faqId;
 
     /**
-     * @return The identifier of the FAQ.
+     * @return Identifier of the FAQ.
      * 
      */
     public Optional<Output<String>> faqId() {
         return Optional.ofNullable(this.faqId);
     }
 
+    /**
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
+    /**
+     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     public Optional<Output<String>> fileFormat() {
         return Optional.ofNullable(this.fileFormat);
     }
 
     /**
-     * The identifier of the index for a FAQ.
+     * Identifier of the index for a FAQ.
      * 
      */
     @Import(name="indexId")
     private @Nullable Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a FAQ.
+     * @return Identifier of the index for a FAQ.
      * 
      */
     public Optional<Output<String>> indexId() {
         return Optional.ofNullable(this.indexId);
     }
 
+    /**
+     * Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
     /**
-     * The name that should be associated with the FAQ.
+     * Name that should be associated with the FAQ.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name that should be associated with the FAQ.
+     * @return Name that should be associated with the FAQ.
      * 
      */
     public Optional<Output<String>> name() {
@@ -129,14 +153,14 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -159,14 +183,18 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="s3Path")
     private @Nullable Output<FaqS3PathArgs> s3Path;
 
     /**
-     * @return The S3 location of the FAQ input data. Detailed below.
+     * @return S3 location of the FAQ input data. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<FaqS3PathArgs>> s3Path() {
@@ -174,36 +202,44 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -211,14 +247,14 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time that the FAQ was last updated.
+     * Date and time that the FAQ was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The date and time that the FAQ was last updated.
+     * @return Date and time that the FAQ was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -286,7 +322,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix datetime that the FAQ was created.
+         * @param createdAt Unix datetime that the FAQ was created.
          * 
          * @return builder
          * 
@@ -297,7 +333,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix datetime that the FAQ was created.
+         * @param createdAt Unix datetime that the FAQ was created.
          * 
          * @return builder
          * 
@@ -306,11 +342,23 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return createdAt(Output.of(createdAt));
         }
 
+        /**
+         * @param description Description for a FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for a FAQ.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -337,7 +385,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param faqId The identifier of the FAQ.
+         * @param faqId Identifier of the FAQ.
          * 
          * @return builder
          * 
@@ -348,7 +396,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param faqId The identifier of the FAQ.
+         * @param faqId Identifier of the FAQ.
          * 
          * @return builder
          * 
@@ -357,17 +405,29 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return faqId(Output.of(faqId));
         }
 
+        /**
+         * @param fileFormat File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormat(@Nullable Output<String> fileFormat) {
             $.fileFormat = fileFormat;
             return this;
         }
 
+        /**
+         * @param fileFormat File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormat(String fileFormat) {
             return fileFormat(Output.of(fileFormat));
         }
 
         /**
-         * @param indexId The identifier of the index for a FAQ.
+         * @param indexId Identifier of the index for a FAQ.
          * 
          * @return builder
          * 
@@ -378,7 +438,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexId The identifier of the index for a FAQ.
+         * @param indexId Identifier of the index for a FAQ.
          * 
          * @return builder
          * 
@@ -387,17 +447,29 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return indexId(Output.of(indexId));
         }
 
+        /**
+         * @param languageCode Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
         /**
-         * @param name The name that should be associated with the FAQ.
+         * @param name Name that should be associated with the FAQ.
          * 
          * @return builder
          * 
@@ -408,7 +480,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name that should be associated with the FAQ.
+         * @param name Name that should be associated with the FAQ.
          * 
          * @return builder
          * 
@@ -418,7 +490,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -429,7 +501,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -460,7 +532,9 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
+         * @param s3Path S3 location of the FAQ input data. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -471,7 +545,9 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
+         * @param s3Path S3 location of the FAQ input data. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -481,7 +557,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the FAQ. It is ready to use when the status is ACTIVE.
+         * @param status Status of the FAQ. It is ready to use when the status is ACTIVE.
          * 
          * @return builder
          * 
@@ -492,7 +568,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the FAQ. It is ready to use when the status is ACTIVE.
+         * @param status Status of the FAQ. It is ready to use when the status is ACTIVE.
          * 
          * @return builder
          * 
@@ -501,17 +577,29 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
             return status(Output.of(status));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -522,7 +610,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -532,7 +620,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The date and time that the FAQ was last updated.
+         * @param updatedAt Date and time that the FAQ was last updated.
          * 
          * @return builder
          * 
@@ -543,7 +631,7 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The date and time that the FAQ was last updated.
+         * @param updatedAt Date and time that the FAQ was last updated.
          * 
          * @return builder
          * 

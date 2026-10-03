@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
     /**
-     * @return The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+     * @return Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
      * 
      */
     private String defaultDocumentIdFormat;
 
     private FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions() {}
     /**
-     * @return The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+     * @return Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
      * 
      */
     public String defaultDocumentIdFormat() {

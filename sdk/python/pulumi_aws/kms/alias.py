@@ -27,9 +27,8 @@ class AliasArgs:
         The set of arguments for constructing a Alias resource.
 
         :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
+        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target_key_id", target_key_id)
@@ -56,7 +55,7 @@ class AliasArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         """
         return pulumi.get(self, "name")
 
@@ -68,8 +67,7 @@ class AliasArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -103,9 +101,8 @@ class _AliasState:
         Input properties used for looking up and filtering Alias resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the key alias.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
+        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_key_arn: ARN of the target key identifier.
         :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
@@ -139,7 +136,7 @@ class _AliasState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         """
         return pulumi.get(self, "name")
 
@@ -151,8 +148,7 @@ class _AliasState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -247,9 +243,8 @@ class Alias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
+        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
@@ -356,9 +351,8 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the key alias.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
+        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_key_arn: ARN of the target key identifier.
         :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
@@ -387,7 +381,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
         """
         return pulumi.get(self, "name")
 
@@ -395,8 +389,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
         """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 

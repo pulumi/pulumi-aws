@@ -58,54 +58,65 @@ namespace Pulumi.Aws.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for a thesaurus.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the index for a thesaurus.
+        /// Identifier of the index for a thesaurus.
         /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the thesaurus.
+        /// Name for the thesaurus.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        /// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.ThesaurusSourceS3Path> SourceS3Path { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the thesaurus.
+        /// Current status of the thesaurus.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the thesaurus.
+        /// </summary>
         [Output("thesaurusId")]
         public Output<string> ThesaurusId { get; private set; } = null!;
 
@@ -155,41 +166,50 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class ThesaurusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description for a thesaurus.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for a thesaurus.
+        /// Identifier of the index for a thesaurus.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
         /// <summary>
-        /// The name for the thesaurus.
+        /// Name for the thesaurus.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        /// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.ThesaurusSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -210,47 +230,56 @@ namespace Pulumi.Aws.Kendra
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description for a thesaurus.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for a thesaurus.
+        /// Identifier of the index for a thesaurus.
         /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
         /// <summary>
-        /// The name for the thesaurus.
+        /// Name for the thesaurus.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        /// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// S3 path where your thesaurus file sits in S3. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.ThesaurusSourceS3PathGetArgs>? SourceS3Path { get; set; }
 
         /// <summary>
-        /// The current status of the thesaurus.
+        /// Current status of the thesaurus.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -261,7 +290,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -269,6 +298,9 @@ namespace Pulumi.Aws.Kendra
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Unique identifier of the thesaurus.
+        /// </summary>
         [Input("thesaurusId")]
         public Input<string>? ThesaurusId { get; set; }
 

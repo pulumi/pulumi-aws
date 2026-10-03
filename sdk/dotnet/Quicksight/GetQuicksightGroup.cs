@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Quicksight
         public string? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The name of the group that you want to match.
+        /// Name of the group that you want to match.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The name of the group that you want to match.
+        /// Name of the group that you want to match.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Arn;
         public readonly string AwsAccountId;
         /// <summary>
-        /// The group description.
+        /// Group description.
         /// </summary>
         public readonly string Description;
         public readonly string GroupName;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Id;
         public readonly string? Namespace;
         /// <summary>
-        /// The principal ID of the group.
+        /// Principal ID of the group.
         /// </summary>
         public readonly string PrincipalId;
         public readonly string Region;

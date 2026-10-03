@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.AnalysisParametersDateTimeParameterArgs>? _dateTimeParameters;
 
         /// <summary>
-        /// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        /// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
         /// </summary>
         public InputList<Inputs.AnalysisParametersDateTimeParameterArgs> DateTimeParameters
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.AnalysisParametersDecimalParameterArgs>? _decimalParameters;
 
         /// <summary>
-        /// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        /// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
         /// </summary>
         public InputList<Inputs.AnalysisParametersDecimalParameterArgs> DecimalParameters
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.AnalysisParametersIntegerParameterArgs>? _integerParameters;
 
         /// <summary>
-        /// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        /// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         /// </summary>
         public InputList<Inputs.AnalysisParametersIntegerParameterArgs> IntegerParameters
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.AnalysisParametersStringParameterArgs>? _stringParameters;
 
         /// <summary>
-        /// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        /// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         /// </summary>
         public InputList<Inputs.AnalysisParametersStringParameterArgs> StringParameters
         {

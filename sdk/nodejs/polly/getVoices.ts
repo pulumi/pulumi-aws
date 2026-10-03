@@ -65,7 +65,7 @@ export interface GetVoicesArgs {
      */
     region?: string;
     /**
-     * List of voices with their properties. See `voices` Attribute Reference below.
+     * List of voices with their properties. See `voices` Block below.
      */
     voices?: inputs.polly.GetVoicesVoice[];
 }
@@ -86,7 +86,7 @@ export interface GetVoicesResult {
     readonly languageCode?: string;
     readonly region: string;
     /**
-     * List of voices with their properties. See `voices` Attribute Reference below.
+     * List of voices with their properties. See `voices` Block below.
      */
     readonly voices?: outputs.polly.GetVoicesVoice[];
 }
@@ -148,7 +148,7 @@ export interface GetVoicesOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of voices with their properties. See `voices` Attribute Reference below.
+     * List of voices with their properties. See `voices` Block below.
      */
     voices?: pulumi.Input<pulumi.Input<inputs.polly.GetVoicesVoiceArgs>[] | undefined>;
 }

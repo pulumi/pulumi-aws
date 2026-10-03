@@ -21,14 +21,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     public static final PipeSourceParametersSelfManagedKafkaParametersArgs Empty = new PipeSourceParametersSelfManagedKafkaParametersArgs();
 
     /**
-     * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+     * Array of server URLs. Maximum number of 2 items, each of maximum length 300.
      * 
      */
     @Import(name="additionalBootstrapServers")
     private @Nullable Output<List<String>> additionalBootstrapServers;
 
     /**
-     * @return An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+     * @return Array of server URLs. Maximum number of 2 items, each of maximum length 300.
      * 
      */
     public Optional<Output<List<String>>> additionalBootstrapServers() {
@@ -36,14 +36,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The maximum number of records to include in each batch. Maximum value of 10000.
+     * Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
     /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * @return Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     public Optional<Output<Integer>> batchSize() {
@@ -51,14 +51,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The name of the destination queue to consume. Maximum value of 200.
+     * Name of the destination queue to consume. Maximum value of 200.
      * 
      */
     @Import(name="consumerGroupId")
     private @Nullable Output<String> consumerGroupId;
 
     /**
-     * @return The name of the destination queue to consume. Maximum value of 200.
+     * @return Name of the destination queue to consume. Maximum value of 200.
      * 
      */
     public Optional<Output<String>> consumerGroupId() {
@@ -66,14 +66,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The credentials needed to access the resource. Detailed below.
+     * Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs> credentials;
 
     /**
-     * @return The credentials needed to access the resource. Detailed below.
+     * @return Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs>> credentials() {
@@ -81,14 +81,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The maximum length of a time to wait for events. Maximum value of 300.
+     * Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
     /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * @return Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
@@ -96,14 +96,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The ARN of the Secrets Manager secret used for certification.
+     * ARN of the Secrets Manager secret used for certification.
      * 
      */
     @Import(name="serverRootCaCertificate")
     private @Nullable Output<String> serverRootCaCertificate;
 
     /**
-     * @return The ARN of the Secrets Manager secret used for certification.
+     * @return ARN of the Secrets Manager secret used for certification.
      * 
      */
     public Optional<Output<String>> serverRootCaCertificate() {
@@ -111,14 +111,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     @Import(name="startingPosition")
     private @Nullable Output<String> startingPosition;
 
     /**
-     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * @return Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     public Optional<Output<String>> startingPosition() {
@@ -126,14 +126,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * The name of the topic that the pipe will read from. Maximum length of 249.
+     * Name of the topic that the pipe will read from. Maximum length of 249.
      * 
      */
     @Import(name="topicName", required=true)
     private Output<String> topicName;
 
     /**
-     * @return The name of the topic that the pipe will read from. Maximum length of 249.
+     * @return Name of the topic that the pipe will read from. Maximum length of 249.
      * 
      */
     public Output<String> topicName() {
@@ -141,14 +141,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
     }
 
     /**
-     * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+     * VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<PipeSourceParametersSelfManagedKafkaParametersVpcArgs> vpc;
 
     /**
-     * @return This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+     * @return VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersSelfManagedKafkaParametersVpcArgs>> vpc() {
@@ -188,7 +188,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param additionalBootstrapServers An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         * @param additionalBootstrapServers Array of server URLs. Maximum number of 2 items, each of maximum length 300.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param additionalBootstrapServers An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         * @param additionalBootstrapServers Array of server URLs. Maximum number of 2 items, each of maximum length 300.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param additionalBootstrapServers An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         * @param additionalBootstrapServers Array of server URLs. Maximum number of 2 items, each of maximum length 300.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param consumerGroupId The name of the destination queue to consume. Maximum value of 200.
+         * @param consumerGroupId Name of the destination queue to consume. Maximum value of 200.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param consumerGroupId The name of the destination queue to consume. Maximum value of 200.
+         * @param consumerGroupId Name of the destination queue to consume. Maximum value of 200.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
+         * @param credentials Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
+         * @param credentials Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param serverRootCaCertificate The ARN of the Secrets Manager secret used for certification.
+         * @param serverRootCaCertificate ARN of the Secrets Manager secret used for certification.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param serverRootCaCertificate The ARN of the Secrets Manager secret used for certification.
+         * @param serverRootCaCertificate ARN of the Secrets Manager secret used for certification.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * @param startingPosition Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * @param startingPosition Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param topicName The name of the topic that the pipe will read from. Maximum length of 249.
+         * @param topicName Name of the topic that the pipe will read from. Maximum length of 249.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param topicName The name of the topic that the pipe will read from. Maximum length of 249.
+         * @param topicName Name of the topic that the pipe will read from. Maximum length of 249.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param vpc This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+         * @param vpc VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs extends co
         }
 
         /**
-         * @param vpc This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+         * @param vpc VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
          * 
          * @return builder
          * 

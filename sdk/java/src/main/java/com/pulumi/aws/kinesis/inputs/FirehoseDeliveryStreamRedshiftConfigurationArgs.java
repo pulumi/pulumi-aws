@@ -23,14 +23,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     public static final FirehoseDeliveryStreamRedshiftConfigurationArgs Empty = new FirehoseDeliveryStreamRedshiftConfigurationArgs();
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -38,14 +38,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The jdbcurl of the redshift cluster.
+     * JDBC URL of the redshift cluster.
      * 
      */
     @Import(name="clusterJdbcurl", required=true)
     private Output<String> clusterJdbcurl;
 
     /**
-     * @return The jdbcurl of the redshift cluster.
+     * @return JDBC URL of the redshift cluster.
      * 
      */
     public Output<String> clusterJdbcurl() {
@@ -53,14 +53,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+     * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
      * 
      */
     @Import(name="copyOptions")
     private @Nullable Output<String> copyOptions;
 
     /**
-     * @return Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+     * @return Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
      * 
      */
     public Optional<Output<String>> copyOptions() {
@@ -68,14 +68,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The data table columns that will be targeted by the copy command.
+     * Data table columns that will be targeted by the copy command.
      * 
      */
     @Import(name="dataTableColumns")
     private @Nullable Output<String> dataTableColumns;
 
     /**
-     * @return The data table columns that will be targeted by the copy command.
+     * @return Data table columns that will be targeted by the copy command.
      * 
      */
     public Optional<Output<String>> dataTableColumns() {
@@ -83,14 +83,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The name of the table in the redshift cluster that the s3 bucket will copy to.
+     * Name of the table in the redshift cluster that the s3 bucket will copy to.
      * 
      */
     @Import(name="dataTableName", required=true)
     private Output<String> dataTableName;
 
     /**
-     * @return The name of the table in the redshift cluster that the s3 bucket will copy to.
+     * @return Name of the table in the redshift cluster that the s3 bucket will copy to.
      * 
      */
     public Output<String> dataTableName() {
@@ -98,14 +98,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+     * Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> password() {
@@ -113,14 +113,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -128,14 +128,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+     * Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
      * 
      */
     @Import(name="retryDuration")
     private @Nullable Output<Integer> retryDuration;
 
     /**
-     * @return The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+     * @return Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
      * 
      */
     public Optional<Output<Integer>> retryDuration() {
@@ -143,14 +143,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The arn of the role the stream assumes.
+     * ARN of the role the stream assumes.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The arn of the role the stream assumes.
+     * @return ARN of the role the stream assumes.
      * 
      */
     public Output<String> roleArn() {
@@ -158,16 +158,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+     * Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
      * 
      */
     @Import(name="s3BackupConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs> s3BackupConfiguration;
 
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+     * @return Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>> s3BackupConfiguration() {
@@ -175,14 +173,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * @return Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -190,36 +188,44 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The S3 Configuration. See s3Configuration below for details.
+     * S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     @Import(name="s3Configuration", required=true)
     private Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The S3 Configuration. See s3Configuration below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration() {
         return this.s3Configuration;
     }
 
+    /**
+     * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+     * 
+     */
     @Import(name="secretsManagerConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
 
+    /**
+     * @return Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+     * 
+     */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
 
     /**
-     * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+     * Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+     * @return Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<Output<String>> username() {
@@ -264,7 +270,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -275,7 +281,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -285,7 +291,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param clusterJdbcurl The jdbcurl of the redshift cluster.
+         * @param clusterJdbcurl JDBC URL of the redshift cluster.
          * 
          * @return builder
          * 
@@ -296,7 +302,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param clusterJdbcurl The jdbcurl of the redshift cluster.
+         * @param clusterJdbcurl JDBC URL of the redshift cluster.
          * 
          * @return builder
          * 
@@ -306,7 +312,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param copyOptions Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+         * @param copyOptions Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
          * 
          * @return builder
          * 
@@ -317,7 +323,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param copyOptions Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+         * @param copyOptions Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
          * 
          * @return builder
          * 
@@ -327,7 +333,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param dataTableColumns The data table columns that will be targeted by the copy command.
+         * @param dataTableColumns Data table columns that will be targeted by the copy command.
          * 
          * @return builder
          * 
@@ -338,7 +344,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param dataTableColumns The data table columns that will be targeted by the copy command.
+         * @param dataTableColumns Data table columns that will be targeted by the copy command.
          * 
          * @return builder
          * 
@@ -348,7 +354,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param dataTableName The name of the table in the redshift cluster that the s3 bucket will copy to.
+         * @param dataTableName Name of the table in the redshift cluster that the s3 bucket will copy to.
          * 
          * @return builder
          * 
@@ -359,7 +365,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param dataTableName The name of the table in the redshift cluster that the s3 bucket will copy to.
+         * @param dataTableName Name of the table in the redshift cluster that the s3 bucket will copy to.
          * 
          * @return builder
          * 
@@ -369,7 +375,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param password The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param password Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -380,7 +386,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param password The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param password Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -390,7 +396,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -401,7 +407,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -411,7 +417,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param retryDuration The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+         * @param retryDuration Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
          * 
          * @return builder
          * 
@@ -422,7 +428,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param retryDuration The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+         * @param retryDuration Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
          * 
          * @return builder
          * 
@@ -432,7 +438,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn The arn of the role the stream assumes.
+         * @param roleArn ARN of the role the stream assumes.
          * 
          * @return builder
          * 
@@ -443,7 +449,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn The arn of the role the stream assumes.
+         * @param roleArn ARN of the role the stream assumes.
          * 
          * @return builder
          * 
@@ -453,8 +459,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         * @param s3BackupConfiguration Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -465,8 +470,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         * @param s3BackupConfiguration Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -476,7 +480,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          * 
          * @return builder
          * 
@@ -487,7 +491,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          * 
          * @return builder
          * 
@@ -497,7 +501,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3Configuration below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -508,7 +512,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param s3Configuration The S3 Configuration. See s3Configuration below for details.
+         * @param s3Configuration S3 Configuration. See `s3Configuration` block below for details.
          * 
          * @return builder
          * 
@@ -517,17 +521,29 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
             return s3Configuration(Output.of(s3Configuration));
         }
 
+        /**
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
             $.secretsManagerConfiguration = secretsManagerConfiguration;
             return this;
         }
 
+        /**
+         * @param secretsManagerConfiguration Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretsManagerConfiguration(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
             return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
         }
 
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param username Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 
@@ -538,7 +554,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+         * @param username Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          * 
          * @return builder
          * 

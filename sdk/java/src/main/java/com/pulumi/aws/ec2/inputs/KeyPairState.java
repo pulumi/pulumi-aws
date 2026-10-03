@@ -17,14 +17,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     public static final KeyPairState Empty = new KeyPairState();
 
     /**
-     * The key pair ARN.
+     * Key pair ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The key pair ARN.
+     * @return Key pair ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
     @Import(name="fingerprint")
     private @Nullable Output<String> fingerprint;
 
     /**
-     * @return The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     * @return MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
     public Optional<Output<String>> fingerprint() {
@@ -47,14 +47,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -77,14 +77,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key pair ID.
+     * Key pair ID.
      * 
      */
     @Import(name="keyPairId")
     private @Nullable Output<String> keyPairId;
 
     /**
-     * @return The key pair ID.
+     * @return Key pair ID.
      * 
      */
     public Optional<Output<String>> keyPairId() {
@@ -92,14 +92,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of key pair.
+     * Type of key pair.
      * 
      */
     @Import(name="keyType")
     private @Nullable Output<String> keyType;
 
     /**
-     * @return The type of key pair.
+     * @return Type of key pair.
      * 
      */
     public Optional<Output<String>> keyType() {
@@ -107,14 +107,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public key material.
+     * Public key material.
      * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
-     * @return The public key material.
+     * @return Public key material.
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -152,14 +152,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -200,7 +200,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The key pair ARN.
+         * @param arn Key pair ARN.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The key pair ARN.
+         * @param arn Key pair ARN.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fingerprint The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+         * @param fingerprint MD5 public key fingerprint as specified in section 4 of RFC 4716.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fingerprint The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+         * @param fingerprint MD5 public key fingerprint as specified in section 4 of RFC 4716.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyPairId The key pair ID.
+         * @param keyPairId Key pair ID.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyPairId The key pair ID.
+         * @param keyPairId Key pair ID.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType The type of key pair.
+         * @param keyType Type of key pair.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType The type of key pair.
+         * @param keyType Type of key pair.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key material.
+         * @param publicKey Public key material.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey The public key material.
+         * @param publicKey Public key material.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

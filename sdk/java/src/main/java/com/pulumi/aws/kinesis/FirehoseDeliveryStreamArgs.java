@@ -45,23 +45,31 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+     * Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+     * @return Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     public Output<String> destination() {
         return this.destination;
     }
 
+    /**
+     * Identifier of the destination for the delivery stream.
+     * 
+     */
     @Import(name="destinationId")
     private @Nullable Output<String> destinationId;
 
+    /**
+     * @return Identifier of the destination for the delivery stream.
+     * 
+     */
     public Optional<Output<String>> destinationId() {
         return Optional.ofNullable(this.destinationId);
     }
@@ -142,14 +150,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+     * Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
      * 
      */
     @Import(name="mskSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamMskSourceConfigurationArgs> mskSourceConfiguration;
 
     /**
-     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+     * @return Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamMskSourceConfigurationArgs>> mskSourceConfiguration() {
@@ -157,14 +165,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+     * Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+     * @return Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     public Optional<Output<String>> name() {
@@ -264,8 +272,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
      */
     @Import(name="splunkConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
@@ -273,31 +279,41 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     /**
      * @return Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationArgs>> splunkConfiguration() {
         return Optional.ofNullable(this.splunkConfiguration);
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Version identifier of the delivery stream.
+     * 
+     * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
+     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
+    /**
+     * @return Version identifier of the delivery stream.
+     * 
+     * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
+     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -366,7 +382,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+         * @param destination Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
          * 
          * @return builder
          * 
@@ -377,7 +393,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+         * @param destination Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
          * 
          * @return builder
          * 
@@ -386,11 +402,23 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param destinationId Identifier of the destination for the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationId(@Nullable Output<String> destinationId) {
             $.destinationId = destinationId;
             return this;
         }
 
+        /**
+         * @param destinationId Identifier of the destination for the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationId(String destinationId) {
             return destinationId(Output.of(destinationId));
         }
@@ -501,7 +529,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+         * @param mskSourceConfiguration Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -512,7 +540,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+         * @param mskSourceConfiguration Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -522,7 +550,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+         * @param name Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
          * 
          * @return builder
          * 
@@ -533,7 +561,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+         * @param name Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
          * 
          * @return builder
          * 
@@ -671,8 +699,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
          * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-         * 
          * @return builder
          * 
          */
@@ -684,8 +710,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
          * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-         * 
          * @return builder
          * 
          */
@@ -694,7 +718,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -705,7 +729,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -714,11 +738,27 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param versionId Version identifier of the delivery stream.
+         * 
+         * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
+        /**
+         * @param versionId Version identifier of the delivery stream.
+         * 
+         * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

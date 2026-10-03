@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetLogicalTableMapGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A display name for the logical table.
+        /// Display name for the logical table.
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetLogicalTableMapDataTransformGetArgs>? _dataTransforms;
 
         /// <summary>
-        /// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        /// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `DataTransforms` Block below.
         /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapDataTransformGetArgs> DataTransforms
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> LogicalTableMapId { get; set; } = null!;
 
         /// <summary>
-        /// Source of this logical table. See source.
+        /// Source of this logical table. See `Source` Block below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetLogicalTableMapSourceGetArgs> Source { get; set; } = null!;

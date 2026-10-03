@@ -18,7 +18,7 @@ public final class TemplateSourceEntitySourceAnalysis {
      */
     private String arn;
     /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
+     * @return List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
      * 
      */
     private List<TemplateSourceEntitySourceAnalysisDataSetReference> dataSetReferences;
@@ -32,7 +32,7 @@ public final class TemplateSourceEntitySourceAnalysis {
         return this.arn;
     }
     /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
+     * @return List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
      * 
      */
     public List<TemplateSourceEntitySourceAnalysisDataSetReference> dataSetReferences() {

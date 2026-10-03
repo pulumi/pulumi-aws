@@ -31,9 +31,12 @@ export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * One or more encrypted payload definitions from the KMS service. See `secret` below.
      */
     secrets: inputs.kms.GetSecretsSecret[];
 }
@@ -77,9 +80,12 @@ export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string | undefined>;
     /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * One or more encrypted payload definitions from the KMS service. See `secret` below.
      */
     secrets: pulumi.Input<pulumi.Input<inputs.kms.GetSecretsSecretArgs>[]>;
 }

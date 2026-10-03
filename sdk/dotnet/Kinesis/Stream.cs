@@ -77,31 +77,31 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        /// Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
         [Output("encryptionType")]
         public Output<string?> EncryptionType { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
+        /// Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Output("enforceConsumerDeletion")]
         public Output<bool?> EnforceConsumerDeletion { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        /// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         /// </summary>
         [Output("maxRecordSizeInKib")]
         public Output<int> MaxRecordSizeInKib { get; private set; } = null!;
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        /// Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -119,31 +119,31 @@ namespace Pulumi.Aws.Kinesis
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// Number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
         public Output<int?> ShardCount { get; private set; } = null!;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         [Output("shardLevelMetrics")]
         public Output<ImmutableArray<string>> ShardLevelMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         [Output("streamModeDetails")]
         public Output<Outputs.StreamStreamModeDetails> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -207,31 +207,31 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        /// Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
+        /// Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Input("enforceConsumerDeletion")]
         public Input<bool>? EnforceConsumerDeletion { get; set; }
 
         /// <summary>
-        /// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        /// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         /// </summary>
         [Input("maxRecordSizeInKib")]
         public Input<int>? MaxRecordSizeInKib { get; set; }
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        /// Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// Number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<string>? _shardLevelMetrics;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         public InputList<string> ShardLevelMetrics
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Kinesis
         }
 
         /// <summary>
-        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         [Input("streamModeDetails")]
         public Input<Inputs.StreamStreamModeDetailsArgs>? StreamModeDetails { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -305,31 +305,31 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        /// Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `False`.
+        /// Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `False`.
         /// </summary>
         [Input("enforceConsumerDeletion")]
         public Input<bool>? EnforceConsumerDeletion { get; set; }
 
         /// <summary>
-        /// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+        /// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         /// </summary>
         [Input("maxRecordSizeInKib")]
         public Input<int>? MaxRecordSizeInKib { get; set; }
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        /// Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// Number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<string>? _shardLevelMetrics;
 
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         public InputList<string> ShardLevelMetrics
         {
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Kinesis
         }
 
         /// <summary>
-        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         [Input("streamModeDetails")]
         public Input<Inputs.StreamStreamModeDetailsGetArgs>? StreamModeDetails { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

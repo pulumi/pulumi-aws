@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParametersFilterCriteria {
     /**
-     * @return An array of up to 5 event patterns. Detailed below.
+     * @return Array of up to 5 event patterns. See `filter` Block for details.
      * 
      */
     private @Nullable List<PipeSourceParametersFilterCriteriaFilter> filters;
 
     private PipeSourceParametersFilterCriteria() {}
     /**
-     * @return An array of up to 5 event patterns. Detailed below.
+     * @return Array of up to 5 event patterns. See `filter` Block for details.
      * 
      */
     public List<PipeSourceParametersFilterCriteriaFilter> filters() {

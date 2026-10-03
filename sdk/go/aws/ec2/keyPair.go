@@ -70,25 +70,25 @@ import (
 type KeyPair struct {
 	pulumi.CustomResourceState
 
-	// The key pair ARN.
+	// Key pair ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
-	// The key pair ID.
+	// Key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
-	// The type of key pair.
+	// Type of key pair.
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
-	// The public key material.
+	// Public key material.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,48 +125,48 @@ func GetKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyPair resources.
 type keyPairState struct {
-	// The key pair ARN.
+	// Key pair ARN.
 	Arn *string `pulumi:"arn"`
-	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 	KeyName *string `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
-	// The key pair ID.
+	// Key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
-	// The type of key pair.
+	// Type of key pair.
 	KeyType *string `pulumi:"keyType"`
-	// The public key material.
+	// Public key material.
 	PublicKey *string `pulumi:"publicKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type KeyPairState struct {
-	// The key pair ARN.
+	// Key pair ARN.
 	Arn pulumi.StringPtrInput
-	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
-	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 	KeyName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
-	// The key pair ID.
+	// Key pair ID.
 	KeyPairId pulumi.StringPtrInput
-	// The type of key pair.
+	// Type of key pair.
 	KeyType pulumi.StringPtrInput
-	// The public key material.
+	// Public key material.
 	PublicKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -175,11 +175,11 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 	KeyName *string `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
-	// The public key material.
+	// Public key material.
 	PublicKey string `pulumi:"publicKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -189,11 +189,11 @@ type keyPairArgs struct {
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 	KeyName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
-	// The public key material.
+	// Public key material.
 	PublicKey pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -288,17 +288,17 @@ func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOu
 	return o
 }
 
-// The key pair ARN.
+// Key pair ARN.
 func (o KeyPairOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 func (o KeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
+// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
 func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
@@ -308,17 +308,17 @@ func (o KeyPairOutput) KeyNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyNamePrefix }).(pulumi.StringOutput)
 }
 
-// The key pair ID.
+// Key pair ID.
 func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
 }
 
-// The type of key pair.
+// Type of key pair.
 func (o KeyPairOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// The public key material.
+// Public key material.
 func (o KeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
@@ -333,7 +333,7 @@ func (o KeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o KeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParameters
     {
         /// <summary>
-        /// The parameters for using an Active MQ broker as a source. Detailed below.
+        /// Parameters for using an Active MQ broker as a source. See `ActivemqBrokerParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersActivemqBrokerParameters? ActivemqBrokerParameters;
         /// <summary>
-        /// The parameters for using a DynamoDB stream as a source.  Detailed below.
+        /// Parameters for using a DynamoDB stream as a source. See `DynamodbStreamParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersDynamodbStreamParameters? DynamodbStreamParameters;
         /// <summary>
-        /// The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+        /// Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `FilterCriteria` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersFilterCriteria? FilterCriteria;
         /// <summary>
-        /// The parameters for using a Kinesis stream as a source. Detailed below.
+        /// Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersKinesisStreamParameters? KinesisStreamParameters;
         /// <summary>
-        /// The parameters for using an MSK stream as a source. Detailed below.
+        /// Parameters for using an MSK stream as a source. See `ManagedStreamingKafkaParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersManagedStreamingKafkaParameters? ManagedStreamingKafkaParameters;
         /// <summary>
-        /// The parameters for using a Rabbit MQ broker as a source. Detailed below.
+        /// Parameters for using a Rabbit MQ broker as a source. See `RabbitmqBrokerParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersRabbitmqBrokerParameters? RabbitmqBrokerParameters;
         /// <summary>
-        /// The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+        /// Parameters for using a self-managed Apache Kafka stream as a source. See `SelfManagedKafkaParameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersSelfManagedKafkaParameters? SelfManagedKafkaParameters;
         /// <summary>
-        /// The parameters for using a Amazon SQS stream as a source. Detailed below.
+        /// Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
         /// </summary>
         public readonly Outputs.PipeSourceParametersSqsQueueParameters? SqsQueueParameters;
 

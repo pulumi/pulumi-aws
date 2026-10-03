@@ -73,7 +73,7 @@ type AccountSubscription struct {
 	AuthorProGroups pulumi.StringArrayOutput `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrOutput `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
@@ -161,7 +161,7 @@ type accountSubscriptionState struct {
 	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId *string `pulumi:"directoryId"`
@@ -208,7 +208,7 @@ type AccountSubscriptionState struct {
 	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrInput
@@ -257,7 +257,7 @@ type accountSubscriptionArgs struct {
 	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId *string `pulumi:"directoryId"`
@@ -303,7 +303,7 @@ type AccountSubscriptionArgs struct {
 	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o AccountSubscriptionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+// 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) ContactNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.ContactNumber }).(pulumi.StringPtrOutput)
 }

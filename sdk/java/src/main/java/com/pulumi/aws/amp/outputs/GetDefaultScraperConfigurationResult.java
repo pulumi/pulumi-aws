@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDefaultScraperConfigurationResult {
     /**
-     * @return The configuration file.
+     * @return Configuration file.
      * 
      */
     private String configuration;
@@ -19,7 +19,7 @@ public final class GetDefaultScraperConfigurationResult {
 
     private GetDefaultScraperConfigurationResult() {}
     /**
-     * @return The configuration file.
+     * @return Configuration file.
      * 
      */
     public String configuration() {

@@ -29,7 +29,7 @@ class CustomPermissionsArgs:
         """
         The set of arguments for constructing a CustomPermissions resource.
 
-        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See `capabilities` Block.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
@@ -50,7 +50,7 @@ class CustomPermissionsArgs:
     @pulumi.getter
     def capabilities(self) -> pulumi.Input['CustomPermissionsCapabilitiesArgs']:
         """
-        Actions to include in the custom permissions profile. See capabilities.
+        Actions to include in the custom permissions profile. See `capabilities` Block.
         """
         return pulumi.get(self, "capabilities")
 
@@ -124,13 +124,13 @@ class _CustomPermissionsState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See `capabilities` Block.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -175,7 +175,7 @@ class _CustomPermissionsState:
     @pulumi.getter
     def capabilities(self) -> pulumi.Input[Optional['CustomPermissionsCapabilitiesArgs']]:
         """
-        Actions to include in the custom permissions profile. See capabilities.
+        Actions to include in the custom permissions profile. See `capabilities` Block.
         """
         return pulumi.get(self, "capabilities")
 
@@ -225,7 +225,7 @@ class _CustomPermissionsState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -275,7 +275,7 @@ class CustomPermissions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See `capabilities` Block.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
@@ -380,13 +380,13 @@ class CustomPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See capabilities.
+        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict', 'outputs.CustomPermissionsCapabilities']] capabilities: Actions to include in the custom permissions profile. See `capabilities` Block.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,7 +421,7 @@ class CustomPermissions(pulumi.CustomResource):
     @pulumi.getter
     def capabilities(self) -> pulumi.Output['outputs.CustomPermissionsCapabilities']:
         """
-        Actions to include in the custom permissions profile. See capabilities.
+        Actions to include in the custom permissions profile. See `capabilities` Block.
         """
         return pulumi.get(self, "capabilities")
 
@@ -455,7 +455,7 @@ class CustomPermissions(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

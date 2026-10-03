@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Actions to include in the custom permissions profile. See capabilities.
+        /// Actions to include in the custom permissions profile. See `Capabilities` Block.
         /// </summary>
         [Output("capabilities")]
         public Output<Outputs.CustomPermissionsCapabilities> Capabilities { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// Actions to include in the custom permissions profile. See capabilities.
+        /// Actions to include in the custom permissions profile. See `Capabilities` Block.
         /// </summary>
         [Input("capabilities", required: true)]
         public Input<Inputs.CustomPermissionsCapabilitiesArgs> Capabilities { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// Actions to include in the custom permissions profile. See capabilities.
+        /// Actions to include in the custom permissions profile. See `Capabilities` Block.
         /// </summary>
         [Input("capabilities")]
         public Input<Inputs.CustomPermissionsCapabilitiesGetArgs>? Capabilities { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

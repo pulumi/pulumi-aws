@@ -18,14 +18,14 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
     public static final StreamKinesisConfigurationArgs Empty = new StreamKinesisConfigurationArgs();
 
     /**
-     * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+     * Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
     @Import(name="aggregationEnabled")
     private @Nullable Output<Boolean> aggregationEnabled;
 
     /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+     * @return Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
     public Optional<Output<Boolean>> aggregationEnabled() {
@@ -73,7 +73,7 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param aggregationEnabled Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+         * @param aggregationEnabled Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param aggregationEnabled Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+         * @param aggregationEnabled Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
          * 
          * @return builder
          * 

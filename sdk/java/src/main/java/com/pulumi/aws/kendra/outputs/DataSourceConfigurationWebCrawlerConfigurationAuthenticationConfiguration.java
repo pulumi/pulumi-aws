@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
     /**
-     * @return The list of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+     * @return List of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
      * 
      */
     private @Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications;
 
     private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration() {}
     /**
-     * @return The list of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+     * @return List of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
      * 
      */
     public List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications() {

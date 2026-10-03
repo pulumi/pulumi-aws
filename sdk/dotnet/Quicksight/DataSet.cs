@@ -352,13 +352,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `ColumnGroups` Block below.
         /// </summary>
         [Output("columnGroups")]
         public Output<ImmutableArray<Outputs.DataSetColumnGroup>> ColumnGroups { get; private set; } = null!;
 
         /// <summary>
-        /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        /// Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `ColumnLevelPermissionRules` Block below.
         /// </summary>
         [Output("columnLevelPermissionRules")]
         public Output<ImmutableArray<Outputs.DataSetColumnLevelPermissionRule>> ColumnLevelPermissionRules { get; private set; } = null!;
@@ -370,25 +370,25 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> DataSetId { get; private set; } = null!;
 
         /// <summary>
-        /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        /// Usage configuration to apply to child datasets that reference this dataset as a source. See `DataSetUsageConfiguration` Block below.
         /// </summary>
         [Output("dataSetUsageConfiguration")]
         public Output<Outputs.DataSetDataSetUsageConfiguration> DataSetUsageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        /// Folder that contains fields and nested subfolders for your dataset. See `FieldFolders` Block below.
         /// </summary>
         [Output("fieldFolders")]
         public Output<ImmutableArray<Outputs.DataSetFieldFolder>> FieldFolders { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+        /// Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         /// </summary>
         [Output("importMode")]
         public Output<string> ImportMode { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `LogicalTableMap` Block below.
         /// </summary>
         [Output("logicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetLogicalTableMap>> LogicalTableMaps { get; private set; } = null!;
@@ -402,25 +402,25 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `OutputColumns` Block below.
+        /// Final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set. See `OutputColumns` Block below.
         /// </summary>
         [Output("outputColumns")]
         public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permissions` Block below.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSetPermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// Declares the physical tables that are available in the underlying data sources. See `PhysicalTableMap` Block below.
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See refresh_properties.
+        /// Refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See `RefreshProperties` Block below.
         /// </summary>
         [Output("refreshProperties")]
         public Output<Outputs.DataSetRefreshProperties?> RefreshProperties { get; private set; } = null!;
@@ -432,13 +432,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        /// Row-level security configuration for the data that you want to create. See `RowLevelPermissionDataSet` Block below.
         /// </summary>
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        /// Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `RowLevelPermissionTagConfiguration` Block below.
         /// </summary>
         [Output("rowLevelPermissionTagConfiguration")]
         public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
@@ -450,13 +450,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
         /// </summary>
         [Output("useAs")]
         public Output<string?> UseAs { get; private set; } = null!;
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetColumnGroupArgs>? _columnGroups;
 
         /// <summary>
-        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `ColumnGroups` Block below.
         /// </summary>
         public InputList<Inputs.DataSetColumnGroupArgs> ColumnGroups
         {
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetColumnLevelPermissionRuleArgs>? _columnLevelPermissionRules;
 
         /// <summary>
-        /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        /// Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `ColumnLevelPermissionRules` Block below.
         /// </summary>
         public InputList<Inputs.DataSetColumnLevelPermissionRuleArgs> ColumnLevelPermissionRules
         {
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> DataSetId { get; set; } = null!;
 
         /// <summary>
-        /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        /// Usage configuration to apply to child datasets that reference this dataset as a source. See `DataSetUsageConfiguration` Block below.
         /// </summary>
         [Input("dataSetUsageConfiguration")]
         public Input<Inputs.DataSetDataSetUsageConfigurationArgs>? DataSetUsageConfiguration { get; set; }
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetFieldFolderArgs>? _fieldFolders;
 
         /// <summary>
-        /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        /// Folder that contains fields and nested subfolders for your dataset. See `FieldFolders` Block below.
         /// </summary>
         public InputList<Inputs.DataSetFieldFolderArgs> FieldFolders
         {
@@ -562,7 +562,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+        /// Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         /// </summary>
         [Input("importMode", required: true)]
         public Input<string> ImportMode { get; set; } = null!;
@@ -571,7 +571,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetLogicalTableMapArgs>? _logicalTableMaps;
 
         /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `LogicalTableMap` Block below.
         /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapArgs> LogicalTableMaps
         {
@@ -591,7 +591,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetPermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permissions` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPermissionArgs> Permissions
         {
@@ -603,7 +603,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetPhysicalTableMapArgs>? _physicalTableMaps;
 
         /// <summary>
-        /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// Declares the physical tables that are available in the underlying data sources. See `PhysicalTableMap` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapArgs> PhysicalTableMaps
         {
@@ -612,7 +612,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See refresh_properties.
+        /// Refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See `RefreshProperties` Block below.
         /// </summary>
         [Input("refreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesArgs>? RefreshProperties { get; set; }
@@ -624,13 +624,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        /// Row-level security configuration for the data that you want to create. See `RowLevelPermissionDataSet` Block below.
         /// </summary>
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }
 
         /// <summary>
-        /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        /// Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `RowLevelPermissionTagConfiguration` Block below.
         /// </summary>
         [Input("rowLevelPermissionTagConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
@@ -648,7 +648,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
         /// </summary>
         [Input("useAs")]
         public Input<string>? UseAs { get; set; }
@@ -677,7 +677,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetColumnGroupGetArgs>? _columnGroups;
 
         /// <summary>
-        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `ColumnGroups` Block below.
         /// </summary>
         public InputList<Inputs.DataSetColumnGroupGetArgs> ColumnGroups
         {
@@ -689,7 +689,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetColumnLevelPermissionRuleGetArgs>? _columnLevelPermissionRules;
 
         /// <summary>
-        /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        /// Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `ColumnLevelPermissionRules` Block below.
         /// </summary>
         public InputList<Inputs.DataSetColumnLevelPermissionRuleGetArgs> ColumnLevelPermissionRules
         {
@@ -704,7 +704,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? DataSetId { get; set; }
 
         /// <summary>
-        /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        /// Usage configuration to apply to child datasets that reference this dataset as a source. See `DataSetUsageConfiguration` Block below.
         /// </summary>
         [Input("dataSetUsageConfiguration")]
         public Input<Inputs.DataSetDataSetUsageConfigurationGetArgs>? DataSetUsageConfiguration { get; set; }
@@ -713,7 +713,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetFieldFolderGetArgs>? _fieldFolders;
 
         /// <summary>
-        /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        /// Folder that contains fields and nested subfolders for your dataset. See `FieldFolders` Block below.
         /// </summary>
         public InputList<Inputs.DataSetFieldFolderGetArgs> FieldFolders
         {
@@ -722,7 +722,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+        /// Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         /// </summary>
         [Input("importMode")]
         public Input<string>? ImportMode { get; set; }
@@ -731,7 +731,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetLogicalTableMapGetArgs>? _logicalTableMaps;
 
         /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `LogicalTableMap` Block below.
         /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapGetArgs> LogicalTableMaps
         {
@@ -751,7 +751,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetOutputColumnGetArgs>? _outputColumns;
 
         /// <summary>
-        /// The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `OutputColumns` Block below.
+        /// Final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set. See `OutputColumns` Block below.
         /// </summary>
         public InputList<Inputs.DataSetOutputColumnGetArgs> OutputColumns
         {
@@ -763,7 +763,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permissions` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPermissionGetArgs> Permissions
         {
@@ -775,7 +775,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSetPhysicalTableMapGetArgs>? _physicalTableMaps;
 
         /// <summary>
-        /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// Declares the physical tables that are available in the underlying data sources. See `PhysicalTableMap` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapGetArgs> PhysicalTableMaps
         {
@@ -784,7 +784,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See refresh_properties.
+        /// Refresh properties for the data set. **NOTE**: Only valid when `ImportMode` is set to `SPICE`. See `RefreshProperties` Block below.
         /// </summary>
         [Input("refreshProperties")]
         public Input<Inputs.DataSetRefreshPropertiesGetArgs>? RefreshProperties { get; set; }
@@ -796,13 +796,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        /// Row-level security configuration for the data that you want to create. See `RowLevelPermissionDataSet` Block below.
         /// </summary>
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetGetArgs>? RowLevelPermissionDataSet { get; set; }
 
         /// <summary>
-        /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        /// Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `RowLevelPermissionTagConfiguration` Block below.
         /// </summary>
         [Input("rowLevelPermissionTagConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationGetArgs>? RowLevelPermissionTagConfiguration { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -832,7 +832,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
         /// </summary>
         [Input("useAs")]
         public Input<string>? UseAs { get; set; }

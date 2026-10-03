@@ -19,12 +19,12 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
      */
     private String name;
     /**
-     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below.
      * 
      */
     private List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
     /**
-     * @return Block that provides information about how the field is used during a search. Documented below.
+     * @return Block that provides information about how the field is used during a search. Detailed below.
      * 
      */
     private List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
@@ -43,14 +43,14 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
         return this.name;
     }
     /**
-     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances() {
         return this.relevances;
     }
     /**
-     * @return Block that provides information about how the field is used during a search. Documented below.
+     * @return Block that provides information about how the field is used during a search. Detailed below.
      * 
      */
     public List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches() {

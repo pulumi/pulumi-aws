@@ -15,14 +15,14 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
     public static final TableRetentionPropertiesArgs Empty = new TableRetentionPropertiesArgs();
 
     /**
-     * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+     * Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
      * 
      */
     @Import(name="magneticStoreRetentionPeriodInDays", required=true)
     private Output<Integer> magneticStoreRetentionPeriodInDays;
 
     /**
-     * @return The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+     * @return Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
      * 
      */
     public Output<Integer> magneticStoreRetentionPeriodInDays() {
@@ -30,14 +30,14 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+     * Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
      * 
      */
     @Import(name="memoryStoreRetentionPeriodInHours", required=true)
     private Output<Integer> memoryStoreRetentionPeriodInHours;
 
     /**
-     * @return The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+     * @return Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
      * 
      */
     public Output<Integer> memoryStoreRetentionPeriodInHours() {
@@ -70,7 +70,7 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param magneticStoreRetentionPeriodInDays The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+         * @param magneticStoreRetentionPeriodInDays Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param magneticStoreRetentionPeriodInDays The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+         * @param magneticStoreRetentionPeriodInDays Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param memoryStoreRetentionPeriodInHours The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+         * @param memoryStoreRetentionPeriodInHours Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TableRetentionPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param memoryStoreRetentionPeriodInHours The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+         * @param memoryStoreRetentionPeriodInHours Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
          * 
          * @return builder
          * 

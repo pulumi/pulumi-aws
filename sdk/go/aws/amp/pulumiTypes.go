@@ -1021,9 +1021,9 @@ func (o AnomalyDetectorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type QueryLoggingConfigurationDestination struct {
-	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
 	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+	// List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
 	Filters QueryLoggingConfigurationDestinationFilters `pulumi:"filters"`
 }
 
@@ -1039,9 +1039,9 @@ type QueryLoggingConfigurationDestinationInput interface {
 }
 
 type QueryLoggingConfigurationDestinationArgs struct {
-	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
 	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogsInput `pulumi:"cloudwatchLogs"`
-	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+	// List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
 	Filters QueryLoggingConfigurationDestinationFiltersInput `pulumi:"filters"`
 }
 
@@ -1096,14 +1096,14 @@ func (o QueryLoggingConfigurationDestinationOutput) ToQueryLoggingConfigurationD
 	return o
 }
 
-// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
 func (o QueryLoggingConfigurationDestinationOutput) CloudwatchLogs() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestination) QueryLoggingConfigurationDestinationCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
 }
 
-// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+// List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
 func (o QueryLoggingConfigurationDestinationOutput) Filters() QueryLoggingConfigurationDestinationFiltersOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestination) QueryLoggingConfigurationDestinationFilters {
 		return v.Filters
@@ -1131,7 +1131,7 @@ func (o QueryLoggingConfigurationDestinationArrayOutput) Index(i pulumi.IntInput
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+	// ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -1147,7 +1147,7 @@ type QueryLoggingConfigurationDestinationCloudwatchLogsInput interface {
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogsArgs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+	// ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -1177,13 +1177,13 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLogging
 	return o
 }
 
-// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+// ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
 
 type QueryLoggingConfigurationDestinationFilters struct {
-	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+	// Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 	QspThreshold int `pulumi:"qspThreshold"`
 }
 
@@ -1199,7 +1199,7 @@ type QueryLoggingConfigurationDestinationFiltersInput interface {
 }
 
 type QueryLoggingConfigurationDestinationFiltersArgs struct {
-	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+	// Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 	QspThreshold pulumi.IntInput `pulumi:"qspThreshold"`
 }
 
@@ -1229,7 +1229,7 @@ func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigu
 	return o
 }
 
-// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+// Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 func (o QueryLoggingConfigurationDestinationFiltersOutput) QspThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationFilters) int { return v.QspThreshold }).(pulumi.IntOutput)
 }
@@ -3890,7 +3890,7 @@ func (o WorkspaceConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput
 }
 
 type WorkspaceLoggingConfiguration struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+	// ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -3906,7 +3906,7 @@ type WorkspaceLoggingConfigurationInput interface {
 }
 
 type WorkspaceLoggingConfigurationArgs struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+	// ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -3987,7 +3987,7 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+// ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -4016,7 +4016,7 @@ func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigura
 	}).(WorkspaceLoggingConfigurationOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+// ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) *string {
 		if v == nil {

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string DataSourceArn;
         /// <summary>
-        /// Column schema of the table. See input_columns.
+        /// Column schema of the table. See `InputColumns` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPhysicalTableMapRelationalTableInputColumn> InputColumns;
         /// <summary>

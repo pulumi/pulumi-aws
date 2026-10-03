@@ -55,7 +55,7 @@ type Ciphertext struct {
 
 	// Base64 encoded ciphertext
 	CiphertextBlob pulumi.StringOutput `pulumi:"ciphertextBlob"`
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context pulumi.StringMapOutput `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
@@ -64,7 +64,7 @@ type Ciphertext struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
 	PlaintextWo pulumi.StringPtrOutput `pulumi:"plaintextWo"`
-	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 	PlaintextWoVersion pulumi.StringPtrOutput `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -116,7 +116,7 @@ func GetCiphertext(ctx *pulumi.Context,
 type ciphertextState struct {
 	// Base64 encoded ciphertext
 	CiphertextBlob *string `pulumi:"ciphertextBlob"`
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
 	KeyId *string `pulumi:"keyId"`
@@ -125,7 +125,7 @@ type ciphertextState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
 	PlaintextWo *string `pulumi:"plaintextWo"`
-	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 	PlaintextWoVersion *string `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -134,7 +134,7 @@ type ciphertextState struct {
 type CiphertextState struct {
 	// Base64 encoded ciphertext
 	CiphertextBlob pulumi.StringPtrInput
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context pulumi.StringMapInput
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringPtrInput
@@ -143,7 +143,7 @@ type CiphertextState struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
 	PlaintextWo pulumi.StringPtrInput
-	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 	PlaintextWoVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func (CiphertextState) ElementType() reflect.Type {
 }
 
 type ciphertextArgs struct {
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
 	// Globally unique key ID for the customer master key.
 	KeyId string `pulumi:"keyId"`
@@ -163,7 +163,7 @@ type ciphertextArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
 	PlaintextWo *string `pulumi:"plaintextWo"`
-	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 	PlaintextWoVersion *string `pulumi:"plaintextWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -171,7 +171,7 @@ type ciphertextArgs struct {
 
 // The set of arguments for constructing a Ciphertext resource.
 type CiphertextArgs struct {
-	// An optional mapping that makes up the encryption context.
+	// Mapping that makes up the encryption context.
 	Context pulumi.StringMapInput
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringInput
@@ -180,7 +180,7 @@ type CiphertextArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
 	PlaintextWo pulumi.StringPtrInput
-	// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+	// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 	PlaintextWoVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -278,7 +278,7 @@ func (o CiphertextOutput) CiphertextBlob() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.CiphertextBlob }).(pulumi.StringOutput)
 }
 
-// An optional mapping that makes up the encryption context.
+// Mapping that makes up the encryption context.
 func (o CiphertextOutput) Context() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringMapOutput { return v.Context }).(pulumi.StringMapOutput)
 }
@@ -299,7 +299,7 @@ func (o CiphertextOutput) PlaintextWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.PlaintextWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+// Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
 func (o CiphertextOutput) PlaintextWoVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringPtrOutput { return v.PlaintextWoVersion }).(pulumi.StringPtrOutput)
 }

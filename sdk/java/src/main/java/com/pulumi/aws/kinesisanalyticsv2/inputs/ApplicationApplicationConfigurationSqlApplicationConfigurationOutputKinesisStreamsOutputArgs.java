@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs();
 
     /**
-     * The ARN of the destination Kinesis data stream to write to.
+     * ARN of the destination Kinesis data stream to write to.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the destination Kinesis data stream to write to.
+     * @return ARN of the destination Kinesis data stream to write to.
      * 
      */
     public Output<String> resourceArn() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the destination Kinesis data stream to write to.
+         * @param resourceArn ARN of the destination Kinesis data stream to write to.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the destination Kinesis data stream to write to.
+         * @param resourceArn ARN of the destination Kinesis data stream to write to.
          * 
          * @return builder
          * 

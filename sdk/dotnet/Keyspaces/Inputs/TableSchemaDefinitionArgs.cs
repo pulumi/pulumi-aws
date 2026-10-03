@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         private InputList<Inputs.TableSchemaDefinitionClusteringKeyArgs>? _clusteringKeys;
 
         /// <summary>
-        /// The columns that are part of the clustering key of the table.
+        /// Columns that are part of the clustering key of the table. See `ClusteringKey` below.
         /// </summary>
         public InputList<Inputs.TableSchemaDefinitionClusteringKeyArgs> ClusteringKeys
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         private InputList<Inputs.TableSchemaDefinitionColumnArgs>? _columns;
 
         /// <summary>
-        /// The regular columns of the table.
+        /// Regular columns of the table. See `Column` below.
         /// </summary>
         public InputList<Inputs.TableSchemaDefinitionColumnArgs> Columns
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         private InputList<Inputs.TableSchemaDefinitionPartitionKeyArgs>? _partitionKeys;
 
         /// <summary>
-        /// The columns that are part of the partition key of the table .
+        /// Columns that are part of the partition key of the table. See `PartitionKey` below.
         /// </summary>
         public InputList<Inputs.TableSchemaDefinitionPartitionKeyArgs> PartitionKeys
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         private InputList<Inputs.TableSchemaDefinitionStaticColumnArgs>? _staticColumns;
 
         /// <summary>
-        /// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        /// Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `StaticColumn` below.
         /// </summary>
         public InputList<Inputs.TableSchemaDefinitionStaticColumnArgs> StaticColumns
         {

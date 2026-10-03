@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
     public static final ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs Empty = new ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs();
 
     /**
-     * The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+     * ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+     * @return ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
     }
 
     /**
-     * The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+     * Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
      * 
      */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
     /**
-     * @return The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+     * @return Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
      * 
      */
     public Output<String> keyType() {
@@ -72,7 +72,7 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
         }
 
         /**
-         * @param keyId The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+         * @param keyId ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
         }
 
         /**
-         * @param keyId The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+         * @param keyId ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
         }
 
         /**
-         * @param keyType The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+         * @param keyType Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ApplicationApplicationConfigurationApplicationEncryptionConfi
         }
 
         /**
-         * @param keyType The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+         * @param keyType Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
          * 
          * @return builder
          * 

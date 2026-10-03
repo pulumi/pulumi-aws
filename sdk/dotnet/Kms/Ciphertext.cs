@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> CiphertextBlob { get; private set; } = null!;
 
         /// <summary>
-        /// An optional mapping that makes up the encryption context.
+        /// Mapping that makes up the encryption context.
         /// </summary>
         [Output("context")]
         public Output<ImmutableDictionary<string, string>?> Context { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> PlaintextWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// Triggers a replacement together with `PlaintextWo`. Modify this value when a replacement is required.
         /// </summary>
         [Output("plaintextWoVersion")]
         public Output<string?> PlaintextWoVersion { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _context;
 
         /// <summary>
-        /// An optional mapping that makes up the encryption context.
+        /// Mapping that makes up the encryption context.
         /// </summary>
         public InputMap<string> Context
         {
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// Triggers a replacement together with `PlaintextWo`. Modify this value when a replacement is required.
         /// </summary>
         [Input("plaintextWoVersion")]
         public Input<string>? PlaintextWoVersion { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _context;
 
         /// <summary>
-        /// An optional mapping that makes up the encryption context.
+        /// Mapping that makes up the encryption context.
         /// </summary>
         public InputMap<string> Context
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Used together with `PlaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+        /// Triggers a replacement together with `PlaintextWo`. Modify this value when a replacement is required.
         /// </summary>
         [Input("plaintextWoVersion")]
         public Input<string>? PlaintextWoVersion { get; set; }

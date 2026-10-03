@@ -62,7 +62,8 @@ type QuerySuggestionsBlockList struct {
 	pulumi.CustomResourceState
 
 	// ARN of the block list.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for a block list.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Identifier of the index for a block list.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
@@ -70,14 +71,18 @@ type QuerySuggestionsBlockList struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringOutput `pulumi:"querySuggestionsBlockListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
+	// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+	//
+	// The following arguments are optional:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
-	Status       pulumi.StringOutput                         `pulumi:"status"`
-	Tags         pulumi.StringMapOutput                      `pulumi:"tags"`
+	// Current status of the block list.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -122,7 +127,8 @@ func GetQuerySuggestionsBlockList(ctx *pulumi.Context,
 // Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
 type querySuggestionsBlockListState struct {
 	// ARN of the block list.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Description for a block list.
 	Description *string `pulumi:"description"`
 	// Identifier of the index for a block list.
 	IndexId *string `pulumi:"indexId"`
@@ -130,21 +136,26 @@ type querySuggestionsBlockListState struct {
 	Name *string `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId *string `pulumi:"querySuggestionsBlockListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn *string `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
+	// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+	//
+	// The following arguments are optional:
 	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
-	Status       *string                                `pulumi:"status"`
-	Tags         map[string]string                      `pulumi:"tags"`
+	// Current status of the block list.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type QuerySuggestionsBlockListState struct {
 	// ARN of the block list.
-	Arn         pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Description for a block list.
 	Description pulumi.StringPtrInput
 	// Identifier of the index for a block list.
 	IndexId pulumi.StringPtrInput
@@ -152,14 +163,18 @@ type QuerySuggestionsBlockListState struct {
 	Name pulumi.StringPtrInput
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringPtrInput
-	// S3 path where your block list text file is located. See details below.
+	// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+	//
+	// The following arguments are optional:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
-	Status       pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// Current status of the block list.
+	Status pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -169,34 +184,42 @@ func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
 }
 
 type querySuggestionsBlockListArgs struct {
+	// Description for a block list.
 	Description *string `pulumi:"description"`
 	// Identifier of the index for a block list.
 	IndexId string `pulumi:"indexId"`
 	// Name for the block list.
 	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn string `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
+	// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+	//
+	// The following arguments are optional:
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
-	Tags         map[string]string                     `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuerySuggestionsBlockList resource.
 type QuerySuggestionsBlockListArgs struct {
+	// Description for a block list.
 	Description pulumi.StringPtrInput
 	// Identifier of the index for a block list.
 	IndexId pulumi.StringInput
 	// Name for the block list.
 	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringInput
-	// S3 path where your block list text file is located. See details below.
+	// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+	//
+	// The following arguments are optional:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListArgs) ElementType() reflect.Type {
@@ -291,6 +314,7 @@ func (o QuerySuggestionsBlockListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for a block list.
 func (o QuerySuggestionsBlockListOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -310,7 +334,7 @@ func (o QuerySuggestionsBlockListOutput) QuerySuggestionsBlockListId() pulumi.St
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QuerySuggestionsBlockListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -320,15 +344,19 @@ func (o QuerySuggestionsBlockListOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// S3 path where your block list text file is located. See details below.
+// S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+//
+// The following arguments are optional:
 func (o QuerySuggestionsBlockListOutput) SourceS3Path() QuerySuggestionsBlockListSourceS3PathOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) QuerySuggestionsBlockListSourceS3PathOutput { return v.SourceS3Path }).(QuerySuggestionsBlockListSourceS3PathOutput)
 }
 
+// Current status of the block list.
 func (o QuerySuggestionsBlockListOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

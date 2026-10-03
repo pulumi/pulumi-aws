@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersSqsQueueParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+        /// Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
         /// </summary>
         [Input("messageDeduplicationId")]
         public Input<string>? MessageDeduplicationId { get; set; }
 
         /// <summary>
-        /// The FIFO message group ID to use as the target.
+        /// FIFO message group ID to use as the target.
         /// </summary>
         [Input("messageGroupId")]
         public Input<string>? MessageGroupId { get; set; }

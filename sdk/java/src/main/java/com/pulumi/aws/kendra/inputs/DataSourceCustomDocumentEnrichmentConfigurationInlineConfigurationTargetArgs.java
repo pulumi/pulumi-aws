@@ -18,14 +18,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     public static final DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs();
 
     /**
-     * The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+     * Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
     @Import(name="targetDocumentAttributeKey")
     private @Nullable Output<String> targetDocumentAttributeKey;
 
     /**
-     * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+     * @return Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
     public Optional<Output<String>> targetDocumentAttributeKey() {
@@ -33,14 +33,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     }
 
     /**
-     * The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+     * Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     @Import(name="targetDocumentAttributeValue")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs> targetDocumentAttributeValue;
 
     /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+     * @return Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs>> targetDocumentAttributeValue() {
@@ -89,7 +89,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeKey The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+         * @param targetDocumentAttributeKey Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeKey The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+         * @param targetDocumentAttributeKey Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+         * @param targetDocumentAttributeValue Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+         * @param targetDocumentAttributeValue Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
          * 
          * @return builder
          * 

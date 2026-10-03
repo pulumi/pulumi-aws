@@ -33,8 +33,9 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+	// One or more encrypted payload definitions from the KMS service. See `secret` below.
 	Secrets []GetSecretsSecret `pulumi:"secrets"`
 }
 
@@ -55,8 +56,9 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+	// One or more encrypted payload definitions from the KMS service. See `secret` below.
 	Secrets GetSecretsSecretArrayInput `pulumi:"secrets"`
 }
 

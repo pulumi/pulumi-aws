@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
+        /// Default namespace for this Amazon Web Services account. Currently, the default is `Default`.
         /// </summary>
         [Output("defaultNamespace")]
         public Output<string> DefaultNamespace { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
+        /// Whether to prevent the Amazon QuickSight account from being deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
         /// </summary>
         [Output("terminationProtectionEnabled")]
         public Output<bool> TerminationProtectionEnabled { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
+        /// Default namespace for this Amazon Web Services account. Currently, the default is `Default`.
         /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
+        /// Whether to prevent the Amazon QuickSight account from being deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
         /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The default namespace for this Amazon Web Services account. Currently, the default is `Default`.
+        /// Default namespace for this Amazon Web Services account. Currently, the default is `Default`.
         /// </summary>
         [Input("defaultNamespace")]
         public Input<string>? DefaultNamespace { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
+        /// Whether to prevent the Amazon QuickSight account from being deleted. If `True`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `False`, it will allow the account to be deleted.
         /// </summary>
         [Input("terminationProtectionEnabled")]
         public Input<bool>? TerminationProtectionEnabled { get; set; }

@@ -16,14 +16,14 @@ public final class ThemeConfigurationSheetTileLayoutGutterArgs extends com.pulum
     public static final ThemeConfigurationSheetTileLayoutGutterArgs Empty = new ThemeConfigurationSheetTileLayoutGutterArgs();
 
     /**
-     * This Boolean value controls whether to display a gutter space between sheet tiles.
+     * Whether to display a gutter space between sheet tiles.
      * 
      */
     @Import(name="show")
     private @Nullable Output<Boolean> show;
 
     /**
-     * @return This Boolean value controls whether to display a gutter space between sheet tiles.
+     * @return Whether to display a gutter space between sheet tiles.
      * 
      */
     public Optional<Output<Boolean>> show() {
@@ -55,7 +55,7 @@ public final class ThemeConfigurationSheetTileLayoutGutterArgs extends com.pulum
         }
 
         /**
-         * @param show This Boolean value controls whether to display a gutter space between sheet tiles.
+         * @param show Whether to display a gutter space between sheet tiles.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ThemeConfigurationSheetTileLayoutGutterArgs extends com.pulum
         }
 
         /**
-         * @param show This Boolean value controls whether to display a gutter space between sheet tiles.
+         * @param show Whether to display a gutter space between sheet tiles.
          * 
          * @return builder
          * 

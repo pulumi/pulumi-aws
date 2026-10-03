@@ -75,14 +75,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of environment variables.
+     * Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return Map of environment variables.
+     * @return Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      * 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
@@ -426,7 +426,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environmentVariables Map of environment variables.
+         * @param environmentVariables Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environmentVariables Map of environment variables.
+         * @param environmentVariables Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs>? _querySpatialCoverages;
 
         /// <summary>
-        /// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+        /// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs> QuerySpatialCoverages
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs>? _queryTemporalRanges;
 
         /// <summary>
-        /// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+        /// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs> QueryTemporalRanges
         {

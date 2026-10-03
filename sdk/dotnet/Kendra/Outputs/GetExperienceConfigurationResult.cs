@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class GetExperienceConfigurationResult
     {
         /// <summary>
-        /// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+        /// Identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceConfigurationContentSourceConfigurationResult> ContentSourceConfigurations;
         /// <summary>
-        /// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+        /// AWS SSO field name that contains the identifiers of your users, such as their emails.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceConfigurationUserIdentityConfigurationResult> UserIdentityConfigurations;
 

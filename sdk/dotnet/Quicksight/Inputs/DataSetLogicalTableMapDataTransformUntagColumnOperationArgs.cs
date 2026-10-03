@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<string>? _tagNames;
 
         /// <summary>
-        /// The column tags to remove from this column.
+        /// Column tags to remove from this column.
         /// </summary>
         public InputList<string> TagNames
         {

@@ -16,14 +16,14 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
     public static final DataSourceParametersTwitterArgs Empty = new DataSourceParametersTwitterArgs();
 
     /**
-     * The maximum number of rows to query.
+     * Maximum number of rows to query.
      * 
      */
     @Import(name="maxRows", required=true)
     private Output<Integer> maxRows;
 
     /**
-     * @return The maximum number of rows to query.
+     * @return Maximum number of rows to query.
      * 
      */
     public Output<Integer> maxRows() {
@@ -31,14 +31,14 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Twitter query to retrieve the data.
+     * Twitter query to retrieve the data.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return The Twitter query to retrieve the data.
+     * @return Twitter query to retrieve the data.
      * 
      */
     public Output<String> query() {
@@ -71,7 +71,7 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maxRows The maximum number of rows to query.
+         * @param maxRows Maximum number of rows to query.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maxRows The maximum number of rows to query.
+         * @param maxRows Maximum number of rows to query.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param query The Twitter query to retrieve the data.
+         * @param query Twitter query to retrieve the data.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param query The Twitter query to retrieve the data.
+         * @param query Twitter query to retrieve the data.
          * 
          * @return builder
          * 

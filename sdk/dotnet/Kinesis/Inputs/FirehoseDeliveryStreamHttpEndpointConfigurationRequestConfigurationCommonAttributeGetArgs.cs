@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the HTTP endpoint common attribute.
+        /// Name of the HTTP endpoint common attribute.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the HTTP endpoint common attribute.
+        /// Value of the HTTP endpoint common attribute.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

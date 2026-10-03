@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the top-level parent that contains the records.
+        /// Path to the top-level parent that contains the records.
         /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;

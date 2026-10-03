@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay
     {
         /// <summary>
-        /// The day of the month that you want to schedule refresh on.
+        /// Day of the month that you want to schedule refresh on.
         /// </summary>
         public readonly string? DayOfMonth;
         /// <summary>
-        /// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        /// Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
         /// </summary>
         public readonly string? DayOfWeek;
 

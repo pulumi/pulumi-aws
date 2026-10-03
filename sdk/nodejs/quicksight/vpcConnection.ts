@@ -100,7 +100,7 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+     * Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
     declare public /*out*/ readonly availabilityStatus: pulumi.Output<string>;
     /**
@@ -108,11 +108,11 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * List of IP addresses of DNS resolver endpoints for the VPC connection.
      */
     declare public readonly dnsResolvers: pulumi.Output<string[] | undefined>;
     /**
-     * The display name for the VPC connection.
+     * Display name for the VPC connection.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -120,17 +120,15 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IAM role to associate with the VPC connection.
+     * IAM role to associate with the VPC connection.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * A list of security group IDs for the VPC connection.
+     * List of security group IDs for the VPC connection.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
+     * List of subnet IDs for the VPC connection.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
@@ -138,12 +136,14 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.quicksight.VpcConnectionTimeouts | undefined>;
     /**
-     * The ID of the VPC connection.
+     * ID of the VPC connection.
+     *
+     * The following arguments are optional:
      */
     declare public readonly vpcConnectionId: pulumi.Output<string>;
 
@@ -215,7 +215,7 @@ export interface VpcConnectionState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+     * Availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
     availabilityStatus?: pulumi.Input<string | undefined>;
     /**
@@ -223,11 +223,11 @@ export interface VpcConnectionState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * List of IP addresses of DNS resolver endpoints for the VPC connection.
      */
     dnsResolvers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The display name for the VPC connection.
+     * Display name for the VPC connection.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -235,17 +235,15 @@ export interface VpcConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM role to associate with the VPC connection.
+     * IAM role to associate with the VPC connection.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * A list of security group IDs for the VPC connection.
+     * List of security group IDs for the VPC connection.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
+     * List of subnet IDs for the VPC connection.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -253,12 +251,14 @@ export interface VpcConnectionState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts | undefined>;
     /**
-     * The ID of the VPC connection.
+     * ID of the VPC connection.
+     *
+     * The following arguments are optional:
      */
     vpcConnectionId?: pulumi.Input<string | undefined>;
 }
@@ -272,11 +272,11 @@ export interface VpcConnectionArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     * List of IP addresses of DNS resolver endpoints for the VPC connection.
      */
     dnsResolvers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The display name for the VPC connection.
+     * Display name for the VPC connection.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -284,17 +284,15 @@ export interface VpcConnectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM role to associate with the VPC connection.
+     * IAM role to associate with the VPC connection.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * A list of security group IDs for the VPC connection.
+     * List of security group IDs for the VPC connection.
      */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
+     * List of subnet IDs for the VPC connection.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -303,7 +301,9 @@ export interface VpcConnectionArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts | undefined>;
     /**
-     * The ID of the VPC connection.
+     * ID of the VPC connection.
+     *
+     * The following arguments are optional:
      */
     vpcConnectionId: pulumi.Input<string>;
 }
